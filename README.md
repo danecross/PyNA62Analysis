@@ -1,7 +1,7 @@
 # SummerProject
 
 ### To Build the "Template" script:
-
+##### NOTE: "/chosen/path/" shuld NOT be in the guthub directory to avoid memory issues
 	rcurrent/NA62FWBuildRunTree.py -v rcurrent -w /chosen/path/Analysis
 	cd /chosen/path/Analysis
 	source envAnalysis.sh #ignore the errors that come out
