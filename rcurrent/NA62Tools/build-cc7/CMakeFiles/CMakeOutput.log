@@ -1,0 +1,335 @@
+The system is: Linux - 3.10.0-957.12.1.el7.x86_64 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/afs/cern.ch/na62/offline/NA62FW/dev/r2740/NA62Tools/build-cc7/CMakeFiles/3.8.1/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/afs/cern.ch/na62/offline/NA62FW/dev/r2740/NA62Tools/build-cc7/CMakeFiles/3.8.1/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /afs/cern.ch/na62/offline/NA62FW/dev/r2740/NA62Tools/build-cc7/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_603e7/fast"
+gmake[1]: Entering directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_603e7.dir/build.make CMakeFiles/cmTC_603e7.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_603e7.dir/testCCompiler.c.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc    -o CMakeFiles/cmTC_603e7.dir/testCCompiler.c.o   -c /afs/cern.ch/na62/offline/NA62FW/dev/r2740/NA62Tools/build-cc7/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_603e7
+/cvmfs/sft.cern.ch/lcg/contrib/CMake/3.8.1/Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_603e7.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc      -rdynamic CMakeFiles/cmTC_603e7.dir/testCCompiler.c.o  -o cmTC_603e7 
+gmake[2]: Leaving directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /afs/cern.ch/na62/offline/NA62FW/dev/r2740/NA62Tools/build-cc7/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_12667/fast"
+gmake[1]: Entering directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_12667.dir/build.make CMakeFiles/cmTC_12667.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_12667.dir/CMakeCCompilerABI.c.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc    -o CMakeFiles/cmTC_12667.dir/CMakeCCompilerABI.c.o   -c /cvmfs/sft.cern.ch/lcg/contrib/CMake/3.8.1/Linux-x86_64/share/cmake-3.8/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_12667
+/cvmfs/sft.cern.ch/lcg/contrib/CMake/3.8.1/Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_12667.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc     -v -rdynamic CMakeFiles/cmTC_12667.dir/CMakeCCompilerABI.c.o  -o cmTC_12667 
+Using built-in specs.
+COLLECT_GCC=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc
+COLLECT_LTO_WRAPPER=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper
+Target: x86_64-pc-linux-gnu
+Configured with: /afs/cern.ch/cms/CAF/CMSCOMM/COMM_ECAL/dkonst/GCC/build/contrib/gcc-7.3.0/src/gcc/7.3.0/configure --prefix=/afs/cern.ch/cms/CAF/CMSCOMM/COMM_ECAL/dkonst/GCC/lcgcmake-install/gcc/7.3.0/x86_64-centos7 -with-system-zlib --disable-multilib --enable-languages=all --with-gnu-ld --with-ld=/afs/cern.ch/cms/CAF/CMSCOMM/COMM_ECAL/dkonst/GCC/lcgcmake-install/binutils/2.28/x86_64-centos7/bin/ld --with-gnu-as --with-as=/afs/cern.ch/cms/CAF/CMSCOMM/COMM_ECAL/dkonst/GCC/lcgcmake-install/binutils/2.28/x86_64-centos7/bin/as
+Thread model: posix
+gcc version 7.3.0 (GCC) 
+COMPILER_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/
+LIBRARY_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_12667' '-mtune=generic' '-march=x86-64'
+ /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2 -plugin /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so -plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/na62prod/ccmcSe4Z.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_12667 /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../.. CMakeFiles/cmTC_12667.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtend.o /lib/../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_12667' '-mtune=generic' '-march=x86-64'
+gmake[2]: Leaving directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /afs/cern.ch/na62/offline/NA62FW/dev/r2740/NA62Tools/build-cc7/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_12667/fast"]
+  ignore line: [gmake[1]: Entering directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_12667.dir/build.make CMakeFiles/cmTC_12667.dir/build]
+  ignore line: [gmake[2]: Entering directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_12667.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc    -o CMakeFiles/cmTC_12667.dir/CMakeCCompilerABI.c.o   -c /cvmfs/sft.cern.ch/lcg/contrib/CMake/3.8.1/Linux-x86_64/share/cmake-3.8/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_12667]
+  ignore line: [/cvmfs/sft.cern.ch/lcg/contrib/CMake/3.8.1/Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_12667.dir/link.txt --verbose=1]
+  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc     -v -rdynamic CMakeFiles/cmTC_12667.dir/CMakeCCompilerABI.c.o  -o cmTC_12667 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: /afs/cern.ch/cms/CAF/CMSCOMM/COMM_ECAL/dkonst/GCC/build/contrib/gcc-7.3.0/src/gcc/7.3.0/configure --prefix=/afs/cern.ch/cms/CAF/CMSCOMM/COMM_ECAL/dkonst/GCC/lcgcmake-install/gcc/7.3.0/x86_64-centos7 -with-system-zlib --disable-multilib --enable-languages=all --with-gnu-ld --with-ld=/afs/cern.ch/cms/CAF/CMSCOMM/COMM_ECAL/dkonst/GCC/lcgcmake-install/binutils/2.28/x86_64-centos7/bin/ld --with-gnu-as --with-as=/afs/cern.ch/cms/CAF/CMSCOMM/COMM_ECAL/dkonst/GCC/lcgcmake-install/binutils/2.28/x86_64-centos7/bin/as]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 7.3.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/]
+  ignore line: [LIBRARY_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_12667' '-mtune=generic' '-march=x86-64']
+  link line: [ /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2 -plugin /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so -plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/na62prod/ccmcSe4Z.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_12667 /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../.. CMakeFiles/cmTC_12667.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtend.o /lib/../lib64/crtn.o]
+    arg [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/na62prod/ccmcSe4Z.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_12667] ==> ignore
+    arg [/lib/../lib64/crt1.o] ==> ignore
+    arg [/lib/../lib64/crti.o] ==> ignore
+    arg [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o] ==> ignore
+    arg [-L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0] ==> dir [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0]
+    arg [-L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc] ==> dir [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc]
+    arg [-L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64] ==> dir [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../..] ==> dir [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../..]
+    arg [CMakeFiles/cmTC_12667.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtend.o] ==> ignore
+    arg [/lib/../lib64/crtn.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  collapse library dir [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0] ==> [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/lib/gcc/x86_64-pc-linux-gnu/7.3.0]
+  collapse library dir [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc] ==> [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/lib/gcc]
+  collapse library dir [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64] ==> [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../..] ==> [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/lib]
+  implicit libs: [c]
+  implicit dirs: [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/lib/gcc/x86_64-pc-linux-gnu/7.3.0;/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/lib/gcc;/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/lib64;/lib64;/usr/lib64;/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /afs/cern.ch/na62/offline/NA62FW/dev/r2740/NA62Tools/build-cc7/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_f80bd/fast"
+gmake[1]: Entering directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_f80bd.dir/build.make CMakeFiles/cmTC_f80bd.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f80bd.dir/feature_tests.c.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc   -std=c11 -o CMakeFiles/cmTC_f80bd.dir/feature_tests.c.o   -c /afs/cern.ch/na62/offline/NA62FW/dev/r2740/NA62Tools/build-cc7/CMakeFiles/feature_tests.c
+Linking C executable cmTC_f80bd
+/cvmfs/sft.cern.ch/lcg/contrib/CMake/3.8.1/Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f80bd.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc      -rdynamic CMakeFiles/cmTC_f80bd.dir/feature_tests.c.o  -o cmTC_f80bd 
+gmake[2]: Leaving directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /afs/cern.ch/na62/offline/NA62FW/dev/r2740/NA62Tools/build-cc7/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_4850f/fast"
+gmake[1]: Entering directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_4850f.dir/build.make CMakeFiles/cmTC_4850f.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4850f.dir/feature_tests.c.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc   -std=c99 -o CMakeFiles/cmTC_4850f.dir/feature_tests.c.o   -c /afs/cern.ch/na62/offline/NA62FW/dev/r2740/NA62Tools/build-cc7/CMakeFiles/feature_tests.c
+Linking C executable cmTC_4850f
+/cvmfs/sft.cern.ch/lcg/contrib/CMake/3.8.1/Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4850f.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc      -rdynamic CMakeFiles/cmTC_4850f.dir/feature_tests.c.o  -o cmTC_4850f 
+gmake[2]: Leaving directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /afs/cern.ch/na62/offline/NA62FW/dev/r2740/NA62Tools/build-cc7/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_de465/fast"
+gmake[1]: Entering directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_de465.dir/build.make CMakeFiles/cmTC_de465.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_de465.dir/feature_tests.c.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc   -std=c90 -o CMakeFiles/cmTC_de465.dir/feature_tests.c.o   -c /afs/cern.ch/na62/offline/NA62FW/dev/r2740/NA62Tools/build-cc7/CMakeFiles/feature_tests.c
+Linking C executable cmTC_de465
+/cvmfs/sft.cern.ch/lcg/contrib/CMake/3.8.1/Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de465.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc      -rdynamic CMakeFiles/cmTC_de465.dir/feature_tests.c.o  -o cmTC_de465 
+gmake[2]: Leaving directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /afs/cern.ch/na62/offline/NA62FW/dev/r2740/NA62Tools/build-cc7/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_59369/fast"
+gmake[1]: Entering directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_59369.dir/build.make CMakeFiles/cmTC_59369.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_59369.dir/testCXXCompiler.cxx.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++     -o CMakeFiles/cmTC_59369.dir/testCXXCompiler.cxx.o -c /afs/cern.ch/na62/offline/NA62FW/dev/r2740/NA62Tools/build-cc7/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_59369
+/cvmfs/sft.cern.ch/lcg/contrib/CMake/3.8.1/Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_59369.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++       -rdynamic CMakeFiles/cmTC_59369.dir/testCXXCompiler.cxx.o  -o cmTC_59369 
+gmake[2]: Leaving directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /afs/cern.ch/na62/offline/NA62FW/dev/r2740/NA62Tools/build-cc7/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_79058/fast"
+gmake[1]: Entering directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_79058.dir/build.make CMakeFiles/cmTC_79058.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_79058.dir/CMakeCXXCompilerABI.cpp.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++     -o CMakeFiles/cmTC_79058.dir/CMakeCXXCompilerABI.cpp.o -c /cvmfs/sft.cern.ch/lcg/contrib/CMake/3.8.1/Linux-x86_64/share/cmake-3.8/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_79058
+/cvmfs/sft.cern.ch/lcg/contrib/CMake/3.8.1/Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_79058.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++      -v -rdynamic CMakeFiles/cmTC_79058.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_79058 
+Using built-in specs.
+COLLECT_GCC=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++
+COLLECT_LTO_WRAPPER=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper
+Target: x86_64-pc-linux-gnu
+Configured with: /afs/cern.ch/cms/CAF/CMSCOMM/COMM_ECAL/dkonst/GCC/build/contrib/gcc-7.3.0/src/gcc/7.3.0/configure --prefix=/afs/cern.ch/cms/CAF/CMSCOMM/COMM_ECAL/dkonst/GCC/lcgcmake-install/gcc/7.3.0/x86_64-centos7 -with-system-zlib --disable-multilib --enable-languages=all --with-gnu-ld --with-ld=/afs/cern.ch/cms/CAF/CMSCOMM/COMM_ECAL/dkonst/GCC/lcgcmake-install/binutils/2.28/x86_64-centos7/bin/ld --with-gnu-as --with-as=/afs/cern.ch/cms/CAF/CMSCOMM/COMM_ECAL/dkonst/GCC/lcgcmake-install/binutils/2.28/x86_64-centos7/bin/as
+Thread model: posix
+gcc version 7.3.0 (GCC) 
+COMPILER_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/
+LIBRARY_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_79058' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2 -plugin /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so -plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/na62prod/ccQmRxAY.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_79058 /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../.. CMakeFiles/cmTC_79058.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtend.o /lib/../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_79058' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+gmake[2]: Leaving directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /afs/cern.ch/na62/offline/NA62FW/dev/r2740/NA62Tools/build-cc7/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_79058/fast"]
+  ignore line: [gmake[1]: Entering directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_79058.dir/build.make CMakeFiles/cmTC_79058.dir/build]
+  ignore line: [gmake[2]: Entering directory `/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/build-cc7/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_79058.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++     -o CMakeFiles/cmTC_79058.dir/CMakeCXXCompilerABI.cpp.o -c /cvmfs/sft.cern.ch/lcg/contrib/CMake/3.8.1/Linux-x86_64/share/cmake-3.8/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_79058]
+  ignore line: [/cvmfs/sft.cern.ch/lcg/contrib/CMake/3.8.1/Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_79058.dir/link.txt --verbose=1]
+  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++      -v -rdynamic CMakeFiles/cmTC_79058.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_79058 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: /afs/cern.ch/cms/CAF/CMSCOMM/COMM_ECAL/dkonst/GCC/build/contrib/gcc-7.3.0/src/gcc/7.3.0/configure --prefix=/afs/cern.ch/cms/CAF/CMSCOMM/COMM_ECAL/dkonst/GCC/lcgcmake-install/gcc/7.3.0/x86_64-centos7 -with-system-zlib --disable-multilib --enable-languages=all --with-gnu-ld --with-ld=/afs/cern.ch/cms/CAF/CMSCOMM/COMM_ECAL/dkonst/GCC/lcgcmake-install/binutils/2.28/x86_64-centos7/bin/ld --with-gnu-as --with-as=/afs/cern.ch/cms/CAF/CMSCOMM/COMM_ECAL/dkonst/GCC/lcgcmake-install/binutils/2.28/x86_64-centos7/bin/as]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 7.3.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/]
+  ignore line: [LIBRARY_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_79058' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2 -plugin /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so -plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/na62prod/ccQmRxAY.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_79058 /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../.. CMakeFiles/cmTC_79058.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtend.o /lib/../lib64/crtn.o]
+    arg [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/na62prod/ccQmRxAY.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_79058] ==> ignore
+    arg [/lib/../lib64/crt1.o] ==> ignore
+    arg [/lib/../lib64/crti.o] ==> ignore
+    arg [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o] ==> ignore
+    arg [-L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0] ==> dir [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0]
+    arg [-L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc] ==> dir [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc]
+    arg [-L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64] ==> dir [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../..] ==> dir [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../..]
+    arg [CMakeFiles/cmTC_79058.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtend.o] ==> ignore
+    arg [/lib/../lib64/crtn.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse library dir [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0] ==> [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/lib/gcc/x86_64-pc-linux-gnu/7.3.0]
+  collapse library dir [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc] ==> [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/lib/gcc]
+  collapse library dir [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64] ==> [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../..] ==> [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/lib]
+  implicit libs: [stdc++;m;c]
+  implicit dirs: [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/lib/gcc/x86_64-pc-linux-gnu/7.3.0;/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/lib/gcc;/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/lib64;/lib64;/usr/lib64;/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/lib]
+  implicit fwks: []
+
+

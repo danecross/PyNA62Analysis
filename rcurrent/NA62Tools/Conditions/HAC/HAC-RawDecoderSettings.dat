@@ -1,0 +1,58 @@
+# Total number of ROBoards
+NROBoards= 1
+
+# Number of readout boards for each station [one value for each station]
+NROBoardsPerStation= 1
+
+# Mezzanine masks to indicate the enabled mezzanines in each board [one value for each ROBoard]
+ROMezzanineMasksPerBoard= 7
+
+# FPGA map: number of FPGA per readout (DAQ) board (i.e number of TDCs per Tel62) - from run 1423 - December 2014
+# "NFPGAs" has to be specified for how many readout boards the sub-detector is using   
+NFPGAs= 3
+
+# Number of 25ns-long slots read [one value for each mezzanine]
+NSlots= 12 12 12 12
+
+# Index of last 25ns-long slot [one value for each mezzanine]
+LastSlotID= 8 8 8 8
+
+# Flag to define the treatment of warning printouts
+#0: no warnings
+#1: general information event-related 
+#2: general information detector-related
+#3: maximum detail level
+WarningsLevel= 1
+
+# Total number of channels of the readout board (used by RecoBase/src/TDCBRawDecoder.cc)
+NROChannels= 384
+
+# Channel map: "position ID" as a function of "readout ID",
+# starting from readout ID 0, grouped by 16
+
+ChRemap_0000=   0 100 200 300   1 101 201 301   2 102 202 302   3 103 203 303
+ChRemap_0001=   4 104 204 304   5 105 205 305   6 106 206 306   7 107 207 307
+ChRemap_0002=   8 108 208 308   9 109 209 309  10 110 210 310  11 111 211 311
+ChRemap_0003=  12 112 212 312  13 113 213 313  14 114 214 314  -1  15 115 215
+ChRemap_0004=  -1  -1  -1  -1  17 117 217 317  18 118 218 318  19 119 219 319
+ChRemap_0005=  20 120 220 320  21 121 221 321  22 122 222 322  23 123 223 323
+ChRemap_0006=  24 124  -1 224  25 125 225 325  -1  -1  -1  -1  -1  -1  -1  -1
+ChRemap_0007=  28 128 228 328  29 129 229 329  30 130 230 330  31 131 231  -1
+
+ChRemap_0008=  32  -1 132 232  33 133 233 333  34 134 234 334  35 135 235 335
+ChRemap_0009=  -1  -1  -1  -1  37 137 237 337  -1  -1  -1  -1  39 139 239 339
+ChRemap_0010=  40 140 240 340  41 141 241 341  42 142 242 342  43 143 243 343
+ChRemap_0011=  44 144 244 344  45 145 245 345  46 146 246 346  47 147 247 347
+ChRemap_0012=  48 148 248 348  49 149 249 349  50 150 250 350  51 151 251 351
+ChRemap_0013=  52 152 252 352  53 153 253 353  54 154 254 354  55 155 255 355
+ChRemap_0014=  -1  -1  56 156  57 157 257 357  58 158 258 358  59 159 259 359
+ChRemap_0015=  60 160 260 360  61 161 261 361  62 162 262 362  63 163 263 363
+
+ChRemap_0016=  64 164 264 364  65 165 265 365  66 166 266 366  67 167 267 367
+ChRemap_0017=  68 168 268 368  69 169 269 369  70 170 270 370  71 171 271  -1
+ChRemap_0018=  72 172 272 372  73 173 273 373  74 174 274 374  75 175 275 375
+ChRemap_0019=  76 176 276 376  77 177 277 377  78  -1 178 278  79 179 279 379
+ChRemap_0020=  80 180 280 380  81 181 281 381  -1  82 182 282  -1  -1  83 183
+ChRemap_0021=  84 184 284 384  85 185 285 385  86 186 286 386  87 187 287 387
+ChRemap_0022=  88 188  -1 288  89 189 289 389  16 116 216 316  26 126 226  -1
+ChRemap_0023=  27 127 227 327  36 136 236 336  38 138 238 338  -1  -1  -1  -1

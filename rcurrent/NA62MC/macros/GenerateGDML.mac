@@ -1,0 +1,36 @@
+# NA62 detector visualization:
+# scripts/G4GeometryToRoot.csh uses this macro as an input,
+# and produces a file NA62.root, which can be visualized with
+# macros/CheckGeom.C (see CheckGeom.C for further documentation).
+#
+# Enable the subdetectors to be visualised from the list below.
+
+## run manager initialisation ###################################
+/run/initialize
+#################################################################
+
+/Detector/EnableSubDetector Cedar
+/Detector/EnableSubDetector CHANTI
+/Detector/EnableSubDetector CHOD
+/Detector/EnableSubDetector GigaTracker
+/Detector/EnableSubDetector IRC
+/Detector/EnableSubDetector LAV
+/Detector/EnableSubDetector LKr
+/Detector/EnableSubDetector RICH
+/Detector/EnableSubDetector Spectrometer
+/Detector/EnableSubDetector MUV0
+/Detector/EnableSubDetector MUV1
+/Detector/EnableSubDetector MUV2
+/Detector/EnableSubDetector MUV3
+/Detector/EnableSubDetector NewCHOD
+/Detector/EnableSubDetector HAC
+/Detector/EnableSubDetector SAC
+
+/Detector/Cedar/EnableCherenkovEffect false
+/Detector/PathToLKrShowersDb /cvmfs/na62.cern.ch/offline/NA62FW/showers.db
+/Detector/LKr/GeVtoCurrent1 LKrGeVtoCurr1.dat
+/Detector/LKr/GeVtoCurrent2 LKrGeVtoCurr2.dat
+/Detector/LKr/GeVtoCurrent3 LKrGeVtoCurr3.dat
+
+/Detector/UpdateGeometry
+/Detector/GenerateGDML

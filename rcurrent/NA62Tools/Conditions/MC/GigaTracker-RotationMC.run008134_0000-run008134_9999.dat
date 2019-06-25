@@ -1,0 +1,4 @@
+# GTK rotation constants for MC run 8134
+# Momenta are corrected as follows: dx'=A+Bx, dy'=C+Dy
+# Format: Run A B C D [x10^6]
+008134  7.0951  0.0015  0.0865  0.0153

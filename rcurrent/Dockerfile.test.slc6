@@ -1,0 +1,6 @@
+FROM gitlab-registry.cern.ch/na62fw/na62docker:build-env-slc6-prod
+
+LABEL maintainer="bob.velghe@cern.ch" \
+      description="NA62FW SLC6 runtime environement - full"
+
+COPY / /builds/NA62FW/na62fw

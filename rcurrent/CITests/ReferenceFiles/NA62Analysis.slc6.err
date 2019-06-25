@@ -1,0 +1,156 @@
+In file included from /cvmfs/sft.cern.ch/lcg/releases/LCG_86/Boost/1.62.0/x86_64-slc6-gcc49-opt/include/boost-1_62/boost/program_options/options_description.hpp:12:0,
+                 from /cvmfs/sft.cern.ch/lcg/releases/LCG_86/Boost/1.62.0/x86_64-slc6-gcc49-opt/include/boost-1_62/boost/program_options.hpp:15,
+                 from /builds/NA62FW/na62fw/NA62Analysis/src/ConfigSettings.cc:11:
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/Boost/1.62.0/x86_64-slc6-gcc49-opt/include/boost-1_62/boost/program_options/errors.hpp: In constructor 'boost::program_options::invalid_syntax::invalid_syntax(boost::program_options::invalid_syntax::kind_t, const string&, const string&, int)':
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/Boost/1.62.0/x86_64-slc6-gcc49-opt/include/boost-1_62/boost/program_options/errors.hpp:312:58: warning: declaration of 'kind' shadows a member of 'this' [-Wshadow]
+                        int option_style              = 0):
+                                                          ^
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/Boost/1.62.0/x86_64-slc6-gcc49-opt/include/boost-1_62/boost/program_options/errors.hpp: In constructor 'boost::program_options::invalid_config_file_syntax::invalid_config_file_syntax(const string&, boost::program_options::invalid_syntax::kind_t)':
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/Boost/1.62.0/x86_64-slc6-gcc49-opt/include/boost-1_62/boost/program_options/errors.hpp:332:81: warning: declaration of 'kind' shadows a member of 'this' [-Wshadow]
+         invalid_config_file_syntax(const std::string& invalid_line, kind_t kind):
+                                                                                 ^
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/Boost/1.62.0/x86_64-slc6-gcc49-opt/include/boost-1_62/boost/program_options/errors.hpp: In constructor 'boost::program_options::invalid_command_line_syntax::invalid_command_line_syntax(boost::program_options::invalid_syntax::kind_t, const string&, const string&, int)':
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/Boost/1.62.0/x86_64-slc6-gcc49-opt/include/boost-1_62/boost/program_options/errors.hpp:351:58: warning: declaration of 'kind' shadows a member of 'this' [-Wshadow]
+                        int option_style              = 0):
+                                                          ^
+In file included from /cvmfs/sft.cern.ch/lcg/releases/LCG_86/Boost/1.62.0/x86_64-slc6-gcc49-opt/include/boost-1_62/boost/program_options/options_description.hpp:13:0,
+                 from /cvmfs/sft.cern.ch/lcg/releases/LCG_86/Boost/1.62.0/x86_64-slc6-gcc49-opt/include/boost-1_62/boost/program_options.hpp:15,
+                 from /builds/NA62FW/na62fw/NA62Analysis/src/ConfigSettings.cc:11:
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/Boost/1.62.0/x86_64-slc6-gcc49-opt/include/boost-1_62/boost/program_options/value_semantic.hpp: In member function 'boost::program_options::typed_value<T, charT>* boost::program_options::typed_value<T, charT>::value_name(const string&)':
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/Boost/1.62.0/x86_64-slc6-gcc49-opt/include/boost-1_62/boost/program_options/value_semantic.hpp:242:9: warning: declaration of 'name' shadows a member of 'this' [-Wshadow]
+         {
+         ^
+In file included from /cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TPaveText.h:17:0,
+                 from /builds/NA62FW/na62fw/NA62Reconstruction/Cedar/include/CedarReconstruction.hh:19,
+                 from /builds/NA62FW/na62fw/NA62Analysis/Analyzers/PreAnalyzers/include/UpstreamPileupGenerator.hh:16,
+                 from /builds/NA62FW/na62fw/NA62Analysis/Analyzers/PreAnalyzers/src/UpstreamPileupGenerator.cc:32:
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TPave.h: In member function 'virtual void TPave::SetCornerRadius(Double_t)':
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TPave.h:75:54: warning: declaration of 'rad' shadows a global declaration [-Wshadow]
+    virtual void  SetCornerRadius(Double_t rad = 0.2) {fCornerRadius = rad;} // *MENU*
+                                                      ^
+In file included from /cvmfs/sft.cern.ch/lcg/releases/Geant4/10.01.p02-f9c47/x86_64-slc6-gcc49-opt/include/Geant4/G4SystemOfUnits.hh:27:0,
+                 from /builds/NA62FW/na62fw/NA62Reconstruction/RecoBase/include/NA62VReconstruction.hh:4,
+                 from /builds/NA62FW/na62fw/NA62Reconstruction/Cedar/include/CedarReconstruction.hh:12,
+                 from /builds/NA62FW/na62fw/NA62Analysis/Analyzers/PreAnalyzers/include/UpstreamPileupGenerator.hh:16,
+                 from /builds/NA62FW/na62fw/NA62Analysis/Analyzers/PreAnalyzers/src/UpstreamPileupGenerator.cc:32:
+/cvmfs/sft.cern.ch/lcg/releases/Geant4/10.01.p02-f9c47/x86_64-slc6-gcc49-opt/include/Geant4/CLHEP/Units/SystemOfUnits.h:121:23: note: shadowed declaration is here
+   static const double rad  = radian;
+                       ^
+In file included from /cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TPaveText.h:17:0,
+                 from /builds/NA62FW/na62fw/NA62Reconstruction/Cedar/include/CedarReconstruction.hh:19,
+                 from /builds/NA62FW/na62fw/NA62Analysis/Analyzers/PreAnalyzers/include/UpstreamPileupGenerator.hh:16,
+                 from /builds/NA62FW/na62fw/NA62Analysis/build-slc6/StdConfigs/main_config_PostProcessing.cc:20:
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TPave.h: In member function 'virtual void TPave::SetCornerRadius(Double_t)':
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TPave.h:75:54: warning: declaration of 'rad' shadows a global declaration [-Wshadow]
+    virtual void  SetCornerRadius(Double_t rad = 0.2) {fCornerRadius = rad;} // *MENU*
+                                                      ^
+In file included from /cvmfs/sft.cern.ch/lcg/releases/Geant4/10.01.p02-f9c47/x86_64-slc6-gcc49-opt/include/Geant4/G4SystemOfUnits.hh:27:0,
+                 from /builds/NA62FW/na62fw/NA62Reconstruction/RecoBase/include/NA62VReconstruction.hh:4,
+                 from /builds/NA62FW/na62fw/NA62Reconstruction/Cedar/include/CedarReconstruction.hh:12,
+                 from /builds/NA62FW/na62fw/NA62Analysis/Analyzers/PreAnalyzers/include/UpstreamPileupGenerator.hh:16,
+                 from /builds/NA62FW/na62fw/NA62Analysis/build-slc6/StdConfigs/main_config_PostProcessing.cc:20:
+/cvmfs/sft.cern.ch/lcg/releases/Geant4/10.01.p02-f9c47/x86_64-slc6-gcc49-opt/include/Geant4/CLHEP/Units/SystemOfUnits.h:121:23: note: shadowed declaration is here
+   static const double rad  = radian;
+                       ^
+In file included from /cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TStyle.h:38:0,
+                 from /builds/NA62FW/na62fw/NA62Analysis/Analyzers/MonitoringTools/include/DetectorOnOffMonitor.hh:14,
+                 from /builds/NA62FW/na62fw/NA62Analysis/build-slc6/StdConfigs/main_config_PostProcessing.cc:21:
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TColor.h: In member function 'virtual void TColor::GetRGB(Float_t&, Float_t&, Float_t&) const':
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TColor.h:55:21: warning: declaration of 'g' shadows a global declaration [-Wshadow]
+                     { r=GetRed(); g=GetGreen(); b=GetBlue(); }
+                     ^
+In file included from /cvmfs/sft.cern.ch/lcg/releases/Geant4/10.01.p02-f9c47/x86_64-slc6-gcc49-opt/include/Geant4/G4SystemOfUnits.hh:27:0,
+                 from /builds/NA62FW/na62fw/NA62Reconstruction/RecoBase/include/NA62VReconstruction.hh:4,
+                 from /builds/NA62FW/na62fw/NA62Reconstruction/Cedar/include/CedarReconstruction.hh:12,
+                 from /builds/NA62FW/na62fw/NA62Analysis/Analyzers/PreAnalyzers/include/UpstreamPileupGenerator.hh:16,
+                 from /builds/NA62FW/na62fw/NA62Analysis/build-slc6/StdConfigs/main_config_PostProcessing.cc:20:
+/cvmfs/sft.cern.ch/lcg/releases/Geant4/10.01.p02-f9c47/x86_64-slc6-gcc49-opt/include/Geant4/CLHEP/Units/SystemOfUnits.h:180:25: note: shadowed declaration is here
+   static const double   g = gram;
+                         ^
+In file included from /cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TStyle.h:38:0,
+                 from /builds/NA62FW/na62fw/NA62Analysis/Analyzers/MonitoringTools/include/DetectorOnOffMonitor.hh:14,
+                 from /builds/NA62FW/na62fw/NA62Analysis/build-slc6/StdConfigs/main_config_PostProcessing.cc:21:
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TColor.h: In member function 'virtual void TColor::GetHLS(Float_t&, Float_t&, Float_t&) const':
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TColor.h:57:21: warning: declaration of 's' shadows a global declaration [-Wshadow]
+                     { h=GetHue(); l=GetLight(); s=GetSaturation(); }
+                     ^
+In file included from /cvmfs/sft.cern.ch/lcg/releases/Geant4/10.01.p02-f9c47/x86_64-slc6-gcc49-opt/include/Geant4/G4SystemOfUnits.hh:27:0,
+                 from /builds/NA62FW/na62fw/NA62Reconstruction/RecoBase/include/NA62VReconstruction.hh:4,
+                 from /builds/NA62FW/na62fw/NA62Reconstruction/Cedar/include/CedarReconstruction.hh:12,
+                 from /builds/NA62FW/na62fw/NA62Analysis/Analyzers/PreAnalyzers/include/UpstreamPileupGenerator.hh:16,
+                 from /builds/NA62FW/na62fw/NA62Analysis/build-slc6/StdConfigs/main_config_PostProcessing.cc:20:
+/cvmfs/sft.cern.ch/lcg/releases/Geant4/10.01.p02-f9c47/x86_64-slc6-gcc49-opt/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: note: shadowed declaration is here
+   static const double  s = second;
+                        ^
+In file included from /cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TStyle.h:38:0,
+                 from /builds/NA62FW/na62fw/NA62Analysis/Analyzers/MonitoringTools/include/DetectorOnOffMonitor.hh:14,
+                 from /builds/NA62FW/na62fw/NA62Analysis/build-slc6/StdConfigs/main_config_PostProcessing.cc:21:
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TColor.h: In static member function 'static void TColor::HLStoRGB(Float_t, Float_t, Float_t, Float_t&, Float_t&, Float_t&)':
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TColor.h:77:22: warning: declaration of 'g' shadows a global declaration [-Wshadow]
+                      { TColor::HLS2RGB(h, l, s, r, g, b); } // backward compatible
+                      ^
+In file included from /cvmfs/sft.cern.ch/lcg/releases/Geant4/10.01.p02-f9c47/x86_64-slc6-gcc49-opt/include/Geant4/G4SystemOfUnits.hh:27:0,
+                 from /builds/NA62FW/na62fw/NA62Reconstruction/RecoBase/include/NA62VReconstruction.hh:4,
+                 from /builds/NA62FW/na62fw/NA62Reconstruction/Cedar/include/CedarReconstruction.hh:12,
+                 from /builds/NA62FW/na62fw/NA62Analysis/Analyzers/PreAnalyzers/include/UpstreamPileupGenerator.hh:16,
+                 from /builds/NA62FW/na62fw/NA62Analysis/build-slc6/StdConfigs/main_config_PostProcessing.cc:20:
+/cvmfs/sft.cern.ch/lcg/releases/Geant4/10.01.p02-f9c47/x86_64-slc6-gcc49-opt/include/Geant4/CLHEP/Units/SystemOfUnits.h:180:25: note: shadowed declaration is here
+   static const double   g = gram;
+                         ^
+In file included from /cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TStyle.h:38:0,
+                 from /builds/NA62FW/na62fw/NA62Analysis/Analyzers/MonitoringTools/include/DetectorOnOffMonitor.hh:14,
+                 from /builds/NA62FW/na62fw/NA62Analysis/build-slc6/StdConfigs/main_config_PostProcessing.cc:21:
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TColor.h:77:22: warning: declaration of 's' shadows a global declaration [-Wshadow]
+                      { TColor::HLS2RGB(h, l, s, r, g, b); } // backward compatible
+                      ^
+In file included from /cvmfs/sft.cern.ch/lcg/releases/Geant4/10.01.p02-f9c47/x86_64-slc6-gcc49-opt/include/Geant4/G4SystemOfUnits.hh:27:0,
+                 from /builds/NA62FW/na62fw/NA62Reconstruction/RecoBase/include/NA62VReconstruction.hh:4,
+                 from /builds/NA62FW/na62fw/NA62Reconstruction/Cedar/include/CedarReconstruction.hh:12,
+                 from /builds/NA62FW/na62fw/NA62Analysis/Analyzers/PreAnalyzers/include/UpstreamPileupGenerator.hh:16,
+                 from /builds/NA62FW/na62fw/NA62Analysis/build-slc6/StdConfigs/main_config_PostProcessing.cc:20:
+/cvmfs/sft.cern.ch/lcg/releases/Geant4/10.01.p02-f9c47/x86_64-slc6-gcc49-opt/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: note: shadowed declaration is here
+   static const double  s = second;
+                        ^
+In file included from /cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TStyle.h:38:0,
+                 from /builds/NA62FW/na62fw/NA62Analysis/Analyzers/MonitoringTools/include/DetectorOnOffMonitor.hh:14,
+                 from /builds/NA62FW/na62fw/NA62Analysis/build-slc6/StdConfigs/main_config_PostProcessing.cc:21:
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TColor.h: In static member function 'static void TColor::RGBtoHLS(Float_t, Float_t, Float_t, Float_t&, Float_t&, Float_t&)':
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TColor.h:82:22: warning: declaration of 's' shadows a global declaration [-Wshadow]
+                      { TColor::RGB2HLS(r, g, b, h, l, s); } // backward compatible
+                      ^
+In file included from /cvmfs/sft.cern.ch/lcg/releases/Geant4/10.01.p02-f9c47/x86_64-slc6-gcc49-opt/include/Geant4/G4SystemOfUnits.hh:27:0,
+                 from /builds/NA62FW/na62fw/NA62Reconstruction/RecoBase/include/NA62VReconstruction.hh:4,
+                 from /builds/NA62FW/na62fw/NA62Reconstruction/Cedar/include/CedarReconstruction.hh:12,
+                 from /builds/NA62FW/na62fw/NA62Analysis/Analyzers/PreAnalyzers/include/UpstreamPileupGenerator.hh:16,
+                 from /builds/NA62FW/na62fw/NA62Analysis/build-slc6/StdConfigs/main_config_PostProcessing.cc:20:
+/cvmfs/sft.cern.ch/lcg/releases/Geant4/10.01.p02-f9c47/x86_64-slc6-gcc49-opt/include/Geant4/CLHEP/Units/SystemOfUnits.h:141:24: note: shadowed declaration is here
+   static const double  s = second;
+                        ^
+In file included from /cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TStyle.h:38:0,
+                 from /builds/NA62FW/na62fw/NA62Analysis/Analyzers/MonitoringTools/include/DetectorOnOffMonitor.hh:14,
+                 from /builds/NA62FW/na62fw/NA62Analysis/build-slc6/StdConfigs/main_config_PostProcessing.cc:21:
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TColor.h:82:22: warning: declaration of 'g' shadows a global declaration [-Wshadow]
+                      { TColor::RGB2HLS(r, g, b, h, l, s); } // backward compatible
+                      ^
+In file included from /cvmfs/sft.cern.ch/lcg/releases/Geant4/10.01.p02-f9c47/x86_64-slc6-gcc49-opt/include/Geant4/G4SystemOfUnits.hh:27:0,
+                 from /builds/NA62FW/na62fw/NA62Reconstruction/RecoBase/include/NA62VReconstruction.hh:4,
+                 from /builds/NA62FW/na62fw/NA62Reconstruction/Cedar/include/CedarReconstruction.hh:12,
+                 from /builds/NA62FW/na62fw/NA62Analysis/Analyzers/PreAnalyzers/include/UpstreamPileupGenerator.hh:16,
+                 from /builds/NA62FW/na62fw/NA62Analysis/build-slc6/StdConfigs/main_config_PostProcessing.cc:20:
+/cvmfs/sft.cern.ch/lcg/releases/Geant4/10.01.p02-f9c47/x86_64-slc6-gcc49-opt/include/Geant4/CLHEP/Units/SystemOfUnits.h:180:25: note: shadowed declaration is here
+   static const double   g = gram;
+                         ^
+In file included from /builds/NA62FW/na62fw/NA62Analysis/Analyzers/MonitoringTools/include/DetectorOnOffMonitor.hh:14:0,
+                 from /builds/NA62FW/na62fw/NA62Analysis/build-slc6/StdConfigs/main_config_PostProcessing.cc:21:
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TStyle.h: In member function 'void TStyle::SetLegoInnerR(Float_t)':
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/ROOT/6.08.00/x86_64-slc6-gcc49-opt/include/TStyle.h:309:52: warning: declaration of 'rad' shadows a global declaration [-Wshadow]
+    void             SetLegoInnerR(Float_t rad=0.5) {fLegoInnerR = rad;}
+                                                    ^
+In file included from /cvmfs/sft.cern.ch/lcg/releases/Geant4/10.01.p02-f9c47/x86_64-slc6-gcc49-opt/include/Geant4/G4SystemOfUnits.hh:27:0,
+                 from /builds/NA62FW/na62fw/NA62Reconstruction/RecoBase/include/NA62VReconstruction.hh:4,
+                 from /builds/NA62FW/na62fw/NA62Reconstruction/Cedar/include/CedarReconstruction.hh:12,
+                 from /builds/NA62FW/na62fw/NA62Analysis/Analyzers/PreAnalyzers/include/UpstreamPileupGenerator.hh:16,
+                 from /builds/NA62FW/na62fw/NA62Analysis/build-slc6/StdConfigs/main_config_PostProcessing.cc:20:
+/cvmfs/sft.cern.ch/lcg/releases/Geant4/10.01.p02-f9c47/x86_64-slc6-gcc49-opt/include/Geant4/CLHEP/Units/SystemOfUnits.h:121:23: note: shadowed declaration is here
+   static const double rad  = radian;
+                       ^

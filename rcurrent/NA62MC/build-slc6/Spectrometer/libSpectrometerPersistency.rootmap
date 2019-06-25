@@ -1,0 +1,14 @@
+[ libSpectrometerPersistency.so ]
+# List of selected classes
+class SRBError
+class SRBEvent
+class SRBVHit
+class SpectrometerChannelID
+class TRecoSpectrometerCandidate
+class TRecoSpectrometerEvent
+class TRecoSpectrometerHit
+class TSpectrometerDigi
+class TSpectrometerEvent
+class TSpectrometerHit
+header SRBVHit.hh
+header TRecoSpectrometerHit.hh

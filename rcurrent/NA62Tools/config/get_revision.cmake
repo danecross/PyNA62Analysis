@@ -1,0 +1,6 @@
+#include(FindGit)
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../NA62Tools/config ${CMAKE_MODULE_PATH})
+include(GetGitRevisionDescription)
+git_describe(GIT_VERSION --tags --abbrev=0)
+get_git_head_revision(GIT_REV GIT_HASH)
+message("-- Building from tag: ${GIT_VERSION} (${GIT_HASH})")

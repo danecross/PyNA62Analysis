@@ -1,0 +1,17 @@
+This directory hosts the software to interact with the NA62 offline database.
+To compile the NA62DB libraries:
+1. cd NA62DB (this directory)
+2. source scripts/env.sh
+3. cmake . (this is needed only the first time)
+4. make
+5. make install
+
+Libraries and executables will be installed in NA62DB/lib and NA62DB/bin, respectively.
+At the moment, the only detector for which a code is present is LAV.
+For LAV, we use the following executables:
+
+- LAV_initialize (prepare low-level tables in the db)
+- LAV_setup (define data types, subsystem types and attributes; fill the db)
+- LAV_test (read-access test with the db)
+
+PASSWORD FOR DB ACCESS IN authentication.xml HAS TO BE REQUESTED TO THE SW COORDINATOR (A. SERGI).

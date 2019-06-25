@@ -1,0 +1,56 @@
+#
+# Macro file for the initialization phase when running in interactive mode
+#
+
+## Physics List options (they must be specified before the run manager initialisation) ######
+#
+## Print available physics list:
+/Simulation/ListPhysics
+#
+## Default physics lists: FTFP_BERT, QGSP_BERT (recommended by Geant4)
+#  Reference: http://geant4.cern.ch/support/proc_mod_catalog/physics_lists/useCases.shtml
+/Simulation/Physics          QGSP_FTFP_BERT
+## Other options
+#/Simulation/CutsAll          1 mm
+#/Simulation/CutGamma         1 mm
+#/Simulation/CutEl            1 mm
+#/Simulation/CutPos           1 mm
+#/Simulation/CutProt          1 mm
+#############################################################################################
+
+## run manager initialisation ###############################################################
+/run/initialize
+#############################################################################################
+
+#/control/verbose 2
+#/tracking/verbose 1 
+#
+# create empty scene
+#
+#/vis/scene/create
+#
+# Create a scene handler for a specific graphics system
+#/vis/open VRML2FILE
+#/vis/open OGLIX
+#/vis/open HepRepFile
+#/vis/drawVolume
+
+
+#/vis/viewer/reset
+#/vis/viewer/set/style wireframe
+#/vis/viewer/set/viewpointThetaPhi 80 10
+#/vis/viewer/zoom              0.5
+#/vis/viewer/set/viewpointThetaPhi 70 20
+
+
+#/vis/scene/add/trajectories
+#/vis/scene/add/hits
+/tracking/storeTrajectory 1
+
+#/rich/CutsAll          1 mm
+#/rich/Physics          QGSP
+
+/run/beamOn 100
+
+
+#/vis/viewer/flush

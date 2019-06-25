@@ -1,0 +1,671 @@
+/// \page githowto Git HowTo
+/// 
+/// <b>Table of content</b>	
+/// <ul>
+/// 	<li>\ref getFW
+/// 	<ul>
+/// 		<li>\ref getfw_nomodif "You made no modifications to the code"
+/// 		<li>\ref getfw_throw "You made modification you want to throw away"
+/// 		<li>\ref getfw_keep "You made modification you want to keep"
+/// 	</ul>
+/// 	<li>\ref commitFW
+/// 	<ul>
+/// 		<li>\ref commitfw_before "Before starting your work"
+/// 		<li>\ref commitfw_working "Working on the code"
+/// 		<li>\ref commitfw_merge "Merge remote commits with your own code"
+/// 		<li>\ref commitfw_publish "Publishing the code"
+/// 	</ul>
+/// 	<li>\ref tips
+/// 	<ul>
+/// 		<li>\ref tips_goldenrule "Golden Rule"
+/// 		<li>\ref tips_manyfiles "Adding many files"
+/// 		<li>\ref tips_gitignore "Using a .gitignore file"
+/// 		<li>\ref tips_rebase-vs-merge "Merging and Rebasing"
+/// 		<li>\ref tips_conflicts "Solving conflicts"
+/// 	</ul>
+/// 	<li>\ref guidelines
+/// 	<ul>
+/// 		<li>\ref guidelines_message "Commit messages"
+/// 		<li>\ref guidelines_names "Branch names"
+/// 		<li>\ref guidelines_content "Commit content"
+/// 	</ul>
+/// 	<li>\ref problems
+/// 	<ul>
+/// 		<li>\ref problems_protected "You started working on protected branches (master, develop)"
+/// 		<li>\ref problems_mess "I made a mess (while trying to rebase/merge or other cases)"
+/// 	</ul>
+/// 	<li>\ref links
+/// </ul>
+/// For any operation involving git at CERN, you must be allowed to access the repository. The 
+/// repository is configured to allow read access to people in the <b>na62-fw</b> e-group and read/write 
+/// access to people in the <b>na62-fw-dev</b> e-group. In addition to being in the correct e-group you must
+/// also be known to https://gitlab.cern.ch. To do so, you must login at least once with your cern 
+/// account to https://gitlab.cern.ch. You must also import your ssh keys in gitlab for
+/// identification:
+/// <ul>
+/// 	<li> Check if you already have a ssh key: a file id_dsa.pub or id_rsa.pub should exist in your
+/// 		~/.ssh directory. If not, create a ssh key
+/// 		\code
+/// 		ssh-keygen -t rsa -b 4096 -C "your_email@cern.ch"
+/// 		\endcode
+/// 		And type \a Enter to every question
+/// 	<li> Add the key to your gitlab account: copy the content if the generated id_???.pub file in 
+/// 		https://gitlab.cern.ch -> Profile Settings -> SSH Keys --> ADD SSH KEY. Enter a meaningful
+/// 		title for the key (lxplus, my_laptop_name, ...)
+/// </ul>
+/// (see https://cern.service-now.com/service-portal/article.do?n=KB0003136 for more information
+/// and help)\n\n
+/// The best sequence of action is:
+/// <ol>
+/// 	<li> Request the membership of the correct e-group (na62-fw and na62-fw-dev for publishing)
+/// 	<li> Login to https://gitlab.cern.ch
+/// 	<li> Add your ssh keys
+/// 	<li> Access the repository (clone or visit the webpage)
+/// </ol>
+/// 
+/// \section getFW Getting the framework and keeping it up-to-date
+/// To get the framework you must clone to repository:
+/// \code
+/// git clone ssh://git@gitlab.cern.ch:7999/NA62FW/na62fw.git
+/// \endcode
+/// This operation will clone the repository locally with all the branches. The standard 
+/// branches in na62fw are:
+/// <ul>
+/// 	<li> master: "stable" production version
+/// 	<li> develop: "latest" development version
+/// </ul>
+/// The default checked-out branch is the \b master one. If you want to work with the latest working 
+/// revision (but not necessarily validated) you want to work with the develop branch. You must
+/// check-it out (switch to):
+/// \code
+/// git checkout develop
+/// \endcode
+/// 
+/// Several possibilities are offered when you want to update your local version to the latest revision
+/// from the central repository. \n
+/// \anchor getfw_nomodif
+/// \par You made no modifications to the code
+/// Simply run:
+/// \code
+/// git pull
+/// \endcode
+/// \anchor getfw_throw
+/// \par You made modification you want to throw away
+/// If you made modifications and you don't want to keep them, the following commands will simply
+/// erase all your local modifications:
+/// <ul>
+/// 	<li> Get the update from the central repository
+/// 		\code
+/// 		git fetch
+/// 		\endcode
+/// 	<li> Reset your local repository to the latest remote version (e.g. for branch develop)
+/// 		\code
+/// 		git reset --hard origin/develop
+/// 		\endcode
+/// </ul>
+/// \anchor getfw_keep
+/// \par You made modification you want to keep
+/// If you made modifications that you want to keep (but you are not planning to commit these
+/// changes), the following method allows to merge your local modifications with the
+/// modifications in the central repository:
+/// <ul>
+/// 	<li> Assuming you do not want to commit your changes (committing will be explained in the 
+/// 	next session), first save the changes you made:
+/// 	\code
+/// 	git stash
+/// 	\endcode
+/// 	<li> Get the update from the central repository
+/// 		\code
+/// 		git pull
+/// 		\endcode
+///		<li> Apply you changes again on top of the new revision
+/// 		\code
+/// 		git stash pop
+/// 		\endcode
+/// 	<li> In case of merge conflict that git is not able to resolve itself, you will see a
+/// 		message and you can solve yourself the conflict (the same way svn used to). Notify git
+/// 		that the conflict is resolved (again assuming you do not want to commit):
+/// 		\code
+/// 		git stash drop
+/// 		git reset HEAD
+/// 		\endcode
+/// 		The first command removes the temporary save we made.\n
+/// 		The second command notifies git that the conflict is resolved.
+/// </ul>
+/// \section commitFW Developing and committing
+/// If you are a developer and you are coding a new feature/bug fix for the framework, you can
+/// follow the following advices to minimise the risk of conflicts and problems.
+/// \anchor commitfw_before
+/// \par Before starting your work
+/// Before starting working on any new code/feature/bug fix, you probably want to start from the
+/// latest working code located in the \b develop branch of the central repository:
+/// \code
+/// git checkout develop
+/// git pull
+/// \endcode
+/// Then to avoid any problem of interference with other developer it is better to create and work
+/// on your own branch. As a general guideline, we advise to use as branch names
+/// \b feature/name_of_the_feature for new features and \b bugfix/jira_bug_number for bugfixes (
+/// see \ref guidelines). 
+/// In this example, the branch is called \b feature/my_feature:
+/// \code
+/// git branch feature/my_feature   //Create the branch
+/// git checkout feature/my_feature //switch to the branch
+/// \endcode
+/// or (shortcut)
+/// \code
+/// git checkout -b feature/my_feature //Create and switch to the branch
+/// \endcode
+/// \anchor commitfw_working
+/// \par Working on the code
+/// This new branch you created is now based on the latest version of \b develop and you may work
+/// freely on it. Code a lot, commit often: every time you introduce a new feature, a new group of
+/// logically connected functions, every time you fix a typo, a bug, .... Ideally every commit should
+/// contains the changes for a single logical modification. Don't wait to have a perfectly working
+/// and tested version with all the changes you intended. Remember that in the case of git,
+/// committing before a feature is ready does not harm anyone as these commits stays private until
+/// you publish them (push). It is much easier this way to remove later a commit that broke 
+/// everything than searching through a single huge commit which line could possibly have
+/// broken the code.\n
+/// Committing is easy:
+/// <ul>
+/// 	<li> Check all the files that have been modified since last commit
+/// 	\code
+/// 	git status
+/// 	\endcode
+/// 	<li> Stage (= add to the commit) all the files that you want to commit.
+/// 	\code
+/// 	git add fileName
+/// 	\endcode
+/// 	This operation needs to be done on every file you want to include in the commit (new files and
+/// 	updated files). See also \ref tips for more tips.\n
+/// 	If you made a mistake and want to remove a file from the commit
+/// 	\code
+/// 	git reset fileName
+/// 	\endcode
+/// 	Don't forget, even if you made several changes that are not logically connected, you can still
+/// 	commit them separately. Only add the files related to one feature, commit, then add the files
+/// 	related to the next feature and commit them. This works as long as the different changes are
+/// 	in different files. If they are in the same file, you can still do different commits
+/// 	(see git add -p).
+/// 	<li> Finally create the commit (See \ref guidelines to read about the format of the 
+/// 	commit message - different from svn).
+/// 	\code
+/// 	git commit
+/// 	\endcode
+///		<li> Please note that at this point your commits are still local. See the section 
+///		\ref commitfw_publish "Publishing the code" on how to publish it.
+/// </ul>
+///
+/// \anchor commitfw_merge 
+/// \par Merge remote commits with your own code
+/// If someone commits some changes that you feel are important to integrate in your branch during
+/// the development of your feature, you can retrieve them and merge them with your local code.
+/// <ul>
+/// 	<li> Commit all your work in progress. If you feel some of this work in progress is not yet 
+/// 	ready for a commit, you can stash it for now (save it in a temporary commit that can be 
+/// 	retrieved later).
+/// 	\code
+/// 	git stash
+/// 	\endcode
+/// 	<li> Checkout the branch you want to import (e.g. \b develop)
+/// 	\code
+/// 	git checkout develop
+/// 	\endcode
+/// 	<li> Get the latest code from the central repository
+/// 	\code
+/// 	git pull
+/// 	\endcode
+/// 	<li> Incorporate the changes (e.g. from \b develop) into your branch. There are two ways to
+/// 	achieve this: \a rebase and \a merge. They both have their use and should be used in the correct
+/// 	situation. In case of doubt, use \a merge (see \ref tips_rebase-vs-merge "Merging and Rebasing" 
+/// 	and \ref tips_goldenrule "Golden Rule").\n
+/// 	With the rebase command (do not use it if this branch is public):
+/// 	\code
+/// 	git checkout feature/my_feature
+/// 	git rebase develop
+/// 	\endcode
+/// 	In case of conflict that git cannot handle, you will be notified and asked to solve it (git 
+/// 	will tell you where is the conflict). Once solved, run
+/// 	\code
+/// 	git rebase --continue
+/// 	\endcode
+/// 	until the rebase is completely finished (git stops complaining about conflicts - solve them
+/// 	as git warns you).\n
+/// 	Or with the merge command: 
+/// 	\code
+/// 	git checkout feature/my_feature
+/// 	git merge develop
+/// 	\endcode
+/// 	In case of conflict that git cannot handle, you will be notified and asked to solve it (git 
+/// 	will tell you where is the conflict). Once solved, run
+/// 	\code
+/// 	git add
+///     (git rm for files that needs to be deleted)
+/// 	\endcode
+/// 	for all the files that have been successfully merged. 
+/// </ul>
+/// Congratulations, the remote changes have been successfully integrated in your local code. You
+/// can keep working to finish your feature.
+///
+/// \anchor commitfw_publish
+/// \par Publishing the code
+/// Once you think your feature is finished, it can be published on the central repository. If 
+/// you wish, you can also request the publication earlier to open discussions on your feature. If
+/// you think the amount of work is already enough and that your work needs input/discussion from
+/// others, the same procedure can be followed. Even if part of the code is already pushed to the
+/// central repository, work can still be carried on afterwards and new commits can be added before
+/// the actual merge with the main branch. This would also allow other developer to participate to 
+/// your work.\n
+/// The procedure to publish your work is the following:
+/// <ul>
+/// 	<li> Integrate remote changes into you branch (see \ref commitfw_merge "Merge")
+/// 	<li> Push your branch to the central repository (and set tracking)
+/// 	\code
+/// 	git push -u origin feature/my_feature
+/// 	\endcode
+/// 	Any later push can simply be done with
+/// 	\code
+/// 	git push
+/// 	\endcode
+/// 	as git already knows in which remote branch it should push
+/// <li> Got to https://gitlab.cern.ch/NA62FW/na62fw/merge_requests and create a new merge request.\n
+/// 	Your branch should be used as the source branch and \b develop as the target branch. Then 
+///		click on <i>COMPARE BRANCHES</i>. Enter a title and a description for your merge request. 
+/// 	Eventually assign it to Antonino Sergi if you want to notify him. Finish the request by
+/// 	clicking on <i>SUBMIT NEW MERGE REQUEST</i>. 
+/// 	The owners/masters of the repository will be notified of your request, will review it (other
+/// 	people - you included - are also welcome to review and leave comments, open discussion). Once
+/// 	satisfactory the owners/masters will confirm the request and your feature will be merged
+/// 	with the \b develop branch.
+/// 	<li> Once the merge request is accepted, your branch on the remote repository is automatically
+/// 	deleted. At this point you can as well delete it from you local repository if you wish:
+/// 	\code
+/// 	git branch -d feature/my_feature
+/// 	\endcode
+/// </ul>
+/// 
+/// \section tips Tips and Tricks
+/// \anchor tips_goldenrule
+/// \par Golden Rule
+/// There is one rule in git that should be respected above all: <b>never rewrite a public
+/// history!</b>\n
+/// Contrary to SVN, GIT allows to rewrite the history of commits thus providing a lot more 
+/// flexibility. However this comes at a price: things can get really messy if this feature is not
+/// used properly.\n
+/// Rewriting the history can be done in different ways: <b>\a rebase, \a amend, \a filter-branch, ...</b> 
+/// With Git every commit is identified by a unique id (ever seen something like 
+/// ed8206fb7c8d142ab2fe98b06cb5e85742cf102b in your repository or gitlab?) and are logically linked
+/// with their parents and child using this id. In practice rewriting the history means replacing 
+/// one or several commits with new commits, as well as all the commits that commits that are 
+/// following. They can be very similar but they have nonetheless a different id.\n\n
+/// 
+/// <b>The rule is simple</b>: you can do whatever you want with the part of the history that is still 
+/// your own local history. But if anyone saw it (which should be assumed as soon as it is made 
+/// public, published on the remote repository), you are not allowed to modify it anymore.\n\n
+/// 
+/// Indeed if you published (pushed) your private branch to the remote repository , someone might 
+/// have checked it out and started working on it. Then you do several new commits and decide to 
+/// integrate the latest changes of \b develop by rebasing it onto your branch. At this point the 
+/// history of you whole branch has been rewritten. If you want to push it to the remote
+/// repository, git will not allow you to do so because your branch and the remote one have diverged.
+/// Two options are now available (each one as bad as the other):
+/// <ul>
+/// 	<li> You merge or rebase the remote branch into yours and then push the result. Doing so
+/// 	you will notice that all the commits that were already pushed in the remote repository 
+/// 	exist twice: once coming from the remote repository, then another time coming from your
+/// 	local rebased branch. The history now looks really dirty. \n
+/// 	Also, the other person than checked out your branch will be able to pull
+/// 	your changes but will have to resolve again any conflict he might have had in the past
+/// 	with this branch.
+/// 	<li> You force-push your branch to the remote repository. Doing so you also rewrite the 
+/// 	history of the remote repository, erasing and replacing commits. The history now looks clean
+/// 	on the remote repository.\n
+/// 	But if the person who checked out your branch wants to pull the latest changes from the 
+/// 	remote, the branch he is working on does not exist anymore! It has been replaced by another
+/// 	branch with the same name. He will have a *lot* of troubles incorporating your new changes.\n
+/// 	Even worse, if he ever published some commits on your branch after your last push, they are
+/// 	now lost!
+/// </ul>
+/// 
+/// \anchor tips_manyfiles
+/// \par Adding many files
+/// An alternative to adding manually every file if you have many of them to commit is
+/// \code
+/// git add -A
+/// \endcode
+/// This will automatically add all the modified files (you still have to do git add on the new
+/// files).\n
+/// If you want to add a whole directory
+/// \code
+/// git add directory-name
+/// \endcode
+/// However you might collect a lot of unwanted files: compiled libraries (.so, .a) or 
+/// object files (.o). You can avoid this by using a \a .gitignore file (see next paragraph).
+/// 
+/// \anchor tips_gitignore
+/// \par Using a \a .gitignore file
+/// You can specify in this file (placed in the top dir of your cloned repo) any regular expression
+/// describing files that git should ignore. A good file for NA62MC is
+/// \verbatim
+/// lib
+/// tmp
+/// *Dict.*
+/// *.o
+/// bin
+/// .gitignore
+/// \endverbatim
+/// This also has the advantage of removing the corresponding file from the output of 
+/// \code
+/// git status
+/// \endcode
+/// 
+/// \anchor tips_rebase-vs-merge
+/// \par Merging and Rebasing
+/// This page offers a nice explanation of the difference between \a Merge and \a Rebase: 
+/// https://www.atlassian.com/git/tutorials/merging-vs-rebasing/conceptual-overview \n
+/// These two pages also explain individually how merge and rebase works: 
+/// https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging and
+/// https://git-scm.com/book/en/v2/Git-Branching-Rebasing\n
+/// \a Merge will take the changes from the other branch, merge them in your current code and
+/// create a new commit. While \a rebase will take all the commits from your branch since the 
+/// common ancestor and apply them one by one to the latest commit of the other branch, thus
+/// linearising the history by rewriting it. As stated in the \ref tips_goldenrule "Golden Rule" this 
+/// should be used only on your local history.\n\n
+/// 
+/// Whether your want to merge or rebase into your branch, the first thing to do is to have a clean
+/// work directory. So start by committing (or stashing) all your uncommitted work. \n
+/// If you want to merge \b develop into \b feature/mybranch:
+/// \code
+/// git checkout feature/mybranch // if you are not in your branch
+/// git fetch 					  // fetch latest changes from remote
+/// git merge origin/develop	  // do the merge
+/// \endcode
+/// In case of conflict that git cannot solve cleanly, it will let you know. Solve it manually (see
+/// \ref tips_conflicts "Solving conflicts"), run
+/// \code
+/// git add <filename>
+/// \endcode
+/// for each conflicting file solved. Then finish the merge by committing it:
+/// \code
+/// git commit
+/// \endcode
+/// If you want to rebase \b develop into \b feature/mybranch:
+/// \code
+/// git checkout feature/mybranch // if you are not in your branch
+/// git fetch 					  // fetch latest changes from remote
+/// git rebase origin/develop	  // do the rebase
+/// \endcode
+/// In case of conflict that git cannot solve cleanly, it will let you know. Solve it manually (see
+/// \ref tips_conflicts "Solving conflicts"), run 
+/// \code
+/// git add <filename>
+/// \endcode
+/// for each conflicting file solved. Then continue the rebase with
+/// \code
+/// git rebase --continue
+/// \endcode
+/// until successfully finished.
+/// 
+/// \anchor tips_conflicts
+/// \par Solving conflicts
+/// Most of the time git is able to patch your code cleanly by itself. It happens however on
+/// some occasions (when two changes concern the same line of code, or in case of complete 
+/// rewriting of a file, ...) that git is not able to cleanly merge the changes. In such cases it 
+/// will let you know in which file(s) the conflict arose and asks you to solve it manually.\n 
+/// In addition to telling you while merging, the following command can be run to see where
+/// are the conflicts:
+/// \code
+/// git status
+/// \endcode
+/// \verbatim
+/// On branch feature/DataQualityPlotter
+/// Your branch is up-to-date with 'origin/feature/DataQualityPlotter'.
+/// You have unmerged paths.
+///   (fix conflicts and run "git commit")
+/// 
+/// Changes to be committed:
+/// 
+/// 	modified:   NA62MC/RICH/Persistency/include/TRecoRICHHit.hh
+/// 	modified:   NA62MC/RICH/Persistency/src/TRecoRICHHit.cc
+/// 	modified:   NA62Reconstruction/RICH/src/RICHReconstruction.cc
+/// 	modified:   NA62Reconstruction/RecoBase/include/NA62VReconstruction.hh
+/// 	modified:   NA62Reconstruction/config/Spectrometer.2015.conf
+/// 
+/// Unmerged paths:
+///   (use "git add <file>..." to mark resolution)
+/// 
+/// 	both modified:   NA62Reconstruction/RecoBase/src/NA62VReconstruction.cc
+/// 
+/// \endverbatim
+/// In this example we can see that <b>NA62Reconstruction/RecoBase/src/NA62VReconstruction.cc</b>
+/// has conflicts that needs to be manually solved (while the other files were automatically
+/// merged correctly. Git even gives you the instruction how to finish the merge!\n
+/// The command
+/// \code
+/// git diff
+/// \endcode
+/// shows the conflicting changes in a \a diff format (even possibly with colours).\n\n
+/// To solve the conflict you can either use tools to help you solve the conflict: 
+/// \code
+/// git mergetool
+/// \endcode 
+/// command starts your favourite
+/// diff tool (emerge, vimdiff, kdiff3, meld, ...) on the conflicting files. See the documentation
+/// at https://git-scm.com/docs/git-mergetool \n
+/// You can also manually open and edit the file. If you do so, you will notice that git already 
+/// pre-merged the remote version of the file into your local file. Where git failed to merge, you 
+/// see
+/// \verbatim
+/// {some_code}
+/// <<<<<<< HEAD
+/// your conflicting change
+/// =======
+/// remote conflicting change
+/// >>>>>> develop
+/// {some_code}
+/// \endverbatim
+/// The part between <<<<<<< and ======= are your local changes and the part between ======= and
+/// >>>>>>> are the remote changes. Solve the conflict by either discarding one of the two changes
+/// or mix them properly if needed. Don't forget to remove the conflict markers (<<<<<<< ======= 
+/// >>>>>>>). Finally, once all conflicts are solved, <i>git add</i> all the conflicting files then
+/// finish your merge (<i>git commit</i> if merging or <i>git rebase --continue</i> if rebasing) 
+/// 
+/// \section guidelines Guidelines
+/// \anchor guidelines_message
+/// \par Commit messages
+/// Commit messages are slightly different in git compared to svn. In git, the first line is the 
+/// title of the commit, that will appear when looking at the list of commits. It is supposed to be
+/// followed by an empty line and all remaining lines are details of the commit. The details are 
+/// displayed when looking at the commit.\n
+/// Example of commit message:
+/// \verbatim
+/// Adding Primitive reading in NA62Analysis                                                    {Title line}
+///                                                                                             {Blank line}
+/// - A class PrimitiveReader has been introduced to read the primitives of a single detector |
+///   This class provides methods to read a primitive file in parallel to the event file and  |
+///   find the primitives corresponding to the current event.                                 | {Details lines}
+///   It offers the possibility to use the primitives in the order received from the detectors|
+///   or to sort them in time.                                                                |
+/// - A class has been introduced to interface between the user Analyzer and PrimitiveReader  | 
+/// \endverbatim
+/// 
+/// \anchor guidelines_names
+/// \par Branch names
+/// There are two main branches in the repository:
+/// <ul>
+/// 	<li> \b master: contains the production version
+/// 	<li> \b develop: contains the current development version with latest finished features
+/// </ul>
+/// Other branches should be created by developers when coding. Git provides tools to merge developer
+/// branches into the main ones automatically (in most cases). This merging procedure is initiated by
+/// a \a merge \a request on the web interface of gitlab and is accepted by the administrator of the
+/// repository. To help him with his task, sensible naming of the branches is preferable.\n
+/// The following naming scheme is advised:
+/// <ul>
+/// 	<li> <b>feature/name</b>: For branches developing new features. \b name should be short but
+/// 		 descriptive enough to understand immediately what the feature is about.
+/// 	<li> <b>bugfix/name</b>: For branches fixing a bug. \b name should be the ID of the JIRA ticket
+/// 		 opened for this bug (e.g. NA62RKD-107). If no ticket is open, you are encouraged to open
+/// 		 one yourself as it helps keeping track of the existing bug and who is working on it. 
+/// 	<li> <b>update/name</b>: For branches with improvements. \b name should describe the improvement
+///              (e.g. RICHTiming) rather than naming what has been improved (RICHReco)
+/// </ul>
+/// 
+/// \anchor guidelines_content
+/// \par Commit content
+/// Git is much more flexible than svn and offers the possibility to easily do partial commits. If
+/// the code is broken at some point, it also offers tools to quickly identify the faulty commit.
+/// In order to help with this feature, help the review process and help applying/removing single 
+/// features/fixes in case of problem you are strongly encouraged to commit often and only small 
+/// logically connected changes in the code. Each commit should ideally contains changes in very 
+/// few files (1-3) that could be summarised in a single sentence.\n
+/// Contrary to the svn workflow that was used precedently, the git workflow allows as many 
+/// intermediate commits before the final merge commit that will be received by other users. Therefore 
+/// you should not be afraid of committing incomplete features.\n
+/// An exemple of commit (taken from svn)
+/// \verbatim
+/// - Replace GetMuonHit() -> IsMuonHit() in MUV3MCTester()
+/// - GetEvent tries to deduce correct tree if not specified in Analyzer
+/// - Fix some bugs when reading custom trees.
+/// - Add reader for primitives. Can be used to find all primitives matching 
+/// an event. See --prim option, AddPrimitiveReader(), SetL0MatchingWindowWidth(),
+/// FindAllPrimitiveInMatchingWindow() and FindMatchingPrimitive() for more details
+/// - Can build either shared or static libraries. Static is the default. Shared 
+/// libraries are build if the option --shared is passed to NA62AnalysisBuilder.py
+/// during build.
+/// - Add documentation: Git HowTo
+/// \endverbatim
+/// This should transform in the git workflow as
+/// <ul>
+/// 	<li> Commit 1
+/// \verbatim
+/// Fix for MUV3MCTester
+/// 
+/// GetMuonHit() method has been removed from Persitency. Replace it with IsMuonHit() in MUV3MCTester()
+/// \endverbatim
+/// 	<li> Commit 2
+/// \verbatim
+/// GetEvent tries to deduce correct tree if not specified in Analyzer
+/// 
+/// Automatic detection of default branch has been implemented for GetEvent(). If not branch is
+/// specified, the branch is selected in the following order amongst the requested branches: Reco, MC,
+/// Digis
+/// \endverbatim
+/// 	<li> Commit 3
+/// \verbatim
+/// Add PrimitiveReader class
+/// 
+/// This class reads a primitive file and provides methods to extract primitives around a specified 
+/// timestamp
+/// \endverbatim
+/// 	<li> Commit 4
+/// \verbatim
+/// Add IOPrimitives class
+/// 
+/// This class creates and contains PrimitiveReader instances for each requested detector.
+/// \endverbatim
+/// 	<li> Commit 5
+/// \verbatim
+/// Add interface for the PrimitiveReader and IOPrimitive classes in UserMethods
+/// 
+/// Implements the methods:
+///  - AddPrimitiveReader()
+///  - SetL0MatchingWindowWidth()
+///  - FindAllPrimitiveInMatchingWindow()
+///  - FindMatchingPrimitive()
+/// \endverbatim
+/// 	<li> Commit 6
+/// \verbatim
+/// Add sorting capability for PrimitiveReader
+/// 
+/// Primitives are not time ordered in the input file. Add time sorting capability relying on 
+/// TTreeIndex.
+/// \endverbatim
+/// 	<li> Commit ...
+/// </ul>
+/// Git provides this possibility by requesting you to always specify for each commit what you exactly
+/// want to include in the commit (see \ref tips). It also offers the possibility to add only part of
+/// the modifications in a file, leaving out the rest of the modifications for a later commit (search 
+/// git add interactive on the web).
+/// 
+/// \section problems Solving problems
+/// You might eventually run into few issues. We identified some here and propose solution to
+/// solve them.
+/// 
+/// \anchor problems_protected
+/// \par You started working on protected branches (master, develop)
+/// By mistake you started working on protected branches (master, develop). Unfortunately you cannot
+/// commit on these branches on the central repository. It means you are not going to be allowed 
+/// to git push. Don't worry, your work is not lost!\n
+/// If you haven't done any commit yet, simply create a new branch and start committing your changes
+/// there:
+/// \code
+/// git checkout -b new-branch-name
+/// \endcode
+/// If at least one commit is already done, the idea is to create a new branch including all
+/// your commits and reset the protected one to its remote state. Be careful, this operation include
+/// a hard reset and any non-committed work is going to be lost. You should therefore <b>commit
+/// or stash any pending changes before doing the following operation</b>. In the example we
+/// assume you started working on the \b master branch. Change in the following lines accordingly:
+/// \code
+/// git branch new-branch-name //Create a new branch with the modified protected branch as source
+/// git reset --hard origin/master //Reset the master branch in the same state as the remote master
+/// git checkout new-branch-name
+/// \endcode
+/// After these operations, your tree will look like you started working on the branch
+/// \b new-branch-name from the beginning and never committed any work on the protected branch.
+/// 
+/// \anchor problems_mess
+/// \par I made a mess (while trying to rebase/merge or other cases)
+/// You tried to incorporate remote changes into your own branch but there were conflicts to solve
+/// manually. Unfortunately these conflicts were numerous and quite difficult to solve. During the 
+/// attempt, you made a mess and nothing is working anymore. You are completely lost!\n\n
+/// Fortunately for you, git has a simple command that allows you to go back to the clean situation
+/// you had before attempting to merge/rebase. \n
+/// Simply run, if you were merging:
+/// \code 
+/// git merge --abort
+/// \endcode
+/// or if you were rebasing:
+/// \code
+/// git rebase --abort
+/// \endcode
+/// \n\n
+/// Another command that can be used to get out of messy situation in general is <i>reset --hard</i>. But
+/// be careful as reset usually means completely <b>discarding any uncommitted changes</b>. So 
+/// make sure that any important file/code is committed before doing this operation.\n
+/// Select the last commit or branch that was clean before the problem then run
+/// \code
+/// git reset --hard commit_id //for clean commmit
+/// git reset --hard branchname //for clean branch
+/// \endcode
+/// This allows you to completely get rid of some changes if you don't like them, or discard 
+/// completely one/several commits. This is somehow equivalent to 
+/// \code
+/// svn update -r old_revision
+/// \endcode
+/// You can go back in time with 
+/// \code
+/// git reset --hard HEAD   //Reset to current commit (discard all changes since last commit)
+/// git reset --hard HEAD~1 // Go back 1 commit (= discard last commit)
+/// git reset --hard HEAD~2 // Go back 2 commit (= discard last 2 commits)
+/// ...
+/// \endcode
+/// The first one is the git equivalent of <i>svn revert</i>.\n
+/// While the git equivalent of
+/// \code
+/// svn revert PATH
+/// \endcode
+/// is 
+/// \code
+/// git checkout -- PATH
+/// \endcode
+/// \section links Useful Links
+/// Here is a list of useful resources:
+/// <ul>
+/// 	<li> Quick tutorial: https://www.atlassian.com/git/tutorials/saving-changes
+/// 	<li> General purpose interactive tutorial: https://try.github.io/levels/1/challenges/1
+/// 	<li> Comprehensive documentation: http://git-scm.com/doc
+/// 	<li> SSH keys: https://cern.service-now.com/service-portal/article.do?n=KB0003136
+/// </ul>

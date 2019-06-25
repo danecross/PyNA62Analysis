@@ -1,0 +1,1990 @@
+################################################################
+NA62Reconstruction Project
+################################################################
+2015-11-09      Riccardo Fantechi (Riccardo.Fantechi@cern.ch)
+                rev. 734
+		Various fixes to LKR reconstruction
+	        - Fix correctly the handling of LKr shapes and dig filter constants for MC,
+		  as in JIRA NARKD68
+		- Fix an issue in one of the monitoring histos
+		- Add capability to skip events with bad CREAM format
+ 		- Fix a bug in reading the calibartion slopes 
+
+2015-11-09      Giuseppe Ruggiero (Giuseppe.Ruggiero@cern.ch)
+                rev. 733
+                Fixed but introduced in rev. 732
+
+2015-11-09      Giuseppe Ruggiero (Giuseppe.Ruggiero@cern.ch)
+                rev. 732
+                Spectrometer Reconstruction modified.
+                - Hit limiters added to handle properly data up to 40% intensity
+                - Chamber hit pattern recognition modified to handle crowdy events
+                - Fixed a bug in track time
+
+2015-11-08      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 731
+                - Patched channel handling in IRC/SAC, but it's all very cofused and
+                  and it should be cleaned up; the patch works only if a T0 file is provided
+                  otherwise slewing corrections go to infinity
+                - Added few config files for 2015 and changed name to few T0 files
+                  for scripting convenience
+
+2015-11-08      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 730
+                - Enabled saving of MezzanineT0 histos, when used
+                - Added estimate of data transfer speed for raw files
+                - Fixed inconsistent usage of RO channelIDs in IRC/SAC
+                - Added clustertime offset in LKr (it should be done in a better way) 
+
+2015-11-08      Karim Massri (karim.massri@cern.ch)
+                rev. 729
+                - Small change in SpectrometerDigiManager for automatic T0 evaluation
+
+2015-11-07      Karim Massri (karim.massri@cern.ch)
+                rev. 728
+                - IRC/SAC channel occupancy histos now correctly filled
+
+2015-11-07      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 727
+                - Fixed bug in IRC/SAC that was scrambling channel IDs 
+
+2015-11-07      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 725
+                - Partial fix of NARKD-127 in LKr
+
+2015-11-06      Karim Massri (karim.massri@cern.ch)
+                rev. 724
+                - Bug fixes in the Spectrometer Reconstruction:
+                  - Corrections in the channel mapping
+                  - Run Number is now correctly initialised
+                  - Changes in the reference time handling
+                - Small changes in NA62Reconstruction
+
+2015-11-04      Riccardo Aliberti (riccardo.aliberti@cern.ch)
+                rev. 721
+		- Small error in MUV1 channel mapping solved
+		- Small changes in CREAMRawDecoder and MUV1(2)Reconstruction
+
+2015-11-04      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 718
+                - The NewCHOD reconstruction introduced
+
+2015-11-03      Karim Massri (karim.massri@cern.ch)
+                rev. 715
+                - Small changes to NA62VReconstruction
+                - Small changes to IRC, SAC and MUV0 config files
+
+2015-11-02	Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+		rev. 714
+		- bugs NARKD-146, NARKD-147 fixed
+
+2015-11-02      Karim Massri (karim.massri@cern.ch)
+                rev. 709
+                - Small changes in NA62Reconstruction
+
+2015-11-02      Lubos Bician (lubos.bician@cern.ch)
+                rev. 708
+                - New MUV3 T0s valid from run 3939
+                - Appropriate modifications in MUV3.2015.conf file
+
+2015-11-02      Karim Massri (karim.massri@cern.ch)
+                rev. 707
+                - Small changes to LAV Online Monitor
+                - Small bug fixes in NA62Reconstruction
+
+2015-11-01	Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+		rev. 706
+		- Compatibility with NA62MC rev. 705
+
+2015-10-31      Karim Massri (karim.massri@cern.ch)
+                rev. 704
+                - Update to Spectrometer reconstruction (Giuseppe Ruggiero)
+                  - Straw fine alignment added
+                  - Trailing edge handling added 
+                  - CHOD used as reference time for LKr-based trigger
+                  - New T0 files for Spectrometer added
+                - Modifications to Spectrometer reconstruction to comply with automatic T0 procedure:
+                  - Channel mapping migrated to the standard format (via config/Spectrometer.conf,
+                    NA62VRawDecoder and SpectrometerChannelID)
+                  - T0 corrections migrated to the standard format
+                - GetT0Correction() function added in NA62VReconstruction (and applied to
+                  all the subdetectors) for automatic T0 evaluation
+                - ROMezzanines information added in NA62VRawDecoder:
+                  - ROMezzanineT0 evaluation procedure introduced in NA62VReconstruction
+                  - ROMezzanineT0 reading and initialisation in NA62VRawDecoder
+                  - Mezzanine masks added in subdetector config files
+                  - hDigiTimeRaw, hDigiTimeRawFine, hDecoderErrors are now 2D histos Vs mezzanineID
+                - FillDigiTimes is now filled at the RawDecoder level
+                - TEL62 errors decoding added in TDCBRawDecoder
+                - NA62OnlineMonitor refurbished:
+                  - TEL62 errors histograms added in NA62OnlineMonitor
+                  - L1TPInfo tab added in NA62OnlineMonitor
+                  - Summary tabs for DigiTimeRaw(Fine) and DecoderErrors added in NA62OnlineMonitor
+                - CriticalErrors counter added to discard corrupted events
+                - SpecialTriggerOnly option added to NA62Reconstruction.conf to decode Special Triggers only
+                - L0TP reference detector information added
+                - Small bug related to WarningsLevel fixed
+                - New mapping for IRC (>=run3593) added
+
+2015-10-30      Mathieu Perrin-Terrin (mathieu.perrin-terrin@cern.ch)
+	        rev. 702
+	        - add GigaTrackerErrosHandler to deal and report error
+	        - modified GigaTrackerOnlineMonitor
+	        - include rough t0, time-walk corrrections, and spacial offsets, in Gigatracker reconstruction
+
+2015-10-26      Bob Velghe (bob.velghe@cern.ch)
+                rev. 701
+                - Update GigaTrackerDigitizer to reflect the changes in GigaTrackerChannelID
+
+2015-10-19	Venelin Kozhuharov (venelin.kozhuharov@cern.ch)
+                rev. 696
+		- added new configuration files for SAC and IRC prepared by Karim
+		to be used for data from run 3817 on due to moving of the TDCB into slot #2 of the TEL62.
+
+2015-10-19	Venelin Kozhuharov (venelin.kozhuharov@cern.ch)
+		rev. 694
+		- Preliminary version of the SAC/IRC reco, calibration, monitor.
+		Only hits are reconstructed. Candidates to be implemented
+		Implemented by Georgi for the SAC and copy/pasted for the IRC
+
+2015-10-19      Lubos Bician (lubos.bician@cern.ch)
+                rev. 688, 689
+                - Added new MUV3 T0s valid from run 3785
+		- Modified MUV3 config file accordingly
+		- Update to UpdateXMLT0s.py script
+		- (689) correction of the default value of EnableChannelHistograms
+		in the MUV3 config file
+
+2015-10-12      Paolo Massarotti (massarotti@na.infn.it)
+                rev. 681
+                - CHANTI Reconstruction: typo fixed 
+
+2015-10-12      Paolo Massarotti (massarotti@na.infn.it)
+                rev. 680
+                - CHANTI Reconstruction: small bug fixed in CHANTICandidate
+		- CHANTI Channel: Profile plots added for position correction
+		- CHANTI Slewing correction: updated
+		- CHANTI Threshold: updated
+
+2015-10-05      Roberta Volpe (roberta.volpe@cern.ch)
+		rev. 678	
+                - added RICH T0s file with corrections evaluated with run 3687.
+		- updated RICH.2015.conf accordingly
+
+2015-10-01      Roberta Volpe (roberta.volpe@cern.ch)
+		rev. 676
+		- added T0s and slewing corrections files for run range (3532-3571)
+		- updated config/RICH.2015.conf
+ 
+2015-09-28	Letizia Peruzzo (letizia.peruzzo@cern.ch)
+		rev. 675
+		- Added calibration files for MUV1&2 for 2015 data
+		- Updated MUV2 calibration files for 2014 data
+		- Modified MUV2Reconstruction.cc(hh) and MUV1Reconstruction.cc(hh)
+		- Updated MUV2(1).2015.conf and MUV2(1).conf
+		- Small changes in MUV1Geometry.cc
+
+2015-09-28	Plamen Petrov (plpetrov@cern.ch)
+		rev. 674
+		- Added new MUV3 T0s file: config/MUV3-T0.run3562_0102-run3563_0016.dat
+		- Updated config/MUV3.2015.conf
+
+2015-09-24	Michal Koval (michal.koval@cern.ch)
+		rev. 670
+		- small changes in the Spectrometer Online Monitor
+
+2015-09-23	Viacheslav Duk (Viacheslav.Duk@cern.ch)
+		rev. 669
+		- small changes in the CHOD reconstrustruction
+
+2015-09-22      Karim Massri (karim.massri@cern.ch)
+                rev. 668
+                - Small bug fixed in GigaTrackerReconstruction, preventing the correct
+                  evaluation of StationsT0 (for all the detectors)
+                - Overflow/underflow protection added in EvaluateT0Offsets()
+
+2015-09-22      Karim Massri (karim.massri@cern.ch)
+                rev. 666
+                - MC information is now stored in a dedicated tree
+                - Chain of stages Hits -> Digis -> Reco fixed for MC
+                - Error in LAV4 channel mapping corrected (Matthew Moulson)
+
+2015-09-22      Karim Massri (karim.massri@cern.ch)
+                rev. 661
+                - Swap between the role of TTree and TBranch to include special triggers:
+                  - the output is now organised with one single tree for each requested OutputStage having one branch
+                    for each SubDetector, rather than one tree for SubDetector having one single branch "OutputStage".
+                  - SpecialTrigger information is now written in a dedicated tree and stored in the output file.
+                  - Flag WriteDigis introduced in NA62Reconstruction.conf to also write "Digis" tree when Reco
+                    is selected as OutputStage (default: on)
+                  - MC file handling changed accordingly.
+                  - L0TPData, L1TPData and L2EBData are now branches of the "OutputStage" tree (instead of parts of the RawHeader) 
+                  *** WARNING: this change is NOT backward compatible ***
+                - WarningsLevel can now be set independently for each SubDetector (in the config/SubDetector.conf file)
+                - Patch to handle the case of NROBoardsPerStation = 0 (e.g. for CHANTI) added in EvaluateT0Offsets() 
+                - Bug preventing the synchronisation of the T0ReferenceDetector once a detector is disabled by CleanUpSequence fixed
+                - Persistency to OM plots added: the screenshots are not any longer overwritten
+                - Bug in the time-ordering check fixed in TDCBRawDecoder
+                - Other small changes in src/NA62Reconstruction.cc
+
+2015-09-20      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 657 
+                - Added eclipse project files
+
+2015-09-17      Mathieu Perrin-Terrin (mathieu.perrin-terrin@cern.ch)
+                rev. 653
+                - new rawdecoder for 2015 GigaTracker data format introduced
+                - gigatracker reconstruction modified accordingly
+
+2015-09-15      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 652
+                - MUV3 reconstruction update (extended candidate types)
+
+2015-09-11      Riccardo Aliberti (riccardo.aliberti@cern.ch)
+                rev. 650
+                - Added MUV1.2015.conf
+
+2015-09-11      Paolo Massarotti (massarotti@na.infn.it)
+                rev. 648
+                - CHANTI T0 Stations: small bug fixed
+
+2015-09-10      Georgi Georgiev (georgi.stefanov.georgiev@cern.ch)
+                rev. 647
+                - Bugfix
+
+2015-09-07      Paolo Massarotti & Marco Mirra (massarotti@na.infn.it, marco.mirra.na.infn.it)
+                rev.644
+                - CHANTI-T0.run3112_0051-run3112_0240.dat added.
+                - CHANTI.2015.conf modified
+
+2015-09-01      Paolo Massarotti & Marco Mirra (massarotti@na.infn.it, marco.mirra.na.infn.it)
+                rev.642
+                - minor change in CHANTIReconstruction, CHANTIChannel, CHANTIOnlineMonitor: 
+                  - EOB histos added
+                  - T0 histos added  
+                - CHANTI-Threshold.50-80.dat and fake CHANTI-T0.2015.dat added.
+
+2015-08-28      Roberta Volpe (roberta.volpe@cern.ch)
+                rev.640
+                - T0 and slewing corrections files added
+                - minor changes to T0 histos 
+
+2015-08-26      Letizia Peruzzo (letizia.peruzzo@cern.ch)
+                rev. 633
+                - config/MUV1.conf config/MUV2.2015.conf config/MUV2.conf modified channels mapping and T0 default files.
+                - config/MUV1-T0.dat config/MUV2-T0.dat updated.
+                - MUV1Reconstruction and MUV2Reconstruction modified to be compatible with the new T0.dat format.
+                - MUV2Reconstruction modified in order to read also IRC&SAC CREAM readout.
+                - MUV2Online added IRC&SAC CREAM readout tab.
+
+2015-08-26      Michal Koval (michal.koval@cern.ch)
+                rev. 631
+                - Bug fix in SRBRawDecoder (NARKD-122)
+                - Spectrometer.2015.conf default T0 file names changed to existing files
+
+2015-08-25      Giuseppe Ruggiero (giuseppe.ruggiero@cern.ch)
+                rev. 628
+                - Spectrometer reconstruction modified to be compatible with 2015 data.
+                - SRBRawDecoder modified by M. Koval to read the trigger matched data.
+                - SpectrometerReconstruction.cc modified to take the L0 trigger time as the reference for 2015 data.
+                - T0s' for SRB and Covers added in Spectrometer-StationsT0.xxxx.dat files.
+                - Invisible T0 offset added in Spectrometer-StationsT0.xxxx.dat (2nd number).
+                - Reconstruction modified to avoid cuts on trailing time in the pattern recognition algorithm.
+                - The code is backward compatible with 2014 data, providing the run number (RunNumber) in Spectrometer.conf.
+                - The configuration file for 2015 is Spectrometer.2015.conf. 
+                - Small modification in LKrDigiManager.cc.
+ 
+2015-08-24      Roberta Volpe (roberta.volpe@cern.ch)
+                rev. 627
+                - in RICH.2015.conf  slewing corrections disabled
+
+2015-08-24      Viacheslav Duk (Viacheslav.Duk@cern.ch)
+                rev. 626
+                - config/CHOD.2015.conf corrected
+
+2015-08-22      Viacheslav Duk (Viacheslav.Duk@cern.ch)
+                rev. 625
+                - new T0's for the CHOD added (run 3077 and run 3112; Cedar T0's from run 2596)
+
+2015-08-21      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 624
+                - MUV3 reconstruction update
+
+2015-08-17      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 618
+                - MUV3 online monitor update
+
+2015-08-16      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 617
+                - MUV3 reconstruction update
+                - UpdateXMLT0s.py script introduced
+
+2015-08-13      Tommaso Spadaro (tommaso.spadaro@cern.ch)
+                rev.615
+                - FillTimes method for centralized T0 evaluation implemented in LAVReconstruction.cc
+                - New time response histograms in LAVReconstruction.cc, LAVReconstruction.hh
+                - New script to translate output of standard T0 analysis into LAV-custom format LAVT0FileConversion.pl
+                - Treatment of Global time offset and Station-level time offset removed from LAVCalibration.cc
+                - Residual slewing parametrization slightly extended for both low-high and low-threshold only hits in LAVRecoHit.cc
+                - New T0 file for LAV run 2823 added, including parameters for slewing corrections for the 2015 threshold set (5-15 mV)
+                - LAV configuration file updated including station values for run 2823 (LAV.2015.conf)
+                - LAV-StationsT0.dat , LAV-LastSlotIDs.dat , LAV-NSlots.dat files updated
+
+2015-08-13      Chris Parkinson (chris.parkinson@cern.ch)
+                rev. 614
+                Bug fix in MUV3 Reconstruction
+
+2015-08-13      Chris Parkinson (chris.parkinson@cern.ch)
+                rev. 613
+                - Added plots to the Online Monitor:
+                - Event time stamp monitoring
+                - MUV3 hit fine time monitoring
+
+2015-08-11      Karim Massri (karim.massri@cern.ch)
+                rev. 612
+                - A major update of the NA62OnlineMonitor GUI:
+                  - SaveOnlineMonitorPlots flag added to config/NA62Reconstruction.conf in order to enable OM screenshots
+                  - NA62EventDisplay.cc is now dedicated to the NA62EventDisplay only.
+                  - NA62OnlineMonitor.cc containing the main() function for NA62OnlineMonitor added to the repository.
+                  - New executable "NA62OnlineMonitor" is now available.
+                  - Plots of T10 intensity and Argonion counts trends are now available.
+                - EvaluateStationsT0() (now EvaluateT0Offsets(TString)) extensively modified to produce also
+                  ROBoards T0s (depending on the input option), to be used for fast T0 evaluation
+                - Block and Trigger TimeStamps consistency is now checked in TDCBRawDecoder 
+                - Minor bugs fixes in StoreDIMBlock() and DecodeDIMBlock() functions
+                - Minor bugs fixes in NA62VRawDecoder
+                - Latest Cedar T0s added
+                - New RICH channel mapping (Monica Pepe)
+
+2015-08-11      Viacheslav Duk (Viacheslav.Duk@cern.ch)
+                rev. 611
+                - CHOD reconstruction minor update
+
+2015-08-04      Karim Massri (karim.massri@cern.ch)
+                rev. 609
+                - DIM Block decoding added (DecodeDIMBlock and StoreDIMBlock functions in
+                  src/NA62Reconstruction.cc, definition of the beam block structure in NA62Buffer.hh):
+                  - Experimental scalers and intensity on T10 are now available
+                  - Cedar DIM information is now available also for 2015 (backward compatible treatment)
+                - Readout-related information moved from NA62VReconstruction to NA62VRawDecoder
+                - fHDigiTimeRaw histos (yellow plots) are now filled for each RO board (rather than each station)
+                - fHDigiTimeRawFine histos (orange plots) and fHDigiTimeRawFineVsROChannel
+                  added to NA62VRawDecoder and to the OnlineMonitor
+                - Init() function added in NA62VRawDecoder in order to initialise common instances
+                - FillDigiTimes() function added in NA62VReconstruction in order to fill DigiTimeRaw histos
+                  regardless the presence of a reference detector
+                - Cedar OnlineMonitor refurbished:
+                  - First working example of EOB channel occupancy plots
+                  - Stability plots migrated from TH1 to TGraph
+                  - All similar plots are set to the same scale
+                - IRC and SAC channelIDs convention changed (channels i for low thresholds, 1i for high (i=0,3))
+                - Updated MUV0 and NHOD mapping (Mauro Piccini)
+                - Updated MUV1 channel mapping (Riccardo Aliberti)
+
+2015-07-31      Angela Romano (angela.romano@cern.ch)
+                rev. 607
+                - TDCBRawEncoder modified in order to accommodate 2015 NA62 data format
+                - fDataFormat is now parsed from config/NA62Reconstruction.conf
+
+2015-07-31      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 606
+                - MUV3 T0s for 2015 introduced
+
+2015-07-30      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 605
+                - New Cedar T0s: the T0 correction is applied at TDC level since run 2711
+
+2015-07-30      Viacheslav Duk (Viacheslav.Duk@cern.ch)
+                rev. 604
+                Minor modification of the CHOD reconstruction:
+                - new T0's for the CHOD are added (run 2666)
+                - new T0's are inserted in the ./config/CHOD.2015.conf
+
+2015-07-27      Roberta Volpe (roberta.volpe@cern.ch)
+                rev. 601      
+                - minor changes in filling the histos for RICH T0 computation and added two histos in RICHReconstruction
+                - in config:  RICH.2015.conf and preliminary time constants files obtained with 2015 run for RICH
+        
+2015-07-23      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 599
+                - Minor update to Cedar reconstruction: T0 computation migrated to NA62Analysis
+                - Cedar T0 constants for 2015
+
+2015-07-22      Karim Massri (karim.massri@cern.ch)
+                rev. 597
+                - Dynamical unwrapping of guest detectors (IRC,SAC,MUV0,...): now the host and the guest detectors
+                  can be defined from the NA62Reconstruction.conf file ["HostDetector" and "GuestDetectors" flags respectively]
+                - Event downscaling for Online Monitor improved (ContinuousReading only)
+                - NA62OnlineMonitor class added, for general information monitoring
+                - L0TP Online Monitor added in NA62OnlineMonitor
+                - Check on channelID consistency added in TDCBRawDecoder (and propagated to src/NA62Reconstruction.cc)
+                - EOB ASCII format decoder completely rewritten in TDCBRawDecoder
+                - MUV0 can now be read-out (2015 data only)
+                - config/NA62Reconstruction.2015.conf and config/SubDetector.2015.conf files added for 2015 configuration
+                - Temporary patch to correct the error bit biflip in the FPGA data block added in TDCBRawDecoder
+                - Small bug fixes in CHANTIReconstruction, CREAMRawDecoder and LKrDigiManager
+                - Small changes to Cedar and LKr OnlineMonitor
+                - Small changes to NA62VReconstruction
+                - 2015 CHOD channel mapping corrected (Mauro Piccini)
+                - NHOD and NewCHOD added in IRCReconstruction and in IRCOnlineMonitor
+
+2015-07-18      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 593
+                - Updated MUV3 EOB monitor
+
+2015-07-13      Riccardo Aliberti (riccardo.aliberti@cern.ch)
+                rev. 592
+                - A major update of MUV1 and MUV2 Recostruction and Online Monitor classes
+                - CREAMRawDecoder class added in RecoBase, to centralise the decoding of MUV1 and MUV2 raw data
+                - LKr-dedicated class previously named CREAMRawDecoder has now been renamed LKrCREAMRawDecoder,
+                  awaiting for migration to centralised CREAMRawDecoder (Karim Massri)
+
+2015-07-13      Dmitry Madigozhin (madigo@mail.cern.ch)
+                rev. 590
+                - RO/geometry channels conversion in config/Spectrometer.conf;
+                  unused T0 tables are removed.
+                - Two-format reading of T0 file in Spectrometer/src/SpectrometerParameters.cc.
+                  Now for Spectrometer both the T0 evluation tool output and the preliminary 
+                  T0 format are OK. A temporary constant time shift between the measured 
+                  visible T0 and the T0 related to current MC model is introduced, it 
+                  should be reconsidered together with any RT-dependence update.
+
+2015-07-11      Georgi Georgiev (georgi.stefanov.georgiev@cern.ch)
+                rev. 589
+                - Some histograms added in SACReconstruction
+                - Per burst and per run data in SACOnlineMonitor
+
+2015-07-10      Michal Koval (michal.koval@cern.ch)
+                rev. 588
+                - Spectrometer online monitor; major update:
+                  SpectrometerOnlineMonitor.cc/.hh
+                - Minor changes (OM compatibility):
+                  SpectrometerReconstruction.hh
+                  SpectrometerDigiManager.cc/.hh
+
+2015-07-10      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 585
+                - Updated MUV3 reconstruction
+                - TDCBRawDecoder: read the full MUV3-specific SL EOB data block
+
+2015-07-10      Mathieu Perrin-Terrin (mathieu.perrin-terrin@cern.ch)
+                rev. 581
+                - Add GigaTracker 2014 raw decoder and related classes
+                  (GigaTrackerTK*) to decode the merged data
+                - Modify the GigaTrackerReconstruction:
+                   - Different GTK configurations (1,2 or 3 stations) 
+                     are dealt with.
+                   - time walk correction are NOT implemented
+
+2015-07-09      Stefano Venditti (stefano.venditti@cern.ch)
+                rev. 580
+                - LKr Online Monitor update: low-level histograms added
+
+2015-07-02      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 578
+                - Updated MUV3 reconstruction
+
+2015-07-01      Viacheslav Duk (Viacheslav.Duk@cern.ch)
+                rev. 576
+                - minor modifications in the CHOD reconstruction
+
+2015-07-01      Viacheslav Duk (Viacheslav.Duk@cern.ch)
+                rev. 575
+                CHOD reconstruction modified:
+                 - new configuration (CHOD.2015.conf) is added (the 2014 one is in CHOD.conf and CHOD.2014.conf);
+                 - OnlineMonitor significantly updated;
+                 - histogram for T0 tools added;
+                 - T0 conversion file added (scripts/CHODT0FileConversion.sh);
+                 - IRC/SAC histograms removed;
+                 - NewCHOD and NHOD temporarily removed.
+
+2015-07-01      Monica Pepe (monica.pepe@pg.infn.it) 
+                rev. 574
+                - Histograms for RICH number of hits separated for PM/SC and Jura/Saleve 
+                  and added corresponding Nhits pad to RICHOnlineMonitor
+                - Standard RICH conf files renamed as RICH.2014.conf and RICH.2015.conf 
+                  (by default RICH.conf is the one for 2014)
+                - StationsT0 for beginning of run 2015 added to RICH.2015.conf
+                - Correct bug in RICHDigitizer.cc for definition of MC SuperCell ID
+                - TimeWindow set back to 5 in Cedar.conf
+
+2015-06-30      Karim Massri (karim.massri@cern.ch)
+                rev. 572
+                - QT libraries added to makefile to fix problem on batch
+
+2015-06-29      Karim Massri (karim.massri@cern.ch)
+                rev. 570
+                - L1TP, L2TP and DIM blocks handling added
+                - 2015 data block decoder updated in TDCBRawDecoder
+                - More stringent test on the trigger/slot timestamps consistency added in TDCBRawDecoder
+                - EOB timestamp is now correctly decoded in TDCBRawDecoder
+                - Data reading logic improved in NextChunk() function (src/NA62Reconstruction.cc)
+                - Check on the consistency of the Special Trigger timestamps added
+                - EvaluateTimeWindows added to automatically evaluate the RawEncoder parameters (NSlots, LastSlotID)
+                - OverwriteROSettings flag added in config/NA62Reconstruction.conf to automatically
+                  overwrite StationsT0/NSlots/LastSlotID files (disabled by default) 
+                - NSlots and LastSlotID can now be configured for each ROBoard
+                - Histograms for the T0 evaluation promoted to NA62VReconstruction
+                - Histograms for the T0 evaluation to be used for primitive generation added
+                  in NA62VReconstruction (to be filled in the SubDetectorReconstruction)
+                - PrimitiveHistosEnabled flag added in SubDetector config files
+                - LKr T0 evaluation histograms are now filled
+                - BurstReset function updated for all the SubDetectorOnlineMonitor classes
+                - LeadingTimeRawVsBurst tab added for all the SubDetectorOnlineMonitor classes
+
+2015-06-26      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 565
+                - Introduced a histogram to count processed events
+                - Minor fixes of MUV3 and Cedar reconstructions
+
+2015-06-26      Paolo Massarotti (massarotti@na.infn.it)
+                rev. 564
+                - Minor Change in CHANTIOnlineMonitor
+
+2015-06-25      Francesca Bucci (francesca.bucci@cern.ch) , Monica Pepe (monica.pepe@cern.ch) 
+                rev. 563
+                - Update RICHOnlineMonitor
+                - Set default flag for SuperCell reconstruction to 1 (enable)
+                - Modified RO channel map for Super Cell channels
+
+2015-06-23      Paolo Massarotti (massarotti@na.infn.it)
+                rev. 562
+                - Small bug fixed in CHANTIReconstruction
+
+2015-06-22      Paolo Massarotti (massarotti@na.infn.it)
+                rev. 560
+                - Minor change in CHANTIReconstruction
+                - CHANTIOnlineMonitor modified
+                - CHANTI_2015.conf added
+
+2015-06-21      Francis Newson (fon@hep.ph.bham.ac.uk)
+                rev. 557
+                - Add CedarAlignmentTrends tab to OnlineMonitor
+                to show Cedar alignment from previous bursts
+
+2015-06-21      Francesca Bucci (francesca.bucci@cern.ch), Monica Pepe (monica.pepe@cern.ch) 
+                rev. 556
+                - Add RICH_2015.conf containing the new map for the Super Cell channels.           
+                  RICH_2015.conf must be used to reconstruct data taken during the 2015 run.
+
+2015-06-19      Francis Newson (fon@hep.ph.bham.ac.uk)
+                rev. 555
+                - Revise CedarAlignment algorithm
+                - Update alignment plots in CedarOnlineMonitor
+
+2015-06-14      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 552
+                - extended functionality of Spectrometer Histo_Monitor flag
+
+2015-06-12      Karim Massri (karim.massri@cern.ch)
+                rev. 549-551
+                - Revision notifier added in the reconstructed output file
+                - Memory allocation error (bad_alloc) running r497 on some files (NARKD-76) fixed
+                - Unitialised fRecoEvent in MUV1Reconstruction (NARKD-98) fixed
+                - 25ns "Frame" renamed "Slot" to follow TDAQ naming conventions
+                - TEL62 Error frame handling added in TDCBRawDecoder
+                - DecoderErrors histograms are now filled separately for each ROBoard
+                - DecoderErrors correctly displayed in the Online Monitor
+                - Memory leak in LAV digitization fixed 
+                - Small bug in the StationsT0Evaluation fixed
+                - Log file with errors and warnings produced for each file if LogFileEnabled flag 
+                  in config/NA62Reconstruction.conf is set to 1 (disabled by default)
+
+2015-06-08      Dmitry Madigozhin (madigo@mail.cern.ch)
+                rev. 544
+                - SpectrometerDigiManager: Creation of the standard histogram for the 
+                  Spectrometer T0 evaluation (to be used in the T0 evaluation analysis tool).
+                - Spectrometer.conf: increasing of the time window (TWindow) in order to 
+                  catch all real signals even without T0 correction.
+
+2015-06-02      Karim Massri (karim.massri@cern.ch)
+                rev. 542
+                - 2015 data format handling added (completely backward compatible)
+                - Unified clock treatment for all the subdetectors (using ClockPeriod defined in TVEvent)
+                - NA62Buffer.hh/.cc and NA62BufferProto.hh added in RecoBase
+                  for common defines (e.g. Special trigger flags)
+                - fBinaryEvent and fSpecialTriggerEvent correctly initialised in RawEncoder classes
+                - fSpecialTriggerEvent correctly initialised in RawDecoder classes
+                - The following variables have been promoted to NA62VRawDecoder:
+                   - Int_t * fChannelRemap (former fChannelRemap[MAXROCH]);
+                   - Int_t * fChannelRO (former fChannelRO[MAXCH]);
+                   - TH1D *fHDecoderErrors;
+                   - Int_t fNROChannels;
+                   - Int_t fNWords;
+                  NA62VRawDecoder::ParseConfFile() is now called for all the rawdecoders (TDCB, CREAM, SRB)
+                - The following variables have been promoted to NA62VRawEncoder:
+                   - Int_t fDetID;
+                   - Int_t fNROBoards (former fNTel62s);
+                   - ULong_t fTimestamp;
+                   - Double_t* fROBoardsT0;
+                   - Int_t fNWords;
+                   - Int_t * fNWordsPerROBoard (former fNWordPerTel);
+                   - TSpecialTriggerEvent * fSpecialTriggerEvent;
+                   - BinaryEvent * fBinaryEvent;
+                - Destructors are now correctly handled in NA62VReconstruction, NA62VDigitizer,
+                  NA62VRawDecoder, NA62VRawEncoder, BinaryEvent and NA62VOnlineMonitor classes
+                - ResetVariables() added in NA62Reconstruction constructors
+                - RawEncoders and RawDecoders are now correctly treated in CleanUpSequence
+                - Refurbishment of NA62EventDisplay.cc
+                - Downscaling added for Online Monitor purposes:
+                   - It is applied for ContinuousReading=1 only;
+                   - It can be set in config/NA62Reconstruction.conf;
+                   - Events are randomly selected; SOB and EOB are always processed
+                - HAC and MUV0 added to the NA62 Online Monitor
+                - Small changes to CedarReconstruction
+                - The following bugs have been fixed:
+                   - LKr reconstruction crashes due to (int) -> (*double) conversion failure (NARKD-40)
+                   - Infinite loop in running on some data files (NARKD-73)
+                   - Reco crashes reading a list of files when a requested detector is not found in data (NARKD-88)
+                   - Memory corruption in RICH (NARKD-91)
+                - RawEncoder for IRC and SAC added
+                *** 122 files have been modified. Please check that everything works as expected! ***
+
+2015-05-28      Tommaso Spadaro (tommaso.spadaro@cern.ch)
+                rev. 538
+                - First implementation of IRC and SAC digitization and reconstruction.
+                - Modified NA62Reconstruction to allow IRC and SAC data input from CHOD FEE.
+                - Improved EOB decoding implementation in TDCBRawDecoder.
+
+2015-05-20      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 536
+                - DigiEvent pointer set in reco events
+
+2015-05-19      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 534
+                - Improved detection of EOF for raw
+
+2015-05-19      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 532
+                - Added timers for raw input
+                - Rewritten reading of raw files to improve performance on EOS
+                - Restored default StationsT0 for Cedar to previous value
+                - Minor change in MUV3.conf to simplify scripting for automatic T0 evaluation procedure
+                - Removed obsolete statements from NA62Reconstruction.cc
+
+2015-05-13      Karim Massri (karim.massri@cern.ch)
+                rev. 529
+                - fRawDecoder moved from SubDetectorReconstruction classes to NA62VReconstruction 
+                - fDigiEvent and fSpecialTriggerEvent moved from SubdetectorRawDecoder classes to NA62VRawDecoder
+                - Init function refurbished
+                - fDigiEvent correctly initilised in SubDetectorRawDecoder classes
+                - EvaluateStationsT0() added to NA62VReconstruction: now SubDetector-StationsT0.new files are automatically
+                  generated (for all subdetectors) if EvaluateStationsT0 is set to 1 in config/NA62Reconstruction.conf
+
+2015-05-11      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 527
+                - RICH: compatibility with the T0 evaluation tool
+
+2015-05-11      Karim Massri (karim.massri@cern.ch)
+                rev. 526
+                - The following variables have been promoted to NA62VReconstruction:
+                   - Double_t * fStationsMCToF;
+                   - Double_t * fStationsT0;
+                   - TString    fT0FileName;
+                   - TString    fStationsT0FileName;
+                   - Int_t      fNStations;
+                   - Int_t      fNChannels;
+                   - Int_t*     fNROBoardsPerStation;
+                   - Bool_t     fEnableT0;
+                   - Bool_t     fEnableStationsT0;
+                   - Int_t      fOnlineMonitorAccumulation;
+                  Subdetector code has been readapted accordingly for subdetectors already using such variables.
+                  *** 82 files have been modified. Please check that everything works as expected! ***
+                - NA62VReconstruction::ParseConfFile added to parse parameters common to all subdetectors
+                - Unified structure for Subdetector Config files introduced
+                - HAC.conf and MUV0.conf files added to repository
+                - Missing destructors added (bug NARKD-47 fixed)
+                - Missing SubDetector::ParseConfFile() added
+
+2015-05-05      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 522
+                - a simple MUV3 digitizer introduced, along with the detailed one
+                - a few minor fixes
+
+2015-04-30      Roberta Volpe (roberta.volpe@cern.ch)
+                rev. 516
+                - RICH: added the possibility to fill the 2D histo for T0 computation (with FillTimesEnabled) 
+                without creating and filling thousands of channel histograms
+
+2015-04-30      Roberta Volpe (roberta.volpe@cern.ch)
+                rev. 512
+                - RICH: minor changes in FillTimes() and in the reading of T0, 
+                to make them compatible to the new T0Computation tool
+
+2015-04-29      Karim Massri (karim.massri@cern.ch)
+                rev. 507
+                - CleanUpTimers added to CleanUpSequence
+                - Bug NARKD-84 fixed
+                - FillTimes() migrated from NA62Reco.cc to ProcessEvent() in NA62Reconstruction
+                - Small changes to CedarReconstruction
+
+2015-04-29      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 504
+                - Cedar & MUV3 reconstructions: compatibility with the T0 evaluation tool
+
+2015-04-28      Emilie Maurice  (emilie.maurice@cern.ch)
+                rev. 503
+                - Add procedure to evaluate the global T0 for KTAG
+                - Add KTAG globalT0 files
+
+2015-04-24      Karim Massri (karim.massri@cern.ch), Riccardo Fantechi (riccardo.fantechi@cern.ch)
+                rev. 500
+                - Bug in the LKr config file fixed
+                - Warning in LKrParameters added
+                - Change of names for the parameter files to follow the standard convention
+
+2015-04-22      Karim Massri (karim.massri@cern.ch)
+                rev. 499
+                - Bug in the SpecialTrigger treatment fixed
+                - Small changes in CedarReconstruction
+                - Small bug fixes (LAVOnlineMonitor, SpectrometerRawDecoder)
+
+2015-04-22      Marco Mirra (marco.mirra@cern.ch)
+                rev. 498
+                - CHANTI T0 config file small bug fixed  
+
+2015-04-22      Marco Mirra (marco.mirra@cern.ch)
+                rev. 497
+                - CHANTI config file added
+                - CHANTIReconstruction, CHANTIDigitizer and CHANTIChannel modified
+
+2015-04-21      Giuseppe Ruggiero (giuseppe.ruggiero@cern.ch)
+                rev. 494
+                New version of the spectrometer reconstruction: 
+                - New track fit using Kalman filter applied (Track.cc). 
+                - Measured integral B field introduced in the fit.
+                - Offsets to the nominal chamber positions according to the measurements
+                  done during the run introduced in SpectrometerGeometry.cc 
+                  (see EDMS documents on Straw Survey for reference).
+                - Offsets in view positions as extracted from muon run 1515 introduced
+                  in SpectrometerGeometry.cc .
+                - New T0 for run 1520 and T0 for run 1515.
+                - Pattern recognition algorithm modified to make it running on muon run 1515
+                  with MNP33 off (TrackCollector.cc).
+                - Output variables of a Spectrometer Candidate modified (see documentation 
+                  in Persistency).
+
+2015-05-20      Bob Velghe (bob.velghe@cern.ch)
+                rev. 490
+                - Small changes in GigaTracker reco. for Geant 4.10 compatibility. 
+
+2015-04-19      Karim Massri (karim.massri@cern.ch)
+                rev. 488
+                - T0 evaluation framework added: each subdetector can now be aligned 
+                  using times from a reference detector. The reference detector is defined
+                  in config/NA62Reconstruction.conf and can be different for each subdetector.
+                  SubDetector reconstructions with existing T0 treatment (Cedar, CHOD, MUV3, RICH)
+                  have been modified accordingly. SubDetector experts of the remaining subdetectors
+                  should add their code in SubDetector::FillTimes(Double_t).
+                  Please contact me if you have any doubt. 
+                - Timers for RawDecoders added
+
+2015-04-13      Riccardo Aliberti (riccardo.aliberti@cern.ch)
+                rev. 486
+                - Digitizer for MUV2 implemented
+                - MUV2 Global Offset Updated for run 1520
+
+2015-04-13      Karim Massri (karim.massri@cern.ch)
+                rev. 485
+                - Compatibility with new Geant4 version (and gcc 4.8) added
+                - OutputStage "OM" renamed as "Histos"
+                - Small bugs in src/NA62Reconstruction fixed
+                - Small bug fixes in CedarReconstruction and documentation added
+
+2015-04-13      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 483
+                - A critical bug fixed in MUV3 digitizer
+
+2015-04-12      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 481
+                - Cedar and MUV3 reconstructions compatible to the T0 computation tool
+
+2015-04-10      Karim Massri (karim.massri@cern.ch)
+                rev. 480
+                - problem with XROOTD compatibility when reading MC files on EOS/CASTOR (NARKD-64) fixed
+
+2015-04-02      Riccardo Fantechi (riccardo.fantechi@cern.ch)
+                rev. 475
+                - LKr reconstruction: patch to fix handling of calibration constants in MC data
+                 
+2015-03-31      Tommaso Spadaro (tommaso.spadaro@cern.ch) and Emanuele Leonardi (emanuele.leonardi@cern.ch)
+                rev. 474
+                - Added new classes and methods to perform "tracking" clustering algorithm (LAVTrackFinder.cc, LAVTrackFinder.hh, LAVReconstruction.cc)
+                - Added methods to retrieve soft cluster centroid error matrix and other soft cluster properties (LAVCluster.hh, LAVCluster.cc, LAVClusterMaker.cc)
+                - Added option to input a threshold value table (LAVDataCardMessenger.cc, LAVConfiguration.cc)
+                - Added methods to retrieve parameters of and apply residual slewing corrections (LAVCalibration.cc, LAVCalibration.hh, LAVRecoHit.cc, LAVRecoHit.hh, LAVReconstruction.cc)
+                - Promoted c++ variables to root types wherever possible in persistency classes
+                - Doxygen-compliant documentation added
+                - config: Added new T0 files for various runs, removed T0 runs with obsolete naming, added T0 file for MC
+                - config: Comments and new options available in LAV.conf
+
+2015-03-27      Riccardo Fantechi (riccardo.fantechi@cern.ch)
+                rev. 472
+                New version of the LKr reconstruction
+                - Standardize the naming of the files for the calibaration constants
+                - Add these files in config/
+                - New format for the entries in the calibration constant files
+                - Proper read of these files and setup of the good/bad cell indicator
+                - Two bugs fixes to eliminate 50 ns difference between cluster and seed time
+
+2015-03-19      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 471
+                - MUV3 reconstruction: T0 computation moved to a dedicated analyzer
+
+2015-03-17      Giuseppe Ruggiero (giuseppe.ruggiero@cern.ch)
+                rev. 468
+                New version of the Spectrometer Reconstruction added:
+                - Many changes done and bugs corrected in pattern recongition to fix sources of
+                  inefficiency in track reconstruction.
+                - 2-view chmaber hits added for pattern recognition.
+                - Tracks built using 3 and 4 chambers.
+                - T0 for run 1520 implemented.
+                - T0 files modified, placed in config and named according to the common prescription.
+
+2015-03-13      Viacheslav Duk (Viacheslav.Duk@cern.ch)
+                rev. 465
+                CHOD reconstruction is modified:
+                 - T0 and slewing corrections (run 1520) are added;
+                 - text file names are standartized and now are written from CHOD.conf;
+                 - documentation is added
+
+2015-03-13      Riccardo Aliberti (riccardo.aliberti@cern.ch)
+                rev. 460-463
+                -Updated Global Offsets
+                -Fixed bug in MUV2Reconstruction destructor preventing the reconstruction to run without the MUV2 in the requested detector list (NARKD-63)
+
+2105-03-12      Riccardo Aliberti (riccardo.aliberti@cern.ch)
+                rev. 459
+                - Updated MUV2 reconstruction
+                - MUV2Digitizer still not working!!!
+
+2015-03-11      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 455
+                - Updated MUV3 reconstruction and online monitor
+
+2015-03-06      Roberta Volpe (roberta.volpe@cern.ch)
+                rev. 449 
+                RICH:
+                - Added RICH T0 and SlewingCorrections files for run 1520       
+                - in NA62Reconstruction/config/RICH.conf:  GlobalTimeOffset and time corrections set for run 1520 
+                - modified NA62Reconstruction/RICH/src/RICHReconstruction.cc 
+                  and NA62Reconstruction/RICH/src/RICHChannel.cc for a slight change 
+                  in the evaluation of time corrections
+
+2015-03-05      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 447
+                - Reverted undesired changes to NA62Reconstruction.conf
+
+2015-03-05      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 446
+                - MUV3: updated reconstruction, T0 corrections for run 1520,
+                  EOB trigger primitive monitoring
+
+2015-03-04      David Hutchcroft (david.hutchcroft@cern.ch)
+                rev. 444
+                Added TEL62 decoder error monitoring histograms to the 
+                online monitor and the monitoring output for all detectors
+                using TEL62 readout.
+                Modified 38 files.
+
+2015-03-02      Emilie Maurice (emilie.maurice@cern.ch)
+                rev. 442
+                In NA62Reconstruction/config/Cedar.conf:
+                  - Correct Gloal time offset for run 1520
+                  - Standardize Cedar T0 and Slewing correction names
+
+2015-02-28      Emilie Maurice (emilie.maurice@cern.ch)
+                rev. 440                
+                In NA62Reconstruction/config/Cedar.conf:
+                  - Added correct T0 and Slewing correction parameters computed on run 1520
+
+2015-02-27      Karim Massri (karim.massri@cern.ch)
+                rev. 439
+                - xrootd libraries added into the Makefile, LD_PRELOAD removed from env.sh
+                  (due to recent incompatibilities with root)
+                - Unused libraries now removed by CleanUpSequence
+                - EOBFileEnabled flag introduced in config/NA62Reconstruction.conf (OFF by default)
+                - StartOfBurst() function now called after CleanUpSequence
+                - Issue involving IRC,SAC,MUV0 & HAC digitizations (NARKD-1) addressed
+                - Small bug fixes
+
+2015-02-27      Emilie Maurice (emilie.maurice@cern.ch)
+                rev. 438                
+                In NA62Reconstruction/config/Cedar.conf:
+                  - Added new T0 and Slewing correction parameters computed on run 1520 (use rev 440)
+
+2015-02-25      Francesca Bucci (francesca.bucci@cern.ch) and Monica Pepe (monica.pepe@cern.ch)
+                rev. 437                
+                In NA62Reconstruction/config/RICH.conf:
+                  - Added flag for SuperCell reconstruction
+                  - Added different time offset to be set depending on run number
+                In NA62Reconstruction/config:
+                  - Added new T0 and Slewing correction parameters computed on run 1272.
+                Minor bugs, including the one concerning online monitoring, fixed.
+
+2015-02-23      Angela Romano (angela.romano@cern.ch)
+                rev. 435
+                - Binary option to run the encoding tool included in NA62Reconstruction.conf
+
+2015-02-20      Angela Romano (angela.romano@cern.ch)
+                rev. 433
+                - small bug fixed in doxygen documentation in TDCBRawEncoder.hh 
+                - debugging printout introduced in previous revision removed from LAVReconstruction.cc
+
+2015-02-20      Angela Romano (angela.romano@cern.ch)
+                rev. 431
+                - NA62VRawEncoder class - mother class of NA62 Encoding tool
+                - TDCBRawEncoder daughter class performing encoding of Digi (from MC and DATA) to special binary format for L1 trigger tests
+                - Binary Event class defining the components needed to assemble the Global NA62 data format
+                - SubDetRawEncoder specific classes calling NA62VRawEncoder 
+                - Some documentation of encoding is provided in TDCBRawEncoder in doxygen format + talks
+                  in Software meetings (2015-02-03 and 2014-12-09)
+ 
+2015-02-19      Karim Massri (karim.massri@cern.ch)
+                rev. 429
+                - Bug introduced in rev.422, affecting the reading of some files (NARKD-45) fixed
+                - small bug fixes
+
+2015-02-16      Bob Velghe (bob.velghe@cern.ch)
+                rev. 428
+                - Major modifications of the GigaTracker reconstruction,
+                  - Corrected a bug in the Digitalization,
+                  - Prepared the infrastructure for the RAW decoder,
+                  - Added a new GigaTrackerParameters class, proxy for the future DB. 
+                - The GigaTracker parameters are now temporarily stored in a sqlite3 DB.
+
+2015-02-14      Karim Massri (karim.massri@cern.ch)
+                rev. 426
+                - Truncated files handling (+ warning printout)
+                - Spectrometer SOB/EOB treatment added
+                - Bug inducing a crash while reading a list of empty files (NARKD-42) fixed
+
+2015-02-12      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 424
+                - Can comment out lines in input lists using "#" or "!"
+                - Bug fixed by Karim: NA62Reco crashed if run on a list with the first file empty
+
+2015-02-10      Karim Massri (karim.massri@cern.ch)
+                rev. 422
+                - Input files are now read in chunks of events.
+                  The buffer size has been decreased,
+                  with consequent virtual memory saving.
+                  This has also solved the problem of frequently skipped files.
+                - Small bug fixes
+
+2015-02-10      Matthew Moulson (Matthew.Moulson@cern.ch)
+                rev. 421
+                - Added option to save digis together with recohits
+                  (disabled by default)
+
+2015-01-26      Karim Massri (karim.massri@cern.ch)
+                rev. 418
+                - Small bug fixed in the xroot protocol handling
+                - Small changes in CedarReconstruction and CedarOnlineMonitor
+                - Small bug fixes
+
+2015-01-26      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 416
+                - MUV3 bug fix
+
+2015-01-23      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 415
+                - MUV3 end-of-burst monitor added
+
+2015-01-23      Karim Massri (karim.massri@cern.ch)
+                rev. 413
+                - Small bug fixes in TDCBRawDecoder
+
+2015-01-22      Tommaso Spadaro tommaso.spadaro@cern.ch
+                rev. 409-411
+                - New revision of the LAV Reconstruction code:
+                - New TRecoLAVHit generated, including up to 4 edges per block
+                - New TRecoLAVDigi generated, compliant with TDCB general scheme
+                - New TRecoLAVCandidate generated, see below
+                - News in the LAV.conf configuration file:
+                - Block map definition changed
+                - Threshold management:
+                - Allow global threshold setting or block-by-block threshold setting from input file
+                - T0 subtraction management
+                - Allow global T0's per station and/or block-by-block T0 from input file
+                - Specific T0 files have been inserted for different LAV threshold setting
+                - LAV clustering grouping nearby fired block per station can be switched on
+
+2015-01-22      Karim Massri (karim.massri@cern.ch)
+                rev. 407
+                - Dynamic warnings handling (from config file)
+                - Dynamic bad events handling (from config file)
+                - InputBranches/OutputStages handling optimisation
+                - "OM" added as possible OutputStage
+                - List of skipped input files is created when skipping files
+                - L0TP information handling added
+                - Pointer to the MainReco added in the SubDetector classes
+                - Cedar T0 corrections updated (for runs > 1040)
+                - Small changes in CedarReconstruction
+                - NotifyData.pl added to repository
+                - Small bug fixes 
+
+2015-01-22      Giuseppe Ruggiero (giuseppe.ruggiero@cern.ch)
+                rev. 405
+                - Spectrometer reconstruction working both on data and mc.
+                  This reconstruction can be used only to reconstruct straw-merged data from run 1348 
+                  (a subsample can be found in /merger3/straw/straw_cdr/*01348*.dat).
+                - This reconstruction is a first simplified version useful to reconstruct 
+                  tracks with 3 chamber configuration (1-2-4). It makes use of 3 chambers 
+                  also in mc.
+                - SRBRawDecoder added. The data decoding is based on the 2014 straw data format.
+                - file Spectrometer/chanconversion.txt used to map hardware and software channels.
+                - file Spectrometer/strawt0.txt used for t0s. This is a preliminary version
+                  of t0s' tested only on run1348.
+                - Spectrometer.conf file modified. The first line controls the type of file:
+                  it could be "data" (default) or "mc".
+                - The CHOD must be present in NA62Reconstruction.conf when reconstructing data
+                  (it must be placed before Spectrometer in the detector sequence). 
+                - An R-T dependence extracted from Garfield simulation is used when reconstructing data.
+                - Two digitization versions can be used when running on mc: 
+                  1) full simulation of the analog signal (see rev.324)
+                  2) parametric digitization based on empirical R-T curves from Garfield simulation.
+                  Default is 2. The following procedure is needed to use 1:
+                  Comment line 10 in SpectrometerDigiManager.cc
+                  Comment line 9 in SpectrometerDigitizer.hh
+                  re-compile.
+                - A naive least squared fit assuming a uniform magnetic field in MNP33 is implemented. 
+                  The fit is not optimized and will be re-written in future releases.
+                - The relevant track variables for the analysis are:
+                  fCandidates.fNHits (Number of straw hits per reconstructed track),
+                              fTime  (Trailing time of a track)
+                              fFastMomentum (momentum magitude times track charge before fit)
+                              fFastThetaX,fFastThetaY (slopes of the track before fit at the origin (Z=0))
+                              fPositionLoose (position of the track at the origin after the fit)
+                              fMomentumLoose (4-momentum of the track after the fit)
+                              fChi2Loose (chi2 of the fit)
+                              fChargeLoose (charge of the track)
+                  This output format is temporary and will be modified in future releases. 
+                - Minor changes in RecoBase/src/TDCBRawDecoder.cc to allow the decoding of the straw data. 
+
+2014-12-04      Riccardo Fantechi (fantechi@cern.ch)
+                rev. 402
+                - Correct SpecialTrigger handling for the TEL EOB data
+                - Increase data buffer to 800Mwords
+
+2014-11-28      Paolo Massarotti (Paolo.Massarotti@cern.ch)
+                rev. 400
+                - CHANTI config file minor change
+                - Minor change in CHANTIReconstruction
+
+2014-11-28      Paolo Massarotti (Paolo.Massarotti@cern.ch)
+                rev. 398
+                - CHANTI Channel map for rawdecoding modified
+                - CHANTI Threshold file added
+                - CHANTIChannel added
+                - CHANTI Reconstruction refurbished
+                - OnlineMonitor update
+
+2014-11-26      Francesca Bucci (Francesca.Bucci@cern.ch) Monica Pepe (Monica.Pepe@cern.ch)
+                rev. 393
+                - Channel map for rawdecoding
+                - Introduction of SuperCells in RICHDigitizer and RICHReconstruction
+                - Preliminary T0s and slewing correction parameters
+                - OnlineMonitor update
+
+2014-11-19      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 391
+                - Bug fix in MUV3 reconstruction
+
+2014-11-17      Viacheslav Duk( Viacheslav.Duk@cern.ch)
+                rev. 390
+                - NewCHOD, SAC and IRC are added;
+                - new T0's and their evaluation are added;
+                - several histograms added and updated.
+
+2014-11-07      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 384
+                - Updated MUV3 reconstruction and monitoring
+                - Other minor improvements
+
+2014-11-01      Karim Massri (karim.massri@cern.ch)
+                rev. 382
+                - Frame TS bit overflow fixed in TDCBRawDecoder
+                - Sanity checks and debugging tools added in TDCBRawDecoder
+                - Small bug fixes in src/NA62Reconstruction.cc 
+                - Small bug fixes in TDCBBuffer (Matthew Moulson)
+                - Improved Cedar T0s and Slewing corrections
+                - Small changes in CedarReconstruction
+                - Small bug fixes
+
+2014-10-30      Riccardo Fantechi, Giuseppe Ruggiero
+                rev. 380
+                - Complete LKr decoding and reconstruction
+
+2014-10-25      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 379
+                - Anomalous RAM consumption by Cedar slewing corr. evaluation: fixed
+
+2014-10-25      Karim Massri (karim.massri@cern.ch)
+                rev. 378
+                - Small bug fixed in NA62Reconstruction
+
+2014-10-24      Karim Massri (karim.massri@cern.ch)
+                rev. 377
+                - Improved FrameID handling in TDCBRawDecoder
+                - Sanity checks and debugging tools added in NA62Reconstruction
+                - WARNINGs (from NA62Reconstruction and TDCBRawDecoder)
+                  redirected to stderr
+                - Improved monitor for the virtual memory usage
+                - PatchOffsetEnabled set OFF (in config/NA62Reconstruction.conf)
+                - Small changes in CedarReconstruction
+                - Small changes in CHODReconstruction
+                - Small bug fixes
+
+2014-10-23      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 376
+                - Improved MUV3 online monitor
+
+2014-10-21      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 375
+                - Updated MUV3 reconstruction and monitoring: T0 computation
+                - Minor bug fixes and documentation updates
+
+2014-10-20      Karim Massri (karim.massri@cern.ch)
+                rev. 374
+                - Patch to temporarily fix the bug in the merger
+                  added in NA62Reconstruction
+                - Sanity checks and debugging tools added in TDCBRawDecoder
+                - Improved input file handling in NA62Reconstruction
+                - Cedar T0 and Slewing corrections added
+                - Update of the Cedar Reconstruction
+                - Update of the Cedar Online Monitor
+                - Small bug fixes
+
+2014-10-19      Viacheslav Duk (Viacheslav.Duk@cern.ch)
+                rev. 373
+                - CHOD reconstruction: cut on Nhits removed
+                   (candidates are written for Nhits < fNMaxSlabs)
+                - CHOD reconstruction: patch for the 2014 Run added
+                   (ID=40 swap between low and high thresholds)
+
+2014-10-15      Francis Newson (fon@hep.ph.bham.ac.uk)
+                rev. 372
+                - Fixed chi2 fit in Cedar Online Monitor
+                - Add contour intersection in Cedar Online Monitor
+
+2014-10-15      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 371
+                - Updated MUV3 reconstruction and monitoring
+
+2014-10-14      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 369
+                - Updated MUV3 reconstruction and monitoring
+                - Minor bug fixes
+
+2014-10-13      Karim Massri (karim.massri@cern.ch)
+                rev. 367
+                - EOB handling corrected for 2014
+                - New EOB variables added in CedarReconstruction
+                - Update of the Cedar Online Monitor
+                - Dynamic configuration of the Cedar Online Monitor
+                - Small bug fixes
+
+2014-10-12      Karim Massri (karim.massri@cern.ch)
+                rev. 365
+                - TDCBRawDecoder corrected for 2014 Data Format
+                - Cedar Special Trigger handling
+                - Cedar EOB handling (Ryan Page)
+                - LAV 2012 Online Monitor temporarily modified for 2014 (Mauro Raggi)
+                - Small bug fixes
+
+2014-10-11      Francis Newson (fon@hep.ph.bham.ac.uk)
+                rev. 363
+                - Small bugfixes
+
+2014-10-11      Francis Newson (fon@hep.ph.bham.ac.uk)
+                rev. 362
+                - Add DIM support to makefiles
+                - Add DIM communication to CEDAR DCS
+                - Add alignment plots to CEDAR Online Monitor
+
+2014-10-08      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 361
+                - MUV3 basic online monitor and 2014 mapping
+
+2014-10-06      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 359
+                - MUV3 digitization & reconstruction update
+                - Minor improvements/bug fixes elsewhere
+
+2014-09-30      Karim Massri (karim.massri@cern.ch)
+                rev. 357
+                - Bugs preventing the Online Monitor to work fixed
+                - 2014 Cedar Online Monitor
+
+2014-09-25      Karim Massri (karim.massri@cern.ch)
+                rev. 356
+                - Dynamic config file names (included in config/NA62Reconstruction.conf)
+                - Bug fixed in TDCBRawDecoder
+                - MUV0 and HAC added as empty modules
+                - xrootd protocol handling (tested on EOS and CASTOR both for MC and data)
+                - Small bugs fixed in NA62Reconstruction
+
+2014-08-18      David Hutchcroft (David.Hutchcroft@cern.ch)
+                rev. 354
+                - Added timing information to each digi and reco step
+                - printed at the end of the log file
+
+2014-07-28      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 353
+                - Fix number of RO channels in Cedar.conf
+
+2014-07-28      Francis Newson (fon@hep.ph.bham.ac.uk)
+                rev. 352
+                - Update CedarDigitization to handle MC productions
+                  with quantum efficiency already applied
+
+2014-07-18      David Hutchcroft (David.Hutchcroft@cern.ch)
+                rev. 349
+                - Made the Cedar digitisation parameters setable in the conf file
+                - The enviroment variable CEDARCONFIG allows the default config/Cedar.conf 
+                  to be overridden with a user chosen file
+                - Cedar.conf and Cedar.2012.conf are updated with the new parameters
+                - Cedar.conf is updated with the new light box channel mapping
+
+2014-06-03      Monica Pepe
+                rev. 347
+                - Few fixes for compatibility with latest RICH MC version
+                - Implementation of RICH online monitor
+                - Fixed RICH histograms filling for MultiRing fit option
+
+2014-05-13      Viacheslav Duk (Viacheslav.Duk@cern.ch)
+                rev. 344
+                - a small bug in the CHOD reconstruction fixed (thanks to Bob and Karim)
+                  concerning hit association in the CHOD candidate
+
+2014-04-17      Bob Velghe (bob.velghe@cern.ch)
+                rev. 336
+                - Fix the units used in the GigaTracker reconstruction
+                  (GeV/c -> MeV/c).
+                - GigaTracker reconstruction now return the position of 
+                  the hits in the NA62 reference system.
+
+2014-04-14      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 334 
+                - Removed a check for the existence of the input file
+                  in NA62EventDisplay; it was preventing it to work
+                  on files accessed remotely with -i option
+                - Fixed workaround for compatiblity with old MC and reco 
+                  in Spectrometer digitization. It was not working on
+                  MC files produced with the latest revision. I still
+                  shows memory instability reading old MC files, but
+                  there is not much that can be done, since the MCHits
+                  are different
+
+2014-04-14      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 331
+                - Cedar: ChannelID introduced
+
+2014-04-01      Francesca Bucci (Francesca.Bucci@cern.ch)
+                rev. 327
+                - Temporary patch for compatibility with NA62MC rev.326
+
+2014-03-31      Viacheslav Duk (Viacheslav.Duk@cern.ch)
+                rev. 325  
+                 - CHOD digitization added
+                 - CHOD reconstruction slightly modified (now it works both for data and MC)
+
+2014-03-30      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 324 
+                - Spectrometer digitization as developed on 2010 test beam data:
+                  - the parametric version is no longer available (no time to reimplement it)
+                  - the input to the reconstruction matches expectations
+                  - time offsets are handled properly
+                  - there is a workaround for channel numbering compatiblity with old MC and reco
+                  - several configuration parameters in Spectrometer.conf
+                  - ready for overlay (few tests to perform, but working)
+                - Some modification to the input stage of Spectrometer reconstruction
+                  to cope with digitization:
+                  - removed handling of fake digis
+                  - introduced handling of T0
+                - Added a tentative channel map for readout electronics
+                - Added T0s in Spectrometer.conf
+                - Introduced standard variables in NA62VDigitizer and NA62VReconstruction to properly handle
+                  time offsets from MC and data (for detector stations and channels):
+                  fStationsMCToF, fStationsT0, fT0
+                  They should not be redefined, but used
+                - Introduced a new debugging tool:
+                  debug printouts can be activated at compilation
+                  time in a standard way. For example:
+                  make MDEFINES="DEBUG=AllRecoSpectrometerDigi"
+                  See SpectrometerDigitizer.cc to see how to use it
+                - Added dependencies to the main makefile
+                - Fixed a bug in ViewHitCollector introduced in rev 297
+
+2013-03.28      Riccardo Aliberti (riccardo.aliberti@cern.ch)
+                rev. 321
+                - MUV1, MUV2 Digitizer for Overlay MC
+                Warning: Files with the Geant4 9.5p01 time bug cannot be reconstructed anymore
+
+2014-03-14      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 315
+                - Cedar: compatibility with NA62MC revision 314
+
+2014-03-06      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 312
+                - Cedar: compatibility with NA62MC revision 311
+
+2014-02-23      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 309
+                - Cedar reconstruction is compatible with the 2014 configuation
+
+2014-02-12      Antonio Cassese (cassese@fi.infn.it)
+                rev. 308
+                - Small bug fixing in RICHDigitizer.cc
+                - Multi ring reconstruction implemented 
+                  in RICHReconstruction.cc and
+                  RICHReconstruction.hh
+                - Small bug fixing in RICHReconstruction.cc
+                - Added new variables in RICH.conf for multi
+                  ring reconstruction
+
+2014-01-23      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 301
+                - Added more meaningful messages in case of
+                  missing configuration files
+                - Removed a reduntant (and not always working)
+                  check of the existence of input files
+
+2014-01-22      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 299
+                - Fixed interface update in RawDecorders to comply
+                  with the recently modified Persistency
+
+2014-01-14      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 297
+                - Few modifications for compatibility with the latest
+                  revision of NA62MC, in preparation for the release of
+                  MC Overlay
+
+2013-07-01      Antonio Cassese (antonio.cassese@cern.ch)
+                rev. 281
+                - RICH reconstruction refurbished
+
+2013-06-18      Karim Massri (karim.massri@cern.ch)
+                rev. 279
+                - Bug fixed in CleanUpSequence function in src/NA62Reconstruction.cc
+                - Small corrections in src/NA62Reconstruction.cc
+                - Reset of some histograms added in Cedar Online Monitor.
+
+2013-06-14      Roberto Piandani (roberto.piandani@cern.ch)
+                rev. 278
+                - GNUmakefile modified to compile the NA62Reconstruction on SLC5 with Geant 9.5.p02
+
+2013-05-30      Roberto Piandani (roberto.piandani@cern.ch)
+                rev. 276
+                - GNUmakefile modified to compile the NA62Reconstruction both in SLC6 and SLC5
+
+2013-05-23      Karim Massri (karim.massri@cern.ch)
+                rev. 274
+                - StartOfBurst/EndOfBurst structure introduced in NA62EventDisplay.cc
+                - small corrections in TDCBRawDecoder. 
+                - BurstReset() function in NA62VOnlineMonitor improved.
+                - InitHistogram() migrated to Init() for subdetector Reconstruction classes
+                - new Cedar Online Monitor.
+                - small changes in CedarReconstruction.
+
+2013-05-09      Viacheslav Duk (Viacheslav.Duk@cern.ch)
+                rev. 272
+                - CHOD reconstruction updated, TOT+T0 corrections are implemented in the CHOD candidate time
+                - new CHOD channels are arranged in a proper way. By default, new CHOD hits are not written.
+                  To include them one should uncomment lines 440-443 (low threshold) and/or lines 458-461 (high threshold)
+                  in the CHODReconstruction.cc
+
+2013-04-19      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 270
+                - Cedar: PMT QE simulation moved to the Digitizer level
+
+2013-04-19      Mario Vormstein (mario.vormstein@cern.ch)
+                rev. 268
+                - MUV2: Timing now considered in cluster building
+                + Time difference between orientation stored in fClusterPlaneTimeDiff
+
+2013-04-02      Mario Vormstein (mario.vormstein@cern.ch)
+                rev. 264
+                - MUV2
+                + Clusters are now identified, one fCandidate represents one cluster
+                + Method configured in config/MUV2.conf 
+                  + StopAfterEmptyChannels defines the amount of empty channels after
+                    the cluster finding method stops                     
+                + Major code cleanup in MUV2Reconstruction.cc
+
+2013-02-27      Giuseppe Ruggiero (giuseppe.ruggiero@cern.ch)
+                rev. 262
+                - Small bug in LKrReconstruction.cc fixed. 
+                - The central coordinate of the cells of the LKr is saved
+                  in the output of the NA62Reconstruction (fPosition) if 
+                  the storing of hits of the LKr is enabled (NOT the default).
+                - The default for the LKr.conf file are:
+                  - DataType = mc
+                  - ZeroSuppressionAlgorithm = 0
+                  - OutputHits = 0
+ 
+2013-02-26      Giuseppe Ruggiero (giuseppe.ruggiero@cern.ch)
+                rev. 261
+                - A new version of the LKr digitization based on the CPDs readout 
+                  electronic implemented. It allows a proper LKr reconstruction 
+                  also for MC events.
+                - New external ASCII files have been added for a proper handling 
+                  of the MC cells in the reconstruction.
+                - New lines in the config files added:
+                  DataType = mc or data
+                  ZeroSuppressionAlgorithm= 0 or 1
+                  (1 corresponds to the algorithm used during the technical run).
+                  OutputHits= 0 (only reconstructed clusters saved)
+                  OutputHits= 1 (reconstructed clusters and digitized hits saved).
+
+2013-02-21      Mario Vormstein (mario.vormstein@cern.ch)
+                rev. 258
+                - MUV2Reconstuction
+                  + Small bug in calculation of scintillator positions fixed
+                  + Bug fixed that prevented running on MC
+
+2013-02-14      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 255
+                - A major update of the CEDAR reconstruction
+
+2013-01-21      Giuseppe Ruggiero 
+                rev. 250
+                - New version of the LKr reconstruction.
+                - MUV3 hits added in the output file (leading time only)
+
+2012-12-23      Antonio Cassese (antonio.cassese@cern.ch)
+                rev. 248
+                - Small changes in the CHOD Reconstruction and config file in order
+                  to decrease the number of candidates
+
+2012-12-21      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 247
+                - Updates/cleanup of the CEDAR reconstruction
+
+2012-12-17      Karim Massri (karim.massri@cern.ch)
+                rev. 245
+                - Allocated memory optimisation (RawDecoder classes, ChannelRemap & ChannelRO objects changed)
+                - Basic time selection in CedarReconstruction
+                - New histos in CedarReconstruction
+
+2012-12-14      Mario Vormstein(mario.vormstein@cern.ch)
+                rev. 243 
+                MUV1:
+                - MUV1Digitizer: Energy sum explict calculation added
+                - MUV1Reconstruction: Plot "Sum of photo electrons" added
+                MUV2:
+                - MUV2OnlineMontitor: Plots for Leading and Trailing times added
+                                      Plots Time over threshold vs. Channel added
+                - MUV2Recoonstruction: Support of low and high threshold added                  
+                - MUV2.conf: New channel mapping for low and high thresholds    
+
+2012-12-10      Antonino Sergi (Antonino.Sergi@cern.ch)
+                - SpectrometerReconstruction enabled to run on data 
+
+2012-12-07      Karim Massri (karim.massri@cern.ch)
+                rev. 240
+                - RO mapping and T0 corrections available also in Digitizer classes (MC crash fixed)
+                - Small bugs fixed in TDCBRawDecoder
+
+2012-12-05      Karim Massri (karim.massri@cern.ch)
+                rev. 238
+                - Bug affecting the time reconstruction fixed in TDCBRawDecoder
+                - GetChannelRO function added in TDCBRawDecoder
+                - Minor changes in CedarReconstruction
+                - SOB and EOB functions renamed StartOfBurst and EndOfBurst respectively
+
+2012-12-02      Karim Massri (karim.massri@cern.ch)
+                rev. 237
+                - SOB and EOB functions introduced in NA62Reconstruction and in the subdetector classes
+                - CedarReconstruction & CedarOnlineMonitor update
+
+2012-11-30      Sergey Podolsky (siarhei.padolski@cern.ch)
+                rev. 236
+                - Saving of the Monte-Carlo tracks has been added to output of the Reconstruction
+
+2012-11-26      Karim Massri (karim.massri@cern.ch)
+                rev. 233
+                - BurstReset function added in NA62VOnlineMonitor
+                - Small bugs fixed in NA62Reconstruction
+                - Minor changes in CedarReconstruction & CedarOnlineMonitor
+
+2012-11-25      Karim Massri (karim.massri@cern.ch)
+                rev. 232
+                - Bugs fixed in NA62Reconstruction
+                - Minor changes in CedarReconstruction
+
+2012-11-23      Karim Massri (karim.massri@cern.ch)
+                rev. 230
+                                                                - Flag to enable/disable sector from Cedar.conf file added
+                - new data-driven T0 correction CedarReconstruction added in Cedar.conf
+                - new histos added in CedarReconstruciton and in CedarOnline Monitor
+                - GetROindex function added in CedarReconstruction
+                - Small bugs fixed in CedarReconstruction
+
+2012-11-21      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 229
+                - Updated documentation in config/NA62Reconstruction.conf
+
+2012-11-20      Karim Massri (karim.massri@cern.ch)
+                rev. 228
+                - Bug in CedarDigitizer fixed
+                - small bugs fixed in NA62Reconstruction
+
+2012-11-20      Bob Velghe (bob.velghe@cern.ch)
+                rev. 227
+                - Correction of the geometery: The referance frame for the hits positions was shifted
+                - New occupancy plots added to the GigaTracker Monitor 
+
+2012-11-20      Karim Massri (karim.massri@cern.ch)
+                rev. 225
+                - Init(NA62Reconstruction*) function added in derived classes of NA62VReconstruction
+                - InitDetectorInfo() added in NA62Reconstruction
+                - T0 corrections implemented in CedarReconstruction
+                - Small bugs fixed in NA62EventDisplay & Cedar Online Monitor
+
+2012-11-19      Karim Massri (karim.massri@cern.ch)
+                rev. 224
+                - Small improvements in Cedar Online Monitor
+                - Small bugs fixed
+                - MUV3 Online Monitor (S. Venditti)
+
+2012-11-18      Karim Massri (karim.massri@cern.ch)
+                rev. 223
+                - New Cedar Online Monitor
+                - AddCanvas function added in NA62VOnlineMonitor
+
+2012-11-17      Karim Massri (karim.massri@cern.ch)
+                rev. 221
+                - New Cedar Online Monitor & Reconstruction
+                - Minor bugs fixed
+
+2012-11-16      Antonio Cassese (cassese@fi.infn.it)
+                rev. 220
+                - Added histograms in the CHOD online monitor
+                - New CHOD mapping
+                - Fixed small bugs in CHOD reconstruction
+
+2012-11-16      Mauro Raggi (mauro.raggi@cern.ch)
+                rev. 218
+                - LAV Online monitor updated
+                - Small bugs fixed in LAV reconstruction
+                - Changed refresh rate in Online Monitor
+
+2012-11-16      Antonio Cassese (cassese@fi.infn.it)
+                rev. 217
+                - Fixed a small bug in TDCBRawDecoder
+
+2012-11-15      Paolo Massarotti
+                rev. 215
+                - Bugs fixed in ChantiReconstruction.cc (P. Massarotti)
+
+2012-11-15      Antonino Sergi
+                - Fixed small bugs in LAVReconstruction and TDCBRawDecoder 
+
+2012-11-15      Mauro Raggi (mauro.raggi@cern.ch)
+                rev. 213
+                - First version of LAV Online monitor
+                - LAV channel map for all 12 stations
+
+2012-11-14      Tommaso Spadaro (tommaso.spadaro@cern.ch)
+                rev. 212
+                - New version of LAVRawDecoder, to produce wanted TLAVDIGI format in output. 
+                - Added a new method to LAVNAme in LAVReconstruction
+                - Added setting to ChannelID for LAVReconstruction.cc
+
+2012-11-14      Karim Massri (karim.massri@cern.ch)
+                rev. 210
+                - New pointer to the mother object NA62Reconstruction introduced in NA62VReconstruction and derived classes
+                - Missing RawDecoder classes added (IRCRawDecoder, SpectrometerRawDecoder, ...)
+                - minor bugs fixed in CedarReconstruction and in NA62Reconstruction
+
+2012-11-13      Antonio Cassese (cassese@fi.infn.it)
+                rev. 209
+                - Modified NA62Reconstruction fixing a bug that appears only if NFiles>1
+                - Modified CHOD.conf
+                - Added class CHODChannel
+                - Implemented reconstruction for CHOD
+
+2012-11-13      Mario Vormstein
+                rev. 206
+                MUV1:   - Added protection against bad times in MUV1Digitizer
+                        - Added switch enable/disable Birks correction in MUV1.conf
+                MUV2:   - Digitization added
+                                + Parametrization of optic simulation used to calculate number of photo electrons in each channel
+                                + First version of time over threshold method implemented
+                        - Reconstruction added
+                                + Shower width in MUV2 is calculated
+                        - Added protection against bad times in MUV2Digitizer
+                        - MUV2.conf 
+                                + Added switch enable/disable Birks correction
+                                + Added TDC channel map
+                        - Added channel occupancy to online monitor 
+                NA62Reconstruction.cc:
+                        - InitRecoRawTable MUV changed to MUV1, MUV2 and MUV3
+                TDCBRawDecoder.cc:
+                        - MUV conf changed to MUV1 conf, MUV2 conf and MUV3 conf
+                                
+2012-11-11      Paolo Massarotti
+                rev. 205
+                - Bugs fixed in ChantiReconstruction.cc and .hh (P. Massarotti)
+                - Bugs fixed in CedarReconstruction.cc (A.Sergi)
+2012-11-11      Paolo Massarotti
+                rev. 204
+                - New version of CHANTIReconstruction
+                - Change in CHANTIGeometry
+
+2012-11-09      Giuseppe Ruggiero
+                rev. 202
+                - Bugs fixed in SMLRawDecoder.cc (R. Fantechi)
+                - Small changes in LKrReconstruction.cc
+
+2012-11-09      Angela Romano (angela.romano@cern.ch)
+                rev. 200
+                - Small bug fixed in CedarReconstruction
+
+2012-11-09      Karim Massri (karim.massri@cern.ch)
+                rev. 199
+                - Cedar RecoHit added in CedarReconstruction
+                - Cedar Techinal Run histograms added
+                - Cedar Channel Remapping at config file level
+
+2012-11-08      Antonio Cassese (cassese@fi.infn.it)
+                rev. 198
+                - A small bug fixed in MUV3Reconstruction
+                - Added global_lkr.gmk
+
+2012-11-08      Antonio Cassese (cassese@fi.infn.it)
+                rev. 197
+                - Added NA48 fortran reconstruction for LKr by Giuseppe Ruggiero
+                - Added SLM raw decoder by Riccardo Fantechi
+                - Modified TDCB raw decoder in agreement with new firmware
+                - Added special triggers decoding and output
+                - Added raw header in output
+                - Added channel remapping in TDCBRawDecoder and the corresponding
+                  configuration files
+                - Added histograms for online monitor in CHOD reconstruction and online monitor
+                - Added histograms for online monitor in MUV3 reconstruction and online monitor by Michal Zamkovsky
+
+2012-09-17      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 189
+                - Bug fixed in CEDAR reconstruction
+
+2012-09-03      Antonio Cassese (cassese@fi.infn.it)
+                rev. 183
+                - Bug fixed in LKrReconstruction.cc
+
+2012-09-03      Antonio Cassese (cassese@fi.infn.it)
+                rev. 180
+                - Event format decoding for onlinemonitor implemented in agreement with 
+                  "NA62 Data Formats" by M. Sozzi (TWiki)
+                - CPD raw decoding implemented for LKr (R. Fantechi)
+                - TDCB raw decoding implemented
+                - CHOD Recontruction and OnlineMonitor implemented with an example
+
+2012-08-15      Bob Velghe (bob.velghe@cern.ch)
+                rev. 176
+                - GigaTracker: Update geometry parameters to reflect changes in NA62MC
+                - Small bug fix in MUV1Digitizer
+
+2012-08-02      Mario Vormstein (mario.vormstein@cern.ch)
+                rev. 175
+                - MUV1: Digitization added
+                        + Parametrization of optic simulation used to calculate number of photo electrons in each channel
+                        + First version of time over threshold method implemented
+                - MUV1: Reconstruction added
+                        + Shower width in MUV1 is calculated 
+
+
+2012-07-23      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 173
+                - NA62EventDisplay redesigned as a modular online monitor
+                - Each subdetector has an OnlineMonitor class to add
+                  plots to NA62EventDisplay
+                - A partially implemeted example is CedarOnlineMonitor
+                - A new parameter in NA62Reconstruction.conf allows to
+                  continuously read from a list of files
+                - Tests are not extensive, but it is functional
+
+2012-02-30      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 171
+                - NA62Reconstruction.hh was not committed in rev.169: fixed 
+
+2012-02-26      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 169
+                - Added a plot for memory usage monitorning 
+
+2012-03-08      rev. 164. 
+                This revision is compatible only with the rev. 164 of NA62MC.
+       
+                Giuseppe Ruggiero
+                - SpectrometerGeometry.cc modified according to the Beatch File of 02/11/2012.
+                  Sign of the MNP33 magnet reversed in order to make the reconstruction compatible
+                  with the NA62MC rev. 164.
+                - SpectrometerReconstruction.cc: Bug in the definition of the pion mass corrected.
+                  Control on maximum number of hits per plane introduced. Some modifications of the 
+                  routine ChooseTheCombination() implemented (suggested by D. Madigozhin).
+                - SpectrometerParameter.cc and Spectrometer.conf: Parameter MaxHitPerPlane added.
+                - Gigatracker: Sign of the Trim 5 reversed in order to make the reconstruction compatible
+                  with the last NA62MC version. Position of the magnets sligthly changed according to
+                  the NA62MC.
+                - LAVGeometry.cc: positions of the LAV stations changed according to the last NA62MC.
+
+                Antonio Casses
+                - RICHReconstruction.cc, RICH.conf: new map of the photomultipliers.
+
+2012-01-12      Vito Palladino (Vito.Palladino@cern.ch), Tommaso Spadaro (Tommaso.Spadaro@cern.ch)
+                rev. 156
+                LAVGeometry upgraded including PMT and FEE parameters. Geometry from LAVGeometryParameters has been added, too.
+                LAVphotocathode upgraded including PMT quantum efficiency curve.
+                LAVpmt, LAVDigitizer, LAVDivider upgraded passing from leading-trailing edges to generic edges.
+                LAVRecoBlock and LAVpmt upgraded including signal treatment due to transmission cable: the methods involved are not used yet.
+                 
+                LAVReco, LAVRecoBanana, LAVRecoStation, LAVConvolution, LAVName, LAVDynode, LAVRecoLayer minor changes for warning fixing.
+                LAVRecoBlock upgraded including clear for the pmt status.
+                LAVReconstruction deeply upgraded to include new TLAVDigi and TRecoLAVHit and TRecoLAVDigi classes.
+                LAVfeeName added: mapping from electronical to geographical channelID
+                LAVDefinitions added: geometrical and/or FEE-related constants
+                LAVCable added: for the treatment of transmission cable effects on signal
+
+2011-08-26      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 151
+                - basic CEDAR digitization and reconstruction introduced
+
+2011-05-05      Giuseppe Ruggiero (Giuseppe.Ruggiero@cern.ch)
+                rev. 135
+                - Digitization of straws modified according to the cern test beam.
+                  Still quite naive.
+                - Reconstruction of the straws modified:
+                - New algorithm for left-right ambiguity solution (SpectrometerReconstruction.cc).
+                - Chamber-hit reconstruction modified (ChamberHitCollector.cc).
+                - New pattern recognition of the tracks (TrackCollector.cc).
+                - Resolutions needed for pattern recognition and track reconstruction optimized
+                  according to the new digitization.
+
+2011-05-04      Massimiliano Fiorini (Massimiliano.Fiorini@cern.ch)
+                rev. 132
+                - Added Tools under Service directory: implemented
+                  LinearLeastSquareFit method
+        
+2011-05-04      Massimiliano Fiorini (Massimiliano.Fiorini@cern.ch)
+                rev. 131
+                - Modified GigaTrackerReconstruction: reconstruction algorithm 
+                  moved here (it was before in the Persistency). Track fitting 
+                  of multiple tracks implemented: track momentum and chi2 
+                  variables available for selection of best candidate
+                - Implemented simple digitization of signals generated in 
+                  GigaTracker pixels, based on laboratory measurements
+                - Improved clustering algorithm: new methods added in 
+                  GigaTrackerCluster
+        
+2011-04-10      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 129
+                NA62EventDisplay.cc: PDGcharge field no longer exists in KinePart
+
+2011-03-30      Vito Palladino (Vito.Palladino@cern.ch), Tommaso Spadaro (Tommaso.Spadaro@cern.ch)
+                rev. 122
+                - First LAV reconstruction for signal digitization has been committed, 
+                  The following classes have been added (A) or modified (M):
+                   - LAVDigitizer (M)         Main class now handling the signal generation process and digi storage through TLAVDigi.
+                     - LAVReco (A)          | contains info concerning the whole detector, such as stations and blocks with hits.
+                     - LAVRecoStation (A)   | contains info concerning the stations, such as layers with hits.
+                     - LAVRecoLayer (A)     | contains info concerning the layers.
+                     - LAVRecoBanana (A)    | contains info concerning the Bananas.
+                     - LAVRecoBlock (A)     | contains info concerning the Blocks, such as charge (temporary), trailing and leading times.
+                     - LAVpmt (A)           | handles the signal generation processing using the following classes:
+                       - LAVPhotocathode (A)  Generates photoelectron time distribution from the input photon time distribution.
+                       - LAVDynode (A)        Handles the p.e. distribution using both FFT and gaussian smearing, to account for time fluctuations (transit time spread). 
+                       - LAVDivider (A)       Generates the PMT Signal and evaluates trailing and leading times for a given threshold.
+                   - LAVGeometry (M)          Contains info concerning signal simulation parameters (tts, gain, QE, threshold, etc.), 
+                                              In future, we will include a block-by-block parametrization.            
+                   - LAVConvolution (A)       Convolves a given time distribution with a gaussian provided by LAVWrapAround using TVirtualFFT.         
+                     - LAVWrapAround (A)      Contains utilities for the manipulation of the gaussian used for signal smearing.
+                - LAVName (A)                 Handles LAV Block names, gives back also the ID of neighbouring blocks.   
+        
+
+2011-03-10      Mario Vormstein
+                - Removed MUV
+                - Added MUV1 and MUV2 (both empty)
+
+2011-01-20      Antonino Sergi
+                - Added SAC and MUV3 reconstruction skeletons
+                - cleaned up several leftovers 
+
+2011-01-10      Vito Palladino
+                - First basic CHANTI reconstruction has been implemented. Information about energy release for each bar are available.
+                - no digitization, no clusterig and no signal shaping are applied.
+
+2010-09-23      Antonino Sergi
+                - Fixed a bug in the reconstruction sequence handling causing crashes when using more
+                  than 1 reconstruction algorithm (based on Alban Jago experience)
+                - Fixed presence of multiple instacnces of the same TTree in the output file (A. Jago)
+                - Enabled by default the reconstruction of RICH GigaTracker Spectrometer and LKr (the only ones
+                  actually implemented)
+
+2010-09-17      Giuseppe Ruggiero
+                - Some changes in the reconstruction algorithm in order to optimize 
+                  the reconstruction efficiency and resolution also in case of multi-track events:
+                  1) some values in the Spectrometer.conf file changed;
+                  2) no geometrical checks on the chamber-hits composed by 3-4 views;
+                  3) 4-hits track pattern recognition algorithm slightly modified.
+                - NA62MC hits stored together with the reconstructed tracks to access
+                  in a simple way at the hits used for track reconstruction. 
+                  see Spectrometer/TipsOnTrackReconstruction.cc_example for some tips about
+                  the manipulation of the reconstructed tracks. 
+                - The value SMOOT_EFF in Spectrometer/include/StrawResponse.hh has been
+                  set to 1 to avoid some clashes with the reconstruction algorithm.
+
+2010-04-28      Dmitry Madigozhin
+                - A first-order digitization for the Spectrometer, 
+                  described in note NA62-10-01. Treats double hits.
+                  Sets the simulated drift time and the measured 
+                  distance to wire, obtained with the true RT function.
+                  Zero-order digitization (old R smearing) may be 
+                  choosen by preprocessor.
+
+2010-03-10      Antonino Sergi
+                - Applied modifications to RICH module to fit the latest MC
+                  revision
+                - Updated RICH module to latest reconstruction developed
+                  on test beam data 
+                - Updated to work both on SLC4 and SLC5
+
+2010-02-22     Evelina Marinova:
+               - Very basic reconstruction of the LKr implemented. Returns energy of the 
+                 cluster and position of the cluster.
+                 LKrMonitor root branch of the Output root tree contains couple of 
+                 histograms related to the LKr reconstruction.
+               - No corrections applied. No callibration applied. No minimum treshhold 
+                 for the signal applied. 
+                 No noise added to the cells for the simulation.         
+
+
+2010-01-21      Giuseppe Ruggiero:
+                - Many improvements in the SpectrometerReconstruction:
+                  - Fully documentation via doxygen added.
+                  - The class TRecoSpectrometerCandidate and TRecoSpectrometerHit
+                    are now used to store the reconstructed variables. The variables
+                    can be stored also in the output tree. 
+                  - Some bugs fixed in the LR ambiguity solution algorithm 
+                    (ReconstructionPosition method of the SpectrometerReconstruction class).
+                  - Other bugs fixed in the FastFit method of the TrackCollector class.
+                    Now the fast measurements of the track parameters are correct.
+                  - Many improvements in the fitting algorithms (Track and TrackCollector)
+                    and in the gmatrix class. Now the reconstruction is 30% faster.
+                  - Almost all the parameters of the reconstruction are passed via
+                    a configuration file (config/Spectrometer.conf).
+                - Modified Spectrometer/SpectrometerLinkDef.hh to read the 
+                  TRecoSpectrometerCandidate class and parTrack structure stored in 
+                  the output tree of NA62MC.
+                - NA62EventDisplay.cc modified because of sligthly different 
+                  methods to call the reconstructed spectrometer variables.
+
+2009-11-06      Massimiliano Fiorini:
+                - Implemented new version of the GigaTracker Reconstruction.
+                  Algorithm working (for the moment) only in case of events 
+                  with 1 track.
+                  
+2009-10-17      Antonino Sergi:
+                - Major changes in the program flow, which now is
+                  configurable via config/NA62Reconstruction.conf
+                  file
+                - Base classes moved to RecoBase to avoid cross
+                  referenced libraries
+                - Added Digitizer modules, to be filled with
+                  specific algorithms
+                - Moved RICH digitization from RICHRootIO
+                  to RICHDigitizer
+                - Added RawDecoding mechanism wich an actual
+                  working example for the RICH
+                - NA62VReconstruction class slightly changed
+                  to allow a more flexible usage and data processing
+                - Full and wide usage of the new Persistency features
+                  for implementing selectable output in TTrees; each
+                  stage of the reconstruction has a link to the previous
+                  one (at runtime ... the link is not persistent but it
+                  could easily be so)
+                - Added multiversioning capability introducing
+                  the possibility to build libraries for each submodule
+                  and choose the actual one at runtime (an actual working
+                  example is RICHRawDecoder), by means of a new base class
+                  (NA62VNamedModule)
+                - Each Reconstruction module is now provided with
+                  the MCTruth event, if available, for full MCTruth
+                  association
+                - NA62EventDisplay now finds dynamically the magnets
+                  volumes, so that changing the geometry file it would
+                  adapdt itself
+                - NA62Reconstruction class is now fully documented using 
+                  doxygen syntax and represents an example of what can 
+                  be done and how to do it
+                - Added several configuraition files for RICH
+                - Added RFIO support
+                - Added multiple input file support via input lists
+                - Added few command line parameters for NA62Analysis
+                  and NA62EventDisplay (-h for help)
+                - Added G4 system of units, physical constants and
+                  particles table (most common PDG particles ready
+                  for usage in each Reconstruction module), to avoid
+                  mismatched numbers, possible confusion and hardcoded
+                  constants
+
+2009-09-29      Giuseppe Ruggiero:
+                - New version of the Straw Chamber Reconstruction.
+                  Some bugs fixed. 
+                  Algorithm working also in case of events with >1 
+                  track. 
+                  Structure of the public variables of the
+                  Track class changed.
+                - Possibility of choosing the seed of the
+                  random generator for Spectrometer Reconstruction
+                  (see NA62Analysis.cc).
+
+2009-08-10      Antonino Sergi:
+                - Updated geometry file to include MUV
+                - Added CHOD and MUV empty reconstruction
+
+2009-08-06      Giuseppe Ruggiero:
+                - First version of the Straw Chamber Reconstruction
+                - An example of how to call the reconstructed spectrometer
+                  variables added in NA62Analysis.cc
+
+2009-04-24      Simone Bifani:
+                - Implemented a basic GigaTracker reconstruction class
+
+2009-03-04      Simone Bifani:
+                - Updated NA62.root according to the latest geometry
+                  configuration
+                - Updated TNA62MagField.cc with the corresponding
+                  magnet volume numbers
+
+2009-02-03      Antonino Sergi:
+                - Updated Persistency interface to the restructured
+                  one available in NA62MC since 2009-01-23
+                - Completed integration of RICH reconstruction
+                  up to date with latest data analysis from laboratory 
+                  tests
+                - Introduced RICH trigger algorithm 
+                - Started to introduce configuration files (plain txt)
+                  for individual reconstruction modules (now for RICH)
+                - First public version of NA62EventDisplay, for now as
+                  a visualization tool
+                - Added ANTI0 reconstruction classes (without algorithms)
+                - The package now is compiled statically with both
+                  Persistency and reconstruction libraries
+
+2008-05-06      Antonino Sergi:
+                - First public version with reconstruction templates
+                  for subdetectors and a fairly advanced
+                  version for the Spectrometer and RICH (not fully
+                  integrated)
+                - NA62Analysis provides a basic loop with
+                  a rough example about how to get information from
+                  reconstruction classes
+                - This first version is intended to give the possibility
+                  to developers to begin to insert the reconstruction
+                  class related to their own subdetectors, inheriting
+                  from NA62VReconstruction
+                - Geometry is a temporary solution, similar to what has been
+                  done for NA62MC, waiting for a database solution

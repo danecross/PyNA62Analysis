@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../Beam/include/beam.hh
+string
+-
+
+/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62MC/Beam/src/beam.cc
+beam.hh
+/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62MC/Beam/src/beam.hh
+iostream
+-
+stdlib.h
+-
+string.h
+-
+NA62Global.hh
+/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62MC/Beam/src/NA62Global.hh
+CLHEP/Units/PhysicalConstants.h
+/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62MC/Beam/src/CLHEP/Units/PhysicalConstants.h
+
+/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62Tools/include/NA62Global.hh
+time.h
+-
+string.h
+-
+
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/Geant4/10.01.p02/x86_64-slc6-gcc49-opt/include/Geant4/CLHEP/Units/PhysicalConstants.h
+CLHEP/Units/SystemOfUnits.h
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/Geant4/10.01.p02/x86_64-slc6-gcc49-opt/include/Geant4/CLHEP/Units/CLHEP/Units/SystemOfUnits.h
+
+/cvmfs/sft.cern.ch/lcg/releases/LCG_86/Geant4/10.01.p02/x86_64-slc6-gcc49-opt/include/Geant4/CLHEP/Units/SystemOfUnits.h
+

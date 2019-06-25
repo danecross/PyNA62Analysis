@@ -1,0 +1,34 @@
+NA62Reconstruction Project
+
+Subdirs description
+config/			Global makefile include and reconstruction configuration files
+scripts/		Environment variables scripts. You need to
+			modify the script to define correct paths to NA62MC and NA62Reconstruction
+(SubdetectorDirs)/	Source code of subdetectors libraries
+NA62Analysis.cc		Basic example
+HISTORY			It is recommended to read it
+NA62EventDisplay.cc	ROOT application based on reconstruction libraries for visualization
+NA62.root		Geometry definition file (needed by NA62EventDisplay)
+
+
+Compiling
+
+After having set the correct paths to NA62MC and NA62Reconstruction in env script and executed it
+typing 
+       source path/to/script 
+then just type 
+       make 
+from the top directory (you need to have previously compiled at least all Persistency libs in NA62MC)
+
+
+Program running
+
+NA62Analysis -h for help.
+NA62EventDisplay has the same syntax (for now it has not
+been tested with more than few events ... in next releases there will be more control on
+event processing) 
+
+
+Known Issues and Bugs
+
+- NA62EventDisplay needs stable GL features of your video card, otherwise it is not stable itself.

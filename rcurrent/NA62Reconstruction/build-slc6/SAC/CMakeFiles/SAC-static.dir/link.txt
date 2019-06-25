@@ -1,0 +1,2 @@
+/usr/bin/ar qc libSAC-static.a  CMakeFiles/SACObjLib.dir/src/SACChannel.cc.o CMakeFiles/SACObjLib.dir/src/SACDigitizer.cc.o CMakeFiles/SACObjLib.dir/src/SACGeometry.cc.o CMakeFiles/SACObjLib.dir/src/SACHitsCluster.cc.o CMakeFiles/SACObjLib.dir/src/SACOnlineMonitor.cc.o CMakeFiles/SACObjLib.dir/src/SACRawDecoder.cc.o CMakeFiles/SACObjLib.dir/src/SACRawEncoder.cc.o CMakeFiles/SACObjLib.dir/src/SACReconstruction.cc.o CMakeFiles/SACObjLib.dir/SACDICT.cxx.o
+/usr/bin/ranlib libSAC-static.a

@@ -1,0 +1,1852 @@
+################################################################
+NA62MC Project
+################################################################
+
+2015-11-11	Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+		rev. 736
+		- Bug fix: prevent overflow of SavedParentIDMap in MCTruthTracking Action
+		- More detailed NewCHOD geometry
+
+2015-11-10	Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+		rev. 735
+		- Fixed a bug in the halo simulation introduced in rev.697
+
+2015-11-07      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 726
+                - Propagated Encode/Decode ChannelID to MC and Reco hits for IRC and SAC
+
+2015-11-06      Karim Massri (karim.massri@cern.ch)
+                rev. 723
+                - Small changes to Spectrometer persistency
+
+2015-11-05      Michal Koval (michal.koval@cern.ch)
+                rev. 722
+                - pi0 Dalitz generator update
+                  - New /decay/pizeroDecay option 14: only pi0 Dalitz decays with radiative photon
+                  - Minor bug fix in pi0Dalitz.cc
+
+2015-11-04      Riccardo Aliberti (riccardo.aliberti@cern.ch)
+                rev. 720
+		- TRecoVEvent: Added variable fNErrors to identify event with readout problems
+		- MUV1(2)ChannelID, TMUV1(2)Hit: Added variable fPlane to identify the plane of the strip (Horizontal or Vertical)
+
+2015-11-04	Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+		rev. 717
+		- Updates to Persistency, minor bug fixes
+
+2015-11-02  	Chris Parkinson (chris.parkinson@cern.ch)
+            	rev. 713
+            	- Bug fix in TPrimitive class
+	    	- Committed updated LinkDef file
+
+2015-11-02  	Chris Parkinson (chris.parkinson@cern.ch)
+            	rev. 712
+            	- The TPrimitive class is introduced.
+
+2015-11-02  	Nicolas Lurkin (nicolas.lurkin@cern.ch)
+            	rev. 711
+            	- Use hex constants instead of binary constants in TRecoSACHit.hh and TRecoIRCHit.hh
+
+2015-11-01	Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+		rev. 705
+		- The NewCHOD detector is introduced
+		- Some cleanup and optimization
+
+2015-10-31      Karim Massri (karim.massri@cern.ch)
+                rev. 703
+                - Channel mapping decoding/encoding changed in SpectrometerChannelID 
+                - Small bug fix in TCedarSpecialTrigger
+
+2015-10-26      Bob Velghe (bob.velghe@cern.ch)
+                rev. 700
+                Update GigaTrackerChannelID class to match the new reco
+
+2015-10-26      Bob Velghe (bob.velghe@cern.ch)
+                rev. 699
+                Minor update of the GigaTracker MC code
+                - Update the cooling plate geometry
+                - ChannelID is now filled
+                - Fix multiple warnings
+
+2015-10-25	Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+		rev. 698
+		- Halo simulation revised; axion production on target introduced
+		- Improved MNP33 magnetic field map
+		- Cedar: no more multiple warnings when running G4GeometryToRoot.csh
+
+2015-10-19      Venelin Kozhuharov (venelin.kozhuharov@cern.ch)
+		rev. 693
+		- four channels by default on SAC/IRC with proper ChID
+		- Hit time as energy weighted average of times
+
+2015-10-19	Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+		rev. 687, 691, 692
+		- Simulation of the MNP33 field map added
+		- Generator: K2pi and Kpinn converted from Fortran to C++; cleanup
+		- Reduction of the number of compiler warnings (but there are still many)
+
+2015-10-15      Venelin Kozhuharov (venelin.kozhuharov@cern.ch)
+                rev. 686
+                Forgot to commit the HISTORY file ... becomes a habit
+
+2015-10-15      Venelin Kozhuharov (venelin.kozhuharov@cern.ch)
+		rev. 685
+		Forgot to add the ChannelID sources for SAC/IRC...
+
+2015-10-14      Venelin Kozhuharov (venelin.kozhuharov@cern.ch)
+                rev. 684
+		Forgot to commit the HISTORY file
+
+2015-10-14	Venelin Kozhuharov (venelin.kozhuharov@cern.ch)
+		rev. 683
+		- Persistency for the IRC reco
+		- Persistency for the SAC reco
+		Both are based on the work of Georgi Georgiev and Tommaso Spadaro
+
+2015-10-09	Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+		rev. 679
+		- Exotic long-lived particle introduced with user-controlled
+                  mass, lifetime and decay mode (thanks to Chris Parkinson);
+		- Generators: new decay mode #3 (K+ --> pi+X0, X0 is exotic particle);
+		  optimization and cleanup of the CMC/Generator framework
+
+2015-10-02      Michal Koval (michal.koval@cern.ch)
+                rev. 677
+                - Pi^0 Dalitz decay generator completely rewritten in C++;
+                  new option with radiative photon generation introduced
+                - See files Generator/pi0Dalitz.cc(.hh) and StandardRun.mac for detailed information
+
+2015-09-28      Michal Koval (michal.koval@cern.ch)
+                rev. 673
+                - cmc_common_address.c: hepevt, genin, genout removed
+
+2015-09-26	Bruno Angelucci (bruno.angelucci@cern.ch)
+		rev. 672
+		- libbeam and libcmc are now static libraries
+
+2015-09-22	Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+		rev. 667
+		- GeneParts/KineParts: optimization, bug fixes
+
+2015-09-22      Karim Massri (karim.massri@cern.ch)
+                rev. 660
+                - Swap between the role of TTree and TBranch to include special triggers:
+                  the output is now organised with one single "MC" tree having one branch for each SubDetector,
+                  rather than one tree for SubDetector having one single branch "Hits".
+                  *** WARNING: this change is NOT backward compatible ***
+                - THACDigi class added to the Persistency
+                - Small changes in RawHeader and FADCEvent
+
+2015-09-21	Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+		rev. 658, 659
+		- Decay generators: non-zero neutrino mass option introduced
+		for two-body leptonic decays; general cleanup and minor bug fixes
+
+2015-09-20      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 657 
+                - Added eclipse project files
+
+2015-09-20      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 656 
+                - env script now rejects only SLC5
+
+2015-09-17      Mathieu Perrin-Terrin (mathieu.perrin-terrin@cern.ch)
+                rev. 653
+                - modify GTK persistency to match 2015 GigaTracker data format
+
+2015-09-15      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 651
+                - MUV3 candidate definition updated (type: Tight, Loose, LooseMasked)
+
+2015-09-11      Riccardo Aliberti (riccardo.aliberti@cern.ch)
+                rev. 639
+                - Small bug fixed in MUV1ChannelID.cc
+
+2015-08-26      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 635
+                - Persistency update for compatibility with new analysis tools
+
+2015-08-26      Letizia Peruzzo (letizia.peruzzo@cern.ch)
+                rev. 632
+                - Small changes in MUV2ChannelID.cc
+
+2015-08-21      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 622
+                - Bug fix: decay modes 31 and 231 were generated as 21 as 221
+
+2015-08-04      Karim Massri (karim.massri@cern.ch)
+                rev. 608
+                - DIM EOB treatment refurbished in TCedarSpecialTrigger persistency
+
+2015-07-22      Karim Massri (karim.massri@cern.ch)
+                rev. 596
+                - TTDCBSpecialTrigger added to repository
+                - TMUV0Digi added to repository
+                - NEWGEANT4_TEST is now set to 1 by default (gcc 4.8 environment)
+                - Small bugs preventing the compilation with gcc 4.8 fixed
+                - Small changes in IRC persistency
+
+2015-07-13      Riccardo Aliberti (riccardo.aliberti@cern.ch)
+                rev. 591
+                - MUV1ChannelID added;
+                - MUV1 and MUV2 persistencies updated
+
+2015-07-10      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 584,587
+                - Updated Spectrometer and MUV3 persistency
+                - Bug fix in the GenePart class
+
+2015-07-10      Mathieu Perrin-Terrin (mathieu.perrin-terrin@cern.ch)
+                rev. 581
+                - Modify GTK persistency to match needs of 2014 data reconstruction
+
+2015-07-02      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 577
+                - Consistency with the new BlueTubeTracker tool & updated MUV3 reconstruction
+
+2015-06-30      Karim Massri (karim.massri@cern.ch)
+                rev. 571
+                - QT libraries added to makefile and env to fix problem on batch
+
+2015-06-29      Karim Massri (karim.massri@cern.ch)
+                rev. 569
+                - L1TP and L2EB data blocks added to the RawHeader
+                - L0TP data block updated to latest format version (backward compatible)
+
+2015-06-22      Paolo Massarotti (massarotti@na.infn.it)
+                rev. 558/59
+                - DeltaWidth method added in TRecoCHANTIHit: defference between
+                ToT oo two electronic channels of the same physical channel
+
+2015-06-12      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 550
+                - Blue tube magnetic field introduced
+
+2015-06-12      Karim Massri (karim.massri@cern.ch)
+                rev. 548
+                - Revision notifier added for persistency: revision is decoded
+                  in the persistency libs at the compilation time
+                - ADCPeakTime and ADCPeakEnergy introduced in FADCVHit to separate physical measurements and ADC counts
+                - 25ns "Frame" renamed "Slot" to follow TDAQ naming conventions
+
+2015-06-08      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 542
+                - Bug NARKD-90 fixed; minor improvement to CheckPoints in KineParts
+                - Bug fix in Persistency/include/TDCEvent.hh (from Karim)
+
+2015-06-02      Karim Massri (karim.massri@cern.ch)
+                rev. 541
+                - ClockPeriod (=24.951059536 ns) defined in TVEvent persistency to unify clock treatment
+                - 2015 data format for L0TP added (backward compatibility for relevant 2014 variables)
+                - RunID added to RawHeader persistency (not used for 2014 data)
+
+2015-05-29      Tommaso Spadaro (tommaso.spadaro@cern.ch)
+                rev. 537-539
+                - IRC and SAC Persistency first implementation.
+                - Protection added to the Set/GetScalerCount methods of TSpecialTrigger class for EOB.
+
+2015-05-20      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 535 
+                - Enabled saving of digi event within reco event
+
+2015-05-15      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 530
+                - Bug fix in CheckPoints in KineParts
+                - Bug fix in MUV3 hit definition (thanks to Chris Parkinson)
+
+2015-05-13      Karim Massri (karim.massri@cern.ch)
+                rev. 528
+                - Small change to RICH persistency
+
+2015-05-11      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 525
+                - CheckPoints in KineParts: compatibility to RR changes in rev 517
+                - Minor bug fixes
+
+2015-05-05      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 521
+                - Fixed a bug in two-step simulation config
+                - MUV3 Persistency update
+
+2015-05-01      Emanuele Leonardi (emanuele.leonardi@roma1.infn.it)
+                rev. 517
+                Spectrometer, LAV:
+                - modified responsibility regions to allow construction of blue tube
+                LAV: fixed position of mu-metal cylinder
+                macros/GeometryTest.mac
+                - created example macro for geometry tests
+
+2015-04-30      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 509 
+                - Modified GTK_RunCond.sh to use relative path
+
+2015-04-29      Karim Massri (karim.massri@cern.ch)
+                rev. 506
+                - Error/warning messages redirected to stderr
+                - Improved monitor for the virtual memory usage
+
+2015-04-28      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 502
+                - KineParts: an additional checkpoint introduced
+                - A check that beam particle type agrees with the decay mode
+                - A few minor fixes
+
+2015-04-28      Riccardo Aliberti (riccardo.aliberti@cern.ch)
+                rev. 501
+                - Fixed TMUV2Event inheritance (solving JIRA NARK-82)
+
+2015-04-22      Marco Mirra (marco.mirra@cern.ch)
+                rev. 496
+                - CHANTI persistency TCHANTIDigi,TRecoCHANTIHit, TCHANTIHit, TRecoCHANTICandidate, CHANTIChannelID modified
+                - Persistency TDCVHit modified: fLeadingEdge and fTrailingEdge now are protected members  
+
+2015-04-21      Giuseppe Ruggiero (giuseppe.ruggiero@cern.ch)
+                rev. 493
+                - Spectrometer persistency of TRecoSpectrometerCandidate modified
+
+2015-04-20      Bob Velghe (bob.velghe@cern.ch)
+                rev. 489
+                - Added a configuration mechanism for the GigaTracker stations.
+                  See the README in the GigaTracker folder for more info.
+
+2015-04-19      Karim Massri (karim.massri@cern.ch)
+                rev. 487
+                - Root version for gcc 4.8 downgraded from 5.34.26 to 5.34.19 due to missing FFTW library
+
+2015-04-13      Karim Massri (karim.massri@cern.ch)
+                rev. 484
+                - NEWGEANT4_TEST set to 0 (previously set to 1 by mistake)
+                - geant4 9.6 bin directory manually added to $PATH
+
+2015-04-10      Karim Massri (karim.massri@cern.ch)
+                rev. 479
+                - Compatibility with Geant4 10.1.p01 added
+                - Environment variable NEWGEANT4_TEST added in scripts/env.sh
+                  to enable(=1)/disable(=0) the usage of new Geant4 version (for testing, disabled by default)
+                - Physics list handling migrated to the macro level (StandardRun.mac
+                  and other macros changed accordingly)
+                - Physics list updated when using Geant4 10.1.p01:
+                  - deprecated physics lists removed, some name changes, new physics list added;
+                  - recommended hadronic physics lists (FTFP_BERT, QGSP_BERT) enabled by default
+
+2015-03-31      Tommaso Spadaro (tommaso.spadaro@cern.ch) and Emanuele Leonardi (emanuele.leonardi@cern.ch)
+                rev. 473
+                - LAV geometry updated to "as build" parameters (LAVGeometryParameters.cc, TRecoLAVHit.cc)
+                - Using Air instead of vacuum in LAV A12 (LAVDetector.cc)
+                - Fixed LAV A12 responsibility region to include the full A12 structure (LAVGeometryParameters.cc, CHODGeometryParameters.cc, MUV0GeometryParameters.cc)
+                - Added Aluminum slab to LAV's A6-A8 (LAVGeometryParameters.cc, LAVBanana.cc)
+                - Added methods to retrieve candidate centroid error matrix and other candidate properties (TRecoLAVCandidate.cc, TRecoLAVCandidate.hh)
+                - Promoted c++ variables to root types wherever possible in persistency classes (LAVChannelID.hh, TRecoLAVDigi.hh, TLAVHit.hh, TLAVDigi.hh)
+                - Doxygen-compliant documentation added
+
+2015-03-19      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 470
+                - Persistency update, bux fix in checkpoints of the KineParts
+
+2015-03-18      Valeria Fascianelli (Valeria.Fascianelli@cern.ch) Antonino Sergi (antonino.sergi@cern.ch) 
+                rev. 469
+                - Holes removed from LAV station volumes (from LAV1 to LAV11) 
+                  for compatibility with checkpoints implemented by Evgueni
+
+2015-03-13      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 466
+                - checkpoints along particle trajectories introduced in KineParts
+                - fixed a bug that resulted in unwanted KineParts being produced
+                - updated macros and documentation
+
+2015-03-12      Riccardo Aliberti (riccardo.aliberti@cern.ch)
+                rev. 458
+                - Updated TRecoMUV2Hit, TRecoMUV2Candidate
+                - MUV2Scintillator.cc Set the right scintillator material
+                - MUV2Detector.cc Corrected the geometry
+
+2015-03-11      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 454
+                - Updated Persistency
+
+2015-03-06      Francesca Bucci (francesca.bucci@cern.ch) and Roberta Volpe (roberta.volpe@cern.ch) 
+                rev. 448
+                - RICH: 
+                In NA62MC/RICH/Persistency/src/RICHChannelID.cc
+                - added few comments
+                In NA62MC/RICH/Persistency/include/TRecoRICHCandidate.hh
+                - implemented method to associate the Ring candidate to its Time candidate, 
+                  from a Ring candidate you can retrieve the index of its time candidate with GetTimeCandidateIndex()           
+                
+2015-03-05      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 445
+                - CHOD: can simulate either the old CHOD, or the new CHOD, or both
+                - MUV3: updated persistency compatible to new reconstruction
+                - Generator: an updated Ke400 generator provided by Brigitte Bloch-Devaux
+                - Minor fixes, cleanup
+
+2015-02-25      Francesca Bucci (francesca.bucci@cern.ch) and Monica Pepe (monica.pepe@cern.ch)
+                rev. 436
+                In NA62MC/RICH/Persistency:
+                  - TRecoRICHEvent modified: implemented methods to directly access 
+                    SCTimeCandidates, PMTimeCandidates and RingCandidates.
+                In NA62MC/RICH/Persistency/include/TRecoRICHHit.hh
+                  - Added fFitPosition and the corresponding methods to access it.
+                    fFitPosition is the hit position corrected taking into account the mirrors
+                    inclination.
+
+2015-02-20      Angela Romano (angela.romano@cern.ch)
+                rev. 432
+                - Small bug fixed in GetStationID() methods for CHANTI Digi and Hit
+                - Method GetStationID() restored in global TVDigi
+
+2015-02-20      Angela Romano (angela.romano@cern.ch)
+                rev. 430
+                - Method GetStationID() implemented in all subdetector Digi and Hit
+                - Method GetStationID() removed from global TDCVHit and TVDigi
+
+2015-02-16      Bob Velghe (bob.velghe@cern.ch)
+                rev. 427
+                - Minor changes in GigaTracker geometry parameters,
+                - Implementation of the channel ID abstraction for GigaTracker,
+                - Small bug correction in DataCardMessenger, "SetBeamFileName" was never called.
+
+2015-02-14      Karim Massri (karim.massri@cern.ch)
+                rev. 425
+                - Small changes in L0TPData persistency
+
+2015-02-11      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 423
+                - Bug fix in the Cedar simulation
+                - Updated MUV3 Persistency
+                - Revised pi0, pi+, K2pig decay generators and pi0 decay modes numbering scheme
+                - pi0 decay products are saved into GenePart; improved GenePart printout
+
+2015-02-10      Matthew Moulson (Matthew.Moulson@cern.ch)
+                rev. 420
+                - Added option to save digis together with recohits
+                  (disabled by default)
+
+2015-01-26      Karim Massri (karim.massri@cern.ch)
+                rev. 417
+                - Small changes in TDCVHit persistency
+
+2015-01-23      Karim Massri (karim.massri@cern.ch)
+                rev. 412
+                - Small changes in TSpecialTrigger persistency
+
+2015-01-22      Tommaso Spadaro (tommaso.spadaro@cern.ch)
+                rev. 408
+                - New classes for the LAV persistent information
+
+2015-01-22      Karim Massri (karim.massri@cern.ch)
+                rev. 406
+                - L0TPData class added for L0TP data storage
+                - Small bug fixes
+
+2015-01-21      Giuseppe Ruggiero (giuseppe.ruggiero@cern.ch) 
+                rev. 404
+                - Modified persistency of the Spectrometer:
+                  SRBVHit, SRBEvent, SRBError added.
+                  TSpectrometerDigi, TRecoSpectrometerHit, SpectrometerChannelID modified.
+                  SpectrometerPersistencyLinkDef.hh modified.
+
+2014-12-04      Riccardo Fantechi (fantechi@cern.ch)
+                rev. 400
+                - Modify persistency for EOB SpecialTrigger 
+
+2014-11-28      Paolo Massarotti  (Paolo.Massarotti@cern.ch)
+                rev. 399
+                - Minor change CHANTIChannelID
+
+2014-11-28      Paolo Massarotti  (Paolo.Massarotti@cern.ch)
+                rev. 397
+                - Added CHANTIChannelID
+                - CHANTIDigi, CHANTIHit and TRecoCHANTIHit Modified
+                - CHANTIRing and CHANTIStation Modified 
+
+
+2014-11-26      Francesca Bucci (Francesca.Bucci@cern.ch) Monica Pepe (Monica.Pepe@cern.ch)
+                rev. 393
+                - Added RICHChannelID files to svn 
+
+2014-11-26      Francesca Bucci (Francesca.Bucci@cern.ch) Monica Pepe (Monica.Pepe@cern.ch)
+                rev. 392
+                - Added RICHChannelID and aligned PMs map
+                - Persistency updated for RICHChannelID and added candidate for SuperCells
+
+2014-11-07      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 383
+                - Updated MUV3 reconstruction and monitoring
+
+2014-11-01      Karim Massri (karim.massri@cern.ch)
+                rev. 381 
+                - Small changes in TCedarSpecialTrigger
+
+2014-10-15      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 370
+                - Updated MUV3 reconstruction and monitoring
+
+2014-10-14      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 368
+                - Updated MUV3 reconstruction and monitoring
+                - Minor bug fixes
+
+2014-10-13      Karim Massri (karim.massri@cern.ch)
+                rev. 366 
+                - Functions added in TCedarSpecialTrigger
+                - Small bug fixes
+
+2014-10-12      Karim Massri (karim.massri@cern.ch)
+                rev. 364 
+                - TCedarSpecialTrigger class added
+                - Small bug fixes
+
+2014-10-06      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 358
+                - MUV3 digitization & reconstruction update
+
+2014-09-25      Karim Massri (karim.massri@cern.ch)
+                rev. 355 
+                - Encode/DecodeChannelID() functions added in TVDigi and
+                  propagated to all sub-detector classes (in T<Subdetector>Digi)
+                  [declarations only, to be filled by each sub-detector responsible person]
+                - change of ROOT version in scripts/env.(c)sh due to the xrootd 
+                  protocol compatibility
+                - small changes in TDCEvent, TDCVHit
+
+2014-07-28      Francis Newson (fon@hep.ph.bham.ac.uk)
+                rev. 351
+                - Duplicate quatum efficiency functions in NA62MC for 
+                  smaller output files when compiled with:
+                  MDEFINES=CEDARMQE
+
+2014-06-03      Monica Pepe
+                rev. 347
+                - Introduced separation between RICH time and ring candidates
+
+2014-06-02      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 346
+                - Generators: pi0-->4gamma and pi0->invisible decays added;
+                  format of the /decay/pizeroDecay card changed to allow
+                  >10 pi0 decay modes; leptonic decays of beam pions added
+                - A few sanity checks on the input parameters
+
+2014-04-17      Bob Velghe (bob.velghe@cern.ch)
+                rev. 335
+                - Add GigaTracker TIRM5 and BENDs magnets mechanical structure
+
+2014-04-14      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 330, 334
+                - Cedar: misalignment simulation; ChannelID introduced
+
+2014-04-11      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 329 
+                - Introduced LKr hit time splitting (3us, as the total electron drift time)
+                  to comply with event overlay requirements
+
+2014-04-04      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 328
+                - CHOD: updated longitudinal position
+                - Generator: minor cleanup
+
+2014-04-01      Francesca Bucci (Francesca.Bucci@cern.ch)
+                rev. 326 
+                - RICH geometry refurbished according to the final
+                  design and the beatch file of 3/10/2013
+
+2014-03-29      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 323 
+                - Bug in the previous commit fixed
+
+2014-03-29      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 322 
+                - Modified ChannelID handling for Spectrometer
+                  to include a standard way to deal with
+                  geographic ID and individual ID:
+                        ChannelID = geographic
+                        ChamberID, ViewID, HalfViewID, PlaneID, StrawID
+                        EncodeChannelID() and DecodeChannelID()
+                  It should be done for all detectors
+
+2014-03-28      Riccardo Aliberti (riccardo.aliberti@cern.ch)
+                rev. 319
+                - Modified MUV1 Geometry (strips 18,19,20,25,26,27 cut by half)
+
+2014-03-22      Riccardo Aliberti (riccardo.aliberti@cern.ch)
+                rev. 318
+                - Restored MUV1 and MUV2 TrackID
+                - Modified MUV1 and MUV2 HitContainers
+
+2014-03-21      Francis Newson (fon@hep.ph.bham.ac.uk)
+                rev. 317
+                - Cedar: ray-tracing tool
+
+2014-03-20      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 316 
+                - Changed the time offset of optical photons in LAVRootIO
+                  to comply with event overlay requirements
+
+2014-03-14      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 314
+                - CHOD: a possibility to simulate the new CHOD added
+                  (controllable via the NEWCHOD switch)
+                - MUV0: modified to avoid geometry conflicts with the new CHOD
+                - Cedar: the 48th PMT added to the 2014 matrices
+
+2014-03-11      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 313
+                - Updated Cedar optics for run 2014
+
+2014-03-06      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 311
+                - MUV3: a major geometry update;
+                - Cedar: cleanup of the TRecoCedarHit class;
+                - Generator: Mikaelian-Smith radiative corrections to the pi0D decay
+
+2014-02-26      rev. 310
+                Giuseppe Ruggiero (giuseppe.ruggiero@cern.ch), 
+                Mathieu Perrin-Terrin (mathieu.perrin-terrin@cern.ch)
+                - Bug preventing NA62MC to work properly on scl6 fixed:
+                  - BeamParticle.cc and BeamParticlePhysics.cc removed
+                  - PhysicsList.cc and NA62MC.cc modify accordingly
+                  - PrimaryGeneratorAction.cc and G4CMCDecayer.cc modified:
+                    the kaon decay is now forced via the 
+                    G4PrimaryParticle::SetDautghers(G4PrimaryParticle *) method
+                    and the decaying kaon in the decay forced mode is now a kaon+ 
+                    type particle. The NA62-defined beam type particles do not exist
+                    anymore.
+                Liam Fulton 
+                - GigaTracker/src/GigaTrackerMagnet.cc modified: magnetic field of 
+                  trim5 confined in space.
+
+2014-02-12      Antonio Cassese (cassese@fi.infn.it)     
+                rev. 307
+                - Small modifications in RICH Persistencies for multi
+                  ring reconstruction
+
+2014-02-04      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 306
+                - Better structured output in KinePart::Print method
+
+2014-01-28      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 304
+                - Beam particle type is controlled via a new datacard /beam/particleName
+                - Default values allocated for all Cedar parameters
+                - Improved documentation, small bug fixes
+
+2014-01-24      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 303 
+                - Bug fixed in TDigiVEvent::Clear
+                - SteppingAction modified to allow geantino through NA62BlackHole
+
+2014-01-23      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 300 
+                - Implemented a fallback method in TDCVHit to
+                  allow instantiation
+
+2014-01-14      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 296 
+                - Fixed 2 files from the previous commit
+
+2014-01-14      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 295 
+                - Improved MCTruth: now TSubDetHit::MCTrackID is the index
+                  of Event::fKineParts array to get the first saved parent of the
+                  particle that produced the hit
+                - TSubDetHit::fDirectInteraction indicates if the hit was produced
+                  by the particle saved in Events::fKineParts or one of its secondaries
+                - TTree Run_0 renamed in Generated
+                - Some restructuring of main and SubDet Persistency to allow MC Overlay
+                - Simplified the implementation of the fast simulation in 2 steps
+                  (it still needs some testing and improvement to expand the
+                  original mechanism to be more general purpose)
+                - Some preliminary modification to specific hits to allow MC Overlay
+
+2013-11-19      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 291
+                - more detailed geometry in the Cedar region;
+                - updated field gradient in the QFS quadrupoles following the Cedar (per HALO input);
+                - bug fix: gps beams are functional again.
+
+2013-11-06      Sergey Podolsky (siarhei.padolski@cern.ch)
+                rev. 290
+                - Fix of typos in the code
+                - A comment in the StandardRun.mac has been removed
+
+2013-10-28      Sergey Podolsky (siarhei.padolski@cern.ch)
+                rev. 289
+                - A fast MC feature added
+                - Command /Detector/UpdateGeometry has been removed from the mac file
+                - Option /fastSumi/StepNo added. Value 0 means usial simulation, 1 - first step of the fast sumulation and 2 - second.
+                - Classes affected by modifications: DatacardManager, DatacardMessenger, MCTruthManager, PrimaryGeneratorAction, PrimaryGeneratorMessenger,
+                Event, MCTruthTrackingAction.
+                - StandardRun.mac was also modified.
+                - Example of unification script for the first and the second steps of MC has been added (scripts/uni.C)
+
+2013-08-22      Michal Koval (michal.koval@cern.ch)
+                rev. 282
+                - Particle polarization passing from Generator decay routines to GEANT4 added
+                - common_blocks.f, mcadd4.F: new function MCADD4POL3 which returns polarization
+                - kch2lnu.F, kch2lnug_ib.F: calculation of muon polarization added
+                - CMC.cc,CMC.hh,G4CMCDecayer.cc,cmc_common_address.c:
+                  small changes in order to pass polarization
+                - PhysicsList.cc: ordinary muon decay replaced by muon decay with spin
+
+2013-07-01      Antonio Cassese (cassese@fi.infn.it)
+                rev. 280
+                - Quantum Efficiency implementation moved from RICHMaterialParameters.cc
+                  to RICHDigitizer.cc
+                - Added variables in TRecoRICHHit and 
+                  TRecoRICHCandidate Persistencies
+                - Removed obsolete variables in
+                  TRecoRICHCandidate Persistency
+
+2013-06-14      Roberto Piandani (roberto.piandani@cern.ch)
+                rev. 277
+                - Added #ifdef SLC5 on PhlysicList.cc to run the NA62MC on slc5 with geant 9.5.p02
+                - env.csh and env.sh adapted to run on slc5 with geant 9.5.p02
+
+2013-05-30      Roberto Piandani (roberto.piandani@cern.ch)
+                rev. 275
+                - GNUmakefile modified to compile the NA62MC both in SLC6 and SLC5
+                - Removed G4HadronInelasticQLHEP.hh in Physicslist.cc because obsolete
+                - Removed call theBoundaryProcess->SetModel(themodel) because obsolete
+                - env.csh and env.sh adapted for SLC6
+
+2013-05-23      Karim Massri (karim.massri@cern.ch)
+                rev. 273
+                - TSpecialTrigger persistency updated
+
+2013-05-09      Viacheslav Duk (Viacheslav.Duk@cern.ch)
+                rev. 271
+                - CHOD persistency updated (TRecoCHODHit.hh)
+                
+2013-04-19      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 269
+                - Cedar simulation updates
+                - New decay mode #86: K-->pipiee IB (from Mauro Raggi)
+                - /random/seedDecay option renamed to /random/seed
+
+2013-04-19      Mario Vormstein (mario.vormstein@cern.ch)
+                rev. 267
+                - MUV2 persistency adapted for timing information for clusters 
+
+2013-04-09      Sergey Podolsky (siarhei.padolski@cern.ch)
+                rev. 265
+                - Bug fix with initialization of random numbers generator
+
+2013-04-02      Mario Vormstein (mario.vormstein@cern.ch)
+                rev. 264
+                - MUV2 persistency adapted for new cluster finding method
+
+2013-02-26      Giuseppe Ruggiero (giuseppe.ruggiero@cern.ch)
+                rev. 261
+                - Modification of the Persistency of the LKr in order to 
+                  remove the Micro Cell class from the output tree.
+                - Computation of the equivalent current for an energy deposition
+                  in one LKr cell performed in LKrSD.cc. The current is saved in the output
+                  tree as an additional variable of the LKr hits (LKrRootIO.cc).
+                - ASCII files LKrGeVToCurr1,2,3.txt added. They are read in LKrSD.cc.
+                  The StandardRun.mac allows the selection of the path of these files 
+                  (/Detector/LKr/GeVtoCurrent1,2,3 name file).
+
+2013-02-22      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 259
+                - Fatal bug fixed in 4-lepton decay generator (modes 100-103)
+
+2013-02-21      Mario Vormstein (mario.vormstein@cern.ch)
+                rev. 256
+                - MUV1SD / MUV2SD
+                  + Memory leak closed
+                  + MUVxHitContainer are now cleared after each event     
+                - MUV1HitContainer / MUV2HitContainer
+                  + Clear - Method added        
+                - env.csh
+                  + Now pointing to geant4 9.5.p02
+
+2013-02-14      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 254
+                - Persistency updates for the improved CEDAR reconstruction
+
+2013-02-14      Sergey Podolsky (siarhei.padolski@cern.ch)
+                rev. 253
+                - Seed number added to the command-line parameters
+
+2013-02-12      Spasimir Balev (balev@cern.ch)
+                rev. 252
+                - Basic simulation of HAC detector introduced
+
+2013-02-01      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 251
+                - Cedar spherical mirror alignment control + minor updates
+
+2013-01-21      Giuseppe Ruggiero (giuseppe.ruggiero@cern.ch)
+                rev. 248
+                - Minor changes in the LKr and FADCVHit Persistency.
+
+2012-12-21      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 246
+                - Cedar configuration file introduced
+                - New decay mode: pi0 --> 3 gamma
+
+2012-12-17      Karim Massri (karim.massri@cern.ch)
+                rev. 244
+                - small changes in Cedar Persistency
+
+2012-12-10      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 241 
+                - changed to GEANT4 9.5p02, which fixes a hit time issue
+                - improved makefiles 
+                - added TSpectrometerDigi
+                - some minor modifications in the persistency
+
+2012-12-07      Karim Massri (karim.massri@cern.ch)
+                rev. 239
+                - Small changes in Cedar Persistency
+
+2012-11-29      Sergey Podolsky (siarhei.padolski@cern.ch)
+                rev. 235
+                - Modification of LKr Hit to be consistent with the current LKr Reconstruction.
+                (microcelling reinvented)
+                - Performance analysis and tuning of microcelling's algorithm has been performed.
+
+2012-11-26      Karim Massri (karim.massri@cern.ch)
+                rev. 234
+                - Small changes in Cedar Persistency
+
+2012-11-25      Karim Massri (karim.massri@cern.ch)
+                rev. 231
+                - Small bugs fixed in env.sh, env.csh, TDCEvent persistency (A.Cassese)
+
+2012-11-20 Bob Velghe (bob.velghe@cern.ch)
+                rev. 226
+                - Added comments in GigaTracker geometry
+                - Small correction in GigaTrackerHit class
+
+2012-11-18      Karim Massri (karim.massri@cern.ch)
+                rev. 222
+                - Minor changes in Cedar Persistency
+
+2012-11-16      Sergey Podolsky (siarhei.padolski@cern.ch)
+                rev. 218
+                - Configuration fixes
+                - Implemented memory-based showers database
+
+2012-11-15      Sergey Podolsky (siarhei.padolski@cern.ch)
+                rev. 216
+                - Modified LKr shower library adding showers resampling support
+
+2012-11-14      Tommaso Spadaro (tommaso.spadaro@cern.ch)
+                rev. 211
+                - Modified the MC LAV persistency (TLAVDigi.hh) to allow for single edge setting.
+
+2012-11-13      Antonio Cassese (cassese@fi.infn.it)
+                rev. 208
+                - Modified CHOD Persistency adding fHitTime and fHitPosition in TRecoCHODCandidate method
+                - Modified CHOD Persistency adding destructor in TCHODDigi method
+                - Modified Persistency fixing a bug in the constructor of TDCEvent method
+
+2012-11-13      Mario Vormstein (mario.vormstein@cern.ch)
+                rev 207
+                MUV1 & MUV2:
+                - Added MUVxHitContainer
+                        + Improvement of hit management 
+                        + Birks correction moved from Reco to MC   
+                MUV1:
+                - Removed MUV1PMT TTree in outpout root file
+
+2012-11-12      Paolo Massarotti
+                rev. 203
+                - Modified TRecoCHANTIHit
+
+2012-11-09      Giuseppe Ruggiero
+                rev. 201
+                - TRecoLKrCandidate.hh modified.
+
+2012-11-08      Antonio Cassese (cassese@fi.infn.it)
+                rev. 196
+                - Added TSpecialTrigger class in Persistency
+                - Added TSpecialTriggerEvent class in Persistency
+                - Added TDCError class in Persistency
+                - Added RawHeader class in Persistency
+                - Modified MUV3 Persistency 
+                - Modified CHOD Persistency 
+                - Modified LKr Persistency 
+                - Modified CHANTI Persistency 
+
+2012-10-26      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 195
+                CEDAR: the measured quartz window transmittances
+
+2012-10-04      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 193
+                - fixed a bug in BeamParticlePhysics about process
+                  ordering indexes
+                - changed the main physics list from QGSP_BERT
+                  to FTFP_BERT (better accuracy between 10 and 20 GeV)
+
+2012-10-02      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 192
+                - changed to GEANT4 9.5p01, which includes all the patches
+                  of our custom version and improves processing speed
+                  roughly by a facto 5 wrt the custom version
+                - some modification of BeamParticlePhysics was required to
+                  comply with G4 changes
+                - now also the muon halo has the correct X component (not inverted)
+                - minor fixes to LKrPeristencyLinkDef and CHODPersistencyLinkDef
+
+2012-09-21      Mario Vormstein (mario.vormstein@cern.ch)
+                rev. 191
+                - MUV2: Saves step length of each hit
+                - MUV2: Some preparations for MUV2 reco in Persistency 
+
+2012-09-14     Sergey Podolsky (siarhei.padolski@cern.ch)
+               rev. 188
+               - References on TMicroCellData have been removed from TLKrHit class.
+
+2012-09-10     Giuseppe Ruggiero (giuseppe.ruggiero@cern.ch)
+               rev. 187
+               - HAC responsibility region created between MUV3 and SAC.
+                 It contains:
+                 - the magnet MBPL-TP with the correct polarity and field strength. 
+                   In the previous versions of NA62MC the magnet was in the SAC
+                   responsibility region, but had the wrong polarity and the wrong field 
+                   strength.
+                 - The beam pipe according to the latest beatch file.
+               - MBPL-TP magnet removed from the SAC responsibility region. SAC 
+                 responsibility region changed in order to accomodate the new HAC rr.
+               - k12hika+ file replaced by the latest beatch file (19/07/12).  
+
+2012-09-07      Paolo Massarotti (massarotti@na.infn.it)
+                rev.186
+               - frame bug fixed
+               - additional supports for CHANTI, aluminium vertical and horizontal bars. 
+               - new CHANTI stations position
+               - correct GTK collimator dimensions 
+                
+2012-09-05      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 185
+                - integrated S.Podolsky's work for LKr performance optimization
+                  (minor things to be completed)
+                - added dependences from Boost and SQLite (from afs)
+                - added some includes from the XZ package for the lzma
+                  compression algorithm; the lib is provided by ROOT
+                - changed to ROOT 5.34.01 (because of lzma)
+                - inverted default state of subdetector geometry from enabled 
+                  to disabled (giving problems after the introduction of
+                  LKr optimization), and changed macros accordingly
+                - after integration a problem appeared in CHANTI, even if
+                  it was not touched, suggesting the introduction of a memory error
+                  somewhere; I commented out the call to CHANTIFrame.
+                  To be investigated and fixed.
+
+2012-09-05      Giuseppe Ruggiero (giuseppe.ruggiero@cern.ch) 
+                rev. 184
+                - MUV0 detector added between RICH and LAV12.
+                - RICH:
+                  - responsibility region modified in order to accomodate
+                    the MUV0;
+                  - thickness of the vessel modified (14 mm instead of 10 mm).
+                - Bug fixed in LAVOptTrack.cc: tracks passing both through the
+                  LAVs and the RICH did not have hits in the RICH since the
+                  fast simulation of the LAVs killed the optical photon associated
+                  to the track and generated also in the RICH.
+                - Sign of the magnet in the SAC inverted.
+                - GNUMakefile modified in order to compile the MUV0 detector.
+
+2012-09-03      Antonio Cassese (cassese@fi.infn.it)
+                rev. 182
+                - Added missing files CHOD/Persistency/src/TCHODDigi.cc
+                  and CHOD/Persistency/include/TCHODDigi.hh
+
+2012-09-03      Antonio Cassese (cassese@fi.infn.it)
+                rev. 181
+                - Added missing files LKr/Persistency/include/TLKrMicroCellHit.hh
+                  and LKr/Persistency/src/TLKrMicroCellHit.cc
+
+2012-09-03      Antonio Cassese (cassese@fi.infn.it)
+                rev. 179
+                - Small modification on LKr Persistency consistently with E. Gersabeck
+                  work on LKrReconstruction and R. Fantechi on rawdecoding
+
+2012-08-16      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 178
+                - A wide range of CEDAR simulation improvements
+                - Four new K+ decay modes:
+                        K+ --> l+ nu g (IB), E(g)>10MeV; K+ --> l1- nu l2+ l2+
+                - Two new lepton flavour violating pi0 decay modes (pi0-->mue)
+                - Minor bug fix in GENBOD call
+
+2012-08-15      Bob Velghe (bob.velghe@cern.ch)
+                rev. 177
+                - GigaTracker: Updated geometry
+                    - PCB
+                        - Cooling plate (baseline option - thin plate)
+                        - Glue layer
+                        - Chips
+                        - Bump bonds
+                        - Pixels (with correct size on inter-chip region)
+                - GDML export: Pixels were magnified 10X before export, removed.
+
+2012-08-02      Mario Vormstein (mario.vormstein@cern.ch)
+                rev. 174
+                - MUV1: New scintillator dimensions 
+                - MUV1: Correct beam pipe material
+                - MUV1: Persistency updated for NA62Reconstruction
+                - MUV2: Correct beam pipe material
+                - MUV3: Crack in MUV3 implemented (fCrackWidth / default is 0*mm)
+                - MUV3: Beam pipe added
+                - MUV3: Bug in FeWall beam hole corrected
+
+
+2012-06-08      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 172
+                - A number of Cedar geometry updates (ATEX cylinder, PMT desctription, etc.)
+                - Minor fixes of decay generators to ensure compatibility with other compilers
+
+2012-02-26      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 170
+                - Added a plot for memory usage monitorning 
+
+2012-02-25      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 168
+                - RICHRootIO.cc had a bug in the hits assignment to channel number 
+                  (patch provided by A. Cassese)
+
+2012-02-13      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 167
+                - RICHRootIO.cc was not updated consistently with the simulation
+                  in rev. 164, causing wrong assignments of hits to channel number
+                  (patch provided by A. Cassese)
+ 
+2012-04-11      Giuseppe Ruggiero
+                rev. 166
+                - Bug fixed in LAV/src/LAVGeometryParameters.cc: 
+                  fLAV_Station_ZLength[11] changed from 800 to 600 mm.
+                  In rev. 164 and 165 this bug caused the partial overlapping 
+                  between the volumes of LAV12 and CHOD, resulting in a huge hits 
+                  loss in the first plane of the CHOD (vertical).
+                - Hole in the IRC moved from -12 mm +12 mm, in order to match
+                  the new bending of the beam.
+
+2012-03-19      Giuseppe Ruggiero 
+                rev. 165
+                - Bug fixed in Beam/GNUMakefile
+
+2012-03-12      rev. 164
+
+                Giuseppe Ruggiero
+                - Turtle program used as beam generator instead of Flyo. 
+                - Some related changes in src/PrimaryGeneratorAction.cc and other
+                  files in src: 
+                  - Procedure to select the starting point of the G4 simulation
+                    via macro changed. 
+                  - Beam type can be selected via macro.
+                  - Beam pileup no more available.
+                  - Only one seed controls the random generator sequence
+                    ("beam seed" no more used).
+                - GigaTracker: GigaTrackerGeometryParameters.cc changed according
+                  to the beatch file. Sign of the magnetic field of the last
+                  trim reversed in order to give the correct bending to the
+                  beam.
+                - Spectrometer: 
+                  - All the sign of the straw positions reversed in order to fit the 
+                    new bending of the beam. Sign of the magnetic field in MNP33 changed.
+                  - Chamber positions and related responsibility regions changed
+                    according to the Beatch file (02/11/2011).
+                  - Persistency/include/TRecoVCandidate.hh: minor bug fixed.
+                - CHOD:
+                  - Plane positions and responsibility region changed according to
+                    the Beatch file (02/11/2011).
+                - LAV:
+                  - Detector positions and responsibility region changed according to
+                    the Beatch file (02/11/2011).
+                - Macros:
+                  - StandardMacro.mac modified in order to describe the instructions
+                    for the new simulation of the beam.
+                - src/cmc_common_address.c modified for a better definition of the
+                  commons of the fortran code.
+                - Persistency/src/TRecoVCandidate.cc: default maximum number of hits
+                  changed to 200.
+                - GNUMakefile modified.
+
+                Paolo Massarotti
+                - GigaTrackerGeometryParameters.cc: dimensions of the final collimator
+                  changed.
+                - GigaTrackerCollimator.cc: geometry of the final collimator modified
+                  according to the technical design of the collimator.
+
+                Sergey Podolsky
+                - Random number generator updated in order to handle one TRandom3 generator 
+                  only. 
+
+                Francesca Bucci
+                - RICH inclination changed in agreement with Niel's Beatch File (02/11/2011)
+                - RICH PMTs position changed accordingly to new PM grouping proposed in
+                  Francesca's talk (13/07/2011)
+                - RICH mirrors position fixed in order to have maximum photon geometrical
+                  collection
+                - RICHRootIO.cc changed to properly save channel number accordingly to new
+                  disposition
+
+2012-03-05      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 162
+                - a minor bug in GENBOD calls fixed
+                - K --> pipi0g (IB) generator with IR cutoff introduced (mode #80)
+
+2012-02-24      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 161
+                - Cedar: more photodetector options added (see CedarMaterialParameters.hh),
+                         refinemements of the geometry
+
+2012-02-21      Domenico Di Filippo
+                rev. 160
+                - New LAV matrices extracted with the new toolchain 
+                  inside the official framework
+                - Moved matrices in the root dir
+
+2012-02-21      Domenico Di Filippo
+                rev. 159
+                - MatrixGun macro commands cleanup
+                - Added DivMat and AddMat tools to help to parallelize the matrix generation
+                - Added macro/LAVMatrixSampling.mac: it is an example of how to setup the 
+                  simulation to generate the matrices
+                - Bugfix in the DigiMat tool
+                - Bugfix in the Tools makefiles
+
+2011-03-30      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 158
+                - Tools Makefile patched to fix compilation problems
+ 
+2011-03-30      Vito Palladino (Vito.Palladino@cern.ch), Tommaso Spadaro (Tommaso.Spadaro@cern.ch) 
+                rev. 156
+                - LAV persistency: 
+                        - TLAVDigi modified in order to mimic the real data structure
+                        - added TRecoLAVDigi: contains the information of an electronic channel 
+                        - TRecoLAVHit: now contains two TRecoLAVDigi variables for both high and low theresholds
+
+2011-11-18      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 155
+                - CEDAR: possibility to select West/North geometry and radiator gases.
+                - Many refinements of CEDAR geometry, including addition of optical cap lenses.
+                - Suppression of Cherenkov photons generated by secondaries in CEDAR optics.
+                - To switch between the Cedar design options: uncomment exactly one option
+                  in Cedar/include/CedarMaterialParameters.hh, OR comment all options
+                  and compile e.g. with gmake MDEFINES="CEDAR_WEST_N2=1".
+                
+
+2011-11-10      Mario Vormstein (mario.vormstein@cern.ch)
+                rev 153+154
+                - MUV1: Small changes in optical properties of scintillators
+
+2011-09-21      Domenico Di Filippo (domenico.difilippo@na.infn.it)
+                rev 151
+                - Matrix generation tested and fixed
+                - Using measured tyvek reflectivity (PHENIX note 245, Brookhaven)
+                - Tools Makefile patched to fix compilation in some environment
+                - env.sh replaced with the new one from Tonino
+
+2011-08-26      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 150
+                - CEDAR: simulation of test beam conditions enabled;
+                  persistency classes required by digitization and reconstruction added
+
+2011-08-09      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 148+149
+                - CEDAR: sensitive detector added; hits saved to MC output
+                - Decay generators: minor bug fix in Kmu2g(IB); K2pig(IB) exported from KLOE library
+
+2011-07-27      Mario Vormstein (mario.vormstein@cern.ch)
+                rev. 147
+                - PhysicsList: The WLS process added
+                - PhysicsList: Birks effect for scintillation added
+                - MUV1 Full optical photon support added (slow)
+                - MUV1 Fast simulation mode added (default)
+                - MUV1 Messenger added (/Detector/MUV1/EnableFullOpticalSimulation) 
+                - Fix of layer position in MUV1 
+                - MUV3 moved to new position according to BEATCH-file
+
+2011-07-18      Sergey Podolsky (spodolsky@mail.ru)
+                rev. 146
+                - Another polishing of events reproducing. More elegant bug fixing than was done at rev. 144.
+
+2011-07-13      Domenico Di Filippo (domenico.difilippo@na.infn.it)
+                rev. 145
+                - Change beam type selection command in the macros: now use /beam/SetBeam flyo|gps|matrixgun
+                - Added new Beam type: MatrixGun to generate LAV matrices for fast simulation
+                - New Tools directory with makefiles to compile utilities.
+                - Tools/DigiMat utility to generate LAV matrices. It is not finished yet: compile and run correctly but output matrices not already tested!
+                - Minor makefiles changes: now NA62MC compile also on gentoo (root and geant from official portage tree) and debian (geant compiled and root from lcg-heppkg cern repository)
+                - New methods in LAVGeometryParameters to get block orientation
+                - In LAVMaterialParameters using G4MaterialPropertiesTable::AddProperty instead of AddConstProperty
+
+2011-07-13      Sergey Podolsky (spodolsky@mail.ru)
+                rev. 144
+                - Floating bug fixing. In some cases segmentation fault happened during events reproducing.
+
+2011-07-08      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 143
+                - More realistic description of the CEDAR vessel optical elements
+                - CEDAR light collecting cones and PMTs added
+                - CEDAR messenger added
+
+2011-06-20      Paolo Massarotti (paolo.massarotti@na.infn.it)
+                rev. 142
+                - CHANTI Vessel Added
+                - CHANTI Frame Added
+                - CHANTI Silicon Ring Added
+                - CHANTI Messenger Added (/Detector/CHANTI/EnableVessel and/or /Detector/CHANTI/EnableSiliconRing)
+
+2011-06-14      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 141
+                - EventAction::GetEventID() method added
+                - slightly improved documentation of the CEDAR code
+
+2011-06-13      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 140
+                - suppress CEDAR lightguide optical surface (until cones/PMTs are implemented)
+
+2011-06-13      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 139
+                - CEDAR vessel optics and some of the new UK optics installed
+                - Cherenkov photon production and tracking in the CEDAR enabled
+                - Cherenkov photons can be switched off by gmake MDEFINES="CEDAR_LIGHT=0"
+
+2011-05-18      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 138
+                - Cherenkov radiation by beam kaons enabled
+                - beam kaon lifetime set to the PDG 2010 one
+
+2011-05-18      Spasimir Balev (Spasimir.Balev@cern.ch)
+                rev. 137 
+                Two bug fixes causing crashes when run in test beam mode:
+                - in attempt to close non-opened halo file after generation
+                - in attempt to return of the number of generated particles (in include/CMC.hh)
+
+2011-05-16      Spasimir Balev (Spasimir.Balev@cern.ch)
+                rev. 136
+                - Simulation of all muon halo components - muons from pi+/- and K+/-
+                  upstream the GTK3; as well as pi+ component in the K+ beam
+                - The control is via the command /beam/Halo
+                - In this mode ONLY the halo is simulated
+                - The simulation requires external binary files for each component
+                - For full information see the description in the standard macro file  
+
+2011-05-05      Giuseppe Ruggiero (Giuseppe.Ruggiero@cern.ch)
+                rev. 134
+                - Relative shift between two half views of a view in one chamber modified
+                  in View.cc.
+                - Fast gas mixture in the straws used (StrawMaterialParameters.cc).
+                - Some modification in TRecoSpectrometerCandidate.hh and TRecoSpectrometerHit.hh
+                  to match the new version of the spectrometer reconstruction in NA62Reconstruction.   
+
+2011-05-04      Massimiliano Fiorini (Massimiliano.Fiorini@cern.ch)
+                rev. 130
+                - added TGigaTrackerDigi
+                - modified TRecoGigaTrackerCandidate: track reconstruction is not done 
+                  here anymore. All the functionality is moved to GigaTrackerReconstruction 
+                - preprocessor variable GigaTrackerTB has been added to enable processing
+                  Gigatracker test-beam data
+
+2011-04-18      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                rev. 127, 128
+                - new kaon decay modes introduced (and mode numbering has changed!);
+                - updated decay phase space distributions;
+                - major cleanup of decay generators, consistent use of variables, etc.
+                - bug fix in Photos implementation;
+                - temporary radIRcutoff and radcorLevel flags suppressed;
+                - pizeroDecay flag introduced to control pi0 decays;
+                - GenePart class and fGeneParts array.
+
+2011-04-18      Monica Pepe (monica.pepe@pg.infn.it)
+                rev. 126
+                Changes to RICH MC simulation:
+                - RICH Fast simulation implemented
+                - added commands to StandardRun.mac to enable/disable RICH Fast simulation
+                - new RICHDetectorMessenger.cc (.hh) to use Fast sim Flag
+                - modified printout of parameters in RICHGeometryParameters.cc
+
+2011-04-07      Francesca Bucci (francesca.bucci@cern.ch)
+                rev. 125
+                - bug fix RICH mirror: material wrongly set to vacuum 
+                  since almost one year
+ 
+2011-03-31      Antonino Sergi (Antonino.Sergi@cern.ch)
+                rev. 124
+                - Bugfix in LKrRootIO to assign the correct seed indexes
+                - Updated rootlogon.C to include all detectors
+ 
+2011-03-30      Vito Palladino (Vito.Palladino@cern.ch), Tommaso Spadaro (Tommaso.Spadaro@cern.ch) 
+                rev. 123
+                - Added class TLAVDigi in the LAV Persistency, 
+                  it is a temporary class. It will be updated deleting 
+                  the leading and trailing vectors (fLeading and fTrailing) 
+                  and also the charge (fCharge).
+ 
+2011-03-25      Spasimir Balev (Spasimir.Balev@cern.ch)
+                - Bug fix: missing IRCBeamPipe class added
+
+2011-03-25      Spasimir Balev (Spasimir.Balev@cern.ch)
+                - Fixed a bug in the placement of the Beam pipe piece after the RICH
+
+2011-03-25      Spasimir Balev (Spasimir.Balev@cern.ch)
+                - Beam pipe added after the RICH and in LAV, CHOD and IRC
+                  responsibility regions
+                - The design of the beam pipe is as inside the RICH
+                - Bug fix in BeamTubeFins.cc
+
+2011-03-24      Antonino Sergi (Antonino.Sergi@cern.ch)
+                - Solved a fatal memory leak in saving MCTruth data on disk
+                - Removed useless data stored in TRICHHit 
+                - Switched to ROOT 5.28.00b
+                - Fixed a bug in the positioning of BeamTubeFins 
+
+2011-03-11      Antonino Sergi (Antonino.Sergi@cern.ch)
+                - Added the beatch file on which the layout implemented
+                  in the simulation is based (only the left-right swap
+                  is left)
+                - As requested by many, the env.csh script has been modified
+                  to compile everything in the NA62MC directory
+                - A cut at 3MeV for the minimal energy in 1 single LKr cell
+                  has been added (it will be tuned in the future)
+
+2011-03-11      Spasimir Balev (spasimir.balev@cern.ch)
+                - Store KineParts with parameters from DataCard
+                  (detailed explanation in StandardRun.mac)
+                - Interaction level introduced (beam is 0, and incremented for each secondary) 
+                - The default solution keeps minimum information for 
+                  the main six Kaon decay modes: a track is saved if:
+                        = the interaction level is <=2
+                        = the particle is not opticalphoton
+                        = the Creator process is not pion or kaon inelastic scattering
+                        = the End process is not Scintillation
+                - The minimum energy cut to save a track (preciosly set at 100 MeV) is optional
+                - The control of saving all the steps for the events is also given in the macro
+
+2011-03-11      Giuseppe Ruggiero
+                - Spectrometer is updated to latest beatch file (23/02/2011)
+                  with U-V and X-Y modules of chambers swapped with respect
+                  to the previous version; it is not compatible at the moment
+                  with the current version of the reconstruction. The new version
+                  is being finalized.
+
+2011-03-11      Francesca Bucci (francesca.bucci@cern.ch)
+                - Generic BeamPipe class has been implemented.
+                  The BeamPipe with fins structure is considered to be made of Aluminium.
+                  Inside each responsibility region more than one beam pipe segment can 
+                  be constructed, each with different geometrical parameters.
+                - RICH parameters updated to 2011/02/23 beatch file
+                - Neon added behind mirros
+
+2011-03-10      Mario Vormstein (mario.vormstein@cern.ch)
+                - MUV directory removed
+                - MUV1 and MUV2 directory added
+                - MUV1 and MUV2: geometry implemented
+                - MUV1 and MUV2: beam pipe added
+                - MUV1: Energy deposit saved in 96 channels
+                - MUV2: Energy deposit saved in 88 channels
+                
+2011-02-25      Spasimir Balev (Spasimir.Balev@cern.ch)
+                SAC:
+                - end of responsibility region: 268300 (beam dump) instead of 265000
+                - beginning of responsibility region: 247800 instead of 247600
+                - change of SAC detector position: 261300 instead of 261000
+                - change magnet position: 248200 instead of 249000
+                - change SAC angle to 15 mrad from 7 mrad
+                - change SAC dimensions: 200x200 instead of 260x260
+                (or 22x22 segments with a fiber in the center)
+                MUV3:
+                - end of responsibility region: 247800 instead of 247600
+                - beginning of responsibility region: 245900 instead of 245700 (beginning of Fe wall)
+                - Z of detector: 246710 instead of 246510
+                CHOD:
+                - no changes needed
+                IRC:
+                - asymmetric IRC according to the latest beatch file
+                - the end of the responsibility region changed to 240388
+
+2011-02-25      Evelina Gersabeck (Evelina.Marinova@cern.ch)
+                - shift of the LKr and its responsible region by 2mm according to the new BEATCH file numbers
+
+2011-02-22      Domenico Di Filippo (domenico.difilippo@na.infn.it)
+                Some bugfix about:
+                - storage of optical photons energy and time
+                - material properties table of PhotonKiller optical surface
+
+2011-02-02      Sergey Podolsky (spodolsky@mail.ru)
+                - Added functionality to control random engines states.
+                - To implement this updated: EventAction, PrimaryGeneratorAction, MCTruthManager,
+                  RandomGenerator, Event, LAVOptTrack, NA62MC
+                - Added script ExtractRandomStates.pl and macro ExtractRandomStates.C
+
+2011-01-24      Domenico Di Filippo
+                - LAVDetector can now contruct both the fast and the accurate
+                  detector and LAVSD can handle them
+                - Added LAVAccurateBlock and LAVPhotoMultiplier with accurate
+                  block geometry
+                - Added command in messenger to set the matrix file path
+                - Switch to std::vector in LAVHit and OpticalTracker
+                - Sensitive detector construction removed from LAVDetector
+                  (moved in LAVPbGlBlock, LAVPhotoMultiplier, ect.)
+                - Added optical surfaces in LAVMaterialParamter
+                - Change the name of TLAVHit::GetPhotonsDelay to  
+                  TLAVHit::GetPhotonsTime
+                
+2011-01-20      Antonino Sergi
+                - switched to Geant4.9.4 and ROOT 5.28.00
+                - updated PhysicsList and BeamParticlePhysics to comply with G4.9.4
+                - fixed few issues realted to makefiles and compiler options
+                - cleand up few leftovers
+
+2011-01-10      Vito Palladino (vito.palladino@cern.ch)
+                - ANTI0 has been changed into CHANTI. 
+                - Bars geometry has been implemented as reported into the NA62 TD.
+
+
+2010-11-24      Emanuele Leonardi (emanuele.leonardi@roma1.infn.it)
+                - Added documentation about LAV commands to macros/StandardRun.mac
+
+2010-11-23      Emanuele Leonardi (emanuele.leonardi@roma1.infn.it)
+                Changes to LAV MC simulation:
+                - added commands to enable/disable single stations/layers/bananas/vessels
+                - created new LAVBanana class to handle construction of banana structure
+                  (currently includes aluminun slabs, columns and c-shapes)
+                - created new LAVVPbGlBlock virtual class to allow for different simulations
+                  of PbGl block's physics (e.g. with or without optical photons tracking)
+                - added command to select which PbGl block's physics to use
+                - fixed PhiRotationBetweenLayers angle for stations>5
+                - improved naming convention for logical volumes and solids
+                - used more realistic colors for LAV components
+                - modified LAVSD to take into account LAVBanana when computing channel id
+
+2010-11-18      Spasimir Balev
+                 - fix a bug in Spectrometer responsibility regions (wrong placement)
+                 - correct IRC beam pipe in the first IRC module
+
+2010-11-16      Evelina Marinova 
+                 -updated LKr geometry parameters and LKr responsibility region(rr) according to BEATCH file;
+                  longer beam pipe added, according to the new rr. 
+                 -bux fix in the different materials used for the parameterized volumes; NHOD fibers are now made of scintilator
+                  (REMINDER: NHOD is turned on only if you compile with the option --> make MDEFINES="LKrNHOD=1")
+                 -ChannelID is now properly filled in LKrSD    
+                 -FADCVHit and FADCEvent classes added to the global Persistency (similar to TDCVHit and TDCEvent for now); 
+                  to be used with LKr and some other detector??
+                 -TLKrDigi class  added to the LKr Persistency                  
+
+2010-11-16      Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
+                - updated passive CEDAR geometry according to the 10/06/10 BEATCH file
+                  and the recent update of the responsibility region definition
+
+2010-11-11      Antonino Sergi
+                - updated responsibility regions according to BEATCH file (8/11/2010)
+                - modified enable/disable mechanism for subdetectors for a better manipulation
+                  of their parameters
+                - switched to Geant4.8.3.p02 and ROOT 5.26.00b
+                - reactivated by default the inclination of the RICH
+                - enabled by default all the subdetectors
+
+                IRC update done by Spasimir:
+                - Updated geometry according to TDR: two IRC modules with 35 layers of Scintillator (1.5 mm thick) 
+                  and Absorber (1.5 mm thick), each; outer radius 145 mm, inner radius 70 and 71 mm for the first 
+                  and the second module; Aluminum supports for each module simulated.
+                - No fibers and supporting rods simulated.
+                - 4 radial segments for each module
+                - Second module rotated wrt. the first one by 10 mrad
+                - Beam pipe simulated: 1 mm Aluminum tube with inner diameter 69 mm to the end of the first IRC module and 70 mm after.
+                - Hits definition as sum of energy deposits in square segments (xyz, default 2,2,1)
+
+2010-11-10      Emanuele Leonardi (emanuele.leonardi@roma1.infn.it)
+
+                Changes to LAV MC simulation:
+                - updated resposnsibility region to new RR map
+                - updated LAV12 geometry to latest design
+                - introduced LAVDetectorMessenger class
+                - added datacard to switch on/off single LAV station
+
+2010-11-05      Spasimir Balev (spasimir.balev@cern.ch)
+
+                - Added MUV3 detector; implemented according to TD (12x12 matrix of modules, 220x220 mm^2 each;
+                  8 smaller modules around the beam pipe)
+                - 2 PMTs simulated in each module only as glass windows (class MUV3PMT)
+                - Sensitive zone: Scintillator in each MUV3 module
+                - Hit collection: energy deposit in each scintillator block (coordinates of each hit
+                  are the coordinates of the last added energy deposit in the scintillator)
+                - 80 cm thick Fe wall added in front of MUV3
+                - Responsibility region for MUV changed to fit MUV3
+
+2010-11-03      Emanuele Leonardi (emanuele.leonardi@roma1.infn.it)
+
+                Changes to LAV MC simulation:
+                - Updated LAV stations positions to BEATCH file of 2010-10-26
+                - Block shape is now correct
+                - Each LAV station uses correct block type
+                - Part of the block support station is simulated (steel slab, mu-metal cylinder)
+                - File modified: LAVDetector.(hh|cc) LAVGeometryParameters.(hh|cc) LAVPbGlBlock.(hh|cc)
+
+2010-11-03      Spasimir Balev
+
+                - Added SAC detector; implemented according to TD. Sinlge channel hit definition: sum of
+                  energy deposit in the whole detector (scintillator). There is the possibility to increase the
+                  number of channels by setting the fSDnSegmentsX, fSDnSegmentsY and fSDnSegmentsZ variables. 
+
+2010-10-08      Domenico Di Filippo
+
+                Changes to the LAV MC simulation:  
+
+                - Added LAV/LAVEff.txt and LAV/LAVDelay.txt: the matrices for efficiency and delay in the photons arrival time
+                - Added LAVSampleMatrix.hh LAVSampleMatrix.cc to menage the matrices
+                - Added LAVOptTrack.hh LAVOptTrack.cc to handle optical photons
+                - LAVSD.hh and LAVSD.cc now interface themself to LAVOptTrack to manage optical photons
+                - Changes in LAVHit.hh, LAVHit.cc and Persistency/TLAVHit.hh to store the optical photons information
+                - Changes in LAVRootIO.cc to copy optical photons information from LAVHit to TLAVHit
+                - Commeented the ABSLENGTH lines in LAVMaterialParameters.cc: now the optical photons absorbtion is done through efficiency matrix
+                
+                To properly work, for now, the optical tracking need a copy of LAV/LAVEff.txt and LAV/LAVDelay.txt in the execution directory.
+                THE ARRIVAL TIME SIMULATION IS ONLY TEMPORARY
+
+2010-09-30      Evelina Marinova
+
+                The LKr MC simulation now includes a few new things:  
+
+                - full geometry of the Cold and Warm windows    
+                - full geometry of the flanges included
+                - naive simulation of the materials between the back plate and the back cold window 
+                 (to compensate for the electronics and cables materials). Simulated as cylindrical 
+                 layers of a given thickness and material. 
+                - NHOD included. Simulated as virtual trapezoids (as a part of the inner structure of the 
+                  Parameterized Electrode cells - Parameterized VSpacers, therefore with a rectangular shapes, 
+                  effectively covering the same surface as the cylindrical tubes of the real NHOD). 
+                  Due to unknown error, scintillator could not be used for the scintillating fibers, 
+                  PVC is used temporarily. The NHOD will be switched on (passive material only) if you 
+                  compile with make MDEFINES="LKrNHOD=1". 
+                 - bug fixes
+
+2010-09-23      Antonino Sergi
+                - Implemented in the GigaTracker and LKr persistency a protection
+                  to avoid crash during the analysis in case the link between MC hits
+                  after Reconstructed variables is chosen not to be persistent (based on Alban Jago
+                  experience)
+                - Added K->pi gamma gamma decay (Alban Jago)
+                - Fixed presence of multiple instacnces of the same TTree in the output file (A. Jago)
+                - Fixed mismathced fill of LKr TTree
+
+2010-09-21      Sergey Podolsky
+                - PHOTOS decay generator fixed by using one seed chain provided by 
+                  TRandom3 class. 
+
+2010-09-17      Giuseppe Ruggiero
+                - It is possible to switch between Cedar and Gigatracker as end-point of
+                  the beam simulation simply by selecting the appropriate mode in .mac
+                  (see StandardRun.mac for reference). No further actions on the code are 
+                  required.
+                - Some changes in Spectrometer/Persistency/include/TRecoSpectrometerHit.hh
+
+2010-08-31      Francesca Bucci
+                -Bug fixed in the default version of StandardRun.mac
+
+2010-08-09      Giuseppe Ruggiero
+                - New random generators for beam production and decay simulation.
+                  The random generator used is TRandom3 (defined in 
+                  NA62MC/src/RandomGenerator.cc).
+                - The seeds of the generator can be controlled via the .mac commands:
+                  /random/seedBeam and /random/seedDecay (see StandardRun.mac).
+                - Modifications in NA62MC/src and NA62MC/include:
+                  routines added: RandomGenerator.hh, RandomGenerator.cc
+                  routines changed: PrimaryGeneratorAction.cc (hh), DatacardManager.cc (hh),
+                                    DatacardMessenger.cc (hh).
+                - Modifications in NA62MC/Generator:
+                  routines added: rndmcpp.cc, rndmcpp.hh (interface to export TRandom3 
+                  in fortran files)
+                  routines changed: rndm.f, ranf.f, rndmcpp.cc, ranlux.f, grndm.f, gensph.f
+                                    random.f, kch3pidk.f, kch2lnulnug.f
+                  The NA62MC/Generator/GNUmakefile has been changed to allow the c++ compilation.
+                - Modifications in NA62MC/Beam/src:
+                  random.cc, mainuti.cc
+
+2010-03-10      Antonino Sergi
+                - Implementation of the new RICH geometry, using
+                  parametric volumes: ~2500 PMs (over instrumented),
+                  to be cut in the analysis 
+                - Updated to work both on SLC4 and SLC5
+                - Some bugfix here and there
+
+2010-02-22      Evelina Marinova:
+                - Implemented LKr geometry - inner and outer cryostat, warm and 
+                  cold windows, electrodes, front wall, back wall, spacer plates, 
+                  irregular electrodes + part of the beam pipe.
+                - Signals from each cell formed in LKrSD. CPD, CPDChannel map implemented.
+                - Methods for cluster candidates, used in the Reconstruction, like get energy, 
+                  check if the cluster is genuine, add more hits to the cluster, 
+                  merge fake and real clusters) implemened 
+                  in LKr/Persistency/src/TRecoLKrCandidate.cc.
+                - Position of the hits is given at the front face of the electrode cell. The time of the 
+                  signal is given by the time of the geant4 hit, closest to the electrode cell face. 
+                - Cold front window is not finished!!; Flanges to be added.
+      
+2010-01-21      Giuseppe Ruggiero:
+                - Modified Spectrometer/Persistency/TRecoSpectrometerCandidate.cc
+                  and TRecoSpectrometerHit.cc variables to include new variables
+                  and methods used in the Spectrometer Reconstruction.
+                - Added the documentation via doxygen to the classes 
+                  TRecoSpectrometerCandidate and TRecoSpectrometerHit.
+                - Modified Spectrometer/Persistency/SpectrometerPersitencyLinkDef.hh 
+                  to pass the structure parTrack in the output tree.
+                - Improved Persistency/src/KinePart.cc.
+                - Added the datacards Beam/datacard/Kpivv_acc_template_gtk1.epc and
+                  Kpivv_template_gtk1.epc. The instructions to switch from the CEDAR
+                  to the GTK1 as the first detector seen by Geant are in 
+                  Beam/datacard/README.
+                - Decay K->paigammgamma from CMC added.
+                  The new routines in Generator are 
+                  kchpigg.f, wt4.f, wt6.f, r_re.f, r_im.f, f_re.f
+                  f_im.f, c_ampl_sq.f, b_ampl.f, a_ampl_sq.f, a_ampl.f
+                  The reference for this decay has been added in the
+                  macro/StandardRun.mac datacard.
+
+2009-11-19      Evgueni Goudzovski:
+                - Implemented basic passive Cedar geometry (vessel,
+                  two Al windows, pressurized hydrogen)
+                - Implemented quadrupole magnets QFS 077,079
+                - New Cedar-compatible datacard BeamK09.app: fast beam
+                  simulation stops at Cedar front plane
+                - the old version of BeamK09.app moved to BeamK09_gtk1.app
+                - Several hard-coded beam simulation constants modified
+                  to become Cedar-compatible
+                - NA62BlackHole material introduced
+                - Small differences wrt previous version may be
+                  observed when pileup option is activated
+
+2009-11-06      Massimiliano Fiorini
+                - Modified GigaTracker/Persistency/TRecoGigaTrackerCandidate.cc
+                  to include new methods for the GigaTracker reconstruction
+                - Some bugfixes 
+
+2009-11-02      Giuseppe Ruggiero
+                - Automatic setting at compilation level of the path of 
+                  the external files needed by the Beam datacards: Kpivv.epc 
+                  (generation without beam pileup) and Kpivv_acc.epc 
+                  (generation with beam pielup). The files included are 
+                  Beam/datacard/AMatter.app and Beam/datacard/BeamK09.app. 
+
+2009-11-02      Giuseppe Ruggiero
+                - Some bugs corrected in Beam/datacard
+
+2009-10-29      Giuseppe Ruggiero
+                - Pileup simulation added:
+                  Beam/datacard/Kpivv_acc.epc now allows
+                  the simultaneus generation of pions, kaons
+                  and protons. The muon halo is not simulated.
+                - Some bug in generation fixed
+
+2009-10-17      Antonino Sergi
+                - Some bugfixes 
+                - Moved base classes in a separate directory
+                  (MCBase) to avoid cross referenced libraries
+                - Revised makefiles and added a rough "multiversioning"
+                  capability via #ifdefs, for example:
+                        make MDEFINES="RICHTB=1 RICHP400=1"
+                  will expand it in -D options for the compilation of
+                  all source code (that's why it will be good practice
+                  to prepend the SubDet name to your preprocessor
+                  instructions)
+                - Updated RICH geometry to latest knowledge
+                - Revised Persistency implementation
+                - Added Reco objects to all Persistencies, for
+                  the new NA62Reconstruction architecture
+                - Improved TestBeam option for primary particle
+                  generation using G4GeneralParticleSource instead
+                  of G4ParticleGun
+
+2009-08-10      Antonino Sergi
+                - Added Muon Veto (MUV) code, implemented by 
+                  Massimo Lenti as it is the NA48 HAC.
+
+2009-08-05      Giuseppe Ruggiero
+                - Beam Description updated to the 2009 configuration
+                  (Beatch file july 2009, halo and turtle file april 2009)
+                - Some updates in the StandardRun.mac
+
+2009-07-31      Giuseppe Ruggiero
+                - A bug fixed in all the detector/src/detectorRootIO.cc files
+                - Some changes in the Spectrometer Geometry
+
+2009-03-12      Simone Bifani
+                - Added the collimator before station 3
+                - Fixed the sign of the GTK magnet fields
+                - Changed the MNP33 magnet field value
+
+2009-03-03      Antonino Sergi
+                - Implemented SubDetector enabling/disabling capability
+                  via macro (no need to comment/uncomment code), described
+                  in macro/StandardRun.mac
+                - Implemented automated conversion of G4 geometry to Root 
+                  geometry file NA62.root (used in NA62EventDisplay; there
+                  is still something to do in NA62Reconstruction package to
+                  avoid problems): scripts/G4GeometryToRoot.csh
+                - Fixed a small memory leak in RICHRootIO
+                - There is still a small memory leak probably related to
+                  persistency of hits in general
+                - Added the possibility to bypass Flyo for testing purposes
+                  via /beam/TestBeam command, described in macro/StandardRun.mac
+                - Added private member in LAVDetector to let Doxygen generate
+                  properly cross referenced diagrams
+
+2009-03-03      Simone Bifani
+                - Removed the alluminum foil
+                - Changed the geometrical configuration according to the
+                  last BEATCH file (x -> y deflection and 5th magnet)
+                  (http://doble.web.cern.ch/doble/k12hika+.txt 2008/11/24)
+
+2009-03-02      Emanuele Leonardi
+                - First implementation of LAV geometry (LAVDetector,
+                  LAVGeometryParameters)
+                - New class LAVPbGlBlock to create PbGl blocks (basic components of
+                  LAVDetector)
+                - First implementation of LAV materials (LAVMaterialParameters)
+                - First implementation of LAV hit structure (LAVHit,LAVSD,LAVRootIO)
+                - Update persistency class TLAVHit to include extended info for LAV
+                  hits
+ 
+2009-03-02      Giuseppe Ruggiero
+                - Correct treatment of the hadronic interactions of 
+                  the kaon particle (BeamParticlePhysics.cc) implemented.
+                - Simulation of the beam pileup added (flag pileupSimu
+                  to be switched on in StandardRun.mac, use
+                  the Beam/datacard/Kpivv_acc.epc beam datacard).
+                - k->pip0p0, k->pip0 (INT and DE), kmu4
+                  decay generators added.
+
+2009-03-02      Massimo Lenti
+                - Added Charged Hodoscope (CHOD) code. 
+                  It is the existing (NA48) hodoscope.
+
+2009-02-28      Vito Palladino
+                - Added first version of ANTI0 geometry
+                - Added ANTI0 in DetectorConstruction, RootIOManager
+                  and GeometryParameters
+                - Modified ResponsibilityRegion of GigaTracker:
+                  position unchanged, ZLenght shrinked 
+                  (to end at 2.5cm after 3rd station) 
+
+2009-02-28      Giuseppe Ruggiero
+                - Implementation of constrained Decay Region
+                - Imported Kaon decay Generators from CMC 
+                  (including radiative correcctions)
+                - Updated PrimaryGeneratorAction for future
+                  PileUp and accidentals production
+                - Impemented a Datacard interface to simplify
+                  interaction with FLYO and select decay
+                  parameters (channel and decay region) via
+                  G4 macro system
+                - Added a sample macro (StandardRun.mac)
+                - Redefined PhysicsList for custom particle Beam
+                  (BeamPhysicsList) copying directly from standard
+                  Kaon physics
+                - Detector that are implemented still as empty
+                  boxes have been disabled (commented out in
+                  DetectorConstruction.cc, RootIOManager.cc)
+                - Added beamline datacard for FLYO
+                - Removed few printouts.
+                - Updated main GNUmakefile for static linking  
+
+2009-01-23      Antonino Sergi:
+                - Migration to G4.9.2 and root5.22.00 releases
+                - Abstraction of Subdetectors Event and Hit persistency
+                  objects; everyone inherits now from TDetectorVEvent
+                  and TDetectorVHit
+                - Obsolete TDCTrig and TDCHit classes redesigned as
+                  base objects for TELL1-TDC like Digis, named now as
+                  TDCEvent and TDCVHit
+                - Added TRICHDigi as concrete implementation of TELL1-TDC
+                  Digi
+                - Now all percistency objects are designed to be fully
+                  splitted in TTrees, so that data can be accessed both
+                  by Object Oriented and old fashioned NTUPLE approach.
+                  Also performance should be improved
+                - Removed a bug in Subdetector MaterialParameters that
+                  used to cause crash if RICH was disabled
+                - Investigated the CXXFLAGS issue in GNUmakefile; removed
+                  only -pedantic option from G4 standard CXXFLAGS. It
+                  should not be harmful
+                - Added PDGcharge to MCTruth information
+                - Fixed a bug in BumpBonding material definition in GigaTracker 
+                - Changed a variable name (Info->Infos) in Beam/include/parm.h 
+                  Beam/src/carte.cc for a compilation issue
+
+2008-12-01      Giuseppe Ruggiero
+                - Beam simulation added
+                - scripts/run.csh added
+                - Decay & physics list of custom beam particle 
+                  added but under development
+                - Potentially dangerous change in compilation options
+                  (CXXFLAGS) in main GNUmakefile
+
+2008-04-30      Antonino Sergi:
+                - Rationalization of makefiles
+                - Modified the csh script to set environment
+                  variables properly for Geant4(geant4.9.1.p01) 
+                  and ROOT (5.18.00a) for slc4_amd64_gcc34
+                - Added T(SubDet)Event classes as examples in
+                  still empty subdetectors, and modified the
+                  corresponding (SubDet)RootIO
+                - Added a rootlogon.C macro to load persistency
+                  libraries to easily check output ROOT trees
+                - Changed class names in the RICH to avoid ambiguity
+                - Updated RICH geometry to latest configuration
+
+2008-04-30      Simone Bifani:
+                - Upgrade of the GigaTracker pixel structure
+                  - 300 x 300 x 200 um3 sensitive silicon pixel 
+                  - 10 um Sn-Pb bump bonding
+                  - 300 x 300 x 10 um3 alluminum foil
+                  - 300 x 300 x 100 um3 silicon chip
+                  - 300 x 300 x 100 um3 carbon support
+
+2008-04-30      Francesca Bucci, Antonino Sergi:
+                - Implemented geometry and hit persistency for
+                  IRC (a shashlyk calorimeter as proposed).
+
+2008-04-28      Giuseppe Ruggiero, Antonino Sergi:
+                - Completed the structure of the Spectrometer
+                  (4 Chambers, 4 views each, and 1 Magnet),
+                  accordingly with BEATCH file (04/04/2008) 
+                  and specs from latest Collaboration Meeting.
+                - Persistency of hits is implemented.
+
+2008-04-23      Simone Bifani:
+                - Implemented GigaTracker geometry:
+                  - 300 x 300 x 300 um^3 sensitive silicon pixel
+                  - 3 60 x 27 mm^2 stations (GTK2 displacement: x = +60 mm)
+                  - 4 2.5 m long magnets with an uniform B field
+                  according to BEATCH file (04/04/2008)
+                - The following GigaTracker hit information are recorded 
+                  on the output ROOT file:
+                  - pixel ID
+                  - station ID
+                  - position
+                  - deposited energy
+                  - crossing time
+
+2008-04-15      Antonino Sergi:
+                - Fixed few problems of linking on lxplus
+                - Made few changes to switch to geant4.9.1.p01
+                - (gean4.8.3 is no longer supported by geant4 team)
+
+2008-04-07      Antonino Sergi: 
+                - First public version with templates for
+                  subdetectors and a fairly advanced
+                  version of the RICH
+                - PrimaryGeneratorAction class provides a basic
+                  single particle beam for testing purpose
+                - Subdetectors template have been positioned
+                  roughly in their own positions, starting
+                  from the beatch file 
+                  http://doble.web.cern.ch/doble/k12hika+.txt
+                  For multi-segment subdetectors, just one has
+                  been positioned
+                - RootIOManager and related classes provide the
+                  persistency of objects based on Root (derived
+                  from a project by Emanuele Leonardi).
+                - Parameters classes are meant to keep all the
+                  detectors design information in easily reachable
+                  places, waiting for a database solution
+                - MCTruth classes provide the possibility to save
+                  the whole event structure for hits/digis association
+                - NA62V classes define a common structure for
+                  subdetectors

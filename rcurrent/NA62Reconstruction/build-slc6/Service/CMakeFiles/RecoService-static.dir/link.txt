@@ -1,0 +1,2 @@
+/usr/bin/ar qc libRecoService-static.a  CMakeFiles/ServiceObjLib.dir/src/TH1Sparse.cc.o CMakeFiles/ServiceObjLib.dir/src/TH2Sparse.cc.o CMakeFiles/ServiceObjLib.dir/src/Tools.cc.o CMakeFiles/ServiceObjLib.dir/src/q.cc.o CMakeFiles/ServiceObjLib.dir/src/wzero.cc.o
+/usr/bin/ranlib libRecoService-static.a

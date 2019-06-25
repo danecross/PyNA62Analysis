@@ -1,0 +1,10 @@
+[ libCHODPersistency.so ]
+# List of selected classes
+class CHODChannelID
+class TCHODDigi
+class TCHODEvent
+class TCHODHit
+class TRecoCHODCandidate
+class TRecoCHODEvent
+class TRecoCHODHit
+header TRecoCHODHit.hh

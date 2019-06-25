@@ -1,0 +1,136 @@
+###########################################
+# MACRO FILE FOR THE INITIALIZATION PHASE #
+###########################################
+
+## Physics list options (must be specified before the run manager initialisation) ##
+#
+## Print available physics list:
+/Simulation/ListPhysics
+#
+## Default physics lists: FTFP_BERT, QGSP_BERT (recommended by Geant4)
+#  Reference: http://geant4.cern.ch/support/proc_mod_catalog/physics_lists/useCases.shtml
+/Simulation/Physics          QGSP_FTFP_BERT
+## Other options
+#/Simulation/CutsAll          1 mm
+#/Simulation/CutGamma         1 mm
+#/Simulation/CutEl            1 mm
+#/Simulation/CutPos           1 mm
+#/Simulation/CutProt          1 mm
+
+## Run manager initialisation ###############################################################
+/run/initialize
+#############################################################################################
+
+################# dummy initialization [not used for visualization ##########################
+/beam/SetBeam turtle
+/beam/ParticleName kaon+
+/decay/force 0
+#############################################################################################
+
+## Detector options #########################################################################
+# All SubDetectors are disabled by default.
+# /Detector/EnableSubDetector <name>, /Detector/DisableSubDetector <name>
+# allow to enable/disable them individually.
+#############################################################################################
+
+/Detector/EnableSubDetector Cedar
+/Detector/EnableSubDetector CHANTI
+/Detector/EnableSubDetector CHOD
+/Detector/EnableSubDetector GigaTracker
+/Detector/EnableSubDetector HAC
+/Detector/EnableSubDetector IRC
+/Detector/EnableSubDetector LAV
+/Detector/EnableSubDetector LKr
+/Detector/EnableSubDetector RICH
+/Detector/EnableSubDetector MUV0
+/Detector/EnableSubDetector MUV1
+/Detector/EnableSubDetector MUV2
+/Detector/EnableSubDetector MUV3
+/Detector/EnableSubDetector NewCHOD
+/Detector/EnableSubDetector SAC
+/Detector/EnableSubDetector Spectrometer
+
+## LAV options ##############################################################################
+#
+# ### Select which parts of the LAV should be used ###
+# All stations/vessels/layers/bananas are enabled by default
+#
+# # Stations
+#   - <s> goes from 0 (LAV station 1) to 11 (LAV station 12)
+# /Detector/LAV/EnableAllStations
+# /Detector/LAV/DisableAllStations
+# /Detector/LAV/EnableStation <s>
+# /Detector/LAV/DisableStation <s>
+# # Vessels
+#   - <s> as for Stations
+# /Detector/LAV/EnableAllVessels
+# /Detector/LAV/DisableAllVessels
+# /Detector/LAV/EnableVessel <s>
+# /Detector/LAV/DisableVessel <s>
+# # Layers
+#   - <s> as for Stations
+#   - <l> goes from 0 to 4 for stations 1-8, from 0-3 for stations 9-12
+# /Detector/LAV/EnableAllLayers
+# /Detector/LAV/DisableAllLayers
+# /Detector/LAV/EnableLayer <s> <l>
+# /Detector/LAV/DisableLayer <s> <l>
+# # Bananas
+#   - <s> as for Stations
+#   - <l> as for Layers
+#   - <b>: 0-7 for stations 1-5, 0-11 for stations 6-8,
+#          0-14 for stations 9-11, 0-15 for station 12
+# /Detector/LAV/EnableAllBananas
+# /Detector/LAV/DisableAllBananas
+# /Detector/LAV/EnableBanana <s> <l> <b>
+# /Detector/LAV/DisableBanana <s> <l> <b>
+#
+# Example: use only LAV station 3 (<s>=2)
+# /Detector/LAV/DisableAllStations
+# /Detector/LAV/EnableStation 2
+#
+# Example: use only layer 4 of station 3 (<s>=2), do not use steel vessel
+# /Detector/LAV/DisableAllStations
+# /Detector/LAV/DisableAllLayers
+# /Detector/LAV/EnableStation 2
+# /Detector/LAV/EnableLayer 2 4
+# /Detector/LAV/DisableVessel 2
+#
+# ### Select how the PbGl block should be simulated
+#   - <method> can be:
+#     standard - approximate optical photons tracking using map files (fast, default)
+#     optical  - do full tracking of optical photons (slow)
+# /Detector/LAV/SelectBlockSimulation <method>
+#
+# ### Select matrices for standard simulation ###
+#/Detector/LAV/EfficiencyMatrix ./LAV/LAVEff.txt
+#/Detector/LAV/TimeMatrix ./LAV/LAVDelay.txt
+#############################################################################################
+
+##### Do not remove this! #####
+/Detector/UpdateGeometry
+
+#
+# create empty scene
+#
+/vis/scene/create
+/vis/scene/add/volume world
+#
+# Create a scene handler for a specific graphics system
+#/vis/open VRML2FILE
+#/vis/open OGLIX
+/vis/open HepRepFile
+#/vis/drawVolume
+
+#/vis/viewer/reset
+#/vis/viewer/set/style wireframe
+#/vis/viewer/set/viewpointThetaPhi 80 10
+#/vis/viewer/zoom              0.5
+#/vis/viewer/set/viewpointThetaPhi 70 20
+
+/tracking/storeTrajectory 1
+/vis/scene/add/trajectories
+/vis/scene/add/hits
+
+## Number of events #########################################################################
+/run/beamOn 1
+#############################################################################################

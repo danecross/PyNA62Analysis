@@ -1,0 +1,38 @@
+- DigiMat
+
+This is a tool to generate the matrix needed by the non optical simulation of the LAV block.
+
+Usage:
+DigiMat CHID file1.root file2.root ... fileN.root
+
+CHID is the channel id of the block used to generate the matrix.
+Listed files are the files to preocess to produce the matrix.
+In the execution folder there must be a LAVSampleMatrix saved file, called "MatrixHeader.txt". DigiMat will load the matrix definition (dimensions and bin separation) from it.
+
+To generate correct root files, you have to shoot opticalphotons inside a block of the LAV. An example macro is macro/LAVMatrixSampling.mac. Note that DigiMat tool and /MatrixGun/channelId macro command must have the same CHID parameter.
+
+The output will be:
+Gen_DZe_PZe_ENe_PRe_DFe_PFe.txt containing a matrix of generated photons
+Hit_DZe_PZe_ENe_PRe_DFe_PFe.txt containing a matrix of number of photons that reached the photocathode
+Tim_DZe_PZe_ENe_PRe_DFe_PFe.txt containing a matrix of the sum of the arrival time of the photons on the photocathode
+Means.txt logging some global information (total generated photons, etc)
+LAVEff.txt containing a bin-by-bin ratio between Hit and Gen matrices
+LAVDelay.txt containing a bin-by-bin ratio between Tim and Gen matrices
+
+- AddMat
+
+This is an utility to add matrices bin by bin
+
+Usage:
+AddMat MatA.txt MatB.txt
+
+It will add the matrices in MatA.txt and MatB.txt and it will place the result in MatB.txt.
+
+- DivMat
+
+This is an utility to divide matrices bin by bin
+
+Usage:
+DivMat MatA.txt MatB.txt
+
+It will compute MatB.txt/MatA.txt (bin-by-bin) and it will place the result in MatB.txt.

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libCHOD-static.a  CMakeFiles/CHODObjLib.dir/src/CHODChannel.cc.o CMakeFiles/CHODObjLib.dir/src/CHODDigitizer.cc.o CMakeFiles/CHODObjLib.dir/src/CHODGeometry.cc.o CMakeFiles/CHODObjLib.dir/src/CHODHitsCluster.cc.o CMakeFiles/CHODObjLib.dir/src/CHODOnlineMonitor.cc.o CMakeFiles/CHODObjLib.dir/src/CHODRawDecoder.cc.o CMakeFiles/CHODObjLib.dir/src/CHODRawEncoder.cc.o CMakeFiles/CHODObjLib.dir/src/CHODReconstruction.cc.o CMakeFiles/CHODObjLib.dir/CHODDICT.cxx.o
+/usr/bin/ranlib libCHOD-static.a

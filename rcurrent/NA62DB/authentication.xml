@@ -1,0 +1,17 @@
+<connectionlist>
+
+<connection name="oracle://localhost/na62db">
+  <parameter name="user" value="na62db" />
+  <parameter name="password" value="" />
+</connection>
+
+<connection name="sqlite_file:na62tmpcache.db">
+</connection>
+
+<connection name="oracle://devdb11/na62_conddb_admin">
+  <parameter name="user" value="na62_conddb_admin" />
+  <parameter name="password" value="xxxxyyyyy" />
+</connection>
+
+
+</connectionlist>

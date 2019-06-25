@@ -1,0 +1,376 @@
+##########################################
+# MACRO FILE FOR THE EXOTIC PRODUCTION #
+###########################################
+
+## Physics List options (must be specified before the run manager initialisation) ##
+#
+## Print available physics list:
+/Simulation/ListPhysics
+#
+## Default physics lists: FTFP_BERT, QGSP_BERT (recommended by Geant4)
+#  Reference: http://geant4.cern.ch/support/proc_mod_catalog/physics_lists/useCases.shtml
+#/Simulation/Physics          FTFP_BERT
+/Simulation/Physics          QGSP_FTFP_BERT
+## Other options
+#/Simulation/CutsAll          1 mm
+#/Simulation/CutGamma         1 mm
+#/Simulation/CutEl            1 mm
+#/Simulation/CutPos           1 mm
+#/Simulation/CutProt          1 mm
+
+# in MeV
+/Simulation/ExoticParticle/Mass 300.0
+/Simulation/ExoticParticle/DecayMode 0
+/Simulation/ExoticParticle/Lifetime  1.0
+/Simulation/ExoticParticle/MassStep                   0.0
+/Simulation/ExoticParticle/NumberOfGeneratedParticles 1
+
+## Run manager initialisation ###############################################################
+/run/initialize
+#############################################################################################
+
+## Output file ##############################################################################
+
+/output/fileName ExoticMC.root
+
+## Beam Type #################################################################################
+/beam/SetBeam exotic
+
+#############################################################################################
+# Description of the exotic particle (HeavyNeutrino, DarkPhoton, Axion, ...):
+# mass [MeV], decay mode, lifetime [ns].
+# NB: the mass must be zero for the simulation of massless neutrinos.
+#
+# NB: only two body decays are available with exotic beam
+#
+# NOTE: CODE FROM CJC DOES NOT USE THIS UNLESS EXOTICS ARE PROPAGATING, BUT
+# THIS RESULTS IN HITS IN DETECTORS AND THEREFORE SHOULD NOT BE USED
+#
+# Valid decay modes:
+#   0: stable/invisible decay (lifetime is ignored)
+#   1: X --> pi+ e-
+#   2: X --> pi- e+
+#   3: X --> pi+ mu-
+#   4: X --> pi- mu+
+#   5: X --> pi0 nu
+#  11: X --> rho+ e-
+#  12: X --> rho- e+
+#  13: X --> rho+ mu-
+#  14: X --> rho- mu+
+#  51: X --> e+ e- nu
+#  52: X --> mu+ mu- nu
+#  53: X --> e+ mu- nu
+#  54: X --> e- mu+ nu
+# 101: X --> e+ e-
+# 102: X --> mu+ mu-
+# 103: X --> pi+ pi-
+# 104: X --> gamma gamma
+#
+# Note: daughters must all be specified
+# The lifetime of the particle determines if the particle decays or not. 
+# Currently allowing the exotic particle to propagate causes bugs in
+# the detector, so to skip propagation of exotic and simply include
+# the decay daughters of the exotic in the simulation, set 
+#
+#      /exoticBeam/propExotic false 
+#
+#  A lifetime of less than 1ns, then alternative propagation is used.
+#
+#####################################################################
+
+## Exotic Daughters ############################################################################
+#
+#  To avoid bugs in detectors, skip the actual propagation of the exotic 
+#  and just put the daugthers in. Specify all decay daughters of exotic.
+#  Code is implemented for a two-daugther final state.
+#   
+#     /exoticBeam/addDaughter
+#
+#####################################################################
+
+/exoticBeam/addDaughter mu+
+/exoticBeam/addDaughter mu-
+#/exoticBeam/addDaughter gamma
+#/exoticBeam/addDaughter gamma
+
+## Exotic Couplings ############################################################################
+# Specify couplings for HNL to mu, HNL to e, or A' to gamma
+#   couplingE ----> HNL to e+/e-
+#   couplingM ----> HNL to mu+/mu-
+#   couplingU ----> A' to gamma
+#
+#############################################################################
+/exoticBeam/couplingE 0.1
+/exoticBeam/couplingM 0.01
+/exoticBeam/couplingU 1
+
+## Exotic Decay Options #########################################################################
+# 
+#    Specify where along the beamline the exotic should decay in, and where
+#    the meson or direct production occurs. At the moment, implementation for 
+#    extremely short lived particles or arbitrarily long lived particles is
+#    the same due to tracking issues in KineParts
+#
+#   Set origin of production of the parent particle
+#   /exoticBeam/origin target    # is default
+#   Could change production to TAX
+#
+#   Set range in which exotic particle should decay uniformly
+#    /exoticBeam/setZmin 103000
+#    /exoticBeam/setZmax 180000
+#
+####################################################
+/exoticBeam/origin target
+/exoticBeam/propExotic false 
+/exoticBeam/setZmin 105000
+/exoticBeam/setZmax 165000
+
+## Exotic Modes ############################################################################
+#
+#    /exoticBeam/NewMode
+#
+#    Potential production modes are:
+#    direct Axion
+#    D+ HNL e+
+#    D- HNL e-
+#    Ds+ HNL e+
+#    Ds- HNL e-
+#    D+ HNL mu+
+#    D- HNL mu-
+#    Ds+ HNL mu+
+#    Ds- HNL mu-
+#    pi0 A' gamma
+#    eta A' gamma
+#    eta' A' gamma
+#    eta' A' pi0
+#    omega A' pi0
+#    omega A' eta
+#    phi A' eta
+#    phi A' pi0
+#    rho0 A' pi0
+#    rho0 A' eta
+#    direct A' 	
+#
+#   
+############################################################################################
+#/exoticBeam/NewMode direct A'
+#/exoticBeam/NewMode eta A' gamma
+/exoticBeam/NewMode rho0 A' pi0
+## Muon from parent meson ##################################################################
+# /exoticBeam/addMuon 0 means we do not add daughter muon from meson to G4
+#                     1 means we add daughter muon from meson to G4
+# All other particles from parent meson are not included to the simulation
+############################################################################################
+/exoticBeam/addMuon 0
+
+## Muon decay options #######################################################################
+# /decay/muonDecay:   controls the simulation of muon decays.
+#                     Valid muon decay modes:
+#                      0: G4MuonDecayChannelWithSpin (polarization + 1st order radiative corrections)
+#                      1: G4MuonDecayChannelWithSpin*0.986 + MuonRadiativeDecayChannelWithSpinWithEgammaCut*0.014
+#                         (polarization + 1st order radiative corrections + radiative mu->enunug decay, Eg>10MeV)
+#                      2: MuonRadiativeDecayChannelWithSpinWithEgammaCut (only radiative mu->enunug decay, Eg>10MeV)
+#                      3: Custom mu->enunu(g) decay (polarization + IB consistently with the RK definition)
+#                         WARNING: this generator is not ready yet!
+#                         The current implementation is just a copy of G4MuonDecayChannelWithSpin!
+#
+#############################################################################################
+/decay/muonDecay 1
+
+## Detector options #########################################################################
+# All SubDetectors are disabled by default.
+# /Detector/EnableSubDetector <name>, /Detector/DisableSubDetector <name>
+# allow to enable/disable them individually.
+#############################################################################################
+
+/Detector/PathToLKrShowersDb /cvmfs/na62.cern.ch/offline/NA62FW/showers.db
+
+/Detector/EnableSubDetector Cedar
+/Detector/EnableSubDetector CHANTI
+/Detector/EnableSubDetector CHOD
+/Detector/EnableSubDetector GigaTracker
+/Detector/EnableSubDetector HAC
+/Detector/EnableSubDetector IRC
+/Detector/EnableSubDetector LAV
+/Detector/EnableSubDetector LKr
+/Detector/EnableSubDetector RICH
+/Detector/EnableSubDetector MUV0
+/Detector/EnableSubDetector MUV1
+/Detector/EnableSubDetector MUV2
+/Detector/EnableSubDetector MUV3
+/Detector/EnableSubDetector NewCHOD
+/Detector/EnableSubDetector SAC
+/Detector/EnableSubDetector Spectrometer
+
+## Magnetic fields ##########################################################################
+#
+# Scale factors of the blue tube and MNP33+fringe magnetic fields (defaults=1.0).
+# /Detector/MagneticField/MNP33/Detailed defines the MNP33+fringe magnetic field model:
+# detailed according to field map measurements ("true", default),
+# or uniform vertical field confined to a 1.3 m long volume with no fringe field ("false").
+#############################################################################################
+/Detector/MagneticField/BlueTube/Scale 1.0
+/Detector/MagneticField/MNP33/Detailed true
+/Detector/MagneticField/MNP33/Scale    1.0
+
+## Two-step ("fast") simulation #############################################################
+## Step 1 means simulation of CEDAR, GTK and STRAW
+## Step 2 means simulation of all the other detectors
+## Input file is mandatory for Step 2
+## Any other number means standard simulation accordingly to previously enabled detectors
+#/fastSimu/StepNo 0
+#/fastSimu/InputFile input.root
+
+#/Simulation/TurnOnFastLkr
+
+## Cedar options ############################################################################
+#
+# Enable the Cherenkov effect in the Cedar: true (default) or false
+#
+#############################################################################################
+/Detector/Cedar/EnableCherenkovEffect true
+
+## LAV options ##############################################################################
+#
+# ### Select which parts of the LAV should be used ###
+# All stations/vessels/layers/bananas are enabled by default
+#
+# # Stations
+#   - <s> goes from 0 (LAV station 1) to 11 (LAV station 12)
+# /Detector/LAV/EnableAllStations
+# /Detector/LAV/DisableAllStations
+# /Detector/LAV/EnableStation <s>
+# /Detector/LAV/DisableStation <s>
+# # Vessels
+#   - <s> as for Stations
+# /Detector/LAV/EnableAllVessels
+# /Detector/LAV/DisableAllVessels
+# /Detector/LAV/EnableVessel <s>
+# /Detector/LAV/DisableVessel <s>
+# # Layers
+#   - <s> as for Stations
+#   - <l> goes from 0 to 4 for stations 1-8, from 0-3 for stations 9-12
+# /Detector/LAV/EnableAllLayers
+# /Detector/LAV/DisableAllLayers
+# /Detector/LAV/EnableLayer <s> <l>
+# /Detector/LAV/DisableLayer <s> <l>
+# # Bananas
+#   - <s> as for Stations
+#   - <l> as for Layers
+#   - <b>: 0-7 for stations 1-5, 0-11 for stations 6-8,
+#          0-14 for stations 9-11, 0-15 for station 12
+# /Detector/LAV/EnableAllBananas
+# /Detector/LAV/DisableAllBananas
+# /Detector/LAV/EnableBanana <s> <l> <b>
+# /Detector/LAV/DisableBanana <s> <l> <b>
+#
+# Example: use only LAV station 3 (<s>=2)
+# /Detector/LAV/DisableAllStations
+# /Detector/LAV/EnableStation 2
+#
+# Example: use only layer 4 of station 3 (<s>=2), do not use steel vessel
+# /Detector/LAV/DisableAllStations
+# /Detector/LAV/DisableAllLayers
+# /Detector/LAV/EnableStation 2
+# /Detector/LAV/EnableLayer 2 4
+# /Detector/LAV/DisableVessel 2
+#
+# ### Select how the PbGl block should be simulated
+#   - <method> can be:
+#     standard - approximate optical photons tracking using map files (fast, default)
+#     optical  - do full tracking of optical photons (slow)
+# /Detector/LAV/SelectBlockSimulation <method>
+#
+# ### Select matrices for standard simulation ###
+#/Detector/LAV/EfficiencyMatrix ./LAV/LAVEff.txt
+#/Detector/LAV/TimeMatrix ./LAV/LAVDelay.txt
+#############################################################################################
+
+### LKr Digitization ########################################################################
+#
+# Files to convert the energy deposition in one LKr cell into a current signal
+#
+#############################################################################################
+/Detector/LKr/GeVtoCurrent1 LKrGeVtoCurr1.dat
+/Detector/LKr/GeVtoCurrent2 LKrGeVtoCurr2.dat
+/Detector/LKr/GeVtoCurrent3 LKrGeVtoCurr3.dat
+
+### Enable MUV1 full optical simulation #####################################################
+#
+# Full optical simulation disabled by default:
+#
+#  <flag> = false - No photons are produced, saving information for parametrization  (default)
+#           true  - Full optical simulation (very slow, not recommended)
+#
+#############################################################################################
+/Detector/MUV1/EnableFullOpticalSimulation false
+
+## Fast simulation configuration ############################################################
+# 0: normal simulation
+# 1: fast simulation: detectors downstream Spectrometer disabled,
+#    Cherenkov light in Cedar switched off (~60 times faster simulation)
+# 2: same as 1, with the RICH detector enabled (~20 times faster simulation)
+/Detector/FastSimulationMode 0
+
+## Handling of KineParts ####################################################################
+## The following commands are listed in order of priority of execution.
+## 1. The beam particle is always stored.
+##
+## 2. Save all steps or all tracks. If all steps are saved, then tracks are not saved.
+/kine/SaveAllSteps false
+/kine/SaveAllTracks false
+##
+## 3. For anything to be stored, the beam particle end process must not be one of those below.
+## Partial name match is sufficient in this category: for example,
+## "Inelastic" suppresses all inelastic interactions (kaon+Inelastic, pi+Inelastic, etc),
+/kine/BeamParticleEndProcessToReject Inelastic
+##
+## 4. For anything to be stored, the beam particle endpoint should be in the following range [mm].
+/kine/zMinBeamForKineParts 0.
+/kine/zMaxBeamForKineParts 300000.
+##
+## 5. Two generations of decay daughters of the beam particle are always stored.
+##
+## 6. Particles that should always be kept:
+##    by particle name; by creator process; by end process
+#/kine/ParticleTypeToSave e+
+/kine/CreatorProcessToSave Decay
+#/kine/EndProcessToSave Decay
+##
+## 7. Particles that should be rejected:
+##    by particle name; by creator process; by end process
+## Partial name match is sufficient in this category: for example,
+## "Inelastic" suppresses all inelastic interactions (kaon+Inelastic, pi+Inelastic, etc),
+## and "nu_e" suppresses also "anti_nu_e"
+/kine/ParticleTypeToReject nu_mu
+/kine/ParticleTypeToReject nu_e
+/kine/ParticleTypeToReject opticalphoton
+/kine/CreatorProcessToReject Inelastic
+/kine/CreatorProcessToReject Brem
+/kine/CreatorProcessToReject Nuclear
+/kine/CreatorProcessToReject Ioni
+/kine/CreatorProcessToReject PairProd
+/kine/CreatorProcessToReject annihil
+/kine/EndProcessToReject Scintillation
+##
+## 8. The remaining particles are saved if
+##    - energy is above MinimumEnergy (in MeV),
+##    - interaction level is less or equal to MaximumInteractionLevel.
+##    Interaction level is 0 for the beam and increments by 1 for each secondary particle
+/kine/MinimumEnergy 0.0
+/kine/MaximumInteractionLevel 2
+##
+## Print information for each track (default=false)
+/kine/SaveTrackVerbose false
+
+##### Do not remove this! #####
+/Detector/UpdateGeometry
+
+## Random Generator #########################################################################
+/random/seed 1002
+
+## Number of events #########################################################################
+
+/run/beamOn 10
+
+#############################################################################################

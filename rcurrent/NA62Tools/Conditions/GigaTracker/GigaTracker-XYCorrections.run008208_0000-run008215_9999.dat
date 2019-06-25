@@ -1,0 +1,5 @@
+# GTK station (x,y) offsets for run 8210
+# Format: StationID X[mm] Y[mm]
+0  0.424  1.387
+1 -2.939  0.339
+2 -1.827  0.656

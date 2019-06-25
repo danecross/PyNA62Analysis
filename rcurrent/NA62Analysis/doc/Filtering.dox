@@ -1,0 +1,114 @@
+/// \page eventFiltering Event Filtering
+/// 
+/// 
+/// NA62Analysis includes two important features that are worth documenting here:
+/// <ul>
+/// 	<li> <b>Filtering</b>: replication of events from the input files to the output file
+/// 	<li> <b>Thinning</b>: removing useless branches and TTrees
+/// </ul>
+/// 
+/// The filtering of events is activated by the --filter flag. The default behavior for the accept
+/// decision is a logical "OR" of the decision of all loaded analyzers. An analyzer can notify 
+/// the acceptance by calling 
+/// \code
+/// FilterAccept();
+/// \endcode
+/// for every event that should be copied in the output file. Multiple filter streams can be used
+/// by using a runtime configuration file (--config option, hotconfig.cfg in the following example).
+/// Assuming an executable running five filtering analyzers, a possible configuration file is the following:
+/// \code
+/// [filter]
+/// name1 = Analyzer1 Analyzer2
+/// name2 = Analyzer1 Analyzer3 Analyzer4
+/// namea = Analyzer5
+/// nameb = *
+/// \endcode
+/// When run with
+/// \code
+/// ./myAnalyzer -l listFile --filter --config hotconfig.cfg -o /home/mydir/myOutput.root
+/// \endcode
+/// this would create four output streams saved into four output files
+/// \code
+/// /home/mydir/myOutput_name1.root
+/// /home/mydir/myOutput_name2.root
+/// /home/mydir/myOutput_namea.root
+/// /home/mydir/myOutput_nameb.root
+/// \endcode
+/// The first file would contain only the events accepted by Analyzer1 or Analyzer2, the second 
+/// the events accepted by Analyzer1 or Analyzer3 or Analyzer4, the third the events accepted
+/// by Analyzer5 and the last one the events accepted by any of the analyzers ('*' stands for 
+/// 'All analyzers').
+/// <br>
+/// Using the --filter flag deactivates the automatic histogram saving methods (SaveAllPlots()),
+/// and deactivates the skip bad burst mechanism.
+/// <br>
+/// NA62Analysis keeps track of the decision of every analyzer in the following way:
+/// <ul>
+/// 	<li> A new TTree (AnalyzerHistory) is created in the output file, in which every entry is 
+/// 		 the identifier of one of the loaded analyzer. If that tree was already present in the 
+/// 		 input file, the list of loaded analyzer is appended to the existing list (full history
+/// 		 is kept). The entries are sorted as to represented the order in which the analyzer 
+/// 		 were run.
+/// 	<li> A new branch is created in the main tree (usually the mc tree or the rawheader tree).
+/// 		 It contains a mask (long integer) where each bit corresponds to the decision of an 
+/// 		 analyzer (1 for accept, 0 for not accept). The bit position in the mask corresponds 
+/// 		 to the entry number of the analyzer in the AnalyzerHistory TTree.
+/// </ul>
+/// 
+/// It is important to note that only the TTrees and branches that are requested are copied in 
+/// the output file. 
+/// <br>
+/// Therefore <b>filtering only</b> (remove events while keeping the entire intput
+/// file structure) can be done by requested all TTres and branches. This can be achieved using the 
+/// analyzers RequestAllMCTrees and RequestAllRecoTrees (dummy analyzers only requesting TTrees).
+/// <br>
+/// <b>Thinning only</b> can be done by creating an analyzer requesting only the desired TTrees and 
+/// branches and simply adding
+/// \code
+/// FilterAccept()
+/// \endcode
+/// in the Process() method of the analyzer. All events are copied to the output, but with only a subset
+/// of the TTrees and branches.
+/// <br>
+/// Combination of <b>filtering and thinning</b> is obviously possible as well: copying only a
+/// subset of TTrees and branches for a selected subset of event.
+/// <br>
+/// An additional instruction in the hotconfig.cfg can disable the output of a specific branch
+/// even if it is requested and used in the input. This is configurable on individual filter streams
+/// using a syntax similar to this example:
+/// \code
+/// [filter_name2]
+/// disabledTrees = Cedar RICH LAV
+/// \endcode
+/// In this case the detectors Cedar, RICH and LAV will not appear in the tree of the filtered stream
+/// name2. Although they can still appear in the three other streams (name1, namea and nameb), if 
+/// they are requested by any analyzer. In case of a single filter, with the filter naming scheme (starting with
+/// the [filter] keyword) is not defined in hotconfig.cfg, the first line above should be [filter_default].
+/// <br>
+/// <br>
+/// Adding the RemoveHits analyzer to the filters (into the configuration file used for compilation)
+/// will also remove RecoHits for a set of subdetectors when filtering.
+/// <br>
+/// <br>
+/// The history feature allows to have multiple levels of filtering. A first level can be applied,
+/// reducing the event number for a specific class of analysis. Then further filtering can be 
+/// applied on these filtered files for a subclass of analysis. The filtering information of the 
+/// second level is added to the filtering information of the first level. No information is lost.
+/// 
+/// \section readinfo Reading back filtering information
+/// It is of course possible within the framework to easily get access to the information recorded
+/// while filtering. The list of all related methods and the information provided are listed below:
+/// <ul>
+/// 	<li> GetProcessingHistory(): returns a sorted list (std::vector) of AnalyzerIdentifier 
+/// 		 representing the full history of analyzer that processed the input data. This is the 
+/// 		 raw information present in the AnalyzerHistory TTree.
+/// 	<li> GetFilterWord(): returns the filter mask (long integer) of this event if present. Every 
+/// 		 bit of the mask corresponds to the accept (1) or not accept (0) decision of an analyzer.
+/// 	<li> GetAnalyzerFromBit(\a bitNumber): returns the AnalyzerIdentifier corresponding to the bit 
+/// 		 \a bitNumber.
+/// 	<li> GetBitFromAnalyzer(\a analyzerName): this is the inverse of the previous method. The
+/// 		 method returns the bit corresponding to the analyzer \a analyzerName.
+/// 	<li> GetAcceptFromBit(\a bitNumber): returns the accept decision stored in the bit \a bitNumber
+/// 	<li> GetAcceptFromAnalyzer(\a analyzerName): returns the accept decision of the analyzer
+/// 		 \a analyzerName.
+/// </ul>

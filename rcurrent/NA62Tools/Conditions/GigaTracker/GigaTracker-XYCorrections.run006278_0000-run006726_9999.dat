@@ -1,0 +1,5 @@
+# GTK XY corrections for runs 6278-6726
+# Format: StationID X[mm] Y[mm]
+0  0.358 1.770
+1 -2.940 0.657
+2 -1.780 0.799

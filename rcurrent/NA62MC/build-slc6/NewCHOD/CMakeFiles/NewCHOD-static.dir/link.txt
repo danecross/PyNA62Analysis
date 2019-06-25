@@ -1,0 +1,2 @@
+/usr/bin/ar qc libNewCHOD-static.a  CMakeFiles/NewCHODObjLib.dir/src/NewCHODDetector.cc.o CMakeFiles/NewCHODObjLib.dir/src/NewCHODGeometryParameters.cc.o CMakeFiles/NewCHODObjLib.dir/src/NewCHODHit.cc.o CMakeFiles/NewCHODObjLib.dir/src/NewCHODMaterialParameters.cc.o CMakeFiles/NewCHODObjLib.dir/src/NewCHODRootIO.cc.o CMakeFiles/NewCHODObjLib.dir/src/NewCHODSD.cc.o CMakeFiles/NewCHODObjLib.dir/src/NewCHODScintillatorCounter.cc.o
+/usr/bin/ranlib libNewCHOD-static.a

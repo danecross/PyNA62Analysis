@@ -1,0 +1,435 @@
+/// \page componentStatus NA62Analysis/Components validation status
+///	<b>Table of content</b>	
+///	<ul>
+///		<li>\ref analyzers
+///		<ul>
+///			<li>\ref examples
+///			<li>\ref physics
+///			<li>\ref physicsTools
+///			<li>\ref testTools
+///			<li>\ref calibrationTools
+///		</ul>
+///		<li>\ref addLib
+///		<ul>
+///			<li>\ref toolsLib
+///		</ul>
+///		<li>\ref addition
+///	</ul>
+///
+/// \section analyzers Analyzers
+///	This section will describe every analyzer included with the framework. They can be found in the <i>Analyzers</i> 
+///	and <i>Examples</i> folders of the framework. For each analyzer you will find a short description and their current status
+///	("Not validated" or "Validated rev.xxx"). "Not validated" means they have not been reviewed and their results might not be valid/relevant.
+///	On the contrary "Validated rev.xxx" means they have been checked and their results can be trusted for analysis. The revision mentioned is the svn revision
+///	that has been used for reviewing. For more details about what does the analyzer do and how the analyzer work, please refer to the analyzer specific
+///	page by clicking its name.
+///	\subsection examples Examples
+///	The analyzers in this folders are intented to demonstrate features/possibilities of the framework and are not expected to give physically relevant results.
+///	The demo column indicates a short list of features used/demonstrated by the analyzer.
+/// <table>
+///	<tr><td align="center" width="250">Analyzer name</td><td align="center" width="650">Description</td>
+///	<td align="center" width="100">Status</td><td align="center" width="50">Rev.</td><td align="center" width="250">Demo</td></tr>
+///	<tr><td>LKrPhotonMC</td><td>Example Analyzer linking MC photons to LKr clusters.</td><td align="center">Not validated</td><td align="center">N/A</td><td>
+///	<ul>
+///		<li>RequestTree
+///		<li>Output standard tree with new custom classes
+///		<li>MCSimple
+///		<li>Use output from other analyzers
+///	</ul></td></tr>
+///	<tr><td>Pi0Reconstruction</td><td>Example Analyzer reconstructing a pi0 from 2 photon clusters on LKr.</td><td align="center">Not validated</td><td align="center">N/A</td><td>
+///	<ul>
+///		<li>Analyzer output value
+///		<li>MC/Non-MC specific actions
+///		<li>Histograms
+///	</ul></td></tr>
+///	<tr><td>SkimmingNoStrawMuonsTracks</td><td>Example Analyzer skimming the input file from events containing muon tracks in RICH.</td><td align="center">Not validated</td><td align="center">N/A</td><td>
+///	<ul>
+///		<li>Parameters
+///		<li>Counters and EventFraction1
+///		<li>Export events to output file
+///	</ul></td></tr>
+///	<tr><td>VertexCDA</td><td>Another example analyzer to demonstrate how analyzers can be included in the framework and be used by anyone.
+///     Finds a vertex using a CDA between a GigaTracker candidate track and a spectrometer candidate track.</td><td align="center">Not validated</td><td align="center">N/A</td><td></td></tr>
+///	</table>
+///
+/// \subsection physics Physics
+///	The analyzers in this folder are supposed to be relevant to analysis. 
+/// <table>
+///	<tr><td align="center" width="250">Analyzer name</td><td align="center" width="650">Description</td>
+///	<td align="center" width="100">Status</td><td align="center" width="50">Rev.</td></tr>
+///	<tr><td></td><td></td><td></td><td></td></tr>
+///	</table>
+///
+/// \subsection physicsTools Physics Tools
+///	The analyzers in this folder are meant to be of general help for analysis by processing/transforming/generating physical objects.
+/// <table>
+///	<tr><td align="center" width="250">Analyzer name</td>
+///     <td align="center" width="650">Description</td>
+///	<td align="center" width="100">Status</td><td align="center" width="50">Rev.</td></tr>
+///     <tr><td>AlphaBetaComputation</td>
+///     <td>Evaluation of spectrometer calibration (alpha, beta) constants [data & histo modes]</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>CedarEfficiency</td>
+///     <td>Evaluation of Cedar efficiency [data & histo modes]</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>CHODEfficiency</td>
+///     <td>Efficiency of the Spectrometer-CHOD association for the data quality control</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>DownstreamTrackBuilder</td>
+///     <td>Build a DownstreamTrack container for each spectrometer tracks</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>DownstreamTrackEnergyClusterAssociation</td>
+///     <td>Associate DownstreamTracks to EnergyClusters</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>EnergyClusterBuilder</td>
+///     <td>Build an EnergyCluster container for each LKr cluster</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>FilterAll</td>
+///     <td>Send all events to the filter output</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>FilterControlTrigger</td>
+///     <td>Filter events triggered with the control trigger</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>FilterDimuonThreeTrackVertex</td>
+///     <td>Filter events with at least one reconstructed 3-track vertex suitable for further analysis of K decays to muon pairs</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>FilterElectron</td>
+///     <td>Filter events with at least 1 tracks with E/p>0.6; inherits from FilterEOPBase</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>FilterEOP</td>
+///     <td>Filter events with at least N tracks with E/p>x (parameters are controlled from command line); inherits from FilterEOPBase</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>FilterHNLVertex</td>
+///     <td>Filter events with 2-track vertices for HNL decay searches</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>FilterRestrictedPositron</td>
+///     <td>Filter events with at least one positron-like track passing a loose selection</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>FilterRestrictedThreeTrackVertex</td>
+///     <td>Filter events with at least one reconstructed three-track vertex satisfying minimal acceptance conditions</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>FilterThreeTracks</td>
+///     <td>Filter events with at least 3 tracks; inherits from FilterEOPBase</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>FilterThreeTrackVertex</td>
+///     <td>Filter events with at least one reconstructed three-track vertex</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>FilterTwoTrackVertexWithLepton</td>
+///     <td>Filter events for 3-track analyses with displaced vertices</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>GigaTrackerEvtReco</td>
+///     <td>Rebuild the TRecoGigaTrackerEvent</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>K2piSelection</td>
+///     <td>K+ --> pi+pi0 decay selection [data & histo modes]</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>K3piSelection</td>
+///     <td>K+ --> pi+pi+pi- decay selection and beam parameter evaluation [data & histo modes]</td>
+///     <td align="center">Validated</td><td align="center">821</td></tr>
+///     <tr><td>Kmu2Selection</td>
+///     <td>A basic K+ --> mu+nu decay selection [data & histo modes]</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>L0TriggerResponse</td>
+///     <td>Monitoring of efficiencies of L0 components based on K3pi and Kmu2 selections [data & histo modes]</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>LevelOnePerformance</td>
+///     <td>Assess the performance of the L1 trigger for each L0 mask [data & histo modes]</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>LKrClusterCorrections</td>
+///     <td>Corrections for LKr cluster energy scale, non-linearity, alignment (pre-analyzer)</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>LKrSpectrometerAssociation</td>
+///     <td>Geometrical association of Spectrometer candidates to LKr candidates</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>MUV3Efficiency</td>
+///     <td>Measurement of MUV3 efficiency with halo muons [data & histo modes]</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>NewCHODEfficiency</td>
+///     <td>Measurement of NewCHOD efficiency [data & histo modes]</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>OneTrackSelection</td>
+///     <td>One track selection similar to the one used in the Kpinunu analysis</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>Pi0Selection</td>
+///     <td>???</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///	<tr><td>RequestAllMCTrees</td>
+///     <td>Request all MC trees (useful for filtering)</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///	<tr><td>RequestAllRecoTrees</td>
+///     <td>Request all Reco trees (useful for filtering)</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///	<tr><td>RICHElectronRadius</td>
+///     <td>Calculation of the electron (i.e. beta=1) ring radius in the RICH</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>SpectrometerCalorimetersAssociation</td>
+///     <td>Geometric association of spectrometer candidates and energy deposits in the calorimeters (LKr,MUV1,MUV2) with integrated PID</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///	<tr><td>SpectrometerCHODAssociation</td>
+///     <td>Geometric association of spectrometer candidates to CHOD candidates</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///	<tr><td>SpectrometerLKrAssociation</td>
+///     <td>Geometric association of spectrometer candidates to LKr candidates</td>
+///     <td align="center">Validated</td><td align="center">789</td></tr>
+///     <tr><td>SpectrometerMUV12Association</td>
+///     <td>Geometric association of spectrometer candidates to MUV1 and MUV2 candidates</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>SpectrometerNewCHODAssociation</td>
+///     <td>Geometric association of spectrometer candidates to NewCHOD RecoHits</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///	<tr><td>SpectrometerMUV3Association</td>
+///     <td>Geometric association of spectrometer candidates to MUV3 candidates</td>
+///     <td align="center">Validated</td><td align="center">789</td></tr>
+///	<tr><td>SpectrometerRICHAssociation</td>
+///     <td>Computation of PID likelihoods by association of spectrometer candidates to RICH hits</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///	<tr><td>SpectrometerRICHAssociationSimple</td>
+///     <td>Simple geometric association of spectrometer candidates to RICH hits and rings (used only by SpectrometerRICHEventMonitor)</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>SpectrometerRICHAssociationSingleRing</td>
+///     <td>Alternative geometric association of spectrometer candidates to RICH rings</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///	<tr><td>SpectrometerTrackCorrections</td>
+///     <td>Corrections for spectrometer momentum scale and alignment (pre-analyzer)</td>
+///	<td align="center">Not validated</td><td align="center">N/A</td></tr>
+///	<tr><td>SpectrometerVertexBuilder</td>
+///     <td>Build multi-track vertices using the VertexLSF class</td>
+///	<td align="center">Not validated</td><td align="center">N/A</td></tr>
+///	</table>
+///
+/// \subsection testTools Test Tools
+///	The analyzers in this folder are meant to help validate/test the NA62 software framework.
+/// <table>
+///	<tr><td align="center" width="250">Analyzer name</td><td align="center" width="650">Description</td>
+///	<td align="center" width="100">Status</td><td align="center" width="50">Rev.</td></tr>
+///	<tr><td>BeamMCTester</td>
+///	<td>A test tool to plot true beam profiles at various z planes</td>
+///	<td align="center">Validated</td><td align="center">892</td></tr>
+///	<tr><td>CedarMCTester</td>
+///	<td>A test tool to check the output of the Cedar component of NA62MC,
+///	    showing photon distributions at various planes in the detector.
+///	    It can be run on the standard output of NA62MC or on special output produced by
+///         compiling NA62MC with MDEFINES=CEDARRAYTRACING</td>
+///	<td align="center">Validated</td><td align="center">342</td></tr>
+///	<tr><td>MUV0MCTester</td>
+///     <td>A test tool to check the output of the MUV0 component of NA62MC</td>
+///	<td align="center">Validated</td><td align="center">944</td></tr>
+///	<tr><td>MUV3MCTester</td>
+///     <td>A test tool to check the output of the MUV3 component of NA62MC</td>
+///	<td align="center">Validated</td><td align="center">510</td></tr>
+///     <tr><td>NewCHODMCTester</td>
+///     <td>A test tool to check the output of the NewCHOD component of NA62MC</td>
+///     <td align="center">Validated</td><td align="center">1093</td></tr>
+///     <tr><td>NewCHODSearchRadiusComputation</td>
+///     <td>A test tool to establish Spectrometer-NewCHOD matching parameters</td>
+///     <td align="center">Validated</td><td align="center">1093</td></tr>
+///	<tr><td>PrintKineParts</td>
+///     <td>Print the contents of the GeneParts and KineParts containers in an NA62MC or NA62Reco output file</td>
+///	<td align="center">Validated</td><td align="center">771</td></tr>
+///	<tr><td>SpectrometerMCTester</td>
+///     <td>A test tool to check the output of the Spectrometer component of NA62MC</td>
+///	<td align="center">Not validated</td><td align="center">N/A</td></tr>
+///	</table>
+///
+/// \subsection monitoringTools Monitoring Tools
+///	The analyzers in this folder are for data quality monitoring.
+/// <table>
+///	<tr><td align="center" width="250">Analyzer name</td><td align="center" width="650">Description</td>
+///	<td align="center" width="100">Status</td><td align="center" width="50">Rev.</td></tr>
+///	<tr><td>CollectNumbersOfTriggers</td>
+///	<td>Build tables of numbers of trigger per burst [histo mode]</td>
+///	<td align="center">Not validated</td><td align="center">N/A</td></tr>
+///	<tr><td>DetectorOnOffMonitor</td>
+///     <td>Monitor the numbers of candidates in all subdetectors [data & histo modes]</td>
+///	<td align="center">Validated</td><td align="center">808</td></tr>
+///	<tr><td>LAVBurstChecker</td>
+///     <td>Monitor LAV data quality burst by burst</td>
+///	<td align="center">Validated</td><td align="center">808</td></tr>
+///	<tr><td>MUV3DataQualityMonitor</td>
+///	<td>Builds a PDF report using the standard MUV3 monitoring histograms [histo mode]</td>
+///	<td align="center">Validated</td><td align="center">568</td></tr>
+///     <tr><td>NewCHODDataQualityMonitor</td>
+///     <td>Build a PDF report using the standard NewCHOD monitoring histograms [histo mode]</td>
+///     <td align="center">Validated</td><td align="center">749</td></tr>
+///	<tr><td>NumberOfHitsMonitor</td>
+///	<td>Monitor the stability of the numbers of hits and candidates per control trigger [data & histo modes]</td>
+///	<td align="center">Not validated</td><td align="center">N/A</td></tr>
+///	<tr><td>RICHMonitor</td>
+///	<td>Monitor RICH performance [data & histo modes]</td>
+///	<td align="center">Not validated</td><td align="center">N/A</td></tr>
+///	<tr><td>SpectrometerRICHEventMonitor</td>
+///	<td>Build a PDF report on the SpectrometerRICHAssociationSimple results</td>
+///	<td align="center">Validated</td><td align="center">608</td></tr>
+///	</table>
+///
+/// \subsection calibrationTools Calibration Tools
+///	This folder contains the analyzers that compute the detector calibrations and related.
+/// <table>
+///	<tr><td align="center" width="250">Analyzer name</td><td align="center" width="650">Description</td>
+///	<td align="center" width="100">Status</td><td align="center" width="50">Rev.</td></tr>
+///	<tr><td>CedarT0</td><td>Analyzer for Cedar T0 computation. The implementation of T0 computation
+/// is done with the standard T0 code in T0Evaluation. This analyzer inherits it and defines the parameters.
+///	</td><td align="center">Validated</td><td align="center">511</td></tr>
+///	<tr><td>CHANTIT0</td><td>Analyzer for CHANTI T0 computation. The implementation of T0 computation
+/// is done with the standard T0 code in T0Evaluation. This analyzer inherits it and defines the parameters.
+///	</td><td align="center">Not Validated</td><td align="center">N/A</td></tr>
+///	<tr><td>CHODT0</td><td>Analyzer for CHOD T0 computation. The implementation of T0 computation
+/// is done with the standard T0 code in T0Evaluation. This analyzer inherits it and defines the parameters.
+///	</td><td align="center">Not Validated</td><td align="center">N/A</td></tr>
+///	<tr><td>GigaTrackerT0</td><td>Analyzer for GigaTracker T0 computation. The implementation of T0 computation
+/// is done with the standard T0 code in T0Evaluation. This analyzer inherits it and defines the parameters.
+///     </td><td align="center">Not Validated</td><td align="center">N/A</td></tr>
+///	<tr><td>HACT0</td><td>Analyzer for HAC T0 computation. The implementation of T0 computation
+/// is done with the standard T0 code in T0Evaluation. This analyzer inherits it and defines the parameters.
+///	</td><td align="center">Not Validated</td><td align="center">N/A</td></tr>
+///	<tr><td>IRCT0</td><td>Analyzer for IRC T0 computation. The implementation of T0 computation
+/// is done with the standard T0 code in T0Evaluation. This analyzer inherits it and defines the parameters.
+///	</td><td align="center">Not Validated</td><td align="center">N/A</td></tr>
+///	<tr><td>LAVT0</td><td>Analyzer for LAV T0 computation. The implementation of T0 computation
+/// is done with the standard T0 code in T0Evaluation. This analyzer inherits it and defines the parameters.
+///	</td><td align="center">Not Validated</td><td align="center">N/A</td></tr>
+///	<tr><td>MUV0T0</td><td>Analyzer for MUV0 T0 computation. The implementation of T0 computation
+/// is done with the standard T0 code in T0Evaluation. This analyzer inherits it and defines the parameters.
+///	</td><td align="center">Not Validated</td><td align="center">N/A</td></tr>
+///	<tr><td>MUV1T0</td><td>Analyzer for MUV1 T0 computation. The implementation of T0 computation
+/// is done with the standard T0 code in T0Evaluation. This analyzer inherits it and defines the parameters.
+///	</td><td align="center">Not Validated</td><td align="center">N/A</td></tr>
+///	<tr><td>MUV2T0</td><td>Analyzer for MUV2 T0 computation. The implementation of T0 computation
+/// is done with the standard T0 code in T0Evaluation. This analyzer inherits it and defines the parameters.
+///	</td><td align="center">Not Validated</td><td align="center">N/A</td></tr>
+///	<tr><td>MUV3T0</td><td>Analyzer for MUV3 T0 computation. The implementation of T0 computation
+/// is done with the standard T0 code in T0Evaluation. This analyzer inherits it and defines the parameters.
+///	</td><td align="center">Validated</td><td align="center">511</td></tr>
+///	<tr><td>MUV3TilesT0</td><td>Analyzer for MUV3Tiles T0 computation. The implementation of T0 computation
+/// is done with the standard T0 code in T0Evaluation. This analyzer inherits it and defines the parameters.
+///	</td><td align="center">Validated</td><td align="center">511</td></tr>
+///	<tr><td>NewCHODT0</td><td>Analyzer for NewCHOD T0 computation. The implementation of T0 computation
+/// is done with the standard T0 code in T0Evaluation. This analyzer inherits it and defines the parameters.
+///	</td><td align="center">Validated</td><td align="center">719</td></tr>
+///	<tr><td>RICHT0</td><td>Analyzer for RICH T0 computation. The implementation of T0 computation
+/// is done with the standard T0 code in T0Evaluation. This analyzer inherits it and defines the parameters.
+///	</td><td align="center">Not Validated</td><td align="center">N/A</td></tr>
+///	<tr><td>SACT0</td><td>Analyzer for SAC T0 computation. The implementation of T0 computation
+/// is done with the standard T0 code in T0Evaluation. This analyzer inherits it and defines the parameters.
+///	</td><td align="center">Not Validated</td><td align="center">N/A</td></tr>
+///     <tr><td>SpectrometerJumpsCorrection</td><td>First step of the database production for Spectrometer T0 25-ns jumps correction</td><td align="center">Not Validated</td><td align="center">N/A</td></tr>
+///	<tr><td>SpectrometerT0</td><td>Analyzer for Spectrometer T0 computation. The implementation of T0 computation
+/// is done with the standard T0 code in T0Evaluation. This analyzer inherits it and defines the parameters.
+///	</td><td align="center">Not Validated</td><td align="center">N/A</td></tr>
+///	</table>
+///
+///	\section addLib Additional libraries
+///	Any other classes or functions distributed with the framework can be found in the <i>PhysicsLib</i> and <i>ToolsLib</i> folders of NA62Analysis.
+///	For more information about the functionalities provided by each element, please refer to its own page by clicking its name.
+///
+///	\subsection toolsLib Tools library
+///	Useful tools for the physics analysis
+/// <table>
+///	<tr><td align="center" width="250">Component name</td><td align="center" width="650">Description</td>
+///	<td align="center" width="100">Status</td><td align="center" width="50">Rev.</td></tr>
+///	<tr><td>BeamParameters</td>
+///     <td>Interface to the beam and spectrometer calibration parameters database</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>BlueTubeTracker</td>
+///     <td>Extrapolate charged particle trajectories reconstructed by the Spectrometer in the blue tube magnetic field</td>
+///     <td align="center">Validated</td><td align="center">579</td></tr>
+///     <tr><td>CalorimeterCluster</td>
+///     <td>Cluster built from LKr+MUV1+MUV2 candidates (?)</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///	<tr><td>CoarseT0Evaluation</td>
+///     <td>Base class for coarse T0 constant computation tools in Analyzers/CalibrationTools</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>DownstreamTrack</td>
+///     <td>A container for the results of spectrometer track association to other downstream subdetectors</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>EnergyCluster</td>
+///     <td>A container for the results of LKr cluster association to the other subdetectors</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>FilterEOPBase</td>
+///     <td>Base class for track multiplicity and E/p based filters</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>GeometricAcceptance</td>
+///     <td>Reference for detector geometry for analysis applications;
+///         geometric acceptance checks for Spectrometer tracks and LKr clusters</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>LAVMatching</td>
+///     <td>Time-matching of LAV information with respect to a given reference time</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>LKrAuxClusterReco</td>
+///     <td>An alternative LKr cluster reconstruction algorithm with high efficiency</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>LKrClusterCorrectionFunctions</td>
+///     <td>Functions used by the LKrClusterCorrections analyzer</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///    	<tr><td>MultipleLinesCDA</td>
+///     <td>Computation of the starting (seed) vertex position for VertexLSF, based on TwoLinesCDA</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>PointLineDistance</td>
+///     <td>Computation of distance from a point to a line</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>RICHParameters</td>
+///     <td>Interface to the RICH parameters database</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>SAVMatching</td>
+///     <td>Time-matching of SAC and IRC information with respect to a given reference time</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>SpectrometerCHODAssociationOutput</td>
+///     <td>Auxiliary class used by SpectrometerCHODAssociation</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>SpectrometerCHODAssociationRecord</td>
+///     <td>Auxiliary class used by SpectrometerCHODAssociation</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>SpectrometerLKrAssociationOutput</td>
+///     <td>Auxiliary class used by SpectrometerLKrAssociation</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>SpectrometerMUV12AssociationOutput</td>
+///     <td>Auxiliary class used by SpectrometerMUV12Association</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>SpectrometerMUV3AssociationOutput</td>
+///     <td>Auxiliary class used by SpectrometerMUV3Association</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>SpectrometerMUV3AssociationRecord</td>
+///     <td>Auxiliary class used by SpectrometerMUV3Association</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>SpectrometerNewCHODAssociationOutput</td>
+///     <td>Auxiliary class used by SpectrometerNewCHODAssociation</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>SpectrometerNewCHODAssociationRecord</td>
+///     <td>Auxiliary class used by SpectrometerNewCHODAssociation</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>SpectrometerRICHAssociationOutput</td>
+///     <td>Auxiliary class used by SpectrometerRICHAssociation</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>SpectrometerRICHAssociationOutputSimple</td>
+///     <td>Auxiliary class used by SpectrometerRICHAssociationSimple</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>SpectrometerTrackVertex</td>
+///     <td>A multi-track vertex structure built by SpectrometerVertexBuilder</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///	<tr><td>StrawAddress</td>
+///     <td>Auxiliary class used by SpectrometerT0</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///	<tr><td>StrawPlace</td>
+///     <td>Auxiliary class used by SpectrometerT0</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///	<tr><td>T0Evaluation</td>
+///     <td>Base class of the T0 evaluation tools in Analyzers/CalibrationTools [histo mode]</td>
+///     <td align="center">Validated</td><td align="center">523</td></tr>
+///     <tr><td>TriggerConditions</td>
+///     <td>Interface to L0 and L1 trigger conditions database</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///	<tr><td>TwoLinesCDA</td>
+///     <td>Computation of distance and point of closest approach between two lines</td>
+///     <td align="center">Validated</td><td align="center">342</td></tr>
+///     <tr><td>VertexLSF</td>
+///     <td>Vertex fitting; the user interface is provided by the SpectrometerVertexBuilder class</td>
+///	<td align="center">Not validated</td><td align="center">N/A</td></tr>
+///     <tr><td>functions.cc</td>
+///     <td>Provides some functions; most of them are a legacy from early development stages.
+///     This component should be reviewed.</td>
+///     <td align="center">Not validated</td><td align="center">N/A</td></tr>
+///	</table>
+///
+///	\section addition Adding new components
+///	If you think one of your component should be distributed with the framework (encouraged), please contact <a href="mailto:nicolas.lurkin@cern.ch">Nicolas Lurkin</a>
+///	with a short description of your component that can be included in this page.

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libRICH-static.a  CMakeFiles/RICHObjLib.dir/src/RICHChannel.cc.o CMakeFiles/RICHObjLib.dir/src/RICHDigitizer.cc.o CMakeFiles/RICHObjLib.dir/src/RICHOnlineMonitor.cc.o CMakeFiles/RICHObjLib.dir/src/RICHRawDecoder.cc.o CMakeFiles/RICHObjLib.dir/src/RICHRawEncoder.cc.o CMakeFiles/RICHObjLib.dir/src/RICHReconstruction.cc.o
+/usr/bin/ranlib libRICH-static.a

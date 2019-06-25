@@ -1,0 +1,2 @@
+/usr/bin/ar qc libMUV1-static.a  CMakeFiles/MUV1ObjLib.dir/src/MUV1Digitizer.cc.o CMakeFiles/MUV1ObjLib.dir/src/MUV1Geometry.cc.o CMakeFiles/MUV1ObjLib.dir/src/MUV1HitsCluster.cc.o CMakeFiles/MUV1ObjLib.dir/src/MUV1OnlineMonitor.cc.o CMakeFiles/MUV1ObjLib.dir/src/MUV1RawDecoder.cc.o CMakeFiles/MUV1ObjLib.dir/src/MUV1RawEncoder.cc.o CMakeFiles/MUV1ObjLib.dir/src/MUV1Reconstruction.cc.o CMakeFiles/MUV1ObjLib.dir/MUV1DICT.cxx.o
+/usr/bin/ranlib libMUV1-static.a
