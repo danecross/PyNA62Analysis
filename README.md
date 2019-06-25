@@ -1,7 +1,15 @@
 # SummerProject
 
+
+I made scripts so we don't have to keep typing the commands listed below. When you first enter the environment, run:
+	source initialize_run.sh
+
+To run update the Analyzer with the python template:
+	source build_analyzer.sh
+
+
 ### To Build the "Template" script:
-##### NOTE: "/chosen/path/" shuld NOT be in the guthub directory to avoid memory issues
+##### NOTE: "/chosen/path/" shuld NOT be in the github directory to avoid memory issues
 	rcurrent/NA62FWBuildRunTree.py -v rcurrent -w /chosen/path/Analysis
 	cd /chosen/path/Analysis
 	source envAnalysis.sh #ignore the errors that come out
