@@ -2,9 +2,11 @@
 
 
 I made scripts so we don't have to keep typing the commands listed below. When you first enter the environment, run:
+
 	source initialize_run.sh
 
 To run update the Analyzer with the python template:
+
 	source build_analyzer.sh
 
 
