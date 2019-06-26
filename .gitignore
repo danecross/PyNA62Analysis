@@ -2,4 +2,5 @@
 rcurrent/NA62MC/.rootlogon.C
 rcurrent/NA62Reconstruction/.rootlogon.C
 rcurrent/NA62Analysis/build-cc7/
+rcurrent/NA62FWBuildRunTree.py
 
