@@ -954,26 +954,37 @@ def available(args):
 
 # Create new analyzer
 def generateNewAnalyzer(name, FWPath, UserPath, inputs):
-    if os.path.exists("%s/Analyzers/include/%s.hh" % (UserPath, name)):
+
+    if name[-3:]=='.py':
+        extension = 'py'
+    else:
+        extension = 'hh'
+
+    if os.path.exists("%s/Analyzers/include/%s.%s" % (UserPath, name, extension)):
         answer = raw_input("This analyzer already exists. Do you want to overwrite it [Y/N] ? ")
         if answer.lower() == 'y':
-            os.remove("%s/Analyzers/include/%s.hh" % (UserPath, name))
-            os.remove("%s/Analyzers/src/%s.cc" % (UserPath, name))
+            os.remove("%s/Analyzers/include/%s.%s" % (UserPath, name, extension))
+	    if ext == 'hh':
+                os.remove("%s/Analyzers/src/%s.cc" % (UserPath, name))
         else:
             print "Please choose a different name."
             return
-    if os.path.exists("%s/Analyzers/include/%s.hh" % (FWPath, name)):
+    if os.path.exists("%s/Analyzers/include/%s.%s" % (FWPath, name, extension)):
         print "This analyzer already exists. Please choose a different name."
         return
-    if os.path.exists("%s/Examples/include/%s.hh" % (FWPath, name)):
+    if os.path.exists("%s/Examples/include/%s.%s" % (FWPath, name, extension)):
         print "This analyzer already exists. Please choose a different name."
         return
 
-    readAndReplace("%s/Templates/templateAnalyzer.hh" % FWPath, "%s/Analyzers/include/%s.hh" %
-                   (UserPath, name), {'templateAnalyzer': name, 'TEMPLATEANALYZER': name.upper()})
-    readAndReplace("%s/Templates/templateAnalyzer.cc" % FWPath, "%s/Analyzers/src/%s.cc" %
-                   (UserPath, name), {'templateAnalyzer': name, '/*$$TREEREQUEST$$*/': inputs[0],
-                                      '/*$$GETEVENTS$$*/': inputs[1]})
+    if extension == 'py':
+	readAndReplace("%s/Templates/templateAnalyzer.py" % FWPath, "%s/Analyzers/src/%s" %
+                       (UserPath, name), {'templateAnalyzer': name, 'TEMPLATEANALYZER': name.upper()[:-3]})
+    else: 
+        readAndReplace("%s/Templates/templateAnalyzer.hh" % FWPath, "%s/Analyzers/include/%s.hh" %
+                       (UserPath, name), {'templateAnalyzer': name, 'TEMPLATEANALYZER': name.upper()})
+        readAndReplace("%s/Templates/templateAnalyzer.cc" % FWPath, "%s/Analyzers/src/%s.cc" %
+                       (UserPath, name), {'templateAnalyzer': name, '/*$$TREEREQUEST$$*/': inputs[0],
+                                          '/*$$GETEVENTS$$*/': inputs[1]})
 
 
 # def createAnalyzer(name, FWPath, UserPath):
@@ -1600,6 +1611,9 @@ def parseArgs():
 
 
 def main():
+
+    print("\n\n\n\nYOU ARE RUNNING THE ALTERED SCRIPT NOT THE OFFICIAL ONE\n\n\n\n\n")
+
     if getVar("ANALYSISFW_USERDIR", -1) != -1:
         checkUpdate()
 
