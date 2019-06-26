@@ -403,6 +403,7 @@ def updateSettings(UserPath, FwPath, old_rev, new_rev):
 
 def copyTemplates(FWPath, UserPath, NA62RECOSOURCE):
     # Always replace the CMakeLists.txt in case it changed
+
     shutil.copyfile("%s/Templates/CMakeLists.txt" % FWPath, "%s/CMakeLists.txt" % UserPath)
     shutil.copyfile("%s/Templates/CMakeLists_PO.txt" % FWPath, "%s/PhysicsObjects/CMakeLists.txt" % UserPath)
     shutil.copyfile("%s/Templates/CMakeLists_Algos.txt" % FWPath, "%s/Algorithms/CMakeLists.txt" % UserPath)
@@ -423,6 +424,7 @@ def checkUpdate():
     if(not getFWWorkspaceVersion(FWPath)):
         print "\033[94mAborting update userspace version check\033[0m"
         print "\033[94mForcing template update without updating user revision\033[0m"
+        print("\n\nUserPath: %s\n\n" % UserPath)
         copyTemplates(FWPath, UserPath, NA62RECOSOURCE)
         return
 
@@ -508,6 +510,8 @@ def getVar(name, default):
 # matching string found in the searchMap by its value
 def readAndReplace(iPath, oPath, searchMap, skipComments=True):
     inComment = False
+
+    print("iPath: %s       oPath: %s" % (iPath, oPath))
 
     with open(iPath, 'r') as f1:
         with open(oPath, 'w') as f2:
@@ -960,6 +964,8 @@ def generateNewAnalyzer(name, FWPath, UserPath, inputs):
     else:
         extension = 'hh'
 
+    print("exension: %s" % extension)
+
     if os.path.exists("%s/Analyzers/include/%s.%s" % (UserPath, name, extension)):
         answer = raw_input("This analyzer already exists. Do you want to overwrite it [Y/N] ? ")
         if answer.lower() == 'y':
@@ -972,13 +978,14 @@ def generateNewAnalyzer(name, FWPath, UserPath, inputs):
     if os.path.exists("%s/Analyzers/include/%s.%s" % (FWPath, name, extension)):
         print "This analyzer already exists. Please choose a different name."
         return
-    if os.path.exists("%s/Examples/include/%s.%s" % (FWPath, name, extension)):
+    if os.path.exists("%s/Examples/include/%s.cc" % (FWPath, name)) and extension == 'hh':
         print "This analyzer already exists. Please choose a different name."
         return
 
     if extension == 'py':
-	readAndReplace("%s/Templates/templateAnalyzer.py" % FWPath, "%s/Analyzers/src/%s" %
-                       (UserPath, name), {'templateAnalyzer': name, 'TEMPLATEANALYZER': name.upper()[:-3]})
+	print("name: %s" % name[:-3])
+	readAndReplace("%s/Templates/templateAnalyzer.py" % FWPath, "%s/Analyzers/src/%s.py" %
+                       (UserPath, name[:-3]), {'templateAnalyzer': name[:-3], 'TEMPLATEANALYZER': name.upper()[:-3]})
     else: 
         readAndReplace("%s/Templates/templateAnalyzer.hh" % FWPath, "%s/Analyzers/include/%s.hh" %
                        (UserPath, name), {'templateAnalyzer': name, 'TEMPLATEANALYZER': name.upper()})
@@ -1384,6 +1391,8 @@ def generateMain(FWPath, UserPath, orderedPreAnalyzers, orderedAnalyzers, extral
 def prepareUserFolder(args):
     global __rev__
 
+    print("\n\n!!here!!\n\n")
+
     [path] = args.UserDirectory
     path = path.rstrip("/")
     path = os.path.abspath(path)
@@ -1462,6 +1471,8 @@ def printHelp(args):
 # Command line argument parser
 def parseArgs():
     global __rev__, __descr__
+
+    print("\n\n\n\n\n HERE \n\n\n\n\n")
 
     program_version_message = "rev %s." % __rev__
     program_short_description = __descr__
@@ -1614,7 +1625,8 @@ def main():
 
     print("\n\n\n\nYOU ARE RUNNING THE ALTERED SCRIPT NOT THE OFFICIAL ONE\n\n\n\n\n")
 
-    if getVar("ANALYSISFW_USERDIR", -1) != -1:
+    if False and getVar("ANALYSISFW_USERDIR", -1) != -1:
+	print("\n\n this: %s \n\n" % getVar("ANALYSISFW_USERDIR", -1))
         checkUpdate()
 
     parseArgs()
