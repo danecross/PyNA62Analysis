@@ -44,8 +44,7 @@ if(args.repository is not None and args.version):
 # # list of locations to look for versions in order
 # # 1st element in the name of the location, second the path to it
 # # expect that some of the paths are not valid
-locations = [("Amanda's Home Directory", "/afs/cern.ch/user/a/ahoebel/SummerProject"),
-	     ("Dane's Home Directory", "/afs/cern.ch/user/d/dacross/SummerProject"),
+locations = [("Dane's Home Directory", "/afs/cern.ch/user/d/dacross/SummerProject"),
 	     ("Amanda's Home Directory", "/afs/cern.ch/user/a/ahoebel/SummerProject"),
 	     ("CVMFS production", "/cvmfs/na62.cern.ch/offline/NA62FW/prod"),
              ("CVMFS development", "/cvmfs/na62.cern.ch/offline/NA62FW/dev"),
