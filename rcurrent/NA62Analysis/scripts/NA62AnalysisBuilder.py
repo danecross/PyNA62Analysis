@@ -511,8 +511,6 @@ def getVar(name, default):
 def readAndReplace(iPath, oPath, searchMap, skipComments=True):
     inComment = False
 
-    print("iPath: %s       oPath: %s" % (iPath, oPath))
-
     with open(iPath, 'r') as f1:
         with open(oPath, 'w') as f2:
             for line in f1:
@@ -964,8 +962,6 @@ def generateNewAnalyzer(name, FWPath, UserPath, inputs):
     else:
         extension = 'hh'
 
-    print("exension: %s" % extension)
-
     if os.path.exists("%s/Analyzers/include/%s.%s" % (UserPath, name, extension)):
         answer = raw_input("This analyzer already exists. Do you want to overwrite it [Y/N] ? ")
         if answer.lower() == 'y':
@@ -983,7 +979,6 @@ def generateNewAnalyzer(name, FWPath, UserPath, inputs):
         return
 
     if extension == 'py':
-	print("name: %s" % name[:-3])
 	readAndReplace("%s/Templates/templateAnalyzer.py" % FWPath, "%s/Analyzers/src/%s.py" %
                        (UserPath, name[:-3]), {'templateAnalyzer': name[:-3], 'TEMPLATEANALYZER': name.upper()[:-3]})
     else: 
@@ -1093,6 +1088,9 @@ def cloneAnalyzer(args):
 
 
 def readBuildConfigFile(filename):
+
+    print("filename: %s\n" % filename)
+
     if not os.path.exists(filename):
         print "The config file %s does not exist" % filename
         return None
@@ -1471,8 +1469,6 @@ def printHelp(args):
 # Command line argument parser
 def parseArgs():
     global __rev__, __descr__
-
-    print("\n\n\n\n\n HERE \n\n\n\n\n")
 
     program_version_message = "rev %s." % __rev__
     program_short_description = __descr__
