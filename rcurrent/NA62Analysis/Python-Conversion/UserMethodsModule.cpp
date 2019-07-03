@@ -8,19 +8,28 @@
  * */
 
 
-#define PY_SIZE_T_CLEAN
-#include <stdio.h>
 #include <Python.h>
-#include "UserMethods.hh"
+//#include "../SummerProject/rcurrent/NA62Analysis/include/UserMethods.hh"
+#include "../include/UserMethods.hh"
 
 /*   OUR FUNCTIONS GO HERE   */
 
+static PyObject* UM_test(PyObject *self, PyObject *args){
+        const char *command;
+        int sts;
+        if ( !PyArg_ParseTuple(args, "s", &command) ){
+                return NULL; 
+        }
+        sts = system(command);
+        return PyLong_FromLong(sts);
+}
 
 
 
 
 static PyMethodDef UserMethods[] = {
 
+	{"system", UM_test, METH_VARARGS, "execute shell command."},
         {NULL, NULL, 0, NULL}
 
 }

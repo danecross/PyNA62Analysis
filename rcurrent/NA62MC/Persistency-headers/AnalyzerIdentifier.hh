@@ -40,7 +40,7 @@ private:
 	ClassDef(AnalyzerIdentifier,1);
 };
 
-static const AnalyzerIdentifier ANIDNone("None");
+//static const AnalyzerIdentifier ANIDNone("None");
 } /* namespace Core */
 } /* namespace NA62Analysis */
 
