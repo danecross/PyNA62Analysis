@@ -41,9 +41,9 @@ extern "C"
 /// \Detailed
 /// This is the steering class for the LKr reconstruction
 /// The bulk of the reconstruction logic has been implemented porting directly
-/// the NA48 Fortran code written by G. Unal and described in note NA48 98/01, 
+/// the NA48 Fortran code written by G. Unal and described in note NA48 98/01,
 /// redistributed as note NA62-15-02
-/// 
+///
 /// Classes used:
 /// LKRParameters
 /// Reads the calibration constant file defined in the config file and fills the fortran commons for the NA48 code
@@ -95,7 +95,7 @@ void LKrReconstruction::Init(NA62VReconstruction* MainReco) {
 }
 
 void LKrReconstruction::ParseConfFile(TString ConfFileName) {
-    /// \MemberDescr 
+    /// \MemberDescr
     /// The default configuration file name is config/LKr.conf, and can be changed in config/NA62Reconstruction.conf.
     /// It is self documented by comments, which are supported by the parser
     /// \EndMemberDescr
@@ -325,7 +325,7 @@ TDetectorVEvent * LKrReconstruction::Trigger(TDetectorVEvent * tEvent, Event* /*
 void LKrReconstruction::StartOfBurst(){
   NA62VReconstruction::StartOfBurst(); // common part for all the subdetectors
 
-  // Read Constants 
+  // Read Constants
   fPar->DefineDataType(static_cast<NA62Reconstruction*>(fMainReco)->GetIsRawData());
   fPar->SetTriggerDriftT0(static_cast<NA62Reconstruction*>(fMainReco)->GetTriggerDriftT0());
   fPar->Fill(this);
@@ -355,7 +355,7 @@ TRecoVEvent * LKrReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* tG
     return 0;
   }
 
-  //common part for all the subdetectors 
+  //common part for all the subdetectors
   NA62VReconstruction::ProcessEvent(tEvent, tGenEvent);
 
   fNClusters = 0;
@@ -373,7 +373,7 @@ TRecoVEvent * LKrReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* tG
   fFADCEventEnergy = fLKrDigiManager->ADCtoEnergy();
 
   // Read the pre-processed classes
-  iFlagRec = fLKrDigiManager->CalRead();  
+  iFlagRec = fLKrDigiManager->CalRead();
   if (iFlagRec){
     //cout << "Error in calread" << " " << iFlagRec << std::endl;
     EndEvent(iFlagRec);
@@ -409,7 +409,7 @@ TRecoVEvent * LKrReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* tG
 
   // Reconstruct clusters (second iteration)
   testiter(iFlagRec);
-  Int_t niter = 0;
+  Int_t niter;
   if (iFlagRec>0){
     niter = ((iFlagRec>>1)&1) ? 2 : 1;
     for (Int_t iter=0; iter<niter; iter++) clus1(niter,iFlagRec);
@@ -423,7 +423,7 @@ TRecoVEvent * LKrReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* tG
 
   // Save and write output
   EndEvent(iFlagRec);
-  return fRecoEvent;    
+  return fRecoEvent;
 }
 
 void LKrReconstruction::EndProcessing(){
@@ -432,7 +432,7 @@ void LKrReconstruction::EndProcessing(){
 }
 
 void LKrReconstruction::FillTimes(Double_t ReferenceTime) {
-  //common part for all the subdetectors 
+  //common part for all the subdetectors
   NA62VReconstruction::FillTimes(ReferenceTime);
 
   //use of all reco hits - no candidate structure
@@ -501,7 +501,7 @@ void LKrReconstruction::FillOutputHits(){
     hit->SetPedestal(CellEnergy->GetADCPeakEnergy()); // ADCPeakEnergy not used for cellEnergy, used for real pedestal propagation
     TLKrDigi *CellADC = static_cast<TLKrDigi *>(cellsADC[icell]);
 
-    // Histograms for Online Monitoring 
+    // Histograms for Online Monitoring
     Double_t *ADCSamples = CellADC->GetAllSamples();
 
     //Double_t Pedestal = (Double_t)(ADCSamples[0]+ADCSamples[1])/2.;
@@ -527,8 +527,8 @@ void LKrReconstruction::FillOutputHits(){
       fHADCCountAll->Fill(ADCSamples[j]);
     }
     if(fPar->GetPedestalsEvaluation()) {
-      cout << endl;                     
-    }     
+      cout << endl;
+    }
 
     fHMaxSample->Fill(maxgain);
     for(Int_t iL0Mask=0;iL0Mask<16;iL0Mask++){
@@ -547,8 +547,8 @@ void LKrReconstruction::FillOutputHits(){
     fHSigma->SetBinContent(xBin,yBin,TMath::Sqrt((TMath::Power(fHSigma->GetBinContent(xBin,yBin),2)*(fHZSCounter->GetBinContent(xBin,yBin)-1)+TMath::Power((fHPedestal_xy->GetBinContent(xBin,yBin)-ADCSamples[0]),2))/fHZSCounter->GetBinContent(xBin,yBin)));
 
     fHPedestal->Fill(Pedestal);
-    fHHitMap->Fill(ix,iy);    
-    fHHitMapEnergy->Fill(ix,iy,1000*CellEnergy->GetPeakEnergy());    
+    fHHitMap->Fill(ix,iy);
+    fHHitMapEnergy->Fill(ix,iy,1000*CellEnergy->GetPeakEnergy());
     //----- (x,y) -> (Crate,Slot,Channel) conversion -----//
     Int_t iCrate = (ix/16)*4 +3-iy/32;
     Int_t iSlot  = (ix%16)/4  +17-((iy%32)/8)*4 -((iy%32)/16)*2;
@@ -575,7 +575,7 @@ void LKrReconstruction::FillOutputHits(){
 
     Double_t cell_energy = hit->GetEnergy();
     Double_t delta_time = hit->GetTime()-fineTriggerTime;
-    //    cout << delta_time << " " << cell_energy << endl;    
+    //    cout << delta_time << " " << cell_energy << endl;
     if (cell_energy<50) continue;
     fHCellTimeVsEnergy->Fill(cell_energy,delta_time);
     if (fabs(delta_time)>20) continue;
@@ -679,7 +679,7 @@ void LKrReconstruction::FillOutput(){
     fHClusterTimeVsEnergy->Fill(clus_energy,delta_time);
     if (fabs(delta_time)>20.) continue;
     totalEnergy += clus_energy;
-  } 
+  }
   for(Int_t iL0Mask=0;iL0Mask<16;iL0Mask++){
     if(trigflag&(1<<iL0Mask)) fHTotalEnergyVsL0Mask->Fill(totalEnergy,iL0Mask);
   }
@@ -714,7 +714,7 @@ void LKrReconstruction::FillOutput(){
     if (totalEnergy==0) {
       for (Int_t jcell=0; jcell<fRecoEvent->GetNHits(); jcell++) {
         TRecoLKrHit *cell = static_cast<TRecoLKrHit *>(fRecoEvent->GetHit(jcell));
-        fHCellXYEzero->Fill(cell->GetXCellID(),cell->GetYCellID());           
+        fHCellXYEzero->Fill(cell->GetXCellID(),cell->GetYCellID());
       }
     }
 
@@ -776,7 +776,7 @@ Double_t LKrReconstruction::CorrectedEnergyData(Int_t NCells, Double_t E0) {
   ///////////////////////////
   // Non-linearity correction
 
-  Double_t correctedEnergy = Energy;
+  Double_t correctedEnergy;
 
   if (NCells>4) {
 

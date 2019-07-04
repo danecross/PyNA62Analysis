@@ -24,12 +24,12 @@ namespace CedarAlignment{
   /// \EndBrief
   ///
   /// \Detailed
-  /// The data come from two files. One file is a mapping between position IDs 
+  /// The data come from two files. One file is a mapping between position IDs
   ///  (i.e 100*octant+10*row+colum), and hardware IDs (eg HB1234). The other file
   /// is a mapping between hardware IDs and measured efficiencies (normalized to 1.0).
   /// \n
   ///
-  /// Usage: call GetPositionEfficiency( Int_t PosID) to get the efficiency for a 
+  /// Usage: call GetPositionEfficiency( Int_t PosID) to get the efficiency for a
   /// particular position.
   ///
   //  This class is used by the other alignment classes
@@ -50,7 +50,7 @@ namespace CedarAlignment{
 
     //Load PMT hardware positions
     if (NA62ConditionsService::GetInstance()->Open(PMTPositions)!=kSuccess) {
-      std::cout << "CedarAlignment: Couldn't open " << PMTPositions 
+      std::cout << "CedarAlignment: Couldn't open " << PMTPositions
         << ". Not doing individual efficiency corrections\n";
       return;
     }
@@ -101,7 +101,7 @@ namespace CedarAlignment{
     fLoaded = true;
   }
 
-  // If we haven't loaded any data, assume 
+  // If we haven't loaded any data, assume
   // relative eff = 1.0 for all PMTS
   double PMTProperties::GetPositionEfficiency( Int_t PosId )
   {
@@ -131,21 +131,21 @@ namespace CedarAlignment{
   /// \Detailed
   ///  The hits are stored in a 1D histogram with 900 bins so that the centre
   ///  of bin 150 is 150.0.
-  ///  Calling Update(hits_histogram) replaces the current data with the 
+  ///  Calling Update(hits_histogram) replaces the current data with the
   ///  contents of the new histogram.
   ///  Calling AddHits(hits_histogram, scale) scales the new hits and adds
   ///  them to the existing data.
-  ///  ReWeightPMTs( pmt_data), applies the weights in pmt_data to the 
+  ///  ReWeightPMTs( pmt_data), applies the weights in pmt_data to the
   ///  current dataset.
   ///  \EndDetailed
 
   //Contruct histogram to hold all channels
   DataSet::DataSet()
-    :fHChannelHits( "hChannelHits", "Hits by position ID", 
+    :fHChannelHits( "hChannelHits", "Hits by position ID",
         900, +0.5 , 900.5 )
   {
     fHChannelHits.SetDirectory(0);
-  } 
+  }
 
   //Extract hits from histogram
   pair<double,double>
@@ -180,14 +180,14 @@ namespace CedarAlignment{
   void DataSet::ReWeightPMTs( const PMTProperties& PMTProp )
   {
     //Loop over all positions we have efficiencies for
-    for( PMTProperties::const_iterator itprop = PMTProp.begin() ; 
+    for( PMTProperties::const_iterator itprop = PMTProp.begin() ;
         itprop != PMTProp.end() ; ++itprop )
     {
       Int_t pos_id = itprop->first;
       double eff = itprop->second;
 
       //Rescale value for this position
-      fHChannelHits.SetBinContent( pos_id, 
+      fHChannelHits.SetBinContent( pos_id,
           fHChannelHits.GetBinContent( pos_id ) * eff );
     }
   }
@@ -195,14 +195,14 @@ namespace CedarAlignment{
 
   /// \class DataParamters
   /// \Brief
-  ///  3 numbers describing a MC simulation: misalignment x,y 
+  ///  3 numbers describing a MC simulation: misalignment x,y
   //   and diaphragm aperture, r. All in micrometres to avoid decimal points.
-  /// 
+  ///
   /// \EndBrief
 
   //comparision operator so DataParameters can
   //be the key in a map
-  Bool_t operator< ( const DataParameters & lhs, 
+  Bool_t operator< ( const DataParameters & lhs,
       const DataParameters & rhs )
   {
     //do we support std::tie yet?
@@ -252,7 +252,7 @@ namespace CedarAlignment{
   /// containing histograms with all the simulations at a certain
   /// diaphragm aperture, following the naming convention ...
   ///
-  /// Alternatively, we can store a list of filenames, where the 
+  /// Alternatively, we can store a list of filenames, where the
   /// filenames contain the diaphragm aperture so the most appropriate
   /// one can be picked automatically.
 
@@ -313,9 +313,9 @@ namespace CedarAlignment{
 
       if ( (!tfile || !tfile->IsOpen() || tfile->IsZombie() ) )
       {
-        std::cout << "CedarAlignment: Problem opening " 
+        std::cout << "CedarAlignment: Problem opening "
           << iFName->first  << " ... skipping" << std::endl;
-        std::cout << "CedarAlignment: [ Tried to open it as " 
+        std::cout << "CedarAlignment: [ Tried to open it as "
           << filename <<  " ]" << std::endl;
         continue;
       }
@@ -353,7 +353,7 @@ namespace CedarAlignment{
 
       DataSet * hds = new DataSet();
 
-      if ( ++counter  % 10 == 0 ) { 
+      if ( ++counter  % 10 == 0 ) {
         //cout << "." << flush;
       }
 
@@ -372,7 +372,7 @@ namespace CedarAlignment{
           continue;
         }
         //Load template histograms into correct axes
-        TH1D fHCorrectedHits( "hCorrectedHits", "Hits by position ID", 
+        TH1D fHCorrectedHits( "hCorrectedHits", "Hits by position ID",
             900, +0.5 , 900.5 );
         fHCorrectedHits.SetDirectory(0);
 
@@ -406,15 +406,15 @@ namespace CedarAlignment{
     return lhs.second > rhs.second;
   }
 
-  pair<double, double> 
-    GroupTotalError( std::vector<Int_t>& group, const DataSet * ds ) 
+  pair<double, double>
+    GroupTotalError( std::vector<Int_t>& group, const DataSet * ds )
     {
       double total = 0 ;
       double squared_error = 0;
 
       //Loop over all PMTs in group
       for ( std::vector<Int_t>::iterator ipmt =  group.begin();
-          ipmt !=group.end(); ++ipmt ) { 
+          ipmt !=group.end(); ++ipmt ) {
         Int_t pmt_id = *ipmt;
         pair<double, double> info = ds->GetPMTHitsWithError( pmt_id );
         total += info.first;
@@ -436,9 +436,9 @@ namespace CedarAlignment{
   /// \Detailed
   //  \EndDetailed
 
-  GroupAligner::GroupAligner( TString name, TString title, int nBinsX, Double_t xMin, Double_t xMax, 
+  GroupAligner::GroupAligner( TString name, TString title, int nBinsX, Double_t xMin, Double_t xMax,
       int nBinsY, Double_t /*yMin*/, Double_t /*yMax*/ )
-    :fDebug( kFALSE ), 
+    :fDebug( kFALSE ),
     fHVis( name, title,
         nBinsX, xMin , xMax, nBinsY, xMin , xMax ),
         fTemplateDataPtr(nullptr),
@@ -539,10 +539,7 @@ namespace CedarAlignment{
     while ( itdata != data_groups.end() )
     {
       double& dtval = itdata->first;
-      double& dterr = itdata->second;
-
       double& mdval = itmodel->first;
-      double& mderr = itmodel->second;
 
       double numerator = pow( model_total * dtval - data_total * mdval, 2 ) ;
       double denominator = ( dtval + mdval  );
@@ -554,11 +551,13 @@ namespace CedarAlignment{
 
       if ( fDebug )
       {
-        cerr 
+        double& dterr = itdata->second;
+        double& mderr = itmodel->second;
+        cerr
           << setw( 12) << dtval << setw( 12) << dterr
           << setw( 12) << mdval << setw( 12) << mderr
-          << setw( 12) << numerator << setw( 12) << denominator 
-          << setw( 12) << model_total << setw( 12) << data_total 
+          << setw( 12) << numerator << setw( 12) << denominator
+          << setw( 12) << model_total << setw( 12) << data_total
           << setw( 12) << chi2 << std::endl;
       }
 
@@ -613,7 +612,7 @@ namespace CedarAlignment{
 
     for ( Int_t i = 0 ; i != 8 ; ++ i )
     {
-      pair<double,double> total_error 
+      pair<double,double> total_error
         = GroupTotalError( fSectorGroups[i], &ds );
 
       fSectorTotals[i] = total_error.first;
@@ -756,7 +755,7 @@ namespace CedarAlignment{
             for ( int jj = iy-1 ; jj != iy + 2; ++jj )
             {
               if ( (ii!=ix) && (jj!=ix )
-                  && (ii > -1) && ( ii < nBinsX ) 
+                  && (ii > -1) && ( ii < nBinsX )
                   && (jj > -1) && ( jj < nBinsY) )
               {
                 if ( m( ii, jj ) > 1 )
@@ -826,7 +825,7 @@ namespace CedarAlignment{
     negate_mat( fChi2Array );
     TSpectrum2 s;
 
-    Int_t nPeaks = s.SearchHighRes( (Double_t **)fChi2Array.Data(), (Double_t **)fSmoothedArray.Data(), 
+    Int_t nPeaks = s.SearchHighRes( (Double_t **)fChi2Array.Data(), (Double_t **)fSmoothedArray.Data(),
         fChi2Array.GetDimX(), fChi2Array.GetDimY(),
         fPeakSigma, fPeakThreshold, fRemoveBackground,
         fDeconIterations, fDoMarkov, fMarkovWindow );
@@ -849,12 +848,12 @@ namespace CedarAlignment{
       //Convert to alignment coordinates
       Float_t wholex;
       Float_t fractx = std::modf(xm,  &wholex);
-      Float_t alignx = xAxis->GetBinCenter( int(wholex) ) 
+      Float_t alignx = xAxis->GetBinCenter( int(wholex) )
         + xAxis->GetBinWidth( int(wholex) ) * ( fractx );
 
       Float_t wholey;
       Float_t fracty = std::modf(ym, &wholey);
-      Float_t aligny = yAxis->GetBinCenter( int(wholey) ) 
+      Float_t aligny = yAxis->GetBinCenter( int(wholey) )
         + yAxis->GetBinWidth( int(wholey) ) * ( fracty );
 
       Float_t lnchi2 = fSmoothedArray( xm, ym );
@@ -867,7 +866,7 @@ namespace CedarAlignment{
   }
 
   PeakFinder::Peak PeakFinder::get_best_peak() const
-  { 
+  {
     if ( fPeaks.size() > 0 )
     {
       return fPeaks[0];
@@ -1019,7 +1018,7 @@ namespace CedarAlignment{
 
 
       //A list of the position IDs for one sector
-      TString sector_positions_string( 
+      TString sector_positions_string(
           "15 22 23 24 25 26 27 32 33 34 35 36 "
           "37 38 41 42 43 44 45 46 47 48 51 52 "
           "53 54 55 56 57 58 59 61 62 63 64 65 "
@@ -1032,7 +1031,7 @@ namespace CedarAlignment{
       duplicate_sectors( sector_positions, fSectorGroups );
 
       //Grouping of PMTs in sixths
-      TString sixth_positions_string( 
+      TString sixth_positions_string(
           "32 33 41 42 43 51 22 23\n"
           "72 73 82 52 53 61 62 63\n"
           "34 35 36 44 45 15 24 25\n"
@@ -1126,7 +1125,7 @@ namespace CedarAlignment{
     fHAsymUD.Fill( fRatioAligner.GetAsymUpDown() );
     fHAsymSJ.Fill( fRatioAligner.GetAsymSalvJura() );
 
-    fGSugXYTrend.SetPoint( fGSugXYTrend.GetN(), 
+    fGSugXYTrend.SetPoint( fGSugXYTrend.GetN(),
         fMotorPosX - fPeakFinderOctants.get_best_peak().x / 1000.0,
         fMotorPosY - fPeakFinderOctants.get_best_peak().y / 1000.0 );
 

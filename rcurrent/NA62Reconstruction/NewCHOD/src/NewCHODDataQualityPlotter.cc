@@ -357,6 +357,7 @@ void NewCHODDataQualityPlotter::BuildPDF() {
   Bool_t UniqueColourScale = true; // this can be changed; should be false for the NIM paper plot
   Double_t max0 = fHList[0]->GetBinContent(fHList[0]->GetMaximumBin());
   Double_t max1 = fHList[1]->GetBinContent(fHList[1]->GetMaximumBin());
+  // cppcheck-suppress knownConditionTrueFalse
   if (UniqueColourScale) {
     Double_t max = TMath::Max(max0, max1);
     max0 = max;

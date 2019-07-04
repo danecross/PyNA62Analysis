@@ -32,7 +32,6 @@ protected:
   double fZLKr;
 
   //parameters
-  bool verb;
   double fLAVMinTimeCut;
   double fLAVMaxTimeCut;
   double fIRCMinTimeCut;

@@ -1,0 +1,8 @@
+module "CedarSlimPersistency" {
+  requires cplusplus
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/Cedar/include/TSlimRecoCedarCandidate.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/Cedar/include/TSlimRecoCedarCandidate.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/Cedar/include/TSlimRecoCedarEvent.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/Cedar/include/TSlimRecoCedarEvent.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/Cedar/include/TSlimRecoCedarHit.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/Cedar/include/TSlimRecoCedarHit.hh" export * }
+  export *
+}
+

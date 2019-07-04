@@ -30,9 +30,9 @@ public:
 
 private:
   ChamberCollector *fChamber; ///< Pointer to the ensemble of the reconstructed chamber-hits.
-  TRecoSpectrometerEvent *fRecoEvent; ///< Pointer to the spectrometer reconstructed event class. 
+  TRecoSpectrometerEvent *fRecoEvent; ///< Pointer to the spectrometer reconstructed event class.
   Event *fGenEvent; ///< Pointer to the generated event class.
-  Track *fTrack; ///< Pointer to the Track class. 
+  Track *fTrack; ///< Pointer to the Track class.
   std::vector<Combination*> fCombination; ///< vector of pointers to the Combination class.
   SpectrometerParameters *fPar;
 
@@ -48,12 +48,12 @@ private:
   Double_t fEC; ///< e*c
   Double_t fBMag; ///< Intensity of the magnetic field
   Double_t dMag; ///< Thickness of the magnet
-  Double_t fZMag; ///< Position of middle of the magnet along Z. 
+  Double_t fZMag; ///< Position of middle of the magnet along Z.
   Int_t fNChamberHit[4]; ///< Total number of chamber-hits per chamber.
-  Double_t fMomentumMax; ///< Maximum momentum for combination reconstruction in TrackCollector. 
-  Double_t fAngleMax; ///< Maximum slope for combination reconstruction in TrackCollector. 
-  Double_t fCombQualityCut; 
-  Double_t fCombHoughDeltaCut; 
+  Double_t fMomentumMax; ///< Maximum momentum for combination reconstruction in TrackCollector.
+  Double_t fAngleMax; ///< Maximum slope for combination reconstruction in TrackCollector.
+  Double_t fCombQualityCut;
+  Double_t fCombHoughDeltaCut;
   Double_t fInterTtrailingCut;
   Double_t f3HitsCombRadiusAtMC;
 
@@ -70,11 +70,12 @@ private:
   Double_t XZPlaneRecognition(Int_t, Double_t*, Double_t*, Double_t, Double_t*);
   Bool_t RemoveCombination(const Combination&);
   void RemoveCombination();
+  // cppcheck-suppress unusedPrivateFunction
   void PrintoutCombination();
-  void ComputeTotalHitNumber(); 
+  void ComputeTotalHitNumber();
 
   // Track reconstruction
-  void TrackMeasurement(); 
+  void TrackMeasurement();
 
 };
 #endif

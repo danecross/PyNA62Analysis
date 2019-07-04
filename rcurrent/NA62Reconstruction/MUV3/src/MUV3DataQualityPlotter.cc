@@ -722,8 +722,7 @@ void MUV3DataQualityPlotter::GenerateTileAsymmetryVsBurstIDPlots() {
   while (!fHChannelProfileVsBurst->Integral(LastBurst+1, LastBurst+1)) LastBurst--;
 
   Int_t Ntiles = 152;
-  Int_t Npages = Ntiles/16;
-  if (Ntiles%16) Npages++;
+  Int_t Npages = Ntiles/16 + 1;
 
   TCanvas* Canvas = new TCanvas("MUV3Canvas");
   Canvas->Divide(4,4);

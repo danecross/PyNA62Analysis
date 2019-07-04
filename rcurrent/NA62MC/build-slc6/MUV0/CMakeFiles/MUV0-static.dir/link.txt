@@ -1,2 +1,0 @@
-/usr/bin/ar qc libMUV0-static.a  CMakeFiles/MUV0ObjLib.dir/src/MUV0Detector.cc.o CMakeFiles/MUV0ObjLib.dir/src/MUV0GeometryParameters.cc.o CMakeFiles/MUV0ObjLib.dir/src/MUV0Hit.cc.o CMakeFiles/MUV0ObjLib.dir/src/MUV0MaterialParameters.cc.o CMakeFiles/MUV0ObjLib.dir/src/MUV0RootIO.cc.o CMakeFiles/MUV0ObjLib.dir/src/MUV0SD.cc.o CMakeFiles/MUV0ObjLib.dir/src/MUV0ScintillatorCounter.cc.o
-/usr/bin/ranlib libMUV0-static.a

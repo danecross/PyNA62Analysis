@@ -1,0 +1,10 @@
+[ libIRCPersistency.so ]
+# List of selected classes
+class IRCChannelID
+class TIRCDigi
+class TIRCEvent
+class TIRCHit
+class TRecoIRCCandidate
+class TRecoIRCEvent
+class TRecoIRCHit
+header TRecoIRCHit.hh

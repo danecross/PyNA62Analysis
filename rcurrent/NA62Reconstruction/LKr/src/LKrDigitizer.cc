@@ -43,7 +43,7 @@ LKrDigitizer::LKrDigitizer(NA62VReconstruction* Reco) : NA62VDigitizer(Reco, "LK
   fSigmaUncorrNoise[2] = 0.12;
   fSigmaUncorrNoise[3] = 0.05;
 
-  // Slopes for gain range definition 
+  // Slopes for gain range definition
   fSlopes[0] = 0.0033;
   fSlopes[1] = 0.0096;
   fSlopes[2] = 0.0250;
@@ -71,7 +71,7 @@ LKrDigitizer::LKrDigitizer(NA62VReconstruction* Reco) : NA62VDigitizer(Reco, "LK
 LKrDigitizer::~LKrDigitizer(){}
 
 TDetectorVEvent * LKrDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
-  if(tEvent->GetHits()->GetClass()->InheritsFrom("TVDigi") || tEvent->IsA() == TSpecialTriggerEvent::Class()) return tEvent; 
+  if(tEvent->GetHits()->GetClass()->InheritsFrom("TVDigi") || tEvent->IsA() == TSpecialTriggerEvent::Class()) return tEvent;
   if(tEvent->IsA() != TLKrEvent::Class()) NA62VReconstruction::Exception(Form("%s is not a %s", tEvent->IsA()->GetName(), TLKrEvent::Class()->GetName()));
 
   // Pulse shape
@@ -94,13 +94,13 @@ TDetectorVEvent * LKrDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
 
   // LKr Event
   TLKrEvent * LKrEvent = static_cast<TLKrEvent*>(tEvent);
-  Int_t NLKrHits = LKrEvent->GetNHits();   
+  Int_t NLKrHits = LKrEvent->GetNHits();
   fDigiEvent->Clear("C");
   (*(TVEvent*)fDigiEvent)=(*(TVEvent*)LKrEvent);
   static_cast<FADCEvent*>(fDigiEvent)->SetFADCID(10);
   static_cast<FADCEvent*>(fDigiEvent)->SetNSamples(NSamples);
 
-  // Loop over the MC hits 
+  // Loop over the MC hits
   Double_t eightSamples[8];
   for(Int_t iLKrHit = 0; iLKrHit < NLKrHits; iLKrHit++){
     for(UInt_t iSample = 0; iSample < NSamples; iSample++) eightSamples[iSample] = 0;
@@ -112,7 +112,7 @@ TDetectorVEvent * LKrDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
 #endif
     Int_t jx = LKrHit->GetXCellID();
     Int_t jy = LKrHit->GetYCellID();
-    Double_t HitTime = LKrHit->GetTime()+FineTime-((LKrReconstruction*)fReco)->GetStationMCToF(LKrHit->GetStationID())
+    Double_t HitTime = LKrHit->GetTime()+FineTime-(static_cast<LKrReconstruction*>(fReco))->GetStationMCToF(LKrHit->GetStationID())
       + fReco->GetT0Correction(LKrHit->GetChannelID(),LKrHit->GetStationID()) + fPar->GetCellT0(jx,jy);
 
     Double_t pulseAmplitude = MaxShapePulse-MinShapePulse;
@@ -142,11 +142,11 @@ TDetectorVEvent * LKrDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
         if (currentSample>maxCurrent){
           maxCurrent = currentSample;
           maxSample = iSample;
-        }    
+        }
       }
     } else maxSample = 0;
 #endif
-    // ADC counts computation  
+    // ADC counts computation
     Int_t igain = 0;
     Int_t maxCount = 0;
     Int_t minCount = 99999;
@@ -167,12 +167,12 @@ TDetectorVEvent * LKrDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
         PulseHeight = fReadShape[NewIndex] + dx*(fReadShape[NewIndex+1]-fReadShape[NewIndex]);
       }
 #ifdef SLM
-      if (iSample>=maxSample-2) igain = maxgain;            // Set the gain of the samples around the maximum 
+      if (iSample>=maxSample-2) igain = maxgain;            // Set the gain of the samples around the maximum
 #else
       igain=maxgain;
 #endif
       Double_t calConst = fPar->GetCalSteig(jx,jy,igain);
-      Double_t fadc=0.;   
+      Double_t fadc=0.;
       if (calConst>0.) fadc = EnergyCurrentRatio/(calConst*1000);
       //else             fadc = EnergyCurrentRatio/(.004*1000); // Fake calibration constant
       else fadc = 0.;
@@ -208,12 +208,12 @@ TDetectorVEvent * LKrDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
     UInt_t iy = (UInt_t)jy;
     if (!((fAdcCommon->GetKAF()->KAFIHEA[iy][ix])&0x4)) continue; //  Dead cells
 
-    // Save digitized hits 
+    // Save digitized hits
     TLKrDigi * LKrDigi = static_cast<TLKrDigi*>(fDigiEvent->AddDigi(LKrHit));
     LKrDigi->DecodeChannelID();
     for (UInt_t iSample=0; iSample<NSamples; iSample++) LKrDigi->AddSample(eightSamples[iSample]);
 #ifdef SLM
-    // Adjust the flags for the digital filter  
+    // Adjust the flags for the digital filter
     dec000(ix,iy,adcSamples,vgain,NSamples);
     LKrDigi->SetADCPeakEnergy((Double_t)fAdcCommon->GetADC()->PEAKENE);
     LKrDigi->SetADCPeakTime((Double_t)fAdcCommon->GetADC()->PEAKTIME-1); // Warning! peaktime = maxsample -> -1 from fortran to c++: samples in fortran 1:8, in c 0:7
@@ -222,7 +222,7 @@ TDetectorVEvent * LKrDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
     LKrDigi->SetFlags(fAdcCommon->GetADC()->IFLAG);
 #else
     LKrDigi->SetADCPeakEnergy((Double_t)maxCount);
-    LKrDigi->SetADCPeakTime((Double_t)imaxCount); 
+    LKrDigi->SetADCPeakTime((Double_t)imaxCount);
     LKrDigi->SetPeakTime((Double_t)imaxCount*ClockPeriod);
     LKrDigi->SetQuality(1);
     LKrDigi->SetFlags(flag);

@@ -1,0 +1,11 @@
+{ decls }
+namespace std {  }
+
+[ libHACSlimPersistency.so ]
+# List of selected classes
+class TSlimRecoHACCandidate
+class TSlimRecoHACEvent
+class TSlimRecoHACHit
+class vector<TSlimRecoHACCandidate>
+class vector<TSlimRecoHACHit>
+header TSlimRecoHACHit.hh

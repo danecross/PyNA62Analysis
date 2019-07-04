@@ -62,43 +62,43 @@ void SpectrometerOnlineMonitor::CreateShifterModeTabs(){
   gPad->SetTopMargin(0.06);
   gPad->SetBottomMargin(0.1);
 
-  Activity->GetCurrentFrame()->DrawHisto(fHChannelActivity,"colz");    
+  Activity->GetCurrentFrame()->DrawHisto(fHChannelActivity,"colz");
 
   fHChannelActivity->GetXaxis()->SetTitleSize(0.05);
   gPad->Update();
   gPad->Modified();
   gPad->Update();
-  TPolyLine* poly[32] = {new TPolyLine(9, (double*)ch1uLx, (double*)ch1uy), 
+  TPolyLine* poly[32] = {new TPolyLine(9, (double*)ch1uLx, (double*)ch1uy),
     new TPolyLine(9, (double*)ch1uRx, (double*)ch1uy),
-    new TPolyLine(9, (double*)ch1vLx, (double*)ch1vy), 
+    new TPolyLine(9, (double*)ch1vLx, (double*)ch1vy),
     new TPolyLine(9, (double*)ch1vRx, (double*)ch1vy),
-    new TPolyLine(9, (double*)ch1xLx, (double*)ch1xy), 
+    new TPolyLine(9, (double*)ch1xLx, (double*)ch1xy),
     new TPolyLine(9, (double*)ch1xRx, (double*)ch1xy),
-    new TPolyLine(9, (double*)ch1yLx, (double*)ch1yy), 
+    new TPolyLine(9, (double*)ch1yLx, (double*)ch1yy),
     new TPolyLine(9, (double*)ch1yRx, (double*)ch1yy),
-    new TPolyLine(5, (double*)ch2uLx, (double*)ch2uy), 
+    new TPolyLine(5, (double*)ch2uLx, (double*)ch2uy),
     new TPolyLine(5, (double*)ch2uRx, (double*)ch2uy),
-    new TPolyLine(5, (double*)ch2vLx, (double*)ch2vy), 
+    new TPolyLine(5, (double*)ch2vLx, (double*)ch2vy),
     new TPolyLine(5, (double*)ch2vRx, (double*)ch2vy),
-    new TPolyLine(5, (double*)ch2xLx, (double*)ch2xy), 
+    new TPolyLine(5, (double*)ch2xLx, (double*)ch2xy),
     new TPolyLine(5, (double*)ch2xRx, (double*)ch2xy),
-    new TPolyLine(9, (double*)ch2yLx, (double*)ch2yy), 
+    new TPolyLine(9, (double*)ch2yLx, (double*)ch2yy),
     new TPolyLine(9, (double*)ch2yRx, (double*)ch2yy),
-    new TPolyLine(9, (double*)ch3uLx, (double*)ch3uy), 
+    new TPolyLine(9, (double*)ch3uLx, (double*)ch3uy),
     new TPolyLine(9, (double*)ch3uRx, (double*)ch3uy),
-    new TPolyLine(9, (double*)ch3vLx, (double*)ch3vy), 
+    new TPolyLine(9, (double*)ch3vLx, (double*)ch3vy),
     new TPolyLine(9, (double*)ch3vRx, (double*)ch3vy),
-    new TPolyLine(7, (double*)ch3xLx, (double*)ch3xy), 
+    new TPolyLine(7, (double*)ch3xLx, (double*)ch3xy),
     new TPolyLine(7, (double*)ch3xRx, (double*)ch3xy),
-    new TPolyLine(9, (double*)ch3yLx, (double*)ch3yy), 
+    new TPolyLine(9, (double*)ch3yLx, (double*)ch3yy),
     new TPolyLine(9, (double*)ch3yRx, (double*)ch3yy),
-    new TPolyLine(7, (double*)ch4uLx, (double*)ch4uy), 
+    new TPolyLine(7, (double*)ch4uLx, (double*)ch4uy),
     new TPolyLine(7, (double*)ch4uRx, (double*)ch4uy),
-    new TPolyLine(7, (double*)ch4vLx, (double*)ch4vy), 
+    new TPolyLine(7, (double*)ch4vLx, (double*)ch4vy),
     new TPolyLine(7, (double*)ch4vRx, (double*)ch4vy),
-    new TPolyLine(9, (double*)ch4xLx, (double*)ch4xy), 
+    new TPolyLine(9, (double*)ch4xLx, (double*)ch4xy),
     new TPolyLine(9, (double*)ch4xRx, (double*)ch4xy),
-    new TPolyLine(9, (double*)ch4yLx, (double*)ch4yy), 
+    new TPolyLine(9, (double*)ch4yLx, (double*)ch4yy),
     new TPolyLine(9, (double*)ch4yRx, (double*)ch4yy)
   };
 
@@ -112,7 +112,7 @@ void SpectrometerOnlineMonitor::CreateShifterModeTabs(){
   TText *tt = new TText();
   tt->SetTextSize(0.03);
   tt->SetTextAngle(-90);
-  for (int i = 0; i < 4; i++) { 
+  for (int i = 0; i < 4; i++) {
     const double sep = 0.21;
     t->DrawTextNDC(0.02, 0.12 + sep*i, "U");
     t->DrawTextNDC(0.02, 0.17 + sep*i, "V");
@@ -231,43 +231,43 @@ void SpectrometerOnlineMonitor::CreateExpertModeTabs(){
   gPad->SetTopMargin(0.06);
   gPad->SetBottomMargin(0.1);
 
-  Activity->GetCurrentFrame()->DrawHisto(fHChannelActivity,"colz");    
+  Activity->GetCurrentFrame()->DrawHisto(fHChannelActivity,"colz");
 
   fHChannelActivity->GetXaxis()->SetTitleSize(0.05);
   gPad->Update();
   gPad->Modified();
   gPad->Update();
-  TPolyLine* poly[32] = {new TPolyLine(9, (double*)ch1uLx, (double*)ch1uy), 
+  TPolyLine* poly[32] = {new TPolyLine(9, (double*)ch1uLx, (double*)ch1uy),
     new TPolyLine(9, (double*)ch1uRx, (double*)ch1uy),
-    new TPolyLine(9, (double*)ch1vLx, (double*)ch1vy), 
+    new TPolyLine(9, (double*)ch1vLx, (double*)ch1vy),
     new TPolyLine(9, (double*)ch1vRx, (double*)ch1vy),
-    new TPolyLine(9, (double*)ch1xLx, (double*)ch1xy), 
+    new TPolyLine(9, (double*)ch1xLx, (double*)ch1xy),
     new TPolyLine(9, (double*)ch1xRx, (double*)ch1xy),
-    new TPolyLine(9, (double*)ch1yLx, (double*)ch1yy), 
+    new TPolyLine(9, (double*)ch1yLx, (double*)ch1yy),
     new TPolyLine(9, (double*)ch1yRx, (double*)ch1yy),
-    new TPolyLine(5, (double*)ch2uLx, (double*)ch2uy), 
+    new TPolyLine(5, (double*)ch2uLx, (double*)ch2uy),
     new TPolyLine(5, (double*)ch2uRx, (double*)ch2uy),
-    new TPolyLine(5, (double*)ch2vLx, (double*)ch2vy), 
+    new TPolyLine(5, (double*)ch2vLx, (double*)ch2vy),
     new TPolyLine(5, (double*)ch2vRx, (double*)ch2vy),
-    new TPolyLine(5, (double*)ch2xLx, (double*)ch2xy), 
+    new TPolyLine(5, (double*)ch2xLx, (double*)ch2xy),
     new TPolyLine(5, (double*)ch2xRx, (double*)ch2xy),
-    new TPolyLine(9, (double*)ch2yLx, (double*)ch2yy), 
+    new TPolyLine(9, (double*)ch2yLx, (double*)ch2yy),
     new TPolyLine(9, (double*)ch2yRx, (double*)ch2yy),
-    new TPolyLine(9, (double*)ch3uLx, (double*)ch3uy), 
+    new TPolyLine(9, (double*)ch3uLx, (double*)ch3uy),
     new TPolyLine(9, (double*)ch3uRx, (double*)ch3uy),
-    new TPolyLine(9, (double*)ch3vLx, (double*)ch3vy), 
+    new TPolyLine(9, (double*)ch3vLx, (double*)ch3vy),
     new TPolyLine(9, (double*)ch3vRx, (double*)ch3vy),
-    new TPolyLine(7, (double*)ch3xLx, (double*)ch3xy), 
+    new TPolyLine(7, (double*)ch3xLx, (double*)ch3xy),
     new TPolyLine(7, (double*)ch3xRx, (double*)ch3xy),
-    new TPolyLine(9, (double*)ch3yLx, (double*)ch3yy), 
+    new TPolyLine(9, (double*)ch3yLx, (double*)ch3yy),
     new TPolyLine(9, (double*)ch3yRx, (double*)ch3yy),
-    new TPolyLine(7, (double*)ch4uLx, (double*)ch4uy), 
+    new TPolyLine(7, (double*)ch4uLx, (double*)ch4uy),
     new TPolyLine(7, (double*)ch4uRx, (double*)ch4uy),
-    new TPolyLine(7, (double*)ch4vLx, (double*)ch4vy), 
+    new TPolyLine(7, (double*)ch4vLx, (double*)ch4vy),
     new TPolyLine(7, (double*)ch4vRx, (double*)ch4vy),
-    new TPolyLine(9, (double*)ch4xLx, (double*)ch4xy), 
+    new TPolyLine(9, (double*)ch4xLx, (double*)ch4xy),
     new TPolyLine(9, (double*)ch4xRx, (double*)ch4xy),
-    new TPolyLine(9, (double*)ch4yLx, (double*)ch4yy), 
+    new TPolyLine(9, (double*)ch4yLx, (double*)ch4yy),
     new TPolyLine(9, (double*)ch4yRx, (double*)ch4yy)
   };
 
@@ -281,7 +281,7 @@ void SpectrometerOnlineMonitor::CreateExpertModeTabs(){
   TText *tt = new TText();
   tt->SetTextSize(0.03);
   tt->SetTextAngle(-90);
-  for (int i = 0; i < 4; i++) { 
+  for (int i = 0; i < 4; i++) {
     const double sep = 0.21;
     t->DrawTextNDC(0.02, 0.12 + sep*i, "U");
     t->DrawTextNDC(0.02, 0.17 + sep*i, "V");
@@ -395,7 +395,7 @@ void SpectrometerOnlineMonitor::CreateExpertModeTabs(){
   Stability->cd(1);
   fHMissFitBurst = new TGraphErrors(1);
   fHMissFitBurst->SetPoint(0, 1., -0.1);
-  fHMissFitBurst->SetTitle("Gaussian fit of #pi^{0} mass peak; Burst ID; M_{miss}^{2}(#pi) [GeV^{2}/c^{4}]");   
+  fHMissFitBurst->SetTitle("Gaussian fit of #pi^{0} mass peak; Burst ID; M_{miss}^{2}(#pi) [GeV^{2}/c^{4}]");
   fHMissFitBurst->SetMarkerStyle(8);
   fHMissFitBurst->SetLineColor(kBlue);
   fHMissFitBurst->SetMarkerColor(kBlack);
@@ -408,7 +408,7 @@ void SpectrometerOnlineMonitor::CreateExpertModeTabs(){
   Stability->cd(2);
   fHMomFitBurst = new TGraphErrors(1);
   fHMomFitBurst->SetPoint(0, 1., -0.1);
-  fHMomFitBurst->SetTitle("Gaussian fit of beam momentum peak; Burst ID; p [GeV/c]");   
+  fHMomFitBurst->SetTitle("Gaussian fit of beam momentum peak; Burst ID; p [GeV/c]");
   fHMomFitBurst->SetMarkerStyle(8);
   fHMomFitBurst->SetLineColor(kBlue);
   fHMomFitBurst->SetMarkerColor(kBlack);
@@ -430,7 +430,7 @@ void SpectrometerOnlineMonitor::CreateExpertModeTabs(){
   gPad->SetGridy(1);
   fHNleadingsBurst = new TGraphErrors(1);
   fHNleadingsBurst->SetPoint(0, 1., -0.1);
-  fHNleadingsBurst->SetTitle("N_events(>10 leadings in-time wrt reference) / N_events(all); Burst ID");   
+  fHNleadingsBurst->SetTitle("N_events(>10 leadings in-time wrt reference) / N_events(all); Burst ID");
   fHNleadingsBurst->SetMarkerStyle(8);
   fHNleadingsBurst->SetLineColor(kBlue);
   fHNleadingsBurst->SetMarkerColor(kBlack);
@@ -445,18 +445,18 @@ void SpectrometerOnlineMonitor::Update(Int_t BurstID){
 
   // number of leadings per burst
   TH1I* hNleadingsBurst = static_cast<SpectrometerReconstruction*>(fReco)->GetDigiManager()->GetHLeadingsInTime();
-  double LastValueX3=-1.;
-  double LastValueY3=0.;
-  Double_t val = hNleadingsBurst->Integral(11, -1)/hNleadingsBurst->Integral(1,-1); 
+  Double_t val = hNleadingsBurst->Integral(11, -1)/hNleadingsBurst->Integral(1,-1);
   if(fHNleadingsBurst){
     if(fHNleadingsBurst->GetN()>0){
+      double LastValueX3=-1.;
+      double LastValueY3=0.;
       fHNleadingsBurst->GetPoint(fHNleadingsBurst->GetN()-1, LastValueX3, LastValueY3);
       if(LastValueX3==BurstID || LastValueY3<0){
         fHNleadingsBurst->RemovePoint(fHNleadingsBurst->GetN()-1);
       }
     }
     fHNleadingsBurst->Set(fHNleadingsBurst->GetN()+1);
-    fHNleadingsBurst->SetPoint(fHNleadingsBurst->GetN()-1, (double)BurstID, val);    
+    fHNleadingsBurst->SetPoint(fHNleadingsBurst->GetN()-1, (double)BurstID, val);
     fHNleadingsBurst->GetXaxis()->SetTitleSize(0.05);
     fHNleadingsBurst->GetYaxis()->SetTitleSize(0.05);
   }
@@ -468,12 +468,12 @@ void SpectrometerOnlineMonitor::Update(Int_t BurstID){
     if(fHMmissFit && fHMmissFit->GetEntries() > 100) {
       fitStatus1 = fHMmissFit->Fit("fmiss","NRQ");
     }
-    double LastValueX1=-1.;
-    double LastValueY1=0.;
     if(fitStatus1 == 0) {
       Double_t mean1  = fmiss.GetParameter(1);
       Double_t meanError1 = fmiss.GetParError(1);
       if(fHMissFitBurst->GetN()>0){
+        double LastValueX1=-1.;
+        double LastValueY1=0.;
         fHMissFitBurst->GetPoint(fHMissFitBurst->GetN()-1, LastValueX1, LastValueY1);
         if(LastValueX1==BurstID || LastValueY1<0){
           fHMissFitBurst->RemovePoint(fHMissFitBurst->GetN()-1);
@@ -481,7 +481,7 @@ void SpectrometerOnlineMonitor::Update(Int_t BurstID){
       }
       fHMissFitBurst->Set(fHMissFitBurst->GetN()+1);
       fHMissFitBurst->SetPointError(fHMissFitBurst->GetN()-1, 0., meanError1);
-      fHMissFitBurst->SetPoint(fHMissFitBurst->GetN()-1, (double)BurstID, mean1);    
+      fHMissFitBurst->SetPoint(fHMissFitBurst->GetN()-1, (double)BurstID, mean1);
       fHMissFitBurst->GetXaxis()->SetTitleSize(0.05);
       fHMissFitBurst->GetYaxis()->SetTitleSize(0.05);
     }
@@ -494,12 +494,12 @@ void SpectrometerOnlineMonitor::Update(Int_t BurstID){
     if(fHMomentumFit && fHMomentumFit->GetEntries() > 100) {
       fitStatus2 = fHMomentumFit->Fit("fmom","NRQ");
     }
-    double LastValueX2=-1.;
-    double LastValueY2=0.;
     if(fitStatus2 == 0) {
       Double_t mean2  = fmom.GetParameter(1);
       Double_t meanError2 = fmom.GetParError(1);
       if(fHMomFitBurst->GetN()>0){
+        double LastValueX2=-1.;
+        double LastValueY2=0.;
         fHMomFitBurst->GetPoint(fHMomFitBurst->GetN()-1, LastValueX2, LastValueY2);
         if(LastValueX2==BurstID || LastValueY2<0){
           fHMomFitBurst->RemovePoint(fHMomFitBurst->GetN()-1);
@@ -507,7 +507,7 @@ void SpectrometerOnlineMonitor::Update(Int_t BurstID){
       }
       fHMomFitBurst->Set(fHMomFitBurst->GetN()+1);
       fHMomFitBurst->SetPointError(fHMomFitBurst->GetN()-1, 0., meanError2);
-      fHMomFitBurst->SetPoint(fHMomFitBurst->GetN()-1, (double)BurstID, mean2);    
+      fHMomFitBurst->SetPoint(fHMomFitBurst->GetN()-1, (double)BurstID, mean2);
       fHMomFitBurst->GetXaxis()->SetTitleSize(0.05);
       fHMomFitBurst->GetYaxis()->SetTitleSize(0.05);
     }

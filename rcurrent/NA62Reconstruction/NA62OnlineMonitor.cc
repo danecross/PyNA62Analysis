@@ -104,7 +104,7 @@ void * RunReco(void * /*ptr*/){
   unsigned int PrintTimer  = OMTimer.AddTimer("Print",2);
 
   gSystem->Sleep(3000);
-  Int_t RunID = 0, BurstID = 0, PreviousBurstID = -1;
+  Int_t RunID, BurstID, PreviousBurstID = -1;
   std::cout << "Starting reconstruction" << std::endl;
   while(NA62Reco->NextEvent() && !Finished){
 
@@ -202,7 +202,7 @@ void * RunReco(void * /*ptr*/){
         if(SAVOM)          SAVOM->Print(BurstID);
         if(SpectrometerOM) SpectrometerOM->Print(BurstID);
         OMTimer.StopTimer(PrintTimer);
-      } 
+      }
       TThread::UnLock();
     }
     OMTimer.StopTimer(LoopTimer);
@@ -414,7 +414,7 @@ int main(Int_t argc, char **argv){
   Finished = kFALSE;
   printf("Starting Thread 0\n");
   TThread * t = new TThread("t0", RunReco, nullptr);
-  t->Run();   
+  t->Run();
 
   OMTimer.StopTimer(Init);
 

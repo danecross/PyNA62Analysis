@@ -17,7 +17,8 @@ FakeTrackSelection::FakeTrackSelection(Core::BaseAnalysis *ba) : Analyzer(ba, "F
 
   AddParam("CutMinNSTRAWChambers", "int", &fCutMinNSTRAWChambers, 4);
   AddParam("CutChi2", "double", &fCutChi2, 30.);
-  AddParam("Verbosity", "bool", &verb, false);
+
+  EnablePrefix(false);
 }
 
 void FakeTrackSelection::InitOutput(){
@@ -47,7 +48,7 @@ void FakeTrackSelection::ProcessSpecialTriggerUser(int, unsigned int){}
 void FakeTrackSelection::Process(int){
   if(!fReadingData) return;
 
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"-------------------"<<endl;
     cout<<"FakeTrackSelection"<<endl;
@@ -59,42 +60,42 @@ void FakeTrackSelection::Process(int){
   PrepareOutputs(STRAWEvent->GetNCandidates());
   ValidateOutputs();
 
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<"N STRAW candidates "<<STRAWEvent->GetNCandidates()<<endl;
   };
   for(int j=0; j<STRAWEvent->GetNCandidates(); j++){
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<endl;
       cout<<"candidate "<<j<<endl;
     };
     TRecoSpectrometerCandidate* STRAWCand = static_cast<TRecoSpectrometerCandidate*>(STRAWEvent->GetCandidate(j));
     FillHisto("hNChambers", STRAWCand->GetNChambers());
-    if(verb) cout<<"N STRAW chambers: "<<STRAWCand->GetNChambers()<<" >= "<<fCutMinNSTRAWChambers<<endl;
+    cout<<user()<<"N STRAW chambers: "<<STRAWCand->GetNChambers()<<" >= "<<fCutMinNSTRAWChambers<<endl;
     if(STRAWCand->GetNChambers()>=fCutMinNSTRAWChambers){
-      if(verb) cout<<"Not fake track"<<endl;
+      cout<<user()<<"Not fake track"<<endl;
       continue;
     }else{
       FillHisto("hChi2", STRAWCand->GetChi2());
-      if(verb) cout<<"track Chi2: "<<STRAWCand->GetChi2()<<" <= "<<fCutChi2<<endl;
+      cout<<user()<<"track Chi2: "<<STRAWCand->GetChi2()<<" <= "<<fCutChi2<<endl;
       if(STRAWCand->GetChi2()>fCutChi2){
     	fFakeTracks.at(j) = true;
-	if(verb) cout<<"Is fake track"<<endl;
+	cout<<user()<<"Is fake track"<<endl;
     	continue;
       };
       bool commonHit = has_common_hit(j);
       FillHisto("hCommonHit", (int)commonHit);
-      if(verb) cout<<"Has common hit? "<<commonHit<<endl;
+      cout<<user()<<"Has common hit? "<<commonHit<<endl;
       if(commonHit){
 	fFakeTracks.at(j) = true;
-	if(verb) cout<<"Is fake track"<<endl;
+	cout<<user()<<"Is fake track"<<endl;
     	continue;
       };
-      if(verb) cout<<"Not fake track"<<endl;
+      cout<<user()<<"Not fake track"<<endl;
     };
   };
 
-  if(verb) cout<<endl;
-  if(verb) cout<<"N fake tracks = "<<std::count(fFakeTracks.begin(), fFakeTracks.end(), true)<<endl;
+  cout<<user()<<endl;
+  cout<<user()<<"N fake tracks = "<<std::count(fFakeTracks.begin(), fFakeTracks.end(), true)<<endl;
   FillHisto("hNFakeTracks", std::count(fFakeTracks.begin(), fFakeTracks.end(), true));
   FillHisto("hNNonFakeTracks", std::count(fFakeTracks.begin(), fFakeTracks.end(), false));
 }

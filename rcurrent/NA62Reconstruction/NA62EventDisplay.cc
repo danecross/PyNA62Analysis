@@ -201,14 +201,14 @@ int main(Int_t argc, char **argv){
     }
     if(!(iEvent%3)){
       Event->SetName(Form("Event %d",iEvent));
-      if(NA62Reco->GetMCTruthEvent()){     
+      if(NA62Reco->GetMCTruthEvent()){
         Reconstruction->RemoveElements();
         Hits->RemoveElements();
         MCTruth->RemoveElements();
 
         TClonesArray Tracks = (*(NA62Reco->GetMCTruthEvent()->GetKineParts()));
         Int_t nMCTracks = Tracks.GetEntries();
-        Int_t nSpectrometerHits = 0; 
+        Int_t nSpectrometerHits = 0;
         TClonesArray * SpectrometerHits = (SpecEvent ? SpecEvent->GetHits() : 0);
         if(SpectrometerHits){
           nSpectrometerHits = SpectrometerHits->GetEntries();
@@ -218,8 +218,6 @@ int main(Int_t argc, char **argv){
         }
         if(nSpectrometerHits > 0){
           //gEve->AddElement((TEveElement*)RecTrackPropagator, (TEveElement*)Reconstruction);
-        }
-        if(nSpectrometerHits > 0){
           // Getting Hits and creating Eve structures
           EveSpectrometerHits = new TEvePointSetArray("Spectrometer Hits - Energy Slices", "");
           gEve->AddElement(static_cast<TEveElement*>(EveSpectrometerHits), static_cast<TEveElement*>(Hits));
@@ -236,7 +234,7 @@ int main(Int_t argc, char **argv){
             EveSpectrometerHits->GetBin(i)->SetMainColor(TColor::GetColorPalette(i * nCol / 10));
 
           EveSpectrometerHits->GetBin(0) ->SetMainColor(kGray);
-          EveSpectrometerHits->GetBin(10)->SetMainColor(kWhite);        
+          EveSpectrometerHits->GetBin(10)->SetMainColor(kWhite);
           for(Int_t iHit = 0; iHit < nSpectrometerHits; iHit++){
             Double_t E = static_cast<TSpectrometerHit*>(SpectrometerHits->At(iHit))->GetEnergy()*1000.; //KeV
             TVector3 Pos = static_cast<TSpectrometerHit*>(SpectrometerHits->At(iHit))->GetPosition()*0.1; //TGeo package uses cm as native lenght unit
@@ -248,23 +246,23 @@ int main(Int_t argc, char **argv){
           // Getting track candidates and adding to Eve
           Int_t nTrackCandidates = SpecReco->GetNTracks();
           for(Int_t iTrack = 0; iTrack < nTrackCandidates; iTrack++){
-            TVector3 Position = SpecReco->GetCandidate(iTrack)->GetPositionBeforeMagnet(); 
+            TVector3 Position = SpecReco->GetCandidate(iTrack)->GetPositionBeforeMagnet();
             TVector3 Direction (SpecReco->GetCandidate(iTrack)->GetSlopeXBeforeMagnet(),
                 SpecReco->GetCandidate(iTrack)->GetSlopeYBeforeMagnet(),1);
             Direction = Direction*(1./Direction.Mag());
             TVector3 Momentum = 0.001*SpecReco->GetCandidate(iTrack)->GetMomentum()*Direction;
             EveRecTrack = new TEveRecTrack();
             EveRecTrack->fV.Set((Position-Direction*
-                  (Position.Perp()/Direction.Perp() > Position.Z() - 10000 ? Position.Z() - 10000 : 
+                  (Position.Perp()/Direction.Perp() > Position.Z() - 10000 ? Position.Z() - 10000 :
                    Position.Perp()/Direction.Perp())
                   ));
             EveRecTrack->fP.Set(Momentum);
             EveRecTrack->fSign = 1;
             EveTrack = new TEveTrack(EveRecTrack, TrackPropagator);
             EveTrack->SetMainColor(kBlue);
-            //          EveTrack->SetName(Form("P=%3.2fGeV - Chi2=%1.2f",Momentum.Mag(), 
+            //          EveTrack->SetName(Form("P=%3.2fGeV - Chi2=%1.2f",Momentum.Mag(),
             //                      SpecReco->GetTrackCollector()->GetTrack(iTrack)->GetChi2()));
-            EveTrack->SetName(Form("P=%3.2fGeV - Chi2=%1.2f",Momentum.Mag(), 
+            EveTrack->SetName(Form("P=%3.2fGeV - Chi2=%1.2f",Momentum.Mag(),
                   SpecReco->GetCandidate(iTrack)->GetChi2()));
             EveTrack->MakeTrack();
             //gEve->AddElement((TEveElement*)EveTrack, (TEveElement*)RecTrackPropagator);

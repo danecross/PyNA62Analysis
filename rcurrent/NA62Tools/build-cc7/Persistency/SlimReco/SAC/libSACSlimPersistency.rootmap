@@ -1,0 +1,9 @@
+{ decls }
+namespace std {  }
+
+[ libSACSlimPersistency.so ]
+# List of selected classes
+class TSlimRecoSACCandidate
+class TSlimRecoSACEvent
+class TSlimRecoSACHit
+class vector<TSlimRecoSACCandidate>

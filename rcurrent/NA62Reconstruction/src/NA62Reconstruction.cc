@@ -1282,7 +1282,7 @@ void NA62Reconstruction::CleanUpLibraries(){
   /// \EndMemberDescr
 
   std::cout << "Cleaning up libraries" << std::endl;
-  Bool_t Delete = kTRUE;
+  Bool_t Delete;
   for(UInt_t iRecoL = 0; iRecoL < fRecoLibrary.size(); iRecoL++)
     if(fRecoLibrary[iRecoL]){
       Delete = kTRUE;
@@ -2747,7 +2747,7 @@ void NA62Reconstruction::CompleteInit(){
 
   // Read Trigger drift T0 file, if exists
   if(fIsRawData && NA62ConditionsService::GetInstance()->Open(fTriggerDriftT0FileInput)==kSuccess){
-    Bool_t BurstFound = false; 
+    Bool_t BurstFound = false;
     TString Line;
     while (Line.ReadLine(NA62ConditionsService::GetInstance()->Get(fTriggerDriftT0FileInput)) && !BurstFound) {
       if (Line.BeginsWith("#")) continue;
@@ -3789,7 +3789,7 @@ void NA62Reconstruction::EvaluateInstantaneousIntensity(){
   for (Int_t iStation=0; iStation<3; iStation++) {
     eLambda[iStation] = sqrt(Lambda[iStation]); //it must be before conversion
     // Conversion counts -> MHz
-    Double_t SampleTimeInterval = UpperEdgeTime-LowerEdgeTime-CentralGap; 
+    Double_t SampleTimeInterval = UpperEdgeTime-LowerEdgeTime-CentralGap;
     Lambda[iStation] /= 0.001*SampleTimeInterval;
     eLambda[iStation] /= 0.001*SampleTimeInterval;
     Average  += Lambda[iStation];

@@ -211,20 +211,20 @@ void MUV1Geometry::CreateGeometry(){
 
 
 int MUV1Geometry :: GetScintillatorAt (double X){
-    
-    double HalfWidth = 0.;
+
+    double HalfWidth;
     double Xabs = TMath::Abs(X);
-    
+
     if (Xabs>fScintillatorPosition[44] + 30.) return -1; // X is out of the range
-    
+
     for (int i=1; i<=44; i++) {
-        
+
         if (i<21 || i > 24) HalfWidth = 30.; // large strips
         else HalfWidth = 27.; // narrow strips
-        
+
         if (TMath::Abs(X - fScintillatorPosition[i]) <= HalfWidth) return i;
-        
+
     }
-    
+
     return -1;
 }

@@ -1,0 +1,11 @@
+{ decls }
+namespace std {  }
+
+[ libGigaTrackerSlimPersistency.so ]
+# List of selected classes
+class TSlimRecoGigaTrackerCandidate
+class TSlimRecoGigaTrackerEvent
+class TSlimRecoGigaTrackerHit
+class vector<TSlimRecoGigaTrackerCandidate>
+class vector<TSlimRecoGigaTrackerHit>
+header TSlimRecoGigaTrackerHit.hh

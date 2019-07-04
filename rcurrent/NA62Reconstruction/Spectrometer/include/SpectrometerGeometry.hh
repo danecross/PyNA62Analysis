@@ -33,7 +33,7 @@ private:
   static SpectrometerGeometry* fInstance;
 
 private:
-
+  // cppcheck-suppress unusedPrivateFunction
   void CreateGeometry();
 
 public:

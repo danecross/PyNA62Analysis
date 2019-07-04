@@ -1,0 +1,9 @@
+{ decls }
+namespace std {  }
+
+[ libMUV0SlimPersistency.so ]
+# List of selected classes
+class TSlimRecoMUV0Candidate
+class TSlimRecoMUV0Event
+class TSlimRecoMUV0Hit
+class vector<TSlimRecoMUV0Candidate>

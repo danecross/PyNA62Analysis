@@ -4,7 +4,7 @@
 #include "SpectrometerGeometry.hh"
 #include "SpectrometerParameters.hh"
 #include "TMath.h"
-////#define DEBUG00 
+////#define DEBUG00
 Int_t SelectSubType(Int_t, std::vector<Intersection>::iterator);
 
 TrackCollector::TrackCollector(ChamberCollector *c) :
@@ -18,7 +18,7 @@ TrackCollector::TrackCollector(ChamberCollector *c) :
 /// Steps:
 /// - Memory allocation to the pointers: TrackCollector::fTrack (pointer to the Track class), matrices used in pattern recognition algorithm,
 ///   TClonesArray of Tracklets and of Combinations.
-/// - Defition of some constants. 
+/// - Defition of some constants.
 ///
 /// The dimension of the matrices is fixed assuming 4 chamber-hits with all the xyuv coordinates measured: it correspond to the total number of allowed
 /// chamber-hits per track in the spectrometer.
@@ -41,7 +41,7 @@ TrackCollector::TrackCollector(ChamberCollector *c) :
   fInterTtrailingCut = fPar->GetInterTtrailingCut();
   f3HitsCombRadiusAtMC = fPar->Get3HitsCombRadiusAtMC();
   fSigmaXY = 1.; // mm
-  for (Int_t jChamber=0; jChamber<4; jChamber++) fZcoord[jChamber] = SpectrometerGeometry::GetInstance()->GetChamberZPosition(jChamber);    
+  for (Int_t jChamber=0; jChamber<4; jChamber++) fZcoord[jChamber] = SpectrometerGeometry::GetInstance()->GetChamberZPosition(jChamber);
   fXspread[0] = fPar->GetCombinationXCorridor0();
   fXspread[1] = fPar->GetCombinationXCorridor1();
   fXspread[2] = fPar->GetCombinationXCorridor2();
@@ -77,7 +77,7 @@ void TrackCollector::Reconstruct(TRecoSpectrometerEvent *fSpecEvent)
 {
 /// \MemberDescr
 /// \param fMCEvent Pointer to the Event class.
-/// \param fSpecEvent Pointer to the TRecoSpectrometerEvent class. 
+/// \param fSpecEvent Pointer to the TRecoSpectrometerEvent class.
 ///
 /// Steering method for the track reconstruction flow. The steps are:
 /// - Check the total number of chamber having one chamber-hit: TrackCollector::FewHits.
@@ -97,7 +97,7 @@ Int_t TrackCollector::FewHits() //ok
 /// \MemberDescr
 /// \return 1 not enough chambers, 0 enough.
 ///
-/// Check on the number of chambers with at least one hit (>=3). 
+/// Check on the number of chambers with at least one hit (>=3).
 /// \EndMemberDescr
 
   Int_t fNoHit=0;
@@ -106,7 +106,7 @@ Int_t TrackCollector::FewHits() //ok
     if (!(fNChamberHit[jChamber]=GetChamber(jChamber)->GetNHit())) fNoHit++;
   }
   Int_t nChamberWithHit = 4-fNoHit;
-  if (nChamberWithHit<3) return 1; 
+  if (nChamberWithHit<3) return 1;
   return 0;
 }
 
@@ -122,7 +122,7 @@ void TrackCollector::TrackMeasurement()
     TRecoSpectrometerCandidate *fCandidate = static_cast<TRecoSpectrometerCandidate*>(fRecoEvent->AddCandidate());
     if (!fIsMuonRun) { for (Int_t jiter=0; jiter<3; jiter++) fTrack->Reconstruct(comb,fChamber,fCandidate,jiter); }
     else fTrack->ReconstructMuonRun(comb,fChamber,fCandidate);
-  }    
+  }
 }
 
 
@@ -130,7 +130,7 @@ void TrackCollector::PatternRecognition()
 {
 /// \MemberDescr
 ///
-/// Steering method for pattern recognition. 
+/// Steering method for pattern recognition.
 /// \EndMemberDescr
 
 ////  cout << "chamber " << fNChamberHit[0] << " " <<
@@ -164,7 +164,7 @@ void TrackCollector::FindCombinations(Int_t skipChamber)
   Int_t jHit[4] = {0,0,0,0};
   Int_t exit = 0;
   while(!exit) {
-    // Initialization for multiplet selection 
+    // Initialization for multiplet selection
     Double_t timet[4] = {-999999., -999999., -999999., -999999.};
     Bool_t istrailing[4] = {true, true, true, true};
     combination.Reset();
@@ -179,7 +179,7 @@ void TrackCollector::FindCombinations(Int_t skipChamber)
     // Select a multiplet of chamber hits
     for (Int_t jChamber= (skipChamber!=0?0:1); jChamber<(skipChamber!=3?4:3); jChamber++) {
       if (jChamber==skipChamber) continue;
-      if (jHit[jChamber]==fNChamberHit[jChamber]) { exit = 1; break; } 
+      if (jHit[jChamber]==fNChamberHit[jChamber]) { exit = 1; break; }
 
       // Select a hit in one chamber
       Int_t hitselected(0);
@@ -193,22 +193,22 @@ void TrackCollector::FindCombinations(Int_t skipChamber)
         istrailing[jChamber] = timet[jChamber]==-999999. ? 0 : 1;
         if (istrailing[jChamber]) {
           if (jChamber==1) {
-            if (skipChamber!=0 && istrailing[0] && fabs(timet[0]-timet[1])>=fInterTtrailingCut) { jHit[jChamber]++; continue; } 
-          } 
+            if (skipChamber!=0 && istrailing[0] && fabs(timet[0]-timet[1])>=fInterTtrailingCut) { jHit[jChamber]++; continue; }
+          }
           if (jChamber==2) {
-            if (skipChamber!=0 && istrailing[0] && fabs(timet[0]-timet[2])>=fInterTtrailingCut) { jHit[jChamber]++; continue; } 
-            if (skipChamber!=1 && istrailing[1] && fabs(timet[1]-timet[2])>=fInterTtrailingCut) { jHit[jChamber]++; continue; } 
+            if (skipChamber!=0 && istrailing[0] && fabs(timet[0]-timet[2])>=fInterTtrailingCut) { jHit[jChamber]++; continue; }
+            if (skipChamber!=1 && istrailing[1] && fabs(timet[1]-timet[2])>=fInterTtrailingCut) { jHit[jChamber]++; continue; }
           }
           if (jChamber==3) {
-            if (skipChamber!=0 && istrailing[0] && fabs(timet[0]-timet[3])>=fInterTtrailingCut) { jHit[jChamber]++; continue; } 
-            if (skipChamber!=1 && istrailing[1] && fabs(timet[1]-timet[3])>=fInterTtrailingCut) { jHit[jChamber]++; continue; } 
-            if (skipChamber!=2 && istrailing[2] && fabs(timet[2]-timet[3])>=fInterTtrailingCut) { jHit[jChamber]++; continue; } 
+            if (skipChamber!=0 && istrailing[0] && fabs(timet[0]-timet[3])>=fInterTtrailingCut) { jHit[jChamber]++; continue; }
+            if (skipChamber!=1 && istrailing[1] && fabs(timet[1]-timet[3])>=fInterTtrailingCut) { jHit[jChamber]++; continue; }
+            if (skipChamber!=2 && istrailing[2] && fabs(timet[2]-timet[3])>=fInterTtrailingCut) { jHit[jChamber]++; continue; }
           }
         }
 
-        // Define corridors 
-        xcoord[jChamber] = thisChamberHit[jChamber]->GetXcoor(); 
-        ycoord[jChamber] = thisChamberHit[jChamber]->GetYcoor(); 
+        // Define corridors
+        xcoord[jChamber] = thisChamberHit[jChamber]->GetXcoor();
+        ycoord[jChamber] = thisChamberHit[jChamber]->GetYcoor();
         if (ycoord[jChamber]>=yexpmax[jChamber] || ycoord[jChamber]<=yexpmin[jChamber]) { jHit[jChamber]++; continue; }
         if (((jChamber-1)!=skipChamber) && (jChamber==1||jChamber==3) && (xcoord[jChamber]>=xexpmax[jChamber] || xcoord[jChamber]<=xexpmin[jChamber]) ) { jHit[jChamber]++; continue; }
         if ((jChamber == 0) || (jChamber == 1) || ((jChamber == 2) && (skipChamber != 3))) {
@@ -223,13 +223,13 @@ void TrackCollector::FindCombinations(Int_t skipChamber)
           xexpmin[jChamber+next] = xexp-fSigmaXY-3*fThetaMS*fabs(fZcoord[jChamber+next]-fZcoord[jChamber])-fXspread[jChamber+next];
         }
 
-        // select hits  
+        // select hits
         hitselected = 1;
         jHit[jChamber]++;
       }
 
       if (!hitselected) jChamber = NextIteration(skipChamber,jChamber,jHit);
-      if (jChamber<(skipChamber!=3?3:2) || !hitselected) continue;      
+      if (jChamber<(skipChamber!=3?3:2) || !hitselected) continue;
 
       // Create combinations
       Double_t minsigma = -99999.;
@@ -248,7 +248,7 @@ void TrackCollector::FindCombinations(Int_t skipChamber)
           if (timet[jjch]==-999999.) continue;
           combtime += timet[jjch];
           ntr++;
-        } 
+        }
         combtime = ntr ? combtime/ntr : -99999.;
       } else { // 3-hits
         Double_t zcoord_sub[3] = {-99999., -99999., -99999.};
@@ -262,7 +262,7 @@ void TrackCollector::FindCombinations(Int_t skipChamber)
           zcoord_sub[ksub] = fZcoord[jjch];
           ycoord_sub[ksub] = ycoord[jjch];
           xcoord_sub[ksub] = xcoord[jjch];
-          if (timet[jjch]>-999999.) { 
+          if (timet[jjch]>-999999.) {
             combtime += timet[jjch];
             ntr++;
           }
@@ -296,7 +296,7 @@ void TrackCollector::FindCombinations(Int_t skipChamber)
       combination.SetThetaY(ypar[0]);
       combination.SetP(xpar[2]);
       combination.SetTrailingTime(combtime);
-      for (Int_t j=0; j<4; j++) // Loop over all the chambers 
+      for (Int_t j=0; j<4; j++) // Loop over all the chambers
       {
         combination.SetChamberHitId(jHit[j]-1);
         if (combination.GetChamberHitId(j)==-1) {
@@ -325,7 +325,7 @@ void TrackCollector::FindCombinations(Int_t skipChamber)
     }
     if (exit) continue;
 
-  }  // end loop on combinations 
+  }  // end loop on combinations
 
   RemoveCombination();
 }
@@ -340,56 +340,56 @@ Int_t TrackCollector::NextIteration(Int_t skipChamber, Int_t jChamber, Int_t *jH
       {
         case -1: case 0: case 3:
           if (jHit[3]<fNChamberHit[3]) return 2;
-          if (jHit[2]<fNChamberHit[2]) 
+          if (jHit[2]<fNChamberHit[2])
           {
             jHit[3] = 0;
             return 1;
-          } 
-          if (jHit[1]<fNChamberHit[1]) 
+          }
+          if (jHit[1]<fNChamberHit[1])
           {
             jHit[2] = 0;
             jHit[3] = 0;
             return 0;
-          } 
+          }
           return 4;
         break;
 
         case 1:
           if (jHit[3]<fNChamberHit[3]) return 2;
-          if (jHit[2]<fNChamberHit[2]) 
+          if (jHit[2]<fNChamberHit[2])
           {
             jHit[3] = 0;
             return 0;
-          } 
+          }
           return 4;
         break;
 
         case 2:
           if (jHit[3]<fNChamberHit[3]) return 2;
-          if (jHit[1]<fNChamberHit[1]) 
+          if (jHit[1]<fNChamberHit[1])
           {
             jHit[3] = 0;
             return 0;
-          } 
+          }
           return 4;
         break;
       }
     break;
 
-    case 2: 
+    case 2:
       switch (skipChamber)
       {
         case -1: case 0: case 2: case 3:
           if (jHit[2]<fNChamberHit[2]) return 1;
-          if (jHit[1]<fNChamberHit[1]) 
+          if (jHit[1]<fNChamberHit[1])
           {
             jHit[2] = 0;
             return 0;
-          } 
+          }
           return 3;
         break;
 
-        case 1: 
+        case 1:
           if (jHit[2]<fNChamberHit[2]) return 0;
           return 3;
         break;
@@ -423,8 +423,8 @@ Double_t TrackCollector::HoughTransformation(Int_t nHits, Double_t *zcoord, Doub
   for (Int_t jh=0; jh<20; jh++) // slope binning
   {
     slope = 0.001*(-20+2*jh);
-    rmean = 0; 
-    for (Int_t jhit=0; jhit<nHits; jhit++) 
+    rmean = 0;
+    for (Int_t jhit=0; jhit<nHits; jhit++)
     {
       rdist[jhit] = (ycoord[jhit]-slope*zcoord[jhit]);
       rmean += rdist[jhit];
@@ -442,13 +442,11 @@ Double_t TrackCollector::HoughTransformation(Int_t nHits, Double_t *zcoord, Doub
 
   // Fine determination of the parameters
   minsigma = 99999.;
-  slope = -9999.;
-  rmean = 0;
   for (Int_t jh=0; jh<40; jh++) // slope binning
   {
     slope = 0.001*(-20+2*bestjh)+0.001*(-2+0.1*jh);
-    rmean = 0; 
-    for (Int_t jhit=0; jhit<nHits; jhit++) 
+    rmean = 0;
+    for (Int_t jhit=0; jhit<nHits; jhit++)
     {
       rdist[jhit] = (ycoord[jhit]-slope*zcoord[jhit]);
       rmean += rdist[jhit];
@@ -464,7 +462,7 @@ Double_t TrackCollector::HoughTransformation(Int_t nHits, Double_t *zcoord, Doub
     }
   }
 
-  if (nHits==3) par[2] = par[1]+par[0]*zskip; 
+  if (nHits==3) par[2] = par[1]+par[0]*zskip;
   else par[2] = -9999.;
 
   return sqrt(minsigma);
@@ -475,10 +473,10 @@ Double_t TrackCollector::XZPlaneRecognition(Double_t *zcoord, Double_t *xcoord, 
 {
   Double_t slopexbm = (xcoord[1]-xcoord[0])/(zcoord[1]-zcoord[0]);
   Double_t constxbm = xcoord[0]-slopexbm*zcoord[0];
-  Double_t x1mag = slopexbm*fZMag+constxbm; 
+  Double_t x1mag = slopexbm*fZMag+constxbm;
   Double_t slopexam = (xcoord[3]-xcoord[2])/(zcoord[3]-zcoord[2]);
   Double_t constxam = xcoord[3]-slopexam*zcoord[3];
-  Double_t x2mag = slopexam*fZMag+constxam; 
+  Double_t x2mag = slopexam*fZMag+constxam;
   Double_t pestimation = 1000*fEC*fBMag*dMag/(slopexbm-slopexam); // MeV/c
   Double_t deltax = x1mag-x2mag;
   par[0] = slopexbm;
@@ -492,36 +490,36 @@ Double_t TrackCollector::XZPlaneRecognition(Int_t skip, Double_t *zcoord, Double
 {
   Double_t slopexbm = 0;
   Double_t constxbm = 0;
-  Double_t x1mag; 
+  Double_t x1mag;
   Double_t slopexam = 0;
-  Double_t constxam = 0;
-  Double_t x2mag; 
+  Double_t constxam;
+  Double_t x2mag;
   Double_t deltax  = 0;
 
-  if (skip==0 || skip==1) 
+  if (skip==0 || skip==1)
   {
     slopexam = (xcoord[3]-xcoord[2])/(zcoord[3]-zcoord[2]);
     constxam = xcoord[3]-slopexam*zcoord[3];
-    x2mag = slopexam*fZMag+constxam; 
+    x2mag = slopexam*fZMag+constxam;
     Int_t chid = skip==0 ? 1 : 0;
     slopexbm = (x2mag-xcoord[chid])/(fZMag-zcoord[chid]);
     constxbm = xcoord[chid]-slopexbm*zcoord[chid];
-    x1mag = slopexbm*zcoord[skip]+constxbm; 
+    x1mag = slopexbm*zcoord[skip]+constxbm;
     Double_t xhole = SpectrometerGeometry::GetInstance()->GetChamberHoleCenterX(skip);
     Double_t xeff = x1mag-xhole;
     Double_t reff = sqrt(xeff*xeff+ycoord*ycoord);
     deltax = reff<f3HitsCombRadiusAtMC ? 0. : reff-f3HitsCombRadiusAtMC;
   }
 
-  if (skip==2 || skip==3) 
+  if (skip==2 || skip==3)
   {
     slopexbm = (xcoord[1]-xcoord[0])/(zcoord[1]-zcoord[0]);
     constxbm = xcoord[0]-slopexbm*zcoord[0];
-    x1mag = slopexbm*fZMag+constxbm; 
+    x1mag = slopexbm*fZMag+constxbm;
     Int_t chid = skip==2 ? 3 : 2;
     slopexam = (xcoord[chid]-x1mag)/(zcoord[chid]-fZMag);
     constxam = xcoord[chid]-slopexam*zcoord[chid];
-    x2mag = slopexam*zcoord[skip]+constxam; 
+    x2mag = slopexam*zcoord[skip]+constxam;
     Double_t xhole = SpectrometerGeometry::GetInstance()->GetChamberHoleCenterX(skip);
     Double_t xeff = x2mag-xhole;
     Double_t reff = sqrt(xeff*xeff+ycoord*ycoord);
@@ -551,7 +549,7 @@ Bool_t TrackCollector::RemoveCombination(const Combination &thisComb)
     Combination *comb = (*combIter);
     // Count chamber hits in common
     Int_t nCommon = 0;   // Total chamber hits in common
-    Int_t nCommonbm = 0; // Chamber hits in common before magnet 
+    Int_t nCommonbm = 0; // Chamber hits in common before magnet
     Int_t nCommonam = 0; // Chamber hits in common after magnet
     for (Int_t i=0; i<4; i++) {
       if (comb->GetChamberHitId(i)==-1 || thisComb.GetChamberHitId(i)==-1) continue;
@@ -672,7 +670,7 @@ void TrackCollector::RemoveCombination()
           }
         }
 
-        // 3 vs 3 
+        // 3 vs 3
         if (comb1->GetType()==3 && comb2->GetType()==3) {
           if (comb1->GetHDelta()>=fCombQualityCut && comb2->GetHDelta()>=fCombHoughDeltaCut) {
             if (comb1->GetHDelta()>comb2->GetHDelta()) comb1->SetHDelta(-9999.);
@@ -689,7 +687,7 @@ void TrackCollector::RemoveCombination()
       }
 
     }
-  } 
+  }
 
   for (auto combIter = fCombination.begin(); combIter != fCombination.end(); ) { // no increment, do at the end
     Combination *comb = (*combIter);
@@ -715,25 +713,25 @@ void TrackCollector::PrintoutCombination()
     Combination *comb = fCombination.at(j);
     std::cout << " " << std::endl;
     std::cout << ">>> Combination " << j << std::endl;
-    std::cout << "Slope X: "  << comb->GetThetaX() << std::endl; 
-    std::cout << "Slope Y: "  << comb->GetThetaY() << std::endl; 
+    std::cout << "Slope X: "  << comb->GetThetaX() << std::endl;
+    std::cout << "Slope Y: "  << comb->GetThetaY() << std::endl;
     std::cout << "Momentum: " << comb->GetP() << std::endl;
     std::cout << "X0: "       << comb->GetX0() << std::endl;
     std::cout << "Y0: "       << comb->GetY0() << std::endl;
     std::cout << "Time: "     << comb->GetTrailingTime() << std::endl;
     std::cout << "Quality: "  << comb->GetHDelta() << " " << comb->GetDeltaX() << " " << comb->GetQuality() << std::endl;
     std::cout << "" << comb->GetNCommon() << std::endl;
-    
+
     // Extract coordinates of chamber hits
     for (Int_t jj=0; jj<4; jj++)
     {
-      Int_t chamberHitId = comb->GetChamberHitId(jj); 
+      Int_t chamberHitId = comb->GetChamberHitId(jj);
       if (chamberHitId==-1) continue;
       std::vector<Intersection>::iterator thisChamberHit = GetChamber(jj)->GetHit(chamberHitId);
       std::cout << "Chamber " << jj << " " << chamberHitId << " " << thisChamberHit->GetXcoor() << " " << thisChamberHit->GetYcoor() << std::endl;
-    } 
+    }
 
-  } 
+  }
 }
 
 Int_t SelectSubType(Int_t type, std::vector<Intersection>::iterator thisHit)
@@ -750,24 +748,24 @@ Int_t SelectSubType(Int_t type, std::vector<Intersection>::iterator thisHit)
     if (thisHit->GetY()==-9999.) return 2; // xuv -> 11
     if (thisHit->GetX()==-9999.) return 3; // yuv -> 7
     break;
-  
+
     case 2:
-    if (thisHit->GetU()==-9999. && thisHit->GetV()==-9999.) return 0; // xy  
-    if (thisHit->GetV()==-9999. && thisHit->GetY()==-9999.) return 1; // ux   
-    if (thisHit->GetU()==-9999. && thisHit->GetY()==-9999.) return 2; // vx   
-    if (thisHit->GetX()==-9999. && thisHit->GetV()==-9999.) return 3; // uy  
-    if (thisHit->GetX()==-9999. && thisHit->GetU()==-9999.) return 4; // vy  
-    if (thisHit->GetY()==-9999. && thisHit->GetX()==-9999.) return 5; // uv  
+    if (thisHit->GetU()==-9999. && thisHit->GetV()==-9999.) return 0; // xy
+    if (thisHit->GetV()==-9999. && thisHit->GetY()==-9999.) return 1; // ux
+    if (thisHit->GetU()==-9999. && thisHit->GetY()==-9999.) return 2; // vx
+    if (thisHit->GetX()==-9999. && thisHit->GetV()==-9999.) return 3; // uy
+    if (thisHit->GetX()==-9999. && thisHit->GetU()==-9999.) return 4; // vy
+    if (thisHit->GetY()==-9999. && thisHit->GetX()==-9999.) return 5; // uv
   }
-  
-  return -1; 
+
+  return -1;
 }
 
 
 void TrackCollector::ComputeTotalHitNumber()
 {
 /// \MemberDescr
-/// Compute the total numer of tube hits in this combination. 
+/// Compute the total numer of tube hits in this combination.
 /// \EndDescr
 
   for (UInt_t j=0; j<fCombination.size(); j++) {
@@ -775,17 +773,17 @@ void TrackCollector::ComputeTotalHitNumber()
 
     Combination *comb = fCombination.at(j);
     for (Int_t jj=0; jj<4; jj++) {
-      Int_t chamberHitId = comb->GetChamberHitId(jj); // Get the Id of the chamber-hit of chamber jj (1 chamber-hit per chamber in each combination) 
+      Int_t chamberHitId = comb->GetChamberHitId(jj); // Get the Id of the chamber-hit of chamber jj (1 chamber-hit per chamber in each combination)
       if (chamberHitId==-1) continue;
-       
+
       std::vector<Intersection>::iterator thisChamberHit = GetChamber(jj)->GetHit(chamberHitId);
       for (UInt_t jclust=0; jclust<thisChamberHit->GetNCluster(); jclust++) {
         Int_t idview = thisChamberHit->GetViewId(jclust); // View ID of a chamber hit cluster (set in ChamberHitCollector)
-        Int_t idcluster = thisChamberHit->GetClusterId(jclust); // Cluster ID of a chamber hit cluster (set in ChamberHitCollector) 
+        Int_t idcluster = thisChamberHit->GetClusterId(jclust); // Cluster ID of a chamber hit cluster (set in ChamberHitCollector)
         Cluster *thisCluster = GetChamber(jj)->GetView(idview)->Getcluster(idcluster); // Pointer to this cluster
         nTotalHits += thisCluster->GetNHit();
       }
-    }  
+    }
     comb->SetNTotalHits(nTotalHits);
   }
 

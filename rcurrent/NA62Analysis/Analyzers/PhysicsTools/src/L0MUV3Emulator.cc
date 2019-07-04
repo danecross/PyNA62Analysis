@@ -60,6 +60,7 @@
 #include "L0MUV3Emulator.hh"
 #include "TRecoMUV3Event.hh"
 #include "EventHeader.hh"
+#include "NA62ConditionsService.hh"
 
 L0MUV3Emulator::L0MUV3Emulator(Core::BaseAnalysis *ba) : L0MUV3Emulator(ba, "MUV3"){
   fL0Detector = kL0MUV3;
@@ -72,12 +73,55 @@ L0MUV3Emulator::L0MUV3Emulator(Core::BaseAnalysis *ba) : L0MUV3Emulator(ba, "MUV
 }
 
 L0MUV3Emulator::L0MUV3Emulator(Core::BaseAnalysis *ba, TString DetectorName) :
-  VL0Emulator(ba, DetectorName), fAccidentals(nullptr) {
+  VL0Emulator(ba, DetectorName), fAccidentals(nullptr),
+  fFile(nullptr), fHist(nullptr),
+  fBurstTriggerDriftT0(0.0), fEventTriggerDriftT0(0.0) {
   AddParam("ClusterModuleSize", &fClusterModuleSize, 8);
+  fT0Map.resize(512,0.0); // for both MUV3 and NewCHOD
+  fTDT0Map.clear();
 }
 
 L0MUV3Emulator::~L0MUV3Emulator(){
   // don't destroy anything
+}
+
+void L0MUV3Emulator::StartOfRunUser(){
+  VL0Emulator::StartOfRunUser();
+  if(!GetIsTree()) return;
+  if(!GetWithMC()) ReadT0s(); // for both MUV3 and NewCHOD
+}
+
+void L0MUV3Emulator::StartOfBurstUser(){
+  VL0Emulator::StartOfBurstUser();
+  
+  // find the trigger drift T0 for this burst and store it,
+  // with protection in case the burst does not exist for some reason.
+  
+  fBurstTriggerDriftT0=0.0;
+  if(!GetEventHeader()) return; // should never happen.
+  if(GetWithMC())       return; // no T0 info on MC
+  
+  std::map<Int_t, Double_t>::iterator it;
+  it = fTDT0Map.find(GetEventHeader()->GetBurstID());
+  if(it!=fTDT0Map.end()){
+    fBurstTriggerDriftT0 = it->second;
+  }
+  else{
+    std::cout << user_normal() << "Error: no trigger drift T0 found" 
+	      << " for burst ID " << GetEventHeader()->GetBurstID() << std::endl;
+    std::cout << user_normal() << "Error: Setting trigger drift T0 to zero!" << std::endl;
+  }
+
+}
+
+void L0MUV3Emulator::Process(Int_t){
+  // Set the trigger drift T0 for this event (it depends on the trigger)
+  // The T0 is zero for pure control triggers, and for MC.
+  fEventTriggerDriftT0 = 0.0;
+  if(!GetIsTree()) return;
+  if((!GetWithMC()) &&
+     ((GetL0Data()->GetTriggerType()&0xff)!=0x10) ) fEventTriggerDriftT0 = fBurstTriggerDriftT0;
+  VL0Emulator::Process(0);
 }
 
 void L0MUV3Emulator::FillTimes(){
@@ -89,7 +133,7 @@ void L0MUV3Emulator::FillTimes(){
   fTimes.reserve(nCand);
   for(int i=0; i<nCand; ++i){
     TRecoMUV3Candidate* cand = static_cast<TRecoMUV3Candidate*>(event->GetCandidate(i));
-    Double_t   time       = cand->GetTimeNoT0();
+    Double_t   time       = GetRawTime(cand);
     if(GetWithMC()) time += fL0Reference;
     Double_t fulltime     = time+fEventTimeStamp;
     Bool_t tight          = cand->IsTight();
@@ -108,6 +152,99 @@ void L0MUV3Emulator::FillTimes(){
     }
     FillHisto("hitTimes_MUV3", time-fL0Reference);
     fTimes.push_back(EmulatedL0Primitive(kL0MUV3, fulltime, tight, inner, quad));
+  }
+}
+
+//////////////////////////////
+// Read the T0 offsets
+void L0MUV3Emulator::ReadT0s () {
+  TString Line;
+
+  // Read trigger drift T0 here!
+  fTDT0Map.clear();
+  TString TriggerDriftT0FileName = "Trigger-DriftT0.dat";
+  if(NA62ConditionsService::GetInstance()->Open(TriggerDriftT0FileName)!=kSuccess) return;
+  while(Line.ReadLine(NA62ConditionsService::GetInstance()->Get(TriggerDriftT0FileName))){
+    if(Line.BeginsWith("#")) continue;
+    TObjArray * l = Line.Tokenize(" ");
+    Int_t    Burst          = static_cast<TObjString*>(l->At(1))->GetString().Atoi();
+    Double_t TriggerDriftT0 = static_cast<TObjString*>(l->At(2))->GetString().Atof();
+    delete l;
+
+    // set trigger drift T0 for this burst
+    fTDT0Map.emplace(Burst, TriggerDriftT0);
+  }
+  NA62ConditionsService::GetInstance()->Close(TriggerDriftT0FileName);
+
+  // Read coarse T0s
+  TString CoarseT0FileName = fDetectorName+"-CoarseT0.dat";
+  std::vector<Double_t> StationsT0;
+  std::vector<Double_t> ROMezzaninesT0;
+  if(NA62ConditionsService::GetInstance()->Open(CoarseT0FileName)!=kSuccess) return;
+  while(Line.ReadLine(NA62ConditionsService::GetInstance()->Get(CoarseT0FileName))){
+    if(Line.BeginsWith("#")) continue;
+    else if(Line.BeginsWith("StationsT0")){
+      TObjArray * l = Line.Tokenize(" ");
+      for (Int_t iStation=0;iStation<l->GetEntries()-1;iStation++){
+	StationsT0.push_back(static_cast<TObjString*>(l->At(iStation+1))->GetString().Atof());
+      }
+      delete l;
+    }
+    else if(Line.BeginsWith("MezzaninesT0_")){
+      TObjArray * l = Line.Tokenize(" ");
+      for (Int_t iMezzanine=0;iMezzanine<16;iMezzanine++){
+	ROMezzaninesT0.push_back(static_cast<TObjString*>(l->At(iMezzanine+1))->GetString().Atof());
+      }
+      delete l;
+    }
+  }
+  NA62ConditionsService::GetInstance()->Close(CoarseT0FileName);
+
+  // Read fine T0s
+  TString T0FileName = fDetectorName+"-T0.dat";
+  if (NA62ConditionsService::GetInstance()->Open(T0FileName)!=kSuccess) return;
+  while (Line.ReadLine(NA62ConditionsService::GetInstance()->Get(T0FileName))) {
+    if (Line.BeginsWith("#")) continue;
+    TObjArray *l = Line.Tokenize(" ");
+    Int_t    ROChID = static_cast<TObjString*>(l->At(0))->GetString().Atoi();
+    Int_t      ChID = static_cast<TObjString*>(l->At(1))->GetString().Atoi();
+    Double_t FineT0 = static_cast<TObjString*>(l->At(2))->GetString().Atof();
+    if(fabs(FineT0)>990) FineT0 = 0.0; // -999.999: masked channel, +999.999: failed to compute T0
+    delete l;
+
+    // set coarse and fine T0 offsets.
+    fT0Map[ChID] = StationsT0[0]+ROMezzaninesT0[ROChID/128]+FineT0;
+  }
+  NA62ConditionsService::GetInstance()->Close(T0FileName);
+}
+
+Double_t L0MUV3Emulator::GetRawTime(TRecoMUV3Candidate* cand){
+
+  // Notes.
+  // For MC events there are no T0s available (at least for v1.0.2) 
+  // so the code does not do anything special here.
+  
+  // The values t1 and t2 are rounded to the nearest integer to account for
+  // (possible) issues with precision (e.g. in text files, machine precision, ...)
+
+  // Accessing the channel times directly means the TileT0 is not relevant.
+
+  if(GetWithMC()){
+    // MC ONLY (there are no T0s)
+    return cand->GetTime();
+  }
+  else{
+    // DATA ONLY
+    Double_t t1 = cand->GetTime1() + fT0Map[cand->GetChannel1()] + fEventTriggerDriftT0;
+    t1 = std::round(t1/TdcCalib);
+    if(cand->GetChannel2()==-1){ // only one channel
+      return t1*TdcCalib;
+    }
+    else{
+      Double_t t2 = cand->GetTime2() + fT0Map[cand->GetChannel2()] + fEventTriggerDriftT0;
+      t2 = std::round(t2/TdcCalib);
+      return std::max(t1,t2)*TdcCalib;
+    }
   }
 }
 

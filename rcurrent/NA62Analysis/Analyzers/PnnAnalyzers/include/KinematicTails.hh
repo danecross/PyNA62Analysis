@@ -50,7 +50,6 @@ private:
 
   //parameters
   int fWhichTrigger;
-  bool verb;
   bool UseGTK;
   bool fFillHistoCheck;
 

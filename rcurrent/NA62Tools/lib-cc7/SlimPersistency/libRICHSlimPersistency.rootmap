@@ -1,0 +1,11 @@
+{ decls }
+namespace std {  }
+
+[ libRICHSlimPersistency.so ]
+# List of selected classes
+class TSlimRecoRICHCandidate
+class TSlimRecoRICHEvent
+class TSlimRecoRICHHit
+class vector<TSlimRecoRICHCandidate>
+class vector<TSlimRecoRICHHit>
+header TSlimRecoRICHHit.hh

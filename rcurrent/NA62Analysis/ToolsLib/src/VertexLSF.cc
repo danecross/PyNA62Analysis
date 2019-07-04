@@ -135,9 +135,12 @@ void VertexLSF::AddTrack(TRecoSpectrometerCandidate* cand) {
       C(m,n) = m==n ? 1. : 0;
     }
   }
+  // Change the basis for the covariance matrix
+  // from 1/p (as in the spectrometer track) to p (as used for vertex fits)
   C(4,4) = -1.*(cand->GetMomentum()*cand->GetMomentum());
   TMatrixD cov1(C, TMatrixD::kTransposeMult, cov);
   TMatrixD cov2(cov1, TMatrixD::kMult, C);
+
   // Track parameters from the spectrometer at the standard Z-position (z=180m)
   par(0,0) = cand->GetSlopeXBeforeMagnet();
   par(1,0) = cand->GetSlopeYBeforeMagnet();
@@ -184,7 +187,7 @@ void VertexLSF::AddGTKTrack(TRecoGigaTrackerCandidate* cand) {
   /// \MemberDescr
   /// Add a GTK track to the fit.
   if (!fNtrks) {
-    cout << "[VertexLSF] First add the spectrometer tracks!" << endl;
+    cout << "[VertexLSF] Error: first add the spectrometer tracks!" << endl;
     return;
   }
   fCharge.push_back(1);

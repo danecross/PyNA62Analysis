@@ -1,2 +1,0 @@
-/usr/bin/ar qc libMUV2-static.a  CMakeFiles/MUV2ObjLib.dir/src/MUV2Digitizer.cc.o CMakeFiles/MUV2ObjLib.dir/src/MUV2Geometry.cc.o CMakeFiles/MUV2ObjLib.dir/src/MUV2HitsCluster.cc.o CMakeFiles/MUV2ObjLib.dir/src/MUV2OnlineMonitor.cc.o CMakeFiles/MUV2ObjLib.dir/src/MUV2RawDecoder.cc.o CMakeFiles/MUV2ObjLib.dir/src/MUV2RawEncoder.cc.o CMakeFiles/MUV2ObjLib.dir/src/MUV2Reconstruction.cc.o CMakeFiles/MUV2ObjLib.dir/MUV2DICT.cxx.o
-/usr/bin/ranlib libMUV2-static.a

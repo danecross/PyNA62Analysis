@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/LoopTools214"
+		},
+		{
+			"file" : "/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/LoopTools214.rule"
+		},
+		{
+			"file" : "/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/LoopTools214-complete.rule"
+		},
+		{
+			"file" : "/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LoopTools214/src/LoopTools214-stamp/LoopTools214-install.rule"
+		},
+		{
+			"file" : "/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LoopTools214/src/LoopTools214-stamp/LoopTools214-mkdir.rule"
+		},
+		{
+			"file" : "/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LoopTools214/src/LoopTools214-stamp/LoopTools214-download.rule"
+		},
+		{
+			"file" : "/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LoopTools214/src/LoopTools214-stamp/LoopTools214-update.rule"
+		},
+		{
+			"file" : "/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LoopTools214/src/LoopTools214-stamp/LoopTools214-patch.rule"
+		},
+		{
+			"file" : "/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LoopTools214/src/LoopTools214-stamp/LoopTools214-configure.rule"
+		},
+		{
+			"file" : "/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LoopTools214/src/LoopTools214-stamp/LoopTools214-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"LoopTools214"
+		],
+		"name" : "LoopTools214"
+	}
+}

@@ -3,7 +3,7 @@
 //  Modified by Viacheslav Duk (Viacheslav.Duk@cern.ch)
 //  Modified by Riccardo Lollini (riccardo.lollini@cern.ch) 2017-07-24
 //-------------------------------------------------------------------------------
-/// \class CHODReconstruction  
+/// \class CHODReconstruction
 /// \Brief
 /// CHOD reconstruction: takes CHOD digis (signals from PMs), makes CHOD reco hits. Then reco hit pairs \n
 /// from the same quadrant and close in time are combined into \n
@@ -21,18 +21,18 @@
 /// \n
 /// CHOD.conf
 /// \n
-/// =========                                                      
+/// =========
 /// The configuration of the 2014 Run is in config/CHOD.2014.conf. The 2015 configuration (with the new channel map) is in config/CHOD.2015.conf.\n
 /// The parameter description can be found in ./config/CHOD.conf, here the parameters you may want to change to perform your own reconstruction: \n
 /// NMaxSlabs= 40   --> CHOD candidates can be produced only for events with N_hits_around_trigger(25ns) < NMaxSlabs \n
 /// EnableSlewCorr= 1   --> use (=1) or not use (=0) slewing corrections for the calculation of the candidate time  \n
 /// HitEnergyThreshold= 1   --> energy threshold for hits (1 MeV) is used only in the digitization \n
 /// StationsT0 (ns) --> used to center Leading Time of TDC around 0. \n
-/// \n                                               
+/// \n
 /// =======================================================================================================================================================
-/// \n                                                                                                                                                      
-/// CHOD Reconstruction                                                                                                                                     
-/// \n      
+/// \n
+/// CHOD Reconstruction
+/// \n
 /// The reconstruction starts with the cycle over all digis. For CHOD hits at low threshold \n
 /// (CHOD signals are read by two-threshold LAV FEE, low and high) reco hits are created. \n
 /// CHOD high threshold hits are not in the readout since 2015. \n
@@ -53,7 +53,7 @@
 /// In the QuadrantHitAssociation subroutine  CHOD reco candidates \n
 /// are formed for the following hit pairs: \n
 ///  - corrected time (T0+slewing or only T0, depending on the value of the flag EnableSlewCorr) difference < 10ns. \n
-/// The candidate time is the average time of two hits, both times are corrected according to their position (T0 correction) and \n            
+/// The candidate time is the average time of two hits, both times are corrected according to their position (T0 correction) and \n
 /// (if the flag EnableSlewCorr is set to 1) their TOT (slewing correction). Slewing corrections are performed only \n
 /// if TOT<15ns for both hits (it corresponds to the main TOT peak). \n
 /// The TimeCandidate is made of all good hit pairs. The time of the TimeCandidate is the average time of all hit pairs with T0 corrections. \n
@@ -61,7 +61,7 @@
 /// \n
 /// To use the CHOD candidate time as a reference time for other detectors it is recommended to select events with one candidate. \n
 /// An example of the code (NA62Analysis): \n
-/// \code 
+/// \code
 ///  TRecoCHODEvent *CHODEvent = static_cast<TRecoCHODEvent*>(GetEvent("CHOD"));
 ///  Int_t nCand_CHOD = CHODEvent->GetNCandidates();
 ///  FillHisto("hCHOD_NCands",nCand_CHOD);
@@ -115,7 +115,7 @@ CHODReconstruction::CHODReconstruction(TFile* HistoFile, TString ConfigFileName)
 
 void CHODReconstruction::Init(NA62VReconstruction* MainReco) {
 
-  //common part for all the subdetectors 
+  //common part for all the subdetectors
   NA62VReconstruction::Init(MainReco);
 
   TVector2 Position(0.,0.);
@@ -130,7 +130,7 @@ void CHODReconstruction::Init(NA62VReconstruction* MainReco) {
     }
   }
 
-  // reading all configuration files 
+  // reading all configuration files
   ReadT0();
 
   InitHistograms();
@@ -139,7 +139,7 @@ void CHODReconstruction::Init(NA62VReconstruction* MainReco) {
 
 CHODReconstruction::~CHODReconstruction() {}
 
-void CHODReconstruction::ParseConfFile(TString ConfFileName){ 
+void CHODReconstruction::ParseConfFile(TString ConfFileName){
 
   std::ifstream confFile(ConfFileName.Data());
   if(!confFile.is_open()){
@@ -390,7 +390,7 @@ TRecoVEvent * CHODReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* t
     return 0;
   }
 
-  //common part for all the subdetectors 
+  //common part for all the subdetectors
   NA62VReconstruction::ProcessEvent(tEvent, tGenEvent);
 
   TDCEvent* TdcEvent = static_cast<TDCEvent*>(tEvent);
@@ -403,7 +403,7 @@ TRecoVEvent * CHODReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* t
 
   if (!nDigis) return fRecoEvent;
   TClonesArray& Digis = (*(TdcEvent->GetHits()));
-  nDigisCHodLow=0; 
+  nDigisCHodLow=0;
 
   fNHitsCHodLow = 0;
 
@@ -419,7 +419,7 @@ TRecoVEvent * CHODReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* t
   if(500<fRecoEvent->GetRunID() && fRecoEvent->GetRunID()<1600){ // (<=2014 data)
     for (Int_t iDigi=0; iDigi<nDigis; iDigi++) {
       TCHODDigi *Digi = static_cast<TCHODDigi*>( Digis[iDigi]);
-      if (Digi->GetChannelID()==1040) Digi->SetChannelID(40); 
+      if (Digi->GetChannelID()==1040) Digi->SetChannelID(40);
     }
   }
   // end of the patch
@@ -432,7 +432,7 @@ TRecoVEvent * CHODReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* t
     if (Digi->GetChannelID()<128) {
       MultPerSlab[Digi->GetChannelID()]++;
     }
-    Digi->DecodeChannelID(); 
+    Digi->DecodeChannelID();
   }
   if (fHMultPerSlab) {
     for (Int_t i=0; i<128; i++) {
@@ -493,7 +493,7 @@ TRecoVEvent * CHODReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* t
   for(Int_t iRecoHit = 0 ; iRecoHit < fRecoEvent->GetNHits() ; iRecoHit++){
     TRecoCHODHit* RecoHit = static_cast<TRecoCHODHit*>(fRecoEvent->GetHit(iRecoHit));
     if(fabs(RecoHit->GetTime()-TriggerTime)<fTimeIntervalAroundTrigger) NHitsAroundTrigger++;
-    RecoHit->DecodeChannelID(); 
+    RecoHit->DecodeChannelID();
   }
 
   // variables for the time candidate
@@ -537,7 +537,7 @@ TRecoVEvent * CHODReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* t
       Double_t TimeVCorr = TimeV + LightVelocitiesTimeCorrection(CounterV, CounterH);
       Double_t TimeHCorr = TimeH + LightVelocitiesTimeCorrection(CounterH, CounterV);
 
-      // time and coordinate of the TimeCandidate  
+      // time and coordinate of the TimeCandidate
       //TimeCandidateTime = TimeCandidateTime + 0.5*(TimeVCorr - T0Correction1 + TimeHCorr - T0Correction2);
       TimeCandidateTime = TimeCandidateTime + 0.5*(TimeVCorr + TimeHCorr);
       TimeCandidateCoordinateX = TimeCandidateCoordinateX + static_cast<CHODChannel*>(fChannels[CounterV])->GetPosition().X();
@@ -609,13 +609,13 @@ void CHODReconstruction::QuadrantHitAssociation(Int_t iRecoHit,Int_t jRecoHit) {
   Double_t TimeVCorr = TimeV + LightVelocitiesTimeCorrection(CounterV, CounterH);
   Double_t TimeHCorr = TimeH + LightVelocitiesTimeCorrection(CounterH, CounterV);
 
-  // slewing corrections 
+  // slewing corrections
   Double_t SlewSlopeV = 0.;
   Double_t SlewSlopeH = 0.;
   Double_t SlewConstantV = 0.;
   Double_t SlewConstantH = 0.;
 
-  //correction for V-plane  
+  //correction for V-plane
   SlewSlopeV = fSlewCorrSlope[CounterV][(CounterH-64)%16];
   SlewConstantV = fSlewCorrConstant[CounterV][(CounterH-64)%16];
 
@@ -641,18 +641,16 @@ void CHODReconstruction::QuadrantHitAssociation(Int_t iRecoHit,Int_t jRecoHit) {
 
   fHDtUncorr->Fill(TimeV+LightVelocitiesTimeCorrection(CounterV, CounterH)+fChannels[CounterV]->GetT0()-
 		   (TimeH+LightVelocitiesTimeCorrection(CounterH, CounterV)+fChannels[CounterH]->GetT0()));
-  fHDtT0Corr->Fill(TimeV+LightVelocitiesTimeCorrection(CounterV, CounterH) - 
+  fHDtT0Corr->Fill(TimeV+LightVelocitiesTimeCorrection(CounterV, CounterH) -
 		   (TimeH+LightVelocitiesTimeCorrection(CounterH, CounterV)));
   fHDtAllCorr->Fill(TimeVCorr - TimeHCorr);
   if(fNHitsCHodLow==2){
     fHDtUncorr2Hits->Fill(TimeV+LightVelocitiesTimeCorrection(CounterV, CounterH)+fChannels[CounterV]->GetT0()-
 			  (TimeH+LightVelocitiesTimeCorrection(CounterH, CounterV)+fChannels[CounterH]->GetT0()));
-    fHDtT0Corr2Hits->Fill(TimeV+LightVelocitiesTimeCorrection(CounterV, CounterH) - 
+    fHDtT0Corr2Hits->Fill(TimeV+LightVelocitiesTimeCorrection(CounterV, CounterH) -
 			  (TimeH+LightVelocitiesTimeCorrection(CounterH, CounterV)));
     fHDtAllCorr2Hits->Fill(TimeVCorr - TimeHCorr);
-  }
 
-  if(fNHitsCHodLow==2){
     // TOT vs ID for 2 hits
     if (fHTOTvsID2Hits) {
       fHTOTvsID2Hits->Fill(CounterV, TOTV);
@@ -735,7 +733,7 @@ void CHODReconstruction::ReadT0() {
     TObjArray *l = Line.Tokenize(" ");
     Int_t iSlab = static_cast<TObjString*>(l->At(1))->GetString().Atoi();
     Double_t  t0 = static_cast<TObjString*>(l->At(2))->GetString().Atof();
-    if (iSlab>127) continue; 
+    if (iSlab>127) continue;
     if (fabs(t0) > 999) t0 = 0.; // -999.999: masked channel, +999.999 failed to compute t0
     fChannels[iSlab]->SetT0(t0);
     delete l;
@@ -759,7 +757,7 @@ void CHODReconstruction::ReadLightVelocities() {
 }
 
 void CHODReconstruction::ReadTOT() {
-  // reading TOT                                                                                                                         
+  // reading TOT
   NA62ConditionsService::GetInstance()->Open(fCHODTOTFileName);
   for(Int_t i=0; i<128; i++){
     NA62ConditionsService::GetInstance()->Get(fCHODTOTFileName) >> fTOTAtPM[i] >> fTOTSlope[i];
@@ -856,7 +854,7 @@ void CHODReconstruction::EndProcessing() {
 
 void CHODReconstruction::FillTimes(Double_t ReferenceTime) {
 
-  //common part for all the subdetectors 
+  //common part for all the subdetectors
   NA62VReconstruction::FillTimes(ReferenceTime);
 
   // loop on hit pairs to fill the reference histograms

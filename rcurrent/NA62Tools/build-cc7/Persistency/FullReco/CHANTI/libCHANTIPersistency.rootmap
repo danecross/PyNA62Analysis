@@ -1,0 +1,10 @@
+[ libCHANTIPersistency.so ]
+# List of selected classes
+class CHANTIChannelID
+class TCHANTIDigi
+class TCHANTIEvent
+class TCHANTIHit
+class TRecoCHANTICandidate
+class TRecoCHANTIEvent
+class TRecoCHANTIHit
+header TRecoCHANTIHit.hh

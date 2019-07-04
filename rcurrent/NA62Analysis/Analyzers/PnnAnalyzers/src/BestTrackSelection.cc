@@ -71,7 +71,6 @@ BestTrackSelection::BestTrackSelection(Core::BaseAnalysis *ba) : Analyzer(ba, "B
   AddParam("CutMinNSectorsKTAG", "int", &fCutMinNSectorsKTAG, 5);
   AddParam("CutTimeDiffCedarDownstreamData", "double", &fCutTimeDiffCedarDownstreamData, 1.);
   AddParam("CutTimeDiffCedarDownstreamMC", "double", &fCutTimeDiffCedarDownstreamMC, 2.);
-  AddParam("Verbosity", "bool", &verb, false);
 
   fMatchingRG = new MatchingRG(ba, this, "MatchingRG");
   fMatchingRG->Init("");
@@ -80,6 +79,7 @@ BestTrackSelection::BestTrackSelection(Core::BaseAnalysis *ba) : Analyzer(ba, "B
   fGTKReco->SetRedoXYCorr(1);
 
   ftracker = BlueTubeTracker::GetInstance();
+  EnablePrefix(false);
 }
 
 void BestTrackSelection::InitOutput(){
@@ -118,6 +118,7 @@ void BestTrackSelection::InitOutput(){
 
 void BestTrackSelection::InitHist(){
   fReadingData = GetIsTree();
+  fMatchingRG->SetVerbosity(GetCoreVerbosityLevel(), GetAnalyzerVerbosityLevel());
 
   if(fReadingData){
     BookHisto(new TH1I("hCut", "hCut", 20, 1, 21));
@@ -240,7 +241,7 @@ void BestTrackSelection::Process(int iEvent){
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"-------------------"<<endl;
     cout<<"BestTrackSelection"<<endl;
@@ -256,15 +257,15 @@ void BestTrackSelection::Process(int iEvent){
   auto preselectedEvent =
     *(bool*)GetOutput("Preselection.PreselectedEvent", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++; //3
 
-  if(verb) cout<<"Is event preselected? "<<preselectedEvent<<endl;
+  cout<<user()<<"Is event preselected? "<<preselectedEvent<<endl;
   if(!preselectedEvent){
-    if(verb) cout<<"Event is not preselected"<<endl;
+    cout<<user()<<"Event is not preselected"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -273,27 +274,27 @@ void BestTrackSelection::Process(int iEvent){
   auto fakeTracks =
     *(std::vector<bool>*)GetOutput("FakeTrackSelection.FakeTracks", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
-  if(verb) cout<<"N fake tracks read = "<<std::count(fakeTracks.begin(), fakeTracks.end(), true)<<endl;
+  cout<<user()<<"N fake tracks read = "<<std::count(fakeTracks.begin(), fakeTracks.end(), true)<<endl;
   FillHisto("hCut", cutID);
   cutID++;
 
   tTrigger =
     *(double*)GetOutput("CheckTrigger.TriggerTime", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
-  if(verb) cout<<"Trigger time read = "<<tTrigger<<endl;
+  cout<<user()<<"Trigger time read = "<<tTrigger<<endl;
   FillHisto("hCut", cutID);
   cutID++;
 
   fSpecCHOD =
     *(std::vector<SpectrometerCHODAssociationOutput>*)GetOutput("SpectrometerCHODAssociation.Output", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -302,7 +303,7 @@ void BestTrackSelection::Process(int iEvent){
   fSpecNewCHOD =
     *(std::vector<SpectrometerNewCHODAssociationOutput>*)GetOutput("SpectrometerNewCHODAssociation.Output", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -311,7 +312,7 @@ void BestTrackSelection::Process(int iEvent){
   auto SpecRICH =
     *(std::vector<SpectrometerRICHAssociationOutput>*)GetOutput("SpectrometerRICHAssociation.Output", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -320,13 +321,13 @@ void BestTrackSelection::Process(int iEvent){
   auto SpecRICHSingleRing =
     *(std::vector<SpectrometerRICHAssociationOutputSingleRing>*)GetOutput("SpectrometerRICHAssociationSingleRing.Output", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
    return;
   };
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb) cout<<"all requested outputs are valid"<<endl;
+  cout<<user()<<"all requested outputs are valid"<<endl;
 
   fSpecCalo = (TClonesArray*)GetOutput("SpectrometerCalorimetersAssociation.MatchedClusters");
   fLKrEvent = GetEvent<TRecoLKrEvent>();
@@ -345,73 +346,73 @@ void BestTrackSelection::Process(int iEvent){
   FillHisto("hNKTAGCandidatesAtLeast5Sectors", n5sec);
 
   double tDownstream = 0.;
-  if(verb) cout<<"N STRAW candidates "<<fSTRAWEvent->GetNCandidates()<<endl;
-  if(verb) cout<<endl;
+  cout<<user()<<"N STRAW candidates "<<fSTRAWEvent->GetNCandidates()<<endl;
+  cout<<user()<<endl;
   for(int i=0; i<fSTRAWEvent->GetNCandidates(); i++){
-    if(verb) cout<<"+++++ Straw candidate "<<i<<" +++++"<<endl;
+    cout<<user()<<"+++++ Straw candidate "<<i<<" +++++"<<endl;
 
     RestoreDefaultOutputs();
 
     STRAWCand = static_cast<TRecoSpectrometerCandidate*>(fSTRAWEvent->GetCandidate(i));
     double tSTRAW = STRAWCand->GetTime();
-    if(verb) cout<<"Straw time = "<<tSTRAW<<endl;
+    cout<<user()<<"Straw time = "<<tSTRAW<<endl;
 
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<endl;
       cout<<"----Basic conditions----"<<endl;
     };
     FillHisto("hNSTRAWChambers", STRAWCand->GetNChambers());
-    if(verb) cout<<"Track N chambers: "<<STRAWCand->GetNChambers()<<" >= "<<fCutNStrawChambers<<endl;
+    cout<<user()<<"Track N chambers: "<<STRAWCand->GetNChambers()<<" >= "<<fCutNStrawChambers<<endl;
     if(STRAWCand->GetNChambers()<fCutNStrawChambers) continue;
 
     FillHisto("hTrackChi2", STRAWCand->GetChi2());
-    if(verb) cout<<"Track Chi2: "<<STRAWCand->GetChi2()<<" <= "<<fCutTrackChi2<<endl;
+    cout<<user()<<"Track Chi2: "<<STRAWCand->GetChi2()<<" <= "<<fCutTrackChi2<<endl;
     if(STRAWCand->GetChi2()>fCutTrackChi2) continue;
 
     FillHisto("hTrackMomentum", STRAWCand->GetMomentum());
     FillHisto("hTrackMomentumBeforeFit", STRAWCand->GetMomentumBeforeFit());
     FillHisto("hTrackMomentumDifference", fabs(STRAWCand->GetMomentum()-STRAWCand->GetMomentumBeforeFit()));
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<"Track momentum: "<<STRAWCand->GetThreeMomentumBeforeMagnet().X()<<" "<<STRAWCand->GetThreeMomentumBeforeMagnet().Y()<<" "<<STRAWCand->GetThreeMomentumBeforeMagnet().Z()<<endl;
       cout<<"Track Momentum Difference: "<<fabs(STRAWCand->GetMomentum() - STRAWCand->GetMomentumBeforeFit())<<" <= "<<fCutMomDiffBefAftFit<<endl;
     };
     if(fabs(STRAWCand->GetMomentum() - STRAWCand->GetMomentumBeforeFit())>fCutMomDiffBefAftFit) continue;
-    if(verb) cout<<"----passed basic conditions-----"<<endl;
+    cout<<user()<<"----passed basic conditions-----"<<endl;
 
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<endl;
       cout<<"----Fake/multitrack conditions----"<<endl;
     };
-    if(verb) cout<<"Is fake track? "<<fakeTracks.at(i)<<endl;
+    cout<<user()<<"Is fake track? "<<fakeTracks.at(i)<<endl;
     if(fakeTracks.at(i)==true) continue;
-    if(verb) cout<<"is not fake"<<endl;
+    cout<<user()<<"is not fake"<<endl;
 
-    if(verb) cout<<"Want no multitracks? "<<fWantNoMultitracks<<endl;
-    if(verb) cout<<"Broad? "<<fRejectBroadMultitracks<<" Full? "<<fRejectFullMultitracks<<endl;
+    cout<<user()<<"Want no multitracks? "<<fWantNoMultitracks<<endl;
+    cout<<user()<<"Broad? "<<fRejectBroadMultitracks<<" Full? "<<fRejectFullMultitracks<<endl;
     if(fWantNoMultitracks){
       std::pair<bool, bool> ismulti = is_multi_track(i, fakeTracks);
       bool ismultitrack = (fRejectFullMultitracks && ismulti.first) || (fRejectBroadMultitracks && ismulti.second);
-      if(verb) cout<<"Is multitrack? Broad: "<<ismulti.second<<" Full: "<<ismulti.first<<endl;
+      cout<<user()<<"Is multitrack? Broad: "<<ismulti.second<<" Full: "<<ismulti.first<<endl;
       FillHisto("hMultitrack", (int)ismultitrack);
       if(ismultitrack) continue;
-      if(verb) cout<<"is not multitrack"<<endl;
+      cout<<user()<<"is not multitrack"<<endl;
     };
-    if(verb) cout<<"----passed fake/multitrack conditions-----"<<endl;
+    cout<<user()<<"----passed fake/multitrack conditions-----"<<endl;
 
     //acceptance
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<endl;
       cout<<"----Acceptance conditions----"<<endl;
     };
     bool acceptanceOK = AcceptanceOK(STRAWCand);
     FillHisto("hInAcceptance", (int)acceptanceOK);
-    if(verb) cout<<"Track in acceptance? "<<acceptanceOK<<endl;
+    cout<<user()<<"Track in acceptance? "<<acceptanceOK<<endl;
     if(!acceptanceOK) continue;
-    if(verb) cout<<"is in acceptance"<<endl;
-    if(verb) cout<<"----passed acceptance conditions-----"<<endl;
+    cout<<user()<<"is in acceptance"<<endl;
+    cout<<user()<<"----passed acceptance conditions-----"<<endl;
 
     // CHOD assoc
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<endl;
       cout<<"----CHOD association----"<<endl;
     };
@@ -419,10 +420,10 @@ void BestTrackSelection::Process(int iEvent){
     int CHODID = -1;
     bool hasCHOD = HasCHODAssoc(tSTRAW, i, tCHOD, CHODID);
     if(!hasCHOD) continue;
-    if(verb) cout<<"----has CHOD association----"<<endl;
+    cout<<user()<<"----has CHOD association----"<<endl;
 
     //newCHOD assoc - RG search through all hits associated to any track (SelectNewCHODCandidate), this is different
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<endl;
       cout<<"----NewCHOD association----"<<endl;
     };
@@ -434,10 +435,10 @@ void BestTrackSelection::Process(int iEvent){
     FillHisto("hTimeDiffBestNewCHODSTRAW", tNewCHOD-tSTRAW);
     FillHisto("hTimeDiffBestNewCHODTrigger", tNewCHOD-tTrigger);
     FillHisto("hTimeDiffBestNewCHODCHOD", tNewCHOD-tCHOD);
-    if(verb) cout<<"----has newCHOD association----"<<endl;
+    cout<<user()<<"----has newCHOD association----"<<endl;
 
     //RICH assoc
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<endl;
       cout<<"----RICH association----"<<endl;
     };
@@ -446,36 +447,36 @@ void BestTrackSelection::Process(int iEvent){
     bool hasSingleRICH = false;
     hasStandardRICH = SpecRICH[i].isValid();
     FillHisto("hValidAssocRICH", (int)hasStandardRICH);
-    if(verb) cout<<"Has standard RICH association? "<<hasStandardRICH<<endl;
+    cout<<user()<<"Has standard RICH association? "<<hasStandardRICH<<endl;
     FillHisto("hTimeDiffStandardRICHCHOD", SpecRICH[i].GetRingTime(3)-tCHOD);
     if(!hasStandardRICH) continue;
     SpectrometerRICHAssociationOutputSingleRing srAssoc = SpecRICHSingleRing.at(i);
     hasSingleRICH =  srAssoc.isAssociated();
     FillHisto("hIsAssocRICHSingleRing", hasSingleRICH);
-    if(verb) cout<<"Has Single ring RICH association? "<<hasSingleRICH<<endl;
+    cout<<user()<<"Has Single ring RICH association? "<<hasSingleRICH<<endl;
     if(!hasSingleRICH) continue;
     double srChi2 = srAssoc.GetRingChi2();
-    if(verb) cout<<"ring chi2 = "<<srChi2<<" > 0.01"<<endl;
+    cout<<user()<<"ring chi2 = "<<srChi2<<" > 0.01"<<endl;
     if(srChi2<=0.01){
       hasSingleRICH = false;
       continue;
     };
     tRICH = srAssoc.GetRingTime();
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<"tRICH "<<tRICH<<endl;
       cout<<"tCHOD "<<tCHOD<<endl;
     };
     FillHisto("hTimeDiffBestAssocRICHCHOD", tRICH-tCHOD);
-    if(verb) cout<<"time diff RICH CHOD: "<<fabs(tRICH-tCHOD)<<" < "<<fCutTimeDiffRICHCHOD<<endl;
+    cout<<user()<<"time diff RICH CHOD: "<<fabs(tRICH-tCHOD)<<" < "<<fCutTimeDiffRICHCHOD<<endl;
     if(fabs(tRICH-tCHOD)>fCutTimeDiffRICHCHOD) continue;
     FillHisto("hTimeDiffBestRICHCHOD", tRICH-tCHOD);
     FillHisto("hTimeDiffBestRICHSTRAW", tRICH-tSTRAW);
     FillHisto("hTimeDiffBestRICHTrigger", tRICH-tTrigger);
     FillHisto("hTimeDiffBestRICHNewCHOD", tRICH-tNewCHOD);
-    if(verb) cout<<"----has RICH association----"<<endl;
+    cout<<user()<<"----has RICH association----"<<endl;
 
     //LKr assoc
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<endl;
       cout<<"----LKr association----"<<endl;
     };
@@ -486,8 +487,8 @@ void BestTrackSelection::Process(int iEvent){
     double seedEnergy = 0.;
     TVector2 clusterPos(0., 0.);
     int lkrID = -1;
-    if(verb) cout<<"track at LKr "<<trackAtLKr.X()<<" "<<trackAtLKr.Y()<<endl;
-    if(verb){
+    cout<<user()<<"track at LKr "<<trackAtLKr.X()<<" "<<trackAtLKr.Y()<<endl;
+    if(TestLevel(Verbosity::kUser)){
       cout<<"Standard association:"<<endl;
       cout<<"N LKr candidates "<<fLKrEvent->GetNCandidates()<<endl;
       cout<<endl;
@@ -500,7 +501,7 @@ void BestTrackSelection::Process(int iEvent){
     int lkrIDS = -1;
     bool hasStandardLKr = HasLKrStandardAssoc(trackAtLKr, tSTRAW, tLKrS, totalEnergyS, seedEnergyS, nCellsS, clusterPosS, lkrIDS);
     FillHisto("hLKrMatch1Found", (hasStandardLKr ? 1 : 0));
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<"Has standard association? "<<hasStandardLKr<<endl;
       cout<<endl;
       cout<<"Cell association: "<<endl;
@@ -513,7 +514,7 @@ void BestTrackSelection::Process(int iEvent){
     double seedEnergyC = 0.;
     TVector2 clusterPosC(0., 0.);
     bool hasChargedLKr = HasLKrCellAssoc(trackAtLKr, tSTRAW, tLKrC, totalEnergyC, seedEnergyC, nCellsC, clusterPosC);
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<"Has charged association? "<<hasChargedLKr<<endl;
       cout<<endl;
       cout<<"Calo association:"<<endl;
@@ -522,13 +523,13 @@ void BestTrackSelection::Process(int iEvent){
     CalorimeterCluster *clus = static_cast<CalorimeterCluster*>(fSpecCalo->ConstructedAt(i));
     bool hasCalo = false;
     if(clus->IsLKrAssociated()) hasCalo = true;
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<"Has calo association? "<<hasCalo<<endl;
       cout<<endl;
     };
 
-    if(verb) cout<<endl;
-    if(verb) cout<<"standard "<<hasStandardLKr<<" charged "<<hasChargedLKr<<" calo "<<hasCalo<<endl;
+    cout<<user()<<endl;
+    cout<<user()<<"standard "<<hasStandardLKr<<" charged "<<hasChargedLKr<<" calo "<<hasCalo<<endl;
     if(!hasChargedLKr || !hasCalo) continue;
     if(hasStandardLKr){
       lkrID = lkrIDS;
@@ -544,7 +545,7 @@ void BestTrackSelection::Process(int iEvent){
       bestLKrEnergy = totalEnergyC;
       clusterPos = clusterPosC;
     };
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<"Test selected cluster:"<<endl;
       cout<<"cluster distance from track at LKr = "<<(clusterPos-trackAtLKr).Mod()<<" <= "<<fCutMaxDistLKr<<endl;
       cout<<"time diff LKr - STRAW = "<<fabs(tLKr - tSTRAW)<<" <= "<<fCutTimeDiffLKrSTRAW<<endl;
@@ -553,7 +554,7 @@ void BestTrackSelection::Process(int iEvent){
 
     if(((clusterPos-trackAtLKr).Mod()>fCutMaxDistLKr) || (fabs(tLKr - tSTRAW)>fCutTimeDiffLKrSTRAW) || (fabs(tLKr - tCHOD)>fCutTimeDiffLKrCHOD) || (bestLKrEnergy<=0.)) continue;
     if(!hasChargedLKr && !hasStandardLKr) continue;
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<"LKr ID = "<<lkrID<<endl;
       cout<<"best time = "<<tLKr<<endl;
       cout<<"seed energy = "<<seedEnergy<<endl;
@@ -568,10 +569,10 @@ void BestTrackSelection::Process(int iEvent){
     FillHisto("hTimeDiffBestLKrRICH", tLKr-tRICH);
     FillHisto("hTimeDiffBestLKrTrigger", tLKr-tTrigger);
     FillHisto("hEoverPvsTimeDiffLKrCHOD", tLKr-tCHOD, bestLKrEnergy/STRAWCand->GetMomentum());
-    if(verb) cout<<"----has LKr association of type "<<(hasStandardLKr ? 1 : 2)<<"----"<<endl;
+    cout<<user()<<"----has LKr association of type "<<(hasStandardLKr ? 1 : 2)<<"----"<<endl;
 
     //calculate track time
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<endl;
       cout<<"----Downstream time----"<<endl;
     };
@@ -585,7 +586,7 @@ void BestTrackSelection::Process(int iEvent){
     FillHisto("hTimeSTRAWWeighted", tSTRAW/fWeightSTRAW);
     tDownstream = ((tCHOD/fWeightCHOD) + (tLKr/fWeightLKr) + (tRICH/fWeightRICH) + (tSTRAW/fWeightSTRAW))/((1./fWeightCHOD) + (1./fWeightLKr) + (1./fWeightRICH) + (1./fWeightSTRAW));
     FillHisto("hTrackTime", tDownstream);
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<"TRICH = "<<tRICH<<endl;
       cout<<"TLKr = "<<tLKr<<endl;
       cout<<"TCHOD = "<<tCHOD<<endl;
@@ -595,31 +596,31 @@ void BestTrackSelection::Process(int iEvent){
     };
 
     //KTAG matching track
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<endl;
       cout<<"----KTAG association----"<<endl;
     };
     double minDT = 1000.;
     int bestKtag = -1;
-    if(verb) cout<<"N KTAG candidates "<<CedarEvent->GetNCandidates()<<endl;
-    if(verb) cout<<endl;
+    cout<<user()<<"N KTAG candidates "<<CedarEvent->GetNCandidates()<<endl;
+    cout<<user()<<endl;
     for(int m=0; m<CedarEvent->GetNCandidates(); m++){
-      if(verb) cout<<"candidate "<<m<<endl;
+      cout<<user()<<"candidate "<<m<<endl;
       CedarCand = static_cast<TRecoCedarCandidate*>(CedarEvent->GetCandidate(m));
       FillHisto("hTimeDiffKTAGDownstream", CedarCand->GetTime() - tDownstream);
-      if(verb){
+      if(TestLevel(Verbosity::kUser)){
 	cout<<"tKTAG = "<<CedarCand->GetTime()<<endl;
 	cout<<"Is best KTAG? tKTAG - tDownstream = "<<fabs(CedarCand->GetTime()-tDownstream)<<" < "<<minDT<<endl;
       };
       if(fabs(CedarCand->GetTime()-tDownstream)<minDT){
 	minDT = fabs(CedarCand->GetTime()-tDownstream);
 	bestKtag = m;
-	if(verb) cout<<"current best KTAG "<<bestKtag<<endl;
+	cout<<user()<<"current best KTAG "<<bestKtag<<endl;
       };
-      if(verb) cout<<endl;
+      cout<<user()<<endl;
     };
     if(bestKtag==-1){
-      if(verb) cout<<"KTAG match not found."<<endl;
+      cout<<user()<<"KTAG match not found."<<endl;
       FillHisto("hKTAGMatchFound", 0);
       continue;
     };
@@ -627,18 +628,18 @@ void BestTrackSelection::Process(int iEvent){
     double tKTAG = CedarCand->GetTime();
     FillHisto("hKTAGNsectors", CedarCand->GetNSectors());
     FillHisto("hTimeDiffGoodKTAGDownstream", tKTAG - tDownstream);
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       if(!GetWithMC()) cout<<"tKTAG - tDownstream = "<<fabs(tKTAG - tDownstream)<<" < "<<fCutTimeDiffCedarDownstreamData<<endl;
       if(GetWithMC()) cout<<"tKTAG - tDownstream = "<<fabs(tKTAG - tDownstream)<<" < "<<fCutTimeDiffCedarDownstreamMC<<endl;
       cout<<"best KTAG N sectors "<<CedarCand->GetNSectors()<<" > "<<fCutMinNSectorsKTAG<<endl;
     };
     if((!GetWithMC() && fabs(tKTAG - tDownstream)>fCutTimeDiffCedarDownstreamData) || (GetWithMC() && fabs(tKTAG - tDownstream)>fCutTimeDiffCedarDownstreamMC) || (CedarCand->GetNSectors()<fCutMinNSectorsKTAG)){
-      if(verb) cout<<"KTAG match not found (too few sectors or too different time)."<<endl;
+      cout<<user()<<"KTAG match not found (too few sectors or too different time)."<<endl;
       FillHisto("hKTAGMatchFound", 0);
       continue;
     };
     FillHisto("hKTAGMatchFound", 1);
-    if(verb) cout<<"----has KTAG association----"<<endl;
+    cout<<user()<<"----has KTAG association----"<<endl;
     FillHisto("hTimeDiffBestKTAGDownstream", tKTAG - tDownstream);
     FillHisto("hTimeDiffBestKTAGCHOD", tKTAG - tCHOD);
     FillHisto("hTimeDiffBestKTAGRICH", tKTAG - tRICH);
@@ -650,7 +651,7 @@ void BestTrackSelection::Process(int iEvent){
     FillHisto("hTimeDiffBestKTAGSTRAWWeighted", tKTAG - tSTRAW/fWeightSTRAW);
 
     //STRAW-kaon matching
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<endl;
       cout<<"----STRAW-GTK association----"<<endl;
     };
@@ -670,16 +671,16 @@ void BestTrackSelection::Process(int iEvent){
     TVector3 trackPosAtNomVertex(0., 0., 0.);
     TVector3 nomVertex(0., 0., 0.);
     bool goodvertex = false;
-    if(verb) cout<<"Use GTK? "<<UseGTK<<endl;
+    cout<<user()<<"Use GTK? "<<UseGTK<<endl;
     if(UseGTK){
       //GTK kaon
-      if(verb) cout<<"Prepare GTK candidates with ref time = "<<tKTAG<<endl;
+      cout<<user()<<"Prepare GTK candidates with ref time = "<<tKTAG<<endl;
       fGTKReco->Process(GTKEvent, tKTAG);
-      if(verb) cout<<"Prepared."<<endl;
-      if(verb) cout<<"Start matching procedure"<<endl;
-      if(verb) cout<<"Using RG matching procedure"<<endl;
-      fMatchingRG->Process(GTKEvent, STRAWCand, tKTAG, tKTAG, tRICH, verb, 1, "");
-      if(verb) cout<<"Matching procedure RG finished"<<endl;
+      cout<<user()<<"Prepared."<<endl;
+      cout<<user()<<"Start matching procedure"<<endl;
+      cout<<user()<<"Using RG matching procedure"<<endl;
+      fMatchingRG->Process(GTKEvent, STRAWCand, tKTAG, tKTAG, tRICH, 1, "");
+      cout<<user()<<"Matching procedure RG finished"<<endl;
       matchedGTKIDs = fMatchingRG->GetMatchedGTKIDs();
       matchedGTKTimes = fMatchingRG->GetGTKTimes();
       matchedGTKQuality1 = fMatchingRG->GetMatchingQuality1();
@@ -691,10 +692,10 @@ void BestTrackSelection::Process(int iEvent){
       matchedGTKTrackPositions = fMatchingRG->GetTrackPositionsAtVertices();
 
       FillHisto("hGTKMatchFound", (matchedGTKIDs.at(0)==-1 ? 0 : 1));
-      if(verb) cout<<"found matching GTK for this track? "<<(matchedGTKIDs.at(0)==-1 ? 0 : 1)<<endl;
-      if(verb) cout<<"Matched GTK ID "<<matchedGTKIDs.at(0)<<endl;
+      cout<<user()<<"found matching GTK for this track? "<<(matchedGTKIDs.at(0)==-1 ? 0 : 1)<<endl;
+      cout<<user()<<"Matched GTK ID "<<matchedGTKIDs.at(0)<<endl;
       if(matchedGTKIDs.at(0)==-1) continue;
-      if(verb) cout<<"----has GTK association----"<<endl;
+      cout<<user()<<"----has GTK association----"<<endl;
       if(matchedGTKIDs.size()>1){
 	FillHisto("hDiscriminant1DiffBestTwo", fabs(matchedGTKQuality1.at(1) - matchedGTKQuality1.at(0)));
       };
@@ -715,7 +716,7 @@ void BestTrackSelection::Process(int iEvent){
     };
 
     //NOMINAL kaon
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<endl;
       cout<<"----Nominal kaon association----"<<endl;
     };
@@ -725,12 +726,12 @@ void BestTrackSelection::Process(int iEvent){
     TVector3 trackPos = STRAWCand->GetPositionBeforeMagnet();
     nomVertex = GetIterativeVertex(STRAWCand->GetCharge(), trackMom, trackPos, 1, nomKaonMom, nomKaonPos, &nomKaonMomAtNomVertex, &nomKaonPosAtNomVertex, &trackMomAtNomVertex, &trackPosAtNomVertex);
     if(nomVertex.Mag()>0.) goodvertex = true;
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<"Found vertex with nominal kaon? "<<goodvertex<<endl;
       cout<<"----has nominal kaon association----"<<endl;
     };
     if(!UseGTK && !goodvertex){
-      if(verb) cout<<"Do not want to use GTK but no good nominal vertex found."<<endl;
+      cout<<user()<<"Do not want to use GTK but no good nominal vertex found."<<endl;
       continue;
     };
 
@@ -754,27 +755,29 @@ void BestTrackSelection::Process(int iEvent){
     fLKrAssocNCells.at(i) = nCells;
     fLKrAssocPosition.at(i) = clusterPos;
     fBestTrackKTAGTime.at(i) = tKTAG;
-    if(UseGTK) fGTKAssocID.at(i) = matchedGTKIDs.at(0);
-    if(UseGTK) fBestTrackGTKTime.at(i) = matchedGTKTimes.at(0);
-    if(UseGTK) fGTKAssocVertex.at(i) = matchedGTKVertices.at(0);
-    if(UseGTK) fGTKAllAssocVertices.at(i) = matchedGTKVertices;
-    if(UseGTK) fGTKAssocQuality1.at(i) = matchedGTKQuality1.at(0);
-    if(UseGTK) fGTKAssocQuality2.at(i) = matchedGTKQuality2.at(0);
-    if(UseGTK) fGTKAssocMomentum.at(i) = matchedGTKMomenta.at(0); //at vertex
-    if(UseGTK) fGTKAssocTrackMomentum.at(i) = matchedGTKTrackMomenta.at(0); //at vertex
-    if(UseGTK) fGTKNAssocs.at(i) = matchedGTKIDs.size();
+    if(UseGTK) {
+        fGTKAssocID.at(i) = matchedGTKIDs.at(0);
+        fBestTrackGTKTime.at(i) = matchedGTKTimes.at(0);
+        fGTKAssocVertex.at(i) = matchedGTKVertices.at(0);
+        fGTKAllAssocVertices.at(i) = matchedGTKVertices;
+        fGTKAssocQuality1.at(i) = matchedGTKQuality1.at(0);
+        fGTKAssocQuality2.at(i) = matchedGTKQuality2.at(0);
+        fGTKAssocMomentum.at(i) = matchedGTKMomenta.at(0); //at vertex
+        fGTKAssocTrackMomentum.at(i) = matchedGTKTrackMomenta.at(0); //at vertex
+        fGTKNAssocs.at(i) = matchedGTKIDs.size();
+    }
     fNomVertex.at(i) = nomVertex;
     fBestTrackNomMomentum.at(i) = trackMomAtNomVertex;    //at vertex
     fNomKaonMomentum.at(i) = nomKaonMomAtNomVertex;   //at vertex
-    if(verb) cout<<endl;
-    if(verb) cout<<"+++++ Saving best track = "<<i<<" +++++"<<endl;
-    if(verb) cout<<endl;
+    cout<<user()<<endl;
+    cout<<user()<<"+++++ Saving best track = "<<i<<" +++++"<<endl;
+    cout<<user()<<endl;
     FillHisto("hNSTRAWChambers_bestTracks", STRAWCand->GetNChambers());
   };
   FillHisto("hCut", cutID);
   FillHisto("hNBestTracks", std::count(fBestTracks.begin(), fBestTracks.end(), true));
 
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"+++++ N best tracks = "<<std::count(fBestTracks.begin(), fBestTracks.end(), true)<<" +++++"<<endl;
   };
@@ -952,27 +955,27 @@ std::pair<bool, bool> BestTrackSelection::is_multi_track(int STRAWCandID, std::v
   TRecoSpectrometerCandidate* STRAWCand2;
   for(int j=0; j<fSTRAWEvent->GetNCandidates(); j++){
     if(j==STRAWCandID){
-      if(verb) cout<<"This is my candidate, skip."<<endl;
+      cout<<user()<<"This is my candidate, skip."<<endl;
       continue;
     };
     if(fakeTracks.at(j)){
-      if(verb) cout<<"This is fake track, skip."<<endl;
+      cout<<user()<<"This is fake track, skip."<<endl;
       continue;
     };
     STRAWCand2 = static_cast<TRecoSpectrometerCandidate*>(fSTRAWEvent->GetCandidate(j));
-    if(verb) cout<<"test candidates "<<STRAWCandID<<" and "<<j<<endl;
-    if(verb) cout<<"candidate "<<STRAWCandID<<" starting at position "<<STRAWCand1->GetPositionBeforeMagnet().X()<<" "<<STRAWCand1->GetPositionBeforeMagnet().Y()<<" "<<STRAWCand1->GetPositionBeforeMagnet().Z()<<endl;
-    if(verb) cout<<"candidate "<<j<<" starting at position "<<STRAWCand2->GetPositionBeforeMagnet().X()<<" "<<STRAWCand2->GetPositionBeforeMagnet().Y()<<" "<<STRAWCand2->GetPositionBeforeMagnet().Z()<<endl;
+    cout<<user()<<"test candidates "<<STRAWCandID<<" and "<<j<<endl;
+    cout<<user()<<"candidate "<<STRAWCandID<<" starting at position "<<STRAWCand1->GetPositionBeforeMagnet().X()<<" "<<STRAWCand1->GetPositionBeforeMagnet().Y()<<" "<<STRAWCand1->GetPositionBeforeMagnet().Z()<<endl;
+    cout<<user()<<"candidate "<<j<<" starting at position "<<STRAWCand2->GetPositionBeforeMagnet().X()<<" "<<STRAWCand2->GetPositionBeforeMagnet().Y()<<" "<<STRAWCand2->GetPositionBeforeMagnet().Z()<<endl;
     double CDA = GetCDA(STRAWCand1, STRAWCand2);
-    if(verb) cout<<"CDA = "<<CDA<<" < "<<fCutBroadMultitrackCDA<<" to be broad multitrack"<<endl;
+    cout<<user()<<"CDA = "<<CDA<<" < "<<fCutBroadMultitrackCDA<<" to be broad multitrack"<<endl;
     if(CDA<fCutBroadMultitrackCDA) isMultiBroad = true;
     TVector3 vertex = GetVertexCDA(STRAWCand1->GetThreeMomentumBeforeMagnet(), STRAWCand1->GetPositionBeforeMagnet(), STRAWCand2->GetThreeMomentumBeforeMagnet(), STRAWCand2->GetPositionBeforeMagnet());
-    if(verb) cout<<"vertex found at "<<vertex.X()<<" "<<vertex.Y()<<" "<<vertex.Z()<<endl;
+    cout<<user()<<"vertex found at "<<vertex.X()<<" "<<vertex.Y()<<" "<<vertex.Z()<<endl;
     double vertexZ = vertex.Z();
-    if(verb) cout<<"CDA = "<<CDA<<" < "<<fCutFullMultitrackCDA<<" to be full multitrack"<<endl;
-    if(verb) cout<<"vertex Z = "<<vertexZ<<" > "<<fCutMultitrackMinZ<<" to be full multitrack"<<endl;
-    if(verb) cout<<"vertex Z = "<<vertexZ<<" < "<<fCutMultitrackMaxZ<<" to be full multitrack"<<endl;
-    if(verb) cout<<"candidates deltaT  = "<<fabs(STRAWCand1->GetTime() - STRAWCand2->GetTime())<<" < "<<fCutMultitrackTimeDiff<<" to be full multitrack"<<endl;
+    cout<<user()<<"CDA = "<<CDA<<" < "<<fCutFullMultitrackCDA<<" to be full multitrack"<<endl;
+    cout<<user()<<"vertex Z = "<<vertexZ<<" > "<<fCutMultitrackMinZ<<" to be full multitrack"<<endl;
+    cout<<user()<<"vertex Z = "<<vertexZ<<" < "<<fCutMultitrackMaxZ<<" to be full multitrack"<<endl;
+    cout<<user()<<"candidates deltaT  = "<<fabs(STRAWCand1->GetTime() - STRAWCand2->GetTime())<<" < "<<fCutMultitrackTimeDiff<<" to be full multitrack"<<endl;
     if((CDA<fCutFullMultitrackCDA) && (vertexZ>fCutMultitrackMinZ) && (vertexZ<fCutMultitrackMaxZ)) goodCDA = true;
     if(fabs(STRAWCand1->GetTime() - STRAWCand2->GetTime())<fCutMultitrackTimeDiff) inTime = true;
     if(goodCDA && inTime) isMultiFull = true;
@@ -989,7 +992,7 @@ bool BestTrackSelection::AcceptanceOK(TRecoSpectrometerCandidate *STRAWCand){
   bool inSTRAW[4] = {false, false, false, false};
   for(int k=0; k<4; k++){
     inSTRAW[k] = GeometricAcceptance::GetInstance()->InAcceptance(STRAWCand, kSpectrometer, k, 75., 1000.);
-    if(verb) cout<<"Track in STRAW "<<k<<" acceptance? "<<inSTRAW[k]<<endl;
+    cout<<user()<<"Track in STRAW "<<k<<" acceptance? "<<inSTRAW[k]<<endl;
   };
 
   FillHisto("hAtRICHFrontPlaneYvsX", STRAWCand->xAt(GeometricAcceptance::GetInstance()->GetZRICHFrontPlane()), STRAWCand->yAt(GeometricAcceptance::GetInstance()->GetZRICHFrontPlane()));
@@ -1001,47 +1004,47 @@ bool BestTrackSelection::AcceptanceOK(TRecoSpectrometerCandidate *STRAWCand){
   // double distB = sqrt(pow((posRICHb.X()-2.), 2) + pow((posRICHb.Y()-0.), 2));
   // if(distF>101. && distB>101. && distF<1100. && distB<1100.) inRICH = true;
   inRICH = GeometricAcceptance::GetInstance()->InAcceptance(STRAWCand, kRICH, 0, 101., -1.);
-  if(verb) cout<<"Track in RICH acceptance? "<<inRICH<<endl;
+  cout<<user()<<"Track in RICH acceptance? "<<inRICH<<endl;
 
   FillHisto("hAtNewCHODYvsX", STRAWCand->xAt(GeometricAcceptance::GetInstance()->GetZNewCHOD()), STRAWCand->yAt(GeometricAcceptance::GetInstance()->GetZNewCHOD()));
   bool inNewCHOD = false;
   inNewCHOD = GeometricAcceptance::GetInstance()->InAcceptance(STRAWCand, kNewCHOD, 0, 140., 1070.);
-  if(verb) cout<<"Track in NewCHOD acceptance? "<<inNewCHOD<<endl;
+  cout<<user()<<"Track in NewCHOD acceptance? "<<inNewCHOD<<endl;
 
   FillHisto("hAtHPlaneCHODYvsX", STRAWCand->xAt(GeometricAcceptance::GetInstance()->GetZCHODHPlane()), STRAWCand->yAt(GeometricAcceptance::GetInstance()->GetZCHODHPlane()));
   FillHisto("hAtVPlaneCHODYvsX", STRAWCand->xAt(GeometricAcceptance::GetInstance()->GetZCHODVPlane()), STRAWCand->yAt(GeometricAcceptance::GetInstance()->GetZCHODVPlane()));
   bool inCHOD = false;
   inCHOD = GeometricAcceptance::GetInstance()->InAcceptance(STRAWCand, kCHOD, 0, 125., 1100.);
-  if(verb) cout<<"Track in CHOD acceptance? "<<inCHOD<<endl;
+  cout<<user()<<"Track in CHOD acceptance? "<<inCHOD<<endl;
 
   FillHisto("hAtLKrYvsX", STRAWCand->xAt(GeometricAcceptance::GetInstance()->GetZLKr()), STRAWCand->yAt(GeometricAcceptance::GetInstance()->GetZLKr()));
   bool inLKr = false;
   inLKr = GeometricAcceptance::GetInstance()->InAcceptance(STRAWCand, kLKr, 0, 150., 1130.); //1070.
-  if(verb) cout<<"Track in LKr acceptance? "<<inLKr<<endl;
+  cout<<user()<<"Track in LKr acceptance? "<<inLKr<<endl;
 
   FillHisto("hAtMUV1YvsX", STRAWCand->xAt(GeometricAcceptance::GetInstance()->GetZMUV1()), STRAWCand->yAt(GeometricAcceptance::GetInstance()->GetZMUV1()));
   FillHisto("hAtMUV2YvsX", STRAWCand->xAt(GeometricAcceptance::GetInstance()->GetZMUV2()), STRAWCand->yAt(GeometricAcceptance::GetInstance()->GetZMUV2()));
   bool inMUV[2] = {false, false};
   inMUV[0] = GeometricAcceptance::GetInstance()->InAcceptance(STRAWCand, kMUV1, 0, 130., 1100.);
   inMUV[1] = GeometricAcceptance::GetInstance()->InAcceptance(STRAWCand, kMUV2, 0, 130., 1100.);
-  if(verb) cout<<"Track in MUV1 acceptance? "<<inMUV[0]<<endl;
-  if(verb) cout<<"Track in MUV2 acceptance? "<<inMUV[1]<<endl;
+  cout<<user()<<"Track in MUV1 acceptance? "<<inMUV[0]<<endl;
+  cout<<user()<<"Track in MUV2 acceptance? "<<inMUV[1]<<endl;
 
   FillHisto("hAtMUV3YvsX", STRAWCand->xAt(GeometricAcceptance::GetInstance()->GetZMUV3()), STRAWCand->yAt(GeometricAcceptance::GetInstance()->GetZMUV3()));
   bool inMUV3 = false;
   inMUV3 = GeometricAcceptance::GetInstance()->InAcceptance(STRAWCand, kMUV3, 0, 130., 1200.);
-  if(verb) cout<<"Track in MUV3 acceptance? "<<inMUV3<<endl;
+  cout<<user()<<"Track in MUV3 acceptance? "<<inMUV3<<endl;
 
   FillHisto("hAtLAV12FrontYvsX", STRAWCand->xAt(GeometricAcceptance::GetInstance()->GetZLAVFront(11)), STRAWCand->yAt(GeometricAcceptance::GetInstance()->GetZLAVFront(11)));
   FillHisto("hAtLAV12BackYvsX", STRAWCand->xAt(GeometricAcceptance::GetInstance()->GetZLAVBack(11)), STRAWCand->yAt(GeometricAcceptance::GetInstance()->GetZLAVBack(11)));
   bool inLAV12 = false;
   inLAV12 = GeometricAcceptance::GetInstance()->InAcceptance(STRAWCand, kLAV, 11, -1., -1.);
-  if(verb) cout<<"Track in LAV12 acceptance? "<<inLAV12<<endl;
+  cout<<user()<<"Track in LAV12 acceptance? "<<inLAV12<<endl;
 
   FillHisto("hAtIRCYvsX", STRAWCand->xAt(GeometricAcceptance::GetInstance()->GetZIRC()), STRAWCand->yAt(GeometricAcceptance::GetInstance()->GetZIRC()));
   bool inIRC = false;
   inIRC = GeometricAcceptance::GetInstance()->InAcceptance(STRAWCand, kIRC, 0, -1., -1.);
-  if(verb) cout<<"Track in IRC acceptance? "<<inIRC<<endl;
+  cout<<user()<<"Track in IRC acceptance? "<<inIRC<<endl;
 
   bool acceptanceOK = false;
   if(inSTRAW[0] && inSTRAW[1] && inSTRAW[2] && inSTRAW[3] && inRICH && inNewCHOD && inCHOD && inLKr && inMUV[0] && inMUV[1] && inMUV3 && inLAV12 && !inIRC) acceptanceOK = true;
@@ -1052,19 +1055,19 @@ bool BestTrackSelection::AcceptanceOK(TRecoSpectrometerCandidate *STRAWCand){
 bool BestTrackSelection::HasCHODAssoc(double tSTRAW, int trackID, double &tCHOD, int &chodID){
   bool hasAssoc = false;
   FillHisto("hNAssocRecCHOD", fSpecCHOD[trackID].GetNAssociationRecords());
-  if(verb) cout<<"CHODAssocRecords: "<<fSpecCHOD[trackID].GetNAssociationRecords()<<" > "<<0<<endl;
+  cout<<user()<<"CHODAssocRecords: "<<fSpecCHOD[trackID].GetNAssociationRecords()<<" > "<<0<<endl;
   if(fSpecCHOD[trackID].GetNAssociationRecords()==0) return hasAssoc;
   double timeCHOD = fSpecCHOD[trackID].GetBestAssociationRecord()->GetCHODCandidateTime();
   FillHisto("hTimeDiffBestAssocCHODSTRAW", timeCHOD-tSTRAW);
-  if(verb) cout<<"Time diff STRAW CHOD: "<<fabs(timeCHOD-tSTRAW)<<" < "<<fCutTimeDiffSTRAWCHOD<<endl;
+  cout<<user()<<"Time diff STRAW CHOD: "<<fabs(timeCHOD-tSTRAW)<<" < "<<fCutTimeDiffSTRAWCHOD<<endl;
   if(fabs(timeCHOD-tSTRAW)>fCutTimeDiffSTRAWCHOD) return hasAssoc;
   double Dchod = pow((fSpecCHOD[trackID].GetBestAssociationRecord()->GetTrackCandidateDistance())/(2.*fCHODAssocSigmaX), 2) + pow((timeCHOD - tSTRAW)/(3.*fCHODAssocSigmaT), 2);
   FillHisto("hDchod", Dchod);
   FillHisto("hDistanceTrackCHODAssociation", fSpecCHOD[trackID].GetBestAssociationRecord()->GetTrackCandidateDistance());
-  if(verb) cout<<"D CHOD: "<<Dchod<<" < "<<fCutDCHOD<<endl;
+  cout<<user()<<"D CHOD: "<<Dchod<<" < "<<fCutDCHOD<<endl;
   if(Dchod>=fCutDCHOD) return hasAssoc;
   FillHisto("hTimeDiffBestAssocCHODTrigger", timeCHOD-tTrigger);
-  if(verb) cout<<"Time diff Trigger CHOD: "<<fabs(timeCHOD-tTrigger)<<" < "<<fCutTimeDiffTriggerCHOD<<endl;
+  cout<<user()<<"Time diff Trigger CHOD: "<<fabs(timeCHOD-tTrigger)<<" < "<<fCutTimeDiffTriggerCHOD<<endl;
   if(fabs(timeCHOD-tTrigger)>fCutTimeDiffTriggerCHOD) return hasAssoc;
   int bestCHOD = fSpecCHOD[trackID].GetBestAssociationRecord()->GetCHODCandidateID();
   FillHisto("hTimeDiffBestCHODTrigger", timeCHOD - tTrigger);
@@ -1077,9 +1080,9 @@ bool BestTrackSelection::HasCHODAssoc(double tSTRAW, int trackID, double &tCHOD,
 
 bool BestTrackSelection::HasNewCHODAssoc(int i, TVector2 trackAtNewCHOD, double tSTRAW, double tCHOD, double &tNewCHOD, int &newCHODID){
   FillHisto("hNAssocRecNewCHOD", fSpecNewCHOD[i].GetNAssociationRecords());
-  if(verb) cout<<"NewCHODAssocRecords: "<<fSpecNewCHOD[i].GetNAssociationRecords()<<" > "<<0<<endl;
+  cout<<user()<<"NewCHODAssocRecords: "<<fSpecNewCHOD[i].GetNAssociationRecords()<<" > "<<0<<endl;
   if(fSpecNewCHOD[i].GetNAssociationRecords()==0) return false;
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     for(int m=0; m<fSpecNewCHOD[i].GetNAssociationRecords(); m++){
       cout<<"record ID "<<m<<endl;
       cout<<"time of record = "<<fSpecNewCHOD[i].GetAssociationRecord(m)->GetRecoHitTime()<<endl;
@@ -1089,18 +1092,18 @@ bool BestTrackSelection::HasNewCHODAssoc(int i, TVector2 trackAtNewCHOD, double 
     cout<<endl;
   };
   TVector2 posNewCHOD = fSpecNewCHOD[i].GetBestAssociationRecord()->GetRecoHitXY();
-  if(verb) cout<<"pos new CHOD "<<posNewCHOD.X()<<" "<<posNewCHOD.Y()<<endl;
-  if(verb) cout<<"track at newCHOD "<<trackAtNewCHOD.X()<<" "<<trackAtNewCHOD.Y()<<endl;
+  cout<<user()<<"pos new CHOD "<<posNewCHOD.X()<<" "<<posNewCHOD.Y()<<endl;
+  cout<<user()<<"track at newCHOD "<<trackAtNewCHOD.X()<<" "<<trackAtNewCHOD.Y()<<endl;
   double tnch = fSpecNewCHOD[i].GetBestAssociationRecord()->GetRecoHitTime();
-  if(verb) cout<<"tNewCHOD "<<tnch<<endl;
+  cout<<user()<<"tNewCHOD "<<tnch<<endl;
   double D = pow(((posNewCHOD-trackAtNewCHOD).Mod())/(fSigmaPosNewCHOD), 2) + pow((tnch-tSTRAW)/(fSigmaTimeNewCHOD), 2);
   FillHisto("hPosDiffAtNewCHOD", (posNewCHOD-trackAtNewCHOD).Mod());
   FillHisto("hPosDiffAtNewCHODYvsX", (posNewCHOD-trackAtNewCHOD).X(), (posNewCHOD-trackAtNewCHOD).Y());
   FillHisto("hTimeDiffNewCHODSTRAW", tnch-tSTRAW);
   FillHisto("hDiscriminantNewCHOD", D);
-  if(verb) cout<<"D NewCHOD: "<<D<<" < "<<fCutDiscriminantNewCHOD<<endl;
+  cout<<user()<<"D NewCHOD: "<<D<<" < "<<fCutDiscriminantNewCHOD<<endl;
   if(D>=fCutDiscriminantNewCHOD) return false;
-  if(verb) cout<<"Time diff NewCHOD CHOD: "<<fabs(tnch-tCHOD)<<" < "<<fCutTimeDiffCHODNewCHOD<<endl;
+  cout<<user()<<"Time diff NewCHOD CHOD: "<<fabs(tnch-tCHOD)<<" < "<<fCutTimeDiffCHODNewCHOD<<endl;
   if(fabs(tnch-tCHOD)>fCutTimeDiffCHODNewCHOD) return false;
   tNewCHOD = tnch;
   newCHODID = fSpecNewCHOD[i].GetBestAssociationRecordID();
@@ -1113,29 +1116,29 @@ bool BestTrackSelection::HasLKrStandardAssoc(TVector2 trackAtLKr, double tSTRAW,
   TRecoLKrCandidate *LKrCand;
   double minD = 999999;
   for(int k=0; k<fLKrEvent->GetNCandidates(); k++){
-    if(verb) cout<<"candidate "<<k<<endl;
+    cout<<user()<<"candidate "<<k<<endl;
     LKrCand = static_cast<TRecoLKrCandidate*>(fLKrEvent->GetCandidate(k));
     TVector2 pos;
     pos.SetX(LKrCand->GetClusterX());
     pos.SetY(LKrCand->GetClusterY());
-    if(verb) cout<<"position "<<pos.X()<<" "<<pos.Y()<<endl;
+    cout<<user()<<"position "<<pos.X()<<" "<<pos.Y()<<endl;
     double d = (trackAtLKr-pos).Mod();
     FillHisto("hLKrAssocDistLKrTrack", d);
-    if(verb) cout<<"minimal D? "<<d<<" < "<<minD<<endl;
+    cout<<user()<<"minimal D? "<<d<<" < "<<minD<<endl;
     if(d<minD){
       minD = d;
       bestID = k;
-      if(verb) cout<<"bestLKr "<<bestID<<endl;
+      cout<<user()<<"bestLKr "<<bestID<<endl;
     };
-    if(verb) cout<<endl;
+    cout<<user()<<endl;
   };
   if(bestID==-1) return hasAssoc;
   LKrCand = static_cast<TRecoLKrCandidate*>(fLKrEvent->GetCandidate(bestID));
   double t = LKrCand->GetTime() + fOffsetLKrStandard;
   FillHisto("hLKrAssocTimeDiffLKrSTRAW", t-tSTRAW);
-  if(verb) cout<<"time "<<t<<endl;
-  if(verb) cout<<"tLKr - tSTRAW = "<<fabs(t-tSTRAW)<<" < "<<fCutTimeDiffLKrStandardSTRAW<<endl;
-  if(verb) cout<<"distance "<<minD<<" < "<<fCutMaxDistLKrStandard<<endl;
+  cout<<user()<<"time "<<t<<endl;
+  cout<<user()<<"tLKr - tSTRAW = "<<fabs(t-tSTRAW)<<" < "<<fCutTimeDiffLKrStandardSTRAW<<endl;
+  cout<<user()<<"distance "<<minD<<" < "<<fCutMaxDistLKrStandard<<endl;
   if((minD>fCutMaxDistLKrStandard) || (fabs(t-tSTRAW)>fCutTimeDiffLKrStandardSTRAW)) bestID = -1;
 
   if(bestID!=-1){
@@ -1160,35 +1163,35 @@ bool BestTrackSelection::HasLKrCellAssoc(TVector2 trackAtLKr, double tSTRAW, dou
   double maxEnergy = 0.;
   double tCluster = -99999.;
   for(int k=0; k<fLKrEvent->GetNHits(); k++){
-    if(verb) cout<<"hit "<<k<<endl;
+    cout<<user()<<"hit "<<k<<endl;
     TRecoLKrHit *LKrHit = static_cast<TRecoLKrHit*>(fLKrEvent->GetHit(k));
     double t = LKrHit->GetTime() + fOffsetLKrCell;
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<"time "<<t<<endl;
       cout<<"position "<<LKrHit->GetPosition().XYvector().X()<<" "<<LKrHit->GetPosition().XYvector().Y()<<endl;
     };
     FillHisto("hDistLKrHitTrack", (LKrHit->GetPosition().XYvector()-trackAtLKr).Mod());
     FillHisto("hTimeDiffLKrHitSTRAW", t-tSTRAW);
-    if(verb) cout<<"distance = "<<(LKrHit->GetPosition().XYvector()-trackAtLKr).Mod()<<" < "<<fCutMaxDistLKrCell<<endl;
-    if(verb) cout<<"tLKr - tSTRAW = "<<fabs(t-tSTRAW)<<" < "<<fCutTimeDiffLKrCellSTRAW<<endl;
+    cout<<user()<<"distance = "<<(LKrHit->GetPosition().XYvector()-trackAtLKr).Mod()<<" < "<<fCutMaxDistLKrCell<<endl;
+    cout<<user()<<"tLKr - tSTRAW = "<<fabs(t-tSTRAW)<<" < "<<fCutTimeDiffLKrCellSTRAW<<endl;
     if((LKrHit->GetPosition().XYvector()-trackAtLKr).Mod()<fCutMaxDistLKrCell && fabs(t-tSTRAW)<fCutTimeDiffLKrCellSTRAW){
       ncells++;
       ECluster+=LKrHit->GetEnergy();
       posX+=(LKrHit->GetPosition().X())*(LKrHit->GetEnergy());
       posY+=(LKrHit->GetPosition().Y())*(LKrHit->GetEnergy());
-      if(verb){
+      if(TestLevel(Verbosity::kUser)){
 	cout<<"E hit "<<LKrHit->GetEnergy()<<endl;
 	cout<<"current E cluster "<<ECluster<<endl;
 	cout<<"current n cells "<<ncells<<endl;
       };
-      if(verb) cout<<"Is max energy? "<<LKrHit->GetEnergy()<<" > "<<maxEnergy<<endl;
+      cout<<user()<<"Is max energy? "<<LKrHit->GetEnergy()<<" > "<<maxEnergy<<endl;
       if(LKrHit->GetEnergy()>maxEnergy){
 	maxEnergy = LKrHit->GetEnergy();
 	tCluster = t;
-	if(verb) cout<<"cluster time "<<tCluster<<endl;
+	cout<<user()<<"cluster time "<<tCluster<<endl;
       };
     };
-    if(verb) cout<<endl;
+    cout<<user()<<endl;
   };
   FillHisto("hLKrAssocClusterMaxHitEnergy", maxEnergy);
   FillHisto("hLKrAssocClusterTimeDiffClusterSTRAW", tCluster-tSTRAW);
@@ -1196,7 +1199,7 @@ bool BestTrackSelection::HasLKrCellAssoc(TVector2 trackAtLKr, double tSTRAW, dou
   posX = posX/ECluster;
   posY = posY/ECluster;
   ECluster = CorrectLKrCellCluster(ncells, ECluster);
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<"cluster energy = "<<ECluster<<endl;
     cout<<"tLKr = "<<tCluster<<endl;
     cout<<"Seed energy = "<<maxEnergy<<" > "<<fCutMinEnergy<<endl;

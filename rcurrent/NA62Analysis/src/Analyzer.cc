@@ -2,6 +2,7 @@
 #include "BaseAnalysis.hh"
 #include "StringTable.hh"
 #include "Misc.hh"
+#include "ConfigSettings.hh"
 
 namespace NA62Analysis {
 
@@ -342,7 +343,7 @@ void Analyzer::FillTree(TString name){
 	  oHandler->WriteUserEvent(fOutTree, firstCopy, name);
 	  firstCopy = false;
 	}
-	
+
 	prev->cd();
 	itCand = fExportCandidates.find(name.Data());
 	if(itCand!=fExportCandidates.end()) {
@@ -658,6 +659,9 @@ void Analyzer::PrintParameters(bool force) const {
 	for(auto it : fParams){
 		paramTable << it.first << it.second.first << StringFromParam(it.first);
 	}
+	paramTable << "AutoUpdate" << "TString" << "";
+	paramTable << "UpdateInterval" << "int" << Configuration::ConfigSettings::global::fDefaultAutoUpdateRate;
+	paramTable << "Verbose" << "int" << (Configuration::ConfigSettings::global::fAnVerbosity*10+Configuration::ConfigSettings::global::fCoreVerbosity);
 
 	std::cout << "================================================================================" << std::endl;
 	std::cout << std::endl << "\t *** Parameters for Analyzer: " << fAnalyzerName << " ***" << std::endl << std::endl;

@@ -1,0 +1,10 @@
+[ libHACPersistency.so ]
+# List of selected classes
+class HACChannelID
+class THACDigi
+class THACEvent
+class THACHit
+class TRecoHACCandidate
+class TRecoHACEvent
+class TRecoHACHit
+header TRecoHACHit.hh

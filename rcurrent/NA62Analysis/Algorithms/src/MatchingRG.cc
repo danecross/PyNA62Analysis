@@ -136,8 +136,8 @@ void MatchingRG::Init(TString s){
   BookHisto(new TH1F(s+"hGTKMatched", "hGTKMatched", 2, 0, 2));
 }
 
-void MatchingRG::Process(TRecoGigaTrackerEvent *GTKEvent, TRecoSpectrometerCandidate *StrawCand, double refTime, double trackTime1, double trackTime2, bool verb, bool fill, TString s){
-  if(verb){
+void MatchingRG::Process(TRecoGigaTrackerEvent *GTKEvent, TRecoSpectrometerCandidate *StrawCand, double refTime, double trackTime1, double trackTime2, bool fill, TString s){
+  if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"*******************"<<endl;
     cout<<"MatchingRG - Process"<<endl;
@@ -151,34 +151,34 @@ void MatchingRG::Process(TRecoGigaTrackerEvent *GTKEvent, TRecoSpectrometerCandi
   // loop over all GTK candidates for a STRAW candidate
   int beamParticlesInTime = 0;
   if(fill) FillHisto(s+"hNGTKCandidates", GTKEvent->GetNCandidates());
-  if(verb) cout<<"N GTK candidates: "<<GTKEvent->GetNCandidates()<<endl;
+  cout<<user()<<"N GTK candidates: "<<GTKEvent->GetNCandidates()<<endl;
   for(int i=0; i<GTKEvent->GetNCandidates(); i++){
-    if(verb) cout<<"._._._._._._._._._._._."<<endl;
-    if(verb) cout<<"GTK candidate "<<i<<endl;
+    cout<<user()<<"._._._._._._._._._._._."<<endl;
+    cout<<user()<<"GTK candidate "<<i<<endl;
     TRecoGigaTrackerCandidate *GTKCand = static_cast<TRecoGigaTrackerCandidate*>(GTKEvent->GetCandidate(i));
 
-    if(verb) cout<<"Is in-time? "<<endl;
-    if(verb) cout<<"GTK time = "<<GTKCand->GetTime()<<endl;
+    cout<<user()<<"Is in-time? "<<endl;
+    cout<<user()<<"GTK time = "<<GTKCand->GetTime()<<endl;
     double timeDiff = GTKCand->GetTime() - refTime;
     if(fill) FillHisto(s+"hTimeDiffGTKRef", timeDiff);
-    if(verb) cout<<"GTK time - reference time: "<<-1*fDeltaT<<" < "<<timeDiff<<" < "<<fDeltaT<<endl;
+    cout<<user()<<"GTK time - reference time: "<<-1*fDeltaT<<" < "<<timeDiff<<" < "<<fDeltaT<<endl;
     bool isInTime = (fabs(timeDiff)<fDeltaT);
-    if(verb) cout<<"It is "<<(isInTime?"":"not")<<" in time."<<endl;
+    cout<<user()<<"It is "<<(isInTime?"":"not")<<" in time."<<endl;
 
-    if(verb) cout<<"Is it beam particle?"<<endl;
-    bool isBeamParticle = IsBeamParticle(GTKCand, verb, fill, s);
+    cout<<user()<<"Is it beam particle?"<<endl;
+    bool isBeamParticle = IsBeamParticle(GTKCand, fill, s);
     if(fill) FillHisto(s+"hIsBeamParticle", isBeamParticle);
-    if(verb) cout<<"It is "<<(isBeamParticle?"":"not")<<" beam particle."<<endl;
+    cout<<user()<<"It is "<<(isBeamParticle?"":"not")<<" beam particle."<<endl;
 
     if(isInTime && isBeamParticle){
       beamParticlesInTime++;
-      if(verb) cout<<"It is in-time beam particle. "<<"Currently "<<beamParticlesInTime<<" candidates are in-time beam particles."<<endl;
+      cout<<user()<<"It is in-time beam particle. "<<"Currently "<<beamParticlesInTime<<" candidates are in-time beam particles."<<endl;
 
-      if(verb) cout<<"Find best GTK. "<<"track time (ktag) "<<trackTime1<<" track time (rich) "<<trackTime2<<endl;
-      FindBestGTK(GTKCand, StrawCand, trackTime1, trackTime2, i, verb, fill, s); //fill output vectors according to largest discriminant (D1)
+      cout<<user()<<"Find best GTK. "<<"track time (ktag) "<<trackTime1<<" track time (rich) "<<trackTime2<<endl;
+      FindBestGTK(GTKCand, StrawCand, trackTime1, trackTime2, i, fill, s); //fill output vectors according to largest discriminant (D1)
     };
   };
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"All matched GTK candidates:"<<endl;
     for(unsigned int k=0; k<fGTKID.size(); k++){
@@ -200,7 +200,7 @@ void MatchingRG::Process(TRecoGigaTrackerEvent *GTKEvent, TRecoSpectrometerCandi
     cout<<endl;
   };
 
-  if(verb) cout<<"More similar candidates?"<<endl;
+  cout<<user()<<"More similar candidates?"<<endl;
   int NCloseDiscr = count_if(fMatchingQuality1.begin(), fMatchingQuality1.end(), [&](double i){return ((i>0.) && (fMatchingQuality1.at(0)-i)<fDeltaD1);});
   if(fill){
     for(unsigned int k=1; k<fMatchingQuality1.size(); k++){
@@ -211,39 +211,39 @@ void MatchingRG::Process(TRecoGigaTrackerEvent *GTKEvent, TRecoSpectrometerCandi
       FillHisto(s+"hNBeamParticlesInTime_vs_DiffD1BestTwo", fabs(fMatchingQuality1.at(1)-fMatchingQuality1.at(0)), beamParticlesInTime);
     };
   };
-  if(verb) cout<<"Number of candidates with deltaD<"<<fDeltaD1<<": "<<NCloseDiscr<<endl;
-  if(verb) cout<<"Number of in-time beam particles "<<beamParticlesInTime<<" > 2"<<endl;
+  cout<<user()<<"Number of candidates with deltaD<"<<fDeltaD1<<": "<<NCloseDiscr<<endl;
+  cout<<user()<<"Number of in-time beam particles "<<beamParticlesInTime<<" > 2"<<endl;
   if((beamParticlesInTime>2) && (NCloseDiscr>1)){
-    if(verb) cout<<"More similar candidates."<<endl;
+    cout<<user()<<"More similar candidates."<<endl;
     std::vector<int> PU;
     std::vector<double> QualityPU;
-    FindBestPU(fGTKID, fMatchingQualityP, NCloseDiscr, PU, QualityPU, verb);
-    if(verb) cout<<"Best PU "<<PU.at(0)<<"=  Best GTK "<<fGTKID.at(0)<<endl;
-    if(verb) cout<<"Are similar? "<<endl;
-    if((PU.at(0)!=fGTKID.at(0)) || AreSimilar(0, std::distance(fGTKID.begin(), std::find(fGTKID.begin(), fGTKID.end(), PU.at(1))), verb, fill, s)){
-      if(verb) cout<<"Best two pileup candidates too similar or Best GTK is not best PU."<<endl;
-      if(verb) cout<<"No match found"<<endl;
+    FindBestPU(fGTKID, fMatchingQualityP, NCloseDiscr, PU, QualityPU);
+    cout<<user()<<"Best PU "<<PU.at(0)<<"=  Best GTK "<<fGTKID.at(0)<<endl;
+    cout<<user()<<"Are similar? "<<endl;
+    if((PU.at(0)!=fGTKID.at(0)) || AreSimilar(0, std::distance(fGTKID.begin(), std::find(fGTKID.begin(), fGTKID.end(), PU.at(1))), fill, s)){
+      cout<<user()<<"Best two pileup candidates too similar or Best GTK is not best PU."<<endl;
+      cout<<user()<<"No match found"<<endl;
       RestoreDefaultOutputs();
     };
   }else{
-    if(verb) cout<<"Only one best candidate."<<endl;
+    cout<<user()<<"Only one best candidate."<<endl;
   };
 
   //if the conditions are not met, leave only the default values
   double D1 = fMatchingQuality1.at(0);
   double D2 = fMatchingQuality2.at(0);
-  if(verb) cout<<"Number of in-time candidate: "<<beamParticlesInTime<<" <= "<<fMaxNInTimeWithKTAG<<endl;;
-  if(verb) cout<<"At least one large discriminant? D1: "<<D1<<" > "<<fMinD<<" D2: "<<D2<<" > "<<fMinD<<endl;
-  if(verb) cout<<"Discriminants large enough? D1: "<<D1<<" > "<<fMinD1<<" D2: "<<D2<<" > "<<fMinD2<<endl;
+  cout<<user()<<"Number of in-time candidate: "<<beamParticlesInTime<<" <= "<<fMaxNInTimeWithKTAG<<endl;;
+  cout<<user()<<"At least one large discriminant? D1: "<<D1<<" > "<<fMinD<<" D2: "<<D2<<" > "<<fMinD<<endl;
+  cout<<user()<<"Discriminants large enough? D1: "<<D1<<" > "<<fMinD1<<" D2: "<<D2<<" > "<<fMinD2<<endl;
   if(beamParticlesInTime>fMaxNInTimeWithKTAG || !((D1>fMinD || D2>fMinD) && (D1>fMinD1) && (D2>fMinD2))){
-    if(verb) cout<<"Too many beam particles GTK candidates in time with KTAG or Too small discriminant(s)"<<endl;
-    if(verb) cout<<"No match found"<<endl;
+    cout<<user()<<"Too many beam particles GTK candidates in time with KTAG or Too small discriminant(s)"<<endl;
+    cout<<user()<<"No match found"<<endl;
     RestoreDefaultOutputs();
   };
 
   //if the conditions are met, erase default values from the output vectors
   if(fGTKID.at(0)!=-1){
-    if(verb) cout<<"Matching candidate found: "<<fGTKID.at(0)<<endl;
+    cout<<user()<<"Matching candidate found: "<<fGTKID.at(0)<<endl;
     if(fill){
       FillHisto(s+"hGTKMatched", 1);
       FillHisto(s+"hD1_best", D1);
@@ -259,7 +259,7 @@ void MatchingRG::Process(TRecoGigaTrackerEvent *GTKEvent, TRecoSpectrometerCandi
     if(fill) FillHisto(s+"hGTKMatched", 0);
   };
 
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     for(unsigned int k=0; k<fGTKID.size(); k++){
       cout<<"----------------------------------------"<<endl;
       cout<<"ID: "<<fGTKID.at(k)<<endl;;
@@ -309,33 +309,33 @@ void MatchingRG::ApplyBlueTube(int charge, TVector3 oldPos, TVector3 oldMom, dou
   newMom->SetXYZ(mom.X(), mom.Y(), mom.Z());
 }
 
-bool MatchingRG::IsBeamParticle(TRecoGigaTrackerCandidate *GTKCand, bool verb, bool fill, TString s){
-  if(verb) cout<<"Chi2: "<<GTKCand->GetChi2()<<" <= "<<fChi2<<endl;
+bool MatchingRG::IsBeamParticle(TRecoGigaTrackerCandidate *GTKCand, bool fill, TString s){
+  cout<<user()<<"Chi2: "<<GTKCand->GetChi2()<<" <= "<<fChi2<<endl;
   if(fill) FillHisto(s+"hGTKChi2", GTKCand->GetChi2());
   if(GTKCand->GetChi2()>fChi2){
-    if(verb) cout<<"Not beam particle (wrong chi2), try other candidates."<<endl;
+    cout<<user()<<"Not beam particle (wrong chi2), try other candidates."<<endl;
     return 0;
   };
 
   TVector3 mom = GTKCand->GetMomentum();
   double chi2Event = pow((mom.Mag() - 74900.)/900., 2) + pow((mom.X()/mom.Z() - 0.00122)/0.00012, 2) + pow((mom.Y()/mom.Z() - 0.000025)/0.0001, 2);
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<"momentum diff: "<<mom.Mag()<<" - 74900."<<endl;
     cout<<"slope X diff: "<<mom.X()/mom.Z()<<" - 0.00122"<<endl;
     cout<<"slope Y diff: "<<mom.Y()/mom.Z()<<" - 0.000025"<<endl;
     cout<<"Chi2Event = "<<pow((mom.Mag() - 74900.)/900., 2)<<" + "<<pow((mom.X()/mom.Z() - 0.00122)/0.00012, 2)<<" + "<<pow((mom.Y()/mom.Z() - 0.000025)/0.0001, 2)<<endl;
   };
-  if(verb) cout<<"Chi2Event: "<<chi2Event<<" < "<<fMaxChi2Event<<endl;
+  cout<<user()<<"Chi2Event: "<<chi2Event<<" < "<<fMaxChi2Event<<endl;
   if(fill) FillHisto(s+"hGTKChi2Event", chi2Event);
   if(chi2Event>=fMaxChi2Event){
-    if(verb) cout<<"Not beam particle (wrong chi2Event), try other candidates."<<endl;
+    cout<<user()<<"Not beam particle (wrong chi2Event), try other candidates."<<endl;
     return 0;
   };
 
   return 1;
 }
 
-void MatchingRG::FindBestGTK(TRecoGigaTrackerCandidate* GTKCand, TRecoSpectrometerCandidate* STRAWCand, double time1, double time2, int i, bool verb, bool fill, TString s){
+void MatchingRG::FindBestGTK(TRecoGigaTrackerCandidate* GTKCand, TRecoSpectrometerCandidate* STRAWCand, double time1, double time2, int i, bool fill, TString s){
   double GTK3Z = GeometricAcceptance::GetInstance()->GetZGTK3();
   double STRAW0Z_front = 183311.;
 
@@ -351,7 +351,7 @@ void MatchingRG::FindBestGTK(TRecoGigaTrackerCandidate* GTKCand, TRecoSpectromet
   Track.SetXYZ(STRAWCand->GetThreeMomentumBeforeMagnet().X(), STRAWCand->GetThreeMomentumBeforeMagnet().Y(), STRAWCand->GetThreeMomentumBeforeMagnet().Z());
   newPosTrack.SetXYZ(STRAWCand->GetPositionBeforeMagnet().X(), STRAWCand->GetPositionBeforeMagnet().Y(), STRAWCand->GetPositionBeforeMagnet().Z());
 
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<"track momentum before magnet: "<<Track.X()<<" "<<Track.Y()<<" "<<Track.Z()<<endl;
     cout<<"GTK momentum before magnet: "<<GTK.X()<<" "<<GTK.Y()<<" "<<GTK.Z()<<endl;
     cout<<"track position before magnet: "<<newPosTrack.X()<<" "<<newPosTrack.Y()<<" "<<newPosTrack.Z()<<endl;
@@ -361,12 +361,12 @@ void MatchingRG::FindBestGTK(TRecoGigaTrackerCandidate* GTKCand, TRecoSpectromet
   //apply BT field iteratively until they are 5m apart
   int count = 0;
   TVector3 simpleVert;
-  if(verb) cout<<"Find vertex position"<<endl;
+  cout<<user()<<"Find vertex position"<<endl;
   while(fabs(newPosGTK.Z() - newPosTrack.Z())>5000.){
     simpleVert = GetVertex(Track, newPosTrack, GTK, newPosGTK);
     if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)){
-      if(verb) cout<<"found vertex position Z = "<<simpleVert.Z()<<endl;
-      if(verb) cout<<"vertex Z is out of bounds"<<endl;
+      cout<<user()<<"found vertex position Z = "<<simpleVert.Z()<<endl;
+      cout<<user()<<"vertex Z is out of bounds"<<endl;
       return;
     };
     ApplyBlueTube(1, newPosGTK, GTK, (simpleVert.Z() - newPosGTK.Z())/2. + newPosGTK.Z(), &newPosGTK, &GTK);
@@ -375,11 +375,11 @@ void MatchingRG::FindBestGTK(TRecoGigaTrackerCandidate* GTKCand, TRecoSpectromet
     if(count>50) break;
   };
   simpleVert = GetVertex(Track, newPosTrack, GTK, newPosGTK);
-  if(verb) cout<<"vertex "<<simpleVert.X()<<" "<<simpleVert.Y()<<" "<<simpleVert.Z()<<endl;
-  if(verb) cout<<"Is good vertex Z? "<<GTK3Z<<" <= "<<simpleVert.Z()<<" <= "<<STRAW0Z_front<<endl;
+  cout<<user()<<"vertex "<<simpleVert.X()<<" "<<simpleVert.Y()<<" "<<simpleVert.Z()<<endl;
+  cout<<user()<<"Is good vertex Z? "<<GTK3Z<<" <= "<<simpleVert.Z()<<" <= "<<STRAW0Z_front<<endl;
   if(fill) FillHisto(s+"hVertexZ", simpleVert.Z());
   if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)) return;
-  if(verb) cout<<"Apply Blue Tube"<<endl;
+  cout<<user()<<"Apply Blue Tube"<<endl;
   ApplyBlueTube(1, GTKCand->GetPosition(2), GTKCand->GetMomentum(), simpleVert.Z(), &newPosGTK, &GTK);
   ApplyBlueTube(STRAWCand->GetCharge(), STRAWCand->GetPositionBeforeMagnet(), STRAWCand->GetThreeMomentumBeforeMagnet(), simpleVert.Z(), &newPosTrack, &Track);
   double deltaT1 = time1 - GTKCand->GetTime();
@@ -393,8 +393,8 @@ void MatchingRG::FindBestGTK(TRecoGigaTrackerCandidate* GTKCand, TRecoSpectromet
     FillHisto(s+"hCDAvsDeltaT2", deltaT2, cda);
     FillHisto(s+"hDeltaT2vsDeltaT1", deltaT1, deltaT2);
   };
-  if(verb) cout<<"CDA at vertex: "<<cda<<" < "<<fMaxCDA<<endl;
-  if(verb) cout<<"DeltaT1 at vertex: "<<deltaT1<<" < "<<fMaxDeltaT<<endl;
+  cout<<user()<<"CDA at vertex: "<<cda<<" < "<<fMaxCDA<<endl;
+  cout<<user()<<"DeltaT1 at vertex: "<<deltaT1<<" < "<<fMaxDeltaT<<endl;
   if((cda>fMaxCDA) || (fabs(deltaT1)>fMaxDeltaT)) return;
 
   double NnormCDA = 0.;
@@ -429,7 +429,7 @@ void MatchingRG::FindBestGTK(TRecoGigaTrackerCandidate* GTKCand, TRecoSpectromet
     FillHisto(s+"hD1_vs_Dp", Dp, D1);
     FillHisto(s+"hD2_vs_Dp", Dp, D2);
  };
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<"track momentum at vertex: "<<Track.X()<<" "<<Track.Y()<<" "<<Track.Z()<<endl;
     cout<<"GTK momentum at vertex: "<<GTK.X()<<" "<<GTK.Y()<<" "<<GTK.Z()<<endl;
     cout<<"track position at vertex: "<<newPosTrack.X()<<" "<<newPosTrack.Y()<<" "<<newPosTrack.Z()<<endl;
@@ -451,7 +451,7 @@ void MatchingRG::FindBestGTK(TRecoGigaTrackerCandidate* GTKCand, TRecoSpectromet
   };
 
   for(unsigned int j=0; j<fMatchingQuality1.size(); j++){
-    if(verb) cout<<"This D1 "<<D1<<" > "<<fMatchingQuality1.at(j)<<endl;
+    cout<<user()<<"This D1 "<<D1<<" > "<<fMatchingQuality1.at(j)<<endl;
     if(D1>fMatchingQuality1.at(j)){
       fGTKID.insert(fGTKID.begin() + j, i);
       fGTKTime.insert(fGTKTime.begin() + j, GTKCand->GetTime());
@@ -466,7 +466,7 @@ void MatchingRG::FindBestGTK(TRecoGigaTrackerCandidate* GTKCand, TRecoSpectromet
       fMatchingQualityP.insert(fMatchingQualityP.begin() + j, Dp);
       fGTKPosition.insert(fGTKPosition.begin() + j, newPosGTK);
       fTrackPosition.insert(fTrackPosition.begin() + j, newPosTrack);
-      if(verb) cout<<"candidate "<<i<<" at position "<<j<<" based on matching quality"<<endl;
+      cout<<user()<<"candidate "<<i<<" at position "<<j<<" based on matching quality"<<endl;
       break;
     };
   };
@@ -620,31 +620,31 @@ void MatchingRG::PrepareDefaultOutputs(){
   fMatchingPartsP.push_back(p);
 }
 
-void MatchingRG::FindBestPU(std::vector<int> GTKID, std::vector<double> MatchingQuality_p, int NCloseDiscr, std::vector<int> &PU, std::vector<double> &QualityPU, bool verb){
-  if(verb) cout<<endl;
-  if(verb) cout<<"Find best PU"<<endl;
+void MatchingRG::FindBestPU(std::vector<int> GTKID, std::vector<double> MatchingQuality_p, int NCloseDiscr, std::vector<int> &PU, std::vector<double> &QualityPU){
+  cout<<user()<<endl;
+  cout<<user()<<"Find best PU"<<endl;
   double dpu = 0.;
   int id = -1;
   PU.push_back(id);
   QualityPU.push_back(dpu);
-  if(verb) cout<<"Number of candidates with close discriminant: "<<NCloseDiscr<<endl;
+  cout<<user()<<"Number of candidates with close discriminant: "<<NCloseDiscr<<endl;
   for(int i=0; i<NCloseDiscr; i++){
-    if(verb) cout<<"Test candidate at place: "<<i<<endl;
+    cout<<user()<<"Test candidate at place: "<<i<<endl;
     for(unsigned int j=0; j<QualityPU.size(); j++){
-      if(verb) cout<<"This matching quality: "<<MatchingQuality_p.at(i)<<" > "<<QualityPU.at(j)<<endl;
+      cout<<user()<<"This matching quality: "<<MatchingQuality_p.at(i)<<" > "<<QualityPU.at(j)<<endl;
       if(MatchingQuality_p.at(i)>QualityPU.at(j)){
 	QualityPU.insert(QualityPU.begin() + j, MatchingQuality_p.at(i));
 	PU.insert(PU.begin() + j, GTKID.at(i));
-	if(verb) cout<<"candidate "<<PU.at(j)<<" at position "<<j<<" based on PU matching quality"<<endl;
+	cout<<user()<<"candidate "<<PU.at(j)<<" at position "<<j<<" based on PU matching quality"<<endl;
 	break;
       };
     };
   };
-  if(verb) cout<<endl;
+  cout<<user()<<endl;
 }
 
-bool MatchingRG::AreSimilar(int i, int j, bool verb, bool fill, TString s){
-  if(verb) cout<<"Test candidates at positions "<<i<<" and "<<j<<endl;
+bool MatchingRG::AreSimilar(int i, int j, bool fill, TString s){
+  cout<<user()<<"Test candidates at positions "<<i<<" and "<<j<<endl;
   bool are = false;
   double DT1k = (fMatchingParts1.at(i)).second;
   double DT1p = (fMatchingPartsP.at(i)).second;
@@ -672,7 +672,7 @@ bool MatchingRG::AreSimilar(int i, int j, bool verb, bool fill, TString s){
     FillHisto(s+"hRR_cda_ij", RR_cda_ij);
   };
 
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<"DT1k = "<<DT1k<<endl;
     cout<<"DT1p = "<<DT1p<<endl;
     cout<<"CDA1k = "<<CDA1k<<endl;
@@ -689,11 +689,11 @@ bool MatchingRG::AreSimilar(int i, int j, bool verb, bool fill, TString s){
     cout<<"RR_cda_ij = "<<RR_cda_ij<<endl;
   };
 
-  if(verb) cout<<"RR_dt_ij: "<<RR_dt_ij<<" < 1.5"<<" || "<<"RR_cda_ij: "<<RR_cda_ij<<" < 1.5"<<endl;
+  cout<<user()<<"RR_dt_ij: "<<RR_dt_ij<<" < 1.5"<<" || "<<"RR_cda_ij: "<<RR_cda_ij<<" < 1.5"<<endl;
   if((RR_dt_ij<fCutSimilarRatioDT) || (RR_cda_ij<fCutSimilarRatioCDA)){
     are = true;
   };
-  if(verb) cout<<"Similar: "<<(int)are<<endl;
+  cout<<user()<<"Similar: "<<(int)are<<endl;
 
   return are;
 }

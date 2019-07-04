@@ -17,7 +17,7 @@
 */
 AllPrimMon::AllPrimMon(TRootBrowser* MainWin, TString Name) : VPrimMon(MainWin, Name) {
 
-  NBurst = 0 ; 
+  NBurst = 0 ;
 
   // set hist style
   fHIRCRICHCorr = new TH1D("hIRCRICHCorr","NewCHOD-RICH primitives correlation",250, -250.*0.0974, 250.*0.098);
@@ -109,7 +109,7 @@ AllPrimMon::AllPrimMon(TRootBrowser* MainWin, TString Name) : VPrimMon(MainWin, 
   fHMUVOffsetMTP->GetXaxis()->SetTitle("time_{MTP} - time_{prim}");
   fHMUVOffsetMTP->SetLineColor(kBlue);
   fHMUVOffsetMTP->SetLineWidth(2);
-  fHMUVOffsetMTP->SetLineStyle(4); 
+  fHMUVOffsetMTP->SetLineStyle(4);
 
   fHCHODOffsetMTP = new TH1D("hCHODOffsetMTP","CHOD MTP time - primitives time",100, -10., 90.);
   fHCHODOffsetMTP->GetXaxis()->SetTitle(" time_{MTP} - time_{prim}");
@@ -174,7 +174,7 @@ AllPrimMon::AllPrimMon(TRootBrowser* MainWin, TString Name) : VPrimMon(MainWin, 
   fPText->SetTextSize(0.06);
   fPText->SetTextColor(kRed);
   fPText->AddText("");
-  
+
   // ADD a tabs to the monitor
   fLegCorr1 = new TLegend(0.6,0.5,0.89,0.89);
   fLegCorr1->SetFillColor(0);
@@ -241,7 +241,7 @@ AllPrimMon::AllPrimMon(TRootBrowser* MainWin, TString Name) : VPrimMon(MainWin, 
   fHRICHLKRCorr->Draw("C same");
   cCorrelations->SetGridx();
   fLegCorr2->Draw();
-  
+
   /*  TCanvas * cCorrelations2 = AddCanvasTab("Correlations2");
   cCorrelations2->cd();
   fGIRCRICHCorr->SetPoint(0,0.,0.);
@@ -277,13 +277,13 @@ AllPrimMon::AllPrimMon(TRootBrowser* MainWin, TString Name) : VPrimMon(MainWin, 
   cSendVsTimeStamp->cd(6);
   fHLKRSendVsTimeStamp->Draw("colz");
 
-  fLAVprimitive = new TPrimitive();  
-  fMUVprimitive = new TPrimitive();  
-  fCHODprimitive = new TPrimitive();  
-  fRICHprimitive = new TPrimitive();  
-  fIRCprimitive = new TPrimitive();  
-  fLKRprimitive = new TPrimitive();  
-  fTALKprimitive = new TPrimitive();  
+  fLAVprimitive = new TPrimitive();
+  fMUVprimitive = new TPrimitive();
+  fCHODprimitive = new TPrimitive();
+  fRICHprimitive = new TPrimitive();
+  fIRCprimitive = new TPrimitive();
+  fLKRprimitive = new TPrimitive();
+  fTALKprimitive = new TPrimitive();
 
   VPrimMon::CompleteTab();
 }
@@ -292,7 +292,7 @@ AllPrimMon::~AllPrimMon() {
   for(UInt_t iCanvas=0;iCanvas<fCanvases.size();iCanvas++) {
      delete fCanvases[iCanvas];
      fCanvases[iCanvas] = 0;
-  }  
+  }
 }
 
 void AllPrimMon::Update(TTree *lavtree, TTree *richtree, TTree *chodtree, TTree *muvtree, TTree *talktree, TTree *irctree,TTree *lkrtree, TString /*TimeRunBurst*/, TString time) {
@@ -300,10 +300,10 @@ void AllPrimMon::Update(TTree *lavtree, TTree *richtree, TTree *chodtree, TTree 
   NBurst++ ;
 
   // Read ttree
-  Bool_t lavin = kFALSE;  
-  Bool_t lkrin = kFALSE;  
+  Bool_t lavin = kFALSE;
+  Bool_t lkrin = kFALSE;
   Bool_t muvin = kFALSE;
-  Bool_t richin = kFALSE; 
+  Bool_t richin = kFALSE;
   Bool_t chodin = kFALSE;
   Bool_t talkin = kFALSE;
   Bool_t ircin = kFALSE;
@@ -321,7 +321,7 @@ void AllPrimMon::Update(TTree *lavtree, TTree *richtree, TTree *chodtree, TTree 
   vector<Long64_t>  RICHtime;
 
   if (lavtree) {
-    lavtree->SetBranchAddress("fPrimitive", &fLAVprimitive); 
+    lavtree->SetBranchAddress("fPrimitive", &fLAVprimitive);
     b_lavtprimitive = lavtree->GetBranch("fPrimitive") ;
     if (b_lavtprimitive) {lavin = kTRUE ; nlav = lavtree->GetEntries();}
   }
@@ -414,36 +414,36 @@ void AllPrimMon::Update(TTree *lavtree, TTree *richtree, TTree *chodtree, TTree 
       if (chodin){
 	for (Int_t ichod = ichod1; ichod < nchod; ichod++) {
 	  b_chodtprimitive->GetEntry(ichod) ;
-	  ichod1 = ichod;   
-	  diff = (Int_t)fIRCprimitive->GetTimeStamp() - (Int_t)fCHODprimitive->GetTimeStamp();  
+	  ichod1 = ichod;
+	  diff = (Int_t)fIRCprimitive->GetTimeStamp() - (Int_t)fCHODprimitive->GetTimeStamp();
 	  if ( TMath::Abs(diff) == 0 ) {
 	    fHIRCCHODCorr->Fill(fIRCprimitive->GetTime() - fCHODprimitive->GetTime() ) ;
-	  } 
-	  else if (diff<0 ) break;       
+	  }
+	  else if (diff<0 ) break;
 	}
       }
       // rich
       if (richin){
 	for (Int_t irich = irich1; irich < nrich; irich++) {
 	  b_richtprimitive->GetEntry(irich) ;
-	  irich1 = irich;   
-	  diff = (Int_t)fIRCprimitive->GetTimeStamp() - (Int_t)fRICHprimitive->GetTimeStamp();  
+	  irich1 = irich;
+	  diff = (Int_t)fIRCprimitive->GetTimeStamp() - (Int_t)fRICHprimitive->GetTimeStamp();
 	  if ( TMath::Abs(diff) == 0 ) {
 	    fHIRCRICHCorr->Fill(fIRCprimitive->GetTime() - fRICHprimitive->GetTime() ) ;
-	  } 
-	  else if (diff<0 ) break;       
+	  }
+	  else if (diff<0 ) break;
 	}
       }
       // lav
       if (lavin){
 	for (Int_t ilav = ilav1; ilav < nlav; ilav++) {
 	  b_lavtprimitive->GetEntry(ilav) ;
-	  ilav1 = ilav;   
-	  diff = (Int_t)fIRCprimitive->GetTimeStamp() - (Int_t)fLAVprimitive->GetTimeStamp();  
+	  ilav1 = ilav;
+	  diff = (Int_t)fIRCprimitive->GetTimeStamp() - (Int_t)fLAVprimitive->GetTimeStamp();
 	  if ( TMath::Abs(diff) == 0 ) {
 	    fHIRCLAVCorr->Fill(fIRCprimitive->GetTime() - fLAVprimitive->GetTime() ) ;
-	  } 
-	  else if (diff<0 ) break;       
+	  }
+	  else if (diff<0 ) break;
 	}
       }
 
@@ -451,24 +451,24 @@ void AllPrimMon::Update(TTree *lavtree, TTree *richtree, TTree *chodtree, TTree 
       if (muvin){
 	for (Int_t imuv = imuv1; imuv < nmuv; imuv++) {
 	  b_muvtprimitive->GetEntry(imuv) ;
-	  imuv1 = imuv;   
-	  diff = (Int_t)fIRCprimitive->GetTimeStamp() - (Int_t)fMUVprimitive->GetTimeStamp();  
+	  imuv1 = imuv;
+	  diff = (Int_t)fIRCprimitive->GetTimeStamp() - (Int_t)fMUVprimitive->GetTimeStamp();
 	  if ( TMath::Abs(diff) == 0 ) {
 	    fHIRCMUVCorr->Fill(fIRCprimitive->GetTime() - fMUVprimitive->GetTime() ) ;
-	  } 
-	  else if (diff<0 ) break;       
+	  }
+	  else if (diff<0 ) break;
 	}
       }
       // lkr
       if (lkrin){
 	for (Int_t ilkr = ilkr1; ilkr < nlkr; ilkr++) {
 	  b_lkrtprimitive->GetEntry(ilkr) ;
-	  ilkr1 = ilkr;   
-	  diff = (Int_t)fIRCprimitive->GetTimeStamp() - (Int_t)fLKRprimitive->GetTimeStamp();  
+	  ilkr1 = ilkr;
+	  diff = (Int_t)fIRCprimitive->GetTimeStamp() - (Int_t)fLKRprimitive->GetTimeStamp();
 	  if ( TMath::Abs(diff) < 2 ) {
 	    fHIRCLKRCorr->Fill(fIRCprimitive->GetTime() - fLKRprimitive->GetTime() ) ;
-	  } 
-	  else if (diff<0 ) break;       
+	  }
+	  else if (diff<0 ) break;
 	}
       }
 
@@ -476,12 +476,12 @@ void AllPrimMon::Update(TTree *lavtree, TTree *richtree, TTree *chodtree, TTree 
       if (talkin){
 	for (Int_t italk = italk1; italk < ntalk; italk++) {
 	  b_talktprimitive->GetEntry(italk) ;
-	  italk1 = italk;   
-	  diff = (Int_t)fIRCprimitive->GetTimeStamp() - (Int_t)fTALKprimitive->GetTimeStamp();  
+	  italk1 = italk;
+	  diff = (Int_t)fIRCprimitive->GetTimeStamp() - (Int_t)fTALKprimitive->GetTimeStamp();
 	  if ( TMath::Abs(diff) == 0 ) {
 	    fHIRCTALKCorr->Fill(fIRCprimitive->GetTime() - fTALKprimitive->GetTime() ) ;
-	  } 
-	  else if (diff<0 ) break;       
+	  }
+	  else if (diff<0 ) break;
 	}
       }
     }
@@ -489,19 +489,10 @@ void AllPrimMon::Update(TTree *lavtree, TTree *richtree, TTree *chodtree, TTree 
 
 
   // RICH-CHOD,  MUV3, LAV, TALK, LKR
-  ichod1 = 1000; // start from later primitives!
-  irich1 = 1000;
-  italk1 = 1000;
-  ilkr1 = 1000;
-  iirc1 = 1000;
-  imuv1 = 1000;
-  ilav1 = 1000;
-
   ichod1 = (Int_t)nchod/2; // start from later primitives!
   irich1 = 0;
   italk1 = (Int_t)ntalk/2;
   ilkr1 = (Int_t)nlkr/2;
-  iirc1 = 0;
   imuv1 = (Int_t)nmuv/2;
   ilav1 = (Int_t)nlav/2;
 
@@ -516,60 +507,60 @@ void AllPrimMon::Update(TTree *lavtree, TTree *richtree, TTree *chodtree, TTree 
       if (chodin){
 	for (Int_t ichod = ichod1; ichod < nchod; ichod++) {
 	  b_chodtprimitive->GetEntry(ichod) ;
-	  ichod1 = ichod;   
-	  diff = (Int_t)fRICHprimitive->GetTimeStamp() - (Int_t)fCHODprimitive->GetTimeStamp();  
+	  ichod1 = ichod;
+	  diff = (Int_t)fRICHprimitive->GetTimeStamp() - (Int_t)fCHODprimitive->GetTimeStamp();
 	  if ( TMath::Abs(diff) == 0 ) {
 	    fHRICHCHODCorr->Fill(fRICHprimitive->GetTime() - fCHODprimitive->GetTime() ) ;
-	  } 
-	  else if (diff<0 ) break;       
+	  }
+	  else if (diff<0 ) break;
 	}
       }
       // lav
       if (lavin){
 	for (Int_t ilav = ilav1; ilav < nlav; ilav++) {
 	  b_lavtprimitive->GetEntry(ilav) ;
-	  ilav1 = ilav;   
-	  diff = (Int_t)fRICHprimitive->GetTimeStamp() - (Int_t)fLAVprimitive->GetTimeStamp();  
+	  ilav1 = ilav;
+	  diff = (Int_t)fRICHprimitive->GetTimeStamp() - (Int_t)fLAVprimitive->GetTimeStamp();
 	  if ( TMath::Abs(diff) == 0 ) {
 	    fHRICHLAVCorr->Fill(fRICHprimitive->GetTime() - fLAVprimitive->GetTime() ) ;
-	  } 
-	  else if (diff<0 ) break;       
+	  }
+	  else if (diff<0 ) break;
 	}
       }
       // muv
       if (muvin){
 	for (Int_t imuv = imuv1; imuv < nmuv; imuv++) {
 	  b_muvtprimitive->GetEntry(imuv) ;
-	  imuv1 = imuv;   
-	  diff = (Int_t)fRICHprimitive->GetTimeStamp() - (Int_t)fMUVprimitive->GetTimeStamp();  
+	  imuv1 = imuv;
+	  diff = (Int_t)fRICHprimitive->GetTimeStamp() - (Int_t)fMUVprimitive->GetTimeStamp();
 	  if ( TMath::Abs(diff) == 0 ) {
 	    fHRICHMUVCorr->Fill(fRICHprimitive->GetTime() - fMUVprimitive->GetTime() ) ;
-	  } 
-	  else if (diff<0 ) break;       
+	  }
+	  else if (diff<0 ) break;
 	}
       }
       // lkr
       if (lkrin){
 	for (Int_t ilkr = ilkr1; ilkr < nlkr; ilkr++) {
 	  b_lkrtprimitive->GetEntry(ilkr) ;
-	  ilkr1 = ilkr;   
-	  diff = (Int_t)fRICHprimitive->GetTimeStamp() - (Int_t)fLKRprimitive->GetTimeStamp();  
+	  ilkr1 = ilkr;
+	  diff = (Int_t)fRICHprimitive->GetTimeStamp() - (Int_t)fLKRprimitive->GetTimeStamp();
 	  if ( TMath::Abs(diff) < 2 ) {
 	    fHRICHLKRCorr->Fill(fRICHprimitive->GetTime() - fLKRprimitive->GetTime() ) ;
-	  } 
-	  else if (diff<0 ) break;       
+	  }
+	  else if (diff<0 ) break;
 	}
       }
       // talk
       if (talkin){
 	for (Int_t italk = italk1; italk < ntalk; italk++) {
 	  b_talktprimitive->GetEntry(italk) ;
-	  italk1 = italk;   
-	  diff = (Int_t)fRICHprimitive->GetTimeStamp() - (Int_t)fTALKprimitive->GetTimeStamp();  
+	  italk1 = italk;
+	  diff = (Int_t)fRICHprimitive->GetTimeStamp() - (Int_t)fTALKprimitive->GetTimeStamp();
 	  if ( TMath::Abs(diff) == 0 ) {
 	    fHRICHTALKCorr->Fill(fRICHprimitive->GetTime() - fTALKprimitive->GetTime() ) ;
-	  } 
-	  else if (diff<0 ) break;       
+	  }
+	  else if (diff<0 ) break;
 	}
       }
     }
@@ -659,7 +650,7 @@ void AllPrimMon::Update(TTree *lavtree, TTree *richtree, TTree *chodtree, TTree 
   if (fHCHODOffsetMTP->GetEntries()>0)  fHCHODOffsetMTP->Scale(1.20/fHCHODOffsetMTP->GetMaximum());
   if (fHRICHOffsetMTP->GetEntries()>0)  fHRICHOffsetMTP->Scale(1.25/fHRICHOffsetMTP->GetMaximum());
 
-  cout << "Correlations done! Will now update Canvases" << endl;  
+  cout << "Correlations done! Will now update Canvases" << endl;
 
   VPrimMon::Update(time);
 

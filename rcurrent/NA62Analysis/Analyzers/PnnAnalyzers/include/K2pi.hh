@@ -88,7 +88,6 @@ private:
 
   //parameters
   bool UseGTK;
-  bool verb;
   double fCutTrackMomMin;
   double fCutTrackMomMax;
   double fCutMatchedGTKQuality;

@@ -32,7 +32,7 @@ LAVpmt::LAVpmt(TRandom3* random) :
 
   fTimeBinWidth    = fGeometry->GetBinWidth();
 
-  fNDynodes    = fGeometry->GetNdynodes();         
+  fNDynodes    = fGeometry->GetNdynodes();
   fFFTLimit    = fGeometry->FFTlimit();
   fFFTon       = fGeometry->FFTisON();
 }
@@ -85,7 +85,7 @@ void LAVpmt::Process(){
 
   // See if we have primary electrons
   if ( fPhotoElectrons.size() == 0 ) return;
-  
+
   // Some signal is present
   fNoSignal = 0;
 
@@ -178,7 +178,7 @@ void LAVpmt::ApplyExactDynode(Int_t dynode) {
   // For each electron coming from previous dynode...
   for ( Int_t phe = 0; phe < (Int_t) fPhotoElectrons.size(); phe++ ) {
 
-    // ...see if electron is collected by this dynode... 
+    // ...see if electron is collected by this dynode...
     if ( fRandom->Binomial(1,collection_efficiency) ) {
 
       // ...then apply dynode gain...
@@ -220,7 +220,7 @@ void LAVpmt::ApplyHistoDynode(Int_t dynode) {
   Int_t    binomial_limit          = fGeometry->GetBinomialLimit();
   Double_t collection_efficiency   = fGeometry->GetDynodeCollectionEfficiency();
   Double_t dynode_gain             = fGeometry->GetDynodeGain();
-  
+
   Double_t transit_time_spread;
   if ( fFFTon ) {
     // Use single-dynode time spread if we apply FFT to each dynode
@@ -232,7 +232,7 @@ void LAVpmt::ApplyHistoDynode(Int_t dynode) {
 
   //  std::cout << "ApplyHistoDynode " << dynode << " " << transit_time_spread << " " << fFFTon << " " << binomial_limit << " " << collection_efficiency << " " << dynode_gain << " " << fNDynodes << std::endl;
 
-  Double_t binContent=0.;
+  Double_t binContent;
   Int_t totalHistoContent = 0;
   // Compute effect of dynode for each bin
   for (Int_t b = 0; b < fTimeNBins; b++) {

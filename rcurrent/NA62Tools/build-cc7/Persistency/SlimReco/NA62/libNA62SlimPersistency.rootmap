@@ -1,0 +1,9 @@
+[ libNA62SlimPersistency.so ]
+# List of selected classes
+class TSlimRecoMUVCandidate
+class TSlimRecoMUVHit
+class TSlimRecoVCandidate
+class TSlimRecoVEvent
+class TSlimRecoVHit
+header TSlimRecoVCandidate.hh
+header TSlimRecoVHit.hh

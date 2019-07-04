@@ -2,10 +2,10 @@
 // History:
 // v 0.3 Mario Bragadireanu  (MUV3, LAV & SAC used as example for the RecoHit class and T0 manipulation) 16 August 2016
 // v 0.2 Mario Bragadireanu  (LAV & SAC used as example for the RecoHit class) 08 August 2016
-// v 0.1 Mario Bragadireanu 04 August 2016 
+// v 0.1 Mario Bragadireanu 04 August 2016
 // Created by Antonino Sergi (Antonino.Sergi@cern.ch) 2008-05-05
 // --------------------------------------------------------------
-/// \class HACReconstruction  
+/// \class HACReconstruction
 /// \Brief
 /// HASC event reconstruction \n
 /// \EndBrief
@@ -31,7 +31,7 @@
 /// - the charge (SiPM analog signal integral) is aproximated from the areas of the triangles formed assuming that the leading edge is linear \n
 /// (defined by a pair of subsequent theresholds) and the trailing edge is aproximated by 1, 2 or 3 lines with slopes defined by the trailing \n
 /// time information and the thresholds amplitude;\n
-/// - the section hit time and the charge associated to the signal are recorded as hits \n 
+/// - the section hit time and the charge associated to the signal are recorded as hits \n
 /// \n
 ///   HASC in ECN3 - ascii drawing \n
 ///\n
@@ -213,7 +213,7 @@ void HACReconstruction::ParseConfFile(TString ConfFileName) {
       continue;
     }
       /* Preparation for digitization
-    
+
     } else if (Line.BeginsWith("ChargeToTOffset=")) {
       TObjArray *l = Line.Tokenize(" ");
       for (Int_t ithr = 0; ithr < 4; ithr++)
@@ -257,7 +257,7 @@ void HACReconstruction::ParseConfFile(TString ConfFileName) {
 }
 
 void HACReconstruction::Init(NA62VReconstruction* MainReco) {
-  //common part for all the subdetectors 
+  //common part for all the subdetectors
   NA62VReconstruction::Init(MainReco);
 
   for (Int_t ich = 0; ich < fNChannels; ich++) {
@@ -269,8 +269,8 @@ void HACReconstruction::Init(NA62VReconstruction* MainReco) {
   InitHistograms();
 
   Double_t NSlotsMax = 0.;
-  for(UInt_t iROMezzanine=0;iROMezzanine<fRawDecoder->GetDecoder()->GetNROMezzanines();iROMezzanine++){   
-    if(NSlotsMax<fRawDecoder->GetDecoder()->GetNSlots(iROMezzanine)) NSlotsMax = fRawDecoder->GetDecoder()->GetNSlots(iROMezzanine);   
+  for(UInt_t iROMezzanine=0;iROMezzanine<fRawDecoder->GetDecoder()->GetNROMezzanines();iROMezzanine++){
+    if(NSlotsMax<fRawDecoder->GetDecoder()->GetNSlots(iROMezzanine)) NSlotsMax = fRawDecoder->GetDecoder()->GetNSlots(iROMezzanine);
   }
   fNSelectedCandidatesInTimeSlots.resize(NSlotsMax);
 }
@@ -294,7 +294,7 @@ void HACReconstruction::ReadSlewCorrParams() {
         else
           fSlewCorrParamThr1[ch][iPar] = static_cast<TObjString*>(l->At(iPar+1))->GetString().Atof();
       }
-        
+
       if (threshold == 0)
           threshold++;
       else{
@@ -356,8 +356,8 @@ void HACReconstruction::EndOfBurst() {
   }
   NSelectedCandidatesInTimeSlotsSigma = sqrt(NSelectedCandidatesInTimeSlotsSigma)/(NSlotsUsed*(NSlotsUsed-1));
 
-  Double_t fParticleRateMean  = NSelectedCandidatesInTimeSlotsMean/TotalTimePerSlot; //MHz   
-  Double_t fParticleRateSigma = NSelectedCandidatesInTimeSlotsSigma/TotalTimePerSlot; //MHz   
+  Double_t fParticleRateMean  = NSelectedCandidatesInTimeSlotsMean/TotalTimePerSlot; //MHz
+  Double_t fParticleRateSigma = NSelectedCandidatesInTimeSlotsSigma/TotalTimePerSlot; //MHz
   std::cout << "[HACReconstruction] Mean Particle Rate: (" << fParticleRateMean << "+/-" << fParticleRateSigma << ") MHz" << std::endl;
 }
 
@@ -366,7 +366,7 @@ TRecoVEvent * HACReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* tG
     return 0;
   }
 
-  //common part for all the subdetectors 
+  //common part for all the subdetectors
   NA62VReconstruction::ProcessEvent(tEvent, tGenEvent);
 
   fTdcEvent = static_cast<TDCEvent*>( tEvent);
@@ -394,9 +394,9 @@ TRecoVEvent * HACReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* tG
   //Time sort good digis and create reco hits
   Digis.Sort(nDigis);
   GroupDigis(Digis);
-  
+
   //Candidates reconstruction starts here.
-  //Cedar used as example.  
+  //Cedar used as example.
   Int_t fNHits = fRecoEvent->GetNHits();
   Int_t fNIterations = 2;
   for (Int_t iIter = 0; iIter < fNIterations; iIter++) {
@@ -428,7 +428,7 @@ TRecoVEvent * HACReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* tG
       }
 
       Bool_t MissingHit = kTRUE;
-      if (iIter > 0) { //second iteration: check to see if current hit is already in a candidate           
+      if (iIter > 0) { //second iteration: check to see if current hit is already in a candidate
         for (Int_t i = 0; i < fCandidate->GetNHits(); i++) {
           if (fCandidate->GetHitsIndexes()[i] == iHit) MissingHit = kFALSE;
         }
@@ -440,15 +440,15 @@ TRecoVEvent * HACReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* tG
         fCandidate->SetCharge(fCandidate->GetCharge() + fHit->GetChargeModuleSection());
       }
     }
-    
+
     for (Int_t kCand = 0; kCand < fRecoEvent->GetNCandidates(); kCand++) {
       fCandidate = static_cast<TRecoHACCandidate *>(fRecoEvent->GetCandidate(kCand));
       Double_t CandidateTime = fCandidate->GetTime();
 
       fCandidate->SetIsSelected(kFALSE);
       if (fCandidate->GetNHits() > 1) fCandidate->SetIsSelected(kTRUE); //Candidates with more than one hit are expected
-      
-      Double_t DeltaTimeClosestCandidate = 1.e28; //ns       
+
+      Double_t DeltaTimeClosestCandidate = 1.e28; //ns
       Int_t NHitsClosestCandidate = 0;
 
       for (Int_t jCand = 0; jCand < fRecoEvent->GetNCandidates(); jCand++) {
@@ -495,7 +495,7 @@ TRecoVEvent * HACReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* tG
     if(fCandidate->GetNHits() >= 4){
       Int_t NSlots = fNSelectedCandidatesInTimeSlots.size();
       Int_t LastSlotID = fRawDecoder->GetDecoder()->GetLastSlotID(0);
-      
+
       for(Int_t iSlot=LastSlotID-NSlots+1; iSlot<=LastSlotID; iSlot++){
         if (iSlot*ClockPeriod<fCandidate->GetTime() && fCandidate->GetTime()<=(iSlot+1.)*ClockPeriod)
 	  fNSelectedCandidatesInTimeSlots[NSlots-1+iSlot-LastSlotID]++;
@@ -513,7 +513,7 @@ void HACReconstruction::EndProcessing() {
 }
 
 void HACReconstruction::FillTimes(Double_t ReferenceTime) {
-  //common part for all the subdetectors 
+  //common part for all the subdetectors
 
   NA62VReconstruction::FillTimes(ReferenceTime);
 
@@ -772,7 +772,7 @@ void HACReconstruction::CreateRecoStructure(std::vector<Double_t>& leadTimes, st
 }
 
 void HACReconstruction::FillRecoHit(TRecoHACHit* recoHit) {
-  SlewCorrection(recoHit); //Method to correct and set the hit time for slewing and 
+  SlewCorrection(recoHit); //Method to correct and set the hit time for slewing and
   ComputeCharge(recoHit); //Method to compute the charge of the signal in SiPM
 
   Double_t totSum = 0.;
@@ -809,7 +809,7 @@ void HACReconstruction::SlewCorrection(TRecoHACHit* recoHit/*, Int_t fNThreshold
   Bool_t isRegion1 = kTRUE;
   if (tot >= 32.49 || (kFirstThreshold != 0 && kFirstThreshold != 1))
     isRegion1 = kFALSE;
-    
+
   Int_t nParameters = (kFirstThreshold == 0 && !isRegion1) ? 4 : 3;
   std::vector<Double_t> pars(nParameters);
   Int_t channelID = recoHit->GetChannelID();
@@ -822,10 +822,10 @@ void HACReconstruction::SlewCorrection(TRecoHACHit* recoHit/*, Int_t fNThreshold
     else if (isRegion1)
       pars[iPar] = fSlewCorrParamThr1[channelID][iPar];
     else pars[iPar] = fSlewCorrParamThr1[channelID][iPar+3];
-    
+
     correction += pars[iPar]*pow(tot, iPar);
   }
-  
+
   recoHit->SetTime(recoHit->GetLeadingEdge(kFirstThreshold) - correction);
 }
 
@@ -833,11 +833,11 @@ Double_t HACReconstruction::SlewCorrection(const Double_t &tot, const Int_t &chI
   Double_t correction = 0.;
   //if(chID/100 > 1)
   //  return correction; //correction only applied for the first two thresholds
-  
+
   Bool_t isRegion1 = kTRUE;
   if (tot >= 32.49)
     isRegion1 = kFALSE;
-    
+
   Int_t nParameters = (chID/100 == 0 && !isRegion1) ? 4 : 3;
   std::vector<Double_t> pars(nParameters);
   for (Int_t iPar = 0; iPar < nParameters; iPar++){
@@ -848,10 +848,10 @@ Double_t HACReconstruction::SlewCorrection(const Double_t &tot, const Int_t &chI
     else if (isRegion1)
       pars[iPar] = fSlewCorrParamThr1[chID%100][iPar];
     else pars[iPar] = fSlewCorrParamThr1[chID%100][iPar+3];
-    
+
     correction += pars[iPar]*pow(tot, iPar);
   }
-  
+
   return correction;
 }
 
@@ -893,7 +893,7 @@ void HACReconstruction::ComputeCharge(TRecoHACHit* recoHit) {
 
   } else {
     charge = 0.;
-    Double_t tStart = -999.;
+    Double_t tStart;
     Double_t tStop = -999.;
     Double_t vIntersection = -999.;
     Double_t tIntersection = -999.;

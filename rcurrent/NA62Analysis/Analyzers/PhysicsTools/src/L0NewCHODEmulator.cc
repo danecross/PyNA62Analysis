@@ -42,6 +42,7 @@
 L0NewCHODEmulator::L0NewCHODEmulator(Core::BaseAnalysis *ba) : L0MUV3Emulator(ba, "NewCHOD"){
   fL0Detector = kL0NewCHOD;
   RequestTree("NewCHOD", new TRecoNewCHODEvent, "Reco");
+  RequestL0Data(); // only for T0 evaluation
 
   TString fname = NA62ConditionsService::GetInstance()->GetFullPath("NewCHODPileupHitMap.root");
   ParseInputFile(fname);
@@ -110,14 +111,6 @@ void L0NewCHODEmulator::InitHist(){
   VL0Emulator::InitHist();
 }
 
-void L0NewCHODEmulator::StartOfBurstUser(){
-  VL0Emulator::StartOfBurstUser();
-  // std::cout << user_normal() << "is configured as follows:" << std::endl;
-  // std::cout << user_normal() << "L0Window " << fL0Window << std::endl;
-  // std::cout << user_normal() << "FineTimeBit " << fFineTimeBit << std::endl;
-  // std::cout << user_normal() << "RunPeriod " << fRunPeriod << std::endl;
-}
-
 void L0NewCHODEmulator::FillTimes(){
 
   TRecoNewCHODEvent* event = GetEvent<TRecoNewCHODEvent>("Reco");
@@ -130,7 +123,7 @@ void L0NewCHODEmulator::FillTimes(){
   fTimes.reserve(nHits);
   for(int i=0; i<nHits; ++i){
     TRecoNewCHODHit* hit  = static_cast<TRecoNewCHODHit*>(event->GetHit(i));
-    Double_t time         = hit->GetTimeNoT0();
+    Double_t time         = GetRawTime(hit);
     if(GetWithMC()) time += fL0Reference;
     Double_t fulltime     = time+fEventTimeStamp;
     Bool_t tight          = (hit->GetType() == kTightCandidate);
@@ -142,6 +135,35 @@ void L0NewCHODEmulator::FillTimes(){
     FillHisto("hitTimes_NewCHOD", time-fL0Reference);
     FillHisto("hitTimesNoRef_NewCHOD", time);
     fTimes.push_back(EmulatedL0Primitive(fL0Detector, fulltime, tight, inner, quad));
+  }
+}
+
+Double_t L0NewCHODEmulator::GetRawTime(TRecoNewCHODHit* hit){
+
+  // Notes.
+  // For MC events no T0 are available, so the code does nothing special
+
+  // Note that currently the averaging will not give an integer value.
+  // The proper behaviour (in comments below) should be used once the TriggerDriftT0 is available.
+  
+  if(GetWithMC()){
+    // MC ONLY (there are no T0s)
+    return hit->GetTime();
+  }
+  else{
+    // DATA ONLY
+    Double_t t1 = hit->GetTime1() + fT0Map[hit->GetChannel1()] + fEventTriggerDriftT0;
+    t1 = std::round(t1/TdcCalib);
+    if(hit->GetChannel2()==-1){ // only one channel
+      return t1*TdcCalib;
+    }
+    else{
+      Double_t t2 = hit->GetTime2() + fT0Map[hit->GetChannel2()] + fEventTriggerDriftT0;
+      t2 = std::round(t2/TdcCalib);
+      Double_t df = std::max(t1,t2) - std::min(t1,t2); // +ve integer
+      Double_t av = std::min(t1,t2) + std::floor(df/2.0); // average, as implemented in the firmware
+      return av*TdcCalib;
+    }
   }
 }
 

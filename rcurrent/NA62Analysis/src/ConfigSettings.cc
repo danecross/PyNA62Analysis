@@ -65,11 +65,13 @@ void ConfigSettings::ParseFile(TString const& fileName) {
 		ns.SetValue("basketsize",                global::fBasketSize);
 		ns.SetValue("autoflush",                 global::fAutoFlushValue);
 		ns.SetValue("nonexistingwarning",        global::fNonExistingWarning);
-		int verb;
+		int verb = -1;
 		ns.SetValue("verbosity",                 verb);
 
-		global::fCoreVerbosity = Verbose::GetCoreVerbosityLevelFromInt(verb);
-		global::fAnVerbosity = Verbose::GetAnalyzerVerbosityLevelFromInt(verb);
+		if(verb!=-1){
+		    global::fCoreVerbosity = Verbose::GetCoreVerbosityLevelFromInt(verb);
+		    global::fAnVerbosity = Verbose::GetAnalyzerVerbosityLevelFromInt(verb);
+		}
 	}
 }
 
@@ -97,10 +99,13 @@ void ConfigSettings::ParseEnv(TString const& prefix) {
 		ns.SetValue("basketsize",                global::fBasketSize);
 		ns.SetValue("autoflush",                 global::fAutoFlushValue);
 		ns.SetValue("nonexistingwarning",        global::fNonExistingWarning);
-		int verb;
+		int verb = -1;
 		ns.SetValue("verbosity",                 verb);
-		global::fCoreVerbosity = Verbose::GetCoreVerbosityLevelFromInt(verb);
-		global::fAnVerbosity = Verbose::GetAnalyzerVerbosityLevelFromInt(verb);
+
+		if(verb!=-1){
+		    global::fCoreVerbosity = Verbose::GetCoreVerbosityLevelFromInt(verb);
+		    global::fAnVerbosity = Verbose::GetAnalyzerVerbosityLevelFromInt(verb);
+		}
 	}
 }
 

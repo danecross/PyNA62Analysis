@@ -9,10 +9,11 @@
 class TSlimRecoMUVHit : public TSlimRecoVHit {
 
 public:
-	TSlimRecoMUVHit ()          { Clear(); }
+	TSlimRecoMUVHit ()          { ClearBase(); }
 	virtual ~TSlimRecoMUVHit () {}
 
 	virtual void Clear (Option_t * option="");
+	void ClearBase (Option_t * option="");
 
 	// Setters
 	void SetChannelID(Short_t channelId)     { fChannelID = channelId;      }

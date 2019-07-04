@@ -14,10 +14,10 @@ class LAVpmt{
 
 public:
 
-  LAVpmt(TRandom3*);
+  explicit LAVpmt(TRandom3*);
   ~LAVpmt();
 
-  void SetChannelID(Int_t);  
+  void SetChannelID(Int_t);
 
   void AddPhotonElement(Double_t, Double_t); // Time, Energy
 

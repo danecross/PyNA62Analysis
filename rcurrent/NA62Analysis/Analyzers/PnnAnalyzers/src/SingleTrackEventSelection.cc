@@ -22,13 +22,13 @@ SingleTrackEventSelection::SingleTrackEventSelection(Core::BaseAnalysis *ba) : A
   AddParam("CutMaxNTracks", "int", &fCutMaxNTracks, 2);
   AddParam("CutMaxGTKAssoc", "int", &fCutMaxGTKAssoc, 1000);
   AddParam("CutMinCDA", "double", &fCutMinCDA, 30.);
-  AddParam("Verbosity", "bool", &verb, false);
 
   fMatchingRG = new MatchingRG(ba, this, "MatchingRG");
 
   fGTKReco = new GigaTrackerRecoAlgorithm(ba, this, "GTKRecoAlgo");
   fGTKReco->SetRedoXYCorr(1);
   fGTKReco->SetFillHistograms(true);
+  EnablePrefix(false);
 }
 
 void SingleTrackEventSelection::InitOutput(){
@@ -38,11 +38,12 @@ void SingleTrackEventSelection::InitOutput(){
 
 void SingleTrackEventSelection::InitHist(){
   fReadingData = GetIsTree();
+  fMatchingRG->SetVerbosity(GetCoreVerbosityLevel(), GetAnalyzerVerbosityLevel());
 
   if(fReadingData){
-    ReconfigureAnalyzer("BestTrackSelection", "Verbosity", verb);
-    ReconfigureAnalyzer("CheckTrigger", "Verbosity", verb);
-    ReconfigureAnalyzer("Preselection", "Verbosity", verb);
+    ReconfigureAnalyzer("BestTrackSelection", "Verbose", GetVerbosityLevel());
+    ReconfigureAnalyzer("CheckTrigger", "Verbose", GetVerbosityLevel());
+    ReconfigureAnalyzer("Preselection", "Verbose", GetVerbosityLevel());
 
     BookHisto(new TH1I("hCut", "hCut", 30, 1, 31));
     BookHisto(new TH1I("hNTracks", "hNTracks", 20, 0, 20));
@@ -74,7 +75,7 @@ void SingleTrackEventSelection::Process(int){
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"-------------------"<<endl;
     cout<<"SingleTrackEventSelection"<<endl;
@@ -91,15 +92,15 @@ void SingleTrackEventSelection::Process(int){
   auto preselectedEvent =
     *(bool*)GetOutput("Preselection.PreselectedEvent", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb) cout<<"Is event preselected? "<<preselectedEvent<<endl;
+  cout<<user()<<"Is event preselected? "<<preselectedEvent<<endl;
   if(!preselectedEvent){
-    if(verb) cout<<"Event is not preselected"<<endl;
+    cout<<user()<<"Event is not preselected"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -108,21 +109,21 @@ void SingleTrackEventSelection::Process(int){
   auto tTrigger =
     *(double*)GetOutput("CheckTrigger.TriggerTime", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
-  if(verb) cout<<"Trigger time read = "<<tTrigger<<endl;
+  cout<<user()<<"Trigger time read = "<<tTrigger<<endl;
   FillHisto("hCut", cutID);
   cutID++; //5
 
   auto bestTracks =
     *(std::vector<bool>*)GetOutput("BestTrackSelection.BestTracks", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hNBestTracks", std::count(bestTracks.begin(), bestTracks.end(), true));
-  if(verb) cout<<"N best tracks read = "<<std::count(bestTracks.begin(), bestTracks.end(), true)<<endl;
+  cout<<user()<<"N best tracks read = "<<std::count(bestTracks.begin(), bestTracks.end(), true)<<endl;
   FillHisto("hCut", cutID);
   cutID++; //7
 
@@ -133,7 +134,7 @@ void SingleTrackEventSelection::Process(int){
   auto bestTrackCHODTime =
     *(std::vector<double>*)GetOutput("BestTrackSelection.BestTrackCHODTime", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -142,7 +143,7 @@ void SingleTrackEventSelection::Process(int){
   auto bestTrackRICHTime =
     *(std::vector<double>*)GetOutput("BestTrackSelection.BestTrackRICHTime", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -151,7 +152,7 @@ void SingleTrackEventSelection::Process(int){
   auto bestTrackKTAGTime =
     *(std::vector<double>*)GetOutput("BestTrackSelection.BestTrackKTAGTime", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -160,7 +161,7 @@ void SingleTrackEventSelection::Process(int){
   auto bestTrackGTKTime =
     *(std::vector<double>*)GetOutput("BestTrackSelection.BestTrackGTKTime", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -169,7 +170,7 @@ void SingleTrackEventSelection::Process(int){
   auto bestTrackLKrTime =
     *(std::vector<double>*)GetOutput("BestTrackSelection.BestTrackLKrTime", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -178,13 +179,13 @@ void SingleTrackEventSelection::Process(int){
   auto GTKNAssocs =
     *(std::vector<int>*)GetOutput("BestTrackSelection.GTKNAssocs", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb) cout<<"all requested outputs are valid"<<endl;
+  cout<<user()<<"all requested outputs are valid"<<endl;
 
   //reco events
   TRecoSpectrometerEvent* STRAWEvent = GetEvent<TRecoSpectrometerEvent>();
@@ -194,48 +195,48 @@ void SingleTrackEventSelection::Process(int){
   TRecoSpectrometerCandidate *STRAWCand2;
 
   //single track event topology
-  if(verb) cout<<"N STRAW tracks: "<<" 0 < "<<NTracks<<" <= "<<fCutMaxNTracks<<endl;
+  cout<<user()<<"N STRAW tracks: "<<" 0 < "<<NTracks<<" <= "<<fCutMaxNTracks<<endl;
   if(NTracks>fCutMaxNTracks) return;
   FillHisto("hCut", cutID);
   cutID++;
 
   int NbestTracks = std::count(bestTracks.begin(), bestTracks.end(), true);
-  if(verb) cout<<"N best tracks = "<<NbestTracks<<" > 0 "<<endl;
+  cout<<user()<<"N best tracks = "<<NbestTracks<<" > 0 "<<endl;
   if(NTracks==0 || NbestTracks==0) return;
   FillHisto("hCut", cutID);
   cutID++;
 
   if(NTracks==1){
-    if(verb) cout<<"1 STRAW track"<<endl;
+    cout<<user()<<"1 STRAW track"<<endl;
     if(UseGTK) FillHisto("hOneTrackOutGTKIDSize", GTKNAssocs.at(0));
     if(bestTracks.at(0)==true && ((UseGTK && GTKNAssocs.at(0)<=fCutMaxGTKAssoc) || !UseGTK)){
       fTrackID = 0;
-      if(verb) cout<<"saving track "<<fTrackID<<endl;
+      cout<<user()<<"saving track "<<fTrackID<<endl;
       fSelected = true;
     }else{
-      if(verb) cout<<"track not saved"<<endl;
+      cout<<user()<<"track not saved"<<endl;
       return;
     };
   }else if(NTracks==2){
-    if(verb) cout<<"2 STRAW tracks"<<endl;
+    cout<<user()<<"2 STRAW tracks"<<endl;
     STRAWCand1 = static_cast<TRecoSpectrometerCandidate*>(STRAWEvent->GetCandidate(0));
     STRAWCand2 = static_cast<TRecoSpectrometerCandidate*>(STRAWEvent->GetCandidate(1));
     if((STRAWCand1->GetCharge()!=1) || (STRAWCand2->GetCharge()!=1)) return;
     if(NbestTracks==1 && ((UseGTK && GTKNAssocs.at(find(bestTracks.begin(), bestTracks.end(), true)-bestTracks.begin())<=fCutMaxGTKAssoc) || !UseGTK)){
-      if(verb){
+      if(TestLevel(Verbosity::kUser)){
 	cout<<"1 best track"<<endl;
 	cout<<"saving track "<<find(bestTracks.begin(), bestTracks.end(), true)-bestTracks.begin()<<endl;
       };
       fTrackID = find(bestTracks.begin(), bestTracks.end(), true)-bestTracks.begin();
       fSelected = true;
     }else if(NbestTracks==2){
-      if(verb) cout<<"2 best tracks"<<endl;
+      cout<<user()<<"2 best tracks"<<endl;
       double CDA = GetCDA(STRAWCand1, STRAWCand2);
       FillHisto("hCDA", CDA);
-      if(verb) cout<<"CDA between these two tracks = "<<CDA<<" > "<<fCutMinCDA<<endl;
+      cout<<user()<<"CDA between these two tracks = "<<CDA<<" > "<<fCutMinCDA<<endl;
       if(CDA<=fCutMinCDA) return;
-      if(verb) cout<<"CDA is large enough"<<endl;
-      if(verb) cout<<"tTrigger = "<<tTrigger<<endl;
+      cout<<user()<<"CDA is large enough"<<endl;
+      cout<<user()<<"tTrigger = "<<tTrigger<<endl;
 
       int closeKTAG = -1;
       if(fabs(bestTrackKTAGTime.at(0)-tTrigger)<fabs(bestTrackKTAGTime.at(1)-tTrigger)){
@@ -243,8 +244,8 @@ void SingleTrackEventSelection::Process(int){
       }else if(fabs(bestTrackKTAGTime.at(0)-tTrigger)>fabs(bestTrackKTAGTime.at(1)-tTrigger)){
 	closeKTAG = 1;
       };
-      if(verb) cout<<"KTAG times = "<<bestTrackKTAGTime.at(0)<<" "<<bestTrackKTAGTime.at(1)<<endl;
-      if(verb) cout<<"closer KTAG for track "<<closeKTAG<<endl;
+      cout<<user()<<"KTAG times = "<<bestTrackKTAGTime.at(0)<<" "<<bestTrackKTAGTime.at(1)<<endl;
+      cout<<user()<<"closer KTAG for track "<<closeKTAG<<endl;
 
       int closeGTK = -1;
       if(UseGTK){
@@ -255,8 +256,8 @@ void SingleTrackEventSelection::Process(int){
 	}else if(fabs(time1-tTrigger)>fabs(time2-tTrigger)){
 	  closeGTK = 1;
 	};
-	if(verb) cout<<"GTK times = "<<time1<<" "<<time2<<endl;
-	if(verb) cout<<"closer GTK for track "<<closeGTK<<endl;
+	cout<<user()<<"GTK times = "<<time1<<" "<<time2<<endl;
+	cout<<user()<<"closer GTK for track "<<closeGTK<<endl;
       };
 
       int closeRICH = -1;
@@ -265,8 +266,8 @@ void SingleTrackEventSelection::Process(int){
       }else if(fabs(bestTrackRICHTime.at(0)-tTrigger)>fabs(bestTrackRICHTime.at(1)-tTrigger)){
 	closeRICH = 1;
       };
-      if(verb) cout<<"RICH times = "<<bestTrackRICHTime.at(0)<<" "<<bestTrackRICHTime.at(1)<<endl;
-      if(verb) cout<<"closer RICH for track "<<closeRICH<<endl;
+      cout<<user()<<"RICH times = "<<bestTrackRICHTime.at(0)<<" "<<bestTrackRICHTime.at(1)<<endl;
+      cout<<user()<<"closer RICH for track "<<closeRICH<<endl;
 
       int closeCHOD = -1;
       double tCHOD1 = bestTrackCHODTime.at(0);
@@ -276,8 +277,8 @@ void SingleTrackEventSelection::Process(int){
       }else if(fabs(tCHOD1-tTrigger)>fabs(tCHOD2-tTrigger)){
       	closeCHOD = 1;
       };
-      if(verb) cout<<"CHOD times = "<<bestTrackCHODTime.at(0)<<" "<<bestTrackCHODTime.at(1)<<endl;
-      if(verb) cout<<"closer CHOD for track "<<closeCHOD<<endl;
+      cout<<user()<<"CHOD times = "<<bestTrackCHODTime.at(0)<<" "<<bestTrackCHODTime.at(1)<<endl;
+      cout<<user()<<"closer CHOD for track "<<closeCHOD<<endl;
 
       int closeLKr = -1;
       double t1 = bestTrackLKrTime.at(0);
@@ -287,14 +288,14 @@ void SingleTrackEventSelection::Process(int){
       }else if(fabs(t1-tTrigger)>fabs(t2-tTrigger)){
 	closeLKr = 1;
       };
-      if(verb) cout<<"LKr times = "<<bestTrackLKrTime.at(0)<<" "<<bestTrackLKrTime.at(1)<<endl;
-      if(verb) cout<<"closer LKr for track "<<closeLKr<<endl;
+      cout<<user()<<"LKr times = "<<bestTrackLKrTime.at(0)<<" "<<bestTrackLKrTime.at(1)<<endl;
+      cout<<user()<<"closer LKr for track "<<closeLKr<<endl;
 
       int counter = 0;
       if((closeCHOD+closeRICH+closeLKr+closeKTAG)==4){
 	if(!UseGTK || closeGTK==1){ // (!UseGTK || (UseGTK && closeGTK==1))
 	  fTrackID = 1;
-	  if(verb) cout<<"saving track "<<fTrackID<<endl;
+	  cout<<user()<<"saving track "<<fTrackID<<endl;
 	  fSelected = true;
 	  counter++;
 	};
@@ -302,7 +303,7 @@ void SingleTrackEventSelection::Process(int){
       if((fabs(closeCHOD)+fabs(closeRICH)+fabs(closeLKr)+fabs(closeKTAG))==0){
 	if(!UseGTK || closeGTK==0){ // (!UseGTK || (UseGTK && closeGTK==0))
 	  fTrackID = 0;
-	  if(verb) cout<<"saving track "<<fTrackID<<endl;
+	  cout<<user()<<"saving track "<<fTrackID<<endl;
 	  fSelected = true;
 	  counter++;
 	};
@@ -318,7 +319,7 @@ void SingleTrackEventSelection::Process(int){
   //chosen STRAW candidate
   STRAWCand1 = static_cast<TRecoSpectrometerCandidate*>(STRAWEvent->GetCandidate(fTrackID));
 
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<"Single track ID = "<<fTrackID<<endl;
     cout<<"Track momentum "<<STRAWCand1->GetThreeMomentumBeforeMagnet().X()<<" "<<STRAWCand1->GetThreeMomentumBeforeMagnet().Y()<<" "<<STRAWCand1->GetThreeMomentumBeforeMagnet().Z()<<endl;
   };
@@ -326,16 +327,18 @@ void SingleTrackEventSelection::Process(int){
   //prepare correct GTKreco and fill StrawGTKMatching histograms
   if(fSelected && UseGTK){
     TRecoGigaTrackerEvent* GTKEvent = GetEvent<TRecoGigaTrackerEvent>();
-    if(verb) cout<<"prepare GTK candidates with ref time "<<bestTrackKTAGTime.at(fTrackID)<<endl;
+    cout<<user()<<"prepare GTK candidates with ref time "<<bestTrackKTAGTime.at(fTrackID)<<endl;
     fGTKReco->Process(GTKEvent, bestTrackKTAGTime.at(fTrackID));
-    if(verb) cout<<"prepared"<<endl;
+    cout<<user()<<"prepared"<<endl;
 
-    if(verb) cout<<"prepare correct matching"<<endl;
-    fMatchingRG->Process(GTKEvent, STRAWCand1, bestTrackKTAGTime.at(fTrackID), bestTrackKTAGTime.at(fTrackID), bestTrackRICHTime.at(fTrackID), verb, 0, "");
-    if(verb) cout<<"prepared"<<endl;
+    cout<<user()<<"prepare correct matching"<<endl;
+    fMatchingRG->Process(GTKEvent, STRAWCand1, bestTrackKTAGTime.at(fTrackID), bestTrackKTAGTime.at(fTrackID), bestTrackRICHTime.at(fTrackID), 0, "");
+    cout<<user()<<"prepared"<<endl;
   };
-  if(fSelected) FillHisto("hNSTRAWChambers_singleTracks", STRAWCand1->GetNChambers());
-  if(fSelected) FillHisto("hTrackMomentum", STRAWCand1->GetMomentum());
+  if(fSelected) {
+      FillHisto("hNSTRAWChambers_singleTracks", STRAWCand1->GetNChambers());
+      FillHisto("hTrackMomentum", STRAWCand1->GetMomentum());
+  }
   FillHisto("hSingleTrackSelected", (int)fSelected);
   FillHisto("hCut", cutID);
 }

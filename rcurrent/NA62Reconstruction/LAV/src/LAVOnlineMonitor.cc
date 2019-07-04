@@ -117,7 +117,7 @@ void LAVOnlineMonitor::CreateExpertModeTabs(){
       fHTotEOBRate[iStation-1]->SetLineColor(PlotColor[iStation-1]);
       fHTotEOBRate[iStation-1]->SetLineWidth(5);
       EOBTotRateLAVLegend->AddEntry(fHTotEOBRate[iStation-1],Form("LAV %d", iStation), "P");
-      fHTotEOBRateAllLAVs->Add(fHTotEOBRate[iStation-1]);  
+      fHTotEOBRateAllLAVs->Add(fHTotEOBRate[iStation-1]);
     }
     fHTotEOBRateAllLAVs->Draw("AP");
     EOBTotRateLAVLegend->Draw();
@@ -126,10 +126,10 @@ void LAVOnlineMonitor::CreateExpertModeTabs(){
 LAVOnlineMonitor::~LAVOnlineMonitor() {}
 
 void LAVOnlineMonitor::Update(Int_t BurstID) {
-  
+
   if(fHTotEOBRateAllLAVs){
     Double_t LastValueX=-1., LastValueY=0.;
-    Double_t EOBRateSingleLAV = 0.;
+    Double_t EOBRateSingleLAV;
     TList *TGraphList = fHTotEOBRateAllLAVs->GetListOfGraphs();
     TIter itr(TGraphList);
     TObject *obj(0);
@@ -145,7 +145,7 @@ void LAVOnlineMonitor::Update(Int_t BurstID) {
         EOBRateSingleLAV = (Double_t)(static_cast<LAVReconstruction*>(fReco)->GetEOBRateVsLAV()->GetBinContent(iStation));
         gLAV->SetPoint(gLAV->GetN()+1,BurstID,EOBRateSingleLAV);
         iStation++;
-      }                                                                                                                              
+      }
     }
   }
 

@@ -330,7 +330,6 @@ Bool_t SpectrometerReconstruction::ReconstructHitPerView()
     return 0;
   }
 
-  Int_t nTotalHit = 0;
   Int_t nGoodHit = 0;
   // Resolve L-R ambiguity + reconstruct hit positions in all views
   for (Int_t jChamber = 0; jChamber < 4; jChamber++) {
@@ -339,9 +338,8 @@ Bool_t SpectrometerReconstruction::ReconstructHitPerView()
       GetChamber(jChamber)->GetView(jView)->ReconstructHitPositions(event);
       for (Int_t jPlane = 0; jPlane < 4; jPlane++) {
         Int_t planeGlobID = 16*jChamber + 4*jView + jPlane;
-        Int_t planeNTotalHit = GetChamber(jChamber)->GetView(jView)->GetPlane(jPlane)->GetN();
+        //Int_t planeNTotalHit = GetChamber(jChamber)->GetView(jView)->GetPlane(jPlane)->GetN();
         Int_t planeNGoodHit = GetChamber(jChamber)->GetView(jView)->GetPlane(jPlane)->GetNGoodHit();
-        nTotalHit+= planeNTotalHit;
         nGoodHit+= planeNGoodHit;
         if (fNGoodHitPerPlane) fNGoodHitPerPlane->Fill(planeGlobID, planeNGoodHit);
       }

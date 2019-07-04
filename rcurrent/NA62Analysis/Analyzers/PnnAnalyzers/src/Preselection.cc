@@ -18,12 +18,13 @@ Preselection::Preselection(Core::BaseAnalysis *ba) : Analyzer(ba, "Preselection"
   RequestTree(new TRecoLKrEvent);
   RequestTree(new TRecoSpectrometerEvent);
 
-  AddParam("Verbosity", "bool", &verb, false);
   AddParam("MinCHODHits", "int", &fMinCHODHits, 1);
   AddParam("MinLKrHits", "int", &fMinLKrHits, 1);
   AddParam("MaxLKrHits", "int", &fMaxLKrHits, 2000);
   AddParam("MinSTRAWCandidates", "int", &fMinSTRAWCandidates, 1);
   AddParam("MaxSTRAWCandidates", "int", &fMaxSTRAWCandidates, 10);
+
+  EnablePrefix(false);
 }
 
 void Preselection::InitOutput(){
@@ -56,7 +57,7 @@ void Preselection::Process(int){
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"-------------------"<<endl;
     cout<<"Preselection"<<endl;
@@ -71,48 +72,48 @@ void Preselection::Process(int){
   auto eventPassedTrigger =
     *(bool*)GetOutput("CheckTrigger.EventPassedTrigger", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb) cout<<"Did event pass trigger? "<<eventPassedTrigger<<endl;
+  cout<<user()<<"Did event pass trigger? "<<eventPassedTrigger<<endl;
   if(!eventPassedTrigger){
-    if(verb) cout<<"Event did not pass the trigger"<<endl;
+    cout<<user()<<"Event did not pass the trigger"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
 
   int qualityMask = GetEventHeader()->GetEventQualityMask();
-  if(verb) cout<<"Event quality mask "<<qualityMask<<" = 0 "<<endl;
+  cout<<user()<<"Event quality mask "<<qualityMask<<" = 0 "<<endl;
   if(qualityMask!=0) return;
   FillHisto("hCut", cutID);
   cutID++;
 
   TRecoCHODEvent *CHODEvent = GetEvent<TRecoCHODEvent>();
   FillHisto("hNCHODHits", CHODEvent->GetNHits());
-  if(verb) cout<<"N CHOD hits: "<<CHODEvent->GetNHits()<<" >= "<<fMinCHODHits<<endl;
+  cout<<user()<<"N CHOD hits: "<<CHODEvent->GetNHits()<<" >= "<<fMinCHODHits<<endl;
   if(CHODEvent->GetNHits()<fMinCHODHits) return;
   FillHisto("hCut", cutID);
   cutID++;
 
   TRecoLKrEvent* LKrEvent = GetEvent<TRecoLKrEvent>();
   FillHisto("hNLKrHits", LKrEvent->GetNHits());
-  if(verb) cout<<"N LKr hits: "<<fMinLKrHits<<" <= "<<LKrEvent->GetNHits()<<" <= "<<fMaxLKrHits<<endl;
+  cout<<user()<<"N LKr hits: "<<fMinLKrHits<<" <= "<<LKrEvent->GetNHits()<<" <= "<<fMaxLKrHits<<endl;
   if(LKrEvent->GetNHits()>fMaxLKrHits || LKrEvent->GetNHits()<fMinLKrHits) return;
   FillHisto("hCut", cutID);
   cutID++;
 
   TRecoSpectrometerEvent* STRAWEvent = GetEvent<TRecoSpectrometerEvent>();
   FillHisto("hNSTRAWCandidates", STRAWEvent->GetNCandidates());
-  if(verb) cout<<"N STRAW candidates: "<<fMinSTRAWCandidates<<" <= "<<STRAWEvent->GetNCandidates()<<" <= "<<fMaxSTRAWCandidates<<endl;
+  cout<<user()<<"N STRAW candidates: "<<fMinSTRAWCandidates<<" <= "<<STRAWEvent->GetNCandidates()<<" <= "<<fMaxSTRAWCandidates<<endl;
   if(STRAWEvent->GetNCandidates()<fMinSTRAWCandidates || STRAWEvent->GetNCandidates()>fMaxSTRAWCandidates) return;
   FillHisto("hCut", cutID);
 
   fPreselectedEvent = true;
-  if(verb) cout<<"Preselected event: "<<(int)fPreselectedEvent<<endl;
+  cout<<user()<<"Preselected event: "<<(int)fPreselectedEvent<<endl;
 }
 
 void Preselection::PostProcess(){}

@@ -294,9 +294,7 @@ void SpectrometerDigiManager::InitHistograms(Int_t monitorLevel)
     fHRadiusTotal = new TH1F("strawRadius", "All straws: hit radius; R[mm]", 200, 0, 5);
     fHRadius2D = new TH2F("strawRadius2D", "All straws: Radius vs Leading; t_{lead} [ns]; R [mm]",
                           nBins, minTime, maxTime, 200, 0, 5);
-  }
   // MC true histograms
-  if (monitorLevel >= 2) {
     fHRTDependence = new TH2F("RTDependence","Wire Distance (mm) Vs Leading Time (mus)",
                               400,-0.05,0.35,600,0.,6.);
     fHTRDependence = new TH2F("TRDependence","Leading Time Vs Wire (mus) Distance (mm)",

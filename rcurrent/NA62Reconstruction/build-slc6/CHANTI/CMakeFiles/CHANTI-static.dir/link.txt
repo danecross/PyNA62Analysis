@@ -1,2 +1,0 @@
-/usr/bin/ar qc libCHANTI-static.a  CMakeFiles/CHANTIObjLib.dir/src/CHANTIChannel.cc.o CMakeFiles/CHANTIObjLib.dir/src/CHANTIDigitizer.cc.o CMakeFiles/CHANTIObjLib.dir/src/CHANTIGeometry.cc.o CMakeFiles/CHANTIObjLib.dir/src/CHANTIHitsCluster.cc.o CMakeFiles/CHANTIObjLib.dir/src/CHANTIOnlineMonitor.cc.o CMakeFiles/CHANTIObjLib.dir/src/CHANTIRawDecoder.cc.o CMakeFiles/CHANTIObjLib.dir/src/CHANTIRawEncoder.cc.o CMakeFiles/CHANTIObjLib.dir/src/CHANTIReconstruction.cc.o CMakeFiles/CHANTIObjLib.dir/CHANTIDICT.cxx.o
-/usr/bin/ranlib libCHANTI-static.a

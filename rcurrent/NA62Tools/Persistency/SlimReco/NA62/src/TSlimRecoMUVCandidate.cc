@@ -2,7 +2,11 @@
 
 ClassImp(TSlimRecoMUVCandidate)
 
-void TSlimRecoMUVCandidate::Clear(Option_t *){
+void TSlimRecoMUVCandidate::Clear(Option_t *option){
+    ClearBase(option);
+}
+
+void TSlimRecoMUVCandidate::ClearBase(Option_t *){
 
 	fIndexH = fIndexV = 0;
 	fSeedIndexes = 0;

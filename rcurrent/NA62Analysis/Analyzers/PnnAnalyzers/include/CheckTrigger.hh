@@ -35,6 +35,5 @@ protected:
 
   //parameters
   int fWhichTrigger;
-  bool verb;
 };
 #endif

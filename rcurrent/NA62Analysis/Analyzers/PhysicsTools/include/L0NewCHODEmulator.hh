@@ -9,6 +9,7 @@
 #define L0NEWCHODEMULATOR_H
 
 #include "L0MUV3Emulator.hh"
+#include "TRecoNewCHODHit.hh"
 
 class L0NewCHODEmulator : public L0MUV3Emulator {
 
@@ -20,12 +21,13 @@ public:
   void InitHist();
   void InitOutput();
 
-  void StartOfBurstUser();
-
+  // reimplemented from L0NewCHODEmulator
+  void ReadT0s();
   void FillTimes();
   void SetPrimitiveIDs(ClusVec::iterator clustit);
 
   // NewCHOD specific functions
+  Double_t GetRawTime(TRecoNewCHODHit* hit);
   void AddHitToSplit(ClusVec& SplitClusters, HitVec::iterator hitit);
   void GenerateAccidentals();
   void ParseInputFile(TString fname);

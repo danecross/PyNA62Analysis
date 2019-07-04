@@ -1,0 +1,2 @@
+/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ar qc libSAVPersistency-static.a  CMakeFiles/SAVObjPersistencyLib.dir/src/SAVChannelID.cc.o CMakeFiles/SAVObjPersistencyLib.dir/src/TRecoSAVCandidate.cc.o CMakeFiles/SAVObjPersistencyLib.dir/src/TRecoSAVEvent.cc.o CMakeFiles/SAVObjPersistencyLib.dir/src/TRecoSAVHit.cc.o CMakeFiles/SAVObjPersistencyLib.dir/src/TSAVDigi.cc.o CMakeFiles/SAVObjPersistencyLib.dir/SAVPersistencyDICT.cxx.o
+/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ranlib libSAVPersistency-static.a

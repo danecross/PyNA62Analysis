@@ -1,5 +1,5 @@
 // --------------------------------------------------------------
-// 
+//
 // \Brief
 // The GTK reconstruction algorithm
 // \EndBrief
@@ -20,7 +20,7 @@
 // - read 2014 data
 //
 // Modified by Bob Velghe (bob.velghe@cern.ch) Aug. 2014
-// - Add hooks for the online monitor 
+// - Add hooks for the online monitor
 //
 // Modified by Bob Velghe 2014-08-04
 // - Add misalignment (time and position) parameters
@@ -91,8 +91,8 @@ GigaTrackerReconstruction::GigaTrackerReconstruction(TFile* HistoFile, TString C
   mHistErrSet = false;
   fDBFileName = "";
   //  fDisableCandidates = 0;
-  
-  // Algorithm parameters 
+
+  // Algorithm parameters
   fClight            = TMath::C();
   fTimeWindow        = -999.; // ns
   fTimeWindowTrigger = -999.; // ns
@@ -126,7 +126,7 @@ GigaTrackerReconstruction::~GigaTrackerReconstruction() {
 
 //==============================================
 void GigaTrackerReconstruction::Init(NA62VReconstruction* MainReco){
-  //common part for all the subdetectors 
+  //common part for all the subdetectors
   NA62VReconstruction::Init(MainReco);
   fMC = 0;
   if (!static_cast<NA62Reconstruction*>(MainReco)->GetIsRawData()) fMC = 1;
@@ -155,7 +155,7 @@ void GigaTrackerReconstruction::ParseConfFile(TString ConfFileName){
     perror(Form("Configuration File : %s",ConfFileName.Data()));
     exit(kWrongConfiguration);
   }
-  
+
   TString Line;
   TObjArray * line;
   while(Line.ReadLine(confFile)){
@@ -164,7 +164,7 @@ void GigaTrackerReconstruction::ParseConfFile(TString ConfFileName){
       line = Line.Tokenize(" ");
       fDBFileName = static_cast<TObjString*>(line->At(2))->GetString();
       delete line;
-    } 
+    }
     else if (Line.BeginsWith("EnableRawTimeCorrections")) {
       fEnableRawTimeCorrections = TString(Line(TRegexp("[0-1]"))).Atoi();
     }
@@ -198,7 +198,7 @@ void GigaTrackerReconstruction::ParseConfFile(TString ConfFileName){
       fChi2T = static_cast<TObjString*>(line->At(1))->GetString().Atof();
       delete line;
     }
-  } 
+  }
   confFile.close();
   return;
 }
@@ -263,7 +263,7 @@ void GigaTrackerReconstruction::LoadT0(){
     }
     delete tok;
   }
-  NA62ConditionsService::GetInstance()->Close(fT0FileName);      
+  NA62ConditionsService::GetInstance()->Close(fT0FileName);
 }
 
 void GigaTrackerReconstruction::StartOfBurst(){
@@ -322,11 +322,11 @@ TRecoVEvent * GigaTrackerReconstruction::ProcessEOBEvent(TDetectorVEvent* tEvent
 //==============================================
 TRecoVEvent * GigaTrackerReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* tGenEvent){
   if (tEvent->IsA()->InheritsFrom("TSpecialTriggerEvent")){
-    if(!isL0EOB(tEvent->GetTriggerType())) return 0; //skip SOB  
+    if(!isL0EOB(tEvent->GetTriggerType())) return 0; //skip SOB
     return ProcessEOBEvent(tEvent,tGenEvent);
   }
 
-  // Common part for all the subdetectors 
+  // Common part for all the subdetectors
   NA62VReconstruction::ProcessEvent(tEvent, tGenEvent);
 
   if(fMC && fRunID == -1 ) StartOfBurst();
@@ -338,7 +338,7 @@ TRecoVEvent * GigaTrackerReconstruction::ProcessEvent(TDetectorVEvent* tEvent, E
   Int_t NDigis = tGigaTrackerEvent->GetNHits();
   TClonesArray & Digis = (* (tGigaTrackerEvent->GetHits()));
   fRefTime = rawHeader->GetFineTime() * TdcCalib;
-  
+
   // DIGI to RECO applying Tzero and Time walk
   for(int i(0);i<3;i++){
     for(int j(0);j<11;j++){
@@ -361,11 +361,11 @@ TRecoVEvent * GigaTrackerReconstruction::ProcessEvent(TDetectorVEvent* tEvent, E
     (*(GigaTrackerChannelID*) RecoHit) = (*(GigaTrackerChannelID*) Digi);
     (*(TVHit*) RecoHit) = (*(TVHit*) Digi);
     //-------------------------------------------------------------
-    
+
     // Is hit pile up?---------------------------------------------
     RecoHit->SetIsPileUpHit(Digi->GetIsPileUp());
     //-------------------------------------------------------------
-    
+
     // Hit position-------------------------------------------------
     int iS = Digi->GetStationNo();
     int iC = Digi->GetChipID();
@@ -427,7 +427,7 @@ TRecoVEvent * GigaTrackerReconstruction::ProcessEvent(TDetectorVEvent* tEvent, E
     fHRawTime[iS][10]->Fill(RawTime-rawHeader->GetFineTime()*ClockPeriod/256.0);
     fHRawTimeProfile[iS][iC]->Fill(AbsTime*1e-9,RawTime-rawHeader->GetFineTime()*ClockPeriod/256.0);
     fHRawTimeProfile[iS][10]->Fill(AbsTime*1e-9,RawTime-rawHeader->GetFineTime()*ClockPeriod/256.0);
-    
+
     if ((rawHeader->GetTriggerType()&0xff)==0x08 || (rawHeader->GetTriggerType()&0xff)==0x31){
       fNHitsPerTriggerOOB[iS][iC] += 1;
       fNHitsPerTriggerOOB[iS][10] += 1;
@@ -457,7 +457,7 @@ TRecoVEvent * GigaTrackerReconstruction::ProcessEvent(TDetectorVEvent* tEvent, E
   }
 
   //////////////////////////////////////////////////////////////////////////////////////////////
-  // Fill histograms with MCTruth information 
+  // Fill histograms with MCTruth information
 
   TClonesArray& KinePartsArray = *(tGenEvent->GetKineParts());
   TVector3 TrueMomentum;
@@ -521,17 +521,17 @@ void GigaTrackerReconstruction::EndProcessing() {
 void GigaTrackerReconstruction::InitHistograms(){
   GetOrMakeDir(fHistoFile,"GigaTrackerMonitor")->cd();
   GetOrMakeDir(fHistoFile,"GigaTrackerMonitor/Reco")->cd();
-  
+
   for(int iS(0); iS<3; iS++){
     // This histo is for EOB monitor:
     fHCoarseHitMap[iS]          = new TH2F(Form("CoarseHitMap_%d",iS+1),Form("Coarse Hit Map in GTK%d; X; Y",iS+1),10,0.,5., 2,-0.5,1.5);
 
     fHHitMap[iS]                = new TH2F(Form("HitMap_%d",iS+1),Form("Hit Map in GTK%d;x [Pixel];y [Pixel]",iS+1),200,0,200,90,0,90);
-    fHAbsTimeProfile[iS]        = new TH1D(Form("AbsTimeProfile_%d",iS+1),Form("Time Profile in GTK%d;t [s]; count",iS+1),1500,0,6.5);   
-    fHAbsTimeProfileZoom[iS]    = new TH1D(Form("AbsTimeProfileZoom_%d",iS+1),Form("Zoom Time Profile in GTK%d;t [s]; count",iS+1),500,3.0,3.1);   
-    fHHitMapOOB[iS]             = new TH2F(Form("OOB_HitMap_%d",iS+1),Form("Hit Map in GTK%d;x [Pixel];y [Pixel]",iS+1),200,0,200,90,0,90);    
-    fHAbsTimeProfileOOB[iS]     = new TH1D(Form("OOB_AbsTimeProfile_%d",iS+1),Form("Time Profile in GTK%d;t [s]; count",iS+1),1500,0,6.5);  
-    fHAbsTimeProfileZoomOOB[iS] = new TH1D(Form("OOB_AbsTimeProfileZoom_%d",iS+1),Form("Zoom Time Profile in GTK%d;t [s]; count",iS+1),500,0.5,0.6);    
+    fHAbsTimeProfile[iS]        = new TH1D(Form("AbsTimeProfile_%d",iS+1),Form("Time Profile in GTK%d;t [s]; count",iS+1),1500,0,6.5);
+    fHAbsTimeProfileZoom[iS]    = new TH1D(Form("AbsTimeProfileZoom_%d",iS+1),Form("Zoom Time Profile in GTK%d;t [s]; count",iS+1),500,3.0,3.1);
+    fHHitMapOOB[iS]             = new TH2F(Form("OOB_HitMap_%d",iS+1),Form("Hit Map in GTK%d;x [Pixel];y [Pixel]",iS+1),200,0,200,90,0,90);
+    fHAbsTimeProfileOOB[iS]     = new TH1D(Form("OOB_AbsTimeProfile_%d",iS+1),Form("Time Profile in GTK%d;t [s]; count",iS+1),1500,0,6.5);
+    fHAbsTimeProfileZoomOOB[iS] = new TH1D(Form("OOB_AbsTimeProfileZoom_%d",iS+1),Form("Zoom Time Profile in GTK%d;t [s]; count",iS+1),500,0.5,0.6);
     TString SuffixName;
     TString SuffixTitle;
     for(int iC(0); iC<11; iC++){
@@ -543,7 +543,7 @@ void GigaTrackerReconstruction::InitHistograms(){
         SuffixName = Form("-%d",iC);
         SuffixTitle = Form(" Chip %d",iC);
       }
-      
+
       fHToT[iS][iC]                = new TH1D(Form("ToT_%d%s",iS+1,SuffixName.Data()),
                                               Form("ToT in GTK%d%s;ToT [ns]; count",iS+1,SuffixTitle.Data()),256,0,200);
       fHTime[iS][iC]               = new TH1D(Form("Time_%d%s",iS+1,SuffixName.Data()),
@@ -707,9 +707,9 @@ void GigaTrackerReconstruction::SaveHistograms(){
       fHNHitsPerTrigger[iS][iC] ->Write();
       fHToTOOB[iS][iC]->Write();
       fHTimeOOB[iS][iC]->Write();
-      fHNHitsPerTriggerOOB[iS][iC] ->Write();   
+      fHNHitsPerTriggerOOB[iS][iC] ->Write();
     }
-  }      
+  }
 
   // MC HISTOS
   fHistoFile->cd("GigaTrackerMonitor/MC");
@@ -776,11 +776,9 @@ void GigaTrackerReconstruction::ReconstructCandidates(TRecoVEvent*){
     }
 
     // Building Candidate
-    // Only one case for now: GTK123
     int NC0 = mC.count(0);
     int NC1 = mC.count(1);
     int NC2 = mC.count(2);
-    int cType = 123;
 
     TRecoGigaTrackerCandidate* newCand;
     pair <multimap<int, Cluster>::iterator, multimap<int, Cluster>::iterator> ii0,ii1,ii2;
@@ -795,6 +793,8 @@ void GigaTrackerReconstruction::ReconstructCandidates(TRecoVEvent*){
             newCand = static_cast<TRecoGigaTrackerCandidate*>(fRecoEvent->AddCandidate());
             for(int s(0); s<3; s++){
               TVector3 pos(cs[s].X,cs[s].Y,cs[s].Z);
+              // Only one case for now: GTK123
+              int cType = 123;
               newCand->SetType(cType);
               newCand->SetPosition(s,pos);
               newCand->SetTimeStation(s,cs[s].T);
@@ -817,25 +817,25 @@ void GigaTrackerReconstruction::ReconstructCandidates(TRecoVEvent*){
             }
           }
         }
-      } 
+      }
     }
     mC.clear();
   }
 }
 
 void GigaTrackerReconstruction::BuildCandidate(TRecoGigaTrackerCandidate* cand){
-  Double_t BLbend    = -1.0 * fParameters->GetGigaTrackerMCBMagnetFieldStrength(0) * 
+  Double_t BLbend    = -1.0 * fParameters->GetGigaTrackerMCBMagnetFieldStrength(0) *
                        fParameters->GetGigaTrackerMCBMagnetLength().Z();
-  Double_t DeltaBend = fParameters->GetGigaTrackerMCBMagnetPosition(1).Z() - 
+  Double_t DeltaBend = fParameters->GetGigaTrackerMCBMagnetPosition(1).Z() -
                        fParameters->GetGigaTrackerMCBMagnetPosition(0).Z();
   Double_t Beta      = 1e-3 * fClight * BLbend * DeltaBend;
-  Double_t BLtrim    = fParameters->GetGigaTrackerMDXMagnetFieldStrength() * 
+  Double_t BLtrim    = fParameters->GetGigaTrackerMDXMagnetFieldStrength() *
                        fParameters->GetGigaTrackerMDXMagnetLength().Z();
-  Double_t Delta12   = fParameters->GetGigaTrackerStationPositionRaw(1).Z() - 
+  Double_t Delta12   = fParameters->GetGigaTrackerStationPositionRaw(1).Z() -
                        fParameters->GetGigaTrackerStationPositionRaw(0).Z();
-  Double_t Delta13   = fParameters->GetGigaTrackerStationPositionRaw(2).Z() - 
+  Double_t Delta13   = fParameters->GetGigaTrackerStationPositionRaw(2).Z() -
                        fParameters->GetGigaTrackerStationPositionRaw(0).Z();
-  Double_t Delta23   = fParameters->GetGigaTrackerStationPositionRaw(2).Z() - 
+  Double_t Delta23   = fParameters->GetGigaTrackerStationPositionRaw(2).Z() -
                        fParameters->GetGigaTrackerStationPositionRaw(1).Z();
   Double_t X[3], Xshift[3], Y[3], T[3];
   for (Int_t iStation=0; iStation<fNStations; iStation++) {
@@ -844,14 +844,14 @@ void GigaTrackerReconstruction::BuildCandidate(TRecoGigaTrackerCandidate* cand){
     Y[iStation] = cand->GetPosition(iStation).Y();
     T[iStation] = cand->GetTimeStation(iStation); // ns
   }
-  Double_t alpha = (fParameters->GetGigaTrackerStationPositionRaw(1).Z() - 
-                    fParameters->GetGigaTrackerStationPositionRaw(0).Z()) / 
-                   (fParameters->GetGigaTrackerStationPositionRaw(2).Z() - 
+  Double_t alpha = (fParameters->GetGigaTrackerStationPositionRaw(1).Z() -
+                    fParameters->GetGigaTrackerStationPositionRaw(0).Z()) /
+                   (fParameters->GetGigaTrackerStationPositionRaw(2).Z() -
                     fParameters->GetGigaTrackerStationPositionRaw(0).Z());
   Double_t p = Beta / (Y[0] * (1.0-alpha) - Y[1] - fParameters->GetGigaTrackerStationPositionRaw(1).Y() + (alpha*Y[2]));
   Double_t ShiftTrim[3] = {0.,0.,0.};
   for (Int_t i=0; i<fNStations; i++) {
-    Double_t DeltaTrim = fParameters->GetGigaTrackerStationPositionCorrected(i).Z() - 
+    Double_t DeltaTrim = fParameters->GetGigaTrackerStationPositionCorrected(i).Z() -
                          fParameters->GetGigaTrackerMDXMagnetPosition().Z();
     ShiftTrim[i] = -((1e-3*fClight * BLtrim) / p) * DeltaTrim;
     if (i!=(fNStations-1)) Xshift[i] += ShiftTrim[i];   // Correct the TRIM5 effect for GTK1 and 2
@@ -859,7 +859,7 @@ void GigaTrackerReconstruction::BuildCandidate(TRecoGigaTrackerCandidate* cand){
 
   // ---  Candidate Time
   // Double_t Time = (T[0] + T[1] + T[2]) / 3.0; //ns (old implemenation)
-  // Weighted average to deal with double pixel hits 
+  // Weighted average to deal with double pixel hits
   // 1/ count pixels per hit
   Int_t nPixels[3]={0,0,0};
   Bool_t IsPileUpHit[3] = {false, false, false};
@@ -869,18 +869,18 @@ void GigaTrackerReconstruction::BuildCandidate(TRecoGigaTrackerCandidate* cand){
     Int_t iS = fGTKHit->GetStationNo();
     nPixels[iS]++;
     HitIndex[iS].push_back(iH);
-    if ( fGTKHit->GetIsPileUpHit() ) IsPileUpHit[iS] = true; 
-  }	
+    if ( fGTKHit->GetIsPileUpHit() ) IsPileUpHit[iS] = true;
+  }
   // 2/ assign to the time measurement in each station an uncertainty based on the number of pixel/hit
   // DATA (2017)
   // 1-pixel hit: 0.135 ns (default)
-  // 2-pixel hit: 0.180 ns (+35% degradation) 
+  // 2-pixel hit: 0.180 ns (+35% degradation)
   // pile-up hit: 0.600 ns (educated guess...)
   Double_t errT[3]={0.125, 0.125, 0.125}; // by default
   for (Int_t iS=0; iS<fNStations; iS++) {
     if (fMC) {
-      errT[iS] = fParameters->GetSigmaT(iS); // in order to match the smearing in digitizer 
-      continue;  
+      errT[iS] = fParameters->GetSigmaT(iS); // in order to match the smearing in digitizer
+      continue;
     }
     errT[iS] = nPixels[iS]==1 ? 0.135 : 0.180;
     if ( IsPileUpHit[iS] ) errT[iS] = 0.600;
@@ -891,7 +891,7 @@ void GigaTrackerReconstruction::BuildCandidate(TRecoGigaTrackerCandidate* cand){
   for (Int_t iS=0; iS<3; iS++) {
     wSum += 1./(errT[iS]*errT[iS]);
     tSum += T[iS]/(errT[iS]*errT[iS]);
-  }  
+  }
   Double_t Time = tSum/wSum; // ns
   Double_t sigmaT = 1./TMath::Sqrt(wSum);
 
@@ -912,20 +912,20 @@ void GigaTrackerReconstruction::BuildCandidate(TRecoGigaTrackerCandidate* cand){
       Int_t iCol = fGTKHit->GetColumn();
       if ( iCol>0 && iCol<199 && (iCol%40==0 || iCol%40==39) ) {
   	    sigmaX[iS]=0.1155;
-      } 
+      }
     }
-    else  sigmaX[iS] = 0.0866; 
+    else  sigmaX[iS] = 0.0866;
   } // end of loop on iS
 
   // Add Multiple Scattering
-  // was: GTK2 = 680e-3; GTK3 = 580e-3, assuming cooling plate thicknesses as 380mum and 280mum respectively 
-  Double_t GTKthickness[2] = {0.,0.}; // thickness in mm for GTK2 and GTK3 = Z_chip + Z_sensor + Z_cooling_plate  
+  // was: GTK2 = 680e-3; GTK3 = 580e-3, assuming cooling plate thicknesses as 380mum and 280mum respectively
+  Double_t GTKthickness[2] = {0.,0.}; // thickness in mm for GTK2 and GTK3 = Z_chip + Z_sensor + Z_cooling_plate
   Double_t theta[2];
   for (Int_t i=0; i<2; i++){
-    GTKthickness[i] = fParameters->GetGigaTrackerSensorLength(i+1).Z() + 
-                      fParameters->GetGigaTrackerChipLength(i+1).Z() + 
-                      fParameters->GetCoolingPlateLength(i+1).Z() - 
-                      fParameters->GetCoolingPlateBottomDepth(i+1) - 
+    GTKthickness[i] = fParameters->GetGigaTrackerSensorLength(i+1).Z() +
+                      fParameters->GetGigaTrackerChipLength(i+1).Z() +
+                      fParameters->GetCoolingPlateLength(i+1).Z() -
+                      fParameters->GetCoolingPlateBottomDepth(i+1) -
                       fParameters->GetCoolingPlateTopDepth(i+1);
     theta[i]        = 13.6e6/p * TMath::Sqrt(GTKthickness[i]/93.7) *
                       (1 + 0.038 * TMath::Log(GTKthickness[i]/93.7));
@@ -986,9 +986,9 @@ void GigaTrackerReconstruction::LinearLeastSquareFit(Double_t *x, Double_t *y, I
     for(Int_t i=0; i < Nsample ; i++){
       Double_t wgt = 1./(sigma[i]*sigma[i]);
       sumx  += x[i]*wgt;
-      sumxx += x[i]*x[i]*wgt; 
-      sumy  += y[i]*wgt; 
-      sumxy += x[i]*y[i]*wgt; 
+      sumxx += x[i]*x[i]*wgt;
+      sumy  += y[i]*wgt;
+      sumxy += x[i]*y[i]*wgt;
       sums  += wgt;
     }
     a = (sumxx*sumy  - sumx*sumxy) / (sums*sumxx - sumx*sumx);

@@ -14,7 +14,7 @@ class StrawResponse
 
 public:
 
-   StrawResponse(TRandom3*);
+   explicit StrawResponse(TRandom3*);
   ~StrawResponse();
 
    float RTS(float xh);                           // RT-scaling function for the simple simulation
@@ -33,9 +33,9 @@ private:
    float fP1,fP2,fP3,fP4,fP5,fP6,fP7,fP8;
    Double_t fTmin,fTmax;
 
-// Constants for the radius-dependent inefficiency, obtained from 
+// Constants for the radius-dependent inefficiency, obtained from
 // GARFIELD simulation
-   float fAeff, fBeff; 
+   float fAeff, fBeff;
 
    TRandom3* fRandom;
 };

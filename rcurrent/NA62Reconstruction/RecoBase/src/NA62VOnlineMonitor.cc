@@ -28,7 +28,7 @@ NA62VOnlineMonitor::NA62VOnlineMonitor(TRootBrowser* MainWindow, NA62VReconstruc
   fMainTab = new TGTab(fMainTabFrame,300,300);
   fMainTab->SetName(Name);
 
-  UInt_t nROBoards = 0;
+  UInt_t nROBoards;
   fDecoderErrorsValues = 0;
   if(fReco && fReco->GetRawDecoder() && fReco->GetRawDecoder()->GetDecoder()) {
     nROBoards = fReco->GetRawDecoder()->GetDecoder()->GetNROBoards();
@@ -246,9 +246,8 @@ void NA62VOnlineMonitor::Update(Int_t /*BurstID*/) {
     //Update DIM services
     strcpy(fDecoderErrorsString,"");
     TH1D* hDecoderErrors1D = 0;
-    int iFirstBin = 1;
     int iLastBin = fReco->GetRawDecoder()->GetDecoder()->GetNCriticalErrorTypes();
-    if(hDecoderErrors) hDecoderErrors1D = hDecoderErrors->ProjectionX(Form("%s%s1D",fReco->GetName().Data(),hDecoderErrors->GetName()),iFirstBin,iLastBin);
+    if(hDecoderErrors) hDecoderErrors1D = hDecoderErrors->ProjectionX(Form("%s%s1D",fReco->GetName().Data(),hDecoderErrors->GetName()),1,iLastBin);
     for(UInt_t iBoard=0;iBoard<nROBoards;iBoard++){
       Int_t NErrorsInBoard = 0;
       Int_t ErrorID = 0;

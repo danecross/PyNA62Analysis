@@ -27,7 +27,6 @@ public:
 protected:
   bool fReadingData;
   bool fPreselectedEvent;
-  bool verb;
   int fMinCHODHits;
   int fMinLKrHits;
   int fMaxLKrHits;

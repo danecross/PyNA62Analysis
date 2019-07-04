@@ -103,7 +103,7 @@ int GetDir (string Dir, vector<string> &Files)
   gSystem->Sleep(10) ;
   ifstream MyFile;
   MyFile.open ("tempfile.txt");
-  
+
   string Line;
   if (MyFile.is_open()){
     while ( getline (MyFile,Line) ){
@@ -129,7 +129,7 @@ void* RunMon(void * /*ptr*/){
   TTree * TLKR = NULL ;
   TTree * TTALK = NULL ;
   TTree * TIRC = NULL ;
-  
+
   if (FileInput){
     // Parsing the filename to get the run and burst IDs
     Int_t pos = InFilename.Index("run");
@@ -147,9 +147,9 @@ void* RunMon(void * /*ptr*/){
       cout << "[warning] Could not parse burst number from file name, using 0.\n";
       BurstID = 0;
     }
-    TString RunBurstName(Form(PlotsDir+"/run%d_burst%d_",RunID, BurstID));      
+    TString RunBurstName(Form(PlotsDir+"/run%d_burst%d_",RunID, BurstID));
 
-    TString RunBurst(Form("Run: %d  Burst: %d",RunID, BurstID));      
+    TString RunBurst(Form("Run: %d  Burst: %d",RunID, BurstID));
 
     printf("Processing Run: %d, Burst: %d \n", RunID, BurstID);
 
@@ -177,37 +177,37 @@ void* RunMon(void * /*ptr*/){
       if(LAVMon && TLAV->GetEntries()!=0) LAVMon->Update(TLAV, RunBurst, RunBurstName);
     }
     else cout << " the LAV tree is missing. Will not update LAV tab" << endl ;
-	
+
     if(TRICH){
       cout << "now updating the RICH tab. N entries: "<< TRICH->GetEntries() << endl ;
       if(RICHMon && TRICH->GetEntries()!=0) RICHMon->Update(TRICH, RunBurst, RunBurstName);
     }
     else cout << " the RICH tree is missing. Will not update RICH tab" << endl ;
-	
+
     if(TCHOD){
       cout << "now updating the CHOD tab. N entries: "<< TCHOD->GetEntries() << endl ;
       if(CHODMon&& TCHOD->GetEntries()!=0) CHODMon->Update(TCHOD, RunBurst, RunBurstName);
     }
     else cout << " the CHOD tree is missing. Will not update CHOD tab" << endl ;
- 
+
     if(TMUV){
       cout << "now updating the MUV3 tab. N entries: "<< TMUV->GetEntries() << endl ;
       if(MUVMon && TMUV->GetEntries()!=0) MUVMon->Update(TMUV, RunBurst, RunBurstName);
     }
     else cout << " the MUV3 tree is missing. Will not update MUV3 tab" << endl ;
-    
+
     if(TLKR){
       cout << "now updating the LKR tab. N entries: "<< TLKR->GetEntries() << endl ;
       if(LKRMon && TLKR->GetEntries()!=0) LKRMon->Update(TLKR, RunBurst, RunBurstName);
     }
     else cout << " the LKR tree is missing. Will not update LKR tab" << endl ;
-    
+
     if(TIRC){
       cout << "now updating the IRC (NewCHOD) tab. N entries: "<< TIRC->GetEntries() << endl ;
       if(IRCMon && TIRC->GetEntries()!=0) IRCMon->Update(TIRC, RunBurst, RunBurstName);
     }
     else cout << " the IRC (NewCHOD) tree is missing. Will not update IRC tab" << endl ;
-      
+
     if(TTALK){
       cout << "now updating the TALK tab. N entries: "<< TTALK->GetEntries() << endl ;
       if(TALKMon && TTALK->GetEntries()!=0) TALKMon->Update(TTALK, RunBurst, RunBurstName);
@@ -221,7 +221,7 @@ void* RunMon(void * /*ptr*/){
 #ifdef DIM
     struct tm *Time;
     time_t Time_t;
-    Int_t NFiles = 0;
+    Int_t NFiles;
     Burst Timing;
     int InBurst = 0;
 
@@ -234,13 +234,13 @@ void* RunMon(void * /*ptr*/){
       if(!Timing.GetInBurst() && InBurst){
 	cout << "EOB" << endl;
 	gSystem->Sleep(1000);
-	InBurst = 0;    
+	InBurst = 0;
 
 	vector<string> files = vector<string>();
-      
-	// get list of files in Dir. 
+
+	// get list of files in Dir.
 	//int succ = GetDir(DirInput.Data(),files) ;
-      
+
 	// get number of files in Dir
 	NFiles = files.size();
 	if(NFiles == 0){
@@ -248,7 +248,7 @@ void* RunMon(void * /*ptr*/){
 	  gSystem->Sleep(10000) ;
 	  continue;
 	}
-             
+
 	InputFileName = DirInput+"/"+files[NFiles-2].c_str();
 	cout << " input file is " << files[NFiles-2].c_str() << endl ;
 	if(InputFileName == OldInputFileName){
@@ -271,10 +271,10 @@ void* RunMon(void * /*ptr*/){
 	if (BurstID == 0 || pos == -1) {
 	  BurstID = 0;
 	}
-	TString RunBurstName(Form(PlotsDir+"/run%d_burst%d_",RunID, BurstID));    
+	TString RunBurstName(Form(PlotsDir+"/run%d_burst%d_",RunID, BurstID));
 
 	printf("Processing Run: %d, Burst: %d \n", RunID, BurstID);
-      
+
 	InFile = new TFile( Form("%s",InputFileName.Data()) ) ;
 	TLAV = NULL ;
 	InFile->GetObject("LAV", TLAV);
@@ -291,7 +291,7 @@ void* RunMon(void * /*ptr*/){
 	TIRC = NULL ;
 	InFile->GetObject("IRC", TIRC);
 
-	// get local time 
+	// get local time
 	Time_t = Timing.GetTS();
 	Time = localtime(&Time_t);
 	string Months12[]= {"Jan", "Feb", "Mar", "Apr",
@@ -354,9 +354,9 @@ void* RunMon(void * /*ptr*/){
 
   }
   return nullptr;
-}  
-//------------------------------------------------------//  
-int main(int argc, char* argv[]) {  
+}
+//------------------------------------------------------//
+int main(int argc, char* argv[]) {
 
   // load Primitives.conf file
   std::ifstream confFile("config/Primitives.conf");
@@ -392,7 +392,7 @@ int main(int argc, char* argv[]) {
     }
   }
 
-  confFile.close();  
+  confFile.close();
   cout << PlotsDir.Data() << " " << SavePlots << endl;
   struct stat filestat;
   if(SavePlots && stat(PlotsDir, &filestat)!=0) mkdir(PlotsDir, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
@@ -423,7 +423,7 @@ int main(int argc, char* argv[]) {
   gSystem->ResetSignal(kSigBus, true);
   gSystem->ResetSignal(kSigSegmentationViolation, true);
   gSystem->ResetSignal(kSigIllegalInstruction, true);
-  gSystem->ResetSignal(kSigFloatingException, true); 
+  gSystem->ResetSignal(kSigFloatingException, true);
   gStyle->SetOptStat(0);
   gStyle->SetPadColor(kWhite);
   gStyle->SetTitleFontSize(0.06);
@@ -461,7 +461,7 @@ int main(int argc, char* argv[]) {
 
   TThread * Thrd = new TThread("td", RunMon, (void*) 0);
   Thrd->Run();
-  PrimMonApp.Run(); 
+  PrimMonApp.Run();
 
-  exit(EXIT_SUCCESS); 
+  exit(EXIT_SUCCESS);
 }

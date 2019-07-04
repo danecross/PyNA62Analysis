@@ -136,6 +136,5 @@ private:
   int fCutMinNSectorsKTAG;
   double fCutTimeDiffCedarDownstreamData;
   double fCutTimeDiffCedarDownstreamMC;
-  bool verb;
 };
 #endif

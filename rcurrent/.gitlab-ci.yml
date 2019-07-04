@@ -1,0 +1,661 @@
+# This file is organised in the following way:
+# 1) The first section contains general instructions for the gitlab CI engine
+# 2) The second section contains definition for jobs building the framework (build-* stages)
+# 3) The third section contains definition for jobs generating files (gen-* stage). Those jobs
+#    are independent and can run concurently.
+# 4) The fourth section contains definition for jobs testing the content of the files generated
+#    in the previous stage (test-* stage). They will run after all the gen-* jobs finished, but 
+#    they are independent and will run concurently.
+# 5) The last section contains definition for jobs creating docker images for each step. This
+#    will allow to restart from any point when developing tests
+#
+# Each section is subdivided into subsection containing template for the jobs of the section (starts, 
+# with a . (dot) in order not to be interpreted as a job by gitlab-ci) followed by the actual
+# definition of the jobs.
+
+# ====== gitlab-ci section
+
+# This script is run before each job, just after cloning/updating the git repository and 
+# restoring the artifacts from previous jobs of the pipeline.
+# It ensures that the repository is clean (no new file added from other branches), before merging 
+# target branch. We are therefore testing the would-be result after the merge request has been 
+# approved instead of the branch itself. 
+# This script then makes sure that files generated from previous jobs in the pipeline 
+# (compiled code, libraries, ...) and imported from the artifacts are restored. 
+before_script:
+  - /cvmfs/sft.cern.ch/lcg/contrib/git/bin/git config user.email "na62_ci@cern.ch"
+  - /cvmfs/sft.cern.ch/lcg/contrib/git/bin/git config user.name "NA62 CI"
+  - if [ ! -z "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME" ]; then
+  - /cvmfs/sft.cern.ch/lcg/contrib/git/bin/git fetch origin $CI_MERGE_REQUEST_TARGET_BRANCH_NAME
+  - /cvmfs/sft.cern.ch/lcg/contrib/git/bin/git stash --include-untracked
+  - /cvmfs/sft.cern.ch/lcg/contrib/git/bin/git merge --no-commit origin/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME
+  - /cvmfs/sft.cern.ch/lcg/contrib/git/bin/git stash pop || true
+  - /cvmfs/sft.cern.ch/lcg/contrib/git/bin/git stash clear
+  - fi
+variables:
+  GIT_DEPTH : "1000"
+
+# === Definition of stages
+stages:
+  - build-tools
+  - build-mc_and_reco
+  - build-analysis_fw
+  - build-docker-image
+  - gen-mc_reco_ana
+  - test-mc_reco_ana
+
+
+# ====== The following contains the definition of the build-* jobs. They constitute the
+# ====== basic tests (compilation succeed).
+
+# === Templates for build jobs
+# These templates are "importable" and allows to defined the tests mostly independently
+# of the target system (SLC6 - CC7).
+.build_job: &build_job
+  only:
+    - triggers
+    - merge_requests
+    - tags
+    - /^gitlabci\/.*$/
+  tags:
+    - cvmfs
+  #variables: #No debugging trace needed in standard conditions
+  #  CI_DEBUG_TRACE: "true"
+    
+  
+.build_jobs_cc7: &build_jobs_cc7
+  image: gitlab-registry.cern.ch/na62fw/na62docker:build-env-cc7-prod
+  <<: *build_job
+
+.build_jobs_slc6: &build_jobs_slc6
+  image: gitlab-registry.cern.ch/na62fw/na62docker:build-env-slc6-prod
+  <<: *build_job
+  
+# === List of build jobs
+
+# -- Jobs for build-tools stage
+code_quality:
+  stage: build-tools
+  image: gitlab-registry.cern.ch/nlurkin/na62codetest:latest
+  allow_failure: true
+  before_script: []
+  only: [merge_requests, push, tags]
+  script:
+    - run_na62_tests.py
+  artifacts:
+      paths:
+        - gl-code-quality-report.json
+      reports:
+        junit:
+           - flake8.xml
+           - shellcheck.xml
+           - fixme.xml
+           - cppcheck.xml
+           - lonecout.xml
+
+build_tools_cc7:
+  <<: *build_jobs_cc7
+  stage: build-tools
+  script:
+    - export NA62TOOLSSOURCE=$CI_PROJECT_DIR/NA62Tools
+    - mkdir $NA62TOOLSSOURCE/build
+    - set +e # Disable exit immediately
+    - . $NA62TOOLSSOURCE/scripts/env.sh
+    - set -e # Enable exit immediately
+    - cd $NA62TOOLSSOURCE/build
+    - cmake $NA62TOOLSSOURCE
+    - make install -j8 2> >(tee -a NA62Tools.cc7.err >&2)
+    - $CI_PROJECT_DIR/CITests/check_warnings.sh NA62Tools.cc7.err
+  artifacts:
+    name: na62tools_gems
+    paths: #All paths to files and directories are relative to the repository that was cloned during the build.
+      - $CI_PROJECT_DIR/NA62Tools/lib-cc7
+      - $CI_PROJECT_DIR/NA62Tools/config
+    expire_in: 1 day
+
+build_tools_slc6:
+  <<: *build_jobs_slc6
+  stage: build-tools
+  script:
+    - ln -s /usr/lib64/libXm.so.4 /usr/lib64/libXm.so
+    - ln -s /usr/lib64/libSM.so.6 /usr/lib64/libSM.so
+    - ln -s /usr/lib64/libICE.so.6 /usr/lib64/libICE.so
+    - ln -s /usr/lib64/libXmu.so.6 /usr/lib64/libXmu.so
+    - ln -s /usr/lib64/libexpat.so.0 /usr/lib64/libexpat.so
+    - export NA62TOOLSSOURCE=$CI_PROJECT_DIR/NA62Tools
+    - mkdir $NA62TOOLSSOURCE/build
+    - set +e # Disable exit immediately
+    - . $NA62TOOLSSOURCE/scripts/env.sh
+    - set -e # Enable exit immediately
+    - cd $NA62TOOLSSOURCE/build
+    - cmake $NA62TOOLSSOURCE
+    - make install -j8 2> >(tee -a NA62Tools.slc6.err >&2)
+    - $CI_PROJECT_DIR/CITests/check_warnings.sh NA62Tools.slc6.err
+  artifacts:
+    name: na62tools_gems_slc6
+    paths: #All paths to files and directories are relative to the repository that was cloned during the build.
+      - $CI_PROJECT_DIR/NA62Tools/lib-slc6
+      - $CI_PROJECT_DIR/NA62Tools/config
+    expire_in: 1 day
+
+build_mc_cc7:
+  <<: *build_jobs_cc7
+  stage: build-mc_and_reco
+  script:
+    - export NA62MCSOURCE=$CI_PROJECT_DIR/NA62MC
+    - mkdir $NA62MCSOURCE/build
+    - set +e # Disable exit immediately
+    - . $NA62MCSOURCE/scripts/env.sh
+    - set -e # Enable exit immediately
+    - sed -i -e "s,/builds/[0-9a-zA-Z/-]*NA62FW/na62fw,$CI_PROJECT_DIR,g" $NA62TOOLSSOURCE/config/NA62Tools-cc7Config.cmake
+    - cd $NA62MCSOURCE/build
+    - cmake $NA62MCSOURCE
+    - make install -j8 2> >(tee -a NA62MC.cc7.err >&2)
+    - $CI_PROJECT_DIR/CITests/check_warnings.sh NA62MC.cc7.err
+  artifacts:
+    name: na62mc_gems
+    paths: #All paths to files and directories are relative to the repository that was cloned during the build.
+      - $CI_PROJECT_DIR/NA62MC/lib-cc7
+      - $CI_PROJECT_DIR/NA62MC/scripts
+      - $CI_PROJECT_DIR/NA62MC/bin-cc7
+      - $CI_PROJECT_DIR/NA62MC/config
+    expire_in: 1 day
+  dependencies:
+    - build_tools_cc7
+
+build_mc_slc6:
+  <<: *build_jobs_slc6
+  stage: build-mc_and_reco
+  script:
+    - ln -s /usr/lib64/libXm.so.4 /usr/lib64/libXm.so
+    - ln -s /usr/lib64/libSM.so.6 /usr/lib64/libSM.so
+    - ln -s /usr/lib64/libICE.so.6 /usr/lib64/libICE.so
+    - ln -s /usr/lib64/libXmu.so.6 /usr/lib64/libXmu.so
+    - ln -s /usr/lib64/libexpat.so.0 /usr/lib64/libexpat.so
+    - export NA62MCSOURCE=$CI_PROJECT_DIR/NA62MC
+    - mkdir $NA62MCSOURCE/build
+    - set +e # Disable exit immediately
+    - . $NA62MCSOURCE/scripts/env.sh
+    - set -e # Enable exit immediately
+    - sed -i -e "s,/builds/[0-9a-zA-Z/-]*NA62FW/na62fw,$CI_PROJECT_DIR,g" $NA62TOOLSSOURCE/config/NA62Tools-slc6Config.cmake
+    - cd $NA62MCSOURCE/build
+    - cmake $NA62MCSOURCE
+    - make install -j8 2> >(tee -a NA62MC.slc6.err >&2)
+    - $CI_PROJECT_DIR/CITests/check_warnings.sh NA62MC.slc6.err
+  artifacts:
+    name: na62mc_gems_slc6
+    paths: #All paths to files and directories are relative to the repository that was cloned during the build.
+      - $CI_PROJECT_DIR/NA62MC/lib-slc6
+      - $CI_PROJECT_DIR/NA62MC/scripts
+      - $CI_PROJECT_DIR/NA62MC/bin-slc6
+      - $CI_PROJECT_DIR/NA62MC/config
+    expire_in: 1 day
+  dependencies:
+    - build_tools_slc6
+
+# -- Jobs for build-mc_and_reco stage
+build_reco_cc7:
+  <<: *build_jobs_cc7
+  stage: build-mc_and_reco
+  script:
+    - export NA62MCSOURCE=$CI_PROJECT_DIR/NA62MC
+    - export NA62RECOSOURCE=$CI_PROJECT_DIR/NA62Reconstruction
+    - mkdir $NA62RECOSOURCE/build
+    - set +e # Disable exit immediately
+    - . $CI_PROJECT_DIR/NA62Reconstruction/scripts/env.sh
+    - set -e # Enable exit immediately
+    - sed -i -e "s,/builds/[0-9a-zA-Z/-]*NA62FW/na62fw,$CI_PROJECT_DIR,g" $NA62TOOLSSOURCE/config/NA62Tools-cc7Config.cmake
+    - cd $NA62RECOSOURCE/build
+    - cmake $CI_PROJECT_DIR/NA62Reconstruction
+    - make install -j8 2> >(tee -a NA62Reco.cc7.err >&2)
+    - $CI_PROJECT_DIR/CITests/check_warnings.sh NA62Reco.cc7.err
+  artifacts:
+    name: na62reco_gems
+    paths: #All paths to files and directories are relative to the repository that was cloned during the build.
+      - NA62Reconstruction/lib-cc7
+      - NA62Reconstruction/scripts
+      - NA62Reconstruction/bin-cc7
+      - NA62Reconstruction/config
+    expire_in: 1 day
+  dependencies:
+    - build_tools_cc7
+
+build_reco_slc6:
+  <<: *build_jobs_slc6
+  stage: build-mc_and_reco
+  script:
+    - ln -s /usr/lib64/libXm.so.4 /usr/lib64/libXm.so
+    - ln -s /usr/lib64/libSM.so.6 /usr/lib64/libSM.so
+    - ln -s /usr/lib64/libICE.so.6 /usr/lib64/libICE.so
+    - ln -s /usr/lib64/libXmu.so.6 /usr/lib64/libXmu.so
+    - ln -s /usr/lib64/libexpat.so.0 /usr/lib64/libexpat.so
+    - export NA62MCSOURCE=$CI_PROJECT_DIR/NA62MC
+    - export NA62RECOSOURCE=$CI_PROJECT_DIR/NA62Reconstruction
+    - mkdir $NA62RECOSOURCE/build
+    - set +e # Disable exit immediately
+    - . $CI_PROJECT_DIR/NA62Reconstruction/scripts/env.sh
+    - set -e # Enable exit immediately
+    - sed -i -e "s,/builds/[0-9a-zA-Z/-]*NA62FW/na62fw,$CI_PROJECT_DIR,g" $NA62TOOLSSOURCE/config/NA62Tools-slc6Config.cmake
+    - cd $NA62RECOSOURCE/build
+    - cmake $CI_PROJECT_DIR/NA62Reconstruction
+    - make install -j8 2> >(tee -a NA62Reco.slc6.err >&2)
+    - $CI_PROJECT_DIR/CITests/check_warnings.sh NA62Reco.slc6.err
+  artifacts:
+    name: na62reco_gems_slc6
+    paths: #All paths to files and directories are relative to the repository that was cloned during the build.
+      - NA62Reconstruction/lib-slc6
+      - NA62Reconstruction/scripts
+      - NA62Reconstruction/bin-slc6
+      - NA62Reconstruction/config
+    expire_in: 1 day
+  dependencies:
+    - build_tools_slc6
+
+# jobs to build the hlt algorithms within the framework
+build_reco_hlt_cc7:
+  <<: *build_jobs_cc7
+  stage: build-mc_and_reco
+  before_script:
+     - /cvmfs/sft.cern.ch/lcg/contrib/git/bin/git submodule init
+     - /cvmfs/sft.cern.ch/lcg/contrib/git/bin/git submodule update
+  script:
+    - export ONLINEHLTDEFINED=1
+    - export NA62MCSOURCE=$CI_PROJECT_DIR/NA62MC
+    - export NA62RECOSOURCE=$CI_PROJECT_DIR/NA62Reconstruction
+    - mkdir $NA62RECOSOURCE/build
+    - set +e # Disable exit immediately
+    - . $CI_PROJECT_DIR/NA62Reconstruction/scripts/env.sh
+    - set -e # Enable exit immediately
+    - sed -i -e "s,/builds/[0-9a-zA-Z/-]*NA62FW/na62fw,$CI_PROJECT_DIR,g" $NA62TOOLSSOURCE/config/NA62Tools-cc7Config.cmake
+    - cd $NA62RECOSOURCE/build
+    - cmake $CI_PROJECT_DIR/NA62Reconstruction
+    - make install -j8 2> >(tee -a NA62Reco.hlt.cc7.err >&2)
+    #- $CI_PROJECT_DIR/CITests/check_warnings.sh NA62Reco.hlt.cc7.err [temporarily disabled]
+  dependencies:
+    - build_tools_cc7
+
+build_reco_hlt_slc6:
+  <<: *build_jobs_slc6
+  stage: build-mc_and_reco
+  before_script:
+     - /cvmfs/sft.cern.ch/lcg/contrib/git/bin/git submodule init
+     - /cvmfs/sft.cern.ch/lcg/contrib/git/bin/git submodule update
+  script:
+    - ln -s /usr/lib64/libXm.so.4 /usr/lib64/libXm.so
+    - ln -s /usr/lib64/libSM.so.6 /usr/lib64/libSM.so
+    - ln -s /usr/lib64/libICE.so.6 /usr/lib64/libICE.so
+    - ln -s /usr/lib64/libXmu.so.6 /usr/lib64/libXmu.so
+    - ln -s /usr/lib64/libexpat.so.0 /usr/lib64/libexpat.so
+    - export ONLINEHLTDEFINED=1
+    - export NA62MCSOURCE=$CI_PROJECT_DIR/NA62MC
+    - export NA62RECOSOURCE=$CI_PROJECT_DIR/NA62Reconstruction
+    - mkdir $NA62RECOSOURCE/build
+    - set +e # Disable exit immediately
+    - . $CI_PROJECT_DIR/NA62Reconstruction/scripts/env.sh
+    - set -e # Enable exit immediately
+    - sed -i -e "s,/builds/[0-9a-zA-Z/-]*NA62FW/na62fw,$CI_PROJECT_DIR,g" $NA62TOOLSSOURCE/config/NA62Tools-slc6Config.cmake
+    - cd $NA62RECOSOURCE/build
+    - cmake $CI_PROJECT_DIR/NA62Reconstruction
+    - make install -j8 2> >(tee -a NA62Reco.hlt.slc6.err >&2)
+    #- $CI_PROJECT_DIR/CITests/check_warnings.sh NA62Reco.hlt.slc6.err [temporarily disabled]
+  dependencies:
+    - build_tools_slc6
+
+# -- Jobs for build-analysis stage
+build_analysis_fw_cc7:
+  <<: *build_jobs_cc7
+  stage: build-analysis_fw
+  script:
+    - cd $CI_PROJECT_DIR/NA62Analysis/
+    - export NA62MCSOURCE=$CI_PROJECT_DIR/NA62MC
+    - export NA62RECOSOURCE=$CI_PROJECT_DIR/NA62Reconstruction
+    - set +e
+    - . scripts/env.sh
+    - set -e
+    - sed -i -e "s,/builds/[0-9a-zA-Z/-]*NA62FW/na62fw,$CI_PROJECT_DIR,g" $NA62TOOLSSOURCE/config/NA62Tools-cc7Config.cmake
+    - sed -i -e "s,/builds/[0-9a-zA-Z/-]*NA62FW/na62fw,$CI_PROJECT_DIR,g" $NA62RECOSOURCE/config/NA62Reconstruction-cc7Config.cmake
+    - make -j8 --no-print-directory BUILD_STD=1 NA62_DEBUG=1 2> >(tee -a NA62Analysis.cc7.err >&2)
+    - $CI_PROJECT_DIR/CITests/check_warnings.sh NA62Analysis.cc7.err
+  artifacts:
+    name: na62analysis_gems_cc7
+    paths:
+      - NA62Analysis/bin-cc7
+      - NA62Analysis/lib-cc7
+  dependencies:
+    - build_tools_cc7
+    - build_reco_cc7
+  
+build_analysis_fw_slc6:
+  <<: *build_jobs_slc6
+  stage: build-analysis_fw
+  script:
+    - ln -s /usr/lib64/libXm.so.4 /usr/lib64/libXm.so
+    - ln -s /usr/lib64/libSM.so.6 /usr/lib64/libSM.so
+    - ln -s /usr/lib64/libICE.so.6 /usr/lib64/libICE.so
+    - ln -s /usr/lib64/libXmu.so.6 /usr/lib64/libXmu.so
+    - ln -s /usr/lib64/libexpat.so.0 /usr/lib64/libexpat.so
+    - cd $CI_PROJECT_DIR/NA62Analysis/
+    - export NA62MCSOURCE=$CI_PROJECT_DIR/NA62MC
+    - export NA62RECOSOURCE=$CI_PROJECT_DIR/NA62Reconstruction
+    - set +e
+    - . scripts/env.sh
+    - set -e
+    - sed -i -e "s,/builds/[0-9a-zA-Z/-]*NA62FW/na62fw,$CI_PROJECT_DIR,g" $NA62TOOLSSOURCE/config/NA62Tools-slc6Config.cmake
+    - sed -i -e "s,/builds/[0-9a-zA-Z/-]*NA62FW/na62fw,$CI_PROJECT_DIR,g" $NA62RECOSOURCE/config/NA62Reconstruction-slc6Config.cmake
+    - make -j8 --no-print-directory BUILD_STD=1 NA62_DEBUG=1 2> >(tee -a NA62Analysis.slc6.err >&2)
+    - $CI_PROJECT_DIR/CITests/check_warnings.sh NA62Analysis.slc6.err
+  artifacts:
+    name: na62analysis_gems_slc6
+    paths:
+      - NA62Analysis/bin-slc6
+      - NA62Analysis/lib-slc6
+  dependencies:
+    - build_tools_slc6
+    - build_reco_slc6
+
+# -- Jobs for copying files into the /data directory
+# No dependency on anything, can run at the same time as any build, and on any architecture
+data_cp:
+  <<: *build_jobs_cc7
+  stage: build-tools
+  tags:
+    - na62
+  script:
+    - $CI_PROJECT_DIR/CITests/get_data_files.sh
+
+# -- Jobs for checking the Conditions files integrity
+# No dependency on anything, can run at the same time as any build, and on any architecture
+conditions_checks:
+  <<: *build_jobs_cc7
+  stage: build-tools
+  tags:
+    - na62
+  script:
+    - export NA62TOOLSSOURCE=$CI_PROJECT_DIR/NA62Tools
+    - $CI_PROJECT_DIR/CITests/checkValidityRanges.pl
+
+# -- Jobs for build-docker-image stage
+build_docker_image_cc7:
+  stage: build-docker-image
+  tags:
+    - docker-image-build
+  script: 
+    - echo ""
+  dependencies:
+    - build_tools_cc7
+    - build_mc_cc7
+    - build_reco_cc7
+    - build_analysis_fw_cc7
+  only:
+    - tags
+  variables:
+    DOCKER_FILE: Dockerfile.cc7
+    TO: $CI_REGISTRY_IMAGE:cc7
+    
+build_docker_image_slc6:
+  stage: build-docker-image
+  tags:
+    - docker-image-build
+  script: 
+    - echo ""
+  dependencies:
+    - build_tools_slc6
+    - build_mc_slc6
+    - build_reco_slc6
+    - build_analysis_fw_slc6
+  only:
+    - tags
+  variables:
+    DOCKER_FILE: Dockerfile.slc6
+    TO: $CI_REGISTRY_IMAGE:slc6
+
+# ====== The following contains the definition of the gen-* jobs. They constitute the
+# ====== actual tests running the framework.
+
+# === Templates for gen-* jobs
+# Global definition of a gen-* job
+.gen_jobs: &gen_jobs
+  tags:
+    - na62
+  only:
+    - merge_requests
+    - triggers
+    - /^gitlabci\/.*$/
+
+.gen_artifacts: &gen_artifacts
+  paths:
+    - test_mc_reco_ana
+  expire_in: 1 week
+
+# Specialisation for slc6 (choice of image)
+.gen_jobs_slc6: &gen_jobs_slc6
+  <<: *gen_jobs
+  image: gitlab-registry.cern.ch/na62fw/na62docker:build-env-slc6-prod
+
+# Specialisation for cc7 (choice of image)
+.gen_jobs_cc7: &gen_jobs_cc7
+  <<: *gen_jobs
+  image: gitlab-registry.cern.ch/na62fw/na62docker:build-env-cc7-prod
+
+# Dependencies on build artifacts for slc6
+.gen_build_deps_slc6: &gen_build_deps_slc6
+  dependencies:
+    - build_tools_slc6
+    - build_mc_slc6
+    - build_reco_slc6
+    - build_analysis_fw_slc6
+
+# Dependencies on build artifacts for cc7
+.gen_build_deps_cc7: &gen_build_deps_cc7
+  dependencies:
+    - build_tools_cc7
+    - build_mc_cc7
+    - build_reco_cc7
+    - build_analysis_fw_cc7
+
+# === Following are the gen-* tests
+
+# -- Template for gen_mc_reco_ana jobs
+.gen_mc_reco_ana: &gen_mc_reco_ana
+  stage: gen-mc_reco_ana
+  script:
+    - export NA62MCSOURCE=$CI_PROJECT_DIR/NA62MC
+    - $CI_PROJECT_DIR/CITests/pnn_mc.sh
+    - $CI_PROJECT_DIR/CITests/pnn_reco.sh
+    - $CI_PROJECT_DIR/CITests/pnn_postpro.sh
+  artifacts:
+    <<: *gen_artifacts
+    name: mc_generated
+
+# -- Jobs for mc_reco_ana
+gen_mc_reco_ana_cc7:
+  <<: *gen_jobs_cc7
+  <<: *gen_mc_reco_ana
+  <<: *gen_build_deps_cc7
+    
+gen_mc_reco_ana_slc6:
+  <<: *gen_jobs_slc6
+  <<: *gen_mc_reco_ana
+  <<: *gen_build_deps_slc6
+ 
+# -- Template for data_processing jobs
+.gen_data_processing: &gen_data_processing
+  stage: gen-mc_reco_ana
+  script:
+    - export NA62MCSOURCE=$CI_PROJECT_DIR/NA62MC
+    - export NA62RECOSOURCE=$CI_PROJECT_DIR/NA62Reconstruction
+    - $CI_PROJECT_DIR/CITests/data_processing.sh
+  artifacts:
+    <<: *gen_artifacts
+    name: data_processing
+
+# -- Jobs for data_processing
+gen_data_processing_cc7:
+  <<: *gen_jobs_cc7
+  <<: *gen_data_processing
+  <<: *gen_build_deps_cc7
+
+gen_data_processing_slc6:
+  <<: *gen_jobs_slc6
+  <<: *gen_data_processing
+  <<: *gen_build_deps_slc6
+
+# ====== The following contains the definition of the test-* jobs. They constitute the
+# ====== actual tests looking into the generated files.
+
+# Global definition of a test-* job
+.test_jobs: &test_jobs
+  tags:
+    - na62
+  only:
+    - merge_requests
+    - triggers
+    - /^gitlabci\/.*$/
+
+.test_artifacts: &test_artifacts
+  artifacts:
+    paths:
+      - test_mc_reco_ana
+    expire_in: 1 week
+
+# Specialisation for slc6 (choice of image)
+.test_jobs_slc6: &test_jobs_slc6
+  <<: *test_jobs
+  image: gitlab-registry.cern.ch/na62fw/na62docker:build-env-slc6-prod
+
+# Specialisation for cc7 (choice of image)
+.test_jobs_cc7: &test_jobs_cc7
+  <<: *test_jobs
+  image: gitlab-registry.cern.ch/na62fw/na62docker:build-env-cc7-prod
+
+# === Following are the test-* tests
+
+# -- Template for memory_usage jobs
+.test_memory_usage: &test_memory_usage
+  stage: test-mc_reco_ana
+  script:
+    - cd $CI_PROJECT_DIR/test_mc_reco_ana
+    - set +e
+    - source $CI_PROJECT_DIR/NA62Reconstruction/scripts/env.sh
+    - set -e
+    - root -b -l '$CI_PROJECT_DIR/CITests/memoryUsageCheck.C("pnn.mc.root")'
+    - root -b -l '$CI_PROJECT_DIR/CITests/memoryUsageCheck.C("pnn.reco.root")'
+
+# -- Jobs for memory_usage
+memory_usage_cc7:
+  <<: *test_jobs_cc7
+  <<: *test_memory_usage
+  dependencies:
+    - build_tools_cc7
+    - build_reco_cc7
+    - build_analysis_fw_cc7
+    - gen_mc_reco_ana_cc7
+
+memory_usage_slc6:
+  <<: *test_jobs_slc6
+  <<: *test_memory_usage
+  dependencies:
+    - build_tools_slc6
+    - build_reco_slc6
+    - build_analysis_fw_slc6
+    - gen_mc_reco_ana_slc6
+
+    
+    
+# ====== Those are building docker images for each step when developing CI tests
+
+# === Global definition
+.build_docker: &build_docker
+  tags:
+    - docker-image-build
+  script: 
+    - echo ""
+  only:
+    - /^gitlabci\/.*$/
+
+.build_docker_cc7: &build_docker_cc7
+  <<: *build_docker
+  variables:
+    DOCKER_FILE: Dockerfile.test.cc7
+    TO: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG-$CI_JOB_NAME
+
+.build_docker_slc6: &build_docker_slc6
+  <<: *build_docker
+  variables:
+    DOCKER_FILE: Dockerfile.test.slc6
+    TO: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG-$CI_JOB_NAME
+
+# === Jobs
+
+# -- Those 2 will run after successful build of MC
+mc_cc7:
+  <<: *build_docker_cc7
+  stage: build-mc_and_reco
+  dependencies:
+    - build_tools_cc7
+
+mc_slc6:
+  <<: *build_docker_slc6
+  stage: build-mc_and_reco
+  dependencies:
+    - build_tools_slc6
+    
+# -- Those 2 will run after successful build of Reco
+reco_cc7:
+  <<: *build_docker_cc7
+  stage: build-analysis_fw
+  dependencies:
+    - build_tools_cc7
+    - build_reco_cc7
+
+reco_slc6:
+  <<: *build_docker_slc6
+  stage: build-analysis_fw
+  dependencies:
+    - build_tools_slc6
+    - build_reco_slc6
+    
+# -- Those 2 will run after successful build of analysis
+analysis_cc7:
+  <<: *build_docker_cc7
+  stage: build-docker-image
+  dependencies:
+    - build_tools_cc7
+    - build_reco_cc7
+    - build_analysis_fw_cc7
+    
+analysis_slc6:
+  <<: *build_docker_slc6
+  stage: build-docker-image
+  dependencies:
+    - build_tools_slc6
+    - build_reco_slc6
+    - build_analysis_fw_slc6
+
+# -- Those 2 will run after successful generation and reconstruction of MC file 
+gen_cc7:
+  <<: *build_docker_cc7
+  stage: test-mc_reco_ana
+  when: always
+  dependencies:
+    - build_tools_cc7
+    - build_mc_cc7
+    - build_reco_cc7
+    - build_analysis_fw_cc7
+    - gen_mc_reco_ana_cc7
+    - gen_data_processing_cc7
+    
+gen_slc6:
+  <<: *build_docker_slc6
+  stage: test-mc_reco_ana
+  when: always
+  dependencies:
+    - build_tools_slc6
+    - build_mc_slc6
+    - build_reco_slc6
+    - build_analysis_fw_slc6
+    - gen_mc_reco_ana_slc6
+    - gen_data_processing_cc7
+    
+    
+    

@@ -25,7 +25,6 @@ Kmu2::Kmu2(Core::BaseAnalysis *ba) : Analyzer(ba, "Kmu2")
   RequestTree("MUV3", new TRecoMUV3Event, "Reco");
 
   AddParam("UseGTK", "bool", &UseGTK, false);
-  AddParam("Verbosity", "bool", &verb, false);
   AddParam("CutTrackMomMin", "double", &fCutTrackMomMin, 15000.);
   AddParam("CutTrackMomMax", "double", &fCutTrackMomMax, 35000.);
   AddParam("CutMatchedGTKQuality", "double", &fCutMatchedGTKQuality, 20.);
@@ -36,6 +35,8 @@ Kmu2::Kmu2(Core::BaseAnalysis *ba) : Analyzer(ba, "Kmu2")
   AddParam("CutDMIP", "double", &fCutDMIP, 1.);
 
   fZMUV3 = GeometricAcceptance::GetInstance()->GetZMUV3();
+
+  EnablePrefix(false);
 }
 
 void Kmu2::InitOutput(){
@@ -88,7 +89,7 @@ void Kmu2::Process(int iEvent){
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"-------------------"<<endl;
     cout<<"Kmu2"<<endl;
@@ -105,15 +106,15 @@ void Kmu2::Process(int iEvent){
   auto preselectedEvent =
     *(bool*)GetOutput("Preselection.PreselectedEvent", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb) cout<<"Is event preselected? "<<preselectedEvent<<endl;
+  cout<<user()<<"Is event preselected? "<<preselectedEvent<<endl;
   if(!preselectedEvent){
-    if(verb) cout<<"Event is not preselected"<<endl;
+    cout<<user()<<"Event is not preselected"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -122,23 +123,23 @@ void Kmu2::Process(int iEvent){
   auto tTrigger =
     *(double*)GetOutput("CheckTrigger.TriggerTime", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
-  if(verb) cout<<"Trigger time read = "<<tTrigger<<endl;
+  cout<<user()<<"Trigger time read = "<<tTrigger<<endl;
   FillHisto("hCut", cutID);
   cutID++;//5
 
   auto isSingleTrack =
     *(bool*)GetOutput("SingleTrackEventSelection.EventSelected", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb) cout<<"Is single track event? "<<isSingleTrack<<endl;
+  cout<<user()<<"Is single track event? "<<isSingleTrack<<endl;
   if(!isSingleTrack) return;
   FillHisto("hCut", cutID);
   cutID++;
@@ -146,44 +147,44 @@ void Kmu2::Process(int iEvent){
   int trackID =
     *(int*)GetOutput("SingleTrackEventSelection.TrackID", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
-  if(verb) cout<<"Track ID read = "<<trackID<<endl;
+  cout<<user()<<"Track ID read = "<<trackID<<endl;
   FillHisto("hCut", cutID);
   cutID++;
 
   auto trackTimes =
     *(std::vector<double>*)GetOutput("BestTrackSelection.BestTrackTime", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
   double trackTime = trackTimes.at(trackID);
-  if(verb) cout<<"track time = "<<trackTime<<endl;
+  cout<<user()<<"track time = "<<trackTime<<endl;
 
   auto dMIP =
     *(std::vector<double>*)GetOutput("TrackCalorimetricEnergyAssociation.DMIP", state);
   fDMIP = dMIP.at(trackID);
-  if(verb) cout<<"dMIP = "<<fDMIP<<endl;
+  cout<<user()<<"dMIP = "<<fDMIP<<endl;
 
   auto muonProb =
     *(std::vector<double>*)GetOutput("TrackCalorimetricEnergyAssociation.MuonProbability", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
   fMuonProb = muonProb.at(trackID);
-  if(verb) cout<<"muonProb = "<<fMuonProb<<endl;
+  cout<<user()<<"muonProb = "<<fMuonProb<<endl;
 
   auto lkrAssocEnergy =
     *(std::vector<double>*)GetOutput("BestTrackSelection.LKrAssocEnergy", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   fLKrEnergy = lkrAssocEnergy.at(trackID);
@@ -191,7 +192,7 @@ void Kmu2::Process(int iEvent){
   auto specRICHsr =
     *(std::vector<SpectrometerRICHAssociationOutputSingleRing>*)GetOutput("SpectrometerRICHAssociationSingleRing.Output", state);
   if(!specRICHsr.at(trackID).isAssociated()){
-    if(verb) cout<<"No Association found"<<endl;
+    cout<<user()<<"No Association found"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -201,7 +202,7 @@ void Kmu2::Process(int iEvent){
   auto specMUV3 =
     *(std::vector<SpectrometerMUV3AssociationOutput>*)GetOutput("SpectrometerMUV3Association.Output", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -219,10 +220,10 @@ void Kmu2::Process(int iEvent){
   auto TrackMomentum =
     *(std::vector<TVector3>*)GetOutput("BestTrackSelection.GTKAssocTrackMomentum", state);
   if(state==kOInvalid || state==kOUninit){
-    if(verb) cout<<"Uninit/Invalid"<<endl;
+    cout<<user()<<"Uninit/Invalid"<<endl;
     return;
   };
-  if(verb) cout<<"GTK ID "<<GTKAssocID.at(trackID)<<endl;
+  cout<<user()<<"GTK ID "<<GTKAssocID.at(trackID)<<endl;
   FillHisto("hCut", cutID);
   cutID++;
 
@@ -233,7 +234,7 @@ void Kmu2::Process(int iEvent){
   auto NomTrackMomentum =
     *(std::vector<TVector3>*)GetOutput("BestTrackSelection.BestTrackNomMomentum", state);
   if(state==kOInvalid || state==kOUninit){
-    if(verb) cout<<"Uninit/Invalid"<<endl;
+    cout<<user()<<"Uninit/Invalid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -242,7 +243,7 @@ void Kmu2::Process(int iEvent){
   bool goodEvent =
     *(bool*)GetOutput("EventCleaning.GoodEvent", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -251,7 +252,7 @@ void Kmu2::Process(int iEvent){
   bool decaySelected =
   *(bool*)GetOutput("KaonDecaySelection.DecaySelected", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -260,7 +261,7 @@ void Kmu2::Process(int iEvent){
   bool multiplicity =
     *(bool*)GetOutput("MultiplicitySelection.Multiplicity", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -269,7 +270,7 @@ void Kmu2::Process(int iEvent){
   bool segments =
     *(bool*)GetOutput("SegmentRejection.Segments", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -278,7 +279,7 @@ void Kmu2::Process(int iEvent){
   bool photonsLAVSAV =
     *(bool*)GetOutput("PhotonRejection.Photons", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -287,13 +288,13 @@ void Kmu2::Process(int iEvent){
   bool photonsLKr =
     *(bool*)GetOutput("PhotonRejectionLKr.Photons", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb) cout<<"all requested outputs are valid"<<endl;
+  cout<<user()<<"all requested outputs are valid"<<endl;
 
   //candidates
   TRecoSpectrometerEvent* SpectrometerEvent = GetEvent<TRecoSpectrometerEvent>();
@@ -337,9 +338,9 @@ void Kmu2::Process(int iEvent){
   //Kmu2 selection
 
   // event cleaning
-  if(verb) cout<<"Is good event? "<<goodEvent<<endl;
+  cout<<user()<<"Is good event? "<<goodEvent<<endl;
   if(!goodEvent){
-    if(verb) cout<<"Event is rejected after Event Cleaning"<<endl;
+    cout<<user()<<"Event is rejected after Event Cleaning"<<endl;
     return;
   };
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
@@ -348,9 +349,9 @@ void Kmu2::Process(int iEvent){
   cutID++;
 
   //kaon decay
-  if(verb) cout<<"Is selected kaon decay? "<<decaySelected<<endl;
+  cout<<user()<<"Is selected kaon decay? "<<decaySelected<<endl;
   if(!decaySelected){
-    if(verb) cout<<"Event is rejected due to KaonDecaySelection"<<endl;
+    cout<<user()<<"Event is rejected due to KaonDecaySelection"<<endl;
     return;
   };
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
@@ -359,9 +360,9 @@ void Kmu2::Process(int iEvent){
   cutID++;
 
   //photon veto LAV, SAV
-  if(verb) cout<<"Has photon in LAV or SAV? "<<photonsLAVSAV<<endl;
+  cout<<user()<<"Has photon in LAV or SAV? "<<photonsLAVSAV<<endl;
   if(photonsLAVSAV){
-    if(verb) cout<<"Event is rejected due to photons in LAV, SAV"<<endl;
+    cout<<user()<<"Event is rejected due to photons in LAV, SAV"<<endl;
     return;
   };
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
@@ -370,9 +371,9 @@ void Kmu2::Process(int iEvent){
   cutID++;
 
   //photon veto LKr
-  if(verb) cout<<"Has photon in LKr? "<<photonsLKr<<endl;
+  cout<<user()<<"Has photon in LKr? "<<photonsLKr<<endl;
   if(photonsLKr){
-    if(verb) cout<<"Event is rejected due to photons in LKr"<<endl;
+    cout<<user()<<"Event is rejected due to photons in LKr"<<endl;
     return;
   };
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
@@ -381,9 +382,9 @@ void Kmu2::Process(int iEvent){
   cutID++;
 
   // multiplicity rejection
-  if(verb) cout<<"Is multiplicity true? "<<multiplicity<<endl;
+  cout<<user()<<"Is multiplicity true? "<<multiplicity<<endl;
   if(multiplicity){
-    if(verb) cout<<"Event is rejected due to multiplicity"<<endl;
+    cout<<user()<<"Event is rejected due to multiplicity"<<endl;
     return;
   };
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
@@ -392,9 +393,9 @@ void Kmu2::Process(int iEvent){
   cutID++;
 
   // segment rejection
-  if(verb) cout<<"Is segments true? "<<segments<<endl;
+  cout<<user()<<"Is segments true? "<<segments<<endl;
   if(segments){
-    if(verb) cout<<"Event is rejected due to segments"<<endl;
+    cout<<user()<<"Event is rejected due to segments"<<endl;
     return;
   };
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
@@ -403,9 +404,9 @@ void Kmu2::Process(int iEvent){
   cutID++;
 
   //muon
-  if(verb) cout<<"Is muon? "<<endl;
+  cout<<user()<<"Is muon? "<<endl;
   if(!isMuon(STRAWCand->GetMomentum(), trackTime)) return;
-  if(verb) cout<<"Is muon."<<endl;
+  cout<<user()<<"Is muon."<<endl;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hMissM2VsCut", cutID, missM2);
   FillHisto("hCut", cutID);
@@ -414,7 +415,7 @@ void Kmu2::Process(int iEvent){
   //momentum cut
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hTrackMomentum", STRAWCand->GetMomentum());
-  if(verb) cout<<"STRAW momentum: "<<fCutTrackMomMin<<" < "<<STRAWCand->GetMomentum()<<" < "<<fCutTrackMomMax<<endl;
+  cout<<user()<<"STRAW momentum: "<<fCutTrackMomMin<<" < "<<STRAWCand->GetMomentum()<<" < "<<fCutTrackMomMax<<endl;
   if((STRAWCand->GetMomentum()<fCutTrackMomMin) || (STRAWCand->GetMomentum()>fCutTrackMomMax)) return;
   FillHisto("hTrackTime", trackTime);
   FillHisto("hTimeDiffTrackTrigger", trackTime - tTrigger);
@@ -446,8 +447,8 @@ void Kmu2::Process(int iEvent){
   Int_t  RunNumber = GetRunID();
   time_t BurstTime = GetEventHeader()->GetBurstTime();
   fKmu2RICHMomentum = momRICH(fSpecRICHsr, RunNumber, BurstTime);
-  if(verb) cout<<"Track ID  "<<fKmu2TrackID<<" GTK ID "<<fKmu2KaonID<<" GTKMom ("<<fKmu2KaonMom.X()<<","<<fKmu2KaonMom.Y()<<","<<fKmu2KaonMom.Z()<<")"<<endl;
-  if(verb) cout<<"Selecting Kmu2 event"<<endl;
+  cout<<user()<<"Track ID  "<<fKmu2TrackID<<" GTK ID "<<fKmu2KaonID<<" GTKMom ("<<fKmu2KaonMom.X()<<","<<fKmu2KaonMom.Y()<<","<<fKmu2KaonMom.Z()<<")"<<endl;
+  cout<<user()<<"Selecting Kmu2 event"<<endl;
 }
 
 void Kmu2::PostProcess(){}
@@ -497,17 +498,18 @@ void Kmu2::ValidateOutputs(){
 }
 
 bool Kmu2::isMuon(double mom, double trackTime){
+  bool verb = TestLevel(Verbosity::kUser);
   bool isMuon1 = isMuonMUV3Candidates(fMUV3Event, trackTime, fCutTimeDiffMUV3, verb);
   bool isMuon2 = isMuonMUV3Associations(fSpecMUV3, trackTime, fCutTimeDiffMUV3, verb);
   bool isMuon3 = isMuonProbability(fMuonProb, fCutMuonProbability, verb);
   bool isMuon4 = isMuonMIP(fDMIP, fCutDMIP, verb);
   bool isPositron = isPositronEoP(mom, fLKrEnergy, fCutEoP, verb);
 
-  if(verb) cout<<"Is "<<((!isMuon1)?"not":"")<<" muon by MUV3 candidates."<<endl;
-  if(verb) cout<<"Is "<<((!isMuon2)?"not":"")<<" muon by MUV3 associations."<<endl;
-  if(verb) cout<<"Is "<<((!isMuon3)?"not":"")<<" muon by probability."<<endl;
-  if(verb) cout<<"Is "<<((!isMuon4)?"not":"")<<" muon by MIP."<<endl;
-  if(verb) cout<<"Is "<<((!isPositron)?"not":"")<<" positron."<<endl;
+  cout<<user()<<"Is "<<((!isMuon1)?"not":"")<<" muon by MUV3 candidates."<<endl;
+  cout<<user()<<"Is "<<((!isMuon2)?"not":"")<<" muon by MUV3 associations."<<endl;
+  cout<<user()<<"Is "<<((!isMuon3)?"not":"")<<" muon by probability."<<endl;
+  cout<<user()<<"Is "<<((!isMuon4)?"not":"")<<" muon by MIP."<<endl;
+  cout<<user()<<"Is "<<((!isPositron)?"not":"")<<" positron."<<endl;
   bool is = ((isMuon1 || isMuon2) && (isMuon4) && (isMuon3) && (!isPositron));
   if(verb && is) cout<<"Is muon."<<endl;
   return is;

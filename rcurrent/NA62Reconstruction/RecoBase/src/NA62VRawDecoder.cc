@@ -360,8 +360,8 @@ void NA62VRawDecoder::ParseRawDecoderSettingsFile(TString RawDecFileName){
       if(NEntries) fROMezzanineMasksPerBoard = new UInt_t[NEntries];
       else std::cerr << "["<<fReco->GetName()<<"RawDecoder] WARNING: fNROBoards = 0!" << std::endl;
       for(Int_t i = 0; i < NEntries; i++) {
-        TString Line = static_cast<TObjString*>(l->At(i+1))->GetString();
-        fROMezzanineMasksPerBoard[i] = strtol(TString(Line(TRegexp("[0-9a-fA-F]+"))),NULL,16);
+        TString subLine = static_cast<TObjString*>(l->At(i+1))->GetString();
+        fROMezzanineMasksPerBoard[i] = strtol(TString(subLine(TRegexp("[0-9a-fA-F]+"))),NULL,16);
       }
       delete l;
       continue;
@@ -423,9 +423,9 @@ void NA62VRawDecoder::FillDigiTimes(Double_t ReferenceFineTime) {
       else if(Digi->IsA()==TSACDigi::Class() && static_cast<TSACDigi*>(Digi)->GetThresholdType())   GoodDigi = false;
       else if(Digi->IsA()==THACDigi::Class() && static_cast<THACDigi*>(Digi)->GetThresholdType())   GoodDigi = false;
       else if(Digi->IsA()==TNewCHODDigi::Class() && static_cast<TNewCHODDigi*>(Digi)->GetChannelID()<100) GoodDigi = false;
-      else if(Digi->IsA()==TLKrDigi::Class() && 
+      else if(Digi->IsA()==TLKrDigi::Class() &&
           LKrParameters::GetInstance()->IsDeadCell(static_cast<TLKrDigi*>(Digi)->GetXCellID(),static_cast<TLKrDigi*>(Digi)->GetYCellID())) GoodDigi = false;
-      //else if(Digi->IsA()==TSpectrometerDigi::Class() && 
+      //else if(Digi->IsA()==TSpectrometerDigi::Class() &&
       //    NA62RecoManager::GetInstance()->GetEventHeader()->GetL0TPData()->GetTriggerFlags()&0x2) GoodDigi = false); //no mask 1 for Spectrometer
       if(GoodDigi) {
         if(hDigiTimeRaw)     hDigiTimeRaw->Fill(ROMezzanineID,Digi->GetTime());

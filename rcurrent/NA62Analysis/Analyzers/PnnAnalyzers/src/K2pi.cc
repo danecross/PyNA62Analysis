@@ -35,7 +35,6 @@ K2pi::K2pi(Core::BaseAnalysis *ba) : Analyzer(ba, "K2pi")
   RequestL0Data();
 
   AddParam("UseGTK", "bool", &UseGTK, false);
-  AddParam("Verbosity", "bool", &verb, false);
   AddParam("CutTrackMomMin", "double", &fCutTrackMomMin, 15000.);
   AddParam("CutTrackMomMax", "double", &fCutTrackMomMax, 35000.);
   AddParam("CutMatchedGTKQuality", "double", &fCutMatchedGTKQuality, 20.);
@@ -75,6 +74,8 @@ K2pi::K2pi(Core::BaseAnalysis *ba) : Analyzer(ba, "K2pi")
   fZLKr = GeometricAcceptance::GetInstance()->GetZLKr();
   fZRICHfront = GeometricAcceptance::GetInstance()->GetZRICHFrontPlane();
   fZRICHback = GeometricAcceptance::GetInstance()->GetZRICHBackPlane();
+
+  EnablePrefix(false);
 }
 
 void K2pi::InitOutput(){
@@ -102,7 +103,7 @@ void K2pi::InitHist(){
     ReconfigureAnalyzer("Pi0Selection", "UseGTK", false); //was false, RG use nominal kaon, GTK would affect selection
     ReconfigureAnalyzer("Pi0Selection", "CheckIsolation", true);
     ReconfigureAnalyzer("Pi0Selection", "CheckSpectrometerAssociation", false);
-    ReconfigureAnalyzer("Pi0Selection", "CheckLKrAcceptance", true); 
+    ReconfigureAnalyzer("Pi0Selection", "CheckLKrAcceptance", true);
     ReconfigureAnalyzer("EnergyClusterBuilder", "CutK1", 0.00093);
     ReconfigureAnalyzer("EnergyClusterBuilder", "CutQ1", 2.21);
     ReconfigureAnalyzer("EnergyClusterBuilder", "CutK2", 0.002046); //0.00186
@@ -158,7 +159,7 @@ void K2pi::Process(int iEvent){
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"-------------------"<<endl;
     cout<<"K2pi"<<endl;
@@ -182,15 +183,15 @@ void K2pi::Process(int iEvent){
   auto preselectedEvent =
     *(bool*)GetOutput("Preselection.PreselectedEvent", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb) cout<<"Is event preselected? "<<preselectedEvent<<endl;
+  cout<<user()<<"Is event preselected? "<<preselectedEvent<<endl;
   if(!preselectedEvent){
-    if(verb) cout<<"Event is not preselected"<<endl;
+    cout<<user()<<"Event is not preselected"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -199,23 +200,23 @@ void K2pi::Process(int iEvent){
   double tTrigger =
     *(double*)GetOutput("CheckTrigger.TriggerTime", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
-  if(verb) cout<<"Trigger time read = "<<tTrigger<<endl;
+  cout<<user()<<"Trigger time read = "<<tTrigger<<endl;
   FillHisto("hCut", cutID);
   cutID++;
 
   auto isSingleTrack =
     *(bool*)GetOutput("SingleTrackEventSelection.EventSelected", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb) cout<<"Is single track event? "<<isSingleTrack<<endl;
+  cout<<user()<<"Is single track event? "<<isSingleTrack<<endl;
   if(!isSingleTrack) return;
   FillHisto("hCut", cutID);
   cutID++;
@@ -223,105 +224,105 @@ void K2pi::Process(int iEvent){
   int trackID =
     *(int*)GetOutput("SingleTrackEventSelection.TrackID", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
-  if(verb) cout<<"Track ID read = "<<trackID<<endl;
+  cout<<user()<<"Track ID read = "<<trackID<<endl;
   FillHisto("hCut", cutID);
   cutID++;
 
   auto trackTimes =
     *(std::vector<double>*)GetOutput("BestTrackSelection.BestTrackTime", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
   double trackTime = trackTimes.at(trackID);
-  if(verb) cout<<"track time = "<<trackTime<<endl;
+  cout<<user()<<"track time = "<<trackTime<<endl;
 
   auto trackCHODTimes =
     *(std::vector<double>*)GetOutput("BestTrackSelection.BestTrackCHODTime", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
   double trackCHODTime = trackCHODTimes.at(trackID);
 
-  if(verb) cout<<"track CHOD time = "<<trackCHODTime<<endl;
+  cout<<user()<<"track CHOD time = "<<trackCHODTime<<endl;
   auto pionProb =
     *(std::vector<double>*)GetOutput("TrackCalorimetricEnergyAssociation.PionProbability", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
   fPionProb = pionProb.at(trackID);
-  if(verb) cout<<"pionProb = "<<fPionProb<<endl;
+  cout<<user()<<"pionProb = "<<fPionProb<<endl;
 
   auto muv1Energy =
     *(std::vector<double>*)GetOutput("TrackCalorimetricEnergyAssociation.MUV1Energy", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
   fMUV1Energy = muv1Energy.at(trackID);
-  if(verb) cout<<"MUV1 energy = "<<fMUV1Energy<<endl;
+  cout<<user()<<"MUV1 energy = "<<fMUV1Energy<<endl;
 
   auto muv2Energy =
     *(std::vector<double>*)GetOutput("TrackCalorimetricEnergyAssociation.MUV2Energy", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
   fMUV2Energy = muv2Energy.at(trackID);
-  if(verb) cout<<"MUV2 energy = "<<fMUV2Energy<<endl;
+  cout<<user()<<"MUV2 energy = "<<fMUV2Energy<<endl;
 
   auto extraMUV1Energy =
     *(std::vector<double>*)GetOutput("TrackCalorimetricEnergyAssociation.ExtraMUV1Energy", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
   fExtraMUV1Energy = extraMUV1Energy.at(trackID);
-  if(verb) cout<<"Extra MUV1 energy = "<<fExtraMUV1Energy<<endl;
+  cout<<user()<<"Extra MUV1 energy = "<<fExtraMUV1Energy<<endl;
 
   auto extraMUV2Energy =
     *(std::vector<double>*)GetOutput("TrackCalorimetricEnergyAssociation.ExtraMUV2Energy", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
   fExtraMUV2Energy = extraMUV2Energy.at(trackID);
-  if(verb) cout<<"Extra MUV2 energy = "<<fExtraMUV2Energy<<endl;
+  cout<<user()<<"Extra MUV2 energy = "<<fExtraMUV2Energy<<endl;
 
   auto totalEnergy =
     *(std::vector<double>*)GetOutput("TrackCalorimetricEnergyAssociation.TotalEnergy", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
   fTotalEnergy = totalEnergy.at(trackID);
-  if(verb) cout<<"Total energy = "<<fTotalEnergy<<endl;
+  cout<<user()<<"Total energy = "<<fTotalEnergy<<endl;
 
   auto lkrStandardAssoc =
     *(std::vector<bool>*)GetOutput("BestTrackSelection.LKrStandardAssoc", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -330,14 +331,14 @@ void K2pi::Process(int iEvent){
   auto lkrChargedAssoc =
     *(std::vector<bool>*)GetOutput("BestTrackSelection.LKrChargedAssoc", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
 
   auto lkrAssocSeedEnergy =
       *(std::vector<double>*)GetOutput("BestTrackSelection.LKrAssocSeedEnergy", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   fLKrSeedEnergy = lkrAssocSeedEnergy.at(trackID);
@@ -345,7 +346,7 @@ void K2pi::Process(int iEvent){
   auto lkrAssocNCells =
     *(std::vector<int>*)GetOutput("BestTrackSelection.LKrAssocNCells", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   fLKrNCells = lkrAssocNCells.at(trackID);
@@ -353,7 +354,7 @@ void K2pi::Process(int iEvent){
   auto lkrAssocEnergy =
     *(std::vector<double>*)GetOutput("BestTrackSelection.LKrAssocEnergy", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   fLKrEnergy = lkrAssocEnergy.at(trackID);
@@ -361,22 +362,22 @@ void K2pi::Process(int iEvent){
   auto lkrAssocPosition =
     *(std::vector<TVector2>*)GetOutput("BestTrackSelection.LKrAssocPosition", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   fLKrAssocPos = lkrAssocPosition.at(trackID);
 
-  if(verb) cout<<"Which assoc? "<<(lkrStandardAssoc.at(trackID) ? 1 : (lkrChargedAssoc.at(trackID) ? 2 : 0))<<endl;
-  if(verb) cout<<"LKr assoc energy = "<<fLKrEnergy<<endl;
-  if(verb) cout<<"LKr assoc seed energy = "<<fLKrSeedEnergy<<endl;
-  if(verb) cout<<"LKr assoc N cells = "<<fLKrNCells<<endl;
+  cout<<user()<<"Which assoc? "<<(lkrStandardAssoc.at(trackID) ? 1 : (lkrChargedAssoc.at(trackID) ? 2 : 0))<<endl;
+  cout<<user()<<"LKr assoc energy = "<<fLKrEnergy<<endl;
+  cout<<user()<<"LKr assoc seed energy = "<<fLKrSeedEnergy<<endl;
+  cout<<user()<<"LKr assoc N cells = "<<fLKrNCells<<endl;
   FillHisto("hCut", cutID);
   cutID++;
 
   auto specRICH =
     *(std::vector<SpectrometerRICHAssociationOutput>*)GetOutput("SpectrometerRICHAssociation.Output", state);
   if(!specRICH.at(trackID).isValid()){
-    if(verb) cout<<"Requested output is not valid";
+    cout<<user()<<"Requested output is not valid";
     return;
   };
   FillHisto("hCut", cutID);
@@ -386,7 +387,7 @@ void K2pi::Process(int iEvent){
   auto specRICHsr =
     *(std::vector<SpectrometerRICHAssociationOutputSingleRing>*)GetOutput("SpectrometerRICHAssociationSingleRing.Output", state);
   if(!specRICHsr.at(trackID).isAssociated()){
-    if(verb) cout<<"No Association found"<<endl;
+    cout<<user()<<"No Association found"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -404,11 +405,11 @@ void K2pi::Process(int iEvent){
   auto TrackMomentum =
     *(std::vector<TVector3>*)GetOutput("BestTrackSelection.GTKAssocTrackMomentum", state);
   if(state==kOInvalid || state==kOUninit){
-    if(verb) cout<<"Uninit/Invalid"<<endl;
+    cout<<user()<<"Uninit/Invalid"<<endl;
     return;
   };
-  if(verb) cout<<"GTK ID = "<<GTKAssocID.at(trackID)<<endl;
-  if(verb) cout<<"GTK quality1 = "<<quality1.at(trackID)<<endl;
+  cout<<user()<<"GTK ID = "<<GTKAssocID.at(trackID)<<endl;
+  cout<<user()<<"GTK quality1 = "<<quality1.at(trackID)<<endl;
   FillHisto("hCut", cutID);
   cutID++;
 
@@ -419,14 +420,14 @@ void K2pi::Process(int iEvent){
   auto NomVertex =
     *(std::vector<TVector3>*)GetOutput("BestTrackSelection.NomVertex", state);
   if(state==kOInvalid || state==kOUninit){
-    if(verb) cout<<"Uninit/Invalid"<<endl;
+    cout<<user()<<"Uninit/Invalid"<<endl;
     return;
   };
 
   auto pi0selected =
     *(bool*)GetOutput("Pi0Selection.EventSelected", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -435,7 +436,7 @@ void K2pi::Process(int iEvent){
   bool goodEvent =
     *(bool*)GetOutput("EventCleaning.GoodEvent", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -444,7 +445,7 @@ void K2pi::Process(int iEvent){
   bool decaySelected =
   *(bool*)GetOutput("KaonDecaySelection.DecaySelected", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -453,7 +454,7 @@ void K2pi::Process(int iEvent){
   bool segments =
     *(bool*)GetOutput("SegmentRejection.Segments", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -462,13 +463,13 @@ void K2pi::Process(int iEvent){
   bool photonsLAVSAV =
     *(bool*)GetOutput("PhotonRejection.Photons", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++; //27
 
-  if(verb) cout<<"all requested outputs are valid"<<endl;
+  cout<<user()<<"all requested outputs are valid"<<endl;
 
   //candidates
   STRAWCand = static_cast<TRecoSpectrometerCandidate*>(SpectrometerEvent->GetCandidate(trackID));
@@ -511,7 +512,7 @@ void K2pi::Process(int iEvent){
   //K2pi selection
 
   //Pi0 selected
-  if(verb) cout<<"Pi0 selected? "<<pi0selected<<endl;
+  cout<<user()<<"Pi0 selected? "<<pi0selected<<endl;
   if(!pi0selected) return;
   FillHisto("hMissM2VsCut", cutID, missM2);
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
@@ -523,7 +524,7 @@ void K2pi::Process(int iEvent){
    *(std::vector<Pi0SelectionOutput>*)GetOutput("Pi0Selection.SelectedPi0");
   Pi0SelectionOutput pi0 = pi0Selected.at(0);
   bool photonsInAccRICH = ArePhotonsInRICHAcceptance(pi0.fClustersID, pi0.fPosition);
-  if(verb) cout<<"Photons in RICH acceptance? "<<photonsInAccRICH<<" = 1"<<endl;
+  cout<<user()<<"Photons in RICH acceptance? "<<photonsInAccRICH<<" = 1"<<endl;
   if(!photonsInAccRICH) return;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hMissM2VsCut", cutID, missM2);
@@ -531,7 +532,7 @@ void K2pi::Process(int iEvent){
   cutID++;
 
   //N selected Pi+
-  if(verb) cout<<"N pi0 selected: "<<pi0Selected.size()<<" = 1"<<endl;
+  cout<<user()<<"N pi0 selected: "<<pi0Selected.size()<<" = 1"<<endl;
   if(pi0Selected.size()!=1) return;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hMissM2VsCut", cutID, missM2);
@@ -540,8 +541,8 @@ void K2pi::Process(int iEvent){
 
   //neutral vertex position
   double pi0VtxZ = pi0.fPosition.Z();
-  if(verb) cout<<"Neutral vertex position = "<<pi0.fPosition.X()<<" "<<pi0.fPosition.Y()<<" "<<pi0.fPosition.Z()<<endl;
-  if(verb) cout<<"Neutral vertex Z position "<<fCutMinNeutralVertexZ<<" < "<<pi0VtxZ<<" < "<<fCutMaxNeutralVertexZ<<endl;
+  cout<<user()<<"Neutral vertex position = "<<pi0.fPosition.X()<<" "<<pi0.fPosition.Y()<<" "<<pi0.fPosition.Z()<<endl;
+  cout<<user()<<"Neutral vertex Z position "<<fCutMinNeutralVertexZ<<" < "<<pi0VtxZ<<" < "<<fCutMaxNeutralVertexZ<<endl;
   if((fCutMinNeutralVertexZ>pi0VtxZ) || (fCutMaxNeutralVertexZ<pi0VtxZ)) return;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hMissM2VsCut", cutID, missM2);
@@ -549,10 +550,10 @@ void K2pi::Process(int iEvent){
   cutID++;
 
   //check expected Pi+
-  if(verb) cout<<"Would selected Pi0 have a good Pi+? "<<endl;
+  cout<<user()<<"Would selected Pi0 have a good Pi+? "<<endl;
   bool isgoodexp = isGoodExpectedPiPlus(pi0.fMomentum, pi0.fPosition, pi0.fClustersID);
   if(!isgoodexp) return;
-  if(verb) cout<<"Selected Pi0 has good Pi+."<<endl;
+  cout<<user()<<"Selected Pi0 has good Pi+."<<endl;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hMissM2VsCut", cutID, missM2);
   FillHisto("hCut", cutID);
@@ -563,34 +564,34 @@ void K2pi::Process(int iEvent){
   TLorentzVector expPiPlus = fKaonNom - pi0.fMomentum;
   TVector3 expPos = GetPositionAtZ(expPiPlus.Vect(), pi0.fPosition, fZLKr);
   TVector2 clusPos;
-  if(verb) cout<<"Look for standard cluster for expected pi+."<<endl;
+  cout<<user()<<"Look for standard cluster for expected pi+."<<endl;
   for(int j=0; j<fLKrEvent->GetNCandidates(); j++){
-    if(verb) cout<<"LKr cluster "<<j<<endl;
+    cout<<user()<<"LKr cluster "<<j<<endl;
     TRecoLKrCandidate *c = static_cast<TRecoLKrCandidate*>(fLKrEvent->GetCandidate(j));
     double tLKrCand = c->GetTime() + fOffsetLKrCandidateToExpPiPlus;
     clusPos.Set(c->GetClusterX(), c->GetClusterY());
-    if(verb) cout<<"Cluster position - expected Pi+ position = "<<(clusPos-expPos.XYvector()).Mod()<<" < 200."<<endl;
-    if(verb) cout<<"Cluster time - expected Pi+ time = |"<<tLKrCand<<" - "<<pi0.fTime<<"| = "<<fabs(tLKrCand-pi0.fTime)<<" < 5"<<endl;
+    cout<<user()<<"Cluster position - expected Pi+ position = "<<(clusPos-expPos.XYvector()).Mod()<<" < 200."<<endl;
+    cout<<user()<<"Cluster time - expected Pi+ time = |"<<tLKrCand<<" - "<<pi0.fTime<<"| = "<<fabs(tLKrCand-pi0.fTime)<<" < 5"<<endl;
     if((clusPos-expPos.XYvector()).Mod()>200.) continue;
     if(fabs(tLKrCand-pi0.fTime)>5.) continue;
     found = true;
-    if(verb) cout<<"Cluster "<<j<<" should correspond to expected Pi+."<<endl;
+    cout<<user()<<"Cluster "<<j<<" should correspond to expected Pi+."<<endl;
     break;
   };
-  if(verb) cout<<"Is there standard LKr cluster to expected Pi+? "<<found<<endl;
+  cout<<user()<<"Is there standard LKr cluster to expected Pi+? "<<found<<endl;
   if(!found){
     //LKr charged cluster
-    if(verb) cout<<"Look for charged LKr cluster for expected pi+."<<endl;
+    cout<<user()<<"Look for charged LKr cluster for expected pi+."<<endl;
     double tCluster = 9999999.;
     double maxEnergy = 0.;
     double ECluster = 0.;
     int ncells = 0;
-    if(verb) cout<<"N LKr hits: "<<fLKrEvent->GetNHits()<<endl;
+    cout<<user()<<"N LKr hits: "<<fLKrEvent->GetNHits()<<endl;
     for(int k=0; k<fLKrEvent->GetNHits(); k++){
-      if(verb) cout<<"LKr hit "<<k<<endl;
+      cout<<user()<<"LKr hit "<<k<<endl;
       TRecoLKrHit *LKrHit = static_cast<TRecoLKrHit*>(fLKrEvent->GetHit(k));
       double tHit = LKrHit->GetTime() + fOffsetLKrHitToExpPiPlus;
-      if(verb){
+      if(TestLevel(Verbosity::kUser)){
         cout<<"Hit time = "<<tHit<<endl;
         cout<<"Hit energy = "<<LKrHit->GetEnergy()<<endl;
         cout<<"Hit position = "<<LKrHit->GetPosition().X()<<" "<<LKrHit->GetPosition().Y()<<" "<<LKrHit->GetPosition().Z()<<endl;
@@ -601,7 +602,7 @@ void K2pi::Process(int iEvent){
       if((LKrHit->GetPosition().XYvector()-expPos.XYvector()).Mod()<100. && fabs(tHit-pi0.fTime)<20.){
         ncells++;
         ECluster+=LKrHit->GetEnergy();
-        if(verb){
+        if(TestLevel(Verbosity::kUser)){
           cout<<"N cells = "<<ncells<<endl;
           cout<<"Total cluster energy = "<<ECluster<<endl;
         };
@@ -611,14 +612,14 @@ void K2pi::Process(int iEvent){
         };
       };
     };
-    if(verb){
+    if(TestLevel(Verbosity::kUser)){
       cout<<"Found charged association?"<<endl;
       cout<<"Max energy = "<<maxEnergy<<" > 40."<<endl;
       cout<<"Cluster time - expected Pi+ time "<<fabs(tCluster-pi0.fTime)<<" <= 8."<<endl;
     };
     if((maxEnergy>40.) && (fabs(tCluster-pi0.fTime)<=8.)){
       found = true;
-      if(verb) cout<<"Charged association found."<<endl;
+      cout<<user()<<"Charged association found."<<endl;
     };
     maxEnergy = CorrectLKrCellCluster(ncells, maxEnergy);
   };
@@ -630,7 +631,7 @@ void K2pi::Process(int iEvent){
 
   //Pi0 close to CHOD
   FillHisto("hTimeDiffPi0CHOD", pi0.fTime-trackCHODTime);
-  if(verb) cout<<"Is Pi0 in time with CHOD? "<<fabs(pi0.fTime-trackCHODTime)<<" < "<<fCutTimeDiffPi0CHOD<<endl;
+  cout<<user()<<"Is Pi0 in time with CHOD? "<<fabs(pi0.fTime-trackCHODTime)<<" < "<<fCutTimeDiffPi0CHOD<<endl;
   if(fabs(pi0.fTime-trackCHODTime)>fCutTimeDiffPi0CHOD) return;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hMissM2VsCut", cutID, missM2);
@@ -638,9 +639,9 @@ void K2pi::Process(int iEvent){
   cutID++;
 
   //event cleaning
-  if(verb) cout<<"Is good event? "<<goodEvent<<endl;
+  cout<<user()<<"Is good event? "<<goodEvent<<endl;
   if(!goodEvent){
-    if(verb) cout<<"Event is rejected after Event Cleaning"<<endl;
+    cout<<user()<<"Event is rejected after Event Cleaning"<<endl;
     return;
   };
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
@@ -649,9 +650,9 @@ void K2pi::Process(int iEvent){
   cutID++;
 
   //kaon decay
-  if(verb) cout<<"Is selected kaon decay? "<<decaySelected<<endl;
+  cout<<user()<<"Is selected kaon decay? "<<decaySelected<<endl;
   if(!decaySelected){
-    if(verb) cout<<"Event is rejected due to KaonDecaySelection"<<endl;
+    cout<<user()<<"Event is rejected due to KaonDecaySelection"<<endl;
     return;
   };
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
@@ -660,9 +661,9 @@ void K2pi::Process(int iEvent){
   cutID++;
 
   //photon veto LAV, SAV
-  if(verb) cout<<"Has photon in LAV or SAV? "<<photonsLAVSAV<<endl;
+  cout<<user()<<"Has photon in LAV or SAV? "<<photonsLAVSAV<<endl;
   if(photonsLAVSAV){
-    if(verb) cout<<"Event is rejected due to photons in LAV, SAV"<<endl;
+    cout<<user()<<"Event is rejected due to photons in LAV, SAV"<<endl;
     return;
   };
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
@@ -675,7 +676,7 @@ void K2pi::Process(int iEvent){
   int id2 = pi0.fClustersID.second;
   bool photonInLKr = ExtraPhotonsInLKr(STRAWCand, id1, id2, trackTime);
   FillHisto("hPhotonInLKr", (int)photonInLKr);
-  if(verb) cout<<"Any extra LKr activity corresponding to additional photon? "<<photonInLKr<<endl;
+  cout<<user()<<"Any extra LKr activity corresponding to additional photon? "<<photonInLKr<<endl;
   if(photonInLKr) return;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hMissM2VsCut", cutID, missM2);
@@ -683,9 +684,9 @@ void K2pi::Process(int iEvent){
   cutID++;
 
   // segment rejection
-  if(verb) cout<<"Is segments true? "<<segments<<endl;
+  cout<<user()<<"Is segments true? "<<segments<<endl;
   if(segments){
-    if(verb) cout<<"Event is rejected due to segments"<<endl;
+    cout<<user()<<"Event is rejected due to segments"<<endl;
     return;
   };
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
@@ -694,9 +695,9 @@ void K2pi::Process(int iEvent){
   cutID++;
 
   //pion with RICH + calorimeters
-  if(verb) cout<<"Is Pion? "<<endl;
+  cout<<user()<<"Is Pion? "<<endl;
   if(!isPion(STRAWCand->GetMomentum(), trackTime)) return;
-  if(verb) cout<<"Is pion."<<endl;
+  cout<<user()<<"Is pion."<<endl;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hMissM2VsCut", cutID, missM2);
   FillHisto("hCut", cutID);
@@ -704,7 +705,7 @@ void K2pi::Process(int iEvent){
 
   //momentum cut
   FillHisto("hTrackMomentum", STRAWCand->GetMomentum());
-  if(verb) cout<<"STRAW momentum: "<<fCutTrackMomMin<<" < "<<STRAWCand->GetMomentum()<<" < "<<fCutTrackMomMax<<endl;
+  cout<<user()<<"STRAW momentum: "<<fCutTrackMomMin<<" < "<<STRAWCand->GetMomentum()<<" < "<<fCutTrackMomMax<<endl;
   if((STRAWCand->GetMomentum()<fCutTrackMomMin) || (STRAWCand->GetMomentum()>fCutTrackMomMax)) return;
   FillHisto("hTrackTime", trackTime);
   FillHisto("hTimeDiffTrackTrigger", trackTime - tTrigger);
@@ -742,8 +743,8 @@ void K2pi::Process(int iEvent){
   fK2piKaonID = GTKAssocID.at(trackID);
   fK2piTrackID = trackID;
   fK2piRICHMomentum = RICHMom;
-  if(verb) cout<<"Track ID "<<fK2piTrackID<<" GTK ID "<<fK2piKaonID<<" GTKMom ("<<fK2piKaonMom.X()<<","<<fK2piKaonMom.Y()<<","<<fK2piKaonMom.Z()<<")"<<endl;
-  if(verb) cout<<"Selecting K2pi event"<<endl;
+  cout<<user()<<"Track ID "<<fK2piTrackID<<" GTK ID "<<fK2piKaonID<<" GTKMom ("<<fK2piKaonMom.X()<<","<<fK2piKaonMom.Y()<<","<<fK2piKaonMom.Z()<<")"<<endl;
+  cout<<user()<<"Selecting K2pi event"<<endl;
 }
 
 void K2pi::PostProcess(){}
@@ -798,14 +799,14 @@ bool K2pi::isGoodExpectedPiPlus(TLorentzVector pi0, TVector3 vertex, const std::
   mmm++;
 
   TLorentzVector expPiPlus = fKaonNom - pi0;
-  if(verb) cout<<"Expected momentum of Pi+ = "<<expPiPlus.Vect().X()<<" "<<expPiPlus.Vect().Y()<<" "<<expPiPlus.Vect().Z()<<endl;
+  cout<<user()<<"Expected momentum of Pi+ = "<<expPiPlus.Vect().X()<<" "<<expPiPlus.Vect().Y()<<" "<<expPiPlus.Vect().Z()<<endl;
   double momPiPlus = expPiPlus.Vect().Mag();
-  if(verb) cout<<"Expected momentum of Pi+:"<<"5000. < "<<momPiPlus<<" < "<<80000.<<endl;
+  cout<<user()<<"Expected momentum of Pi+:"<<"5000. < "<<momPiPlus<<" < "<<80000.<<endl;
   if(momPiPlus<5000. || momPiPlus>80000.) return false;
   FillHisto("hIsGoodExpectedPiPlus", mmm);
   mmm++;
 
-  if(verb) cout<<"Is in geometrical acceptance of Spectrometer, RICH, CHOD, MUV2, MUV3? ";
+  cout<<user()<<"Is in geometrical acceptance of Spectrometer, RICH, CHOD, MUV2, MUV3? ";
   TVector3 slopeBefMag = expPiPlus.Vect()*(1./expPiPlus.Vect().Mag());
   TVector3 posAtMagnet = GetPositionAtZ(expPiPlus.Vect(), vertex, 197600.);
   TVector3 slopeAftMag = MomAfterKick(expPiPlus.Vect(), 270.);
@@ -821,12 +822,12 @@ bool K2pi::isGoodExpectedPiPlus(TLorentzVector pi0, TVector3 vertex, const std::
      !GeometricAcceptance::GetInstance()->InAcceptance(posAtMagnet, slopeAftMag, kMUV2) ||
      !GeometricAcceptance::GetInstance()->InAcceptance(posAtMagnet, slopeAftMag, kMUV3, 0, 130., 1100.) ||
      !(Rfront>90. && Rfront<1100. && Rback>90. && Rback<1100.)) return false;
-  if(verb) cout<<"yes"<<endl;
+  cout<<user()<<"yes"<<endl;
   FillHisto("hIsGoodExpectedPiPlus", mmm);
   mmm++;
 
   FillHisto("hExpPiPlusMass2", expPiPlus.M2());
-  if(verb) cout<<"Expected mass^2 of Pi+: "<<"8000. < "<<expPiPlus.M2()<<" < 31000."<<endl;
+  cout<<user()<<"Expected mass^2 of Pi+: "<<"8000. < "<<expPiPlus.M2()<<" < 31000."<<endl;
   if(expPiPlus.M2()<8000. || expPiPlus.M2()>31000.) return false;
   FillHisto("hIsGoodExpectedPiPlus", mmm);
 
@@ -835,14 +836,15 @@ bool K2pi::isGoodExpectedPiPlus(TLorentzVector pi0, TVector3 vertex, const std::
   TVector2 expPos = GetPositionAtZ(expPiPlus.Vect(), vertex, fZLKr).XYvector();
   TVector2 c1pos(c1->GetClusterX(), c1->GetClusterY());
   TVector2 c2pos(c2->GetClusterX(), c2->GetClusterY());
-  if(verb) cout<<"Expected Pi+ close to photons? "<<"photon1: "<<(c1pos-expPos).Mod()<<" < 150  "<<"photon2: "<<(c2pos-expPos).Mod()<<" < 150"<<endl;
+  cout<<user()<<"Expected Pi+ close to photons? "<<"photon1: "<<(c1pos-expPos).Mod()<<" < 150  "<<"photon2: "<<(c2pos-expPos).Mod()<<" < 150"<<endl;
   if((c1pos-expPos).Mod()<150. || (c2pos-expPos).Mod()<150.) return false;
 
-  if(verb) cout<<"Is good expected Pi+"<<endl;
+  cout<<user()<<"Is good expected Pi+"<<endl;
   return true;
 }
 
 bool K2pi::isPion(double mom, double trackTime){
+  bool verb = TestLevel(Verbosity::kUser);
   bool isPion1 = isPionProbability(mom, fPionProb, verb);
   bool isPion2 = isPionCaloEnergy(fTotalEnergy, mom, verb);
   bool isPion3 = isPionCellSeed(fMUV1Energy, fMUV2Energy, fTotalEnergy, fLKrSeedEnergy, fLKrEnergy, fLKrNCells, verb);
@@ -853,7 +855,7 @@ bool K2pi::isPion(double mom, double trackTime){
 
   if(verb && isPionRich) cout<<"Could be pion (RICH)."<<endl;
   bool ispion = (!isMuon && isPion1 && isPion2 && isPion3 && !isExtra && !isPositron);
-  if(verb) cout<<"Could "<<(ispion?"":"not")<<" be pion."<<endl;
+  cout<<user()<<"Could "<<(ispion?"":"not")<<" be pion."<<endl;
 
   bool is = (ispion && isPionRich);
   if(verb && is) cout<<"Is pion."<<endl;
@@ -863,7 +865,7 @@ bool K2pi::isPion(double mom, double trackTime){
 bool K2pi::ExtraPhotonsInLKr(TRecoSpectrometerCandidate *STRAWCand, int id1, int id2, double trackTime){
   bool isExtraPhoton = false;
   TVector2 trackAtLKr(STRAWCand->xAt(fZLKr), STRAWCand->yAt(fZLKr));
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"Extra activity study"<<endl;
     cout<<"Track position at LKr: "<<trackAtLKr.X()<<" "<<trackAtLKr.Y()<<endl;
@@ -871,9 +873,9 @@ bool K2pi::ExtraPhotonsInLKr(TRecoSpectrometerCandidate *STRAWCand, int id1, int
     cout<<"LKr candidates "<<id1<<" and "<<id2<<" correspond to photons from pi0."<<endl;
   };
   for(int l=0; l<fLKrEvent->GetNCandidates(); l++){
-    if(verb) cout<<"candidate "<<l<<endl;
+    cout<<user()<<"candidate "<<l<<endl;
     if(l==id1 || l==id2){
-      if(verb) cout<<"LKr candidate "<<l<<" corresponds to photon from pi0."<<endl;
+      cout<<user()<<"LKr candidate "<<l<<" corresponds to photon from pi0."<<endl;
       continue;
     };
     TRecoLKrCandidate *LKrCand = static_cast<TRecoLKrCandidate*>(fLKrEvent->GetCandidate(l));
@@ -884,13 +886,13 @@ bool K2pi::ExtraPhotonsInLKr(TRecoSpectrometerCandidate *STRAWCand, int id1, int
     double Eclus = LKrCand->GetClusterEnergy();
     double deltaT = LKrCand->GetTime() - trackTime + fOffsetLKrCandidateExtraPhotons;
     double sigma = fLKrSigmaA + fLKrSigmaB/(Eclus/1000.) - fLKrSigmaC/sqrt((Eclus/1000.));
-    if(verb) cout<<"Position "<<candPos.X()<<" "<<candPos.Y()<<endl;
-    if(verb) cout<<"Energy "<<Eclus<<endl;
+    cout<<user()<<"Position "<<candPos.X()<<" "<<candPos.Y()<<endl;
+    cout<<user()<<"Energy "<<Eclus<<endl;
     FillHisto("hTimeDiffLKrTrackVSClusterEnergy", Eclus, deltaT);
     FillHisto("hClusPosXvsClusterEnergy", Eclus, candPos.X());
     FillHisto("hClusPosYvsClusterEnergy", Eclus, candPos.Y());
     FillHisto("hTimeDiff36LKrTrackVSClusterEnergy", Eclus, deltaT+36.);
-    isExtraPhoton = EvaluateLKrCluster(Eclus, deltaT, sigma, fLKrClusterEnergy1, fLKrClusterEnergy2, fLKrClusterEnergy3, fLKrClusterEnergy4, fLKrClusterTimeDiff1, fLKrClusterTimeDiff2, fLKrClusterTimeDiffSigma1, fLKrClusterTimeDiffSigma2, fLKrClusterTimeDiffSigma3, verb);
+    isExtraPhoton = EvaluateLKrCluster(Eclus, deltaT, sigma, fLKrClusterEnergy1, fLKrClusterEnergy2, fLKrClusterEnergy3, fLKrClusterEnergy4, fLKrClusterTimeDiff1, fLKrClusterTimeDiff2, fLKrClusterTimeDiffSigma1, fLKrClusterTimeDiffSigma2, fLKrClusterTimeDiffSigma3, TestLevel(Verbosity::kUser));
     if(isExtraPhoton) break;
   };
   return isExtraPhoton;

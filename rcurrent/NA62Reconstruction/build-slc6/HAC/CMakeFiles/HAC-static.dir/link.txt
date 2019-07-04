@@ -1,2 +1,0 @@
-/usr/bin/ar qc libHAC-static.a  CMakeFiles/HACObjLib.dir/src/HACChannel.cc.o CMakeFiles/HACObjLib.dir/src/HACDigitizer.cc.o CMakeFiles/HACObjLib.dir/src/HACGeometry.cc.o CMakeFiles/HACObjLib.dir/src/HACHitsCluster.cc.o CMakeFiles/HACObjLib.dir/src/HACOnlineMonitor.cc.o CMakeFiles/HACObjLib.dir/src/HACRawDecoder.cc.o CMakeFiles/HACObjLib.dir/src/HACRawEncoder.cc.o CMakeFiles/HACObjLib.dir/src/HACReconstruction.cc.o CMakeFiles/HACObjLib.dir/HACDICT.cxx.o
-/usr/bin/ranlib libHAC-static.a

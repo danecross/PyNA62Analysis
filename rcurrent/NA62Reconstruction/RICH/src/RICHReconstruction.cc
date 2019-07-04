@@ -6,14 +6,14 @@
 //-------------------------------------------------------------------------------
 /// \class RICHReconstruction
 /// \Brief
-/// Main RICH reconstruction: starts from RICH Hits and collects them in Time Clusters (group of hits near in time). Hits belonging to 
-/// Time Clusters are geometrically fitted as Rings. Time Clusters and Rings represent the RICH Candidates. 
+/// Main RICH reconstruction: starts from RICH Hits and collects them in Time Clusters (group of hits near in time). Hits belonging to
+/// Time Clusters are geometrically fitted as Rings. Time Clusters and Rings represent the RICH Candidates.
 /// Digi hits come from single PMs or from SuperCell (SuperCell is the OR signal from a group of 8 adjacents PMs).
 /// \EndBrief
 ///
 /// \Detailed
 /// It makes use of base class NA62VReconstruction and of classes in NA62MC/RICH/Persistency (TRecoRICHEvent, TRecoRICHCandidate, TRecoRICHHit).
-/// The RICH reconstruction basic parameters are set in NA62Reconstruction/config/RICH.conf 
+/// The RICH reconstruction basic parameters are set in NA62Reconstruction/config/RICH.conf
 /// \n
 /// =========
 /// \n
@@ -27,15 +27,15 @@
 /// \n
 /// EnableSuperCells= 0 --> Enable (1) or disable (0) SuperCells Reconstruction : Digi hits from SC are skipped and not included in RICH Reconstructed Hits
 /// \n
-/// StationsT0 (ns) --> used to center Leading Time of TDC around 0. 
+/// StationsT0 (ns) --> used to center Leading Time of TDC around 0.
 /// \n
 /// NOTE: signals from SC have LeadingTime shifted by 50 ns wrt PMs (2 time slots).
-/// Its value depends on the detector used as reference time and is run dependent: until the information will be retrieved from DataBase, 
+/// Its value depends on the detector used as reference time and is run dependent: until the information will be retrieved from DataBase,
 /// values correspondng to different run ranges are shown in comments and must be used properly.
 /// \n
 /// In the analysis it may be useful to know the position of PMs and SCs:
 /// Position of PMs (PMPosition_SC_i, i=0-121) and SuperCells (SCPosition_SC_i i=0-60) are x-y coordinates inside the PM Disk
-/// reference system as a function of the Sequential Number of 976 PMs ans 122 SC in either Jura/Saleve Disk. 
+/// reference system as a function of the Sequential Number of 976 PMs ans 122 SC in either Jura/Saleve Disk.
 ///  Real positions on each individual disk are obtained by adding the position of disk centers JuraShift and SaleveShift.
 /// \n
 /// =======================================================================================================================================================
@@ -44,21 +44,21 @@
 /// \n
 /// The reconstruction rejects (if any) events with more tha 400 Digi hits: normally less than 250 Digi hits are present.
 ///    ****  Limit removed by Jurgen Engelfried, 10 August 2018. ***
-/// Digi hits are then ordered to have first all hits from PMs and then hits from SuperCells. 
+/// Digi hits are then ordered to have first all hits from PMs and then hits from SuperCells.
 /// Digi hits from SC are reconstructed only if the flag EnableSuperCells=1 in RICH.conf
 /// \n
-/// TimeCandidate 
+/// TimeCandidate
 /// \n
-/// Iterations of the time candidate clustering procedure (NCandidateClusteringIterations= 1 or 2) 
+/// Iterations of the time candidate clustering procedure (NCandidateClusteringIterations= 1 or 2)
 /// \n
 /// A cluster is defined collecting hits in 0.5*TimeWindow
-/// \n 
-///   - 1: a new cluster is defined if a hit away more than 0.5*TimeWindow from the existing cluster is found 
-///   - 2: clusters closer than TimeWindow to a larger cluster are checked in order to include them in the existing larger cluster   
+/// \n
+///   - 1: a new cluster is defined if a hit away more than 0.5*TimeWindow from the existing cluster is found
+///   - 2: clusters closer than TimeWindow to a larger cluster are checked in order to include them in the existing larger cluster
 ///   .
 /// This procedure is done first for SC (if enabled) and then for PMs hits: a total number NTimeCandidates of Time Candidates is
 /// produced comprising NSCTimeCandidates (from SC hits, if enabled) and NPMTimeCandidates from PMs hits.
-/// CandidateTime is the average time of hits belonging to that TimeCandidate 
+/// CandidateTime is the average time of hits belonging to that TimeCandidate
 /// \n
 /// Ring Candidate
 /// \n
@@ -67,7 +67,7 @@
 /// \n
 /// A single ring fit is performed to each PM Time Candidate and the Fit information is added to the PMTimeCandidate only for test purpose.
 /// For analysis only the result of the MultiFit reconstruction must be used --> RingCandidates.
-/// \n 
+/// \n
 /// =======================================================================================================================================================
 /// \n
 /// MultiRing Reconstruction:
@@ -80,9 +80,9 @@
 /// Choose a new starting triplet with the remaining points and construct the second ring.
 /// Repeat procedure until there are less than 4 points or no good starting triplet left.
 /// Choose the best (Best Chi2) multiring sample among the 8. (One or more rings can be obtained from a single TimeCandidate).
-/// A total number of NRingCandidates is found. For each Ring Candidate the RingTime is the average time of its hits. 
+/// A total number of NRingCandidates is found. For each Ring Candidate the RingTime is the average time of its hits.
 /// \n
-/// RICH Candidates array contains : (SCTimeCandidates + PMTimeCandidates) + RingCandidates 
+/// RICH Candidates array contains : (SCTimeCandidates + PMTimeCandidates) + RingCandidates
 /// following the above order and where (NSCTimeCandidates + NPMTimeCandidates)=NTimeCandidates
 /// \n
 /// All methods to retrieve the number of candidates and the Candidate arrays are implemented in TRecoRICHEvent:
@@ -91,9 +91,9 @@
 /// Int_t             GetNRingCandidates()                              { return fNRingCandidates;              };
 /// Int_t             GetNPMTimeCandidates()                            { return fNPMTimeCandidates;            };
 /// Int_t             GetNSCTimeCandidates()                            { return fNSCTimeCandidates;            };
-/// TRecoRICHCandidate * GetSCTimeCandidate(Int_t); 
+/// TRecoRICHCandidate * GetSCTimeCandidate(Int_t);
 /// TRecoRICHCandidate * GetPMTimeCandidate(Int_t);
-/// TRecoRICHCandidate * GetTimeCandidate(Int_t); 
+/// TRecoRICHCandidate * GetTimeCandidate(Int_t);
 /// TRecoRICHCandidate * GetRingCandidate(Int_t);
 /// \endcode
 /// \n
@@ -103,10 +103,10 @@
 ///    TRecoRICHEvent * RICHEvent = static_cast<TRecoRICHEvent*>(GetEvent("RICH"));
 ///
 ///    for(int iRICHCand=0; iRICHCand<RICHEvent->GetNPMTimeCandidates(); iRICHCand++){ //loop su PM Time Cand
-///      TRecoRICHCandidate *TimeCandidate = RICHEvent->GetPMTimeCandidate(iRICHCand); 
+///      TRecoRICHCandidate *TimeCandidate = RICHEvent->GetPMTimeCandidate(iRICHCand);
 ///      TimeCandidate->SetEvent(RICHEvent);
 ///      FillHisto("hTimePMTCandidate",TimeCandidate->GetTime());
-///    }     
+///    }
 ///
 ///    for(int iRICHCand=0; iRICHCand<RICHEvent->GetNSCTimeCandidates(); iRICHCand++){ //loop su SC Time Cand
 ///      TRecoRICHCandidate *TimeCandidate = RICHEvent->GetSCTimeCandidate(iRICHCand);
@@ -130,11 +130,11 @@
 ///
 ///         Int_t GeoID  = Hit->GetChannelID(); // Encoded RICHChannelID
 ///         Int_t SeqID  = Hit->GetChannelSeqID(); // Sequential Channel ID (PM seq number)
-///         Int_t DiskID = Hit->GetDiskID(); // 0=Jura 1=Saleve : Disk where the PM is located 
+///         Int_t DiskID = Hit->GetDiskID(); // 0=Jura 1=Saleve : Disk where the PM is located
 ///         Int_t UpDownOnDisk = Hit->GetUpDownDiskID(); // 0=Up , 1=Down : Pm on upper or lower part of Disk
-///         Int_t ORsc = Hit->GetOrSuperCellID() ; // Flag = 0 for PMs , 1 for SC 
+///         Int_t ORsc = Hit->GetOrSuperCellID() ; // Flag = 0 for PMs , 1 for SC
 ///      } // end loop hits in ring
-///    }  //loop on Ring Cand        
+///    }  //loop on Ring Cand
 ///
 /// \endcode
 /// \author Created by Antonio Cassese (antonio.cassese@cern.ch). Modified by Francesca Bucci (fbucci@cern.ch), Monica Pepe (monica.pepe@pg.infn.it)
@@ -189,7 +189,7 @@ RICHReconstruction::RICHReconstruction(TFile * HistoFile, TString ConfigFileName
   fNSCChannels = 0;
   fEnableSuperCells = kFALSE;
   fEnableSlewingCorr = kTRUE;
-  fEvaluateSlewingCorr = kFALSE;  
+  fEvaluateSlewingCorr = kFALSE;
   fEdgeRequirement     = 3;
   fNCandidateClusteringIterations = 0;
   fMultiRingRecoFlag = kTRUE;
@@ -223,7 +223,7 @@ RICHReconstruction::RICHReconstruction(TFile * HistoFile, TString ConfigFileName
 
 void RICHReconstruction::Init(NA62VReconstruction* MainReco) {
 
-  //common part for all the subdetectors 
+  //common part for all the subdetectors
   NA62VReconstruction::Init(MainReco);
 
   //force the initialisation of the channel histos if general T0 evaluation is enabled
@@ -234,7 +234,7 @@ void RICHReconstruction::Init(NA62VReconstruction* MainReco) {
     if (PositionID >=0 ){
       Int_t SeqID = FromGeoIDtoSeqID(PositionID);
       fChannels[SeqID] = new RICHChannel(PositionID,ROID,SeqID,fChannelHistograms,fPMsPositions[SeqID],fPMsPositionsShifted[SeqID]);
-    }   
+    }
   }
 
   ReadT0s();
@@ -252,7 +252,7 @@ RICHReconstruction::~RICHReconstruction(){
     fPMsPositions=0;
   }
   if(fPMsPositionsShifted) {
-    delete [] fPMsPositionsShifted; 
+    delete [] fPMsPositionsShifted;
     fPMsPositionsShifted=0;
   }
   if(fFitter){
@@ -283,10 +283,10 @@ void RICHReconstruction::ParseConfFile(TString ConfFileName){
     else if (Line.BeginsWith("NSCChannels")){
       fNSCChannels = TString(Line(TRegexp("[0-9]+"))).Atoi();
       fPMsPositions = new TVector2[fNChannels];
-      fPMsPositionsShifted = new TVector2[fNChannels];  
+      fPMsPositionsShifted = new TVector2[fNChannels];
       for(Int_t iCh=0; iCh<fNChannels;iCh++){
-        fPMsPositions[iCh] = TVector2(0.,0.); 
-        fPMsPositionsShifted[iCh] = TVector2(0.,0.); 
+        fPMsPositions[iCh] = TVector2(0.,0.);
+        fPMsPositionsShifted[iCh] = TVector2(0.,0.);
       }
       continue;
     }
@@ -348,7 +348,7 @@ void RICHReconstruction::ParseConfFile(TString ConfFileName){
             fPMsPositions[8*i+j+((fNChannels-fNSCChannels)/2)] = TVector2(x,y);
             fPMsPositionsShifted[8*i+j] = fPMsPositions[8*i+j]+fSpotCenterJura;
             fPMsPositionsShifted[8*i+j+((fNChannels-fNSCChannels)/2)] = fPMsPositions[8*i+j]+fSpotCenterSaleve;
-          } 
+          }
           delete l;
         }
       }
@@ -466,9 +466,9 @@ void RICHReconstruction::ParseConfFile(TString ConfFileName){
   }
 
   if (fEvaluateSlewingCorr) fChannelHistograms = kTRUE;
-  //if (fEvaluateSlewingCorr) fEnableSlewingCorr = kFALSE; // disable existing slewing correction  
+  //if (fEvaluateSlewingCorr) fEnableSlewingCorr = kFALSE; // disable existing slewing correction
 
-  if (!fSlewingFileName.Length()) 
+  if (!fSlewingFileName.Length())
   {
     std::cout << "Error: RICH slewing correction file not defined" << std::endl;
     exit(kWrongConfiguration);
@@ -485,7 +485,7 @@ void RICHReconstruction::ParseConfFile(TString ConfFileName){
  ************************************************/
 
 void RICHReconstruction::ReadSlewingCorrections(){
-  
+
   NA62ConditionsService::GetInstance()->Open(fSlewingFileName);
 
   // ------------------------------------------------------------------------
@@ -495,9 +495,9 @@ void RICHReconstruction::ReadSlewingCorrections(){
   TString Line;
   while (Line.ReadLine(NA62ConditionsService::GetInstance()->Get(fSlewingFileName))){
     if (Line.BeginsWith("#")) continue;
-    else{    
-      if(!fEnableSlewingCorr) continue;  
-      TObjArray *l = Line.Tokenize(" ");   
+    else{
+      if(!fEnableSlewingCorr) continue;
+      TObjArray *l = Line.Tokenize(" ");
 
       Int_t Ch = static_cast<TObjString*>(l->At(0))->GetString().Atoi();
       Double_t sc_wmin = static_cast<TObjString*>(l->At(6))->GetString().Atof();
@@ -566,7 +566,7 @@ void RICHReconstruction::LoadAlignmentParameters(Int_t RunNumber) {
       fExtraOffsetY[0] = static_cast<TObjString*>(l->At(1))->GetString().Atof();
       fExtraOffsetX[1] = static_cast<TObjString*>(l->At(2))->GetString().Atof();
       fExtraOffsetY[1] = static_cast<TObjString*>(l->At(3))->GetString().Atof();
-      std::cout << "[RICHReconstruction] Mirror alignment global offsets (JuraX, JuraY, SaleveX, SaleveY) " << 
+      std::cout << "[RICHReconstruction] Mirror alignment global offsets (JuraX, JuraY, SaleveX, SaleveY) " <<
         fExtraOffsetX[0] << " " << fExtraOffsetY[0] << " " << fExtraOffsetX[1] << " " << fExtraOffsetY[1] << std::endl;
       // skip the 1st line with residual mirror alignment (X coordinates)
       Line.ReadLine(NA62ConditionsService::GetInstance()->Get(fMirrorAlignmentDBName));
@@ -602,7 +602,7 @@ void RICHReconstruction::EndOfBurst() {
 }
 
 /********************************************//**
- * Time clusterization of the hits and 
+ * Time clusterization of the hits and
  * candidates first definition
  ************************************************/
 
@@ -612,7 +612,7 @@ TRecoVEvent * RICHReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* t
   if (tEvent->IsA() == TSpecialTriggerEvent::Class())
     return 0;
 
-  //common part for all the subdetectors 
+  //common part for all the subdetectors
   NA62VReconstruction::ProcessEvent(tEvent, tGenEvent);
 
   // load mirror alignment offsets
@@ -651,9 +651,9 @@ TRecoVEvent * RICHReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* t
         nSCJ++;
       }else{ // if Saleve
         nSCS++;
-      }      
-    }      
-  }      
+      }
+    }
+  }
   fHNHitsPMJura->Fill(nPMJ);
   fHNHitsPMSaleve->Fill(nPMS);
   fHNHitsSCJura->Fill(nSCJ);
@@ -666,7 +666,7 @@ TRecoVEvent * RICHReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* t
   Digis.Sort(); //to order Digis: first digis from PM, then digis from SC
 
   Double_t FitPositionX,FitPositionY;
-  FitPositionX=FitPositionY=9999.;     
+  FitPositionX=FitPositionY=9999.;
 
   Int_t nHitsPMJ, nHitsPMS, nHitsSCJ, nHitsSCS;
   nHitsPMJ = nHitsPMS = nHitsSCJ = nHitsSCS = 0;
@@ -703,8 +703,8 @@ TRecoVEvent * RICHReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* t
     if (Digi->GetDetectedEdge()==1 || Digi->GetDetectedEdge()==3) fHLeadingTimeVsSlot->Fill(Digi->GetSlot(), Digi->GetLeadingEdge() - GetT0Correction(Digi));
     if (Digi->GetDetectedEdge()>1) fHTrailingTimeVsSlot->Fill(Digi->GetSlot(), Digi->GetTrailingEdge() - GetT0Correction(Digi));
 
-    Double_t RecoWidth = GetRecoTimeWidth(Digi);  
-    Double_t RecoTime = GetRecoTime(Digi);  
+    Double_t RecoWidth = GetRecoTimeWidth(Digi);
+    Double_t RecoTime = GetRecoTime(Digi);
 
     TRecoRICHHit* RecoHit = static_cast<TRecoRICHHit*>( fRecoEvent->AddHit(Digi));
     RecoHit->SetChannelID(Digi->GetChannelID()); //Patch to be removed
@@ -1054,9 +1054,9 @@ TRecoVEvent * RICHReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* t
 
   fHNRingCandidates->Fill(static_cast<TRecoRICHEvent*>(fRecoEvent)->GetNRingCandidates());
 
-  Int_t nJ,nS; 
+  Int_t nJ,nS;
   for(Int_t ifCand=0; ifCand<static_cast<TRecoRICHEvent*>(fRecoEvent)->GetNRingCandidates(); ifCand++){//loop on Ring Candidates
-    nS=nJ=0;   
+    nS=nJ=0;
     TRecoRICHCandidate* finalCand= static_cast<TRecoRICHEvent*>( fRecoEvent)->GetRingCandidate(ifCand);
 
     Int_t nHits =  finalCand->GetNHits();
@@ -1068,7 +1068,7 @@ TRecoVEvent * RICHReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* t
     Int_t n_avg1,n_avg2;
     n_avg1=n_avg2=0;
 
-    for(Int_t ihit=0; ihit<nHits;ihit++){ //loop on hits 
+    for(Int_t ihit=0; ihit<nHits;ihit++){ //loop on hits
       TRecoRICHHit *Hit = static_cast<TRecoRICHHit *>( finalCand->GetHit(ihit));
       fHPMTIllumination->Fill(Hit->GetFitPosition().X(),Hit->GetFitPosition().Y());
       if(Hit->GetDiskID() == kSaleve){// if Saleve
@@ -1120,8 +1120,8 @@ Double_t RICHReconstruction::GetRecoTimeWidth(TRICHDigi *Digi)
   if (Digi->GetDetectedEdge() ==3 ) { // Both leading and trailing always OK
     Width = Digi->GetTrailingEdge() - Digi->GetLeadingEdge();
   }
-  else {   // Correct for missing leading/trailing if requested 
-    if (fEdgeRequirement < 3  || Digi->GetOrSuperCellID())  
+  else {   // Correct for missing leading/trailing if requested
+    if (fEdgeRequirement < 3  || Digi->GetOrSuperCellID())
       Width = (fEnableSlewingCorr) ? Channel->GetMeanWidth() : 0.0 ;
   }
   return Width;
@@ -1133,7 +1133,7 @@ Double_t RICHReconstruction::GetRecoTimeWidth(TRICHDigi *Digi)
 
 Double_t RICHReconstruction::GetRecoTime(TRICHDigi *Digi)
 {
-  Double_t LeadingEdge=0.0, TrailingEdge=0.0, Width=0.0;
+  Double_t LeadingEdge=0.0, TrailingEdge, Width=0.0;
   Int_t SeqID = Digi->GetChannelSeqID();
   RICHChannel* Channel = static_cast<RICHChannel*>(fChannels[SeqID]);
 
@@ -1151,7 +1151,7 @@ Double_t RICHReconstruction::GetRecoTime(TRICHDigi *Digi)
       else if (Digi->GetDetectedEdge() ==2 ){ // trailing only
         Width = (fEnableSlewingCorr) ? Channel->GetMeanWidth() : 0.0;
         LeadingEdge = Digi->GetTrailingEdge() - Width;
-      }   
+      }
     } // EdgeRequirement<3
   }
   Double_t T0 = (fEnableT0) ? Channel->GetT0() : 0.0;
@@ -1353,15 +1353,15 @@ void RICHReconstruction::EndProcessing() {
 
 void RICHReconstruction::FillTimes(Double_t ReferenceTime) {
 
-  //common part for all the subdetectors 
+  //common part for all the subdetectors
   NA62VReconstruction::FillTimes(ReferenceTime);
   if(fT0ReferenceDetector == "RICH") { //RICH it's its own reference detector
-    // Fill the histos used to evaluate T0 and Slewing Corrections 
-    // In the past the variable used was: 
+    // Fill the histos used to evaluate T0 and Slewing Corrections
+    // In the past the variable used was:
     // Delta_i = Thit(i)-Tcand
-    // where Tcand = Sum(j=1,Nhit)[Thit(j)] 1/Nhit 
+    // where Tcand = Sum(j=1,Nhit)[Thit(j)] 1/Nhit
     // in the sum the the  Thit(i) is included, this makes the Delta_i slightly biased, the effect depends on the number of hits we are considering.
-    // In order to get rid of this small effect, now we use a variable called UnbiasedDeltaT defined as: 
+    // In order to get rid of this small effect, now we use a variable called UnbiasedDeltaT defined as:
     // UnbiasedDeltaT = Thit(i) -  Sum(i.ne.i)[Thit(j)]  1/(Nhit-1))
     // UnbiasedDeltaT = Nhit/(Nhit-1) [Thit(i)-Tcand]
 
@@ -1388,17 +1388,17 @@ void RICHReconstruction::FillTimes(Double_t ReferenceTime) {
       Int_t iSeqCh   = RecoHit->GetChannelSeqID();
       Int_t iROCh   = RecoHit->GetROChannelID();
       Double_t Time  = RecoHit->GetTime();
-      Double_t Width = RecoHit->GetTimeWidth(); 
+      Double_t Width = RecoHit->GetTimeWidth();
       Double_t alpha = ((Double_t) fCandidate->GetNHits())/((Double_t)(fCandidate->GetNHits()-1)); //UnbiasedDeltaT
       if (fEvaluateSlewingCorr ){
-        //	fChannels[iSeqCh]->FillTime(Width,alpha*(Time-ReferenceTime),ReferenceTime);	
+        //	fChannels[iSeqCh]->FillTime(Width,alpha*(Time-ReferenceTime),ReferenceTime);
         static_cast<RICHChannel*>(fChannels[iSeqCh])->FillTime(Width,alpha*(Time-ReferenceTime));
       }
 
-      // 2D histos (Time-ReferenceTime vs Sequential ChID), input to the T0Computation analysis code     
+      // 2D histos (Time-ReferenceTime vs Sequential ChID), input to the T0Computation analysis code
       fHRecoHitTimeWrtReferenceVsSeqChannel->Fill(iSeqCh,Time-ReferenceTime);
       fHRecoHitTimeWrtReferenceVsSeqChannelNoT0->Fill(iSeqCh,Time-ReferenceTime+fChannels[iSeqCh]->GetT0());
-      // 2D histos (Time-ReferenceTime vs ReadOut ChID), input to the T0Computation analysis code     
+      // 2D histos (Time-ReferenceTime vs ReadOut ChID), input to the T0Computation analysis code
       if (fHRecoHitTimeWrtReferenceVsROChannel)         fHRecoHitTimeWrtReferenceVsROChannel->Fill(iROCh,Time-ReferenceTime);
       if (fHRecoHitTimeWrtReferenceVsROChannelNoT0)     fHRecoHitTimeWrtReferenceVsROChannelNoT0->Fill(iROCh,
           Time-ReferenceTime+fChannels[iSeqCh]->GetT0());
@@ -1414,15 +1414,15 @@ void RICHReconstruction::FillTimes(Double_t ReferenceTime) {
       Int_t iSeqCh   = RecoHit->GetChannelSeqID();
       Int_t iROCh   = RecoHit->GetROChannelID();
       Double_t Time  = RecoHit->GetTime();
-      Double_t Width = RecoHit->GetTimeWidth();   
+      Double_t Width = RecoHit->GetTimeWidth();
       if ( fEvaluateSlewingCorr ){
         static_cast<RICHChannel*>(fChannels[iSeqCh])->FillTime(Width,Time-ReferenceTime);
       }
       if (fHRecoHitTimeWrtReferenceVsROChannel) {
-        // 2D histos (Time-ReferenceTime vs Sequential ChID), input to the T0Computation analysis code     
+        // 2D histos (Time-ReferenceTime vs Sequential ChID), input to the T0Computation analysis code
         fHRecoHitTimeWrtReferenceVsSeqChannel->Fill(iSeqCh,Time-ReferenceTime);
         fHRecoHitTimeWrtReferenceVsSeqChannelNoT0->Fill(iSeqCh,Time-ReferenceTime+fChannels[iSeqCh]->GetT0());
-        // 2D histos (Time-ReferenceTime vs ReadOut ChID), input to the T0Computation analysis code     
+        // 2D histos (Time-ReferenceTime vs ReadOut ChID), input to the T0Computation analysis code
         if (fHRecoHitTimeWrtReferenceVsROChannel)         fHRecoHitTimeWrtReferenceVsROChannel->Fill(iROCh,Time-ReferenceTime);
         if (fHRecoHitTimeWrtReferenceVsROChannelNoT0)     fHRecoHitTimeWrtReferenceVsROChannelNoT0->Fill(iROCh,
             Time-ReferenceTime+fChannels[iSeqCh]->GetT0());
@@ -1670,7 +1670,7 @@ Bool_t RICHReconstruction::Chi2FitSpecial()
   Double_t arglist[1];
   arglist[0] = -1;
   fFitter->mnexcm("SET PRI", arglist, 1, ierflag); // Set MINUIT print level
-  fFitter->mnexcm("SET NOW", arglist, 0, ierflag); // Set MINUIT warnings   
+  fFitter->mnexcm("SET NOW", arglist, 0, ierflag); // Set MINUIT warnings
 
   fFitter->mnparm(0, "x0", Xcog, 0.01, 0., 0., ierflag);
   fFitter->mnparm(1, "y0", Ycog, 0.01, 0., 0., ierflag);
@@ -1776,7 +1776,7 @@ Bool_t RICHReconstruction::MultiRingReco(TRecoRICHCandidate *Candidate){
     while(fnHitRes > 0 && jSide < 8)
     {
       TRecoRICHCandidate *NewCand = 0;
-      if (!StartingTriplet(jSide,Candidate)) 
+      if (!StartingTriplet(jSide,Candidate))
       {
         jSide++;
         continue;
@@ -1825,10 +1825,10 @@ void RICHReconstruction::Mapping(TRecoRICHCandidate *Candidate)
     fSortMapXY.push_back(fPosPair);
     fSortMapYX.push_back(fPosPair);
   }
-  std::sort (fSortMapX.begin(), fSortMapX.end(), ComparatorX); 
-  std::sort (fSortMapY.begin(), fSortMapY.end(), ComparatorY); 
-  std::sort (fSortMapXY.begin(), fSortMapXY.end(), ComparatorX); 
-  std::sort (fSortMapYX.begin(), fSortMapYX.end(), ComparatorY); 
+  std::sort (fSortMapX.begin(), fSortMapX.end(), ComparatorX);
+  std::sort (fSortMapY.begin(), fSortMapY.end(), ComparatorY);
+  std::sort (fSortMapXY.begin(), fSortMapXY.end(), ComparatorX);
+  std::sort (fSortMapYX.begin(), fSortMapYX.end(), ComparatorY);
 }
 
 /********************************************//**
@@ -1966,7 +1966,7 @@ Bool_t RICHReconstruction::StartingTriplet(Int_t i, TRecoRICHCandidate *Candidat
 }
 
 /********************************************//**
- * Check if triplet points are too close 
+ * Check if triplet points are too close
  ************************************************/
 
 Bool_t RICHReconstruction::TripDistance(Int_t n, Int_t nLoop)
@@ -2152,40 +2152,39 @@ Int_t RICHReconstruction::FromGeoIDtoSeqID(Int_t GeoID){
   OrID = (GeoID-100000*DiskID-10000*UpDwID-SCID*100)/10;
   PMID = GeoID-100000*DiskID-10000*UpDwID-SCID*100-OrID*10;
 
-  if(OrID<1){   
-    SeqID = SCID*8+PMID+UpDwID*61*8+DiskID*61*8*2;  
+  if(OrID<1){
+    SeqID = SCID*8+PMID+UpDwID*61*8+DiskID*61*8*2;
   }else{
     SeqID = 61*8*2*2+SCID+UpDwID*61+DiskID*61*2;
   }
   return SeqID;
-} 
+}
 
 void RICHReconstruction::ReconstructCandidates(TRecoVEvent*){
   Int_t nHits = fRecoEvent->GetNHits();
-  
+
   // RecoHits time clusterization: 1 cluster = 1 candidate
-  
-  TClonesArray  &Hits = (*(fRecoEvent->GetHits()));
-  
+
   // Two (or less) iterations:
   // 1) Define a new cluster if a hit away more than 0.5*fTimeWindow is found from the existing clusters
   // 2) Remove the "bad" clusters and try to include them in existing "good" clusters
-  
-  
+
+
   if (fEnableSuperCells) { // look for SC candidates only if enabled
-    
+    TClonesArray  &Hits = (*(fRecoEvent->GetHits()));
+
     for (Int_t iIter = 0; iIter < fNCandidateClusteringIterations; iIter++) //loop on iterator for SC time clustering
       {
 	for (Int_t iHit = 0; iHit < nHits; iHit++) //loop on hits for SC time clustering
 	  {
-	    
+
 	    TRecoRICHHit *Hit = static_cast<TRecoRICHHit *>(Hits[iHit]);
-	    
+
 	    if(!Hit->GetOrSuperCellID()) continue;
-	    
+
 	    Bool_t FlagNewCluster = kTRUE;
 	    Double_t HitTime = Hit->GetTime();
-	    
+
 	    Double_t HitCandidateTime = 9999*ns;
 	    Int_t CandidateID = -1;
 	    for (Int_t iCand= 0; iCand < fRecoEvent->GetNCandidates(); iCand++)
@@ -2212,17 +2211,17 @@ void RICHReconstruction::ReconstructCandidates(TRecoVEvent*){
 	    if (iIter > 0)
 	      for (Int_t i = 0; i < fCandidate->GetNHits(); i++)
 		if (fCandidate->GetHitsIndexes()[i] == iHit) FlagMissingHit = kFALSE;
-	    
+
 	    if (!FlagMissingHit) continue;
 	    fCandidate->AddHit(iHit);
 	    fCandidate->UpdateTime(HitTime);
-	    
+
 	  }//end loop on hits for SC clustering
-	
-	
+
+
 	// End of iteration: calculate the candidate info
 	// (DeltaTimeClosestCandidate, NHitsClosestCandidate, IsSelected)
-	
+
 	for (Int_t iCand = 0; iCand < fRecoEvent->GetNCandidates(); iCand++)
 	  {
 	    fCandidate = static_cast<TRecoRICHCandidate *>( fRecoEvent->GetCandidate(iCand));
@@ -2231,7 +2230,7 @@ void RICHReconstruction::ReconstructCandidates(TRecoVEvent*){
 	      fCandidate->SetIsSelected(kTRUE);
 	    Double_t DeltaTimeClosestCandidate = 999*ns;
 	    Int_t NHitsClosestCandidate = 0;
-	    
+
 	    // Check the minimum time distance from any other candidate
 	    for (Int_t jCand = 0; jCand < fRecoEvent->GetNCandidates(); jCand++)
 	      {
@@ -2245,7 +2244,7 @@ void RICHReconstruction::ReconstructCandidates(TRecoVEvent*){
 	    fCandidate->SetDeltaTimeClosestCandidate(DeltaTimeClosestCandidate);
 	    fCandidate->SetNHitsClosestCandidate(NHitsClosestCandidate);
 	  }
-	
+
 	for (Int_t iCand = 0; iCand < fRecoEvent->GetNCandidates(); iCand++)
 	  {
 	    fCandidate = static_cast<TRecoRICHCandidate*>( fRecoEvent->GetCandidate(iCand));
@@ -2276,20 +2275,20 @@ void RICHReconstruction::ReconstructCandidates(TRecoVEvent*){
   }// if SuperCells Enabled
 
 
-  Int_t nSCCand = 0; 
+  Int_t nSCCand = 0;
   nSCCand = fRecoEvent->GetNCandidates();
   static_cast<TRecoRICHEvent*>(fRecoEvent)->SetNSCTimeCandidates(nSCCand);
-  
+
 }
 
 void RICHReconstruction::ReconstructPMCandidates(TRecoVEvent*){
   Int_t nHits = fRecoEvent->GetNHits();
-    
+
   TClonesArray  &Hits = (*(fRecoEvent->GetHits()));
 
   Int_t nSCCand = 0;
   nSCCand = fRecoEvent->GetNCandidates();
-  
+
   for (Int_t iIter = 0; iIter < fNCandidateClusteringIterations; iIter++) //loop on iterator for PMT time clustering
   {
     for (Int_t iHit = 0; iHit < nHits; iHit++) //loop on hits for PMT time clustering
@@ -2326,7 +2325,7 @@ void RICHReconstruction::ReconstructPMCandidates(TRecoVEvent*){
       Bool_t FlagMissingHit = kTRUE;
       if (iIter > 0)
         for (Int_t i = 0; i < fCandidate->GetNHits(); i++)
-        {       
+        {
           if (fCandidate->GetHitsIndexes()[i] == iHit) FlagMissingHit = kFALSE;
         }
       if (!FlagMissingHit) continue;
@@ -2390,11 +2389,11 @@ void RICHReconstruction::ReconstructPMCandidates(TRecoVEvent*){
   }// end of iterations time candidates for PMT Time clustering
   Int_t nCand = 0;
   nCand = fRecoEvent->GetNCandidates();
-  
+
   static_cast<TRecoRICHEvent*>(fRecoEvent)->SetNTimeCandidates(nCand);
   Int_t nPMCand = 0;
-  
+
   nPMCand = nCand-nSCCand;
-  
+
   static_cast<TRecoRICHEvent*>(fRecoEvent)->SetNPMTimeCandidates(nPMCand);
 }

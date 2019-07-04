@@ -1,0 +1,12 @@
+[submodule "NA62Reconstruction/L1/na62-farm-lib"]
+	path = NA62Reconstruction/L1/na62-farm-lib
+	url = https://github.com/NA62/na62-farm-lib.git
+[submodule "NA62Reconstruction/L1/na62-trigger-algorithms"]
+	path = NA62Reconstruction/L1/na62-trigger-algorithms
+	url = https://github.com/NA62/na62-trigger-algorithms.git
+[submodule "NA62Reconstruction/HLT/na62-farm-lib"]
+	path = NA62Reconstruction/HLT/na62-farm-lib
+	url = https://github.com/NA62/na62-farm-lib.git
+[submodule "NA62Reconstruction/HLT/na62-trigger-algorithms"]
+	path = NA62Reconstruction/HLT/na62-trigger-algorithms
+	url = https://github.com/NA62/na62-trigger-algorithms.git

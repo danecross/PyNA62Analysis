@@ -12,7 +12,7 @@
 /// Tools and functions used in PnnKinematicTails analysers.
 ///
 /// \author Zuzana Kucerova (zuzana.kucerova@cern.ch)
-/// \EndDetailed 
+/// \EndDetailed
 
 #include <stdlib.h>
 #include <iostream>
@@ -49,8 +49,8 @@ bool EvaluateLKrCluster(double Eclus, double deltaT, double sigma, double LKrClu
     cout<<"cluster energy: "<<Eclus<<" > "<<LKrClusterEnergy3<<" && ("<<"track-cluster time diff + 25ns: "<<fabs(deltaT+25.)<<" < "<<LKrClusterTimeDiff2<<" || "<<"track-cluster time diff - 25ns: "<<fabs(deltaT-25.)<<" < "<<LKrClusterTimeDiff2<<" ) "<<endl;
     cout<<"THEN activity in LKr"<<endl;
   };
-  if((Eclus<LKrClusterEnergy1 && fabs(deltaT)<LKrClusterTimeDiff1) || 
-     (Eclus>=LKrClusterEnergy1 && Eclus<LKrClusterEnergy2 && fabs(deltaT)<LKrClusterTimeDiffSigma1*sigma) || 
+  if((Eclus<LKrClusterEnergy1 && fabs(deltaT)<LKrClusterTimeDiff1) ||
+     (Eclus>=LKrClusterEnergy1 && Eclus<LKrClusterEnergy2 && fabs(deltaT)<LKrClusterTimeDiffSigma1*sigma) ||
      (Eclus>=LKrClusterEnergy2 && Eclus<LKrClusterEnergy4 && fabs(deltaT)<LKrClusterTimeDiffSigma2*sigma) ||
      (Eclus>=LKrClusterEnergy4 && fabs(deltaT)<LKrClusterTimeDiffSigma3*sigma) ||
      // (Eclus>fLKrClusterEnergy2 && clusPos.X()>fLKrClusterMinPosX && clusPos.X()<fLKrClusterMaxPosX && fabs(clusPos.Y())<fLKrClusterMaxPosY && fabs(deltaT+36.)<fLKrClusterTimeDiff2) || //only for 2016 data
@@ -62,7 +62,7 @@ bool EvaluateLKrCluster(double Eclus, double deltaT, double sigma, double LKrClu
 
 bool isPositronEoP(double mom, double energy, double cut, bool verb){
   bool is = false;
- 
+
   double EoP = energy/mom;
   if(verb) cout<<"EoP: "<<EoP<<" > "<<cut<<" to be positron."<<endl;
   if(EoP>=cut) is = true;
@@ -76,14 +76,16 @@ bool isMuonMUV3Candidates(TRecoMUV3Event *MUV3Event, double trackTime, double cu
   if(verb) cout<<"track time = "<<trackTime<<endl;
   for(int i=0; i<MUV3Event->GetNCandidates(); i++){
     TRecoMUV3Candidate *MUV3cand = static_cast<TRecoMUV3Candidate*>(MUV3Event->GetCandidate(i));
-    if(verb) cout<<"MUV3 cand time = "<<MUV3cand->GetTime()<<endl;
-    if(verb) cout<<"deltaT = "<<fabs(MUV3cand->GetTime() - trackTime)<<" < "<<cut<<" to be muon."<<endl;
+    if(verb){
+        cout<<"MUV3 cand time = "<<MUV3cand->GetTime()<<endl;
+        cout<<"deltaT = "<<fabs(MUV3cand->GetTime() - trackTime)<<" < "<<cut<<" to be muon."<<endl;
+    }
     if(fabs(MUV3cand->GetTime() - trackTime)<cut){
       is = true;
       break;
     };
   };
-  if(verb) cout<<"Is "<<(is?"":"not")<<" muon by MUV3 candidates."<<endl; 
+  if(verb) cout<<"Is "<<(is?"":"not")<<" muon by MUV3 candidates."<<endl;
   return is;
 }
 
@@ -92,15 +94,17 @@ bool isMuonMUV3Associations(SpectrometerMUV3AssociationOutput *muv3asso, double 
   if(verb) cout<<"track time = "<<trackTime<<endl;
   for(int i=0; i<muv3asso->GetNAssociationRecords(); i++){
     SpectrometerMUV3AssociationRecord *rec = static_cast<SpectrometerMUV3AssociationRecord*>(muv3asso->GetAssociationRecord(i));
-    if(verb) cout<<"MUV3 rec time = "<<rec->GetMuonTime()<<endl;
-    if(verb) cout<<"deltaT = "<<fabs(rec->GetMuonTime() - trackTime)<<" < "<<cut<<" to be muon."<<endl;
+    if(verb) {
+        cout<<"MUV3 rec time = "<<rec->GetMuonTime()<<endl;
+        cout<<"deltaT = "<<fabs(rec->GetMuonTime() - trackTime)<<" < "<<cut<<" to be muon."<<endl;
+    }
     if(fabs(rec->GetMuonTime() - trackTime)<cut){
       is = true;
       break;
     };
   };
 
-  if(verb) cout<<"Is "<<(is?"":"not")<<" muon by MUV3 associations."<<endl; 
+  if(verb) cout<<"Is "<<(is?"":"not")<<" muon by MUV3 associations."<<endl;
   return is;
 }
 
@@ -168,8 +172,8 @@ bool isPionCellSeed(double MUV1Energy, double MUV2Energy, double TotalEnergy, do
   double Rseed = LKrSeedEnergy/LKrEnergy;
   double Rcell = LKrNCells/LKrEnergy;
 
-  if(verb) cout<<"1. R1/R2 condition to be pion:"<<endl;
   if(verb){
+    cout<<"1. R1/R2 condition to be pion:"<<endl;
     cout<<"R1 = "<<R1<<" >= 0.01 || R2 = "<<R2<<" >= 0.01"<<endl;
     cout<<"or:"<<endl;
     cout<<"R seed = "<<Rseed<<" < 0.2 || R cell = "<<Rcell<<" > 0.003"<<endl;
@@ -187,14 +191,18 @@ bool isPionCellSeed(double MUV1Energy, double MUV2Energy, double TotalEnergy, do
     };
   };
 
-  if(verb) cout<<"2. Rseed/Rcell condition to be pion:"<<endl;
-  if(verb) cout<<"Rseed = "<<Rseed<<" <= 0. || Rseed = "<<Rseed<<" >= 0.8 || Rcell = "<<Rcell<<" >= 0.0014"<<endl;
+  if(verb) {
+      cout<<"2. Rseed/Rcell condition to be pion:"<<endl;
+      cout<<"Rseed = "<<Rseed<<" <= 0. || Rseed = "<<Rseed<<" >= 0.8 || Rcell = "<<Rcell<<" >= 0.0014"<<endl;
+  }
   if((Rseed>0.) && (Rseed<0.8) && (Rcell<0.0014)){
     if(verb) cout<<"2.(3) Rseed/Rcell condition is false."<<endl;
     is2 = false;
   };
-  if(verb) cout<<"3. MUV1/2 energy condition to be pion: "<<endl;
-  if(verb) cout<<"MUV1Energy = "<<MUV1Energy<<" > 0. || MUV2Energy = "<<MUV2Energy<<" == 0."<<endl;
+  if(verb) {
+      cout<<"3. MUV1/2 energy condition to be pion: "<<endl;
+      cout<<"MUV1Energy = "<<MUV1Energy<<" > 0. || MUV2Energy = "<<MUV2Energy<<" == 0."<<endl;
+  }
   if(MUV1Energy==0. && MUV2Energy>0.){
     if(verb) cout<<"3.(3) MUV1/2 energy is false."<<endl;
     is3 = false;
@@ -212,7 +220,7 @@ bool isPionRICH(SpectrometerRICHAssociationOutput *specRICH, SpectrometerRICHAss
   bool is2 = false;
   double mass = specRICHsr->GetMass();
   double maxL = std::fmax(std::fmax(specRICH->GetLikelihood(0), specRICH->GetLikelihood(1)), std::fmax(specRICH->GetLikelihood(2), specRICH->GetLikelihood(4))); //Rado suggested this new method
-  if(verb) cout<<"RICH mass:"<<minmass<<" < "<<mass<<" < "<<maxmass<<" to be pion."<<endl; 
+  if(verb) cout<<"RICH mass:"<<minmass<<" < "<<mass<<" < "<<maxmass<<" to be pion."<<endl;
   if(mass>minmass && mass<maxmass) is1 = true;
   if(verb) cout<<"Max likelihood: "<<maxL<<" <= "<<cutLikelihood<<" to be pion."<<endl;
   if(maxL<=cutLikelihood) is2 = true;
@@ -222,7 +230,7 @@ bool isPionRICH(SpectrometerRICHAssociationOutput *specRICH, SpectrometerRICHAss
   return is;
 }
 
-void ApplyBlueTube(int charge, TVector3 oldPos, TVector3 oldMom, double finalZ, TVector3 *newPos, TVector3 *newMom){ 
+void ApplyBlueTube(int charge, TVector3 oldPos, TVector3 oldMom, double finalZ, TVector3 *newPos, TVector3 *newMom){
   BlueTubeTracker *tracker = BlueTubeTracker::GetInstance();
   tracker->SetCharge(charge);
   tracker->SetInitialPosition(oldPos);
@@ -241,33 +249,33 @@ TVector3 GetPositionAtZ(TVector3 mom, TVector3 oldPos, double newZ){
     double slopeX = (mom.X())/(mom.Z());
     double slopeY = (mom.Y())/(mom.Z());
     double xAtZ = oldPos.X() - slopeX*(oldPos.Z() - newZ);
-    double yAtZ = oldPos.Y() - slopeY*(oldPos.Z() - newZ); 
+    double yAtZ = oldPos.Y() - slopeY*(oldPos.Z() - newZ);
     TVector3 newPos(xAtZ, yAtZ, newZ);
     return newPos;
   }else if((newZ>197600.)&&(oldPos.Z()<197600.)){
     double slopeX = (mom.X())/(mom.Z());
     double slopeY = (mom.Y())/(mom.Z());
     double xAtZ = oldPos.X() - slopeX*(oldPos.Z() - 197600.);
-    double yAtZ = oldPos.Y() - slopeY*(oldPos.Z() - 197600.); 
+    double yAtZ = oldPos.Y() - slopeY*(oldPos.Z() - 197600.);
     TVector3 posAtMagnet(xAtZ, yAtZ, 197600.);
     TVector3 newMom = MomAfterKick(mom, MNP33kick);
     double slopeXa = (newMom.X())/(newMom.Z());
     double slopeYa = (newMom.Y())/(newMom.Z());
     double xAtZa = posAtMagnet.X() - slopeXa*(197600. - newZ);
-    double yAtZa = posAtMagnet.Y() - slopeYa*(197600. - newZ); 
+    double yAtZa = posAtMagnet.Y() - slopeYa*(197600. - newZ);
     TVector3 newPos(xAtZa, yAtZa, newZ);
     return newPos;
   }else if((newZ<197600.)&&(oldPos.Z()>197600.)){
     double slopeX = (mom.X())/(mom.Z());
     double slopeY = (mom.Y())/(mom.Z());
     double xAtZ = oldPos.X() - slopeX*(oldPos.Z() - 197600.);
-    double yAtZ = oldPos.Y() - slopeY*(oldPos.Z() - 197600.); 
+    double yAtZ = oldPos.Y() - slopeY*(oldPos.Z() - 197600.);
     TVector3 posAtMagnet(xAtZ, yAtZ, 197600.);
     TVector3 newMom = MomAfterKick(mom, -MNP33kick);
     double slopeXa = (newMom.X())/(newMom.Z());
     double slopeYa = (newMom.Y())/(newMom.Z());
     double xAtZa = posAtMagnet.X() - slopeXa*(197600. - newZ);
-    double yAtZa = posAtMagnet.Y() - slopeYa*(197600. - newZ); 
+    double yAtZa = posAtMagnet.Y() - slopeYa*(197600. - newZ);
     TVector3 newPos(xAtZa, yAtZa, newZ);
     return newPos;
   }else{
@@ -349,7 +357,7 @@ TVector3 GetIterativeVertex(double trackCharge, TVector3 trackMom, TVector3 trac
     if(verb) cout<<"count = "<<count<<endl;
     simpleVert = GetVertexCDA(*newTrackMom, *newTrackPos, *newKaonMom, *newKaonPos);
     if(verb) cout<<"vertex = "<<simpleVert.Z()<<endl;
-    if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)) return nul;      
+    if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)) return nul;
     double step = ((simpleVert.Z() - (*newKaonPos).Z())/2.);
     if(verb){
       cout<<"kaon step = "<<step<<endl;
@@ -397,11 +405,11 @@ TVector3 GetRadoVertex(double trackCharge, TVector3 trackMom, TVector3 trackPos,
   newTrackPos->SetXYZ(trackPos.X(), trackPos.Y(), trackPos.Z());
 
   simpleVert = GetVertexCDA(trackMom, trackPos, kaonMom, kaonPos);
-  if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)) return nul;      
+  if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)) return nul;
   ApplyBlueTube(kaonCharge, kaonPos, kaonMom, simpleVert.Z(), &somePos, newKaonMom);
   ApplyBlueTube(trackCharge, trackPos, trackMom, simpleVert.Z(), &somePos, newTrackMom);
   simpleVert = GetVertexCDA(*newTrackMom, trackPos, *newKaonMom, kaonPos);
-  if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)) return nul;      
+  if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)) return nul;
   ApplyBlueTube(kaonCharge, kaonPos, kaonMom, simpleVert.Z(), newKaonPos, newKaonMom);
   ApplyBlueTube(trackCharge, trackPos, trackMom, simpleVert.Z(), newTrackPos, newTrackMom);
 
@@ -431,7 +439,7 @@ TVector3 GetLSFVertex(double trackCharge, TRecoSpectrometerCandidate *STRAWCand,
   newTrackPos->SetXYZ(trackPos.X(), trackPos.Y(), trackPos.Z());
 
   TVector3 simpleVert = vertexLSF.GetVertexPosition();
-  if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)) return nul;      
+  if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)) return nul;
   chi2 = vertexLSF.GetChi2();
   ApplyBlueTube(kaonCharge, kaonPos, kaonMom, simpleVert.Z(), newKaonPos, newKaonMom);
   ApplyBlueTube(trackCharge, trackPos, trackMom, simpleVert.Z(), newTrackPos, newTrackMom);
@@ -442,7 +450,7 @@ TVector3 GetLSFVertex(double trackCharge, TRecoSpectrometerCandidate *STRAWCand,
 double GetCDA(TRecoSpectrometerCandidate* STRAWCand1, TRecoSpectrometerCandidate* STRAWCand2){
   TwoLinesCDA twoLinesCDA;
 
-  twoLinesCDA = TwoLinesCDA();   
+  twoLinesCDA = TwoLinesCDA();
   twoLinesCDA.SetLine1Point1(STRAWCand1->GetPositionBeforeMagnet());
   twoLinesCDA.SetDir1(STRAWCand1->GetThreeMomentumBeforeMagnet());
   twoLinesCDA.SetLine2Point1(STRAWCand2->GetPositionBeforeMagnet());
@@ -526,7 +534,7 @@ void ReadOffsets(double &offsetX, double &offsetY){
   TString line;
   while(line.ReadLine(NA62ConditionsService::GetInstance()->Get(s))){
     if(line.BeginsWith("#")) continue;
-    TObjArray *l = line.Tokenize(" ");    
+    TObjArray *l = line.Tokenize(" ");
     offsetX = ((TObjString*)(l->At(0)))->GetString().Atof();
     offsetY = ((TObjString*)(l->At(3)))->GetString().Atof();
     delete l;

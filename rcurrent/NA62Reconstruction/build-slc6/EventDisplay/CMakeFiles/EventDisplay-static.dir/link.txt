@@ -1,2 +1,0 @@
-/usr/bin/ar qc libEventDisplay-static.a  CMakeFiles/EventDisplayObjLib.dir/src/TNA62MagField.cc.o CMakeFiles/EventDisplayObjLib.dir/EventDisplayDICT.cxx.o
-/usr/bin/ranlib libEventDisplay-static.a

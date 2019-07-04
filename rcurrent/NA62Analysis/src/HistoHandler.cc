@@ -818,14 +818,12 @@ void HistoHandler::SaveAllPlots(TString analyzerName, bool store_empty_plots) {
 	/// Write all the booked histograms into the output file ordered as the booking order
 	/// \EndMemberDescr
 
-	TString name;
 	std::vector<TString>::iterator itOrder;
 
 	NA62Analysis::NA62Map<TString,THObject>::type::iterator ptr;
 
 	for(itOrder=fHistoOrder.begin(); itOrder!=fHistoOrder.end(); ++itOrder){
 		if((ptr=fHisto.find(*itOrder))!=fHisto.end()){
-			name = *itOrder;
 			if(ptr->second.GetDirectory() != ""){
 				Mkdir(ptr->second.GetDirectory(), analyzerName);
 				gFile->Cd(ptr->second.GetDirectory());

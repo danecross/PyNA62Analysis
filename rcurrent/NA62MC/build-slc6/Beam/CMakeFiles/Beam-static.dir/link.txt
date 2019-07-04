@@ -1,2 +1,0 @@
-/usr/bin/ar qc libBeam-static.a  CMakeFiles/BeamObjLib.dir/src/abend.f.o CMakeFiles/BeamObjLib.dir/src/beam.cc.o CMakeFiles/BeamObjLib.dir/src/turtle.f.o CMakeFiles/BeamObjLib.dir/src/turtle_common_address.c.o
-/usr/bin/ranlib libBeam-static.a

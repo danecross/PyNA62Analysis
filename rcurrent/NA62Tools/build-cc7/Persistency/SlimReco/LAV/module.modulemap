@@ -1,0 +1,8 @@
+module "LAVSlimPersistency" {
+  requires cplusplus
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/LAV/include/TSlimRecoLAVCandidate.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/LAV/include/TSlimRecoLAVCandidate.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/LAV/include/TSlimRecoLAVEvent.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/LAV/include/TSlimRecoLAVEvent.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/LAV/include/TSlimRecoLAVHit.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/LAV/include/TSlimRecoLAVHit.hh" export * }
+  export *
+}
+

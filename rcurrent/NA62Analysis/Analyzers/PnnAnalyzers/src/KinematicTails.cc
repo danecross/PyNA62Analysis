@@ -10,7 +10,7 @@
 /// \EndBrief
 /// \Detailed
 /// This analyzer is used to produce K2pi and Kmu2 kinematic tails for PNN analysis using standard tools.
-/// This analysis differs (by methodology) from the one of Giuseppe and Rado, as well as from my private analysis, in which 
+/// This analysis differs (by methodology) from the one of Giuseppe and Rado, as well as from my private analysis, in which
 
 /// The full kinematic tails analysis consists of several stages:
 /// 1. basic selection (PnnKinematicTails_AdditionalTimeAlignment (preanalyzer), CheckTrigger, Preselection)
@@ -19,12 +19,12 @@
 /// 4. decay selection (K2pi, Kmu2 + EventCleaning, KaonDecaySelection, PhotonRejection, PhotonRejectionLKr, SegmentRejection, MultiplicitySelection, TrackCalorimetricEnergyAssociation)
 /// 5. tails (KinematicTails)
 /// The final analyzer - KinematicTails - can be ran in two modes: in standard mode it requests output from other analyzers mentioned above and produces plots of squared missing mass for K2pi and Kmu2. When ran in histo mode on its own output the analyzer produces pdf file with plot of kinematic tails in R1 and R2, both for K2pi and Kmu2 and text files (one for K2pi and one for Kmu2) with table of kinematic tails in all regions and 5GeV momentum bins.
-/// All important final variables (IDs, vertex position, momenta, missM2) are in the output of this analyzer. 
-/// All cuts are made as parameters and are set in the constructor of each subanalyzer to same values as were used in my presentation in April 2019. 
-/// The parameter Verbosity (verb) can be used to debug the code as well as to better understand how the analysis works. It is also very useful for analysis of single events. 
-///  
+/// All important final variables (IDs, vertex position, momenta, missM2) are in the output of this analyzer.
+/// All cuts are made as parameters and are set in the constructor of each subanalyzer to same values as were used in my presentation in April 2019.
+/// The parameter Verbosity (verb) can be used to debug the code as well as to better understand how the analysis works. It is also very useful for analysis of single events.
+///
 /// \author Zuzana Kucerova (zuzana.kucerova@cern.ch)
-/// \EndDetailed 
+/// \EndDetailed
 
 #include "KinematicTails.hh"
 
@@ -73,7 +73,7 @@ KinematicTails::KinematicTails(Core::BaseAnalysis *ba) : Analyzer(ba, "Kinematic
   fSR1richhighp_up = 0.02;
   fSR2rich_low = 0.02;
   fSR2rich_up = 0.07;
-  fPiPirich_low = 0.; 
+  fPiPirich_low = 0.;
   fPiPirich_up = 0.07;
 
   //mm2(beam)
@@ -94,15 +94,16 @@ KinematicTails::KinematicTails(Core::BaseAnalysis *ba) : Analyzer(ba, "Kinematic
 
   RequestTree("GigaTracker", new TRecoGigaTrackerEvent, "Reco");
   RequestTree("Spectrometer", new TRecoSpectrometerEvent, "Reco");
-  RequestBeamData();  
+  RequestBeamData();
 
   AddParam("UseGTK", "bool", &UseGTK, true);
   AddParam("WhichTrigger", "int", &fWhichTrigger, 1);
-  AddParam("Verbosity", "bool", &verb, false);
   AddParam("FillHistoCheck", "bool", &fFillHistoCheck, true);
 
   fOutPDFfileName = fAnalyzerName + ".pdf";
   fOutTableName = fAnalyzerName;
+
+  EnablePrefix(false);
 }
 
 void KinematicTails::InitOutput(){
@@ -122,20 +123,20 @@ void KinematicTails::InitHist(){
 
   if(fReadingData){
     ReconfigureAnalyzer("CheckTrigger", "WhichTrigger", fWhichTrigger);
-    ReconfigureAnalyzer("CheckTrigger", "Verbosity", verb);
-    ReconfigureAnalyzer("Preselection", "Verbosity", verb);
-    ReconfigureAnalyzer("FakeTrackSelection", "Verbosity", verb);
-    ReconfigureAnalyzer("BestTrackSelection", "Verbosity", verb);
-    ReconfigureAnalyzer("SingleTrackEventSelection", "Verbosity", verb);
-    ReconfigureAnalyzer("Kmu2", "Verbosity", verb);
-    ReconfigureAnalyzer("K2pi", "Verbosity", verb);
-    ReconfigureAnalyzer("MultiplicitySelection", "Verbosity", verb);
-    ReconfigureAnalyzer("SegmentRejection", "Verbosity", verb);
-    ReconfigureAnalyzer("EventCleaning", "Verbosity", verb);
-    ReconfigureAnalyzer("KaonDecaySelection", "Verbosity", verb);
-    ReconfigureAnalyzer("TrackCalorimetricEnergyAssociation", "Verbosity", verb);
-    ReconfigureAnalyzer("PhotonRejection", "Verbosity", verb);
-    ReconfigureAnalyzer("PhotonRejectionLKr", "Verbosity", verb);
+    ReconfigureAnalyzer("CheckTrigger", "Verbose", GetVerbosityLevel());
+    ReconfigureAnalyzer("Preselection", "Verbose", GetVerbosityLevel());
+    ReconfigureAnalyzer("FakeTrackSelection", "Verbose", GetVerbosityLevel());
+    ReconfigureAnalyzer("BestTrackSelection", "Verbose", GetVerbosityLevel());
+    ReconfigureAnalyzer("SingleTrackEventSelection", "Verbose", GetVerbosityLevel());
+    ReconfigureAnalyzer("Kmu2", "Verbose", GetVerbosityLevel());
+    ReconfigureAnalyzer("K2pi", "Verbose", GetVerbosityLevel());
+    ReconfigureAnalyzer("MultiplicitySelection", "Verbose", GetVerbosityLevel());
+    ReconfigureAnalyzer("SegmentRejection", "Verbose", GetVerbosityLevel());
+    ReconfigureAnalyzer("EventCleaning", "Verbose", GetVerbosityLevel());
+    ReconfigureAnalyzer("KaonDecaySelection", "Verbose", GetVerbosityLevel());
+    ReconfigureAnalyzer("TrackCalorimetricEnergyAssociation", "Verbose", GetVerbosityLevel());
+    ReconfigureAnalyzer("PhotonRejection", "Verbose", GetVerbosityLevel());
+    ReconfigureAnalyzer("PhotonRejectionLKr", "Verbose", GetVerbosityLevel());
     ReconfigureAnalyzer("BestTrackSelection", "UseGTK", UseGTK);
     ReconfigureAnalyzer("SingleTrackEventSelection", "UseGTK", UseGTK);
     ReconfigureAnalyzer("SegmentRejection", "UseGTK", UseGTK);
@@ -199,7 +200,7 @@ void KinematicTails::Process(int){
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"-------------------"<<endl;
     cout<<"KinematicTails"<<endl;
@@ -211,15 +212,15 @@ void KinematicTails::Process(int){
   auto preselectedEvent =
     *(bool*)GetOutput("Preselection.PreselectedEvent", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb) cout<<"Is event preselected? "<<preselectedEvent<<endl;
+  cout<<user()<<"Is event preselected? "<<preselectedEvent<<endl;
   if(!preselectedEvent){
-    if(verb) cout<<"Event is not preselected"<<endl;
+    cout<<user()<<"Event is not preselected"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -228,12 +229,12 @@ void KinematicTails::Process(int){
   auto tTrigger =
     *(double*)GetOutput("CheckTrigger.TriggerTime", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
-  if(verb) cout<<"Trigger time read = "<<tTrigger<<endl;
+  cout<<user()<<"Trigger time read = "<<tTrigger<<endl;
 
   fSTRAWEvent = GetEvent<TRecoSpectrometerEvent>();
   FillHisto("hBeamIntensity", GetBeamData()->GetInstantaneousIntensity());
@@ -382,9 +383,9 @@ void KinematicTails::EndOfJobUser(){
       setw(14)<<(hKM->GetBinContent(1, 2))/(hKM->GetBinContent(2, 2))*10000.<< //20-25GeV
       setw(14)<<(hKM->GetBinContent(1, 3))/(hKM->GetBinContent(2, 3))*10000.<< //25-30GeV
       setw(14)<<(hKM->GetBinContent(1, 4))/(hKM->GetBinContent(2, 4))*10000.<< //30-35GeV
-      setw(14)<<(hKM1->GetBinContent(1))/(hKM1->GetBinContent(2))*10000.<< //total 
+      setw(14)<<(hKM1->GetBinContent(1))/(hKM1->GetBinContent(2))*10000.<< //total
       setw(14)<<(hKM1->GetBinContent(1))/(hKM1->GetBinContent(2))*10000.*sqrt((1./(hKM1->GetBinContent(1)))+(1./(hKM1->GetBinContent(2))))<<"\n"; //uncertainty
-    
+
     myfile<<setw(10)<<"Kmu2"<<
       setw(14)<<((hKM->GetBinContent(2, 1))/(hKM->GetBinContent(2, 1)))*10000.<<
       setw(14)<<(hKM->GetBinContent(2, 2))/(hKM->GetBinContent(2, 2))*10000.<<
@@ -392,7 +393,7 @@ void KinematicTails::EndOfJobUser(){
       setw(14)<<(hKM->GetBinContent(2, 4))/(hKM->GetBinContent(2, 4))*10000.<<
       setw(14)<<(hKM1->GetBinContent(2))/(hKM1->GetBinContent(2))*10000.<<
       setw(14)<<(hKM1->GetBinContent(2))/(hKM1->GetBinContent(2))*10000.*sqrt((1./(hKM1->GetBinContent(2)))+(1./(hKM1->GetBinContent(2))))<<"\n";
-  
+
     myfile<<setw(10)<<"CR(Kmu2)"<<
       setw(14)<<((hKM->GetBinContent(3, 1))/(hKM->GetBinContent(2, 1)))*10000.<<
       setw(14)<<(hKM->GetBinContent(3, 2))/(hKM->GetBinContent(2, 2))*10000.<<
@@ -424,7 +425,7 @@ void KinematicTails::EndOfJobUser(){
       setw(14)<<(hKM->GetBinContent(6, 4))/(hKM->GetBinContent(2, 4))*10000.<<
       setw(14)<<(hKM1->GetBinContent(6))/(hKM1->GetBinContent(2))*10000.<<
       setw(14)<<(hKM1->GetBinContent(6))/(hKM1->GetBinContent(2))*10000.*sqrt((1./(hKM1->GetBinContent(6)))+(1./(hKM1->GetBinContent(2))))<<"\n";
-    
+
     myfile<<setw(10)<<"CR2(K2pi)"<<
       setw(14)<<((hKM->GetBinContent(7, 1))/(hKM->GetBinContent(2, 1)))*10000.<<
       setw(14)<<(hKM->GetBinContent(7, 2))/(hKM->GetBinContent(2, 2))*10000.<<
@@ -470,7 +471,7 @@ void KinematicTails::EndOfJobUser(){
       setw(14)<<(hKP->GetBinContent(1, 4))/(hKP->GetBinContent(6, 4))*10000.<<
       setw(14)<<(hKP1->GetBinContent(1))/(hKP1->GetBinContent(6))*10000.<<
       setw(14)<<(hKP1->GetBinContent(1))/(hKP1->GetBinContent(6))*10000.*sqrt((1./(hKP1->GetBinContent(1)))+(1./(hKP1->GetBinContent(6))))<<"\n";
-  
+
     myfile<<setw(10)<<"Kmu2"<<
       setw(14)<<(hKP->GetBinContent(2, 1))/(hKP->GetBinContent(6, 1))*10000.<<
       setw(14)<<(hKP->GetBinContent(2, 2))/(hKP->GetBinContent(6, 2))*10000.<<
@@ -478,7 +479,7 @@ void KinematicTails::EndOfJobUser(){
       setw(14)<<(hKP->GetBinContent(2, 4))/(hKP->GetBinContent(6, 4))*10000.<<
       setw(14)<<(hKP1->GetBinContent(2))/(hKP1->GetBinContent(6))*10000.<<
       setw(14)<<(hKP1->GetBinContent(2))/(hKP1->GetBinContent(6))*10000.*sqrt((1./(hKP1->GetBinContent(2)))+(1./(hKP1->GetBinContent(6))))<<"\n";
-  
+
     myfile<<setw(10)<<"CR(Kmu2)"<<
       setw(14)<<(hKP->GetBinContent(3, 1))/(hKP->GetBinContent(6, 1))*10000.<<
       setw(14)<<(hKP->GetBinContent(3, 2))/(hKP->GetBinContent(6, 2))*10000.<<
@@ -486,7 +487,7 @@ void KinematicTails::EndOfJobUser(){
       setw(14)<<(hKP->GetBinContent(3, 4))/(hKP->GetBinContent(6, 4))*10000.<<
       setw(14)<<(hKP1->GetBinContent(3))/(hKP1->GetBinContent(6))*10000.<<
       setw(14)<<(hKP1->GetBinContent(3))/(hKP1->GetBinContent(6))*10000.*sqrt((1./(hKP1->GetBinContent(3)))+(1./(hKP1->GetBinContent(6))))<<"\n";
-  
+
     myfile<<setw(10)<<"R1"<<
       setw(14)<<(hKP->GetBinContent(4, 1))/(hKP->GetBinContent(6, 1))*10000.<<
       setw(14)<<(hKP->GetBinContent(4, 2))/(hKP->GetBinContent(6, 2))*10000.<<
@@ -589,11 +590,11 @@ void KinematicTails::ValidateOutputs(){
 }
 
 void KinematicTails::Kmu2(){
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"----Kmu2----"<<endl;
   };
-  
+
   OutputState state;
   auto kmu2Selected = *(bool*)GetOutput("Kmu2.Kmu2EventSelected", state);
   auto v =
@@ -616,7 +617,7 @@ void KinematicTails::Kmu2(){
     *(TVector3*)GetOutput("Kmu2.Kmu2NomTrackMomentum", state);
   auto kmu2RICHMom = *(double*)GetOutput("Kmu2.Kmu2RICHMomentum", state);
   if(state!=kOValid) return;
-  if(verb) cout<<"Is Kmu2 selected? "<<kmu2Selected<<endl;
+  cout<<user()<<"Is Kmu2 selected? "<<kmu2Selected<<endl;
   if(!kmu2Selected) return;
   fTrackID = trackID;
   fKaonID = kaonID;
@@ -671,14 +672,14 @@ void KinematicTails::Kmu2(){
   FillHisto(kmu2+all+"hMissM2vsTrackMom", trackMom.Mag()/1000., missm2);
   FillHisto(kmu2+all+"hGTKMatchingQuality1", quality1.at(0));
 
-  if(verb) cout<<"MissM2 = "<<missm2<<endl;
-  if(verb) cout<<"MissM2rich = "<<missm2rich<<endl;
-  if(verb) cout<<"MissM2beam = "<<missm2beam<<endl;
-  if(verb) cout<<"Track momentum = "<<trackMom.Mag()<<endl;
+  cout<<user()<<"MissM2 = "<<missm2<<endl;
+  cout<<user()<<"MissM2rich = "<<missm2rich<<endl;
+  cout<<user()<<"MissM2beam = "<<missm2beam<<endl;
+  cout<<user()<<"Track momentum = "<<trackMom.Mag()<<endl;
 }
 
 void KinematicTails::K2pi(){
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"----K2pi----"<<endl;
   };
@@ -705,7 +706,7 @@ void KinematicTails::K2pi(){
     *(TVector3*)GetOutput("K2pi.K2piNomTrackMomentum", state);
   auto k2piRICHMom = *(double*)GetOutput("K2pi.K2piRICHMomentum", state);
   if(state!=kOValid) return;
-  if(verb) cout<<"Is K2pi selected? "<<k2piSelected<<endl;
+  cout<<user()<<"Is K2pi selected? "<<k2piSelected<<endl;
   if(!k2piSelected) return;
   fTrackID = trackID;
   fKaonID = kaonID;
@@ -760,10 +761,10 @@ void KinematicTails::K2pi(){
   FillHisto(k2pi+all+"hMissM2vsTrackMom", trackMom.Mag()/1000., missm2);
   FillHisto(k2pi+all+"hGTKMatchingQuality1", quality1.at(0));
 
-  if(verb) cout<<"MissM2 = "<<missm2<<endl;
-  if(verb) cout<<"MissM2rich = "<<missm2rich<<endl;
-  if(verb) cout<<"MissM2beam = "<<missm2beam<<endl;
-  if(verb) cout<<"Track momentum = "<<trackMom.Mag()<<endl;
+  cout<<user()<<"MissM2 = "<<missm2<<endl;
+  cout<<user()<<"MissM2rich = "<<missm2rich<<endl;
+  cout<<user()<<"MissM2beam = "<<missm2beam<<endl;
+  cout<<user()<<"Track momentum = "<<trackMom.Mag()<<endl;
 }
 
 void KinematicTails::FillHistoRegions(TString decString, string h_1, string h, double missM2, double missM2beam, double missM2rich, double momPiplus, int decay){
@@ -780,14 +781,14 @@ void KinematicTails::FillHistoRegions(TString decString, string h_1, string h, d
     FillHisto(decString+h_1, 3);
   }else if((missM2>fSR1_low) && (missM2<=fSR1_up)){
     if(decay==2){
-      if(((momPiplus<=20.) && (missM2beam>fSR1beamlowp_low) && (missM2beam<=fSR1beamlowp_up)) || 
-	 ((momPiplus>20. && momPiplus<25.) && (missM2beam>fSR1beammiddlep_low) && (missM2beam<=fSR1beammiddlep_up)) || 
+      if(((momPiplus<=20.) && (missM2beam>fSR1beamlowp_low) && (missM2beam<=fSR1beamlowp_up)) ||
+	 ((momPiplus>20. && momPiplus<25.) && (missM2beam>fSR1beammiddlep_low) && (missM2beam<=fSR1beammiddlep_up)) ||
 	 ((momPiplus>=25.) && (missM2beam>fSR1beamhighp_low) && (missM2beam<=fSR1beamhighp_up))){
 	FillHisto(decString+h_1, 4);
       };
     }else if(decay==1){
-      if(((momPiplus<=20.) && (missM2beam>fSR1beamlowp_low) && (missM2beam<=fSR1beamlowp_up) && (missM2rich>fSR1richlowp_low) && (missM2rich<=fSR1richlowp_up)) || 
-	 ((momPiplus>20. && momPiplus<25.) && (missM2beam>fSR1beammiddlep_low) && (missM2beam<=fSR1beammiddlep_up) && (missM2rich>fSR1richmiddlep_low) && (missM2rich<=fSR1richmiddlep_up)) || 
+      if(((momPiplus<=20.) && (missM2beam>fSR1beamlowp_low) && (missM2beam<=fSR1beamlowp_up) && (missM2rich>fSR1richlowp_low) && (missM2rich<=fSR1richlowp_up)) ||
+	 ((momPiplus>20. && momPiplus<25.) && (missM2beam>fSR1beammiddlep_low) && (missM2beam<=fSR1beammiddlep_up) && (missM2rich>fSR1richmiddlep_low) && (missM2rich<=fSR1richmiddlep_up)) ||
 	 ((momPiplus>=25.) && (missM2beam>fSR1beamhighp_low) && (missM2beam<=fSR1beamhighp_up) && (missM2rich>fSR1richhighp_low) && (missM2rich<=fSR1richhighp_up))){
 	FillHisto(decString+h_1, 4);
       };
@@ -815,7 +816,7 @@ void KinematicTails::FillHistoRegions(TString decString, string h_1, string h, d
   }else if(missM2>fK3pi_low){
     FillHisto(decString+h_1, 9);
   };
-  
+
   if(missM2<=fKmu2_low){
     FillHisto(decString+h, 1, momPiplus);
   }else if((missM2>fKmu2_low) && (missM2<=mm+3*sigma)){
@@ -838,7 +839,7 @@ void KinematicTails::FillHistoRegions(TString decString, string h_1, string h, d
 	if((missM2rich>fSR1richmiddlep_low) && (missM2rich<=fSR1richmiddlep_up)){
 	  FillHisto(decString+h, 4, momPiplus);
 	};
-      };  
+      };
     }else if((momPiplus>=25.) && (missM2beam>fSR1beamhighp_low) && (missM2beam<=fSR1beamhighp_up)){
       if(decay==2){
 	FillHisto(decString+h, 4, momPiplus);
@@ -872,7 +873,7 @@ int KinematicTails::WhichRegion(double missM2, double missM2beam, double missM2r
   double sigma = 0.001;
   //decay = 1 k2pi
   //decay = 2 kmu2
- 
+
   if(missM2<=fKmu2_low){
     return 1;
   }else if((missM2<=mm+3*sigma)){
@@ -881,14 +882,14 @@ int KinematicTails::WhichRegion(double missM2, double missM2beam, double missM2r
     return 3;
   }else if((missM2>fSR1_low) && (missM2<=fSR1_up)){
     if(decay==2){
-      if(((momPiplus<=20.) && (missM2beam>fSR1beamlowp_low) && (missM2beam<=fSR1beamlowp_up)) || 
-	 ((momPiplus>20. && momPiplus<25.) && (missM2beam>fSR1beammiddlep_low) && (missM2beam<=fSR1beammiddlep_up)) || 
+      if(((momPiplus<=20.) && (missM2beam>fSR1beamlowp_low) && (missM2beam<=fSR1beamlowp_up)) ||
+	 ((momPiplus>20. && momPiplus<25.) && (missM2beam>fSR1beammiddlep_low) && (missM2beam<=fSR1beammiddlep_up)) ||
 	 ((momPiplus>=25.) && (missM2beam>fSR1beamhighp_low) && (missM2beam<=fSR1beamhighp_up))){
 	return 4;
       };
     }else if(decay==1){
-      if(((momPiplus<=20.) && (missM2beam>fSR1beamlowp_low) && (missM2beam<=fSR1beamlowp_up) && (missM2rich>fSR1richlowp_low) && (missM2rich<=fSR1richlowp_up)) || 
-	 ((momPiplus>20. && momPiplus<25.) && (missM2beam>fSR1beammiddlep_low) && (missM2beam<=fSR1beammiddlep_up) && (missM2rich>fSR1richmiddlep_low) && (missM2rich<=fSR1richmiddlep_up)) || 
+      if(((momPiplus<=20.) && (missM2beam>fSR1beamlowp_low) && (missM2beam<=fSR1beamlowp_up) && (missM2rich>fSR1richlowp_low) && (missM2rich<=fSR1richlowp_up)) ||
+	 ((momPiplus>20. && momPiplus<25.) && (missM2beam>fSR1beammiddlep_low) && (missM2beam<=fSR1beammiddlep_up) && (missM2rich>fSR1richmiddlep_low) && (missM2rich<=fSR1richmiddlep_up)) ||
 	 ((momPiplus>=25.) && (missM2beam>fSR1beamhighp_low) && (missM2beam<=fSR1beamhighp_up) && (missM2rich>fSR1richhighp_low) && (missM2rich<=fSR1richhighp_up))){
 	return 4;
       };

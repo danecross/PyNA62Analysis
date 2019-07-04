@@ -1,3 +1,0 @@
-repository='external project URL'
-module='/afs/cern.ch/na62/offline/NA62FW/dev/rcurrent/NA62MC/ExternalLibs/LoopTools-2.14.tar.gz'
-tag='MD5=b684bea48b4aa6a2584c6708f4f3e949'

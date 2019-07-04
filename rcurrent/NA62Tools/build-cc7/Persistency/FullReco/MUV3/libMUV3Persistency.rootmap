@@ -1,0 +1,10 @@
+[ libMUV3Persistency.so ]
+# List of selected classes
+class MUV3ChannelID
+class TMUV3Digi
+class TMUV3Event
+class TMUV3Hit
+class TRecoMUV3Candidate
+class TRecoMUV3Event
+class TRecoMUV3Hit
+header TRecoMUV3Hit.hh

@@ -51,7 +51,7 @@ private:
   Bool_t fT0FileNameProvided;
   Bool_t fThresholdNominalValuesProvided;
   Bool_t fThresholdFileNameProvided;
-  
+
   Bool_t fMakeLAVT0s;
   Int_t fLAVT0CorrectionInputMode; // 1 --> read from file; 2 --> read from db
   TString fLAVT0CorrectionFileName; // T0 filename
@@ -69,14 +69,15 @@ private:
   Int_t fLAVMCSlewingCorrectionParametersProvided; // 1 --> Slewing parameters provided to be used for MC
   Int_t fMakeLAVClusters; // 1 --> make LAV Clusters
   Int_t fMakeLAVTracks;   // 1 --> make LAV tracks
-  Int_t fMakeMCHitHistos; // 0 --> no histos; 1 --> make general histos; 2 --> make detailed histos 
-  Int_t fMakeDigiHistos; //  0 --> no histos; 1 --> make general histos; 2 --> make detailed histos 
-  Int_t fMakeRecoHistos; //  0 --> no histos; 1 --> make general histos; 2 --> make detailed histos 
+  Int_t fMakeMCHitHistos; // 0 --> no histos; 1 --> make general histos; 2 --> make detailed histos
+  Int_t fMakeDigiHistos; //  0 --> no histos; 1 --> make general histos; 2 --> make detailed histos
+  Int_t fMakeRecoHistos; //  0 --> no histos; 1 --> make general histos; 2 --> make detailed histos
   Int_t fPreferredTimeAlgorithm; // 0 --> prefer slope; 1 --> prefer tot_low; 2 --> prefer tot_high
 
   Double_t fDataSlewingPars[2][5];
   Double_t fMCSlewingPars[2][5];
 
+  // cppcheck-suppress unusedPrivateFunction
   void Print();
 
 };

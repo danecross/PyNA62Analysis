@@ -1,0 +1,11 @@
+{ decls }
+namespace std {  }
+
+[ libCHANTISlimPersistency.so ]
+# List of selected classes
+class TSlimRecoCHANTICandidate
+class TSlimRecoCHANTIEvent
+class TSlimRecoCHANTIHit
+class vector<TSlimRecoCHANTICandidate>
+class vector<TSlimRecoCHANTIHit>
+header TSlimRecoCHANTIHit.hh

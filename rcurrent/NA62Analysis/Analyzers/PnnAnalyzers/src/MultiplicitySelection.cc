@@ -50,7 +50,6 @@ MultiplicitySelection::MultiplicitySelection(Core::BaseAnalysis *ba) : Analyzer(
   AddParam("CutMinDistanceLKrExtra", "double", &fCutMinDistanceLKrExtra, 100.);
   AddParam("CutMinDistanceNewCHODExtra", "double", &fCutMinDistanceNewCHODExtra, 100.);
   AddParam("CutTimeDiffNewCHODExtra", "double", &fCutTimeDiffNewCHODExtra, 5.);
-  AddParam("Verbosity", "bool", &verb, false);
 
   fZLKr = GeometricAcceptance::GetInstance()->GetZLKr();
   fZNewCHOD = GeometricAcceptance::GetInstance()->GetZNewCHOD();
@@ -59,6 +58,8 @@ MultiplicitySelection::MultiplicitySelection(Core::BaseAnalysis *ba) : Analyzer(
 
   fOffsetX = 0.;
   fOffsetY = 0.;
+
+  EnablePrefix(false);
 }
 
 void MultiplicitySelection::InitOutput(){
@@ -86,9 +87,9 @@ void MultiplicitySelection::InitHist(){
     BookHisto(new TH1I("hNewCHODCHODCoincidence", "hNewCHODCHODCoincidence", 2, 0, 2));
     BookHisto(new TH2D("hPosDiffLKrNewCHODYvsX", "hPosDiffLKrNewCHODYvsX", 500, 0., 2000., 500, 0., 2000.));
     BookHisto(new TH1I("hLKrNewCHODCoincidence", "hLKrNewCHODCoincidence", 2, 0, 2));
-    BookHisto(new TH1D("hTimeDiffHACTrack", "hTimeDiffHACTrack", 50, -25., 25.)); 
+    BookHisto(new TH1D("hTimeDiffHACTrack", "hTimeDiffHACTrack", 50, -25., 25.));
     BookHisto(new TH1I("hHACInTime", "hHACInTime", 10, 0, 10));
-    BookHisto(new TH1D("hTimeDiffMUV0Track", "hTimeDiffMUV0Track", 50, -25., 25.)); 
+    BookHisto(new TH1D("hTimeDiffMUV0Track", "hTimeDiffMUV0Track", 50, -25., 25.));
     BookHisto(new TH1I("hMUV0InTime", "hMUV0InTime", 10, 0, 10));
     BookHisto(new TH1I("hMergedLikeLKrCluster", "hMergedLikeLKrCluster", 2, 0, 2));
   };
@@ -118,7 +119,7 @@ void MultiplicitySelection::Process(int iEvent){
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"-------------------"<<endl;
     cout<<"MultiplicitySelection"<<endl;
@@ -134,15 +135,15 @@ void MultiplicitySelection::Process(int iEvent){
   auto preselectedEvent =
     *(bool*)GetOutput("Preselection.PreselectedEvent", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb) cout<<"Is event preselected? "<<preselectedEvent<<endl;
+  cout<<user()<<"Is event preselected? "<<preselectedEvent<<endl;
   if(!preselectedEvent){
-    if(verb) cout<<"Event is not preselected"<<endl;
+    cout<<user()<<"Event is not preselected"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -151,13 +152,13 @@ void MultiplicitySelection::Process(int iEvent){
   auto isSingleTrack =
     *(bool*)GetOutput("SingleTrackEventSelection.EventSelected", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb) cout<<"Is single track event? "<<isSingleTrack<<endl;
+  cout<<user()<<"Is single track event? "<<isSingleTrack<<endl;
   if(!isSingleTrack) return;
   FillHisto("hCut", cutID);
   cutID++;
@@ -165,56 +166,56 @@ void MultiplicitySelection::Process(int iEvent){
   int trackID =
     *(int*)GetOutput("SingleTrackEventSelection.TrackID", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
-  if(verb) cout<<"Track ID read = "<<trackID<<endl;
+  cout<<user()<<"Track ID read = "<<trackID<<endl;
   FillHisto("hCut", cutID);
   cutID++;
 
   auto trackCHODTimes =
     *(std::vector<double>*)GetOutput("BestTrackSelection.BestTrackCHODTime", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
 
   double trackTime = trackCHODTimes.at(trackID);
-  if(verb) cout<<"track time = "<<trackTime<<endl;
+  cout<<user()<<"track time = "<<trackTime<<endl;
 
   auto CHODAssocID =
     *(std::vector<int>*)GetOutput("BestTrackSelection.CHODAssocID", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
-  if(verb) cout<<"CHOD assoc ID = "<<CHODAssocID.at(trackID)<<endl;
+  cout<<user()<<"CHOD assoc ID = "<<CHODAssocID.at(trackID)<<endl;
 
   auto NewCHODAssocID =
     *(std::vector<int>*)GetOutput("BestTrackSelection.NewCHODAssocID", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
-  if(verb) cout<<"New CHOD assoc ID = "<<NewCHODAssocID.at(trackID)<<endl;
+  cout<<user()<<"New CHOD assoc ID = "<<NewCHODAssocID.at(trackID)<<endl;
 
-  auto LKrAssocID = 
+  auto LKrAssocID =
     *(std::vector<int>*)GetOutput("BestTrackSelection.LKrAssocID", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
   fLKrID = LKrAssocID.at(trackID);
-  if(verb) cout<<"LKr assoc ID = "<<fLKrID<<endl;
-  
+  cout<<user()<<"LKr assoc ID = "<<fLKrID<<endl;
+
   ValidateOutputs();
 
   TRecoHACEvent* HACEvent = GetEvent<TRecoHACEvent>();
@@ -226,32 +227,32 @@ void MultiplicitySelection::Process(int iEvent){
   TRecoSpectrometerCandidate *STRAWCand = static_cast<TRecoSpectrometerCandidate*>(STRAWEvent->GetCandidate(trackID));
 
   //find extra activity in LKr
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"----Find LKr extra activity----"<<endl;
   };
   std::vector<int> LKrExtra;
   TVector3 posAtLKr(STRAWCand->xAt(fZLKr), STRAWCand->yAt(fZLKr), fZLKr);
   LKrExtraActivity(LKrExtra, trackTime, posAtLKr);
-  if(verb) cout<<"------------found------------"<<endl;
+  cout<<user()<<"------------found------------"<<endl;
 
   //find extra activity in NewCHOD
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"----Find NewCHOD extra activity----"<<endl;
   };
   std::vector<int> NewCHODExtra;
-  auto SpecNewCHOD = 
+  auto SpecNewCHOD =
     *(std::vector<SpectrometerNewCHODAssociationOutput>*)GetOutput("SpectrometerNewCHODAssociation.Output", state);
   int tileID = SpecNewCHOD[trackID].GetAssociationRecord(NewCHODAssocID.at(trackID))->GetTileID();
   TVector3 posAtNewCHOD(STRAWCand->xAt(fZNewCHOD), STRAWCand->yAt(fZNewCHOD), fZNewCHOD);
   NewCHODExtraActivity(NewCHODExtra, trackTime, tileID);
-  if(verb) cout<<"------------found------------"<<endl;
-  if(verb) cout<<endl;
+  cout<<user()<<"------------found------------"<<endl;
+  cout<<user()<<endl;
 
   //HAC
   int cHAC = 0;
-  if(verb) cout<<"N HAC hits: "<<HACEvent->GetNHits()<<endl;
+  cout<<user()<<"N HAC hits: "<<HACEvent->GetNHits()<<endl;
   for(int j=0; j<HACEvent->GetNHits(); j++){
     TRecoHACHit* HACHit = static_cast<TRecoHACHit*>(HACEvent->GetHit(j));
     FillHisto("hTimeDiffHACTrack", HACHit->GetTime() - trackTime);
@@ -260,10 +261,10 @@ void MultiplicitySelection::Process(int iEvent){
     };
   };
   FillHisto("hHACInTime", cHAC);
-  if(verb) cout<<"HAC in time? "<<(cHAC>0?1:0)<<endl;
+  cout<<user()<<"HAC in time? "<<(cHAC>0?1:0)<<endl;
   if(cHAC>0 || (GetWithMC() && HACEvent->GetNHits()>0)){
     fMultiplicity = true;
-    if(verb) cout<<"Multiplicity is true"<<endl;
+    cout<<user()<<"Multiplicity is true"<<endl;
     return;
   };
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
@@ -272,7 +273,7 @@ void MultiplicitySelection::Process(int iEvent){
 
   //MUV0
   int cMUV0 = 0;
-  if(verb) cout<<"N MUV0 hits: "<<MUV0Event->GetNHits()<<endl;
+  cout<<user()<<"N MUV0 hits: "<<MUV0Event->GetNHits()<<endl;
   for(int j=0; j<MUV0Event->GetNHits(); j++){
     TRecoMUV0Hit* MUV0Hit = static_cast<TRecoMUV0Hit*>(MUV0Event->GetHit(j));
     FillHisto("hTimeDiffMUV0Track", MUV0Hit->GetTime() - trackTime);
@@ -282,10 +283,10 @@ void MultiplicitySelection::Process(int iEvent){
     };
   };
   FillHisto("hMUV0InTime", cMUV0);
-  if(verb) cout<<"MUV0 in time? "<<(cMUV0>0 ? 1 : 0)<<endl;
+  cout<<user()<<"MUV0 in time? "<<(cMUV0>0 ? 1 : 0)<<endl;
   if(cMUV0>0 || (GetWithMC() && MUV0Event->GetNHits()>0)){
     fMultiplicity = true;
-    if(verb) cout<<"Multiplicity is true"<<endl;
+    cout<<user()<<"Multiplicity is true"<<endl;
     return;
   };
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
@@ -293,19 +294,19 @@ void MultiplicitySelection::Process(int iEvent){
   cutID++;
 
   //***HIT MULTIPLICITY***
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"----Hit multiplicity:----"<<endl;
   };
-  
+
   //Find CHOD slabs (hits actually) in time
   int NSlabsInTime = NCHODSlabs(fCHODEvent, trackTime, CHODAssocID.at(trackID), fCutTimeDiffTrackCHODSlab);
   FillHisto("hNCHODSlabsInTime", NSlabsInTime);
-  if(verb) cout<<"N CHOD hits in time: "<<NSlabsInTime<<" <= "<<fMaxNCHODSlabs<<endl;
+  cout<<user()<<"N CHOD hits in time: "<<NSlabsInTime<<" <= "<<fMaxNCHODSlabs<<endl;
   if(NSlabsInTime>fMaxNCHODSlabs){
     fMultiplicity = true;
-    if(verb) cout<<"Multiplicity is true"<<endl;
-    return; 
+    cout<<user()<<"Multiplicity is true"<<endl;
+    return;
   };
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hCut", cutID);
@@ -322,19 +323,19 @@ void MultiplicitySelection::Process(int iEvent){
   TVector2 posTrackCHOD(STRAWCand->xAt(fZCHODV) - fOffsetX, STRAWCand->yAt(fZCHODH) - fOffsetY);
 
   //no extra activity in coincidence LKr - CHOD
-  if(verb) cout<<endl;
-  if(verb) cout<<"Look for LKr-CHOD coincidence:"<<endl;
+  cout<<user()<<endl;
+  cout<<user()<<"Look for LKr-CHOD coincidence:"<<endl;
   bool LKrCHODCoincidence = false;
-  if(verb) cout<<"How many LKr extra? "<<LKrExtra.size()<<endl;
+  cout<<user()<<"How many LKr extra? "<<LKrExtra.size()<<endl;
   for(unsigned int j=0; j<LKrExtra.size(); j++){
-    if(verb) cout<<endl;
-    if(verb) cout<<"LKr hit "<<LKrExtra.at(j)<<" at position "<<j<<endl;
-    TRecoLKrHit *LKrHit = static_cast<TRecoLKrHit*>(LKrEvent->GetHit(LKrExtra.at(j))); 
+    cout<<user()<<endl;
+    cout<<user()<<"LKr hit "<<LKrExtra.at(j)<<" at position "<<j<<endl;
+    TRecoLKrHit *LKrHit = static_cast<TRecoLKrHit*>(LKrEvent->GetHit(LKrExtra.at(j)));
     TVector2 posLKr = LKrHit->GetPosition().XYvector();
     double D = 1000000000.;
     int hH = -1;
     int hV = -1;
-    int hPlane = -1;   
+    int hPlane = -1;
     TVector2 posCHOD;
     double timeHV = 0.;
     double tHV = 0.;
@@ -343,20 +344,20 @@ void MultiplicitySelection::Process(int iEvent){
 	CHODHitH = static_cast<TRecoCHODHit*>(fCHODEvent->GetHit(Hhits[m].at(k)));
 	for(unsigned int l=0; l<Vhits[m].size(); l++){
 	  CHODHitV = static_cast<TRecoCHODHit*>(fCHODEvent->GetHit(Vhits[m].at(l)));
-	  if(verb) cout<<"test CHOD H hit = "<<Hhits[m].at(k)<<" V hit = "<<Vhits[m].at(l)<<endl;
+	  cout<<user()<<"test CHOD H hit = "<<Hhits[m].at(k)<<" V hit = "<<Vhits[m].at(l)<<endl;
 	  FillHisto("hPosDiffCHODLKrYvsX", fabs(CHODHitV->GetPosition().X() - posLKr.X()), fabs(CHODHitH->GetPosition().Y() - posLKr.Y()));
 	  posCHOD.Set(CHODHitV->GetPosition().X(), CHODHitH->GetPosition().Y());
 	  double timeHcorr = 0.;
 	  double timeVcorr = 0.;
 	  CorrectCHODHitsTime(fCHODEvent, Vhits[m].at(l), Hhits[m].at(k), fLV, fSlabCenter, fSlewSlope, fSlewConst, GetWithMC(), timeVcorr, timeHcorr);
 	  tHV = (timeVcorr + timeHcorr)/2.;
-	  if(verb) cout <<"Test this coincidence: LKr extra " << j << " CHODpos=(" << posCHOD.X() << ", " << posCHOD.Y() << "), LKrpos=(" << posLKr.X() << ", " << posLKr.Y() << "), CHODtime = "<< tHV << ", LKr time = " << LKrHit->GetTime() << endl;
+	  cout <<user()<<"Test this coincidence: LKr extra " << j << " CHODpos=(" << posCHOD.X() << ", " << posCHOD.Y() << "), LKrpos=(" << posLKr.X() << ", " << posLKr.Y() << "), CHODtime = "<< tHV << ", LKr time = " << LKrHit->GetTime() << endl;
 	  FillHisto("hTimeDiffCHODLKr", tHV - LKrHit->GetTime());
 	  FillHisto("hPosDiffCHODLKr", (posCHOD-posLKr).Mod());
 	  double d = pow((posCHOD-posLKr).Mod()/(2.*13.), 2) + pow((tHV-LKrHit->GetTime())/(3.*5.6), 2) + pow((timeVcorr-timeHcorr)/(3.*3.), 2);
-	  if(verb) cout<<"d = "<<d<<endl;
+	  cout<<user()<<"d = "<<d<<endl;
 	  if(d<D){
-	    if(verb) cout<<"is min d"<<endl;	  
+	    cout<<user()<<"is min d"<<endl;
 	    D=d;
 	    hH=Hhits[m].at(k);
 	    hV=Vhits[m].at(l);
@@ -367,53 +368,53 @@ void MultiplicitySelection::Process(int iEvent){
       };
     };
     if(hH==-1 || hV==-1 || hPlane==-1) continue;
-    if(verb) cout<<"Pair with min d: H = "<<hH<<" V = "<<hV<<endl;
+    cout<<user()<<"Pair with min d: H = "<<hH<<" V = "<<hV<<endl;
     CHODHitH = static_cast<TRecoCHODHit*>(fCHODEvent->GetHit(hH));
     CHODHitV = static_cast<TRecoCHODHit*>(fCHODEvent->GetHit(hV));
     widthV = fSlabWidth[CHODHitV->GetChannelID()];
     widthH = fSlabWidth[CHODHitH->GetChannelID()];
     posCHOD.Set(CHODHitV->GetPosition().X(), CHODHitH->GetPosition().Y());
     FillHisto("hPosDiffLKrCHODvsTimeDiffLKrCHOD", timeHV - LKrHit->GetTime(), (posCHOD-posLKr).Mod());
-    if(verb) cout<<"Distance = "<<(posCHOD-posLKr).Mod()<<" < "<<fCutMaxDistanceCHODLKrCoincidence<<" and deltaT = "<<fabs(timeHV - LKrHit->GetTime())<<" < "<<fCutTimeDiffCHODLKrCoincidence<<" to be coincidence."<<endl;
+    cout<<user()<<"Distance = "<<(posCHOD-posLKr).Mod()<<" < "<<fCutMaxDistanceCHODLKrCoincidence<<" and deltaT = "<<fabs(timeHV - LKrHit->GetTime())<<" < "<<fCutTimeDiffCHODLKrCoincidence<<" to be coincidence."<<endl;
     if((posCHOD-posLKr).Mod()>=fCutMaxDistanceCHODLKrCoincidence || fabs(timeHV - LKrHit->GetTime())>=fCutTimeDiffCHODLKrCoincidence){
-      if(verb) cout<<"LKr hit too far from CHOD pair or not close in time. Try another hit."<<endl;
+      cout<<user()<<"LKr hit too far from CHOD pair or not close in time. Try another hit."<<endl;
       continue;
     };
-    if(verb) cout<<"LKr hit close to CHOD pair and close in time. Could be coincidence."<<endl;
+    cout<<user()<<"LKr hit close to CHOD pair and close in time. Could be coincidence."<<endl;
     FillHisto("hLKrCHODCoincPosDiffTrackCHODYvsX", fabs(posTrackCHOD.X()-CHODHitV->GetPosition().X()), fabs(posTrackCHOD.Y()-CHODHitH->GetPosition().Y()));
     if(fabs(posTrackCHOD.X()-CHODHitV->GetPosition().X())<widthV/2. && fabs(posTrackCHOD.Y()-CHODHitH->GetPosition().Y())<widthH/2.){
-      if(verb) cout<<"CHOD pair corresponds to track. Try another hit."<<endl;
+      cout<<user()<<"CHOD pair corresponds to track. Try another hit."<<endl;
       continue;
     };
-    if(verb) cout<<"CHOD pair does not correspond to track. Found LKr-CHOD coincidence."<<endl;
+    cout<<user()<<"CHOD pair does not correspond to track. Found LKr-CHOD coincidence."<<endl;
     LKrCHODCoincidence = true;
     break;
   };
   FillHisto("hLKrCHODCoincidence", (int)LKrCHODCoincidence);
-  if(verb) cout<<"LKr CHOD coincidence? "<<LKrCHODCoincidence<<endl;
+  cout<<user()<<"LKr CHOD coincidence? "<<LKrCHODCoincidence<<endl;
   if(LKrCHODCoincidence){
     fMultiplicity = true;
-    if(verb) cout<<"Multiplicity is true"<<endl;
-    return; 
+    cout<<user()<<"Multiplicity is true"<<endl;
+    return;
   };
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hCut", cutID);
   cutID++;
-  
-  
+
+
   //no extra activity in coincidence NewCHOD  - CHOD
-  if(verb) cout<<"Look for NewCHOD-CHOD coincidence:"<<endl;
+  cout<<user()<<"Look for NewCHOD-CHOD coincidence:"<<endl;
   bool NewCHODCHODCoincidence = false;
-  if(verb) cout<<"How many NewCHOD extra? "<<NewCHODExtra.size()<<endl;
+  cout<<user()<<"How many NewCHOD extra? "<<NewCHODExtra.size()<<endl;
   for(unsigned int j=0; j<NewCHODExtra.size(); j++){
-    if(verb) cout<<endl;
-    if(verb) cout<<"NewCHOD hit "<<NewCHODExtra.at(j)<<" at position "<<j<<endl;
-    TRecoNewCHODHit *NewCHODHit = static_cast<TRecoNewCHODHit*>(NewCHODEvent->GetHit(NewCHODExtra.at(j))); 
+    cout<<user()<<endl;
+    cout<<user()<<"NewCHOD hit "<<NewCHODExtra.at(j)<<" at position "<<j<<endl;
+    TRecoNewCHODHit *NewCHODHit = static_cast<TRecoNewCHODHit*>(NewCHODEvent->GetHit(NewCHODExtra.at(j)));
     TVector2 posNewCHOD = NewCHODHit->GetPosition().XYvector();
     double D = 1000000000.;
     int hH = -1;
     int hV = -1;
-    int hPlane = -1;   
+    int hPlane = -1;
     TVector2 posCHOD;
     double timeHV = 0.;
     double tHV = 0.;
@@ -422,20 +423,20 @@ void MultiplicitySelection::Process(int iEvent){
 	CHODHitH = static_cast<TRecoCHODHit*>(fCHODEvent->GetHit(Hhits[m].at(k)));
 	for(unsigned int l=0; l<Vhits[m].size(); l++){
 	  CHODHitV = static_cast<TRecoCHODHit*>(fCHODEvent->GetHit(Vhits[m].at(l)));
-	  if(verb) cout<<"test CHOD H hit = "<<Hhits[m].at(k)<<" V hit = "<<Vhits[m].at(l)<<endl;
+	  cout<<user()<<"test CHOD H hit = "<<Hhits[m].at(k)<<" V hit = "<<Vhits[m].at(l)<<endl;
 	  FillHisto("hPosDiffCHODNewCHODYvsX", fabs(CHODHitV->GetPosition().X() - posNewCHOD.X()), fabs(CHODHitH->GetPosition().Y() - posNewCHOD.Y()));
 	  posCHOD.Set(CHODHitV->GetPosition().X(), CHODHitH->GetPosition().Y());
 	  double timeHcorr = 0.;
 	  double timeVcorr = 0.;
 	  CorrectCHODHitsTime(fCHODEvent, Vhits[m].at(l), Hhits[m].at(k), fLV, fSlabCenter, fSlewSlope, fSlewConst, GetWithMC(), timeVcorr, timeHcorr);
 	  tHV = (timeVcorr + timeHcorr)/2.;
-	  if(verb) cout << "Test this coincidence: NewCHOD extra " << j << " CHODpos=(" << posCHOD.X() << ", " << posCHOD.Y() << "), NewCHODpos=(" << posNewCHOD.X() << ", " << posNewCHOD.Y() << "), CHODtime = "<< tHV << ", NewCHOD time = " << NewCHODHit->GetTime() << endl;
+	  cout << user() << "Test this coincidence: NewCHOD extra " << j << " CHODpos=(" << posCHOD.X() << ", " << posCHOD.Y() << "), NewCHODpos=(" << posNewCHOD.X() << ", " << posNewCHOD.Y() << "), CHODtime = "<< tHV << ", NewCHOD time = " << NewCHODHit->GetTime() << endl;
 	  FillHisto("hTimeDiffCHODNewCHOD", tHV - NewCHODHit->GetTime());
 	  FillHisto("hPosDiffCHODNewCHOD", (posCHOD-posNewCHOD).Mod());
 	  double d = pow((posCHOD-posNewCHOD).Mod()/(sqrt(6.)*16.), 2) + pow((tHV-NewCHODHit->GetTime())/(sqrt(3.)*7.), 2) + pow((timeVcorr-timeHcorr)/(3.*6.), 2);
-	  if(verb) cout<<"d = "<<d<<endl;
+	  cout<<user()<<"d = "<<d<<endl;
 	  if(d<D){
-	    if(verb) cout<<"is min d"<<endl;
+	    cout<<user()<<"is min d"<<endl;
 	    D=d;
 	    hH=Hhits[m].at(k);
 	    hV=Vhits[m].at(l);
@@ -446,67 +447,67 @@ void MultiplicitySelection::Process(int iEvent){
       };
     };
     if(hH==-1 || hV==-1 || hPlane==-1) continue;
-    if(verb) cout<<"Pair with min d: H = "<<hH<<" V = "<<hV<<endl;
+    cout<<user()<<"Pair with min d: H = "<<hH<<" V = "<<hV<<endl;
     CHODHitH = static_cast<TRecoCHODHit*>(fCHODEvent->GetHit(hH));
     CHODHitV = static_cast<TRecoCHODHit*>(fCHODEvent->GetHit(hV));
     widthV = fSlabWidth[CHODHitV->GetChannelID()];
     widthH = fSlabWidth[CHODHitH->GetChannelID()];
     posCHOD.Set(CHODHitV->GetPosition().X(), CHODHitH->GetPosition().Y());
     FillHisto("hPosDiffCHODNewCHODvsTimeDiffCHODNewCHOD", timeHV - NewCHODHit->GetTime(), (posCHOD-posNewCHOD).Mod());
-    if(verb) cout<<"DistanceX = "<<fabs(posCHOD.X()-posNewCHOD.X())<<" < "<<fCutMaxXDistanceCHODNewCHODCoincidence<<" and distanceY = "<<fabs(posCHOD.Y()-posNewCHOD.Y())<<" < "<<fCutMaxYDistanceCHODNewCHODCoincidence<<" and deltaT = "<<fabs(timeHV - NewCHODHit->GetTime())<<" < "<<fCutTimeDiffCHODNewCHODCoincidence<<" to be coincidence."<<endl;
+    cout<<user()<<"DistanceX = "<<fabs(posCHOD.X()-posNewCHOD.X())<<" < "<<fCutMaxXDistanceCHODNewCHODCoincidence<<" and distanceY = "<<fabs(posCHOD.Y()-posNewCHOD.Y())<<" < "<<fCutMaxYDistanceCHODNewCHODCoincidence<<" and deltaT = "<<fabs(timeHV - NewCHODHit->GetTime())<<" < "<<fCutTimeDiffCHODNewCHODCoincidence<<" to be coincidence."<<endl;
     if(fabs(timeHV - NewCHODHit->GetTime())>=fCutTimeDiffCHODNewCHODCoincidence || fabs(posCHOD.X()-posNewCHOD.X())>fCutMaxXDistanceCHODNewCHODCoincidence || fabs(posCHOD.Y()-posNewCHOD.Y())>fCutMaxYDistanceCHODNewCHODCoincidence){
-      if(verb) cout<<"NewCHOD hit too far from CHOD pair or not close in time. Try another hit."<<endl;
-      continue; 
-    };
-    if(verb) cout<<"NewCHOD hit close to CHOD pair and close in time. Could be coincidence."<<endl;
-    FillHisto("hCHODNewCHODCoincPosDiffTrackCHODYvsX", fabs(posTrackCHOD.X()-CHODHitV->GetPosition().X()), fabs(posTrackCHOD.Y()-CHODHitH->GetPosition().Y()));
-    if(fabs(posTrackCHOD.X()-CHODHitV->GetPosition().X())<widthV/2. && fabs(posTrackCHOD.Y()-CHODHitH->GetPosition().Y())<widthH/2.){
-      if(verb) cout<<"CHOD pair corresponds to track. Try another hit."<<endl;
+      cout<<user()<<"NewCHOD hit too far from CHOD pair or not close in time. Try another hit."<<endl;
       continue;
     };
-    if(verb) cout<<"CHOD pair does not correspond to track. Found NewCHOD-CHOD coincidence."<<endl;
+    cout<<user()<<"NewCHOD hit close to CHOD pair and close in time. Could be coincidence."<<endl;
+    FillHisto("hCHODNewCHODCoincPosDiffTrackCHODYvsX", fabs(posTrackCHOD.X()-CHODHitV->GetPosition().X()), fabs(posTrackCHOD.Y()-CHODHitH->GetPosition().Y()));
+    if(fabs(posTrackCHOD.X()-CHODHitV->GetPosition().X())<widthV/2. && fabs(posTrackCHOD.Y()-CHODHitH->GetPosition().Y())<widthH/2.){
+      cout<<user()<<"CHOD pair corresponds to track. Try another hit."<<endl;
+      continue;
+    };
+    cout<<user()<<"CHOD pair does not correspond to track. Found NewCHOD-CHOD coincidence."<<endl;
     NewCHODCHODCoincidence = true;
     break;
   };
   FillHisto("hNewCHODCHODCoincidence", (int)NewCHODCHODCoincidence);
-  if(verb) cout<<"NewCHOD CHOD coincidence? "<<NewCHODCHODCoincidence<<endl;
+  cout<<user()<<"NewCHOD CHOD coincidence? "<<NewCHODCHODCoincidence<<endl;
   if(NewCHODCHODCoincidence){
     fMultiplicity = true;
-    if(verb) cout<<"Multiplicity is true"<<endl;
-    return; 
+    cout<<user()<<"Multiplicity is true"<<endl;
+    return;
   };
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hCut", cutID);
   cutID++;
 
  //no extra activity in coincidence LKr - NewCHOD
-  if(verb) cout<<"Look for LKr-NewCHOD coincidence:"<<endl;
+  cout<<user()<<"Look for LKr-NewCHOD coincidence:"<<endl;
   bool LKrNewCHODCoincidence = false;
   for(unsigned int j=0; j<LKrExtra.size(); j++){
-    if(verb) cout<<endl;
-    if(verb) cout<<"LKr hit "<<LKrExtra.at(j)<<" at position "<<j<<endl;
-    TRecoLKrHit *LKrHit = static_cast<TRecoLKrHit*>(LKrEvent->GetHit(LKrExtra.at(j))); 
+    cout<<user()<<endl;
+    cout<<user()<<"LKr hit "<<LKrExtra.at(j)<<" at position "<<j<<endl;
+    TRecoLKrHit *LKrHit = static_cast<TRecoLKrHit*>(LKrEvent->GetHit(LKrExtra.at(j)));
     TVector2 posLKr = LKrHit->GetPosition().XYvector();
     for(unsigned int k=0; k<NewCHODExtra.size(); k++){
-      if(verb) cout<<"NewCHOD hit "<<NewCHODExtra.at(k)<<" at position "<<k<<endl;
+      cout<<user()<<"NewCHOD hit "<<NewCHODExtra.at(k)<<" at position "<<k<<endl;
       TRecoNewCHODHit *NewCHODHit = static_cast<TRecoNewCHODHit*>(NewCHODEvent->GetHit(NewCHODExtra.at(k)));
       TVector2 posNewCHOD = NewCHODHit->GetPosition().XYvector();
       FillHisto("hPosDiffLKrNewCHODYvsX", fabs(posLKr.X() - posNewCHOD.X()), fabs(posLKr.Y() - posNewCHOD.Y()));
       if(fabs(posLKr.Y() - posNewCHOD.Y())<fCutMaxYDistanceNewCHODLKrCoincidence && fabs(posLKr.X() - posNewCHOD.X())<fCutMaxXDistanceNewCHODLKrCoincidence){
-	if(verb) cout<<"Hits are close. Found coincidence."<<endl;
+	cout<<user()<<"Hits are close. Found coincidence."<<endl;
 	LKrNewCHODCoincidence = true;
 	break;
       };
-      if(verb) cout<<"Hits too distant. Try other hits."<<endl;
+      cout<<user()<<"Hits too distant. Try other hits."<<endl;
     };
-    if(LKrNewCHODCoincidence) break; 
+    if(LKrNewCHODCoincidence) break;
   };
   FillHisto("hLKrNewCHODCoincidence", (int)LKrNewCHODCoincidence);
-  if(verb) cout<<"LKr NewCHOD coincidence? "<<LKrNewCHODCoincidence<<endl;
+  cout<<user()<<"LKr NewCHOD coincidence? "<<LKrNewCHODCoincidence<<endl;
   if(LKrNewCHODCoincidence){
     fMultiplicity = true;
-    if(verb) cout<<"Multiplicity is true"<<endl;
-    return; 
+    cout<<user()<<"Multiplicity is true"<<endl;
+    return;
   };
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hCut", cutID);
@@ -515,13 +516,13 @@ void MultiplicitySelection::Process(int iEvent){
   //merged-like LKr cluster
   bool mergedLKr = MergedLikeLKrCluster(trackTime, posAtLKr);
   FillHisto("hMergedLikeLKrCluster", (int)mergedLKr);
-  if(verb) cout<<"Merged-like LKr cluster? "<<mergedLKr<<endl;
+  cout<<user()<<"Merged-like LKr cluster? "<<mergedLKr<<endl;
   if(mergedLKr){
     fMultiplicity = true;
-    if(verb) cout<<"Multiplicity is true"<<endl;
+    cout<<user()<<"Multiplicity is true"<<endl;
     return;
   };
-  if(verb) cout<<"Multiplicity is false"<<endl;
+  cout<<user()<<"Multiplicity is false"<<endl;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hCut", cutID);
   cutID++;
@@ -571,7 +572,7 @@ bool MultiplicitySelection::MergedLikeLKrCluster(double tTrack, TVector3 v){
     TVector2 pos(LKrCand->GetClusterX(), LKrCand->GetClusterY());
     if((pos-posTrack).Mod()<fCutMinDistanceLKrTrackMergedLikeLKrCluster || (pos-posTrack).Mod()>fCutMaxDistanceLKrTrackMergedLikeLKrCluster) continue;
     if(fabs(LKrCand->GetTime()-tTrack)>fCutTimeDiffTrackLKrMergedLikeLKrCluster) continue;
-    isClose = true; 
+    isClose = true;
     break;
   };
   if(isMatchedCluster && isClose){
@@ -582,16 +583,16 @@ bool MultiplicitySelection::MergedLikeLKrCluster(double tTrack, TVector3 v){
 }
 
 void MultiplicitySelection::LKrExtraActivity(std::vector<int> &LKrExtra, double tTrack, TVector3 v){
-  if(verb) cout<<endl;
-  if(verb) cout<<"find LKr extra activity: "<<endl;
+  cout<<user()<<endl;
+  cout<<user()<<"find LKr extra activity: "<<endl;
   TRecoLKrEvent* LKrEvent = GetEvent<TRecoLKrEvent>();
   for(int i=0; i<LKrEvent->GetNHits(); i++){
-    if(verb) cout<<"hit "<<i<<endl;
+    cout<<user()<<"hit "<<i<<endl;
     TRecoLKrHit *LKrHit = static_cast<TRecoLKrHit*>(LKrEvent->GetHit(i));
     double E = LKrHit->GetEnergy();
-    if(verb) cout<<"hit energy = "<<E<<endl;
-    if(verb) cout<<"hit time = "<<LKrHit->GetTime()<<endl;
-    if(verb) cout<<"track time = "<<tTrack<<endl;
+    cout<<user()<<"hit energy = "<<E<<endl;
+    cout<<user()<<"hit time = "<<LKrHit->GetTime()<<endl;
+    cout<<user()<<"track time = "<<tTrack<<endl;
     if(E<=fCutEnergyLKrExtra) continue;
     if(E<fCutLowEnergyLKrExtra){
       if(fabs(tTrack - LKrHit->GetTime())>=fCutTimeDiffForLowEnergyLKrExtra) continue;
@@ -601,28 +602,28 @@ void MultiplicitySelection::LKrExtraActivity(std::vector<int> &LKrExtra, double 
       if(fabs(tTrack - LKrHit->GetTime())>=fCutTimeDiffForHighEnergyLKrExtra) continue;
     };
     TVector3 posHitLKr = LKrHit->GetPosition();
-    if(verb) cout<<"pos LKr = "<<posHitLKr.X()<<" "<<posHitLKr.Y()<<" "<<posHitLKr.Z()<<endl;
-    if(verb) cout<<"pos track at LKr = "<<v.X()<<" "<<v.Y()<<" "<<v.Z()<<endl;
-    if(verb) cout<<"distance = "<<(posHitLKr.XYvector() - v.XYvector()).Mod()<<" > "<<fCutMinDistanceLKrExtra<<" to be extra activity."<<endl;
+    cout<<user()<<"pos LKr = "<<posHitLKr.X()<<" "<<posHitLKr.Y()<<" "<<posHitLKr.Z()<<endl;
+    cout<<user()<<"pos track at LKr = "<<v.X()<<" "<<v.Y()<<" "<<v.Z()<<endl;
+    cout<<user()<<"distance = "<<(posHitLKr.XYvector() - v.XYvector()).Mod()<<" > "<<fCutMinDistanceLKrExtra<<" to be extra activity."<<endl;
     if((posHitLKr.XYvector() - v.XYvector()).Mod()<=fCutMinDistanceLKrExtra) continue;
-    if(verb) cout<<"is extra activity"<<endl;
+    cout<<user()<<"is extra activity"<<endl;
     LKrExtra.push_back(i);
   };
 }
 
 void MultiplicitySelection::NewCHODExtraActivity(std::vector<int> &NewCHODExtra, double tTrack, int tileID){
-  if(verb) cout<<"find NewCHOD extra activity: "<<endl;
+  cout<<user()<<"find NewCHOD extra activity: "<<endl;
   TRecoNewCHODEvent* NewCHODEvent = GetEvent<TRecoNewCHODEvent>();
   for(int i=0; i<NewCHODEvent->GetNHits(); i++){
-    if(verb) cout<<"hit "<<i<<endl;
+    cout<<user()<<"hit "<<i<<endl;
     TRecoNewCHODHit *NewCHODHit = static_cast<TRecoNewCHODHit*>(NewCHODEvent->GetHit(i));
-    if(verb) cout<<"hit tileID = "<<NewCHODHit->GetTileID()<<" != "<<tileID<<" = track tileID to be extra activity."<<endl;
-    if(verb) cout<<"hit time = "<<NewCHODHit->GetTime()<<endl;
-    if(verb) cout<<"track time = "<<tTrack<<endl;
-    if(verb) cout<<"time diff = "<<fabs(NewCHODHit->GetTime() - tTrack)<<" < "<<fCutTimeDiffNewCHODExtra<<" to be extra activity."<<endl;
+    cout<<user()<<"hit tileID = "<<NewCHODHit->GetTileID()<<" != "<<tileID<<" = track tileID to be extra activity."<<endl;
+    cout<<user()<<"hit time = "<<NewCHODHit->GetTime()<<endl;
+    cout<<user()<<"track time = "<<tTrack<<endl;
+    cout<<user()<<"time diff = "<<fabs(NewCHODHit->GetTime() - tTrack)<<" < "<<fCutTimeDiffNewCHODExtra<<" to be extra activity."<<endl;
     if(NewCHODHit->GetTileID()==tileID) continue;
     if(fabs(NewCHODHit->GetTime() - tTrack)>=fCutTimeDiffNewCHODExtra) continue;
-    if(verb) cout<<"is extra activity"<<endl;
+    cout<<user()<<"is extra activity"<<endl;
     NewCHODExtra.push_back(i);
   };
 }

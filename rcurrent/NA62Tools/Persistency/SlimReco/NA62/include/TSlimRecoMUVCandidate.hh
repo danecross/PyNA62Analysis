@@ -13,10 +13,11 @@
 class TSlimRecoMUVCandidate : public TSlimRecoVCandidate {
 
 public:
-	TSlimRecoMUVCandidate ()          { Clear(); }
+	TSlimRecoMUVCandidate ()          { ClearBase(); }
 	virtual ~TSlimRecoMUVCandidate () {}
 
 	virtual void Clear(Option_t *option="");
+	void ClearBase(Option_t *option="");
 
 	//Setters
 	void SetChargeH(Float_t chargeH) { fChargeH = chargeH;               }

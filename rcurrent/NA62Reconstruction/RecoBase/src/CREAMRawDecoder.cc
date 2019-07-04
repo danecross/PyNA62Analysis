@@ -79,8 +79,8 @@ CREAMRawDecoder::CREAMRawDecoder(NA62VReconstruction* Reco) : NA62VRawDecoder(Re
   fHPedestalBadRefXYNum = 0;
   fHPedestalBadRefXYDen = 0;
   fHPedestalBadRefXYEff = 0;
-  for(Int_t i=0; i<3; i++){ 
-    for(Int_t j=0; j<3; j++){ 
+  for(Int_t i=0; i<3; i++){
+    for(Int_t j=0; j<3; j++){
       fHNEntriesNegTail[i][j] = 0;
       fHNEntriesPosTail[i][j] = 0;
       fHNEntriesNegTailOCTANE[i][j] = 0;
@@ -110,10 +110,10 @@ CREAMRawDecoder::CREAMRawDecoder(NA62VReconstruction* Reco) : NA62VRawDecoder(Re
     fHPedestalBadRefXYDen = new TH2F("PedestalBadRefXYDen","",128,-0.5,127.5,128,-0.5,127.5);
     fHPedestalBadRefXYEff = new TH2F("PedestalBadRefXYEff","",128,-0.5,127.5,128,-0.5,127.5);
 
-    for(Int_t i=0; i<3; i++){ 
-      for(Int_t j=0; j<3; j++){ 
+    for(Int_t i=0; i<3; i++){
+      for(Int_t j=0; j<3; j++){
         if(i*j==1) continue;
-        fHNEntriesNegTail[i][j]          = new TH2F(Form("HistoNegative_%d_%d", i,j), "", 32, -0.5, 31.5, 16, -0.5, 15.5);   
+        fHNEntriesNegTail[i][j]          = new TH2F(Form("HistoNegative_%d_%d", i,j), "", 32, -0.5, 31.5, 16, -0.5, 15.5);
         fHNEntriesPosTail[i][j]          = new TH2F(Form("HistoPositive_%d_%d", i,j), "", 32, -0.5, 31.5, 16, -0.5, 15.5);
         fHNEntriesNegTailOCTANE[i][j]    = new TH2F(Form("HistoNegativeOCTANE_%d_%d", i,j), "", 32, -0.5, 31.5, 16, -0.5, 15.5);
         fHNEntriesPosTailOCTANE[i][j]    = new TH2F(Form("HistoPositiveOCTANE_%d_%d", i,j), "", 32, -0.5, 31.5, 16, -0.5, 15.5);
@@ -173,10 +173,10 @@ CREAMRawDecoder::CREAMRawDecoder(NA62VReconstruction* Reco) : NA62VRawDecoder(Re
   //-----------------------------------------------------------//
 
   // CREAMDecoderErrString - set bin names
-  fCREAMDecoderErrString.clear(); 
+  fCREAMDecoderErrString.clear();
   fCREAMDecoderErrString.resize(CREAM_OVERFLOWBIN+1,""); // 0->OVERFLOW are needed
   fCREAMDecoderErrString[CREAM_UNDERFLOWBIN] =        "Underflow";             ///< Not currently used
-  fCREAMDecoderErrString[CREAM_BLOCKTS_MISMATCH] =    "Block TS mismatch";     ///< Block TimeStamp differs from Trigger TimeStamp 
+  fCREAMDecoderErrString[CREAM_BLOCKTS_MISMATCH] =    "Block TS mismatch";     ///< Block TimeStamp differs from Trigger TimeStamp
   fCREAMDecoderErrString[CREAM_EVENTNUMBER_MISMATCH] ="Event Nb mismatch";     ///< Block Event Number differs from Header Event Number
   fCREAMDecoderErrString[CREAM_TRIGWORD_MISMATCH] =   "TrigWord mismatch";     ///< Block TriggerWord differs from Header L0 TriggerType
   fCREAMDecoderErrString[CREAM_BLOCKPAYLOAD_FATAL]=   "Block/PayLoad FATAL";   ///< PayLoad is not consistent with block length [irrecoverable]
@@ -188,7 +188,7 @@ CREAMRawDecoder::CREAMRawDecoder(NA62VReconstruction* Reco) : NA62VRawDecoder(Re
   fCREAMDecoderErrString[CREAM_L1_ERROR] =            "CREAM L1 Error";        ///< CREAM L1 Error detected in data [fHCREAMErrors to be added?]
   fCREAMDecoderErrString[CREAM_REPEATED_WORD] =       "Repeated word";         ///< Repeated word detected in data
   fCREAMDecoderErrString[CREAM_NOT_TIME_ORDER] =      "Not in time order";     ///< Hits from same channel are not time-ordered
-  fCREAMDecoderErrString[CREAM_DATA_TYPE] =           "Wrong data type";       ///< TDC Hit is neither a leading, trailing nor an error 
+  fCREAMDecoderErrString[CREAM_DATA_TYPE] =           "Wrong data type";       ///< TDC Hit is neither a leading, trailing nor an error
   fCREAMDecoderErrString[CREAM_BAD_DATA_SIZE] =       "Bad data size";         ///< Expected block size differs from the size of the read block
   fCREAMDecoderErrString[CREAM_BAD_TRIGGERTS] =       "Bad trigger TS";        ///< All the slots are inconsistent with the Trigger TimeStamp
   fCREAMDecoderErrString[CREAM_BAD_SLOT] =            "Slot/Trigger mismatch"; ///< Some slots (but not all of them) are inconsistent with the Trigger TimeStamp
@@ -196,7 +196,7 @@ CREAMRawDecoder::CREAMRawDecoder(NA62VReconstruction* Reco) : NA62VRawDecoder(Re
   fCREAMDecoderErrString[CREAM_MASKED_CH] =           "Hit from Masked Ch";    ///< At least one hit from a masked channel
   fCREAMDecoderErrString[CREAM_BAD_SAMPLES] =         "Bad samples";           ///< Even or odd samples are all 0
   fCREAMDecoderErrString[CREAM_OSCILLATING_CH] =      "Oscillating Ch";        ///< Oscillating channel detected
-  fCREAMDecoderErrString[CREAM_OVERFLOWBIN] =         "Overflow";              ///< Used to evaluate the number of warnings implemented 
+  fCREAMDecoderErrString[CREAM_OVERFLOWBIN] =         "Overflow";              ///< Used to evaluate the number of warnings implemented
 
   fHDecoderErrors = new TH2F("DecoderErrors","Errors from the CREAMDecoder for the "+fReco->GetName(),
       fNROMezzanines,-0.5,fNROMezzanines-0.5,CREAM_OVERFLOWBIN-1, 0.5, (double)CREAM_OVERFLOWBIN - 0.5);
@@ -232,7 +232,7 @@ CREAMRawDecoder::~CREAMRawDecoder(){
   }
 }
 
-void CREAMRawDecoder::StartOfBurst() { 
+void CREAMRawDecoder::StartOfBurst() {
 
   //Reset SwapFinder variables
   for(UInt_t iCrate=0;iCrate<fMaxCrateID+1;iCrate++){
@@ -261,7 +261,7 @@ void CREAMRawDecoder::StartOfBurst() {
   if(NA62ConditionsService::GetInstance()->Open(fSwapInputFileName)==kSuccess){
     std::cout << "[CREAMRawDecoder] Reading swap file '" << fSwapInputFileName << "' for " << fReco->GetName() << ".." << std::endl;
     UInt_t ReadNTriggers=0, ReadNSwaps=0;
-    Bool_t BurstFound = false; 
+    Bool_t BurstFound = false;
     TString Line;
     while (Line.ReadLine(NA62ConditionsService::GetInstance()->Get(fSwapInputFileName)) && !BurstFound) {
       if (Line.BeginsWith("#")) continue;
@@ -443,7 +443,7 @@ void CREAMRawDecoder::EndOfBurst() { //called for RawData only
           }
           else{
             Jitters[kReal].push_back(tempJitter);
-          }     
+          }
         }
       }
     }
@@ -455,7 +455,7 @@ void CREAMRawDecoder::EndOfBurst() { //called for RawData only
         JittFile[i]<<" "<<Jitters[i].at(j).NEntries;
         JittFile[i]<<" "<<Jitters[i].at(j).MinRatio <<" "<<Jitters[i].at(j).MaxRatio;
         JittFile[i]<<" "<<Jitters[i].at(j).MinAsym <<" "<<Jitters[i].at(j).MaxAsym;
-        JittFile[i]<<" "<<Jitters[i].at(j).JittTime; 
+        JittFile[i]<<" "<<Jitters[i].at(j).JittTime;
       }
       JittFile[i]<<endl;
       JittFile[i].close();
@@ -607,7 +607,7 @@ TDetectorVEvent * CREAMRawDecoder::DecodeNextEvent(UInt_t * pDataBuffer, EventHe
     }
     else if(CREAM_BlockLength<=7) { //empty SDE data block
       cerr_en(fWarningsLevel,WARN_MAX) << "[CREAMRawDecoder]    WARNING: Empty data block! [File: " << CurrentFileName << " Event: " << FAdcEvent->GetID() << " SubDet: " << fReco->GetName() << " Crate: " << CREAM_Crate << " Slot: " << CREAM_Slot << "]" << std::endl;
-      pDataBuffer += CREAM_BlockLength; 
+      pDataBuffer += CREAM_BlockLength;
       continue;
     }
 
@@ -626,7 +626,7 @@ TDetectorVEvent * CREAMRawDecoder::DecodeNextEvent(UInt_t * pDataBuffer, EventHe
       if (CREAM_ChanMask&(1<<iCh)) NEnabledChannels++;
     }
     UInt_t PayLoadFromChannelMask = NEnabledChannels*CREAM_NSamples/2+3;
-    if(FlagSpecialTrigger && CREAM_L0Word!=0x23) PayLoadFromChannelMask = 4; //SOB, choke/error on/off, synchronization 
+    if(FlagSpecialTrigger && CREAM_L0Word!=0x23) PayLoadFromChannelMask = 4; //SOB, choke/error on/off, synchronization
     if(CREAM_L0Word==0x23) PayLoadFromChannelMask = 8; //EOB
     if(CREAM_BlockLength!=CREAM_PayLoad+4 || CREAM_BlockLength!=PayLoadFromChannelMask+4) {
       if((CREAM_BlockLength == PayLoadFromChannelMask+4 && CREAM_BlockLength<=NextOffset-pDataBuffer) ||
@@ -673,7 +673,7 @@ TDetectorVEvent * CREAMRawDecoder::DecodeNextEvent(UInt_t * pDataBuffer, EventHe
         //Error->SetROBoardID(0.); //mezzanine ID not valid!
         fNHitsFromMaskedChannels[0]++; //mezzanine ID not valid!
       }
-      pDataBuffer += CREAM_BlockLength; 
+      pDataBuffer += CREAM_BlockLength;
       cout_en(dbg,1) << "Skipping block! SubDet: " << fReco->GetName() << " CREAM_Crate: " << CREAM_Crate << " CREAM_Slot: " << CREAM_Slot << std::endl;
       continue;
     }
@@ -689,7 +689,7 @@ TDetectorVEvent * CREAMRawDecoder::DecodeNextEvent(UInt_t * pDataBuffer, EventHe
 
     FAdcEvent->SetFADCID(10 * CREAM_ZSFlag); //Set Zero Suppression State
 
-    if (CREAM_L1_Error){ 
+    if (CREAM_L1_Error){
       cerr_en(fWarningsLevel,WARN_DET) << "[CREAMRawDecoder]    WARNING: L1 Error!                       [File: " << CurrentFileName << " EventID: " << std::hex << FAdcEvent->GetID() << std::dec;
       cerr_en(fWarningsLevel,WARN_DET) << " SubDet: " << fReco->GetName() << " Crate: " << CREAM_Crate << " Slot: " << CREAM_Slot << "]" << std::endl;
       fHDecoderErrors->Fill(fNROMezzaninesPerFullBoard*CREAM_Crate_Remap+CREAM_Slot_Remap, fCREAMDecoderErrString[CREAM_L1_ERROR],1);
@@ -724,7 +724,7 @@ TDetectorVEvent * CREAMRawDecoder::DecodeNextEvent(UInt_t * pDataBuffer, EventHe
     if (CREAM_L0Word<0x20 || CREAM_L0Word>0x28) {
 
       // Checks for data block only
-      if (CREAM_L0RQFlag){ 
+      if (CREAM_L0RQFlag){
         cerr_en(fWarningsLevel,WARN_DET) << "[CREAMRawDecoder]    WARNING: Wrong L0RQ bit!                 [File: " << CurrentFileName << " EventID: " << std::hex << FAdcEvent->GetID() << std::dec;
         cerr_en(fWarningsLevel,WARN_DET) << " SubDet: " << fReco->GetName() << " Crate: " << CREAM_Crate << " Slot: " << CREAM_Slot << "]" << std::endl;
         fHDecoderErrors->Fill(fNROMezzaninesPerFullBoard*CREAM_Crate_Remap+CREAM_Slot_Remap, fCREAMDecoderErrString[CREAM_WRONG_L0RQ],1);
@@ -841,7 +841,7 @@ TDetectorVEvent * CREAMRawDecoder::DecodeNextEvent(UInt_t * pDataBuffer, EventHe
               // pol2 fit central 3 points.
               Double_t p2 = (y[2]-y[0])/((x[2]-x[0])*(x[2]-x[1])) - (y[1]-y[0])/((x[1]-x[0])*(x[2]-x[1]));
               Double_t p1 = (y[1]-y[0])/(x[1]-x[0]) -p2*(x[1]+x[0]);
-              Double_t p0 = y[0] -p2*x[0]*x[0] -p1*x[0];                                                   
+              Double_t p0 = y[0] -p2*x[0]*x[0] -p1*x[0];
               Double_t TimeSlot= -p1/(2*p2);
               Double_t Time = TimeSlot*ClockPeriod;
               Double_t PeakAmp = p2*TimeSlot*TimeSlot + p1*TimeSlot + p0;
@@ -857,7 +857,7 @@ TDetectorVEvent * CREAMRawDecoder::DecodeNextEvent(UInt_t * pDataBuffer, EventHe
           }
           else{
             Digi->SetPeakTime(1.e+20);
-            Digi->SetADCPeakTime((Double_t)iMaxCount); 
+            Digi->SetADCPeakTime((Double_t)iMaxCount);
             Digi->SetADCPeakEnergy((Double_t)MaxCount);
           }
           Digi->SetPeakEnergy(0.);
@@ -892,8 +892,8 @@ TDetectorVEvent * CREAMRawDecoder::DecodeNextEvent(UInt_t * pDataBuffer, EventHe
                 fHZSCounterXY->Fill(ix,iy);
                 fHPedestalXY->SetBinContent(xBin,yBin,(Pedestal+(fHPedestalXY->GetBinContent(xBin,yBin)*(fHZSCounterXY->GetBinContent(xBin,yBin)-1)))/fHZSCounterXY->GetBinContent(xBin,yBin));
                 fHHitEnergy->Fill(HitEnergy); //MeV
-                fHHitMapEnergyAboveZS->Fill(ix,iy);    
-                if(HitEnergy>fHitEnergyThr) fHHitMapEnergyAboveThr->Fill(ix,iy);    
+                fHHitMapEnergyAboveZS->Fill(ix,iy);
+                if(HitEnergy>fHitEnergyThr) fHHitMapEnergyAboveThr->Fill(ix,iy);
               }
               else { //calibration triggers
                 fHZSCounterXYCalib->Fill(ix,iy);
@@ -920,7 +920,7 @@ TDetectorVEvent * CREAMRawDecoder::DecodeNextEvent(UInt_t * pDataBuffer, EventHe
       for(UInt_t iBit=0;iBit<32;iBit++) {
         SumOfAllWordsInBlock[iBit]+=WordBits.test(iBit);
       }
-      pDataBuffer++; 
+      pDataBuffer++;
     }
     UInt_t EvaluatedCheckSum = 0;
     for(UInt_t iBit=0;iBit<32;iBit++) EvaluatedCheckSum+=((SumOfAllWordsInBlock[iBit]%2)<<iBit); //LRC
@@ -1062,16 +1062,16 @@ void CREAMRawDecoder::EndProcessing(){
 
   if(fHSeedPosition) 	fHSeedPosition->Write();
 
-  for(Int_t i=0; i<3; i++){ 
-    for(Int_t j=0; j<3; j++){ 
+  for(Int_t i=0; i<3; i++){
+    for(Int_t j=0; j<3; j++){
       if(i*j==1) continue;
-      if(fHNEntriesNegTail[i][j])       fHNEntriesNegTail[i][j]->Write();  
-      if(fHNEntriesPosTail[i][j])       fHNEntriesPosTail[i][j]->Write(); 
-      if(fHNEntriesNegTailOCTANE[i][j]) fHNEntriesNegTailOCTANE[i][j]->Write(); 
-      if(fHNEntriesPosTailOCTANE[i][j]) fHNEntriesPosTailOCTANE[i][j]->Write(); 
-      if(fHDeltaT[i][j])                fHDeltaT[i][j]->Write(); 
-      if(fHDeltaTOCTANE[i][j])          fHDeltaTOCTANE[i][j]->Write(); 
-      if(fHNPipEntries[i][j])           fHNPipEntries[i][j]->Write(); 
+      if(fHNEntriesNegTail[i][j])       fHNEntriesNegTail[i][j]->Write();
+      if(fHNEntriesPosTail[i][j])       fHNEntriesPosTail[i][j]->Write();
+      if(fHNEntriesNegTailOCTANE[i][j]) fHNEntriesNegTailOCTANE[i][j]->Write();
+      if(fHNEntriesPosTailOCTANE[i][j]) fHNEntriesPosTailOCTANE[i][j]->Write();
+      if(fHDeltaT[i][j])                fHDeltaT[i][j]->Write();
+      if(fHDeltaTOCTANE[i][j])          fHDeltaTOCTANE[i][j]->Write();
+      if(fHNPipEntries[i][j])           fHNPipEntries[i][j]->Write();
     }
   }
 
@@ -1134,8 +1134,8 @@ void CREAMRawDecoder::DetectSwapsWithCrocus(std::ofstream& AdditionalOutputFile)
       Int_t NtestA_good = 0;
       Int_t NtestA_swap = 0;
       Int_t NtestB_all = 0;
-      Double_t ChisqB_good = 0.; 
-      Double_t ChisqB_swap = 0.;     
+      Double_t ChisqB_good = 0.;
+      Double_t ChisqB_swap = 0.;
       Int_t Itest,Iswap;
       for (Int_t jx=0;jx<=15;jx++) {
         Int_t kx = jx + 16;
@@ -1151,7 +1151,7 @@ void CREAMRawDecoder::DetectSwapsWithCrocus(std::ofstream& AdditionalOutputFile)
           if (fNHitsSwapWithCrocus[iCrate][iSlot][jx]<5 && fNHitsSwapWithCrocus[iCrate][iSlot][kx]<5) {
             //Nerr = 1;
           }
-          else if (fNHitsRefSwapWithCrocus[iCrate][iSlot][jx]<5 || fNHitsRefSwapWithCrocus[iCrate][iSlot][kx]<5) { 
+          else if (fNHitsRefSwapWithCrocus[iCrate][iSlot][jx]<5 || fNHitsRefSwapWithCrocus[iCrate][iSlot][kx]<5) {
             if (fNHitsSwapWithCrocus[iCrate][iSlot][jx]>=5 && fNHitsSwapWithCrocus[iCrate][iSlot][kx]>=5) {
               //Nerr  = 2;
             }
@@ -1160,7 +1160,7 @@ void CREAMRawDecoder::DetectSwapsWithCrocus(std::ofstream& AdditionalOutputFile)
               if ( (fNHitsRefSwapWithCrocus[iCrate][iSlot][jx]<5 && fNHitsSwapWithCrocus[iCrate][iSlot][kx]<5) ||  (fNHitsRefSwapWithCrocus[iCrate][iSlot][kx]<5 && fNHitsSwapWithCrocus[iCrate][iSlot][jx]<5) ) Iswap = 1;
             }
           }
-          else {          
+          else {
             Double_t dsum_ref  = fNHitsRefSwapWithCrocus[iCrate][iSlot][jx] + fNHitsRefSwapWithCrocus[iCrate][iSlot][kx];
             Double_t diff_ref  = fNHitsRefSwapWithCrocus[iCrate][iSlot][jx] - fNHitsRefSwapWithCrocus[iCrate][iSlot][kx];
             Double_t dsum      = fNHitsSwapWithCrocus[iCrate][iSlot][jx] + fNHitsSwapWithCrocus[iCrate][iSlot][kx];
@@ -1183,8 +1183,8 @@ void CREAMRawDecoder::DetectSwapsWithCrocus(std::ofstream& AdditionalOutputFile)
               NtestB_all ++;
               ChisqB_good += dsq_good;
               ChisqB_swap += dsq_swap;
-            }             
-          }         
+            }
+          }
           if (Itest>0 && Itest<3) {
             if (Iswap>=0) NtestA_all++;
             if (Iswap==0) NtestA_good++;
@@ -1240,13 +1240,13 @@ void CREAMRawDecoder::JitterAnalysis(){    //Original Algo by A. Norton, coding 
   //	|     |28	20 12  4|     |
   //	|     |29	21 13  5|	    |
   //	|	    |30	22 14  6|	    |
-  //	|     |31	23 15  7|     |	
-  //	|_____|___________|_____|	
+  //	|     |31	23 15  7|     |
+  //	|_____|___________|_____|
   //  	iX+1    iX 	    	iX-1
   //	<--------------------------
   //	x
   //
-  // 
+  //
 
   TClonesArray &Digis = (*(fDigiEvent->GetHits()));
   Int_t NDigis = fDigiEvent->GetNHits();
@@ -1261,7 +1261,7 @@ void CREAMRawDecoder::JitterAnalysis(){    //Original Algo by A. Norton, coding 
     Int_t ix = static_cast<TLKrDigi*>(Seed)->GetXCellID();
     Int_t iy = static_cast<TLKrDigi*>(Seed)->GetYCellID();
     Double_t HitEnergy = 1000.*LKrParameters::GetInstance()->GetCalSteig(ix,iy,0)*(Seed->GetADCPeakEnergy()-Pedestal); //rough (MeV)
-    if(HitEnergy > 400){ 
+    if(HitEnergy > 400){
       SeedEnergy = HitEnergy;
     }
     else continue;
@@ -1275,7 +1275,7 @@ void CREAMRawDecoder::JitterAnalysis(){    //Original Algo by A. Norton, coding 
       Int_t Pipix = static_cast<TLKrDigi*>(Pip)->GetXCellID();
       Int_t Pipiy = static_cast<TLKrDigi*>(Pip)->GetYCellID();
       if(fabs(Pipix-static_cast<TLKrDigi*>(Seed)->GetXCellID())>1 || fabs(Pipiy-static_cast<TLKrDigi*>(Seed)->GetYCellID())>1) continue;
-      Double_t PipEnergy = 1000.*LKrParameters::GetInstance()->GetCalSteig(Pipix,Pipiy,0)*(Pip->GetADCPeakEnergy()-PipPedestal); //rough (MeV)  
+      Double_t PipEnergy = 1000.*LKrParameters::GetInstance()->GetCalSteig(Pipix,Pipiy,0)*(Pip->GetADCPeakEnergy()-PipPedestal); //rough (MeV)
       if(PipEnergy > SeedEnergy){
         break;
       }
@@ -1320,13 +1320,13 @@ void CREAMRawDecoder::FossilChecker(Int_t flag){ // Look for Fossils between LKr
     if(flag){
       // Find the "needles", i.e. cells with E > 1 GeV with no energy deposits in the 8 pips surrounding them
       for(Int_t jDigi=0; jDigi<NDigis; jDigi++){
-        if(jDigi==iDigi) continue;        
+        if(jDigi==iDigi) continue;
         FADCVHit *Pip = static_cast<FADCVHit*>(Digis[jDigi]);
         if(Pip->GetPeakTime()>1e10) continue;
         if(fabs(static_cast<TLKrDigi*>(Pip)->GetXCellID()-ix)<=1 || fabs(static_cast<TLKrDigi*>(Pip)->GetYCellID()-iy)<=1) IsNeedle = false;
       }
       if(!IsNeedle) continue;
-    }    
+    }
     LKrFossil newFossil;
     newFossil.Crate = Crate;
     newFossil.Slot = GetPhysicalSlot(Slot);
@@ -1341,7 +1341,7 @@ void CREAMRawDecoder::FossilChecker(Int_t flag){ // Look for Fossils between LKr
 
 Double_t CREAMRawDecoder::GetAsymmetry(Int_t Crate, Int_t Slot,Int_t i, Int_t j, Bool_t UseCoarseT0){
   Double_t Asym = -9999.99;
-  TH2F *Neg, *Pos; 
+  TH2F *Neg, *Pos;
   if(UseCoarseT0){
     Neg = fHNEntriesNegTail[i][j];
     Pos = fHNEntriesPosTail[i][j];
@@ -1366,16 +1366,16 @@ void CREAMRawDecoder::SeedPipDeltaT(FADCVHit *seed, FADCVHit *pip){
   Int_t PipSlotID = (GetChannelRO(pip->GetChannelID())%512)/32;
   Int_t PipChID = (GetChannelRO(pip->GetChannelID()))%32;
   if(SeedCrateID == PipCrateID && SeedSlotID == PipSlotID) return; // no delta t in the same CREAM
-  Int_t SeedxID = ((TLKrDigi*)seed)->GetXCellID(); 
-  Int_t SeedyID = ((TLKrDigi*)seed)->GetYCellID(); 
-  Int_t PipxID  = ((TLKrDigi*)pip)->GetXCellID(); 
-  Int_t PipyID  = ((TLKrDigi*)pip)->GetYCellID(); 
+  Int_t SeedxID = static_cast<TLKrDigi*>(seed)->GetXCellID();
+  Int_t SeedyID = static_cast<TLKrDigi*>(seed)->GetYCellID();
+  Int_t PipxID  = static_cast<TLKrDigi*>(pip)->GetXCellID();
+  Int_t PipyID  = static_cast<TLKrDigi*>(pip)->GetYCellID();
   Int_t iRow = kCREAMSeed;
   Int_t jCol = kCREAMSeed;
-  if(SeedChID>0 && SeedChID<7) jCol=kCREAMRight; 
-  else if(SeedChID>24 && SeedChID<31) jCol=kCREAMLeft; 
-  else if(SeedChID==8 || SeedChID==16) iRow=kCREAMUp; 
-  else if(SeedChID==15 || SeedChID==23) iRow=kCREAMDown; 
+  if(SeedChID>0 && SeedChID<7) jCol=kCREAMRight;
+  else if(SeedChID>24 && SeedChID<31) jCol=kCREAMLeft;
+  else if(SeedChID==8 || SeedChID==16) iRow=kCREAMUp;
+  else if(SeedChID==15 || SeedChID==23) iRow=kCREAMDown;
   else if(SeedChID==0){
     if(PipChID==7 || PipChID==15)  iRow = kCREAMUp;
     else if(PipChID==24 || PipChID==25) jCol = kCREAMRight;
@@ -1417,15 +1417,15 @@ void CREAMRawDecoder::SeedPipDeltaT(FADCVHit *seed, FADCVHit *pip){
 
   Double_t *SeedSamples = seed->GetAllSamples();
   Double_t SeedPedestal = (Double_t)(SeedSamples[0]+SeedSamples[1])/2.;
-  Double_t SeedEnergy = 1000.*LKrParameters::GetInstance()->GetCalSteig(SeedxID,SeedyID,0)*(seed->GetADCPeakEnergy()-SeedPedestal); //rough (MeV)  
+  Double_t SeedEnergy = 1000.*LKrParameters::GetInstance()->GetCalSteig(SeedxID,SeedyID,0)*(seed->GetADCPeakEnergy()-SeedPedestal); //rough (MeV)
   Double_t *PipSamples = pip->GetAllSamples();
   Double_t PipPedestal = (Double_t)(PipSamples[0]+PipSamples[1])/2.;
-  Double_t PipEnergy = 1000.*LKrParameters::GetInstance()->GetCalSteig(PipxID,PipyID,0)*(pip->GetADCPeakEnergy()-PipPedestal); //rough (MeV)  
+  Double_t PipEnergy = 1000.*LKrParameters::GetInstance()->GetCalSteig(PipxID,PipyID,0)*(pip->GetADCPeakEnergy()-PipPedestal); //rough (MeV)
   Double_t SeedT0 = fReco->GetT0Correction(seed)+LKrParameters::GetInstance()->GetCellT0(SeedxID,SeedyID);
   Double_t PipT0  = fReco->GetT0Correction(pip)+LKrParameters::GetInstance()->GetCellT0(PipxID,PipyID);
   Double_t SeedTime = seed->GetPeakTime()-SeedT0;
   Double_t PipTime = pip->GetPeakTime()-PipT0;
-  if(SeedxID==PipxID && SeedyID!=PipyID) PipTime = PipTime + 1.0*SeedEnergy/PipEnergy; // correction for Up and Down pips 
+  if(SeedxID==PipxID && SeedyID!=PipyID) PipTime = PipTime + 1.0*SeedEnergy/PipEnergy; // correction for Up and Down pips
   if(SeedxID!=PipxID && SeedyID!=PipyID) PipTime = PipTime + 0.2*SeedEnergy/PipEnergy; // correction for diagonal pips
   Double_t DeltaT = SeedTime-PipTime;
   fHDeltaT[iRow][jCol]->Fill(SeedCrateID*16+SeedSlotID,DeltaT);
@@ -1450,7 +1450,7 @@ void CREAMRawDecoder::SeedPipDeltaT(FADCVHit *seed, FADCVHit *pip){
 Bool_t CREAMRawDecoder::HasEnoughStatistics(Int_t crate, Int_t slot, Int_t row, Int_t col, Bool_t UseCoarseT0){
   if(UseCoarseT0) return (fHNEntriesNegTail[row][col]->GetBinContent(crate+1,slot+1)+fHNEntriesPosTail[row][col]->GetBinContent(crate,slot+1) > 30);
   else return (fHNEntriesNegTailOCTANE[row][col]->GetBinContent(crate+1,slot+1)+fHNEntriesPosTailOCTANE[row][col]->GetBinContent(crate,slot+1) > 30);
-} 
+}
 
 Bool_t CREAMRawDecoder::CREAMHasJitter(Int_t CrateID, Int_t ProgressiveSlotID, Double_t &JittTime, Bool_t UseCoarseT0){
   Int_t NCREAMsUsed = 0;
@@ -1469,9 +1469,9 @@ Bool_t CREAMRawDecoder::CREAMHasJitter(Int_t CrateID, Int_t ProgressiveSlotID, D
       Int_t NegTailEnd = histo->FindBin(-15);
       Int_t PosTailStart = histo->FindBin(15);
       Int_t NEventsInCore = histo->Integral(NegTailEnd,PosTailStart);
-      Int_t NEventsInTails = histo->Integral(1,NegTailEnd)+histo->Integral(PosTailStart,NBins); 
+      Int_t NEventsInTails = histo->Integral(1,NegTailEnd)+histo->Integral(PosTailStart,NBins);
       if(!HasEnoughStatistics(CrateID,ProgressiveSlotID,i,j,UseCoarseT0)) continue;
-      NCREAMsUsed++; 
+      NCREAMsUsed++;
       if(GetAsymmetry(CrateID,ProgressiveSlotID,i,j,UseCoarseT0) > fJitterThreshold) {
         if(NEventsInTails<MinTailFraction*NEventsInCore) continue;
         NPos++;
@@ -1484,7 +1484,7 @@ Bool_t CREAMRawDecoder::CREAMHasJitter(Int_t CrateID, Int_t ProgressiveSlotID, D
         histo->GetXaxis()->SetRange(1,NegTailEnd);
         MeanNeg += histo->GetMean();
       }
-    } 
+    }
   }
   if(NPos > NCREAMsUsed/2 ){
     JittTime = MeanPos/NCREAMsUsed;
@@ -1525,10 +1525,10 @@ LKrJitter CREAMRawDecoder::InitializeJitter(Int_t crate, Int_t slot, Bool_t UseC
         Double_t tempAsym = GetAsymmetry(crate,slot,iRow,jCol,UseCoarseT0);
         Double_t tempRatio = (n+p)/N;
         if(fabs(tempAsym) > fJitterThreshold){
-          tempJitter.MinAsym   = fabs(tempAsym)   < fabs(tempJitter.MinAsym)  ? tempAsym   : tempJitter.MinAsym; 
-          tempJitter.MinRatio  = tempRatio  < tempJitter.MinRatio ? tempRatio  : tempJitter.MinRatio; 
-          tempJitter.MaxAsym   = fabs(tempAsym)   > fabs(tempJitter.MaxAsym)  ? tempAsym   : tempJitter.MaxAsym; 
-          tempJitter.MaxRatio  = tempRatio  > tempJitter.MaxRatio ? tempRatio  : tempJitter.MaxRatio; 
+          tempJitter.MinAsym   = fabs(tempAsym)   < fabs(tempJitter.MinAsym)  ? tempAsym   : tempJitter.MinAsym;
+          tempJitter.MinRatio  = tempRatio  < tempJitter.MinRatio ? tempRatio  : tempJitter.MinRatio;
+          tempJitter.MaxAsym   = fabs(tempAsym)   > fabs(tempJitter.MaxAsym)  ? tempAsym   : tempJitter.MaxAsym;
+          tempJitter.MaxRatio  = tempRatio  > tempJitter.MaxRatio ? tempRatio  : tempJitter.MaxRatio;
         }
       }
     }

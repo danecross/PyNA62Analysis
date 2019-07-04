@@ -18,7 +18,7 @@ namespace NA62Analysis {
 
 Verbose::Verbose() :
 	fLocalVerbosityActive(false),
-	fPrintPrefix(false),
+	fPrintPrefix(0),
 	fLocalCoreVerbosityLevel(Verbosity::kAlways),
 	fCoreVerbosityTest(Verbosity::kAlways),
 	fLocalAnVerbosityLevel(Verbosity::kUserAlways),
@@ -33,7 +33,7 @@ Verbose::Verbose() :
 
 Verbose::Verbose(const std::string &name) :
 	fLocalVerbosityActive(false),
-	fPrintPrefix(false),
+	fPrintPrefix(0),
 	fLocalCoreVerbosityLevel(Verbosity::kAlways),
 	fCoreVerbosityTest(Verbosity::kAlways),
 	fLocalAnVerbosityLevel(Verbosity::kUserAlways),
@@ -175,7 +175,7 @@ std::string Verbose::GetPrefix() const {
 	/// \EndMemberDescr
 
 	std::stringstream ss;
-	if(fPrintPrefix){
+	if(fPrintPrefix==1){
 		bool symbol = false;
 		bool atLeastOne = false;
 		for(auto l : Configuration::ConfigSettings::global::fOutputPrefixFormat){
@@ -205,7 +205,7 @@ std::string Verbose::GetPrefix() const {
 		}
 		if(atLeastOne)
 			ss << " ";
-			 fPrintPrefix = false;
+			 fPrintPrefix = 0;
 	}
 	return ss.str();
 }

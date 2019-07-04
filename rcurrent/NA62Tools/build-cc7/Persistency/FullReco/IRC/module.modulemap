@@ -1,0 +1,12 @@
+module "IRCPersistency" {
+  requires cplusplus
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/IRC/include/IRCChannelID.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/IRC/include/IRCChannelID.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/IRC/include/TIRCDigi.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/IRC/include/TIRCDigi.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/IRC/include/TIRCEvent.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/IRC/include/TIRCEvent.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/IRC/include/TIRCHit.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/IRC/include/TIRCHit.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/IRC/include/TRecoIRCCandidate.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/IRC/include/TRecoIRCCandidate.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/IRC/include/TRecoIRCEvent.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/IRC/include/TRecoIRCEvent.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/IRC/include/TRecoIRCHit.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/IRC/include/TRecoIRCHit.hh" export * }
+  export *
+}
+

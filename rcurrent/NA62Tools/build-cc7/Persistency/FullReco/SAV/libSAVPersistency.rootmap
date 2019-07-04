@@ -1,0 +1,8 @@
+[ libSAVPersistency.so ]
+# List of selected classes
+class SAVChannelID
+class TRecoSAVCandidate
+class TRecoSAVEvent
+class TRecoSAVHit
+class TSAVDigi
+header TRecoSAVHit.hh

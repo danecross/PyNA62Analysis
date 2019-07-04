@@ -106,7 +106,7 @@ void BeamPipe::CreateGeometry()
                                        "BeamPipe",         // its name
                                        fMotherVolume,               // its mother  volume
                                        false,           // no boolean operations
-                                       0);              // copy number
+                                       fSegmentIndex);              // copy number
 
    //------------------------------ 
    //  Beam tube

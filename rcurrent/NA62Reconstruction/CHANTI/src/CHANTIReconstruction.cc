@@ -1,18 +1,18 @@
 //-------------------------------------------------------------------------------
-// Created by Paolo Massarotti 2014 (paolo.massarotti@cern.ch) 
+// Created by Paolo Massarotti 2014 (paolo.massarotti@cern.ch)
 //
 //-------------------------------------------------------------------------------
 /// \class CHANTIReconstruction
 /// \Brief
-/// Main CHANTI reconstruction: starts from CHANTI digi hits which are first ordered and merged, if it is possible, in physics hits (one RecoHit for 
-/// two electronic channel cossespondig to low and hig threshold. Reco Hits are collected in Clusters (group of hits near in time and position). 
-/// Hits belonging to Time Clusters are flagged as inelstic or muon cluster and represent the CHANTI Candidates. 
+/// Main CHANTI reconstruction: starts from CHANTI digi hits which are first ordered and merged, if it is possible, in physics hits (one RecoHit for
+/// two electronic channel cossespondig to low and hig threshold. Reco Hits are collected in Clusters (group of hits near in time and position).
+/// Hits belonging to Time Clusters are flagged as inelstic or muon cluster and represent the CHANTI Candidates.
 /// Digi hits come from single ToT board channel.
 /// \EndBrief
 ///
 /// \Detailed
 /// It makes use of base class NA62VReconstruction and of classes in NA62MC/CHANTI/Persistency (TRecoCHANTIEvent, TRecoCHANTICandidate, TRecoCHANTIHit).
-/// The CHANTI reconstruction basic parameters are set in NA62Reconstruction/config/CHANTI.conf 
+/// The CHANTI reconstruction basic parameters are set in NA62Reconstruction/config/CHANTI.conf
 /// \n
 /// =========
 /// \n
@@ -24,7 +24,7 @@
 /// \n
 /// TimeWindow=10       --> used to build TimeCluster for hits inside TimeWindow width (+/- 0.5*TimeWindow)
 /// \n
-/// PlanesT0 (ns) --> used to center Leading Time of TDC around 0. 
+/// PlanesT0 (ns) --> used to center Leading Time of TDC around 0.
 /// \n
 /// =======================================================================================================================================================
 /// \n
@@ -517,7 +517,7 @@ CHANTIReconstruction::CHANTIReconstruction( TFile* HistoFile, TString ConfigFile
 
 void CHANTIReconstruction::Init(NA62VReconstruction* MainReco) {
 
-  //common part for all the subdetectors 
+  //common part for all the subdetectors
   NA62VReconstruction::Init(MainReco);
 
   //if(((NA62Reconstruction *)fMainReco)->GetFillTimesEnabled()) fChannelHistograms = kTRUE;
@@ -598,7 +598,7 @@ void CHANTIReconstruction::ParseConfFile (TString ConfFileName) {
     else if (Line.BeginsWith("EnableTrailing")) {
       fEnableTrailing = TString(Line(TRegexp("[0-1]"))).Atoi();
       continue;
-    }	
+    }
     else if (Line.BeginsWith("EvaluateSlewingCorrection")) {
       fEvaluateSlewingCorr = TString(Line(TRegexp("[0-1]"))).Atoi();
       continue;
@@ -623,7 +623,7 @@ void CHANTIReconstruction::ParseConfFile (TString ConfFileName) {
     }
     else if(Line.BeginsWith("RingsMCToF=")){
       TObjArray * l = Line.Tokenize(" ");
-      for(int j = 0; j < l->GetEntries() - 1; j++) 
+      for(int j = 0; j < l->GetEntries() - 1; j++)
       {
         fRingsMCToF[j] = static_cast<TObjString*>(l->At(j+1))->GetString().Atof();
       }
@@ -665,7 +665,7 @@ void CHANTIReconstruction::ParseConfFile (TString ConfFileName) {
   fPhotonsNumber = new Double_t[Nbins-1];
   fEnergyEdge = new Double_t[Nbins-1];
   NA62ConditionsService::GetInstance()->Get(fMeanNphFileName) >> DummyNumber;
-  for (int iEneEdge = 0; iEneEdge<Nbins-1; iEneEdge++) { 
+  for (int iEneEdge = 0; iEneEdge<Nbins-1; iEneEdge++) {
     NA62ConditionsService::GetInstance()->Get(fMeanNphFileName) >> fEnergyEdge[iEneEdge];
   }
   for (int iNph = 0; iNph<Nbins-1; iNph++) {
@@ -679,43 +679,43 @@ void CHANTIReconstruction::ParseConfFile (TString ConfFileName) {
     else if (Line.BeginsWith("SlopeAmplNph")) {
 	  TObjArray *l = Line.Tokenize(" ");
       fSlopeAmplNph = static_cast<TObjString*>(l->At(1))->GetString().Atof();
-      delete l;	
+      delete l;
       continue;
     }
     else if (Line.BeginsWith("SigmaAmplSPE")) {
 	  TObjArray *l = Line.Tokenize(" ");
       fSigmaAmplSPE = static_cast<TObjString*>(l->At(1))->GetString().Atof();
-      delete l;	
+      delete l;
       continue;
     }
-    else if (Line.BeginsWith("TauFall")) { 
+    else if (Line.BeginsWith("TauFall")) {
 	  TObjArray *l = Line.Tokenize(" ");
       fTauFall = static_cast<TObjString*>(l->At(1))->GetString().Atof();
-      delete l;	
+      delete l;
       continue;
     }
     else if (Line.BeginsWith("MeanNfr")) {
       TObjArray *l = Line.Tokenize(" ");
       fMeanNfr = static_cast<TObjString*>(l->At(1))->GetString().Atof();
-      delete l;	
+      delete l;
       continue;
     }
-    else if (Line.BeginsWith("SigmaNfr")) { 
+    else if (Line.BeginsWith("SigmaNfr")) {
 	  TObjArray *l = Line.Tokenize(" ");
       fSigmaNfr = static_cast<TObjString*>(l->At(1))->GetString().Atof();
-      delete l;	
+      delete l;
       continue;
     }
     else if (Line.BeginsWith("Hysteresis")) {
 	  TObjArray *l = Line.Tokenize(" ");
       fHysteresis = static_cast<TObjString*>(l->At(1))->GetString().Atof();
-      delete l;	
+      delete l;
       continue;
     }
     else if (Line.BeginsWith("LowThreshold")) {
 	  TObjArray *l = Line.Tokenize(" ");
       fTHRL = static_cast<TObjString*>(l->At(1))->GetString().Atof();
-      delete l;	
+      delete l;
       continue;
     }
     else if (Line.BeginsWith("HighThreshold")) {
@@ -776,12 +776,12 @@ void CHANTIReconstruction::ReadChannelInfo() {
   // ------------------------------------------------------------------------
   // The SlewingCorr.dat file has 4 column:
   //  SeqID    p0   p1   p2
-  //-------------------------------------------------------------------------  
+  //-------------------------------------------------------------------------
   while (Line.ReadLine(NA62ConditionsService::GetInstance()->Get(fSlewingFileName))){
     if (Line.BeginsWith("#")) continue;
-    else{    
-      if(!fEnableSlewingCorr) continue;  
-      TObjArray *l = Line.Tokenize(" ");     
+    else{
+      if(!fEnableSlewingCorr) continue;
+      TObjArray *l = Line.Tokenize(" ");
       Int_t Ch = static_cast<TObjString*>(l->At(0))->GetString().Atoi();
       Double_t p0 = static_cast<TObjString*>(l->At(1))->GetString().Atof();
       Double_t p1 = static_cast<TObjString*>(l->At(2))->GetString().Atof();
@@ -834,30 +834,30 @@ TRecoVEvent* CHANTIReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* 
             if (IsLowThr){
               if (RingType == kX){
                 Double_t X = abs(BarID)*fStep - fGlobalShift;
-                fHPositionLow[RingID][1]->Fill(X,NCounts); 
-                if (BarID%2!=0){     
+                fHPositionLow[RingID][1]->Fill(X,NCounts);
+                if (BarID%2!=0){
                   if (TMath::Abs(X)>HalfHoleXmax){
                     fHViewX1THRL[PlaneID][1]->Fill(X,-91.25,NCounts);
                     fHViewX1THRL[PlaneID][1]->Fill(X,0.,NCounts);
-                    fHViewX1THRL[PlaneID][1]->Fill(X,91.25,NCounts); 
+                    fHViewX1THRL[PlaneID][1]->Fill(X,91.25,NCounts);
                   } else {
                     if(SideID==kPositive) fHViewX1THRL[PlaneID][1]->Fill(X,91.25,NCounts);
                     else fHViewX1THRL[PlaneID][1]->Fill(X,-91.25,NCounts);
-                  }  
+                  }
                 } else {
                   if (TMath::Abs(X)>HalfHoleXmin){
                     fHViewX2THRL[PlaneID][1]->Fill(X,-91.25,NCounts);
                     fHViewX2THRL[PlaneID][1]->Fill(X,0.,NCounts);
-                    fHViewX2THRL[PlaneID][1]->Fill(X,91.25,NCounts); 
+                    fHViewX2THRL[PlaneID][1]->Fill(X,91.25,NCounts);
                   } else {
                     if(SideID==kPositive) fHViewX2THRL[PlaneID][1]->Fill(X,91.25,NCounts);
                     else fHViewX2THRL[PlaneID][1]->Fill(X,-91.25,NCounts);
                   }
                 }
               } else {
-                Double_t Y = abs(BarID)*fStep - fGlobalShift; 
-                fHPositionLow[RingID][1]->Fill(Y,NCounts); 			  
-                if (BarID%2==0){     
+                Double_t Y = abs(BarID)*fStep - fGlobalShift;
+                fHPositionLow[RingID][1]->Fill(Y,NCounts);
+                if (BarID%2==0){
                   if (TMath::Abs(Y)>HalfHoleY1){
                     fHViewY1THRL[PlaneID][1]->Fill(98.75,Y,NCounts);
                     fHViewY1THRL[PlaneID][1]->Fill(23.75,Y,NCounts);
@@ -866,16 +866,16 @@ TRecoVEvent* CHANTIReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* 
                   } else {
                     if(SideID==kPositive) fHViewY1THRL[PlaneID][1]->Fill(98.75,Y,NCounts);
                     else fHViewY1THRL[PlaneID][1]->Fill(-98.75,Y,NCounts);
-                  }  
+                  }
                 } else {
                   if (TMath::Abs(Y)>HalfHoleY2max){
                     fHViewY2THRL[PlaneID][1]->Fill(98.75,Y,NCounts);
                     fHViewY2THRL[PlaneID][1]->Fill(23.75,Y,NCounts);
                     fHViewY2THRL[PlaneID][1]->Fill(-23.75,Y,NCounts);
-                    fHViewY2THRL[PlaneID][1]->Fill(-98.75,Y,NCounts); 
+                    fHViewY2THRL[PlaneID][1]->Fill(-98.75,Y,NCounts);
                   } else if (TMath::Abs(Y)<HalfHoleY2min){
                     if(SideID==kPositive) fHViewY2THRL[PlaneID][1]->Fill(98.75,Y,NCounts);
-                    else fHViewY2THRL[PlaneID][1]->Fill(-98.75,Y,NCounts); 
+                    else fHViewY2THRL[PlaneID][1]->Fill(-98.75,Y,NCounts);
                   } else {
                     if(SideID==kPositive){
                       fHViewY2THRL[PlaneID][1]->Fill(98.75,Y,NCounts);
@@ -883,27 +883,27 @@ TRecoVEvent* CHANTIReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* 
                     } else {
                       fHViewY2THRL[PlaneID][1]->Fill(-98.75,Y,NCounts);
                       fHViewY2THRL[PlaneID][1]->Fill(-23.75,Y,NCounts);
-                    }     
+                    }
                   }
-                } 
-              }     
-            } else if (RingType == kX){ 
+                }
+              }
+            } else if (RingType == kX){
               Double_t X = abs(BarID)*fStep - fGlobalShift;
               fHPositionHigh[RingID][1]->Fill(X,NCounts);
-              if (BarID%2!=0){     
+              if (BarID%2!=0){
                 if (TMath::Abs(X)>HalfHoleXmax){
                   fHViewX1THRH[PlaneID][1]->Fill(X,-91.25,NCounts);
                   fHViewX1THRH[PlaneID][1]->Fill(X,0.,NCounts);
-                  fHViewX1THRH[PlaneID][1]->Fill(X,91.25,NCounts); 
+                  fHViewX1THRH[PlaneID][1]->Fill(X,91.25,NCounts);
                 } else {
                   if(SideID==kPositive) fHViewX1THRH[PlaneID][1]->Fill(X,91.25,NCounts);
                   else fHViewX1THRH[PlaneID][1]->Fill(X,-91.25,NCounts);
-                }  
+                }
               } else {
                 if (TMath::Abs(X)>HalfHoleXmin){
                   fHViewX2THRH[PlaneID][1]->Fill(X,-91.25,NCounts);
                   fHViewX2THRH[PlaneID][1]->Fill(X,0.,NCounts);
-                  fHViewX2THRH[PlaneID][1]->Fill(X,91.25,NCounts); 
+                  fHViewX2THRH[PlaneID][1]->Fill(X,91.25,NCounts);
                 } else {
                   if(SideID==kPositive) fHViewX2THRH[PlaneID][1]->Fill(X,91.25,NCounts);
                   else fHViewX2THRH[PlaneID][1]->Fill(X,-91.25,NCounts);
@@ -911,26 +911,26 @@ TRecoVEvent* CHANTIReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* 
               }
             } else {
               Double_t Y = abs(BarID)*fStep - fGlobalShift;
-              fHPositionHigh[RingID][1]->Fill(Y,NCounts);			
-              if (BarID%2==0){     
+              fHPositionHigh[RingID][1]->Fill(Y,NCounts);
+              if (BarID%2==0){
                 if (TMath::Abs(Y)>HalfHoleY1){
                   fHViewY1THRH[PlaneID][1]->Fill(98.75,Y,NCounts);
                   fHViewY1THRH[PlaneID][1]->Fill(23.75,Y,NCounts);
                   fHViewY1THRH[PlaneID][1]->Fill(-23.75,Y,NCounts);
-                  fHViewY1THRH[PlaneID][1]->Fill(-98.75,Y,NCounts); 
+                  fHViewY1THRH[PlaneID][1]->Fill(-98.75,Y,NCounts);
                 } else {
                   if(SideID==kPositive) fHViewY1THRH[PlaneID][1]->Fill(98.75,Y,NCounts);
                   else fHViewY1THRH[PlaneID][1]->Fill(-98.75,Y,NCounts);
-                }  
+                }
               } else {
                 if (TMath::Abs(Y)>HalfHoleY2max){
                   fHViewY2THRH[PlaneID][1]->Fill(98.75,Y,NCounts);
                   fHViewY2THRH[PlaneID][1]->Fill(23.75,Y,NCounts);
                   fHViewY2THRH[PlaneID][1]->Fill(-23.75,Y,NCounts);
-                  fHViewY2THRH[PlaneID][1]->Fill(-98.75,Y,NCounts); 
+                  fHViewY2THRH[PlaneID][1]->Fill(-98.75,Y,NCounts);
                 } else if (TMath::Abs(Y)<HalfHoleY2min){
                   if(SideID==kPositive) fHViewY2THRH[PlaneID][1]->Fill(98.75,Y,NCounts);
-                  else fHViewY2THRH[PlaneID][1]->Fill(-98.75,Y,NCounts); 
+                  else fHViewY2THRH[PlaneID][1]->Fill(-98.75,Y,NCounts);
                 } else {
                   if(SideID==kPositive) {
                     fHViewY2THRH[PlaneID][1]->Fill(98.75,Y,NCounts);
@@ -938,10 +938,10 @@ TRecoVEvent* CHANTIReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* 
                   } else {
                     fHViewY2THRH[PlaneID][1]->Fill(-98.75,Y,NCounts);
                     fHViewY2THRH[PlaneID][1]->Fill(-23.75,Y,NCounts);
-                  }     
+                  }
                 }
               }
-            }   
+            }
           }
           delete CHANTICh;
         }
@@ -950,7 +950,7 @@ TRecoVEvent* CHANTIReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* 
     return 0;
   }
 
-  //common part for all the subdetectors 
+  //common part for all the subdetectors
   NA62VReconstruction::ProcessEvent(tEvent, tGenEvent);
 
   for (Int_t ich=0; ich<fNChannels; ich++) fChannels[ich]->Reset();
@@ -960,7 +960,7 @@ TRecoVEvent* CHANTIReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* 
 
   TDCEvent* tCHANTIEvent = static_cast<TDCEvent*>(tEvent);
   InitRecoEvent();
-  DeleteDigi(tCHANTIEvent);  
+  DeleteDigi(tCHANTIEvent);
   MergeDigi(tCHANTIEvent);
   DigiToReco(tCHANTIEvent);
   if(fEnableSlewingCorr) SlewingCorrection(tCHANTIEvent);
@@ -989,7 +989,7 @@ TRecoVEvent* CHANTIReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* 
 
   for (UInt_t c=0; c< chclu.xy_couple.size(); c++) {
     //std::vector<chanti_cluster*>& thecluster = chclu.xy_couple[c].all_cluster;
-    if(chclu.xy_couple[c].x_match_cluster.size() != chclu.xy_couple[c].y_match_cluster.size()) 
+    if(chclu.xy_couple[c].x_match_cluster.size() != chclu.xy_couple[c].y_match_cluster.size())
       std::cout << "[CHANTIReconstruction] Error: Wrong size CHANTI candidate in X or Y cluster"<< std::endl;
     UInt_t NumberOfGhost = chclu.xy_couple[c].x_match_cluster.size();
     for (UInt_t g=0; g< NumberOfGhost; g++) { // x-y clusters (NumberOfGhost==0 <-> cluster.size()==1)
@@ -1000,13 +1000,13 @@ TRecoVEvent* CHANTIReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* 
           CCand->AddHit(chanti_get_hit_index( fRecoEvent , (*(chclu.xy_couple[c].x_match_cluster[g]))[hx] ));
         for (UInt_t hy=0; hy< (*(chclu.xy_couple[c].y_match_cluster[g])).size(); hy++)
           CCand->AddHit(chanti_get_hit_index( fRecoEvent , (*(chclu.xy_couple[c].y_match_cluster[g]))[hy] ));
-        CCand->SetXYMult(NumberOfGhost);	
+        CCand->SetXYMult(NumberOfGhost);
         chanti_candidate_data_set(CCand, chclu.xy_couple[c].x_match_cluster[g], chclu.xy_couple[c].y_match_cluster[g]);
         //
         // HISTOs
         // TODO : move somewhere else !!!
-        Double_t X = chanti_hit_corrected_distance_to_fiber(CCand->GetXPos()); 
-        Double_t Y = chanti_hit_corrected_distance_to_fiber(CCand->GetYPos()); 
+        Double_t X = chanti_hit_corrected_distance_to_fiber(CCand->GetXPos());
+        Double_t Y = chanti_hit_corrected_distance_to_fiber(CCand->GetYPos());
         if(!((X>-95./2 && X<95./2) && (Y>-65./2 && Y<65./2))){
           fHXYCluster->Fill(X,Y, 1.0/CCand->GetXYMult());
           Int_t iPlane= static_cast<TRecoCHANTIHit*>(CCand->GetHit(0))->GetPlaneID();
@@ -1035,11 +1035,11 @@ TRecoVEvent* CHANTIReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* 
 
   for(int iRing = 0; iRing < fNRings; iRing++){
     fHNHitsForRing[iRing]->Fill(fNHitRing[iRing]);
-    fHNHitsForRingVSBurst[iRing]->Fill(fRecoEvent->GetBurstID(), fNHitRing[iRing]);     
+    fHNHitsForRingVSBurst[iRing]->Fill(fRecoEvent->GetBurstID(), fNHitRing[iRing]);
   }
   for(int iPlane = 0; iPlane < fNPlanes; iPlane++){
-    fHNHitsForPlane[iPlane]->Fill(fNHitPlane[iPlane]);     
-    fHNHitsForPlaneVSBurst[iPlane]->Fill(fRecoEvent->GetBurstID(), fNHitPlane[iPlane]);     
+    fHNHitsForPlane[iPlane]->Fill(fNHitPlane[iPlane]);
+    fHNHitsForPlaneVSBurst[iPlane]->Fill(fRecoEvent->GetBurstID(), fNHitPlane[iPlane]);
   }
 
   fHNHit->Fill(fNElectronicHit);
@@ -1061,16 +1061,16 @@ void CHANTIReconstruction::InitRecoEvent(){
   //fNHit = 0;
   fNElectronicHit = 0;
   Int_t nROBoards = fRawDecoder->GetDecoder()->GetNROBoards();
-  for(int iTell = 0; iTell<nROBoards; iTell++) fNWordTell[iTell] = 0;   
+  for(int iTell = 0; iTell<nROBoards; iTell++) fNWordTell[iTell] = 0;
   for(int iTDCB = 0; iTDCB<4*nROBoards; iTDCB++) fNWordTDCB[iTDCB] = 0;
   for(int iTDC = 0; iTDC<16*nROBoards; iTDC++) fNWordTDC[iTDC] = 0;
   fHXHitEvent1->Reset();
   fHXHitEvent2->Reset();
   fHYHitEvent1->Reset();
-  fHYHitEvent2->Reset();  
+  fHYHitEvent2->Reset();
   for(int iRing = 0; iRing < fNRings; iRing++)
   {
-    for(int iBar = 0; iBar < 24; iBar++) BarFired[iRing][iBar] = 0;          
+    for(int iBar = 0; iBar < 24; iBar++) BarFired[iRing][iBar] = 0;
     fNHitRing[iRing] = 0;
     fHPosition1[iRing]->Reset();
     fHPosition2[iRing]->Reset();
@@ -1115,32 +1115,32 @@ void CHANTIReconstruction::DeleteDigi(TDCEvent * tCHANTIEvent){
       continue;
     }
     if(GoodEvent){
-      ChannelID = Digi->GetChannelID();       
+      ChannelID = Digi->GetChannelID();
       //Time = Digi->GetLeadingEdge();
       //TTrail = Digi->GetTrailingEdge();
     }
     if(iDigi+1 < tCHANTIEvent->GetNHits()){
       TCHANTIDigi *DigiCheck = static_cast<TCHANTIDigi*>(tCHANTIEvent->GetHits()->At(iDigi+1));
-      /*if(((Time == DigiCheck->GetLeadingEdge() && Time != -1e+28) || 
-        (TTrail == DigiCheck->GetTrailingEdge() && TTrail != -1e+28)) && 
+      /*if(((Time == DigiCheck->GetLeadingEdge() && Time != -1e+28) ||
+        (TTrail == DigiCheck->GetTrailingEdge() && TTrail != -1e+28)) &&
         (abs(DigiCheck->GetChannelID() - ChannelID) != 1))
         {
         cout<<"DEBUG_1 Removing DIGI Channel ID "<<ChannelID<<"		DigiCheck = "<<DigiCheck->GetChannelID()<<endl;
         cout<<"DEBUG_1 Removing DIGI Lead "<<Time<<"		DigiCheck lead = "<<DigiCheck->GetLeadingEdge()<<endl;
-        cout<<"DEBUG_1 Removing DIGI trail "<<TTrail<<"		DigiCheck trail = "<<DigiCheck->GetTrailingEdge()<<endl;  
+        cout<<"DEBUG_1 Removing DIGI trail "<<TTrail<<"		DigiCheck trail = "<<DigiCheck->GetTrailingEdge()<<endl;
         GoodEvent = false;
         BadEventBefore = true;
         tCHANTIEvent->RemoveHit(iDigi);
         iDigi--;
         continue;
         }
-        else 
+        else
         {
         GoodEvent = true;
         if(BadEventBefore) {
         cout<<"DEBUG_2 Removing DIGI Channel ID "<<ChannelID<<"		DigiCheck = "<<DigiCheck->GetChannelID()<<endl;
         cout<<"DEBUG_2 Removing DIGI Lead "<<Time<<"		DigiCheck lead = "<<DigiCheck->GetLeadingEdge()<<endl;
-        cout<<"DEBUG_2 Removing DIGI trail "<<TTrail<<"		DigiCheck trail = "<<DigiCheck->GetTrailingEdge()<<endl;  
+        cout<<"DEBUG_2 Removing DIGI trail "<<TTrail<<"		DigiCheck trail = "<<DigiCheck->GetTrailingEdge()<<endl;
         BadEventBefore = false;
         tCHANTIEvent->RemoveHit(iDigi);
         iDigi--;
@@ -1213,7 +1213,7 @@ void CHANTIReconstruction::MergeDigi(TDCEvent * tCHANTIEvent){
           tCHANTIEvent->RemoveHit(iDigi+1);
           iDigi--;
         }
-        else if((Digi->GetLeadingEdge() > -1e20) && (DigiBis->GetLeadingEdge() < -1e20) && (Digi->GetTrailingEdge() < -1e20) && (Digi->GetLeadingEdge() < DigiBis->GetTrailingEdge()) && (DigiBis->GetTrailingEdge() - Digi->GetLeadingEdge() < 120.))//leading1 trailing2 
+        else if((Digi->GetLeadingEdge() > -1e20) && (DigiBis->GetLeadingEdge() < -1e20) && (Digi->GetTrailingEdge() < -1e20) && (Digi->GetLeadingEdge() < DigiBis->GetTrailingEdge()) && (DigiBis->GetTrailingEdge() - Digi->GetLeadingEdge() < 120.))//leading1 trailing2
         {
           //cout<<"[CHANTIReconstruction] Error: leading1 trailing2 Event "<<fRecoEvent->GetID()<<" Channel "<<Digi->GetChannelID()<<" Problems with corresponding TDC "<< std::endl;
           Digi->SetTrailingEdge(DigiBis->GetTrailingEdge());
@@ -1226,20 +1226,20 @@ void CHANTIReconstruction::MergeDigi(TDCEvent * tCHANTIEvent){
 }
 
 void CHANTIReconstruction::DigiToReco(TDCEvent * tCHANTIEvent){
-  Int_t NDigis=0;  
+  Int_t NDigis=0;
   Int_t ThresholdFlag=0;
-  Int_t ChannelID=0;
+  Int_t ChannelID;
   Int_t RingID=0;
   Int_t BarID=0;
   //Int_t PlaneID=0;
   Double_t X=0.;
   Double_t Y=0.;
   Double_t Time=0.;
-  Double_t TimeWidth=0.;
+  Double_t TimeWidth;
   Double_t DeltaTime = 0;
   Double_t DeltaWidth = 0;
   Int_t QualityFlag=-1;
-  Int_t ROCH; 
+  Int_t ROCH;
   Double_t T0_1, T0_2;
   Int_t TellID, TDCBID, TDCID ;
   Int_t BarIndex;
@@ -1249,8 +1249,8 @@ void CHANTIReconstruction::DigiToReco(TDCEvent * tCHANTIEvent){
   for(Int_t iDigi = 0 ; iDigi < NDigis ; iDigi++){
     TCHANTIDigi *Digi = static_cast<TCHANTIDigi*>(Digis[iDigi]);
     TimeWidth = -999;
-    ChannelID = Digi->GetChannelID();        
-    if(ChannelID>=100000){      
+    ChannelID = Digi->GetChannelID();
+    if(ChannelID>=100000){
 
       ROCH = static_cast<TDCBRawDecoder*>(fRawDecoder->GetDecoder())->GetChannelRO(ChannelID);
       if(ROCH<0) {
@@ -1258,7 +1258,7 @@ void CHANTIReconstruction::DigiToReco(TDCEvent * tCHANTIEvent){
         continue;
       }
       TRecoCHANTIHit* RecoHit = static_cast<TRecoCHANTIHit*>(fRecoEvent->AddHit(Digi));
-      RecoHit->SetChannelID(ChannelID);            
+      RecoHit->SetChannelID(ChannelID);
       RecoHit->DecodeChannelID();
       //Plane ID from 0 to 6
       //PlaneID = RecoHit->GetPlaneID();
@@ -1271,7 +1271,7 @@ void CHANTIReconstruction::DigiToReco(TDCEvent * tCHANTIEvent){
       BarFired[RingID][BarIndex] = 1;
       if(iDigi+1 <NDigis){
         TCHANTIDigi *DigiBis = static_cast<TCHANTIDigi*>(Digis[iDigi+1]);
-        if(((DigiBis->GetChannelID() - Digi->GetChannelID()) == 1) && 
+        if(((DigiBis->GetChannelID() - Digi->GetChannelID()) == 1) &&
             (Digi->GetLeadingEdge() > -1e20) &&
             (DigiBis->GetLeadingEdge() > -1e20)
             && (Digi->GetLeadingEdge() - DigiBis->GetLeadingEdge() < 50))
@@ -1280,79 +1280,79 @@ void CHANTIReconstruction::DigiToReco(TDCEvent * tCHANTIEvent){
           fChannels[ROCH]->AddHit();
           fChannels[ROCH+1]->AddHit();
           T0_1 = (fEnableT0) ? fChannels[ROCH]->GetT0() : 0.0;
-          T0_2 = (fEnableT0) ? fChannels[ROCH+1]->GetT0() : 0.0;         
+          T0_2 = (fEnableT0) ? fChannels[ROCH+1]->GetT0() : 0.0;
           TellID = static_cast<CHANTIChannel*>(fChannels[ROCH])->GetTellID(ROCH);
           TDCBID = static_cast<CHANTIChannel*>(fChannels[ROCH])->GetTDCBID(ROCH);
           TDCID  = static_cast<CHANTIChannel*>(fChannels[ROCH])->GetTDCID(ROCH);
-          fNWordTell[TellID - 1] += 2; 
-          fNWordTDCB[TDCBID - 1] += 2; 
-          fNWordTDC[TDCID - 1] += 2; 
-          Time = Digi->GetLeadingEdge() - GetT0Correction(Digi) - T0_1;                 
+          fNWordTell[TellID - 1] += 2;
+          fNWordTDCB[TDCBID - 1] += 2;
+          fNWordTDC[TDCID - 1] += 2;
+          Time = Digi->GetLeadingEdge() - GetT0Correction(Digi) - T0_1;
           DeltaTime = DigiBis->GetLeadingEdge() - T0_2 - Digi->GetLeadingEdge() + T0_1;
           ThresholdFlag = 2;
           iDigi ++;
           fNElectronicHit++;
           if((Digi->GetTrailingEdge() > -1e20) && (DigiBis->GetTrailingEdge() > -1e20)) {//both leading and trailing
-            QualityFlag = 0; 
-            fNWordTell[TellID - 1] += 2; 
-            fNWordTDCB[TDCBID - 1] += 2; 
-            fNWordTDC[TDCID - 1] += 2; 
+            QualityFlag = 0;
+            fNWordTell[TellID - 1] += 2;
+            fNWordTDCB[TDCBID - 1] += 2;
+            fNWordTDC[TDCID - 1] += 2;
           }
           else if(Digi->GetTrailingEdge() > -1e20) {//low th leading and trailing, high th only leading
-            QualityFlag = 1; 
-            fNWordTell[TellID - 1] += 1; 
-            fNWordTDCB[TDCBID - 1] += 1; 
-            fNWordTDC[TDCID - 1] += 1; 
+            QualityFlag = 1;
+            fNWordTell[TellID - 1] += 1;
+            fNWordTDCB[TDCBID - 1] += 1;
+            fNWordTDC[TDCID - 1] += 1;
           }
           else if(DigiBis->GetTrailingEdge() > -1e20) {//high th leading and trailing, low th only leading
-            QualityFlag = 2; 
-            fNWordTell[TellID - 1] += 1; 
-            fNWordTDCB[TDCBID - 1] += 1; 
-            fNWordTDC[TDCID - 1] += 1; 
+            QualityFlag = 2;
+            fNWordTell[TellID - 1] += 1;
+            fNWordTDCB[TDCBID - 1] += 1;
+            fNWordTDC[TDCID - 1] += 1;
           }
           else QualityFlag = 3;//low and high th leading only
           if(QualityFlag < 2) TimeWidth = Digi->GetTrailingEdge() - GetT0Correction(Digi) - T0_1 - Time;
           if(QualityFlag == 0) DeltaWidth = DigiBis->GetTrailingEdge() - DigiBis->GetLeadingEdge() - TimeWidth;
         }
-        else { 
+        else {
           fChannels[ROCH]->AddHit();
           T0_1 = (fEnableT0) ? fChannels[ROCH]->GetT0() : 0.0 ;
           TellID = static_cast<CHANTIChannel*>(fChannels[ROCH])->GetTellID(ROCH);
           TDCBID = static_cast<CHANTIChannel*>(fChannels[ROCH])->GetTDCBID(ROCH);
           TDCID  = static_cast<CHANTIChannel*>(fChannels[ROCH])->GetTDCID(ROCH);
-          fNWordTell[TellID - 1] += 1; 
-          fNWordTDCB[TDCBID - 1] += 1; 
-          fNWordTDC[TDCID - 1] += 1;  
+          fNWordTell[TellID - 1] += 1;
+          fNWordTDCB[TDCBID - 1] += 1;
+          fNWordTDC[TDCID - 1] += 1;
           Time = (Digi->GetLeadingEdge() > -1e20) ? Digi->GetLeadingEdge() - GetT0Correction(Digi) - T0_1: Digi->GetTrailingEdge() - GetT0Correction(Digi) - T0_1;
           if((Digi->GetLeadingEdge() > -1e20) && (Digi->GetTrailingEdge() > -1e20)){
-            TimeWidth = Digi->GetTrailingEdge() - GetT0Correction(Digi) - T0_1 - Time;  
-            fNWordTell[TellID - 1] += 1; 
-            fNWordTDCB[TDCBID - 1] += 1; 
-            fNWordTDC[TDCID - 1] += 1;   
+            TimeWidth = Digi->GetTrailingEdge() - GetT0Correction(Digi) - T0_1 - Time;
+            fNWordTell[TellID - 1] += 1;
+            fNWordTDCB[TDCBID - 1] += 1;
+            fNWordTDC[TDCID - 1] += 1;
           }
           ThresholdFlag = Digi->GetThresholdType();
           if(TimeWidth != -999) QualityFlag = 0;
           else if(Digi->GetLeadingEdge() > -1e20) QualityFlag = 4;
           else if(Digi->GetTrailingEdge() > -1e20) QualityFlag = 5;
         }
-      }    
+      }
 
       else {
         ROCH = static_cast<TDCBRawDecoder*>(fRawDecoder->GetDecoder())->GetChannelRO(ChannelID);
         fChannels[ROCH]->AddHit();
-        T0_1 = (fEnableT0) ? fChannels[ROCH]->GetT0() : 0.0 ;   
+        T0_1 = (fEnableT0) ? fChannels[ROCH]->GetT0() : 0.0 ;
         TellID = static_cast<CHANTIChannel*>(fChannels[ROCH])->GetTellID(ROCH);
         TDCBID = static_cast<CHANTIChannel*>(fChannels[ROCH])->GetTDCBID(ROCH);
         TDCID  = static_cast<CHANTIChannel*>(fChannels[ROCH])->GetTDCID(ROCH);
-        fNWordTell[TellID - 1] += 1; 
-        fNWordTDCB[TDCBID - 1] += 1; 
+        fNWordTell[TellID - 1] += 1;
+        fNWordTDCB[TDCBID - 1] += 1;
         fNWordTDC[TDCID - 1] += 1;
         Time = (Digi->GetLeadingEdge() > -1e20) ? Digi->GetLeadingEdge() - GetT0Correction(Digi) - T0_1: Digi->GetTrailingEdge() - GetT0Correction(Digi) - T0_1;
         if((Digi->GetLeadingEdge() > -1e20) && (Digi->GetTrailingEdge() > -1e20)) {
-          TimeWidth = Digi->GetTrailingEdge() - GetT0Correction(Digi) - T0_1 - Time;   
-          fNWordTell[TellID - 1] += 1; 
-          fNWordTDCB[TDCBID - 1] += 1; 
-          fNWordTDC[TDCID - 1] += 1; 
+          TimeWidth = Digi->GetTrailingEdge() - GetT0Correction(Digi) - T0_1 - Time;
+          fNWordTell[TellID - 1] += 1;
+          fNWordTDCB[TDCBID - 1] += 1;
+          fNWordTDC[TDCID - 1] += 1;
         }
         ThresholdFlag = Digi->GetThresholdType();
         if(TimeWidth != -999) QualityFlag = 0;
@@ -1362,11 +1362,11 @@ void CHANTIReconstruction::DigiToReco(TDCEvent * tCHANTIEvent){
       /////////////////////////////////////////////////////////////////////////////////////////
 
       RecoHit->SetTime(Time);
-      RecoHit->SetTimeWidth(TimeWidth);      
-      RecoHit->SetDeltaTime(DeltaTime);   
-      RecoHit->SetDeltaWidth(DeltaWidth);   
-      RecoHit->SetQualityFlag(QualityFlag);   
-      if(RecoHit->GetRingType() == kX)  
+      RecoHit->SetTimeWidth(TimeWidth);
+      RecoHit->SetDeltaTime(DeltaTime);
+      RecoHit->SetDeltaWidth(DeltaWidth);
+      RecoHit->SetQualityFlag(QualityFlag);
+      if(RecoHit->GetRingType() == kX)
       {
         X =  abs(BarID)*fStep - fGlobalShift;
         Y = -999;
@@ -1383,7 +1383,7 @@ void CHANTIReconstruction::DigiToReco(TDCEvent * tCHANTIEvent){
 
       //
       fNHitRing[RingID]++;
-      fNHitPlane[int(RingID/2)]++;    
+      fNHitPlane[int(RingID/2)]++;
       fNElectronicHit ++;
       if((BarID*10 + ThresholdFlag) < -150) std::cout <<"[CHANTIReconstruction::DigiToReco] CH ID = "<<Digi->GetChannelID()<< std::endl;
     }
@@ -1394,9 +1394,9 @@ void CHANTIReconstruction::DigiToReco(TDCEvent * tCHANTIEvent){
 void CHANTIReconstruction::SlewingCorrection(TDCEvent * /*tCHANTIEvent*/){
   Double_t TimeCorr=0., Corr=0.;
   Double_t V1=0., V2=0.;
-  Double_t Time=0., TimeH=0., TimeWidth=0.;
-  Int_t RingID=0;
-  Int_t ROCH=0;
+  Double_t Time, TimeH, TimeWidth;
+  Int_t RingID;
+  Int_t ROCH;
   Int_t nHits = fRecoEvent->GetNHits();
 
   /////////////////////////////////////////////////////////////////////////////////
@@ -1414,10 +1414,10 @@ void CHANTIReconstruction::SlewingCorrection(TDCEvent * /*tCHANTIEvent*/){
         V1 = static_cast<CHANTIChannel*>(fChannels[ROCH])->GetThreshold();
         V2 = static_cast<CHANTIChannel*>(fChannels[ROCH+1])->GetThreshold();
         //cout<<"DEBUG	V1 = "<<V1<<"		V2 = "<<V2<<endl;
-        if((V1 - V2) != 0){      
+        if((V1 - V2) != 0){
           TimeCorr = (V2*Time - V1*TimeH)/(V2-V1);
-          RecoHit->SetTime(TimeCorr);    
-          fHCorrTime[RingID]->Fill(TimeCorr);      
+          RecoHit->SetTime(TimeCorr);
+          fHCorrTime[RingID]->Fill(TimeCorr);
           if(RecoHit->GetQualityFlag() == 0){
             TimeWidth = RecoHit->GetTimeWidth();
 
@@ -1426,7 +1426,7 @@ void CHANTIReconstruction::SlewingCorrection(TDCEvent * /*tCHANTIEvent*/){
           }
         }
       }
-      else if(RecoHit->GetQualityFlag() == 0) {    
+      else if(RecoHit->GetQualityFlag() == 0) {
         TimeWidth = RecoHit->GetTimeWidth();
         RingID = RecoHit->GetRingID();
         ROCH = static_cast<TDCBRawDecoder*>(fRawDecoder->GetDecoder())->GetChannelRO(RecoHit->GetChannelID());
@@ -1437,9 +1437,9 @@ void CHANTIReconstruction::SlewingCorrection(TDCEvent * /*tCHANTIEvent*/){
         Corr = static_cast<CHANTIChannel*>(fChannels[ROCH])->GetSlewingCorrection(TimeWidth);
         if(ROCH%2 == 0) fHSlewingVSToTLowFit->Fill(TimeWidth,Corr);
         else fHSlewingVSToTHighFit->Fill(TimeWidth,Corr);
-        TimeCorr = Time - Corr;    
+        TimeCorr = Time - Corr;
         RecoHit->SetTime(TimeCorr);
-        if(fHCorrTime && fHCorrTime[RingID]) fHCorrTime[RingID]->Fill(TimeCorr);      
+        if(fHCorrTime && fHCorrTime[RingID]) fHCorrTime[RingID]->Fill(TimeCorr);
       }
     }
   }
@@ -1449,7 +1449,7 @@ void CHANTIReconstruction::SlewingCorrection(TDCEvent * /*tCHANTIEvent*/){
 void CHANTIReconstruction::ModeEvaluation(TDCEvent * /*tCHANTIEvent*/){
   fModeX = 0;
   fModeY = 0;
-  fContOfModeX = 0; 
+  fContOfModeX = 0;
   fContOfModeY = 0;
   Double_t X,Y;
   Int_t RingID;
@@ -1464,7 +1464,7 @@ void CHANTIReconstruction::ModeEvaluation(TDCEvent * /*tCHANTIEvent*/){
       fCorrTimeMode[iRing]= 0.0;
       fCorrTimeEntriesMode[iRing] = 0;
     }
-    //      
+    //
     TClonesArray & RecoHits = (* (fRecoEvent->GetHits()));
     for(Int_t iHit = 0; iHit<nHits; iHit++){
       TRecoCHANTIHit *RecoHit = static_cast<TRecoCHANTIHit*>(RecoHits[iHit]);
@@ -1493,7 +1493,7 @@ void CHANTIReconstruction::ModeEvaluation(TDCEvent * /*tCHANTIEvent*/){
     double ModeX2 = fHXHitEvent2->GetXaxis()->GetBinCenter(binOfModeX2);
     int ContOfBinOfModeX1 = fHXHitEvent1->GetBinContent(binOfModeX1);
     int ContOfBinOfModeX2 = fHXHitEvent2->GetBinContent(binOfModeX2);
-    ////////////////////////////////MAX BIN FOR THE MODE////////////////////    
+    ////////////////////////////////MAX BIN FOR THE MODE////////////////////
     fContOfModeX = (ContOfBinOfModeX1 > ContOfBinOfModeX2) ? ContOfBinOfModeX1 : ContOfBinOfModeX2;
     fModeX = (ContOfBinOfModeX1 > ContOfBinOfModeX2) ? ModeX1 : ModeX2 ;
     if(ContOfBinOfModeX1 == ContOfBinOfModeX2)
@@ -1501,7 +1501,7 @@ void CHANTIReconstruction::ModeEvaluation(TDCEvent * /*tCHANTIEvent*/){
       fContOfModeX = ContOfBinOfModeX2;
       fModeX = ModeX2;
       if (fContOfModeX > 2){
-        TRandom3* TR3 = new TRandom3();    
+        TRandom3* TR3 = new TRandom3();
         TR3->SetSeed(0);
         if(TR3->Rndm() >= 0.5)
         {
@@ -1526,7 +1526,7 @@ void CHANTIReconstruction::ModeEvaluation(TDCEvent * /*tCHANTIEvent*/){
       fContOfModeY = ContOfBinOfModeY2;
       fModeY = ModeY2;
       if (fContOfModeY > 2){
-        TRandom3* TR3 = new TRandom3();    
+        TRandom3* TR3 = new TRandom3();
         TR3->SetSeed(0);
         if(TR3->Rndm() >= 0.5)
         {
@@ -1559,8 +1559,8 @@ void CHANTIReconstruction::ModeEvaluation(TDCEvent * /*tCHANTIEvent*/){
     double Mode1[12]={0.0};
     double Mode2[12]={0.0};
     int EntriesMode1[12] = {0};
-    int EntriesMode2[12] = {0}; 
-    ////////////////////////////////MAX BIN FOR THE MODE////////////////////    
+    int EntriesMode2[12] = {0};
+    ////////////////////////////////MAX BIN FOR THE MODE////////////////////
     //////////////////////////////////////////////////////////////////////
     for(int iRing = 0; iRing < fNRings; iRing++){
       BinMode1[iRing] = fHPosition1[iRing]->GetMaximumBin();
@@ -1584,7 +1584,7 @@ void CHANTIReconstruction::EfficiencyEvaluation(TDCEvent * /*tCHANTIEvent*/){
   //////////////////////////////////////////////////////////////////////////////////////////////////
   Int_t nHits = fRecoEvent->GetNHits();
 
-  if(nHits>0){    
+  if(nHits>0){
 
     Int_t NBins = fHPosition1[0]->GetNbinsX();
     Int_t EffiNumXUp[fNPlanes][NBins];
@@ -1604,8 +1604,8 @@ void CHANTIReconstruction::EfficiencyEvaluation(TDCEvent * /*tCHANTIEvent*/){
     Int_t EffiNumHighYUp[fNPlanes][NBins];
     Int_t EffiNumHighXDown[fNPlanes][NBins];
     Int_t EffiNumHighYDown[fNPlanes][NBins];
-    ///////   
-    Int_t RingID; 
+    ///////
+    Int_t RingID;
     Double_t X, Y, Time;
     for(int iPlane = 0; iPlane < fNPlanes; iPlane++) {
       for(int iBin = 0; iBin < NBins; iBin++) {
@@ -1627,7 +1627,7 @@ void CHANTIReconstruction::EfficiencyEvaluation(TDCEvent * /*tCHANTIEvent*/){
           EffiNumXY[iPlane][iBin][jBin] = 0;
           NormSampleXY[iPlane][iBin][jBin] = 0;
         }
-      }   
+      }
     }
     //
     TClonesArray & RecoHits = (* (fRecoEvent->GetHits()));
@@ -1647,7 +1647,7 @@ void CHANTIReconstruction::EfficiencyEvaluation(TDCEvent * /*tCHANTIEvent*/){
             fHEffi1Down[RingID]->Fill(X);
             fHEffi2Down[RingID]->Fill(X);
           }
-        }      
+        }
         else{
           if(RecoHit->GetSideID() == kPositive)  {
             fHEffi1Up[RingID]->Fill(Y);
@@ -1670,7 +1670,7 @@ void CHANTIReconstruction::EfficiencyEvaluation(TDCEvent * /*tCHANTIEvent*/){
             fHEffiHigh1Down[RingID]->Fill(X);
             fHEffiHigh2Down[RingID]->Fill(X);
           }
-        }      
+        }
         else{
           if(RecoHit->GetSideID() == kPositive)  {
             fHEffiHigh1Up[RingID]->Fill(Y);
@@ -1680,14 +1680,14 @@ void CHANTIReconstruction::EfficiencyEvaluation(TDCEvent * /*tCHANTIEvent*/){
             fHEffiHigh1Down[RingID]->Fill(Y);
             fHEffiHigh2Down[RingID]->Fill(Y);
           }
-        } 
+        }
       }
     }
     //
     //
     //
     Double_t Position;
-    for(int iRing = 0; iRing < fNRings; iRing++) {   
+    for(int iRing = 0; iRing < fNRings; iRing++) {
       for(int iStep = 0; iStep < 17; iStep++) {
         Position = iStep*fStep - fGlobalShift;
         if(fHEffi1Up[iRing]->GetBinContent(iStep+1) > 0) fHEffiPosition1Up[iRing]->Fill(Position);
@@ -1711,201 +1711,201 @@ void CHANTIReconstruction::EfficiencyEvaluation(TDCEvent * /*tCHANTIEvent*/){
         iPlane = iRing/2;
         if((iPlane != 0) && (iRing%2 == 0) && (fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0)) NormSampleXUp[0][iBin] += 1;
         if((iPlane != 0) && (iRing%2 == 1) && (fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0)) NormSampleYUp[0][iBin] += 1;
-        //            
+        //
         if((iPlane != 0) && (iRing%2 == 0) && (fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0)) NormSampleXDown[0][iBin] += 1;
         if((iPlane != 0) && (iRing%2 == 1) && (fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0)) NormSampleYDown[0][iBin] += 1;
         //
         if((iPlane != 1) && (iRing%2 == 0) && (fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0)) NormSampleXUp[1][iBin] += 1;
         if((iPlane != 1) && (iRing%2 == 1) && (fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0)) NormSampleYUp[1][iBin] += 1;
-        //                
+        //
         if((iPlane != 1) && (iRing%2 == 0) && (fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0)) NormSampleXDown[1][iBin] += 1;
         if((iPlane != 1) && (iRing%2 == 1) && (fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0)) NormSampleYDown[1][iBin] += 1;
         //
         if((iPlane != 2) && (iRing%2 == 0) && (fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0)) NormSampleXUp[2][iBin] += 1;
         if((iPlane != 2) && (iRing%2 == 1) && (fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0)) NormSampleYUp[2][iBin] += 1;
-        //                
+        //
         if((iPlane != 2) && (iRing%2 == 0) && (fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0)) NormSampleXDown[2][iBin] += 1;
         if((iPlane != 2) && (iRing%2 == 1) && (fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0)) NormSampleYDown[2][iBin] += 1;
         //
         if((iPlane != 3) && (iRing%2 == 0) && (fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0)) NormSampleXUp[3][iBin] += 1;
         if((iPlane != 3) && (iRing%2 == 1) && (fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0)) NormSampleYUp[3][iBin] += 1;
-        //                
+        //
         if((iPlane != 3) && (iRing%2 == 0) && (fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0)) NormSampleXDown[3][iBin] += 1;
         if((iPlane != 3) && (iRing%2 == 1) && (fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0)) NormSampleYDown[3][iBin] += 1;
         //
         if((iPlane != 4) && (iRing%2 == 0) && (fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0)) NormSampleXUp[4][iBin] += 1;
         if((iPlane != 4) && (iRing%2 == 1) && (fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0)) NormSampleYUp[4][iBin] += 1;
-        //                
+        //
         if((iPlane != 4) && (iRing%2 == 0) && (fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0)) NormSampleXDown[4][iBin] += 1;
         if((iPlane != 4) && (iRing%2 == 1) && (fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0)) NormSampleYDown[4][iBin] += 1;
         //
         if((iPlane != 5) && (iRing%2 == 0) && (fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0)) NormSampleXUp[5][iBin] += 1;
         if((iPlane != 5) && (iRing%2 == 1) && (fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0)) NormSampleYUp[5][iBin] += 1;
-        //                
+        //
         if((iPlane != 5) && (iRing%2 == 0) && (fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0)) NormSampleXDown[5][iBin] += 1;
         if((iPlane != 5) && (iRing%2 == 1) && (fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0)) NormSampleYDown[5][iBin] += 1;
         //
         if(iBin == 0){
           if(iRing%2 == 0){
-            if ((fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 || 
+            if ((fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPosition2Up[iRing]->GetBinContent(iBin+1) > 0))EffiNumXUp[iPlane][iBin] = 1;
-            if ((fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 || 
+            if ((fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin+1) > 0)) EffiNumHighXUp[iPlane][iBin] = 1;
           }
-          if(iRing%2 == 1) { 
-            if ((fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 || 
+          if(iRing%2 == 1) {
+            if ((fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPosition2Up[iRing]->GetBinContent(iBin+1) > 0)) EffiNumYUp[iPlane][iBin] = 1;
-            if ((fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 || 
+            if ((fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin+1) > 0)) EffiNumHighYUp[iPlane][iBin] = 1;
           }
         }
         else if(iBin == 2){
           if(iRing%2 == 0){
-            if ((fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPosition2Up[iRing]->GetBinContent(iBin) > 0 || 
-                  fHEffiPosition2Up[iRing]->GetBinContent(iBin+1) > 0 || 
+            if ((fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPosition2Up[iRing]->GetBinContent(iBin) > 0 ||
+                  fHEffiPosition2Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPosition2Down[iRing]->GetBinContent(iBin+1) > 0 //
                 )) EffiNumXUp[iPlane][iBin] = 1;
-            if ((fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin) > 0 || 
-                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin+1) > 0 || 
+            if ((fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin) > 0 ||
+                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPositionHigh2Down[iRing]->GetBinContent(iBin+1) > 0 //
                 )) EffiNumHighXUp[iPlane][iBin] = 1;
           }
           if(iRing%2 == 1){
-            if ((fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPosition2Up[iRing]->GetBinContent(iBin) > 0 || 
-                  fHEffiPosition2Up[iRing]->GetBinContent(iBin+1) > 0 || 
+            if ((fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPosition2Up[iRing]->GetBinContent(iBin) > 0 ||
+                  fHEffiPosition2Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPosition2Down[iRing]->GetBinContent(iBin+1) > 0 //
                 )) EffiNumYUp[iPlane][iBin] = 1;
-            if ((fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin) > 0 || 
-                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin+1) > 0 || 
+            if ((fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin) > 0 ||
+                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPositionHigh2Down[iRing]->GetBinContent(iBin+1) > 0 //
                 )) EffiNumHighYUp[iPlane][iBin] = 1;
           }
         }
         else if(iBin == 6){
           if(iRing%2 == 0){
-            if ((fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 || 
+            if ((fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPosition2Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPosition2Up[iRing]->GetBinContent(iBin) > 0 ||
                   fHEffiPosition2Down[iRing]->GetBinContent(iBin) > 0)) EffiNumXUp[iPlane][iBin] = 1;
-            if ((fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 || 
+            if ((fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin) > 0 ||
-                  fHEffiPositionHigh2Down[iRing]->GetBinContent(iBin) > 0)) EffiNumHighXUp[iPlane][iBin] = 1; 
+                  fHEffiPositionHigh2Down[iRing]->GetBinContent(iBin) > 0)) EffiNumHighXUp[iPlane][iBin] = 1;
           }
-          if(iRing%2 == 1) { 
-            if ((fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 || 
+          if(iRing%2 == 1) {
+            if ((fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPosition2Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPosition2Up[iRing]->GetBinContent(iBin) > 0 ||
                   fHEffiPosition2Down[iRing]->GetBinContent(iBin) > 0)) EffiNumYUp[iPlane][iBin] = 1;
-            if ((fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 || 
+            if ((fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin) > 0 ||
                   fHEffiPositionHigh2Down[iRing]->GetBinContent(iBin) > 0)) EffiNumHighYUp[iPlane][iBin] = 1;
           }
         }
         else if(iBin+1 == NBins){
-          if(iRing%2 == 0) { 
-            if ((fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 || 
+          if(iRing%2 == 0) {
+            if ((fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPosition2Up[iRing]->GetBinContent(iBin) > 0 ||
                   fHEffiPosition2Up[iRing]->GetBinContent(iBin+1) > 0)) EffiNumXUp[iPlane][iBin] = 1;
-            if ((fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 || 
+            if ((fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin) > 0 ||
-                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin+1) > 0)) EffiNumHighXUp[iPlane][iBin] = 1; 
+                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin+1) > 0)) EffiNumHighXUp[iPlane][iBin] = 1;
           }
           if(iRing%2 == 1) {
-            if ((fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 || 
+            if ((fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPosition2Up[iRing]->GetBinContent(iBin) > 0 ||
                   fHEffiPosition2Up[iRing]->GetBinContent(iBin+1) > 0)) EffiNumYUp[iPlane][iBin] = 1;
-            if ((fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 || 
+            if ((fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin) > 0 ||
-                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin+1) > 0)) EffiNumHighYUp[iPlane][iBin] = 1; 
+                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin+1) > 0)) EffiNumHighYUp[iPlane][iBin] = 1;
           }
         }
         else{
-          if(iRing%2 == 0){ 
-            if ((fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPosition2Up[iRing]->GetBinContent(iBin) > 0 || 
+          if(iRing%2 == 0){
+            if ((fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPosition2Up[iRing]->GetBinContent(iBin) > 0 ||
                   fHEffiPosition2Up[iRing]->GetBinContent(iBin+1) > 0)) EffiNumXUp[iPlane][iBin] = 1;
-            if ((fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin) > 0 || 
-                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin+1) > 0)) EffiNumHighXUp[iPlane][iBin] = 1; 
+            if ((fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin) > 0 ||
+                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin+1) > 0)) EffiNumHighXUp[iPlane][iBin] = 1;
           }
-          if(iRing%2 == 1) { 
-            if ((fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPosition2Up[iRing]->GetBinContent(iBin) > 0 || 
+          if(iRing%2 == 1) {
+            if ((fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPosition2Up[iRing]->GetBinContent(iBin) > 0 ||
                   fHEffiPosition2Up[iRing]->GetBinContent(iBin+1) > 0)) EffiNumYUp[iPlane][iBin] = 1;
-            if ((fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin) > 0 || 
-                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin+1) > 0)) EffiNumHighYUp[iPlane][iBin] = 1; 
+            if ((fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin) > 0 ||
+                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin+1) > 0)) EffiNumHighYUp[iPlane][iBin] = 1;
           }
-        }        
+        }
 
         if(iBin == 3){
           if(iRing%2 == 0){
-            if ((fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPosition2Up[iRing]->GetBinContent(iBin) > 0 || 
+            if ((fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPosition2Up[iRing]->GetBinContent(iBin) > 0 ||
                   fHEffiPosition2Down[iRing]->GetBinContent(iBin+1) > 0)) EffiNumXDown[iPlane][iBin] = 1;
-            if ((fHEffiPositionHigh1Down[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin) > 0 || 
+            if ((fHEffiPositionHigh1Down[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin) > 0 ||
                   fHEffiPositionHigh2Down[iRing]->GetBinContent(iBin+1) > 0)) EffiNumHighXDown[iPlane][iBin] = 1;
           }
           if(iRing%2 == 1) {
-            if ((fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPosition2Up[iRing]->GetBinContent(iBin) > 0 || 
+            if ((fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPosition2Up[iRing]->GetBinContent(iBin) > 0 ||
                   fHEffiPosition2Down[iRing]->GetBinContent(iBin+1) > 0)) EffiNumYDown[iPlane][iBin] = 1;
-            if ((fHEffiPositionHigh1Down[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin) > 0 || 
+            if ((fHEffiPositionHigh1Down[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin) > 0 ||
                   fHEffiPositionHigh2Down[iRing]->GetBinContent(iBin+1) > 0)) EffiNumHighYDown[iPlane][iBin] = 1;
           }
         }
         else if(iBin >3 && iBin <6){
-          if(iRing%2 == 0) { 
-            if ((fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPosition2Down[iRing]->GetBinContent(iBin) > 0 || 
+          if(iRing%2 == 0) {
+            if ((fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPosition2Down[iRing]->GetBinContent(iBin) > 0 ||
                   fHEffiPosition2Down[iRing]->GetBinContent(iBin+1) > 0)) EffiNumXDown[iPlane][iBin] = 1;
-            if ((fHEffiPositionHigh1Down[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPositionHigh2Down[iRing]->GetBinContent(iBin) > 0 || 
+            if ((fHEffiPositionHigh1Down[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPositionHigh2Down[iRing]->GetBinContent(iBin) > 0 ||
                   fHEffiPositionHigh2Down[iRing]->GetBinContent(iBin+1) > 0)) EffiNumHighXDown[iPlane][iBin] = 1;
           }
           if(iRing%2 == 1) {
-            if ((fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPosition2Down[iRing]->GetBinContent(iBin) > 0 || 
+            if ((fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPosition2Down[iRing]->GetBinContent(iBin) > 0 ||
                   fHEffiPosition2Down[iRing]->GetBinContent(iBin+1) > 0)) EffiNumYDown[iPlane][iBin] = 1;
-            if ((fHEffiPositionHigh1Down[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPositionHigh2Down[iRing]->GetBinContent(iBin) > 0 || 
+            if ((fHEffiPositionHigh1Down[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPositionHigh2Down[iRing]->GetBinContent(iBin) > 0 ||
                   fHEffiPositionHigh2Down[iRing]->GetBinContent(iBin+1) > 0)) EffiNumHighYDown[iPlane][iBin] = 1;
           }
         }
         else if(iBin == 6){
-          if(iRing%2 == 0) { 
-            if ((fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0 || 
-                  //fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPosition2Down[iRing]->GetBinContent(iBin) > 0 || 
+          if(iRing%2 == 0) {
+            if ((fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0 ||
+                  //fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPosition2Down[iRing]->GetBinContent(iBin) > 0 ||
                   fHEffiPosition2Up[iRing]->GetBinContent(iBin+1) > 0)) EffiNumXDown[iPlane][iBin] = 1;
-            if ((fHEffiPositionHigh1Down[iRing]->GetBinContent(iBin+1) > 0 || 
-                  //fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPositionHigh2Down[iRing]->GetBinContent(iBin) > 0 || 
+            if ((fHEffiPositionHigh1Down[iRing]->GetBinContent(iBin+1) > 0 ||
+                  //fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPositionHigh2Down[iRing]->GetBinContent(iBin) > 0 ||
                   fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin+1) > 0)) EffiNumHighXDown[iPlane][iBin] = 1;
           }
-          if(iRing%2 == 1) { 
-            if ((fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 || 
+          if(iRing%2 == 1) {
+            if ((fHEffiPosition1Down[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPosition1Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPosition2Down[iRing]->GetBinContent(iBin) > 0 ||
                   fHEffiPosition2Up[iRing]->GetBinContent(iBin+1) > 0)) EffiNumYDown[iPlane][iBin] = 1;
-            if ((fHEffiPositionHigh1Down[iRing]->GetBinContent(iBin+1) > 0 || 
-                  fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 || 
+            if ((fHEffiPositionHigh1Down[iRing]->GetBinContent(iBin+1) > 0 ||
+                  fHEffiPositionHigh1Up[iRing]->GetBinContent(iBin+1) > 0 ||
                   fHEffiPositionHigh2Down[iRing]->GetBinContent(iBin) > 0 ||
                   fHEffiPositionHigh2Up[iRing]->GetBinContent(iBin+1) > 0)) EffiNumHighYDown[iPlane][iBin] = 1;
           }
-        }    
+        }
       }
-    }      
+    }
     //
     //
     //
@@ -1924,16 +1924,16 @@ void CHANTIReconstruction::EfficiencyEvaluation(TDCEvent * /*tCHANTIEvent*/){
         }
         if(NormSampleXDown[iPlane][iBin] == 5){
           fHEffiPlotXDen[iPlane]->Fill((iBin+0.5)*Step + Minimum1);
-          if(EffiNumXDown[iPlane][iBin] == 1) fHEffiPlotXNum[iPlane]->Fill((iBin+0.5)*Step + Minimum1); 
-          if(EffiNumHighXDown[iPlane][iBin] == 1) fHEffiPlotHighXNum[iPlane]->Fill((iBin+0.5)*Step + Minimum1);       
+          if(EffiNumXDown[iPlane][iBin] == 1) fHEffiPlotXNum[iPlane]->Fill((iBin+0.5)*Step + Minimum1);
+          if(EffiNumHighXDown[iPlane][iBin] == 1) fHEffiPlotHighXNum[iPlane]->Fill((iBin+0.5)*Step + Minimum1);
         }
         if(NormSampleYDown[iPlane][iBin] == 5) {
           fHEffiPlotYDen[iPlane]->Fill((iBin+0.5)*Step + Minimum1);
           if(EffiNumYDown[iPlane][iBin] == 1) fHEffiPlotYNum[iPlane]->Fill((iBin+0.5)*Step + Minimum1);
           if(EffiNumHighYDown[iPlane][iBin] == 1) fHEffiPlotHighYNum[iPlane]->Fill((iBin+0.5)*Step + Minimum1);
-        }      
-      } 
-    } 
+        }
+      }
+    }
     ///////////////////////////////////////////////////////////////////
     for(int iPlane = 0; iPlane < fNPlanes; iPlane++) {
       for(int iBin = 0; iBin < NBins; iBin++) {
@@ -1959,7 +1959,7 @@ void CHANTIReconstruction::EfficiencyEvaluation(TDCEvent * /*tCHANTIEvent*/){
             if(EffiNumXY[iPlane][iBin][jBin] > 0) fHEffiPlotXYNum[iPlane]->Fill((iBin+0.5)*Step + Minimum1,(jBin+0.5)*Step + Minimum1);
           }
           //
-          NormSampleXY[iPlane][iBin][jBin] = NormSampleXDown[iPlane][iBin] + NormSampleYDown[iPlane][jBin];       
+          NormSampleXY[iPlane][iBin][jBin] = NormSampleXDown[iPlane][iBin] + NormSampleYDown[iPlane][jBin];
           EffiNumXY[iPlane][iBin][jBin] = EffiNumXDown[iPlane][iBin] + EffiNumYDown[iPlane][jBin];
           if(NormSampleXY[iPlane][iBin][jBin] == 10){
             fHEffiPlotXYDen[iPlane]->Fill((iBin+0.5)*Step + Minimum1,(jBin+0.5)*Step + Minimum1);
@@ -1968,7 +1968,7 @@ void CHANTIReconstruction::EfficiencyEvaluation(TDCEvent * /*tCHANTIEvent*/){
         }
       }
     }
-  }  
+  }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void CHANTIReconstruction::BarEfficiencyEvaluation(TDCEvent * /*tCHANTIEvent*/){
@@ -1981,7 +1981,7 @@ void CHANTIReconstruction::BarEfficiencyEvaluation(TDCEvent * /*tCHANTIEvent*/){
     //
     //Int_t EffiNumXY[fNRings][NBars][NBars];
     //Int_t NormSampleXY[fNRings][NBars][NBars];
-    ///////   
+    ///////
     for(int iRing = 0; iRing < fNRings-2; iRing++) {
       for(int iBar = 0; iBar < NBars; iBar++) {
         EffiNum[iRing][iBar] = 0;
@@ -1990,7 +1990,7 @@ void CHANTIReconstruction::BarEfficiencyEvaluation(TDCEvent * /*tCHANTIEvent*/){
           //EffiNumXY[iRing][iBar][jBar] = 0;
           //NormSampleXY[iRing][iBar][jBar] = 0;
         //}
-      }   
+      }
     }
 
     for(int iBar = 0; iBar < NBars; iBar++) {
@@ -1998,7 +1998,7 @@ void CHANTIReconstruction::BarEfficiencyEvaluation(TDCEvent * /*tCHANTIEvent*/){
         for(int iPlane = 0; iPlane < fNPlanes-1; iPlane++) {
           Int_t jRing = -999;
           if(iRing%2 == 0) jRing = iPlane*2;
-          else jRing = iPlane*2 + 1;	  
+          else jRing = iPlane*2 + 1;
           if((iRing != jRing)  && (BarFired[jRing][iBar] == 1)) {
             NormSample[iRing][iBar] += 1;
           }
@@ -2011,10 +2011,10 @@ void CHANTIReconstruction::BarEfficiencyEvaluation(TDCEvent * /*tCHANTIEvent*/){
     for(int iBar = 0; iBar < NBars; iBar++) {
       for(int iRing = 0; iRing < fNRings-2; iRing++) {
         if((NormSample[iRing][iBar] == 4) && (EffiNum[iRing][iBar] == 1)) fHBarEffiNum[iRing]->Fill((iBar+1)*1.);
-        if(NormSample[iRing][iBar] == 4) fHBarEffiDen[iRing]->Fill((iBar+1)*1.);	
+        if(NormSample[iRing][iBar] == 4) fHBarEffiDen[iRing]->Fill((iBar+1)*1.);
       }
     }
-  }  
+  }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2043,17 +2043,17 @@ void CHANTIReconstruction::FillingHisto(TDCEvent * /*tCHANTIEvent*/){
     if(fContOfModeX>1) fHModeX->Fill(fModeX);
     if(fContOfModeY>1) fHModeY->Fill(fModeY);
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    Int_t PlaneID=0;
-    Int_t RingID=0;
-    Int_t SideID=0;
-    Int_t BarID=0;
-    Int_t ThresholdFlag=0;
-    Double_t Time=0.;
-    Double_t TimeWidth=0.;
-    Int_t QualityFlag=0;
+    Int_t PlaneID;
+    Int_t RingID;
+    Int_t SideID;
+    Int_t BarID;
+    Int_t ThresholdFlag;
+    Double_t Time;
+    Double_t TimeWidth;
+    Int_t QualityFlag;
     Double_t THit = -1e28;
-    Double_t X=0.,Y=0.;
-    Int_t Slot=0;
+    Double_t X,Y;
+    Int_t Slot;
     Int_t SlotHit = -999;
     Double_t PseudoCharge = -1;
     Double_t THitWidth = -999;
@@ -2083,10 +2083,10 @@ void CHANTIReconstruction::FillingHisto(TDCEvent * /*tCHANTIEvent*/){
         fHBarID[RingID]->Fill(BarID*10);
         fHBarID[RingID]->Fill(BarID*10+1);
       }
-      else fHBarID[RingID]->Fill(BarID*10+ThresholdFlag); 
+      else fHBarID[RingID]->Fill(BarID*10+ThresholdFlag);
 
-      if((QualityFlag != 5) && (ThresholdFlag%2 == 0)) fHTimeVSSlot->Fill(Slot,Time);      
-      if(RecoHit->GetRingType() == kX)  
+      if((QualityFlag != 5) && (ThresholdFlag%2 == 0)) fHTimeVSSlot->Fill(Slot,Time);
+      if(RecoHit->GetRingType() == kX)
       {
         fHXHit->Fill(X);
         if(ThresholdFlag == 0 || ThresholdFlag == 2) fHPositionLow[RingID][0]->Fill(X);
@@ -2100,7 +2100,7 @@ void CHANTIReconstruction::FillingHisto(TDCEvent * /*tCHANTIEvent*/){
         if(ThresholdFlag == 1 || ThresholdFlag == 2) fHPositionHigh[RingID][0]->Fill(Y);
         fHYHitEvent1->Fill(Y);
         fHYHitEvent2->Fill(Y);
-      }      
+      }
       if(TimeWidth != -999){
         if(ThresholdFlag == 0){
           fHToT0->Fill(TimeWidth);
@@ -2135,46 +2135,46 @@ void CHANTIReconstruction::FillingHisto(TDCEvent * /*tCHANTIEvent*/){
       }
       /////////////////////////////////////////////////////
       if((QualityFlag == 0) && (ThresholdFlag%2 == 0)){
-        if (RecoHit->GetRingType() == kX){ 
-          if (BarID%2!=0){     
+        if (RecoHit->GetRingType() == kX){
+          if (BarID%2!=0){
             if (TMath::Abs(X)>HalfHoleXmax){
               fHViewX1THRL[PlaneID][0]->Fill(X,-91.25);
               fHViewX1THRL[PlaneID][0]->Fill(X,0);
-              fHViewX1THRL[PlaneID][0]->Fill(X,91.25); 
+              fHViewX1THRL[PlaneID][0]->Fill(X,91.25);
             } else {
               if(SideID==0) fHViewX1THRL[PlaneID][0]->Fill(X,91.25);
               else fHViewX1THRL[PlaneID][0]->Fill(X,-91.25);
-            }  
+            }
           } else {
             if (TMath::Abs(X)>HalfHoleXmin){
               fHViewX2THRL[PlaneID][0]->Fill(X,-91.25);
               fHViewX2THRL[PlaneID][0]->Fill(X,0);
-              fHViewX2THRL[PlaneID][0]->Fill(X,91.25); 
+              fHViewX2THRL[PlaneID][0]->Fill(X,91.25);
             } else {
               if(RecoHit->GetSideID() == kPositive) fHViewX2THRL[PlaneID][0]->Fill(X,91.25);
               else fHViewX2THRL[PlaneID][0]->Fill(X,-91.25);
             }
           }
-        } else {  
-          if (BarID%2==0){     
+        } else {
+          if (BarID%2==0){
             if (TMath::Abs(Y)>HalfHoleY1){
               fHViewY1THRL[PlaneID][0]->Fill(98.75,Y);
               fHViewY1THRL[PlaneID][0]->Fill(23.75,Y);
               fHViewY1THRL[PlaneID][0]->Fill(-23.75,Y);
-              fHViewY1THRL[PlaneID][0]->Fill(-98.75,Y); 
+              fHViewY1THRL[PlaneID][0]->Fill(-98.75,Y);
             } else {
               if(RecoHit->GetSideID() == kPositive) fHViewY1THRL[PlaneID][0]->Fill(98.75,Y);
               else fHViewY1THRL[PlaneID][0]->Fill(-98.75,Y);
-            }  
+            }
           } else {
             if (TMath::Abs(Y)>HalfHoleY2max){
               fHViewY2THRL[PlaneID][0]->Fill(98.75,Y);
               fHViewY2THRL[PlaneID][0]->Fill(23.75,Y);
               fHViewY2THRL[PlaneID][0]->Fill(-23.75,Y);
-              fHViewY2THRL[PlaneID][0]->Fill(-98.75,Y); 
+              fHViewY2THRL[PlaneID][0]->Fill(-98.75,Y);
             } else if (TMath::Abs(Y)<HalfHoleY2min){
               if(RecoHit->GetSideID() == kPositive) fHViewY2THRL[PlaneID][0]->Fill(98.75,Y);
-              else fHViewY2THRL[PlaneID][0]->Fill(-98.75,Y); 
+              else fHViewY2THRL[PlaneID][0]->Fill(-98.75,Y);
             } else {
               if(RecoHit->GetSideID() == kPositive){
                 fHViewY2THRL[PlaneID][0]->Fill(98.75,Y);
@@ -2182,52 +2182,52 @@ void CHANTIReconstruction::FillingHisto(TDCEvent * /*tCHANTIEvent*/){
               } else {
                 fHViewY2THRL[PlaneID][0]->Fill(-98.75,Y);
                 fHViewY2THRL[PlaneID][0]->Fill(-23.75,Y);
-              }     
+              }
             }
           }
-        }          
-      } 
+        }
+      }
       if((QualityFlag == 0) && (ThresholdFlag > 0)){
-        if (RecoHit->GetRingType() == kX){ 
-          if (BarID%2!=0){     
+        if (RecoHit->GetRingType() == kX){
+          if (BarID%2!=0){
             if (TMath::Abs(X)>HalfHoleXmax){
               fHViewX1THRH[PlaneID][0]->Fill(X,-91.25);
               fHViewX1THRH[PlaneID][0]->Fill(X,0);
-              fHViewX1THRH[PlaneID][0]->Fill(X,91.25); 
+              fHViewX1THRH[PlaneID][0]->Fill(X,91.25);
             } else {
               if(RecoHit->GetSideID() == kPositive) fHViewX1THRH[PlaneID][0]->Fill(X,91.25);
               else fHViewX1THRH[PlaneID][0]->Fill(X,-91.25);
-            }  
+            }
           } else {
             if (TMath::Abs(X)>HalfHoleXmin){
               fHViewX2THRH[PlaneID][0]->Fill(X,-91.25);
               fHViewX2THRH[PlaneID][0]->Fill(X,0);
-              fHViewX2THRH[PlaneID][0]->Fill(X,91.25); 
+              fHViewX2THRH[PlaneID][0]->Fill(X,91.25);
             } else {
               if(RecoHit->GetSideID() == kPositive) fHViewX2THRH[PlaneID][0]->Fill(X,91.25);
               else fHViewX2THRH[PlaneID][0]->Fill(X,-91.25);
             }
           }
-        } else {  
-          if (BarID%2==0){     
+        } else {
+          if (BarID%2==0){
             if (TMath::Abs(Y)>HalfHoleY1){
               fHViewY1THRH[PlaneID][0]->Fill(98.75,Y);
               fHViewY1THRH[PlaneID][0]->Fill(23.75,Y);
               fHViewY1THRH[PlaneID][0]->Fill(-23.75,Y);
-              fHViewY1THRH[PlaneID][0]->Fill(-98.75,Y); 
+              fHViewY1THRH[PlaneID][0]->Fill(-98.75,Y);
             } else {
               if(RecoHit->GetSideID() == kPositive) fHViewY1THRH[PlaneID][0]->Fill(98.75,Y);
               else fHViewY1THRH[PlaneID][0]->Fill(-98.75,Y);
-            }  
+            }
           } else {
             if (TMath::Abs(Y)>HalfHoleY2max){
               fHViewY2THRH[PlaneID][0]->Fill(98.75,Y);
               fHViewY2THRH[PlaneID][0]->Fill(23.75,Y);
               fHViewY2THRH[PlaneID][0]->Fill(-23.75,Y);
-              fHViewY2THRH[PlaneID][0]->Fill(-98.75,Y); 
+              fHViewY2THRH[PlaneID][0]->Fill(-98.75,Y);
             } else if (TMath::Abs(Y)<HalfHoleY2min){
               if(RecoHit->GetSideID() == kPositive) fHViewY2THRH[PlaneID][0]->Fill(98.75,Y);
-              else fHViewY2THRH[PlaneID][0]->Fill(-98.75,Y); 
+              else fHViewY2THRH[PlaneID][0]->Fill(-98.75,Y);
             } else {
               if(RecoHit->GetSideID() == kPositive) {
                 fHViewY2THRH[PlaneID][0]->Fill(98.75,Y);
@@ -2235,7 +2235,7 @@ void CHANTIReconstruction::FillingHisto(TDCEvent * /*tCHANTIEvent*/){
               } else {
                 fHViewY2THRH[PlaneID][0]->Fill(-98.75,Y);
                 fHViewY2THRH[PlaneID][0]->Fill(-23.75,Y);
-              }     
+              }
             }
           }
         }
@@ -2281,7 +2281,7 @@ void CHANTIReconstruction::SingleMuonSelection(TDCEvent * /*tCHANTIEvent*/){
     fSingleMuonTotalToT = 0.;
     for(int iPlane = 0; iPlane < fNPlanes; iPlane++){
       fSingleMuonTotalXToT[iPlane] = 0;
-      fSingleMuonTotalYToT[iPlane] = 0;    
+      fSingleMuonTotalYToT[iPlane] = 0;
     }
     //////////////////////////////////////////////////////////////////////
     TClonesArray & RecoHits = (* (fRecoEvent->GetHits()));
@@ -2289,9 +2289,9 @@ void CHANTIReconstruction::SingleMuonSelection(TDCEvent * /*tCHANTIEvent*/){
       TRecoCHANTIHit *RecoHit = static_cast<TRecoCHANTIHit*>(RecoHits[iHit]);
       if(RecoHit->GetTimeWidth() == -999) AllTimeWidth = 0;
       if(abs(fModeX - RecoHit->GetX())>fStep*1. && RecoHit->GetX() != -999) DistModeX = 0;
-      if(abs(fModeY - RecoHit->GetY())>fStep*1. && RecoHit->GetY() != -999) DistModeY = 0;          
+      if(abs(fModeY - RecoHit->GetY())>fStep*1. && RecoHit->GetY() != -999) DistModeY = 0;
     }
-    if(DistModeX == 1 && DistModeY ==1 && fNFiredRing == 12) fSingleMuon = true;  
+    if(DistModeX == 1 && DistModeY ==1 && fNFiredRing == 12) fSingleMuon = true;
     if(fSingleMuon){
       fSingleMuonX = fModeX;
       fSingleMuonY = fModeY;
@@ -2311,13 +2311,13 @@ void CHANTIReconstruction::SingleMuonSelection(TDCEvent * /*tCHANTIEvent*/){
         }
         else if(RecoHit->GetRingType() == kY)
         {
-          //YTimeCorrection = RecoHit->GetXYTimeCorrection(fModeX);       
+          //YTimeCorrection = RecoHit->GetXYTimeCorrection(fModeX);
           //if(QualityFlag != 5) RecoHit->SetTime(Time);
           if(AllTimeWidth == 1) fSingleMuonTotalYToT[RingID] += ToT;
         }
       }
       for(int iPlane = 0; iPlane < fNPlanes; iPlane++){
-        if(AllTimeWidth == 1) fSingleMuonTotalToT = fSingleMuonTotalXToT[iPlane] + fSingleMuonTotalYToT[iPlane];    
+        if(AllTimeWidth == 1) fSingleMuonTotalToT = fSingleMuonTotalXToT[iPlane] + fSingleMuonTotalYToT[iPlane];
       }
     }
   }
@@ -2328,7 +2328,7 @@ void CHANTIReconstruction::SingleMuonFillingHisto(TDCEvent * /*tCHANTIEvent*/){
   if(fSingleMuon){
     Int_t RingID, QualityFlag, SideID;
     Int_t ThresholdFlag, RingType;
-    Double_t Distance = -999;
+    Double_t Distance;
     Double_t Time;
     Double_t X;
     Double_t Y;
@@ -2369,7 +2369,7 @@ void CHANTIReconstruction::SingleMuonFillingHisto(TDCEvent * /*tCHANTIEvent*/){
       }
       ///////////////////////////////////////////////////////////////////////////////////////////////////////
       if(RecoHit->GetRingType() == kX)
-      {      
+      {
         fHDispPlotXMU->Fill(fMode[RingID] - X);
         fHDispPlotMU[RingID]->Fill(fMode[RingID] - X);
       }
@@ -2384,7 +2384,7 @@ void CHANTIReconstruction::SingleMuonFillingHisto(TDCEvent * /*tCHANTIEvent*/){
 }
 
 void CHANTIReconstruction::ResoTimeEvaluation(TDCEvent * /*tCHANTIEvent*/){
-  /////////////////////////////TIME RESOLUTION////////////////////////  
+  /////////////////////////////TIME RESOLUTION////////////////////////
   Int_t nHits = fRecoEvent->GetNHits();
   if(nHits > 0){
 
@@ -2409,7 +2409,7 @@ void CHANTIReconstruction::ResoTimeEvaluation(TDCEvent * /*tCHANTIEvent*/){
         PlaneIDbis = RecoHitbis->GetPlaneID();
         ThresholdFlagbis = RecoHitbis->GetThresholdFlag();
         if(QualityFlag != 0 || QualityFlagbis!= 0) continue ;//solo Hit con 2 (4) Edges
-        if((abs(ChannelID - ChannelIDbis) == 10) && (ThresholdFlag == 2) && (ThresholdFlagbis == 2)) fHResoTime->Fill(Time - Timebis); //adjacent physical channels (only low threshold)     
+        if((abs(ChannelID - ChannelIDbis) == 10) && (ThresholdFlag == 2) && (ThresholdFlagbis == 2)) fHResoTime->Fill(Time - Timebis); //adjacent physical channels (only low threshold)
         if(PlaneID == PlaneIDbis) fHResoTimePlane[PlaneID]->Fill(Time - Timebis); //channels from same Plane
       }
     }
@@ -2417,7 +2417,7 @@ void CHANTIReconstruction::ResoTimeEvaluation(TDCEvent * /*tCHANTIEvent*/){
 }
 
 void CHANTIReconstruction::SingleMuonResoTimeEvaluation(TDCEvent * /*tCHANTIEvent*/){
-  /////////////////////////////TIME RESOLUTION////////////////////////  
+  /////////////////////////////TIME RESOLUTION////////////////////////
   Int_t nHits = fRecoEvent->GetNHits();
   if(fSingleMuon){
     Int_t ChannelID, ChannelIDbis;
@@ -2441,7 +2441,7 @@ void CHANTIReconstruction::SingleMuonResoTimeEvaluation(TDCEvent * /*tCHANTIEven
         PlaneIDbis = RecoHitbis->GetPlaneID();
         ThresholdFlagbis = RecoHitbis->GetThresholdFlag();
         if(QualityFlag != 0 || QualityFlagbis!= 0) continue ;//solo Hit con 2 (4) Edges
-        if((abs(ChannelID - ChannelIDbis) == 10) && (ThresholdFlag == 2) && (ThresholdFlagbis == 2)) fHResoTimeMU->Fill(Time - Timebis); //adjacent physical channels (only low threshold)     
+        if((abs(ChannelID - ChannelIDbis) == 10) && (ThresholdFlag == 2) && (ThresholdFlagbis == 2)) fHResoTimeMU->Fill(Time - Timebis); //adjacent physical channels (only low threshold)
         if(PlaneID == PlaneIDbis) fHResoTimePlaneMU[PlaneID]->Fill(Time - Timebis); //channels from same Plane
       }
     }
@@ -2456,7 +2456,7 @@ void CHANTIReconstruction::EndProcessing(){
 
 void CHANTIReconstruction::FillTimes(Double_t ReferenceTime) {
 
-  // Common part for all the subdetectors 
+  // Common part for all the subdetectors
   NA62VReconstruction::FillTimes(ReferenceTime);
 
   Int_t NRecoHits = fRecoEvent->GetNHits();
@@ -2537,7 +2537,7 @@ void CHANTIReconstruction::FillTimes(Double_t ReferenceTime) {
       fHRecoHitTimeWrtReferenceNoT0->Fill(dT1NoCorr);
       if (fHRecoHitTimeWrtReferenceVsROChannelNoT0) {
 	fHRecoHitTimeWrtReferenceVsROChannelNoT0->Fill(ROch, dT1NoCorr);
-	fHRecoHitTimeWrtReferenceVsROChannelNoT0->Fill(ROch+1, dT1NoCorr); 
+	fHRecoHitTimeWrtReferenceVsROChannelNoT0->Fill(ROch+1, dT1NoCorr);
 	fHRecoHitTimeWrtReferenceVsBurstNoT0->Fill(fRecoEvent->GetBurstID(), dT1NoCorr);
       }
       if(Width > 0) fHRecoHitTimeWrtReferenceVsWidthNoT0->Fill(Width, dT1NoCorr);
@@ -2645,20 +2645,20 @@ void CHANTIReconstruction::InitHistograms()
 
   if(fNRings>0){
     fHNHitsForRing = new TH1D* [fNRings];
-    fHToTRing0 = new TH1D* [fNRings]; 
-    fHToTRing1 = new TH1D* [fNRings]; 
-    fHToTRing2 = new TH1D* [fNRings]; 
-    fHBarID = new TH1D* [fNRings]; 
-    fHCorrTimeShiftMU = new TH1D* [fNRings]; 
-    fHCorrTime = new TH1D* [fNRings]; 
-    fHCorrTimeDispPlot = new TH1D* [fNRings]; 
+    fHToTRing0 = new TH1D* [fNRings];
+    fHToTRing1 = new TH1D* [fNRings];
+    fHToTRing2 = new TH1D* [fNRings];
+    fHBarID = new TH1D* [fNRings];
+    fHCorrTimeShiftMU = new TH1D* [fNRings];
+    fHCorrTime = new TH1D* [fNRings];
+    fHCorrTimeDispPlot = new TH1D* [fNRings];
     fHCorrTimeDispPlotMU = new TH1D* [fNRings];
-    fHPositionLow = new TH1D** [fNRings]; 
-    fHPositionHigh = new TH1D** [fNRings]; 
-    fHPosition1 = new TH1D* [fNRings]; 
-    fHPosition2 = new TH1D* [fNRings]; 
+    fHPositionLow = new TH1D** [fNRings];
+    fHPositionHigh = new TH1D** [fNRings];
+    fHPosition1 = new TH1D* [fNRings];
+    fHPosition2 = new TH1D* [fNRings];
 
-    fHTimeVsDistanceMU = new TH2F* [fNRings]; 
+    fHTimeVsDistanceMU = new TH2F* [fNRings];
 
     if(fEffPlaneIndex>=0 && fEffPlaneIndex <=5){
       fHEffi1Up = new TH1D* [fNRings];
@@ -2706,7 +2706,7 @@ void CHANTIReconstruction::InitHistograms()
     fHCorrTime[iRing] = new TH1D(Form("CorrTimeInRing%d",iRing+1),Form("Time In Ring%d per event",iRing+1),200,-999.5*TdcCalib,1000.5*TdcCalib);
     fHCorrTimeDispPlot[iRing] = new TH1D(Form("CorrTimeDisp%d",iRing+1),Form("Time disp %d per event",iRing+1),800,-1999.5*TdcCalib,2000.5*TdcCalib);
     fHCorrTimeDispPlotMU[iRing] = new TH1D(Form("MUCorrTimeDisp%d",iRing+1),Form("MU Time disp %d per event",iRing+1),800,-1999.5*TdcCalib,2000.5*TdcCalib);
-    fHTimeVsDistanceMU[iRing] = new TH2F(Form("TimeVsPositionInRing%d",iRing+1),Form("Time Vs Position In Ring%d",iRing+1),20,-fStep*0.5,fStep*19.5,400,-100.,100.); 
+    fHTimeVsDistanceMU[iRing] = new TH2F(Form("TimeVsPositionInRing%d",iRing+1),Form("Time Vs Position In Ring%d",iRing+1),20,-fStep*0.5,fStep*19.5,400,-100.,100.);
     if(iRing%2 == 0){
       for(Int_t iTrig=0; iTrig<NTrigs;iTrig++){
         fHPositionLow[iRing][iTrig] = new TH1D(Form("XInPlane%d%s",iRing/2+1,TrigSuffix[iTrig].Data()),Form("X In Plane%d%s per event low th",iRing/2+1,TrigSuffix[iTrig].Data()),17,-134,134);
@@ -2734,7 +2734,7 @@ void CHANTIReconstruction::InitHistograms()
         fHEffiPositionHigh2Down[iRing] = new TH1D(Form("XInPlane%d_High2SideDown",iRing/2+1),Form("HighX In Plane%d per event Side Down 2",iRing/2+1),9,-fStep*8.5,fStep*9.5);
       }
       fHDispPlot[iRing] = new TH1D(Form("DispersionPlotXInPlane%d",iRing/2+1),Form("Dispersion plot X In Plane %d",iRing/2+1),19,-fStep*9.5,fStep*9.5);
-      fHDispPlotMU[iRing] = new TH1D(Form("DispersionPlotXInPlane%d MU",iRing/2+1),Form("Dispersion plot X In Plane %d MU",iRing/2+1),19,-fStep*9.5,fStep*9.5); 
+      fHDispPlotMU[iRing] = new TH1D(Form("DispersionPlotXInPlane%d MU",iRing/2+1),Form("Dispersion plot X In Plane %d MU",iRing/2+1),19,-fStep*9.5,fStep*9.5);
     }else{
       for(Int_t iTrig=0; iTrig<NTrigs;iTrig++){
         fHPositionLow[iRing][iTrig] = new TH1D(Form("YInPlane%d%s",iRing/2+1,TrigSuffix[iTrig].Data()),Form("Y In Plane%d%s per event low th",iRing/2+1,TrigSuffix[iTrig].Data()),17,-134,134);
@@ -2762,7 +2762,7 @@ void CHANTIReconstruction::InitHistograms()
       }
       fHDispPlot[iRing] = new TH1D(Form("DispersionPlotYInPlane%d",iRing/2+1),Form("Dispersion plot Y In Plane %d",iRing/2+1),19,-fStep*9.5,fStep*9.5);
       fHDispPlotMU[iRing] = new TH1D(Form("DispersionPlotYInPlane%dMU",iRing/2+1),Form("Dispersion plot Y In Plane %d MU",iRing/2+1),19,-fStep*9.5,fStep*9.5);
-      //    
+      //
     }
     fHNHitsForRingVSBurst[iRing]= new TH1D(Form("NHitsForRing%dVSBurst",iRing+1),Form("N Hit in Layer %d VS Burst",iRing+1),100,0.5,100.5);
   }
@@ -2785,12 +2785,12 @@ void CHANTIReconstruction::InitHistograms()
     ("CandidateTimeWrtReferenceVsBurst", "Candidate Time Wrt Reference Vs Burst", 100, 0.5, 100.5, 120, -30, 30);
   //
   Double_t xbins[5];
-  Double_t ybins[4];   
+  Double_t ybins[4];
   xbins[0]=-150;
   xbins[1]=-47.5;
   xbins[2]=0;
   xbins[3]=47.5;
-  xbins[4]=150;   
+  xbins[4]=150;
   ybins[0]=-150;
   ybins[1]=-32.5;
   ybins[2]=32.5;
@@ -2950,7 +2950,7 @@ void CHANTIReconstruction::InitHistograms()
     fHNWordPerTDC[iTDC]->GetXaxis()->SetTitle(Form("Word on TDC %d (MW/s)",iTDC + 1));
   }
 
-  fHistoFile->cd("/");  
+  fHistoFile->cd("/");
 }
 
 void CHANTIReconstruction::SaveHistograms()
@@ -2989,9 +2989,9 @@ void CHANTIReconstruction::SaveHistograms()
     fHDispPlotMU[iRing]->Write();
     fHBarID[iRing]->Write();
     fHCorrTimeShiftMU[iRing]->Write();
-    fHNHitsForRingVSBurst[iRing]->Write(); 
-    fHBarEffiNum[iRing]->Write(); 
-    fHBarEffiDen[iRing]->Write(); 
+    fHNHitsForRingVSBurst[iRing]->Write();
+    fHBarEffiNum[iRing]->Write();
+    fHBarEffiDen[iRing]->Write();
 
     fHTimeVsDistanceMU[iRing]->Write();
 
@@ -3011,22 +3011,22 @@ void CHANTIReconstruction::SaveHistograms()
       fHEffiPlotXNum[iPlane]->Write();
       fHEffiPlotYNum[iPlane]->Write();
       fHEffiPlotHighXNum[iPlane]->Write();
-      fHEffiPlotHighYNum[iPlane]->Write();  
+      fHEffiPlotHighYNum[iPlane]->Write();
       fHEffiPlotXYDen[iPlane]->Write();
-      fHEffiPlotXYNum[iPlane]->Write();       
+      fHEffiPlotXYNum[iPlane]->Write();
     }
-    //       
+    //
     fHToTPlane0[iPlane]->Write();
     fHToTPlane1[iPlane]->Write();
     fHToTPlane2[iPlane]->Write();
     fHNHitsForPlane[iPlane]->Write();
-    fHResoTimePlane[iPlane]->Write(); 
-    fHResoTimePlaneMU[iPlane]->Write(); 
-    fHXYClusterPerPlane[iPlane]->Write(); 
-    fHNHitsForPlaneVSBurst[iPlane]->Write(); 
+    fHResoTimePlane[iPlane]->Write();
+    fHResoTimePlaneMU[iPlane]->Write();
+    fHXYClusterPerPlane[iPlane]->Write();
+    fHNHitsForPlaneVSBurst[iPlane]->Write();
 
 
-    for(UInt_t iTrig=0;iTrig<NTrigs;iTrig++){ 
+    for(UInt_t iTrig=0;iTrig<NTrigs;iTrig++){
       fHViewX1THRL[iPlane][iTrig]->Write();
       fHViewX2THRL[iPlane][iTrig]->Write();
       fHViewY1THRL[iPlane][iTrig]->Write();
@@ -3034,7 +3034,7 @@ void CHANTIReconstruction::SaveHistograms()
       fHViewX1THRH[iPlane][iTrig]->Write();
       fHViewX2THRH[iPlane][iTrig]->Write();
       fHViewY1THRH[iPlane][iTrig]->Write();
-      fHViewY2THRH[iPlane][iTrig]->Write(); 
+      fHViewY2THRH[iPlane][iTrig]->Write();
     }
   }
   fHCorrTimeVSZ->Write();
@@ -3110,7 +3110,7 @@ void CHANTIReconstruction::DeleteHistograms() {
   if(fHContOfModeY1)   delete fHContOfModeY1;
   if(fHContOfModeY2)   delete fHContOfModeY2;
   if(fHContOfModeY3)   delete fHContOfModeY3;
-  if(fHXYCluster)      delete fHXYCluster;     
+  if(fHXYCluster)      delete fHXYCluster;
   if(fHTimeVSSlot)     delete fHTimeVSSlot;
 
   if(fHRecoHitTimeWrtReference)            delete fHRecoHitTimeWrtReference;
@@ -3121,7 +3121,7 @@ void CHANTIReconstruction::DeleteHistograms() {
   if(fHRecoHitTimeWrtReferenceVsWidthNoT0) delete fHRecoHitTimeWrtReferenceVsWidthNoT0;
   if(fHCandidateTimeWrtReference)          delete fHCandidateTimeWrtReference;
   if(fHCandidateTimeWrtReferenceVsBurst)   delete fHCandidateTimeWrtReferenceVsBurst;
-  if(fHNTriggersPerBurst)                  delete fHNTriggersPerBurst;                             
+  if(fHNTriggersPerBurst)                  delete fHNTriggersPerBurst;
 
   for(int iRing = 0; iRing < fNRings; iRing++){
 
@@ -3143,7 +3143,7 @@ void CHANTIReconstruction::DeleteHistograms() {
     if(fHPositionLow && fHPositionLow[iRing])               delete [] fHPositionLow[iRing];
     if(fHPositionHigh && fHPositionHigh[iRing])             delete [] fHPositionHigh[iRing];
     if(fHPosition1 && fHPosition1[iRing])                   delete fHPosition1[iRing];
-    if(fHPosition2 && fHPosition2[iRing])                   delete fHPosition2[iRing];          
+    if(fHPosition2 && fHPosition2[iRing])                   delete fHPosition2[iRing];
 
     if(fHTimeVsDistanceMU && fHTimeVsDistanceMU[iRing])     delete fHTimeVsDistanceMU[iRing];
 
@@ -3155,7 +3155,7 @@ void CHANTIReconstruction::DeleteHistograms() {
       if(fHEffiPosition1Up && fHEffiPosition1Up[iRing])     delete fHEffiPosition1Up[iRing];
       if(fHEffiPosition2Up && fHEffiPosition2Up[iRing])     delete fHEffiPosition2Up[iRing];
       if(fHEffiPosition1Down && fHEffiPosition1Down[iRing]) delete fHEffiPosition1Down[iRing];
-      if(fHEffiPosition2Down && fHEffiPosition2Down[iRing]) delete fHEffiPosition2Down[iRing]; 
+      if(fHEffiPosition2Down && fHEffiPosition2Down[iRing]) delete fHEffiPosition2Down[iRing];
       if(fHEffiHigh1Up && fHEffiHigh1Up[iRing])                     delete fHEffiHigh1Up[iRing];
       if(fHEffiHigh2Up && fHEffiHigh2Up[iRing])                     delete fHEffiHigh2Up[iRing];
       if(fHEffiHigh1Down && fHEffiHigh1Down[iRing])                 delete fHEffiHigh1Down[iRing];
@@ -3163,12 +3163,12 @@ void CHANTIReconstruction::DeleteHistograms() {
       if(fHEffiPositionHigh1Up && fHEffiPositionHigh1Up[iRing])     delete fHEffiPositionHigh1Up[iRing];
       if(fHEffiPositionHigh2Up && fHEffiPositionHigh2Up[iRing])     delete fHEffiPositionHigh2Up[iRing];
       if(fHEffiPositionHigh1Down && fHEffiPositionHigh1Down[iRing]) delete fHEffiPositionHigh1Down[iRing];
-      if(fHEffiPositionHigh2Down && fHEffiPositionHigh2Down[iRing]) delete fHEffiPositionHigh2Down[iRing];      
+      if(fHEffiPositionHigh2Down && fHEffiPositionHigh2Down[iRing]) delete fHEffiPositionHigh2Down[iRing];
     }
 
     if(fHDispPlot && fHDispPlot[iRing])                       delete fHDispPlot[iRing];
-    if(fHDispPlotMU && fHDispPlotMU[iRing])                   delete fHDispPlotMU[iRing];        
-    if(fHNHitsForRingVSBurst && fHNHitsForRingVSBurst[iRing]) delete fHNHitsForRingVSBurst[iRing]; 
+    if(fHDispPlotMU && fHDispPlotMU[iRing])                   delete fHDispPlotMU[iRing];
+    if(fHNHitsForRingVSBurst && fHNHitsForRingVSBurst[iRing]) delete fHNHitsForRingVSBurst[iRing];
 
   }
 
@@ -3201,7 +3201,7 @@ void CHANTIReconstruction::DeleteHistograms() {
     if(fHResoTimePlane && fHResoTimePlane[iPlane])               delete fHResoTimePlane[iPlane];
     if(fHResoTimePlaneMU && fHResoTimePlaneMU[iPlane])           delete fHResoTimePlaneMU[iPlane];
     if(fHXYClusterPerPlane && fHXYClusterPerPlane[iPlane])       delete fHXYClusterPerPlane[iPlane];
-    if(fHNHitsForPlaneVSBurst && fHNHitsForPlaneVSBurst[iPlane]) delete fHNHitsForPlaneVSBurst[iPlane]; 
+    if(fHNHitsForPlaneVSBurst && fHNHitsForPlaneVSBurst[iPlane]) delete fHNHitsForPlaneVSBurst[iPlane];
 
     for(UInt_t iTrig=0;iTrig<NTrigs;iTrig++){
       if(fHViewX1THRL && fHViewX1THRL[iPlane]) delete fHViewX1THRL[iPlane][iTrig];
@@ -3226,17 +3226,17 @@ void CHANTIReconstruction::DeleteHistograms() {
 
   Int_t nROBoards = 0;
   if(fRawDecoder && fRawDecoder->GetDecoder()) nROBoards = fRawDecoder->GetDecoder()->GetNROBoards();
-  for(int iTell = 0; iTell<nROBoards; iTell++) 
+  for(int iTell = 0; iTell<nROBoards; iTell++)
   {
     if(fHNWordPerTell && fHNWordPerTell[iTell]) delete fHNWordPerTell[iTell];
   }
-  for(int iTDCB = 0; iTDCB<4*nROBoards; iTDCB++) 
+  for(int iTDCB = 0; iTDCB<4*nROBoards; iTDCB++)
   {
     if(fHNWordPerTDCB && fHNWordPerTDCB[iTDCB]) delete fHNWordPerTDCB[iTDCB];
   }
-  for(int iTDC = 0; iTDC<16*nROBoards;iTDC++)    
+  for(int iTDC = 0; iTDC<16*nROBoards;iTDC++)
   {
-    if(fHNWordPerTDC && fHNWordPerTDC[iTDC])   delete fHNWordPerTDC[iTDC];  
+    if(fHNWordPerTDC && fHNWordPerTDC[iTDC])   delete fHNWordPerTDC[iTDC];
   }
 
   if(fHBarEffiNum         )     delete [] fHBarEffiNum;
@@ -3253,11 +3253,11 @@ void CHANTIReconstruction::DeleteHistograms() {
   if(fHPositionLow        )     delete [] fHPositionLow;
   if(fHPositionHigh       )     delete [] fHPositionHigh;
   if(fHPosition1          )     delete [] fHPosition1;
-  if(fHPosition2          )     delete [] fHPosition2;            
+  if(fHPosition2          )     delete [] fHPosition2;
 
   if(fHTimeVsDistanceMU   )     delete [] fHTimeVsDistanceMU;
 
-  if(fEffPlaneIndex>=0 && fEffPlaneIndex <=5){	  
+  if(fEffPlaneIndex>=0 && fEffPlaneIndex <=5){
 
     if(fHEffi1Up        )        delete [] fHEffi1Up;
     if(fHEffi2Up        )        delete [] fHEffi2Up;
@@ -3312,8 +3312,8 @@ void CHANTIReconstruction::DeleteHistograms() {
   if(fHResoTimePlane        )      delete [] fHResoTimePlane;
   if(fHResoTimePlaneMU      )      delete [] fHResoTimePlaneMU;
   if(fHXYClusterPerPlane    )      delete [] fHXYClusterPerPlane;
-  if(fHNHitsForRingVSBurst    )    delete [] fHNHitsForRingVSBurst; 
-  if(fHNHitsForPlaneVSBurst )      delete [] fHNHitsForPlaneVSBurst; 
+  if(fHNHitsForRingVSBurst    )    delete [] fHNHitsForRingVSBurst;
+  if(fHNHitsForPlaneVSBurst )      delete [] fHNHitsForPlaneVSBurst;
   if(fHNWordPerTell)               delete [] fHNWordPerTell;
   if(fHNWordPerTDCB)               delete [] fHNWordPerTDCB;
   if(fHNWordPerTDC )               delete [] fHNWordPerTDC;
@@ -3322,111 +3322,111 @@ void CHANTIReconstruction::DeleteHistograms() {
 
 void CHANTIReconstruction::ResetHistograms() {
 
-  fHXHit = 0;         
-  fHYHit = 0;        
-  fHXHitEvent1 = 0;    
-  fHXHitEvent2 = 0;    
-  fHYHitEvent1 = 0;    
-  fHYHitEvent2 = 0;    
-  fHDispPlotX = 0;    
-  fHDispPlotY = 0;    
-  fHDispPlotXMU = 0;    
-  fHDispPlotYMU = 0;    
-  fHNHit = 0;        
-  fHNHitAllRing = 0;    
-  fHNRing = 0;        
-  fHNPlane = 0;    
-  fHNRingVSNHit = 0;    
-  fHNPlaneVSNHit = 0;    
-  fHCorrTimeVSZ = 0;    
-  fHCorrTimeVSZMU = 0;    
-  fHContOfModeX = 0;    
-  fHContOfModeX1 = 0;    
-  fHContOfModeX2 = 0;    
-  fHContOfModeX3 = 0;    
-  fHContOfModeY = 0;    
-  fHContOfModeY1 = 0;    
-  fHContOfModeY2 = 0;    
-  fHContOfModeY3 = 0;    
-  fHXYCluster = 0;     
-  fHTimeVSSlot = 0;       
-  fHRecoHitTimeWrtReference = 0;              
-  fHRecoHitTimeWrtReferenceVsBurst = 0;          
-  fHRecoHitTimeWrtReferenceVsWidth = 0;          
-  fHRecoHitTimeWrtReferenceNoT0 = 0;          
-  fHRecoHitTimeWrtReferenceVsBurstNoT0 = 0;      
-  fHRecoHitTimeWrtReferenceVsWidthNoT0 = 0;      
-  fHCandidateTimeWrtReference = 0;          
-  fHCandidateTimeWrtReferenceVsBurst = 0;      
-  fHNTriggersPerBurst = 0;                           
-  fHNHitsForRing = 0; 
+  fHXHit = 0;
+  fHYHit = 0;
+  fHXHitEvent1 = 0;
+  fHXHitEvent2 = 0;
+  fHYHitEvent1 = 0;
+  fHYHitEvent2 = 0;
+  fHDispPlotX = 0;
+  fHDispPlotY = 0;
+  fHDispPlotXMU = 0;
+  fHDispPlotYMU = 0;
+  fHNHit = 0;
+  fHNHitAllRing = 0;
+  fHNRing = 0;
+  fHNPlane = 0;
+  fHNRingVSNHit = 0;
+  fHNPlaneVSNHit = 0;
+  fHCorrTimeVSZ = 0;
+  fHCorrTimeVSZMU = 0;
+  fHContOfModeX = 0;
+  fHContOfModeX1 = 0;
+  fHContOfModeX2 = 0;
+  fHContOfModeX3 = 0;
+  fHContOfModeY = 0;
+  fHContOfModeY1 = 0;
+  fHContOfModeY2 = 0;
+  fHContOfModeY3 = 0;
+  fHXYCluster = 0;
+  fHTimeVSSlot = 0;
+  fHRecoHitTimeWrtReference = 0;
+  fHRecoHitTimeWrtReferenceVsBurst = 0;
+  fHRecoHitTimeWrtReferenceVsWidth = 0;
+  fHRecoHitTimeWrtReferenceNoT0 = 0;
+  fHRecoHitTimeWrtReferenceVsBurstNoT0 = 0;
+  fHRecoHitTimeWrtReferenceVsWidthNoT0 = 0;
+  fHCandidateTimeWrtReference = 0;
+  fHCandidateTimeWrtReferenceVsBurst = 0;
+  fHNTriggersPerBurst = 0;
+  fHNHitsForRing = 0;
   fHBarEffiNum = 0;
   fHBarEffiDen = 0;
-  fHToTRing0 = 0;        
-  fHToTRing1 = 0;        
-  fHToTRing2 = 0;        
+  fHToTRing0 = 0;
+  fHToTRing1 = 0;
+  fHToTRing2 = 0;
   fHBarID = 0;
   fHCorrTimeShiftMU = 0;
-  fHCorrTime = 0;                              
+  fHCorrTime = 0;
   fHCorrTimeDispPlot = 0;
   fHCorrTimeDispPlotMU = 0;
   fHPositionLow = 0;
   fHPositionHigh = 0;
   fHPosition1 = 0;
-  fHPosition2 = 0; 
+  fHPosition2 = 0;
 
-  fHTimeVsDistanceMU= 0;   
+  fHTimeVsDistanceMU= 0;
 
   fHEffi1Up = 0;
   fHEffi2Up = 0;
   fHEffi1Down = 0;
-  fHEffi2Down = 0; 
-  fHEffiPosition1Up = 0; 
-  fHEffiPosition2Up = 0; 
-  fHEffiPosition1Down = 0; 
-  fHEffiPosition2Down = 0; 
+  fHEffi2Down = 0;
+  fHEffiPosition1Up = 0;
+  fHEffiPosition2Up = 0;
+  fHEffiPosition1Down = 0;
+  fHEffiPosition2Down = 0;
   fHEffiHigh1Up = 0;
   fHEffiHigh2Up = 0;
   fHEffiHigh1Down = 0;
-  fHEffiHigh2Down = 0; 
-  fHEffiPositionHigh1Up = 0; 
-  fHEffiPositionHigh2Up = 0; 
-  fHEffiPositionHigh1Down = 0; 
-  fHEffiPositionHigh2Down = 0;   
+  fHEffiHigh2Down = 0;
+  fHEffiPositionHigh1Up = 0;
+  fHEffiPositionHigh2Up = 0;
+  fHEffiPositionHigh1Down = 0;
+  fHEffiPositionHigh2Down = 0;
   fHDispPlot = 0;
-  fHDispPlotMU = 0; 
+  fHDispPlotMU = 0;
   fHNHitsForRingVSBurst = 0;
-  fHHitTimeIn = 0; 
-  fHHitTimeOut = 0; 
-  fHHitTimeInMU = 0; 
-  fHHitTimeOutMU = 0; 
-  fHHitTimeInAll = 0; 
+  fHHitTimeIn = 0;
+  fHHitTimeOut = 0;
+  fHHitTimeInMU = 0;
+  fHHitTimeOutMU = 0;
+  fHHitTimeInAll = 0;
   fHHitTimeOutAll = 0;
-  fHEffiPlotXDen = 0; 
-  fHEffiPlotYDen = 0; 
-  fHEffiPlotXNum = 0; 
+  fHEffiPlotXDen = 0;
+  fHEffiPlotYDen = 0;
+  fHEffiPlotXNum = 0;
   fHEffiPlotYNum = 0;
-  fHEffiPlotHighXNum = 0; 
-  fHEffiPlotHighYNum = 0;  
-  fHEffiPlotXYDen = 0; 
+  fHEffiPlotHighXNum = 0;
+  fHEffiPlotHighYNum = 0;
+  fHEffiPlotXYDen = 0;
   fHEffiPlotXYNum = 0;
-  fHNHitsForPlane = 0; 
-  fHToTPlane0 = 0; 
-  fHToTPlane1 = 0; 
-  fHToTPlane2 = 0;   
-  fHViewX1THRL = 0; 
-  fHViewX2THRL = 0; 
-  fHViewY1THRL = 0; 
-  fHViewY2THRL = 0;   
-  fHViewX1THRH = 0; 
-  fHViewX2THRH = 0; 
-  fHViewY1THRH = 0; 
-  fHViewY2THRH = 0; 
+  fHNHitsForPlane = 0;
+  fHToTPlane0 = 0;
+  fHToTPlane1 = 0;
+  fHToTPlane2 = 0;
+  fHViewX1THRL = 0;
+  fHViewX2THRL = 0;
+  fHViewY1THRL = 0;
+  fHViewY2THRL = 0;
+  fHViewX1THRH = 0;
+  fHViewX2THRH = 0;
+  fHViewY1THRH = 0;
+  fHViewY2THRH = 0;
   fHResoTimePlane = 0;
   fHResoTimePlaneMU = 0;
-  fHXYClusterPerPlane = 0; 
-  fHNHitsForPlaneVSBurst = 0;   
-  fHNWordPerTell = 0; 
-  fHNWordPerTDCB = 0; 
-  fHNWordPerTDC = 0; 
+  fHXYClusterPerPlane = 0;
+  fHNHitsForPlaneVSBurst = 0;
+  fHNWordPerTell = 0;
+  fHNWordPerTDCB = 0;
+  fHNWordPerTDC = 0;
 }

@@ -30,7 +30,6 @@ protected:
   bool fGoodEvent;
 
   //parameters
-  bool verb;
   int fSpecificCharge;
   double fCutSlopeDiffX;
   double fCutSlopeDiffY;

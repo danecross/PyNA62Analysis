@@ -18,7 +18,8 @@ CheckTrigger::CheckTrigger(Core::BaseAnalysis *ba) : Analyzer(ba, "CheckTrigger"
   RequestL0Data();
 
   AddParam("WhichTrigger", "int", &fWhichTrigger, 1); //1=control, 2=pnn
-  AddParam("Verbosity", "bool", &verb, false);
+
+  EnablePrefix(false);
 }
 
 void CheckTrigger::InitOutput()
@@ -58,7 +59,7 @@ void CheckTrigger::ProcessSpecialTriggerUser(int iEvent, unsigned int triggerTyp
 
 void CheckTrigger::Process(int iEvent){
   if(!fReadingData) return;
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"<<endl;
     cout<<"                                    Event = "<<iEvent<<"                               "<<endl;
@@ -85,8 +86,8 @@ void CheckTrigger::Process(int iEvent){
   fControlTriggerOK = TriggerConditions::GetInstance()->IsControlTrigger(GetL0Data());
   fPNNTriggerOK = TriggerConditions::GetInstance()->L0TriggerBitOn(GetL0Data(), 1);
 
-  if(verb) cout<<"Wanted trigger "<<(fWhichTrigger==1?"Control":(fWhichTrigger==2?"PNN":""))<<endl;
-  if(verb) cout<<"Control ? "<<fControlTriggerOK<<" Pnn? "<<fPNNTriggerOK<<endl;
+  cout<<user()<<"Wanted trigger "<<(fWhichTrigger==1?"Control":(fWhichTrigger==2?"PNN":""))<<endl;
+  cout<<user()<<"Control ? "<<fControlTriggerOK<<" Pnn? "<<fPNNTriggerOK<<endl;
   if(fWhichTrigger==1){ //control
     if(fControlTriggerOK){
       fineTime = GetL0Data()->GetReferenceFineTime();
@@ -107,7 +108,7 @@ void CheckTrigger::Process(int iEvent){
     FillHisto("hTriggerTime", fTriggerTime);
     FillHisto("hFineTime", fineTime);
   };
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<"trigger time = "<<fTriggerTime<<endl;
     cout<<"event passed trigger? "<<fEventPassedTrigger<<endl;
   };

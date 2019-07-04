@@ -403,7 +403,6 @@ def updateSettings(UserPath, FwPath, old_rev, new_rev):
 
 def copyTemplates(FWPath, UserPath, NA62RECOSOURCE):
     # Always replace the CMakeLists.txt in case it changed
-
     shutil.copyfile("%s/Templates/CMakeLists.txt" % FWPath, "%s/CMakeLists.txt" % UserPath)
     shutil.copyfile("%s/Templates/CMakeLists_PO.txt" % FWPath, "%s/PhysicsObjects/CMakeLists.txt" % UserPath)
     shutil.copyfile("%s/Templates/CMakeLists_Algos.txt" % FWPath, "%s/Algorithms/CMakeLists.txt" % UserPath)
@@ -424,7 +423,6 @@ def checkUpdate():
     if(not getFWWorkspaceVersion(FWPath)):
         print "\033[94mAborting update userspace version check\033[0m"
         print "\033[94mForcing template update without updating user revision\033[0m"
-        print("\n\nUserPath: %s\n\n" % UserPath)
         copyTemplates(FWPath, UserPath, NA62RECOSOURCE)
         return
 
@@ -956,7 +954,6 @@ def available(args):
 
 # Create new analyzer
 def generateNewAnalyzer(name, FWPath, UserPath, inputs):
-
     if name[-3:]=='.py':
         extension = 'py'
     else:
@@ -966,7 +963,7 @@ def generateNewAnalyzer(name, FWPath, UserPath, inputs):
         answer = raw_input("This analyzer already exists. Do you want to overwrite it [Y/N] ? ")
         if answer.lower() == 'y':
             os.remove("%s/Analyzers/include/%s.%s" % (UserPath, name, extension))
-	    if ext == 'hh':
+	    if extension == "hh":
                 os.remove("%s/Analyzers/src/%s.cc" % (UserPath, name))
         else:
             print "Please choose a different name."
@@ -978,12 +975,11 @@ def generateNewAnalyzer(name, FWPath, UserPath, inputs):
         print "This analyzer already exists. Please choose a different name."
         return
 
-    if extension == 'py':
-	readAndReplace("%s/Templates/templateAnalyzer.py" % FWPath, "%s/Analyzers/src/%s.py" %
-                       (UserPath, name[:-3]), {'templateAnalyzer': name[:-3], 'TEMPLATEANALYZER': name.upper()[:-3]})
-    else: 
-        readAndReplace("%s/Templates/templateAnalyzer.hh" % FWPath, "%s/Analyzers/include/%s.hh" %
-                       (UserPath, name), {'templateAnalyzer': name, 'TEMPLATEANALYZER': name.upper()})
+    
+
+    readAndReplace("%s/Templates/templateAnalyzer.%s" % (FWPath, extension), "%s/Analyzers/include/%s.%s" %
+                   (UserPath, name, extension), {'templateAnalyzer': name, 'TEMPLATEANALYZER': name.upper()})
+    if extension == 'hh':
         readAndReplace("%s/Templates/templateAnalyzer.cc" % FWPath, "%s/Analyzers/src/%s.cc" %
                        (UserPath, name), {'templateAnalyzer': name, '/*$$TREEREQUEST$$*/': inputs[0],
                                           '/*$$GETEVENTS$$*/': inputs[1]})
@@ -1088,9 +1084,6 @@ def cloneAnalyzer(args):
 
 
 def readBuildConfigFile(filename):
-
-    print("filename: %s\n" % filename)
-
     if not os.path.exists(filename):
         print "The config file %s does not exist" % filename
         return None
@@ -1389,8 +1382,6 @@ def generateMain(FWPath, UserPath, orderedPreAnalyzers, orderedAnalyzers, extral
 def prepareUserFolder(args):
     global __rev__
 
-    print("\n\n!!here!!\n\n")
-
     [path] = args.UserDirectory
     path = path.rstrip("/")
     path = os.path.abspath(path)
@@ -1619,10 +1610,9 @@ def parseArgs():
 
 def main():
 
-    print("\n\n\n\nYOU ARE RUNNING THE ALTERED SCRIPT NOT THE OFFICIAL ONE\n\n\n\n\n")
+    print("\n\n      Running altered script, not original \n\n\n\n")
 
-    if False and getVar("ANALYSISFW_USERDIR", -1) != -1:
-	print("\n\n this: %s \n\n" % getVar("ANALYSISFW_USERDIR", -1))
+    if getVar("ANALYSISFW_USERDIR", -1) != -1:
         checkUpdate()
 
     parseArgs()

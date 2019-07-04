@@ -22,7 +22,7 @@
 //  T0
 //  Handle collection on central cells
 //  Events out of window
-//  Multiple leadings 
+//  Multiple leadings
 
 #include "MUV3Digitizer.hh"
 #include "NA62RecoManager.hh"
@@ -415,7 +415,7 @@ void MUV3Digitizer::RunDetailedDigitizer (TMUV3Event* MUV3Event) {
 	if (Energy<0) continue; // reject hits in PMT windows for the time being
 	CellEnergy += Energy;
 
-	Double_t x        = Hit->GetPosition().x(); 
+	Double_t x        = Hit->GetPosition().x();
 	Double_t y        = Hit->GetPosition().y();
 	Double_t nPhotons = Energy*fPhotonsPerMeV;
 
@@ -503,10 +503,10 @@ void MUV3Digitizer::RunDetailedDigitizer (TMUV3Event* MUV3Event) {
       if (Hit->GetEnergy()<0) continue; // reject hits in PMT windows for the time being
       if (Hit->GetChannelID()>=200) continue; // avoid duplication
 
-      Etot += Hit->GetEnergy(); 
+      Etot += Hit->GetEnergy();
       if (fDebugFlag) {
 	std::cout << Hit->GetTime() << " " << Hit->GetEnergy() << " " <<
-	  Hit->GetPosition().x() << " " << Hit->GetPosition().y() << " " << 
+	  Hit->GetPosition().x() << " " << Hit->GetPosition().y() << " " <<
 	  Hit->GetPosition().z() << " " << Hit->GetChannelID() << " " <<
 	  Hit->GetMCTrackID() << std::endl;
       }
@@ -528,17 +528,17 @@ Double_t MUV3Digitizer::CollectionEfficiency (Int_t PM_no, Double_t x, Double_t 
   if (iCell==147 || iCell==148) {
     ttx = 0.7071*(tx+ty);
     tty = 0.7071*(ty-tx);
-  }  
+  }
   if (iCell==145 || iCell==150) {
     ttx = 0.7071*(tx-ty);
     tty = 0.7071*(tx+ty);
-  }  
+  }
   if (iCell==144 || iCell==149) {
     ttx =  ty;
     tty = -tx;
   }
   tx = ttx;
-  ty = tty;  
+  ty = tty;
   //Int_t ix = (Int_t) (tx/220.) + 11;
   //Int_t iy = (Int_t) (ty/220.) + 11;
   Int_t ix = (Int_t) ((tx+110.)/10.);
@@ -555,7 +555,7 @@ Double_t MUV3Digitizer::CollectionEfficiency (Int_t PM_no, Double_t x, Double_t 
 }
 
 //////////////////////////////////////////////////////////////////
-// Compute the time correction due to the different distances from 
+// Compute the time correction due to the different distances from
 // the different points of the scintillator to the PM surface
 
 Double_t MUV3Digitizer::GetCollectionTime (Int_t iPM, Double_t x, Double_t y, Int_t iCell) {
@@ -593,7 +593,7 @@ void MUV3Digitizer::IncrementAnalogSignal (Double_t nPhotoElectrons, Double_t Ti
 
 void MUV3Digitizer::DoCFD() {
   Double_t LeadingSum = 0, LeadingSumOld = 0;
-  Int_t ibinLeading = 0, ibinTrailing = 0;
+  Int_t ibinLeading = 0, ibinTrailing;
   Double_t fTDCTimeBin = 0.097;
 
   if (fCFDDebugFlag) std::cout << "CFD processing" << std::endl;

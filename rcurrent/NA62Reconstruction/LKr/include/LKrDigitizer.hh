@@ -29,6 +29,7 @@ class LKrDigitizer : public NA62VDigitizer
   Double_t fESwitch[4];
 
   private:
+  // cppcheck-suppress unusedPrivateFunction
   Int_t chooseGain(Double_t);
 
 

@@ -1,0 +1,12 @@
+module "NewCHODPersistency" {
+  requires cplusplus
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NewCHOD/include/NewCHODChannelID.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NewCHOD/include/NewCHODChannelID.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NewCHOD/include/TNewCHODDigi.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NewCHOD/include/TNewCHODDigi.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NewCHOD/include/TNewCHODEvent.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NewCHOD/include/TNewCHODEvent.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NewCHOD/include/TNewCHODHit.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NewCHOD/include/TNewCHODHit.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NewCHOD/include/TRecoNewCHODCandidate.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NewCHOD/include/TRecoNewCHODCandidate.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NewCHOD/include/TRecoNewCHODEvent.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NewCHOD/include/TRecoNewCHODEvent.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NewCHOD/include/TRecoNewCHODHit.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NewCHOD/include/TRecoNewCHODHit.hh" export * }
+  export *
+}
+

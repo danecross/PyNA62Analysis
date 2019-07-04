@@ -37,6 +37,5 @@ protected:
   //parameters
   int fCutMinNSTRAWChambers;
   double fCutChi2;
-  bool verb;
 };
 #endif

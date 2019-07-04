@@ -63,8 +63,6 @@ void ReplaceOMDetectorReferencePlot(TString fold, TString fnew, TString detector
 
   TIter next1(File1->GetDirectory(fDetectorDir)->GetListOfKeys());
   TIter next2(File2->GetDirectory(fDetectorDir)->GetListOfKeys());
-  TKey * key1;
-  TKey * key2;
 
   std::cout << "Deleting histograms in " << fold << ":/" << fDetectorDir << " ..." << std::endl;
   DeleteHistograms(File1, fDetectorDir);

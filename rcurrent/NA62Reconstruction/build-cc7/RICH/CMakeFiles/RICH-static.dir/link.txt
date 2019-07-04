@@ -1,0 +1,2 @@
+/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ar qc libRICH-static.a  CMakeFiles/RICHObjLib.dir/src/RICHChannel.cc.o CMakeFiles/RICHObjLib.dir/src/RICHDigitizer.cc.o CMakeFiles/RICHObjLib.dir/src/RICHOnlineMonitor.cc.o CMakeFiles/RICHObjLib.dir/src/RICHRawDecoder.cc.o CMakeFiles/RICHObjLib.dir/src/RICHRawEncoder.cc.o CMakeFiles/RICHObjLib.dir/src/RICHReconstruction.cc.o
+/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ranlib libRICH-static.a

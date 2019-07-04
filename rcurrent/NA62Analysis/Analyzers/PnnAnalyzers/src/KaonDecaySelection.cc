@@ -21,7 +21,6 @@ KaonDecaySelection::KaonDecaySelection(Core::BaseAnalysis *ba) : Analyzer(ba, "K
   RequestTree("CHANTI", new TRecoCHANTIEvent, "Reco");
   RequestTree("GigaTracker", new TRecoGigaTrackerEvent, "Reco");
 
-  AddParam("Verbosity", "bool", &verb, false);
   AddParam("CutMinGTKMomentum", "double", &fCutMinGTKMomentum, 72700.);
   AddParam("CutMaxGTKMomentum", "double", &fCutMaxGTKMomentum, 77200.);
   AddParam("MinSlopeX", "double", &fMinSlopeX, 0.0009);
@@ -62,6 +61,8 @@ KaonDecaySelection::KaonDecaySelection(Core::BaseAnalysis *ba) : Analyzer(ba, "K
   fB = 1.6678;
   fTRIM5kick = 91.3;
   fTRIM5halfwidth = 200.;
+
+  EnablePrefix(false);
 }
 
 void KaonDecaySelection::InitOutput(){
@@ -103,7 +104,7 @@ void KaonDecaySelection::Process(int){
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"-------------------"<<endl;
     cout<<"KaonDecaySelection"<<endl;
@@ -119,15 +120,15 @@ void KaonDecaySelection::Process(int){
   auto preselectedEvent =
     *(bool*)GetOutput("Preselection.PreselectedEvent", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb) cout<<"Is event preselected? "<<preselectedEvent<<endl;
+  cout<<user()<<"Is event preselected? "<<preselectedEvent<<endl;
   if(!preselectedEvent){
-    if(verb) cout<<"Event is not preselected"<<endl;
+    cout<<user()<<"Event is not preselected"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -136,13 +137,13 @@ void KaonDecaySelection::Process(int){
   auto isSingleTrack =
     *(bool*)GetOutput("SingleTrackEventSelection.EventSelected", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb) cout<<"Is single track event? "<<isSingleTrack<<endl;
+  cout<<user()<<"Is single track event? "<<isSingleTrack<<endl;
   if(!isSingleTrack) return;
   FillHisto("hCut", cutID);
   cutID++;
@@ -150,45 +151,45 @@ void KaonDecaySelection::Process(int){
   auto trackID =
     *(int*)GetOutput("SingleTrackEventSelection.TrackID", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
-  if(verb) cout<<"Track ID read = "<<trackID<<endl;
+  cout<<user()<<"Track ID read = "<<trackID<<endl;
   FillHisto("hCut", cutID);
   cutID++;
 
   auto trackTimes =
     *(std::vector<double>*)GetOutput("BestTrackSelection.BestTrackTime", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
   double trackTime = trackTimes.at(trackID);
-  if(verb) cout<<"track time read = "<<trackTime<<endl;
+  cout<<user()<<"track time read = "<<trackTime<<endl;
 
   auto trackKTAGTimes =
     *(std::vector<double>*)GetOutput("BestTrackSelection.BestTrackKTAGTime", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
   double trackKTAGTime = trackKTAGTimes.at(trackID);
-  if(verb) cout<<"track KTAG time read = "<<trackKTAGTime<<endl;
+  cout<<user()<<"track KTAG time read = "<<trackKTAGTime<<endl;
 
   auto trackGTKTimes =
     *(std::vector<double>*)GetOutput("BestTrackSelection.BestTrackGTKTime", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
   double trackGTKTime = trackGTKTimes.at(trackID);
-  if(verb) cout<<"track GTK time read = "<<trackGTKTime<<endl;
+  cout<<user()<<"track GTK time read = "<<trackGTKTime<<endl;
 
   TRecoSpectrometerEvent* STRAWEvent = GetEvent<TRecoSpectrometerEvent>();
   TRecoSpectrometerCandidate* STRAWCand = static_cast<TRecoSpectrometerCandidate*>(STRAWEvent->GetCandidate(trackID));
@@ -203,11 +204,11 @@ void KaonDecaySelection::Process(int){
   auto GTKMomentum =
     *(std::vector<TVector3>*)GetOutput("BestTrackSelection.GTKAssocMomentum", state);
   if(state==kOInvalid || state==kOUninit){
-    if(verb) cout<<"Uninit/Invalid"<<endl;
+    cout<<user()<<"Uninit/Invalid"<<endl;
     return;
   };
-  if(verb) cout<<"all requested outputs are valid"<<endl;
-  if(verb) cout<<"GTK ID = "<<GTKAssocID.at(trackID)<<endl;
+  cout<<user()<<"all requested outputs are valid"<<endl;
+  cout<<user()<<"GTK ID = "<<GTKAssocID.at(trackID)<<endl;
   FillHisto("hCut", cutID);
   cutID++;
   TVector3 momGTKatV = GTKMomentum.at(trackID);
@@ -223,33 +224,33 @@ void KaonDecaySelection::Process(int){
   ApplyBlueTube(1, vertex, momTRACKatV, fZGTK3, &posTRACKatGTK3, &momTRACKatGTK3);
 
   //track position at GTK3
-  if(verb) cout<<"track position at GTK3: x = "<<fabs(posTRACKatGTK3.X())<<" > "<<fCutMinXTrackAtGTK3<<" y = "<<fabs(posTRACKatGTK3.Y())<<" > "<<fCutMinYTrackAtGTK3<<endl;
+  cout<<user()<<"track position at GTK3: x = "<<fabs(posTRACKatGTK3.X())<<" > "<<fCutMinXTrackAtGTK3<<" y = "<<fabs(posTRACKatGTK3.Y())<<" > "<<fCutMinYTrackAtGTK3<<endl;
   if(fabs(posTRACKatGTK3.X())<fCutMinXTrackAtGTK3 && fabs(posTRACKatGTK3.Y())<fCutMinYTrackAtGTK3) return; //against inefficiency in GTK3
   FillHisto("hCut", cutID);
   cutID++;
 
   //interaction of track at GTK3
   int count = 0;
-  if(verb) cout<<"N hits in GTK = "<<GTKEvent->GetNHits()<<endl;
+  cout<<user()<<"N hits in GTK = "<<GTKEvent->GetNHits()<<endl;
   for(int i=0; i<GTKEvent->GetNHits(); i++){
     GTKHit = static_cast<TRecoGigaTrackerHit*>(GTKEvent->GetHit(i));
     FillHisto("hGTKstation", GTKHit->GetStationNo());
     if(GTKHit->GetStationNo()!=2) continue;
-    if(verb) cout<<"hit in GTK3  = "<<i<<endl;
+    cout<<user()<<"hit in GTK3  = "<<i<<endl;
     TVector3 pos = GTKHit->GetPosition();
     FillHisto("hPosDiffGTK3HitTrack", (pos-posTRACKatGTK3).Mag());
-    if(verb) cout<<"distance from track at GTK3 = "<<(pos-posTRACKatGTK3).Mag()<<" < "<<fCutMinDistTrackHitGTK3<<" to be close hit"<<endl;
+    cout<<user()<<"distance from track at GTK3 = "<<(pos-posTRACKatGTK3).Mag()<<" < "<<fCutMinDistTrackHitGTK3<<" to be close hit"<<endl;
     if((pos-posTRACKatGTK3).Mag()<fCutMinDistTrackHitGTK3) count++;
   };
   FillHisto("hNCloseHitsInGTK3", count);
-  if(verb) cout<<"N Close hits in GTK3: "<<count<<" = 0"<<endl;
+  cout<<user()<<"N Close hits in GTK3: "<<count<<" = 0"<<endl;
   if(count>0) return;
   FillHisto("hCut", cutID);
   cutID++;
 
   //good GTK candidate
   bool goodGTK = IsGoodCandidate(GTKCand);
-  if(verb) cout<<"Is good candidate? "<<goodGTK<<endl;
+  cout<<user()<<"Is good candidate? "<<goodGTK<<endl;
   if(!goodGTK) return;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hCut", cutID);
@@ -257,7 +258,7 @@ void KaonDecaySelection::Process(int){
 
   //vertex Z - added lower cut because both K2pi and Kmu2 selection require it
   FillHisto("hVertexZ", vertex.Z());
-  if(verb) cout<<"vertex Z: "<<"115000. < "<<vertex.Z()<<" < 165000."<<endl;
+  cout<<user()<<"vertex Z: "<<"115000. < "<<vertex.Z()<<" < 165000."<<endl;
   if(vertex.Z()<115000. || vertex.Z()>165000.) return;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hCut", cutID);
@@ -269,8 +270,8 @@ void KaonDecaySelection::Process(int){
   if(fUseCutRStraw1VsVertexZ){
     FillHisto("hRstraw1vsVertexZ", vertex.Z(), Rstraw1);
     FillHisto("hVertexZ", vertex.Z());
-    if(verb) cout<<"track position at STRAW1: "<<posTRACKatSTRAW1.X()<<" "<<posTRACKatSTRAW1.Y()<<" "<<posTRACKatSTRAW1.Z()<<endl;
-    if(verb) cout<<"Rstraw1: "<<Rstraw1<<" > "<<fqMax1Rstraw1 + fkMax1Rstraw1*vertex.Z()<<endl;
+    cout<<user()<<"track position at STRAW1: "<<posTRACKatSTRAW1.X()<<" "<<posTRACKatSTRAW1.Y()<<" "<<posTRACKatSTRAW1.Z()<<endl;
+    cout<<user()<<"Rstraw1: "<<Rstraw1<<" > "<<fqMax1Rstraw1 + fkMax1Rstraw1*vertex.Z()<<endl;
     if(Rstraw1<=(fqMax1Rstraw1 + fkMax1Rstraw1*vertex.Z())) return;
   };
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
@@ -281,27 +282,27 @@ void KaonDecaySelection::Process(int){
   if(fUseCutToT){
     count = 0;
     std::vector<int> countInStation{0, 0, 0};
-    if(verb) cout<<"N GTK hits = "<<GTKEvent->GetNHits()<<endl;
+    cout<<user()<<"N GTK hits = "<<GTKEvent->GetNHits()<<endl;
     for(int i=0; i<GTKEvent->GetNHits(); i++){
       GTKHit = static_cast<TRecoGigaTrackerHit*>(GTKEvent->GetHit(i));
       double deltaT = GTKHit->GetTime() - trackKTAGTime;
-      if(verb){
+      if(TestLevel(Verbosity::kUser)){
 	cout<<"hit "<<i<<" with T = "<<GTKHit->GetTime()<<" and deltaT = |"<<deltaT<<"| <= 1.2 to be in-time"<<endl;
 	cout<<"hit "<<i<<" with ToT = "<<GTKHit->GetToT()<<" >= "<<fCutToT<<" to be high ToT"<<endl;
       };
       if(fabs(deltaT)>1.2) continue;
-      if(verb) cout<<"in-time hit in station "<<GTKHit->GetStationNo()<<endl;
+      cout<<user()<<"in-time hit in station "<<GTKHit->GetStationNo()<<endl;
       countInStation.at(GTKHit->GetStationNo())++;
       FillHisto("hGTKToT", GTKHit->GetToT());
       if(GTKHit->GetToT()>=fCutToT){
-	if(verb) cout<<"high ToT hit"<<endl;
+	cout<<user()<<"high ToT hit"<<endl;
 	count++;
       };
     };
     FillHisto("hNHitsHighToT", count);
-    if(verb) cout<<"N GTK hits with high ToT: "<<count<<" = 0"<<endl;
+    cout<<user()<<"N GTK hits with high ToT: "<<count<<" = 0"<<endl;
     if(count>0) return;
-    if(verb) cout<<"N GTK hits in-time in stations: "<<countInStation.at(0)<<" < 50 "<<countInStation.at(1)<<" < 50 "<<countInStation.at(2)<<" < 50"<<endl;
+    cout<<user()<<"N GTK hits in-time in stations: "<<countInStation.at(0)<<" < 50 "<<countInStation.at(1)<<" < 50 "<<countInStation.at(2)<<" < 50"<<endl;
     if(countInStation.at(0)>50 || countInStation.at(1)>50 || countInStation.at(2)>50) return; //not physical cut from RG (to not overflow array)
   };
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
@@ -323,7 +324,7 @@ void KaonDecaySelection::Process(int){
       break;
     };
   };
-  if(verb) cout<<"Matched CHANTI: "<<hasCHANTI<<" = 0"<<endl;
+  cout<<user()<<"Matched CHANTI: "<<hasCHANTI<<" = 0"<<endl;
   if(hasCHANTI) return;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hCut", cutID);
@@ -339,14 +340,14 @@ void KaonDecaySelection::Process(int){
       break;
     };
   };
-  if(verb) cout<<"Found additional vertex? "<<hasAdditVertex<<endl;
+  cout<<user()<<"Found additional vertex? "<<hasAdditVertex<<endl;
   if(hasAdditVertex) return;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hCut", cutID);
   cutID++;
 
   fDecaySelected = true;
-  if(verb) cout<<"Decay selected"<<endl;
+  cout<<user()<<"Decay selected"<<endl;
 }
 
 void KaonDecaySelection::PostProcess(){}
@@ -376,20 +377,20 @@ void KaonDecaySelection::ValidateOutputs(){
 
 bool KaonDecaySelection::IsGoodCandidate(TRecoGigaTrackerCandidate *GTKCand){
   TVector3 mom = GTKCand->GetMomentum();
-  if(verb) cout<<"GTK momentum: "<<fCutMinGTKMomentum<<" < "<<mom.Mag()<<" < "<<fCutMaxGTKMomentum<<endl;
+  cout<<user()<<"GTK momentum: "<<fCutMinGTKMomentum<<" < "<<mom.Mag()<<" < "<<fCutMaxGTKMomentum<<endl;
   FillHisto("hGTKMom", mom.Mag());
   if((mom.Mag()<fCutMinGTKMomentum) || (mom.Mag()>fCutMaxGTKMomentum)){
-    if(verb) cout<<"Not good candidate (wrong momentum), try other candidates."<<endl;
+    cout<<user()<<"Not good candidate (wrong momentum), try other candidates."<<endl;
     return 0;
   };
 
   double slopeX = mom.X()/mom.Z();
   double slopeY = mom.Y()/mom.Z();
-  if(verb) cout<<"SlopeX: "<<fMinSlopeX<<" < "<<slopeX<<" < "<<fMaxSlopeX<<endl;
-  if(verb) cout<<"SlopeY: "<<fMinSlopeY<<" < "<<slopeY<<" < "<<fMaxSlopeY<<endl;
+  cout<<user()<<"SlopeX: "<<fMinSlopeX<<" < "<<slopeX<<" < "<<fMaxSlopeX<<endl;
+  cout<<user()<<"SlopeY: "<<fMinSlopeY<<" < "<<slopeY<<" < "<<fMaxSlopeY<<endl;
   FillHisto("hGTKSlopeYvsSlopeX", slopeX, slopeY);
   if((slopeX<fMinSlopeX) || (slopeX>fMaxSlopeX) || (slopeY<fMinSlopeY) || (slopeY>fMaxSlopeY)){
-    if(verb) cout<<"Not good candidate (wrong slopes), try other candidates."<<endl;
+    cout<<user()<<"Not good candidate (wrong slopes), try other candidates."<<endl;
     return 0;
   };
 
@@ -400,7 +401,7 @@ bool KaonDecaySelection::IsGoodCandidate(TRecoGigaTrackerCandidate *GTKCand){
   double thetaXtrim5 = 0.0012; //before: 0.0012
   double trimKick = 91.3;
   thetaXtrim5 = trimKick/mom.Mag();
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<"Px = "<<mom.X()<<endl;
     cout<<"Py = "<<mom.Y()<<endl;
     cout<<"Pz = "<<mom.Z()<<endl;
@@ -413,10 +414,10 @@ bool KaonDecaySelection::IsGoodCandidate(TRecoGigaTrackerCandidate *GTKCand){
     cout<<"slopeY - meanSlopeY = "<<slopeY - meanSlopeY<<endl;
   };
   double thetaCorr = sqrt(pow(slopeX - thetaXtrim5 - meanSlopeX, 2) + pow(slopeY - meanSlopeY, 2));
-  if(verb) cout<<"ThetaCorr: "<<thetaCorr<<" < "<<fMaxThetaCorr<<endl;
+  cout<<user()<<"ThetaCorr: "<<thetaCorr<<" < "<<fMaxThetaCorr<<endl;
   FillHisto("hThetaCorr", thetaCorr);
   if(thetaCorr>fMaxThetaCorr){
-    if(verb) cout<<"Not good candidate (wrong thetaCorr), try other candidates."<<endl;
+    cout<<user()<<"Not good candidate (wrong thetaCorr), try other candidates."<<endl;
     return 0;
   };
 

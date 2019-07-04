@@ -1,0 +1,12 @@
+module "MUV0Persistency" {
+  requires cplusplus
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/MUV0/include/MUV0ChannelID.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/MUV0/include/MUV0ChannelID.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/MUV0/include/TMUV0Digi.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/MUV0/include/TMUV0Digi.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/MUV0/include/TMUV0Event.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/MUV0/include/TMUV0Event.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/MUV0/include/TMUV0Hit.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/MUV0/include/TMUV0Hit.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/MUV0/include/TRecoMUV0Candidate.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/MUV0/include/TRecoMUV0Candidate.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/MUV0/include/TRecoMUV0Event.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/MUV0/include/TRecoMUV0Event.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/MUV0/include/TRecoMUV0Hit.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/MUV0/include/TRecoMUV0Hit.hh" export * }
+  export *
+}
+

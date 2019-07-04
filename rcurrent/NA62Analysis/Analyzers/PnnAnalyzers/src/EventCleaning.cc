@@ -17,7 +17,6 @@ EventCleaning::EventCleaning(Core::BaseAnalysis *ba) : Analyzer(ba, "EventCleani
 {
   RequestTree("Spectrometer", new TRecoSpectrometerEvent, "Reco");
 
-  AddParam("Verbosity", "bool", &verb, false);
   AddParam("SpecificCharge", "int", &fSpecificCharge, 1);
   AddParam("CutSlopeDiffX", "double", &fCutSlopeDiffX, 0.0003);
   AddParam("CutSlopeDiffY", "double", &fCutSlopeDiffY, 0.001);
@@ -34,6 +33,8 @@ EventCleaning::EventCleaning(Core::BaseAnalysis *ba) : Analyzer(ba, "EventCleani
   AddParam("qmaxY", "double", &fqMaxY, -5.4);
   AddParam("CutTimeDiffCHODGTK", "double", &fCutTimeDiffCHODGTK, 1.1);
   AddParam("CutTimeDiffKTAGGTK", "double", &fCutTimeDiffKTAGGTK, 1.1);
+
+  EnablePrefix(false);
 }
 
 void EventCleaning::InitOutput(){
@@ -73,7 +74,7 @@ void EventCleaning::Process(int){
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb){
+  if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"-------------------"<<endl;
     cout<<"EventCleaning"<<endl;
@@ -89,15 +90,15 @@ void EventCleaning::Process(int){
   auto preselectedEvent =
     *(bool*)GetOutput("Preselection.PreselectedEvent", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb) cout<<"Is event preselected? "<<preselectedEvent<<endl;
+  cout<<user()<<"Is event preselected? "<<preselectedEvent<<endl;
   if(!preselectedEvent){
-    if(verb) cout<<"Event is not preselected"<<endl;
+    cout<<user()<<"Event is not preselected"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
@@ -106,13 +107,13 @@ void EventCleaning::Process(int){
   auto isSingleTrack =
     *(bool*)GetOutput("SingleTrackEventSelection.EventSelected", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
 
-  if(verb) cout<<"Is single track event? "<<isSingleTrack<<endl;
+  cout<<user()<<"Is single track event? "<<isSingleTrack<<endl;
   if(!isSingleTrack) return;
   FillHisto("hCut", cutID);
   cutID++;
@@ -120,56 +121,56 @@ void EventCleaning::Process(int){
   auto trackID =
     *(int*)GetOutput("SingleTrackEventSelection.TrackID", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
-  if(verb) cout<<"Track ID read = "<<trackID<<endl;
+  cout<<user()<<"Track ID read = "<<trackID<<endl;
   FillHisto("hCut", cutID);
   cutID++;
 
   auto trackCHODTime =
     *(std::vector<double>*)GetOutput("BestTrackSelection.BestTrackCHODTime", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
   double tCHOD = trackCHODTime.at(trackID);
-  if(verb) cout<<"CHOD time = "<<tCHOD<<endl;
+  cout<<user()<<"CHOD time = "<<tCHOD<<endl;
 
   auto trackKTAGTime =
     *(std::vector<double>*)GetOutput("BestTrackSelection.BestTrackKTAGTime", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
   double tKTAG = trackKTAGTime.at(trackID);
-  if(verb) cout<<"KTAG time = "<<tKTAG<<endl;
+  cout<<user()<<"KTAG time = "<<tKTAG<<endl;
 
   auto trackGTKTime =
     *(std::vector<double>*)GetOutput("BestTrackSelection.BestTrackGTKTime", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
   double tGTK = trackGTKTime.at(trackID);
-  if(verb) cout<<"GTK time = "<<tGTK<<endl;
+  cout<<user()<<"GTK time = "<<tGTK<<endl;
 
   auto Vertex =
     *(std::vector<TVector3>*)GetOutput("BestTrackSelection.GTKAssocVertex", state);
   if(state!=kOValid){
-    if(verb) cout<<"Requested output is not valid"<<endl;
+    cout<<user()<<"Requested output is not valid"<<endl;
     return;
   };
   FillHisto("hCut", cutID);
   cutID++;
   TVector3 vertex = Vertex.at(trackID);
-  if(verb) cout<<"vertex = ("<<vertex.X()<<","<<vertex.Y()<<","<<vertex.Z()<<")"<<endl;
+  cout<<user()<<"vertex = ("<<vertex.X()<<","<<vertex.Y()<<","<<vertex.Z()<<")"<<endl;
   FillHisto("hVertexZ", vertex.Z());
 
   TRecoSpectrometerEvent* STRAWEvent = GetEvent<TRecoSpectrometerEvent>();
@@ -178,7 +179,7 @@ void EventCleaning::Process(int){
 
   //track charge
   FillHisto("hTrackCharge", STRAWCand->GetCharge());
-  if(verb) cout<<"Track charge: "<<STRAWCand->GetCharge()<<" = "<<fSpecificCharge<<endl;
+  cout<<user()<<"Track charge: "<<STRAWCand->GetCharge()<<" = "<<fSpecificCharge<<endl;
   if(STRAWCand->GetCharge()!=fSpecificCharge) return;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hCut", cutID);
@@ -191,8 +192,8 @@ void EventCleaning::Process(int){
   double slopeXA = momA.X()/momA.Z();
   double slopeYA = momA.Y()/momA.Z();
   FillHisto("hSlopeDiffYvsX", fabs(slopeXB - slopeXA), fabs(slopeYB - slopeYA));
-  if(verb) cout<<"Slope X difference: "<<fabs(slopeXB - slopeXA)<<" <= "<<fCutSlopeDiffX<<endl;
-  if(verb) cout<<"Slope Y difference: "<<fabs(slopeYB - slopeYA)<<" <= "<<fCutSlopeDiffY<<endl;
+  cout<<user()<<"Slope X difference: "<<fabs(slopeXB - slopeXA)<<" <= "<<fCutSlopeDiffX<<endl;
+  cout<<user()<<"Slope Y difference: "<<fabs(slopeYB - slopeYA)<<" <= "<<fCutSlopeDiffY<<endl;
   if(fabs(slopeXB - slopeXA)>fCutSlopeDiffX || fabs(slopeYB - slopeYA)>fCutSlopeDiffY) return;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hCut", cutID);
@@ -200,7 +201,7 @@ void EventCleaning::Process(int){
 
   //Combination total quality of STRAW candidate
   FillHisto("hCombinationTotalQuality", STRAWCand->GetCombinationTotalQuality());
-  if(verb) cout<<"Track total quality: "<<STRAWCand->GetCombinationTotalQuality()<<" <= "<<fCutPatternRecognQuality<<endl;
+  cout<<user()<<"Track total quality: "<<STRAWCand->GetCombinationTotalQuality()<<" <= "<<fCutPatternRecognQuality<<endl;
   if(STRAWCand->GetCombinationTotalQuality()>fCutPatternRecognQuality) return;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hCut", cutID);
@@ -208,7 +209,7 @@ void EventCleaning::Process(int){
 
   //N hits in STRAW candidate
   FillHisto("hNHitsInCandidate", STRAWCand->GetNHits());
-  if(verb) cout<<"N STRAW hits: "<<fCutMinNHits<<" < "<<STRAWCand->GetNHits()<<" < "<<fCutMaxNHits<<endl;
+  cout<<user()<<"N STRAW hits: "<<fCutMinNHits<<" < "<<STRAWCand->GetNHits()<<" < "<<fCutMaxNHits<<endl;
   if(STRAWCand->GetNHits()<=fCutMinNHits || STRAWCand->GetNHits()>=fCutMaxNHits) return;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hCut", cutID);
@@ -219,7 +220,7 @@ void EventCleaning::Process(int){
   double y = vertex.Y();
   double z = vertex.Z();
   FillHisto("hVertexZvsX", x, z);
-  if(verb) cout<<"Vertex XvsZ: "<<(fkMaxX*z+fqMaxX)<<" < "<<x<<" < "<<(fkMinX*z+fqMinX)<<endl;
+  cout<<user()<<"Vertex XvsZ: "<<(fkMaxX*z+fqMaxX)<<" < "<<x<<" < "<<(fkMinX*z+fqMinX)<<endl;
   if(x>(fkMinX*z+fqMinX) || x<(fkMaxX*z+fqMaxX)) return;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hCut", cutID);
@@ -227,7 +228,7 @@ void EventCleaning::Process(int){
 
   //vertex Y vs Z
   FillHisto("hVertexZvsY", y, z);
-  if(verb) cout<<"Vertex YvsZ: "<<(fkMaxY*z+fqMaxY)<<" < "<<y<<" < "<<(fkMinY*z+fqMinY)<<endl;
+  cout<<user()<<"Vertex YvsZ: "<<(fkMaxY*z+fqMaxY)<<" < "<<y<<" < "<<(fkMinY*z+fqMinY)<<endl;
   if(y>(fkMinY*z+fqMinY) || y<(fkMaxY*z+fqMaxY)) return;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hCut", cutID);
@@ -235,7 +236,7 @@ void EventCleaning::Process(int){
 
   // time diff CHOD-GTK
   FillHisto("hTimeDiffCHODGTK", tCHOD - tGTK);
-  if(verb) cout<<"time diff CHOD GTK: "<<fabs(tCHOD - tGTK)<<" < "<<fCutTimeDiffCHODGTK<<endl;
+  cout<<user()<<"time diff CHOD GTK: "<<fabs(tCHOD - tGTK)<<" < "<<fCutTimeDiffCHODGTK<<endl;
   if(fabs(tCHOD - tGTK)>=fCutTimeDiffCHODGTK) return;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hCut", cutID);
@@ -243,13 +244,13 @@ void EventCleaning::Process(int){
 
  // time diff KTAG-GTK
   FillHisto("hTimeDiffKTAGGTK", tKTAG - tGTK);
-  if(verb) cout<<"time diff KTAG GTK: "<<fabs(tKTAG - tGTK)<<" < "<<fCutTimeDiffKTAGGTK<<endl;
+  cout<<user()<<"time diff KTAG GTK: "<<fabs(tKTAG - tGTK)<<" < "<<fCutTimeDiffKTAGGTK<<endl;
   if(fabs(tKTAG - tGTK)>=fCutTimeDiffKTAGGTK) return;
   FillHisto("hTrackMomentumVsCut", cutID, STRAWCand->GetMomentum());
   FillHisto("hCut", cutID);
 
   fGoodEvent = true;
-  if(verb) cout<<"good event"<<endl;
+  cout<<user()<<"good event"<<endl;
 }
 
 void EventCleaning::PostProcess(){}

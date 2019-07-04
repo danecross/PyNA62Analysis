@@ -15,9 +15,22 @@ find_package(ROOT REQUIRED)
 if( ${ROOT_FOUND} )
     include(${ROOT_USE_FILE})
     message (STATUS "Found ROOT ${ROOT_VERSION}")
+    message (STATUS "   ${ROOT_DIR}")
 else()
     message (FATAL_ERROR "ROOT not found")
 endif()
+
+if("${INSTALLEXTENSION}" STREQUAL "-cc7")
+	list(APPEND CMAKE_PREFIX_PATH $ENV{QTDIR})
+	find_package(Qt5 COMPONENTS Core REQUIRED)
+	if( ${Qt5_FOUND} )
+		message (STATUS "Found Qt5 ${Qt5_VERSION}")
+		message (STATUS "   ${Qt5_DIR}")
+		link_directories($ENV{QTDIR}/lib)
+	else()
+		message (FATAL_ERROR "Qt5 not found")
+	endif()
+endif() 
 
 #Get and configure GEANT4
 if(NA62_NOGEANT4)
@@ -32,6 +45,7 @@ else()
     if( ${Geant4_FOUND} )
         include(${Geant4_USE_FILE})
         message (STATUS "Found Geant4 ${Geant4_VERSION}")
+	    message (STATUS "   ${Geant4_DIR}")
         message (STATUS "   With visualisation option: ${WITH_GEANT4_UIVIS}")
     else()
         message (FATAL_ERROR "Geant4 not found")
@@ -40,11 +54,19 @@ endif()
 
 # select boost libraries to be used
 set(BOOST_SUFFIX $ENV{BOOSTCOMP}$ENV{BOOSTVER})
+message(STATUS "Using BOOST at ${BOOST_SUFFIX}") 
 set(BOOST_LIB boost_program_options${BOOST_SUFFIX})
 
 # Use correct gcc libraries
-link_directories($ENV{ANALYSISFW_STDLIBSPATH}/lib64)
-link_directories($ENV{ANALYSISFW_STDLIBSPATH}/lib)
+message(STATUS "Using standard libraries: $ENV{NA62FW_STDLIBSPATH}/lib64")
+message(STATUS "Using standard libraries: $ENV{NA62FW_STDLIBSPATH}/lib")
+link_directories($ENV{NA62FW_STDLIBSPATH}/lib64)
+link_directories($ENV{NA62FW_STDLIBSPATH}/lib)
+
+message(STATUS "Adding LCG libraries: $ENV{LCGDIR}/lib64")
+message(STATUS "Adding LCG libraries: $ENV{LCGDIR}/lib")
+#link_directories($ENV{LCGDIR}/lib64)
+#link_directories($ENV{LCGDIR}/lib)
 
 #Configure other external libraries
 include_directories($ENV{BOOST}/include/boost$ENV{BOOSTVER}) #old versions

@@ -1,0 +1,11 @@
+{ decls }
+namespace std {  }
+
+[ libCHODSlimPersistency.so ]
+# List of selected classes
+class TSlimRecoCHODCandidate
+class TSlimRecoCHODEvent
+class TSlimRecoCHODHit
+class vector<TSlimRecoCHODCandidate>
+class vector<TSlimRecoCHODHit>
+header TSlimRecoCHODHit.hh

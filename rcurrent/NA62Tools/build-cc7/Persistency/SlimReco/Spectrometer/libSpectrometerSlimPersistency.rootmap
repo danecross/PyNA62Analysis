@@ -1,0 +1,11 @@
+{ decls }
+namespace std {  }
+
+[ libSpectrometerSlimPersistency.so ]
+# List of selected classes
+class TSlimRecoSpectrometerCandidate
+class TSlimRecoSpectrometerEvent
+class TSlimRecoSpectrometerHit
+class vector<TSlimRecoSpectrometerCandidate>
+class vector<TSlimRecoSpectrometerHit>
+header TSlimRecoSpectrometerHit.hh

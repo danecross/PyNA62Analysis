@@ -1,0 +1,2 @@
+/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ar qc libRecoService-static.a  CMakeFiles/ServiceObjLib.dir/src/TH1Sparse.cc.o CMakeFiles/ServiceObjLib.dir/src/TH2Sparse.cc.o CMakeFiles/ServiceObjLib.dir/src/Tools.cc.o CMakeFiles/ServiceObjLib.dir/src/q.cc.o CMakeFiles/ServiceObjLib.dir/src/wzero.cc.o
+/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ranlib libRecoService-static.a

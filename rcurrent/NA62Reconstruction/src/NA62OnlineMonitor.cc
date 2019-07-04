@@ -21,7 +21,7 @@ NA62OnlineMonitor::NA62OnlineMonitor(TRootBrowser* MainWindow, NA62VReconstructi
   else CreateExpertModeTabs();
 
   NA62VOnlineMonitor::CompleteTab();
-} 
+}
 
 void NA62OnlineMonitor::CreateShifterModeTabs(){
 
@@ -300,7 +300,7 @@ void NA62OnlineMonitor::CreateShifterModeTabs(){
       gPad->SetLogz(1);
     }
   }
-} 
+}
 
 void NA62OnlineMonitor::CreateExpertModeTabs(){
 
@@ -702,13 +702,13 @@ void NA62OnlineMonitor::CreateExpertModeTabs(){
       gPad->SetLogz(1);
     }
   }
-} 
+}
 
 
 NA62OnlineMonitor::~NA62OnlineMonitor() {}
 
 void NA62OnlineMonitor::Update(Int_t BurstID){
-  
+
   if(fCurrentBurstInfo){
     fCurrentBurstInfo->Clear();
     fCurrentBurstInfo->AddText(Form("Current Run:   %5d",NA62RecoManager::GetInstance()->GetEventHeader()->GetRunID()));
@@ -911,18 +911,18 @@ void NA62OnlineMonitor::Update(Int_t BurstID){
   Int_t NReconstructions = static_cast<NA62Reconstruction*>(fReco)->GetNReconstructions();
 
   // set all the DigiTimeRaw histos to the same scale
-  Double_t MaxDigiTimeRawAll = 0.;
+  //Double_t MaxDigiTimeRawAll = 0.;
   Double_t MinDigiTimeRawAll = 1e28;
   for(Int_t iReco=0;iReco<NReconstructions;iReco++){
     NA62VReconstruction * SubDetReco = static_cast<NA62Reconstruction*>(fReco)->FindReco(static_cast<NA62Reconstruction*>(fReco)->GetRecoSequence()[iReco]);
     if (SubDetReco && SubDetReco->GetRawDecoder() && SubDetReco->GetRawDecoder()->GetDecoder() && SubDetReco->GetRawDecoder()->GetDecoder()->GetHDigiTimeRaw()) {
-      Double_t MaxDigiTimeRaw = SubDetReco->GetRawDecoder()->GetDecoder()->GetHDigiTimeRaw()->GetMaximum();
+      //Double_t MaxDigiTimeRaw = SubDetReco->GetRawDecoder()->GetDecoder()->GetHDigiTimeRaw()->GetMaximum();
       Double_t MinDigiTimeRaw = SubDetReco->GetRawDecoder()->GetDecoder()->GetHDigiTimeRaw()->GetMinimum();
-      if(MaxDigiTimeRawAll<MaxDigiTimeRaw) MaxDigiTimeRawAll = MaxDigiTimeRaw;
+      //if(MaxDigiTimeRawAll<MaxDigiTimeRaw) MaxDigiTimeRawAll = MaxDigiTimeRaw;
       if(MinDigiTimeRawAll>MinDigiTimeRaw) MinDigiTimeRawAll = MinDigiTimeRaw;
     }
   }
-  MaxDigiTimeRawAll*=1.1;
+  //MaxDigiTimeRawAll*=1.1;
   //for(Int_t iReco=0;iReco<NReconstructions;iReco++){
   //  NA62VReconstruction * SubDetReco = static_cast<NA62Reconstruction*>(fReco)->FindReco(((NA62Reconstruction*)fReco)->GetRecoSequence()[iReco]);
   //  if (SubDetReco && SubDetReco->GetRawDecoder() && SubDetReco->GetRawDecoder()->GetDecoder() && SubDetReco->GetRawDecoder()->GetDecoder()->GetHDigiTimeRaw()) {
@@ -932,18 +932,18 @@ void NA62OnlineMonitor::Update(Int_t BurstID){
   //}
 
   // set all the DigiTimeRawFine histos to the same scale
-  Double_t MaxDigiTimeRawFineAll = 0.;
+  //Double_t MaxDigiTimeRawFineAll = 0.;
   Double_t MinDigiTimeRawFineAll = 1e28;
   for(Int_t iReco=0;iReco<NReconstructions;iReco++){
     NA62VReconstruction * SubDetReco = static_cast<NA62Reconstruction*>(fReco)->FindReco(static_cast<NA62Reconstruction*>(fReco)->GetRecoSequence()[iReco]);
     if (SubDetReco && SubDetReco->GetRawDecoder() && SubDetReco->GetRawDecoder()->GetDecoder() && SubDetReco->GetRawDecoder()->GetDecoder()->GetHDigiTimeRawFine()) {
-      Double_t MaxDigiTimeRawFine = SubDetReco->GetRawDecoder()->GetDecoder()->GetHDigiTimeRawFine()->GetMaximum();
+      //Double_t MaxDigiTimeRawFine = SubDetReco->GetRawDecoder()->GetDecoder()->GetHDigiTimeRawFine()->GetMaximum();
       Double_t MinDigiTimeRawFine = SubDetReco->GetRawDecoder()->GetDecoder()->GetHDigiTimeRawFine()->GetMinimum();
-      if(MaxDigiTimeRawFineAll<MaxDigiTimeRawFine) MaxDigiTimeRawFineAll = MaxDigiTimeRawFine;
+      //if(MaxDigiTimeRawFineAll<MaxDigiTimeRawFine) MaxDigiTimeRawFineAll = MaxDigiTimeRawFine;
       if(MinDigiTimeRawFineAll>MinDigiTimeRawFine) MinDigiTimeRawFineAll = MinDigiTimeRawFine;
     }
   }
-  MaxDigiTimeRawFineAll*=1.1;
+  //MaxDigiTimeRawFineAll*=1.1;
   //for(Int_t iReco=0;iReco<NReconstructions;iReco++){
   //  NA62VReconstruction * SubDetReco = static_cast<NA62Reconstruction*>(fReco)->FindReco(((NA62Reconstruction*)fReco)->GetRecoSequence()[iReco]);
   //  if (SubDetReco && SubDetReco->GetRawDecoder() && SubDetReco->GetRawDecoder()->GetDecoder() && SubDetReco->GetRawDecoder()->GetDecoder()->GetHDigiTimeRawFine()) {

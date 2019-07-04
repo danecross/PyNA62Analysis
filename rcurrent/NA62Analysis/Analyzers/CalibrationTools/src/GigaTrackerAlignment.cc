@@ -19,8 +19,7 @@
 /// this analyser can be used to evaluate the fine GTK corrections, which include
 /// the momentum scale and rotation corrections.
 /// The rotation correction is a correction to GTK track slopes using the formulae dx'=A+Bx, dy'=C+Dy.
-/// By default, this analyzer computes the fine corrections. To compute the (x,y) offsets
-/// (which destroys the GTK tracks as the raw hit positions are used!),
+/// By default, this analyzer computes the fine corrections. To compute the (x,y) offsets,
 /// one should provide (at step 1, i.e. when running over the data) a parameter value as follows:
 /// \code
 /// ./MyExec -l <list> -p "GigaTrackerAlignment:FineCorrections=0"

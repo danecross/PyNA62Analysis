@@ -1,2 +1,0 @@
-/usr/bin/ar qc libCHOD-static.a  CMakeFiles/CHODObjLib.dir/src/CHODDetector.cc.o CMakeFiles/CHODObjLib.dir/src/CHODGeometryParameters.cc.o CMakeFiles/CHODObjLib.dir/src/CHODHit.cc.o CMakeFiles/CHODObjLib.dir/src/CHODMaterialParameters.cc.o CMakeFiles/CHODObjLib.dir/src/CHODPlane.cc.o CMakeFiles/CHODObjLib.dir/src/CHODQuadrant.cc.o CMakeFiles/CHODObjLib.dir/src/CHODRootIO.cc.o CMakeFiles/CHODObjLib.dir/src/CHODSD.cc.o CMakeFiles/CHODObjLib.dir/src/CHODScintillatorCounter.cc.o
-/usr/bin/ranlib libCHOD-static.a

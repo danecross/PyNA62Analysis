@@ -67,7 +67,7 @@ void sighandler(int sig){
 }
 
 
-//Algorithm to reconstruct the RAM address on the L0TP                                                   
+//Algorithm to reconstruct the RAM address on the L0TP
 long long L0address(unsigned int timestamp, unsigned int finetime, int bitfinetime){
 
   unsigned int ftMSBmask;
@@ -76,15 +76,15 @@ long long L0address(unsigned int timestamp, unsigned int finetime, int bitfineti
   unsigned int timestampLSB;
   unsigned int ftMSB;
 
-  if(bitfinetime==3) timestampLSBmask = 2047; //11111111111 (binary)                                     
+  if(bitfinetime==3) timestampLSBmask = 2047; //11111111111 (binary)
   if(bitfinetime==2) timestampLSBmask = 4095;
   if(bitfinetime==1) timestampLSBmask = 8191;
   if(bitfinetime==0) timestampLSBmask = 16383;
 
-  if(bitfinetime==3) ftMSBmask=224;////11100000 (binary)                                                 
-  if(bitfinetime==2) ftMSBmask=192;////11000000 (binary)                                                 
-  if(bitfinetime==1) ftMSBmask=128;////10000000 (binary)                                                 
-  if(bitfinetime==0) ftMSBmask=0;  ////00000000 (binary)                                                 
+  if(bitfinetime==3) ftMSBmask=224;////11100000 (binary)
+  if(bitfinetime==2) ftMSBmask=192;////11000000 (binary)
+  if(bitfinetime==1) ftMSBmask=128;////10000000 (binary)
+  if(bitfinetime==0) ftMSBmask=0;  ////00000000 (binary)
 
   timestampLSB = timestampLSBmask & timestamp;
   ftMSB = ftMSBmask & finetime;
@@ -201,7 +201,7 @@ Int_t DecodePrimitives(TString InputFileName, TString OutputFileName, TString Pr
           256*4, -0.5*ClockPeriod, 255.5*ClockPeriod, 321, (-322-0.5)*TdcCalib, (1282+0.5)*TdcCalib);
       h2DeltaSendTS[i]   = new TH2F (Form("%s_h2DeltaSendTS", DetectorName[i].Data()), Form("Difference between consecutive MTP timestamps for %s vs timestamp", DetectorName[i].Data()),
           256*4, -0.5*ClockPeriod, 255.5*ClockPeriod, 25, -5*(256*ClockPeriod)/1000.0, 20*(256*ClockPeriod)/1000.0);
-      h2MTPOffset[i]     = new TH2F (Form("%s_h2MTPOffset", DetectorName[i].Data()), Form("MTP Offset for %s vs timestamp", DetectorName[i].Data()), 
+      h2MTPOffset[i]     = new TH2F (Form("%s_h2MTPOffset", DetectorName[i].Data()), Form("MTP Offset for %s vs timestamp", DetectorName[i].Data()),
           256*4, -0.5*ClockPeriod, 255.5*ClockPeriod, 100, -5*(256*ClockPeriod)/1000.0, 20*(256*ClockPeriod)/1000.0);
       h2MTPvsSendTS[i]   = new TH2F (Form("%s_h2MTPvsSendTS", DetectorName[i].Data()), Form("MTP number vs MTP timestamp for %s", DetectorName[i].Data()), 256, -0.5*ClockPeriod, 255.5*ClockPeriod, 100, 0, 1E6);
       h1BitPopulation[i] = new TH1D (Form("%s_h1BitPopulation",DetectorName[i].Data()),Form("Bit population for %s",DetectorName[i].Data()),16,0,15);
@@ -507,7 +507,7 @@ Int_t DecodePrimitives(TString InputFileName, TString OutputFileName, TString Pr
               NPrimitive=(buffer[iw]&NPRIM)>>16;
               SubID=(buffer[iw]&SUB_ID)>>24;
               PrimToDo = NPrimitive;
-              MTPWord = 3;	
+              MTPWord = 3;
               break;
             }
             else{
@@ -563,7 +563,7 @@ Int_t DecodePrimitives(TString InputFileName, TString OutputFileName, TString Pr
               cout<<"[fatal] Unknown format: "<<Format<<endl;
               return -3;
             }
-            [[fallthrough]]; 
+            [[fallthrough]];
 
           case 4:
             if(Format==32){
@@ -642,11 +642,11 @@ Int_t DecodePrimitives(TString InputFileName, TString OutputFileName, TString Pr
                 } else {
                   if (!Dot.Contains("r")) Dot = Dot + "r";
                 }
-              }	
+              }
               if (monitor) {
                 Double_t TimeStamp_in_sec = TimeStamp*ClockPeriod/1E6;
                 h1TimeStamp[DetectorID] -> Fill(TimeStamp_in_sec);
-                h1FineTime[DetectorID]  -> Fill(FineTime); 
+                h1FineTime[DetectorID]  -> Fill(FineTime);
                 h2Delta[DetectorID]->Fill(TimeStamp_in_sec, delta);
                 h1Delta[DetectorID]->Fill(delta);
                 h2MTPOffset[DetectorID]->Fill(TimeStamp_in_sec, (AssemblyTimeStamp*ClockPeriod - TimeStamp*ClockPeriod)/1000.0); // difference in us
@@ -664,7 +664,7 @@ Int_t DecodePrimitives(TString InputFileName, TString OutputFileName, TString Pr
                     if((OldPID & (1<<bit))==0 && (PID & (1<<bit))!=0) {
                       h2BitTransition[DetectorID] -> Fill(bit,1);
                     }
-                  }	
+                  }
                 }
               }
 
@@ -888,7 +888,7 @@ int main(int argc, char* argv[]) {
   TObjArray InputFileNameList;
   TObjArray OutputFileNameList;
   TObjArray* InputLine;
-  Int_t lineparse = 0;
+  Int_t lineparse;
 
   vector<Int_t> run;
   vector<Int_t> burst;

@@ -43,7 +43,6 @@ protected:
 
   //parameters
   bool UseGTK;
-  bool verb;
   int fCutMaxGTKAssoc;
   int fCutMaxNTracks;
   double fCutMinCDA;

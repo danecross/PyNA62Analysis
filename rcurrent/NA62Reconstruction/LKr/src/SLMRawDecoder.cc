@@ -23,28 +23,28 @@ SLMRawDecoder::SLMRawDecoder() :
 {
     fSLMEvent = new FADCEvent(TLKrDigi::Class());
     fAdcCommon = LKrCommon::GetInstance();
-}                        
-                         
+}
+
 SLMRawDecoder::~SLMRawDecoder(){}
-                         
+
 void SLMRawDecoder::Reset(UInt_t * pDataBuffer, Int_t NWords)
 {
     fpDataBuffer = pDataBuffer;
-    fNWords = NWords;    
-}                        
-                         
+    fNWords = NWords;
+}
+
 void SLMRawDecoder::StartOfBurst() {
 }
 
 void SLMRawDecoder::EndOfBurst() {
 }
-                        
+
 TDetectorVEvent * SLMRawDecoder::DecodeNextEvent(UInt_t * pDataBuffer, EventHeader * pEventHeader, UInt_t * /*NextOffset*/)
-{                          
-    UInt_t nReadEvent = 0;
+{
+    UInt_t nReadEvent;
     UInt_t datum;
     //    Bool_t EventStatus = kFALSE;
-    Bool_t en = 0; 
+    Bool_t en = 0;
     UShort_t nChannels;
     UInt_t nch=0;
     UInt_t nSubDetLength;
@@ -86,7 +86,7 @@ TDetectorVEvent * SLMRawDecoder::DecodeNextEvent(UInt_t * pDataBuffer, EventHead
        nChannels = SLMNChannels(datum);
        pDataBuffer++; nReadEvent += 2;
        for (UShort_t chan=0; chan<nChannels; chan++) {
-	      datum = *pDataBuffer; pDataBuffer++; 
+	      datum = *pDataBuffer; pDataBuffer++;
 	      DecodeChannel = isSLMToBeDecoded(datum);
 	      if (DecodeChannel) {
 		TLKrDigi * LKrDigi = static_cast<TLKrDigi*>(fSLMEvent->AddDigi());
@@ -100,9 +100,9 @@ TDetectorVEvent * SLMRawDecoder::DecodeNextEvent(UInt_t * pDataBuffer, EventHead
 ////	        std::cout << "Nhits " << fSLMEvent->GetNHits();
 ////		cout << " CPDID " << LKrDigi->GetCPDID();
 ////		cout << " nsamples " << LKrDigi->GetNSamples() << " " << LKrDigi->GetChannelID() << std::endl;
-		sampword1 = *pDataBuffer; pDataBuffer++; 
-		sampword2 = *pDataBuffer; pDataBuffer++; 
- 		sampword3 = *pDataBuffer; pDataBuffer++; 
+		sampword1 = *pDataBuffer; pDataBuffer++;
+		sampword2 = *pDataBuffer; pDataBuffer++;
+ 		sampword3 = *pDataBuffer; pDataBuffer++;
 		// here decode samples and fill output variables
 		int is = 0;
 		s = sampword1 & 0x00000fff;
@@ -154,7 +154,7 @@ TDetectorVEvent * SLMRawDecoder::DecodeNextEvent(UInt_t * pDataBuffer, EventHead
 //                if (thisgain==3)
 //                {
 //                  for (Int_t i=0;i<8;i++) std::cout << LKrDigi->GetCPDID() << " " << LKrDigi->GetChannelID() << " " << count[i]+10000*gain[i] << " ";
-//                  std::cout << std::endl; 
+//                  std::cout << std::endl;
 //                }
 		nch++;
 	      	dec000(xcha,ycha, count,gain,nsamples);
@@ -175,6 +175,6 @@ TDetectorVEvent * SLMRawDecoder::DecodeNextEvent(UInt_t * pDataBuffer, EventHead
     } //end of while on 0x24
     printf_raw(en) ("DecodeSLMBuffer ---- end ---------- \n");
 
-    return fSLMEvent; 
+    return fSLMEvent;
 
 }

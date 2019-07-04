@@ -116,8 +116,8 @@ public:
 		static bool fMoreHelp;                           ///< Print help and the parameters of all loaded analyzers
 		static int  fNProcessFiles;                      ///< Maximum number of processed files
 		static bool fHistoMode;                          ///< Activate histo mode
-   	        static bool fNoUseBadBurst;                      ///< Do not read bad burst database, do not skip bad bursts
-	        static bool fNoSkipBadBurst;                     ///< Do not skip bad bursts
+		static bool fNoUseBadBurst;                      ///< Do not read bad burst database, do not skip bad bursts
+		static bool fNoSkipBadBurst;                     ///< Do not skip bad bursts
 		static bool fInvertBadBurst;                     ///< Invert skip bad burst logic
 		static bool fFastStart;                          ///< Fast start: skip reading file headers, number of events to process is not known
 		static bool fSkipIsFatal;                        ///< Skip is fatal: If an input root file cannot be read, interrupt the processing

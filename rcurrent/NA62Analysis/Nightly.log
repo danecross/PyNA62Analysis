@@ -1,9 +1,0 @@
-Fri Jun 21 06:31:54 CEST 2019
-./NA62AnalysisBuilder.py cleanfw
-cd .
-rm -rf obj-cc7
-rm -rf lib-cc7
-rm -rf bin-cc7
-rm -rf build-cc7
-rm *.pyc
-rm scripts/*.pyc

@@ -31,7 +31,7 @@ GTKTLRawDecoder::~GTKTLRawDecoder() {
 }
 
 TDetectorVEvent * GTKTLRawDecoder::DecodeNextEvent(UInt_t* Current, EventHeader* Header, UInt_t* NextOffset) {
-  
+
   //  Int_t wrn = (static_cast<NA62Reconstruction*>(fReco->GetMainReco())->GetWarningsLevel());
   fDigiEvent->SetTimeStamp(Header->GetTimeStamp());
   fDigiEvent->SetBurstID(Header->GetBurstID());
@@ -55,11 +55,12 @@ TDetectorVEvent * GTKTLRawDecoder::DecodeNextEvent(UInt_t* Current, EventHeader*
     return fSpecialTriggerEvent;
   }
 
-  std::vector<GTK::GigaTrackerTLHit> EventHits;  
+  std::vector<GTK::GigaTrackerTLHit> EventHits;
+  // cppcheck-suppress unreadVariable
   NextOffset = NextOffset + mGTKBlock->ReadFromBuffer(Current,EventHits);
   for(unsigned int i(0);i<EventHits.size();i++) {
     //    std::cout<<EventHits[i];
- 
+
     TGigaTrackerDigi *GTKDigi = static_cast<TGigaTrackerDigi*>(fDigiEvent->AddHit());
 
     GTKDigi->SetSourceId( EventHits[i].GetSourceId() );
@@ -69,15 +70,15 @@ TDetectorVEvent * GTKTLRawDecoder::DecodeNextEvent(UInt_t* Current, EventHeader*
     //GTKDigi->SetqChipId( EventHits[i].GetqChipId() );
 
     GTKDigi->SetFrameCounter( EventHits[i].GetFrameCounter() );
-    GTKDigi->SetPixelAddress( EventHits[i].GetPixelAddress() ); 
+    GTKDigi->SetPixelAddress( EventHits[i].GetPixelAddress() );
     GTKDigi->SetHitArbiterAddress( EventHits[i].GetHitArbiterAddress() );
     GTKDigi->SetPileUpAddress( EventHits[i].GetPileUpAddress() );
     GTKDigi->SetLeadingSelector( EventHits[i].GetLeadingSelector() );
-    GTKDigi->SetLeadingCoarse( EventHits[i].GetLeadingCoarse() ); 
-    GTKDigi->SetLeadingFine( EventHits[i].GetLeadingFine() ); 
+    GTKDigi->SetLeadingCoarse( EventHits[i].GetLeadingCoarse() );
+    GTKDigi->SetLeadingFine( EventHits[i].GetLeadingFine() );
     GTKDigi->SetTotSelector( EventHits[i].GetTotSelector() );
-    GTKDigi->SetTotCoarse( EventHits[i].GetTotCoarse() ); 
-    GTKDigi->SetTotFine( EventHits[i].GetTotFine() ); 
+    GTKDigi->SetTotCoarse( EventHits[i].GetTotCoarse() );
+    GTKDigi->SetTotFine( EventHits[i].GetTotFine() );
     GTKDigi->SetDelay(EventHits[i].GetDelay() );
 
 
@@ -95,7 +96,7 @@ TDetectorVEvent * GTKTLRawDecoder::DecodeNextEvent(UInt_t* Current, EventHeader*
 
   }
   return fDigiEvent;
-  
+
 }
 
 

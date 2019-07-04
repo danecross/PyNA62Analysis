@@ -45,7 +45,6 @@ protected:
   bool fDecaySelected;
 
   //parameters
-  bool verb;
   double fCutMinGTKMomentum;
   double fCutMaxGTKMomentum;
   double fMinSlopeX;

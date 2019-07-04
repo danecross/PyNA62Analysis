@@ -41,6 +41,7 @@ public:
 	void SetGlobalVerbosity(Verbosity::CoreVerbosityLevel vcore, Verbosity::AnalyzerVerbosityLevel van);
 	void SetLogToFile(TString fileName);
 	std::string PrintDate() const;
+	void EnablePrefix(bool v) { if(v) fPrintPrefix=0; else fPrintPrefix = -1; }
 
 	Verbosity::CoreVerbosityLevel GetCoreVerbosityLevel() const {
 		/// \MemberDescr
@@ -94,7 +95,7 @@ public:
 		/// \endcode
 		/// \EndMemberDescr
 		fAnVerbosityTest = Verbosity::kUDisable;
-		fPrintPrefix = true;
+		fPrintPrefix = fPrintPrefix==-1 ? -1 : 1;
 		fCoreVerbosityTest = v; return *this;
 	};
 	const Verbose& PrintLevel(Verbosity::AnalyzerVerbosityLevel v) const {
@@ -109,7 +110,7 @@ public:
 		/// \endcode
 		/// \EndMemberDescr
 		fCoreVerbosityTest = Verbosity::kCDisable;
-		fPrintPrefix = true;
+		fPrintPrefix = fPrintPrefix==-1 ? -1 : 1;
 		fAnVerbosityTest = v; return *this;
 	};
 	bool TestLevel(Verbosity::CoreVerbosityLevel level) const;
@@ -167,7 +168,7 @@ public:
 			/// This level does NOT automatically print the usual prefixes.
 			/// \EndMemberDescr
 			PrintLevel(Verbosity::kUserNormal);
-			fPrintPrefix = false;
+			fPrintPrefix = 0;
 			return *this;
 	};
 	const Verbose& standard() const {
@@ -185,7 +186,7 @@ public:
 			/// This level does NOT automatically print the usual prefixes.
 			/// \EndMemberDescr
 			PrintLevel(Verbosity::kNormal);
-			fPrintPrefix = false;
+			fPrintPrefix = 0;
 			return *this;
 	};
 	const Verbose& user_normal() const {
@@ -292,7 +293,7 @@ public:
 
 private:
 	bool fLocalVerbosityActive; ///< Should local verbosity level be used ?
-	mutable bool fPrintPrefix;
+	mutable int fPrintPrefix;
 	Verbosity::CoreVerbosityLevel fLocalCoreVerbosityLevel; ///< Verbosity for this module only
 	mutable Verbosity::CoreVerbosityLevel fCoreVerbosityTest; ///< Transient member. Store the currently requested verbosity output
 	Verbosity::AnalyzerVerbosityLevel fLocalAnVerbosityLevel; ///< Verbosity for this module only

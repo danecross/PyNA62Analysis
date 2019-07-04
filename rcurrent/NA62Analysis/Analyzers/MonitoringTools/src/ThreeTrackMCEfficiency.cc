@@ -258,7 +258,7 @@ void ThreeTrackMCEfficiency::Process(Int_t) {
             }
             FillHisto("posDiff", posdiffMax);
 
-            if (momdiff < 1000 && posdiffMax < 25) {
+            if (TMath::Abs(momdiff) < 1000 && posdiffMax < 25) {
                 kineMatched = true;
                 matchedTrackIDs.insert(t.GetTrackID());
                 nMatched++;

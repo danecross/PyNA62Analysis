@@ -1,0 +1,11 @@
+{ decls }
+namespace std {  }
+
+[ libCedarSlimPersistency.so ]
+# List of selected classes
+class TSlimRecoCedarCandidate
+class TSlimRecoCedarEvent
+class TSlimRecoCedarHit
+class vector<TSlimRecoCedarCandidate>
+class vector<TSlimRecoCedarHit>
+header TSlimRecoCedarHit.hh

@@ -1,2 +1,0 @@
-/usr/bin/ar qc libCedar-static.a  CMakeFiles/CedarObjLib.dir/src/CedarAlignment.cc.o CMakeFiles/CedarObjLib.dir/src/CedarChannel.cc.o CMakeFiles/CedarObjLib.dir/src/CedarDigitizer.cc.o CMakeFiles/CedarObjLib.dir/src/CedarGeometry.cc.o CMakeFiles/CedarObjLib.dir/src/CedarOnlineMonitor.cc.o CMakeFiles/CedarObjLib.dir/src/CedarRawDecoder.cc.o CMakeFiles/CedarObjLib.dir/src/CedarRawEncoder.cc.o CMakeFiles/CedarObjLib.dir/src/CedarReconstruction.cc.o CMakeFiles/CedarObjLib.dir/CedarDICT.cxx.o
-/usr/bin/ranlib libCedar-static.a

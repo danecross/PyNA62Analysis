@@ -56,7 +56,6 @@ protected:
   double fCutTimeDiffTrackHAC;
   double fCutMaxTimeDiffTrackMUV0;
   double fCutMinTimeDiffTrackMUV0;
-  bool verb;
   double fCutMaxDistanceCHODLKrCoincidence;
   double fCutTimeDiffCHODLKrCoincidence;
   double fCHODSlabHalfWidth;

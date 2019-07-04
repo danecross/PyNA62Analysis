@@ -123,7 +123,7 @@ TDetectorVEvent * SRBRawDecoder::DecodeNextEvent(UInt_t * pDataBuffer, EventHead
   }
 
   UInt_t *datum = (UInt_t *)pDataBuffer;
-  UInt_t nhits = 0;
+  UInt_t nhits;
   UInt_t NumberOfBlockDataRead=0;
   UInt_t DataBlockFormatID = DataBlockFormat(*datum); // read the format ID from the first header word
 

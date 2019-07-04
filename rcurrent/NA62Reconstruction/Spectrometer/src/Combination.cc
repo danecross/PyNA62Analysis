@@ -5,11 +5,11 @@
 #include "SpectrometerGeometry.hh"
 #include "TVector3.h"
 
-/// \class Combination 
+/// \class Combination
 /// \Brief
-/// Class describing the combination candidate. 
+/// Class describing the combination candidate.
 /// \EndBrief
-/// 
+///
 /// \Detailed
 /// This class describes the candidate combinations selected in the pattern recognition methods of the TrackCollector class.
 /// \EndDetailed
@@ -29,21 +29,20 @@ Combination::Combination() :
   fSigmaThetaY     (.0),
   fSigmaP          (.0),
   fNTotalHits      (0),
+  fDMag            (0.1*SpectrometerGeometry::GetInstance()->GetMagnetZLength()),
+  fZMag            (0.1*SpectrometerGeometry::GetInstance()->GetMagnetZPosition()-fDMag/2.),
+  fBMag            (SpectrometerGeometry::GetInstance()->GetMagnetFieldStrength()*10000),
+  fEC              (SpectrometerParameters::GetInstance()->GetEC()),
   fType            (0),
   fHDelta          (.0),
   fDeltaX          (.0),
   fQuality         (.0),
   fTrailingTime    (.0),
   fNCommon         (0)
-{  
+{
 /// \MemberDescr
 /// Constructor.
 /// \EndMemberDescr
-
-  fDMag = 0.1*SpectrometerGeometry::GetInstance()->GetMagnetZLength();
-  fZMag = 0.1*SpectrometerGeometry::GetInstance()->GetMagnetZPosition()-fDMag/2.;
-  fBMag = SpectrometerGeometry::GetInstance()->GetMagnetFieldStrength()*10000;
-  fEC = SpectrometerParameters::GetInstance()->GetEC();
 }
 
 Combination::Combination(const Combination& right) :
@@ -83,7 +82,7 @@ Combination::Combination(const Combination& right) :
 /// \EndMemberDescr
 
   for (Int_t jj=0; jj<4; jj++)
-  { 
+  {
     fSubHDelta[jj]        = right.fSubHDelta[jj];
     fSubThetaY[jj]        = right.fSubThetaY[jj];
     fSubType[jj]          = right.fSubType[jj];
@@ -105,7 +104,7 @@ void Combination::AddCluster(Int_t jCluster, Int_t jView, Int_t jChamber)
 }
 
 void Combination::Reset()
-{ 
+{
 /// \MemberDescr
 /// Reset the main variables.
 /// \EndMemberDescr
@@ -149,13 +148,13 @@ void Combination::Sort()
 /// \EndMemberDescr
 
   SortChamber();
-  for (Int_t j=0; j<4; j++) SortView(j); 
+  for (Int_t j=0; j<4; j++) SortView(j);
 }
 
 void Combination::SortChamber()
 {
 /// \MemberDescr
-/// Sort the clusters on the basis of the most downstream chamber. 
+/// Sort the clusters on the basis of the most downstream chamber.
 /// \EndMemberDescr
 
   Int_t nClusters = (Int_t)fClusterId.size();
@@ -172,14 +171,14 @@ void Combination::SortChamber()
         Int_t clusstore = fClusterId[i];
         Int_t clusstore2 = fClusterId[j];
         fChamberId[i] = chambstore2;
-        fChamberId[j] = chambstore; 
+        fChamberId[j] = chambstore;
         fViewId[i] = viewstore2;
-        fViewId[j] = viewstore; 
+        fViewId[j] = viewstore;
         fClusterId[i] = clusstore2;
-        fClusterId[j] = clusstore; 
+        fClusterId[j] = clusstore;
       }
-    } 
-  }    
+    }
+  }
 }
 
 void Combination::SortView(Int_t chamberId)
@@ -187,7 +186,7 @@ void Combination::SortView(Int_t chamberId)
 /// \MemberDescr
 /// \param chamberId id of the chamber which the view belongs to.
 ///
-/// Sort the clusters on the basis of the most downstream view. 
+/// Sort the clusters on the basis of the most downstream view.
 /// \EndMemberDescr
 
   Int_t nClusters = (Int_t)fClusterId.size();
@@ -206,11 +205,11 @@ void Combination::SortView(Int_t chamberId)
         Int_t clusstore = fClusterId[i];
         Int_t clusstore2 = fClusterId[j];
         fChamberId[i] = chambstore2;
-        fChamberId[j] = chambstore; 
+        fChamberId[j] = chambstore;
         fViewId[i] = viewstore2;
-        fViewId[j] = viewstore; 
+        fViewId[j] = viewstore;
         fClusterId[i] = clusstore2;
-        fClusterId[j] = clusstore; 
+        fClusterId[j] = clusstore;
       }
     }
   }
@@ -223,7 +222,7 @@ Double_t Combination::Project(Double_t zEnd, Double_t angle)
 /// \param zEnd Z coordinate of the projection point.
 /// \param angle Angle of the projected coordinate.
 ///
-/// Extrapolate the coordinate at a zEnd position on the basis of the track(let) parameters. 
+/// Extrapolate the coordinate at a zEnd position on the basis of the track(let) parameters.
 /// \EndMemberDescr
 
   TVector3 fPosExp;
@@ -243,8 +242,8 @@ Double_t Combination::Project(Double_t zEnd, Double_t angle)
     fPosExp.SetY(yStart+yTheta*(zEnd-zStart));
     fPosExp.SetZ(zEnd);
     fPosExp *= 10.;
-    fPosExp.RotateZ(angle);   
-    return angle<=1.57 ? fPosExp.X() : -fPosExp.X();  
+    fPosExp.RotateZ(angle);
+    return angle<=1.57 ? fPosExp.X() : -fPosExp.X();
   }
 
   // fZEnd after MNP33
@@ -272,9 +271,9 @@ Double_t Combination::Project(Double_t zEnd, Double_t angle)
   fPosExp *= 10.;
 
   // Rotation according to the view
-  fPosExp.RotateZ(angle);   
- 
-  return angle<=1.57 ? fPosExp.X() : -fPosExp.X();  
+  fPosExp.RotateZ(angle);
+
+  return angle<=1.57 ? fPosExp.X() : -fPosExp.X();
 }
 
 Int_t Combination::GetNChambers() const
@@ -288,8 +287,8 @@ Int_t Combination::GetNChambers() const
   for (Int_t j=0; j<(Int_t)fChamberId.size(); j++)
   {
     if (fChamberId[j]!=chamberIdSave) nChambers++;
-    chamberIdSave = fChamberId[j]; 
-  } 
+    chamberIdSave = fChamberId[j];
+  }
   return nChambers;
 }
 
@@ -298,5 +297,5 @@ void Combination::SetQuality(Double_t hd, Double_t dx)
 {
   fHDelta = hd;
   fDeltaX = dx;
-  fQuality = sqrt(fHDelta*fHDelta/4.+fDeltaX*fDeltaX/49.); 
-} 
+  fQuality = sqrt(fHDelta*fHDelta/4.+fDeltaX*fDeltaX/49.);
+}

@@ -1,2 +1,0 @@
-/usr/bin/ar qc libMUV0-static.a  CMakeFiles/MUV0ObjLib.dir/src/MUV0Channel.cc.o CMakeFiles/MUV0ObjLib.dir/src/MUV0Digitizer.cc.o CMakeFiles/MUV0ObjLib.dir/src/MUV0Geometry.cc.o CMakeFiles/MUV0ObjLib.dir/src/MUV0HitsCluster.cc.o CMakeFiles/MUV0ObjLib.dir/src/MUV0OnlineMonitor.cc.o CMakeFiles/MUV0ObjLib.dir/src/MUV0RawDecoder.cc.o CMakeFiles/MUV0ObjLib.dir/src/MUV0RawEncoder.cc.o CMakeFiles/MUV0ObjLib.dir/src/MUV0Reconstruction.cc.o CMakeFiles/MUV0ObjLib.dir/MUV0DICT.cxx.o
-/usr/bin/ranlib libMUV0-static.a

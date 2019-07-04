@@ -62,8 +62,8 @@ void help(char* name){
     " Options:"        << endl <<
     "  -h: Prints this detailed help." << endl <<
     "  -o: output path." <<endl<<
-    "  -q: Quick, evaluates correlations wrt RICH only." << endl <<    
-    "  -a: Add all correlations to the multigraph, without this option only correlation wrt to RICH are added." << endl <<    
+    "  -q: Quick, evaluates correlations wrt RICH only." << endl <<
+    "  -a: Add all correlations to the multigraph, without this option only correlation wrt to RICH are added." << endl <<
     "  -v: Verbose mode is enabled." << endl <<
     "  -m: Start of correlation range, in unit of 0.1 ns (default " << -DELTA << ")." << endl <<
     "  -M: End of correlation range, in unit of 0.1 ns (default " << DELTA << ")." << endl <<
@@ -215,7 +215,7 @@ Int_t main(Int_t argc, char **argv){
   if ((argc - optind) == 1) {
     printf("[info] No detector list given, assuming all but TALK by default\n");
     DetectorNames = {"RICH", "CHOD", "LAV", "MUV3", "IRC", "LKr"};
-    
+
     for (UInt_t i=0; i< DetectorNames.size(); i++) {
       if (path.Length() > 0) DetectorFileNames.push_back(Form("%s/%s-%s.root", path.Data(), DetectorMap[DetectorNames[i].Data()].c_str(), name.Data()) );
     }
@@ -267,7 +267,6 @@ Int_t main(Int_t argc, char **argv){
 
 
   vector < vector<Long64_t>* > time, SendTS;
-  vector < vector<Double_t>*    > MTPOffset;
   vector <Long64_t>  ts(NDet);
   vector <Int_t> ft(NDet),sts(NDet), pid(NDet);
   vector <Long64_t> Nentries(NDet, 0);
@@ -286,7 +285,7 @@ Int_t main(Int_t argc, char **argv){
   } else {
     OutFile = Form("Corr-%s.root", argv[optind]);
   }
-  cout<<"[info] Output file " << OutFile << " will be created." << endl;  
+  cout<<"[info] Output file " << OutFile << " will be created." << endl;
 
 
   TFile *g = new TFile(Form("%s/%s",OutPath.Data(),OutFile.c_str() ), "RECREATE");
@@ -331,7 +330,7 @@ Int_t main(Int_t argc, char **argv){
 	Double_t DTsend = ((Double_t)Primitive[iDet]->GetTimeStamp() - (Double_t)Primitive[iDet]->GetSendTimeStamp())/256.;
 
 	// evaluating MTP offset
-	Sum[iDet] += DTsend; 
+	Sum[iDet] += DTsend;
 	Entries[iDet]++;
 	if (DTsend > Max[iDet] || iEntry == 0) Max[iDet] = DTsend;
 	if (DTsend < Min[iDet] || iEntry == 0) Min[iDet] = DTsend;
@@ -375,17 +374,17 @@ Int_t main(Int_t argc, char **argv){
       gCorr[iDet]->SetLineWidth(1);
       gCorr[iDet]->SetMarkerStyle(7);
       gCorr[iDet]->SetLineColor(DetectorColor[DetectorNames[jDet].Data()]);
-      if (all || (DetectorNames[iDet] == "RICH")){ 
+      if (all || (DetectorNames[iDet] == "RICH")){
 	IsRICHEnabled=kTRUE;
 	gCorrelations->Add(gCorr[iDet]);
-	corrleg->AddEntry(gCorr[iDet],Form("%s  %4.01f %4.01f %4.01f",DetectorNames[jDet].Data(), Min[jDet], MeanCanvas[jDet], Max[jDet]),"l"); 
+	corrleg->AddEntry(gCorr[iDet],Form("%s  %4.01f %4.01f %4.01f",DetectorNames[jDet].Data(), Min[jDet], MeanCanvas[jDet], Max[jDet]),"l");
       }
       gCorr[iDet]->Write();
       cout << " done.\n" << flush;
     }
   }
   TCanvas *cc = new TCanvas("cc","",600,400);
-  TString gcorrelationtitle; 
+  TString gcorrelationtitle;
   TLatex *corrtext = new TLatex();
   corrtext->SetTextSize(0.04);
 
@@ -397,28 +396,28 @@ Int_t main(Int_t argc, char **argv){
   for(Int_t iDet = 0; iDet<NDet; iDet++) {
     if (DetectorNames[iDet] == "RICH"){
       IsRICHEnabled=kTRUE;
-      corrtext->SetTextFont(42); 
+      corrtext->SetTextFont(42);
       corrtext->DrawLatex(18., 0.675, Form("%s %4.01f %4.01f %4.01f",DetectorNames[iDet].Data(), Min[iDet], MeanCanvas[iDet], Max[iDet]));
     }
   }
-  if (IsRICHEnabled){ 
+  if (IsRICHEnabled){
     gCorrelations->GetXaxis()->SetRangeUser(-40.,52.);
     gCorrelations->GetXaxis()->SetTitle("Time [ns]");
     gCorrelations->GetXaxis()->SetTitleOffset(1.0);
     gCorrelations->GetYaxis()->SetDecimals();
-    gCorrelations->GetYaxis()->SetTitle("Correlation [a.u.]");  
+    gCorrelations->GetYaxis()->SetTitle("Correlation [a.u.]");
     gCorrelations->SetName("gCorrelations");
     cc->Write();
   }
 
   end =std::chrono::system_clock::now();
   std::chrono::duration<Double_t> elapsed_seconds = end-start;
-  
-      
-  
-  
+
+
+
+
   cout << "[info] All done in "<<elapsed_seconds.count()<< " seconds.\n" << endl;
-  
+
   g->Close();
   return 0;
 }

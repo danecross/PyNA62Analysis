@@ -615,9 +615,9 @@ void NewCHODReconstruction::EOBEventMonitor(TDetectorVEvent* tEvent) {
       }
       TotalHitCount += count;
 
-      for (Int_t i=0; i<100; i++) { // a tile can correspond to multiple elementary bricks
-	if (fGeo->GetScintMap(i)==Tile%100) {
-	  Int_t BrickID = 100*(Tile/100)+i;
+      for (Int_t iCheck=0; iCheck<100; iCheck++) { // a tile can correspond to multiple elementary bricks
+	if (fGeo->GetScintMap(iCheck)==Tile%100) {
+	  Int_t BrickID = 100*(Tile/100)+iCheck;
 	  Double_t x = fGeo->GetBrickCentreX(BrickID) * mm;
 	  Double_t y = fGeo->GetBrickCentreY(BrickID) * mm;
 	  if (IsHigh) fHChannelProfile2D_EOB_PM1->Fill(x/m, y/m, count);

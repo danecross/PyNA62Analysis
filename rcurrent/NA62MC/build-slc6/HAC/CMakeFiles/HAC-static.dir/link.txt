@@ -1,2 +1,0 @@
-/usr/bin/ar qc libHAC-static.a  CMakeFiles/HACObjLib.dir/src/HACAbsorberLayer.cc.o CMakeFiles/HACObjLib.dir/src/HACDetector.cc.o CMakeFiles/HACObjLib.dir/src/HACGeometryParameters.cc.o CMakeFiles/HACObjLib.dir/src/HACHit.cc.o CMakeFiles/HACObjLib.dir/src/HACMagnet.cc.o CMakeFiles/HACObjLib.dir/src/HACMaterialParameters.cc.o CMakeFiles/HACObjLib.dir/src/HACModule.cc.o CMakeFiles/HACObjLib.dir/src/HACRootIO.cc.o CMakeFiles/HACObjLib.dir/src/HACSD.cc.o CMakeFiles/HACObjLib.dir/src/HACScintillatorLayer.cc.o
-/usr/bin/ranlib libHAC-static.a

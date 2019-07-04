@@ -1,7 +1,7 @@
 #!/bin/sh
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-export NA62MCSOURCE=/afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62MC
-export NA62RECOSOURCE=/afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Reconstruction
+export NA62MCSOURCE=$(dirname $(dirname $DIR))/NA62MC
+export NA62RECOSOURCE=$(dirname $DIR)
 
 source ${NA62MCSOURCE}/scripts/env.sh
 

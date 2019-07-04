@@ -44,7 +44,7 @@ if(args.repository is not None and args.version):
 # # list of locations to look for versions in order
 # # 1st element in the name of the location, second the path to it
 # # expect that some of the paths are not valid
-locations = [("Dane's Home Directory", "/afs/cern.ch/user/d/dacross/SummerProject"),
+locations = [("Dane's Home Directory", "/afs/cern.ch/user/d/dacross/"),
 	     ("Amanda's Home Directory", "/afs/cern.ch/user/a/ahoebel/SummerProject"),
 	     ("CVMFS production", "/cvmfs/na62.cern.ch/offline/NA62FW/prod"),
              ("CVMFS development", "/cvmfs/na62.cern.ch/offline/NA62FW/dev"),
@@ -77,7 +77,7 @@ if(usePath is None):
     for l in locations:
         try:
             usePath = os.path.join(l[1], args.version)
-            if(True):
+            if(args.verbose):
                 print "Trying {0}".format(usePath)
             os.listdir(usePath)
         except OSError as e:
@@ -91,7 +91,7 @@ if(usePath is None):  # OK so that version is not available anywhere
     print "\nVersion {0} is not available, try -l to list available versions".format(args.version)
     sys.exit(0)
 
-if(True):
+if(args.verbose):
     print "Using {0}".format(usePath)
 
 # # set variables
