@@ -20,14 +20,14 @@ Persistency/FullReco/SAC/CMakeFiles/SACObjPersistencyLib.dir/SACPersistencyDICT.
  ../Persistency/FullReco/SAC/include/TRecoSACCandidate.hh
  ../Persistency/FullReco/SAC/include/TRecoSACHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/SACChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/TRecoSACCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/TRecoSACEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/TRecoSACHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/TSACDigi.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/TSACEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/TSACHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/SAC/SACPersistencyDICT.cxx
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/SACChannelID.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/TRecoSACCandidate.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/TRecoSACEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/TRecoSACHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/TSACDigi.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/TSACEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/TSACHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/SAC/SACPersistencyDICT.cxx
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfig.h
@@ -101,7 +101,7 @@ Persistency/FullReco/SAC/CMakeFiles/SACObjPersistencyLib.dir/SACPersistencyDICT.
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/strlcpy.h
 Persistency/FullReco/SAC/CMakeFiles/SACObjPersistencyLib.dir/src/SACChannelID.cc.o
  ../Persistency/FullReco/SAC/include/SACChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/src/SACChannelID.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/src/SACChannelID.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -126,7 +126,7 @@ Persistency/FullReco/SAC/CMakeFiles/SACObjPersistencyLib.dir/src/TRecoSACCandida
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../Persistency/FullReco/SAC/include/TRecoSACCandidate.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/src/TRecoSACCandidate.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/src/TRecoSACCandidate.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
@@ -200,7 +200,7 @@ Persistency/FullReco/SAC/CMakeFiles/SACObjPersistencyLib.dir/src/TRecoSACEvent.c
  ../Persistency/FullReco/SAC/include/TRecoSACEvent.hh
  ../Persistency/FullReco/SAC/include/TRecoSACHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/src/TRecoSACEvent.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/src/TRecoSACEvent.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
@@ -264,7 +264,7 @@ Persistency/FullReco/SAC/CMakeFiles/SACObjPersistencyLib.dir/src/TRecoSACHit.cc.
  ../Persistency/FullReco/SAC/include/SACChannelID.hh
  ../Persistency/FullReco/SAC/include/TRecoSACHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/src/TRecoSACHit.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/src/TRecoSACHit.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -312,7 +312,7 @@ Persistency/FullReco/SAC/CMakeFiles/SACObjPersistencyLib.dir/src/TSACDigi.cc.o
  ../Persistency/FullReco/SAC/include/SACChannelID.hh
  ../Persistency/FullReco/SAC/include/TSACDigi.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/src/TSACDigi.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/src/TSACDigi.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -340,7 +340,7 @@ Persistency/FullReco/SAC/CMakeFiles/SACObjPersistencyLib.dir/src/TSACEvent.cc.o
  ../Persistency/FullReco/SAC/include/TSACEvent.hh
  ../Persistency/FullReco/SAC/include/TSACHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/src/TSACEvent.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/src/TSACEvent.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
@@ -400,7 +400,7 @@ Persistency/FullReco/SAC/CMakeFiles/SACObjPersistencyLib.dir/src/TSACHit.cc.o
  ../Persistency/FullReco/SAC/include/SACChannelID.hh
  ../Persistency/FullReco/SAC/include/TSACHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/src/TSACHit.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/src/TSACHit.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -456,14 +456,14 @@ Persistency/FullReco/SAC/SACPersistencyDICT.cxx
  ../Persistency/FullReco/NA62/include/TVEvent.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/SACPersistencyLinkDef.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/SACChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/TRecoSACCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/TRecoSACEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/TRecoSACHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/TSACDigi.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/TSACEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/TSACHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/SACPersistencyLinkDef.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/SACChannelID.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/TRecoSACCandidate.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/TRecoSACEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/TRecoSACHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/TSACDigi.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/TSACEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/TSACHit.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h

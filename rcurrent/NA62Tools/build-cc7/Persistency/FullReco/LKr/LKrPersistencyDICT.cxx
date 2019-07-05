@@ -37,14 +37,14 @@
 namespace std {} using namespace std;
 
 // Header files passed as explicit arguments
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/LKrChannelID.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TLKrDigi.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TLKrEvent.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TLKrHit.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TLKrMicroCellHit.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TRecoLKrCandidate.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TRecoLKrEvent.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TRecoLKrHit.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/LKrChannelID.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TLKrDigi.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TLKrEvent.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TLKrHit.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TLKrMicroCellHit.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TRecoLKrCandidate.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TRecoLKrEvent.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TRecoLKrHit.hh"
 
 // Header files passed via #pragma extra_include
 
@@ -854,11 +854,11 @@ namespace {
 0    };
     static const char* includePaths[] = {
 "/cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include",
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/include",
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include",
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include",
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/include",
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/NA62/include",
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include",
 "/cvmfs/sft.cern.ch/lcg/releases/ROOT/6.16.00-42022/x86_64-centos7-gcc7-opt/include",
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/LKr/",
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/LKr/",
 0
     };
     static const char* fwdDeclCode = R"DICTFWDDCLS(

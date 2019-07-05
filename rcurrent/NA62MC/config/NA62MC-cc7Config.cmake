@@ -7,7 +7,7 @@
  
 # Compute paths
 get_filename_component(NA62MC_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
-set(NA62MC_CONFIG_DIR "/afs/cern.ch/user/d/dacross/na62fw/NA62MC/config")
+set(NA62MC_CONFIG_DIR "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/config")
  
 #TODO publish list of subdet
 set(NA62MC_DETECTORS "Cedar;CHANTI;CHOD;NewCHOD;GigaTracker;HAC;IRC;LAV;LKr;MUV0;MUV1;MUV2;MUV3;RICH;SAC;Spectrometer")

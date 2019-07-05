@@ -43,10 +43,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7
 
 # Include any dependencies generated for this target.
 include CMakeFiles/NA62MC.dir/depend.make
@@ -59,380 +59,380 @@ include CMakeFiles/NA62MC.dir/flags.make
 
 CMakeFiles/NA62MC.dir/NA62MC.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/NA62MC.cc.o: ../NA62MC.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/NA62MC.dir/NA62MC.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/NA62MC.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/NA62MC.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/NA62MC.dir/NA62MC.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/NA62MC.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/NA62MC.cc
 
 CMakeFiles/NA62MC.dir/NA62MC.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/NA62MC.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/NA62MC.cc > CMakeFiles/NA62MC.dir/NA62MC.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/NA62MC.cc > CMakeFiles/NA62MC.dir/NA62MC.cc.i
 
 CMakeFiles/NA62MC.dir/NA62MC.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/NA62MC.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/NA62MC.cc -o CMakeFiles/NA62MC.dir/NA62MC.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/NA62MC.cc -o CMakeFiles/NA62MC.dir/NA62MC.cc.s
 
 CMakeFiles/NA62MC.dir/src/CMC.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/CMC.cc.o: ../src/CMC.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/NA62MC.dir/src/CMC.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/CMC.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/CMC.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/NA62MC.dir/src/CMC.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/CMC.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/CMC.cc
 
 CMakeFiles/NA62MC.dir/src/CMC.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/CMC.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/CMC.cc > CMakeFiles/NA62MC.dir/src/CMC.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/CMC.cc > CMakeFiles/NA62MC.dir/src/CMC.cc.i
 
 CMakeFiles/NA62MC.dir/src/CMC.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/CMC.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/CMC.cc -o CMakeFiles/NA62MC.dir/src/CMC.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/CMC.cc -o CMakeFiles/NA62MC.dir/src/CMC.cc.s
 
 CMakeFiles/NA62MC.dir/src/DatacardManager.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/DatacardManager.cc.o: ../src/DatacardManager.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/NA62MC.dir/src/DatacardManager.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/DatacardManager.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/DatacardManager.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/NA62MC.dir/src/DatacardManager.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/DatacardManager.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/DatacardManager.cc
 
 CMakeFiles/NA62MC.dir/src/DatacardManager.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/DatacardManager.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/DatacardManager.cc > CMakeFiles/NA62MC.dir/src/DatacardManager.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/DatacardManager.cc > CMakeFiles/NA62MC.dir/src/DatacardManager.cc.i
 
 CMakeFiles/NA62MC.dir/src/DatacardManager.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/DatacardManager.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/DatacardManager.cc -o CMakeFiles/NA62MC.dir/src/DatacardManager.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/DatacardManager.cc -o CMakeFiles/NA62MC.dir/src/DatacardManager.cc.s
 
 CMakeFiles/NA62MC.dir/src/DatacardMessenger.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/DatacardMessenger.cc.o: ../src/DatacardMessenger.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/NA62MC.dir/src/DatacardMessenger.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/DatacardMessenger.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/DatacardMessenger.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/NA62MC.dir/src/DatacardMessenger.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/DatacardMessenger.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/DatacardMessenger.cc
 
 CMakeFiles/NA62MC.dir/src/DatacardMessenger.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/DatacardMessenger.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/DatacardMessenger.cc > CMakeFiles/NA62MC.dir/src/DatacardMessenger.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/DatacardMessenger.cc > CMakeFiles/NA62MC.dir/src/DatacardMessenger.cc.i
 
 CMakeFiles/NA62MC.dir/src/DatacardMessenger.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/DatacardMessenger.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/DatacardMessenger.cc -o CMakeFiles/NA62MC.dir/src/DatacardMessenger.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/DatacardMessenger.cc -o CMakeFiles/NA62MC.dir/src/DatacardMessenger.cc.s
 
 CMakeFiles/NA62MC.dir/src/DetectorConstruction.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/DetectorConstruction.cc.o: ../src/DetectorConstruction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/NA62MC.dir/src/DetectorConstruction.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/DetectorConstruction.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/DetectorConstruction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/NA62MC.dir/src/DetectorConstruction.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/DetectorConstruction.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/DetectorConstruction.cc
 
 CMakeFiles/NA62MC.dir/src/DetectorConstruction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/DetectorConstruction.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/DetectorConstruction.cc > CMakeFiles/NA62MC.dir/src/DetectorConstruction.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/DetectorConstruction.cc > CMakeFiles/NA62MC.dir/src/DetectorConstruction.cc.i
 
 CMakeFiles/NA62MC.dir/src/DetectorConstruction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/DetectorConstruction.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/DetectorConstruction.cc -o CMakeFiles/NA62MC.dir/src/DetectorConstruction.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/DetectorConstruction.cc -o CMakeFiles/NA62MC.dir/src/DetectorConstruction.cc.s
 
 CMakeFiles/NA62MC.dir/src/DetectorMessenger.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/DetectorMessenger.cc.o: ../src/DetectorMessenger.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/NA62MC.dir/src/DetectorMessenger.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/DetectorMessenger.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/DetectorMessenger.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/NA62MC.dir/src/DetectorMessenger.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/DetectorMessenger.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/DetectorMessenger.cc
 
 CMakeFiles/NA62MC.dir/src/DetectorMessenger.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/DetectorMessenger.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/DetectorMessenger.cc > CMakeFiles/NA62MC.dir/src/DetectorMessenger.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/DetectorMessenger.cc > CMakeFiles/NA62MC.dir/src/DetectorMessenger.cc.i
 
 CMakeFiles/NA62MC.dir/src/DetectorMessenger.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/DetectorMessenger.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/DetectorMessenger.cc -o CMakeFiles/NA62MC.dir/src/DetectorMessenger.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/DetectorMessenger.cc -o CMakeFiles/NA62MC.dir/src/DetectorMessenger.cc.s
 
 CMakeFiles/NA62MC.dir/src/EventAction.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/EventAction.cc.o: ../src/EventAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/NA62MC.dir/src/EventAction.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/EventAction.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/EventAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/NA62MC.dir/src/EventAction.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/EventAction.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/EventAction.cc
 
 CMakeFiles/NA62MC.dir/src/EventAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/EventAction.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/EventAction.cc > CMakeFiles/NA62MC.dir/src/EventAction.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/EventAction.cc > CMakeFiles/NA62MC.dir/src/EventAction.cc.i
 
 CMakeFiles/NA62MC.dir/src/EventAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/EventAction.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/EventAction.cc -o CMakeFiles/NA62MC.dir/src/EventAction.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/EventAction.cc -o CMakeFiles/NA62MC.dir/src/EventAction.cc.s
 
 CMakeFiles/NA62MC.dir/src/ExoticParticle.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/ExoticParticle.cc.o: ../src/ExoticParticle.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/NA62MC.dir/src/ExoticParticle.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/ExoticParticle.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/ExoticParticle.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/NA62MC.dir/src/ExoticParticle.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/ExoticParticle.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/ExoticParticle.cc
 
 CMakeFiles/NA62MC.dir/src/ExoticParticle.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/ExoticParticle.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/ExoticParticle.cc > CMakeFiles/NA62MC.dir/src/ExoticParticle.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/ExoticParticle.cc > CMakeFiles/NA62MC.dir/src/ExoticParticle.cc.i
 
 CMakeFiles/NA62MC.dir/src/ExoticParticle.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/ExoticParticle.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/ExoticParticle.cc -o CMakeFiles/NA62MC.dir/src/ExoticParticle.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/ExoticParticle.cc -o CMakeFiles/NA62MC.dir/src/ExoticParticle.cc.s
 
 CMakeFiles/NA62MC.dir/src/ExoticParticleGun.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/ExoticParticleGun.cc.o: ../src/ExoticParticleGun.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/NA62MC.dir/src/ExoticParticleGun.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/ExoticParticleGun.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/ExoticParticleGun.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/NA62MC.dir/src/ExoticParticleGun.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/ExoticParticleGun.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/ExoticParticleGun.cc
 
 CMakeFiles/NA62MC.dir/src/ExoticParticleGun.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/ExoticParticleGun.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/ExoticParticleGun.cc > CMakeFiles/NA62MC.dir/src/ExoticParticleGun.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/ExoticParticleGun.cc > CMakeFiles/NA62MC.dir/src/ExoticParticleGun.cc.i
 
 CMakeFiles/NA62MC.dir/src/ExoticParticleGun.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/ExoticParticleGun.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/ExoticParticleGun.cc -o CMakeFiles/NA62MC.dir/src/ExoticParticleGun.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/ExoticParticleGun.cc -o CMakeFiles/NA62MC.dir/src/ExoticParticleGun.cc.s
 
 CMakeFiles/NA62MC.dir/src/ExoticParticleGunMessenger.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/ExoticParticleGunMessenger.cc.o: ../src/ExoticParticleGunMessenger.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/NA62MC.dir/src/ExoticParticleGunMessenger.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/ExoticParticleGunMessenger.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/ExoticParticleGunMessenger.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/NA62MC.dir/src/ExoticParticleGunMessenger.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/ExoticParticleGunMessenger.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/ExoticParticleGunMessenger.cc
 
 CMakeFiles/NA62MC.dir/src/ExoticParticleGunMessenger.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/ExoticParticleGunMessenger.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/ExoticParticleGunMessenger.cc > CMakeFiles/NA62MC.dir/src/ExoticParticleGunMessenger.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/ExoticParticleGunMessenger.cc > CMakeFiles/NA62MC.dir/src/ExoticParticleGunMessenger.cc.i
 
 CMakeFiles/NA62MC.dir/src/ExoticParticleGunMessenger.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/ExoticParticleGunMessenger.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/ExoticParticleGunMessenger.cc -o CMakeFiles/NA62MC.dir/src/ExoticParticleGunMessenger.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/ExoticParticleGunMessenger.cc -o CMakeFiles/NA62MC.dir/src/ExoticParticleGunMessenger.cc.s
 
 CMakeFiles/NA62MC.dir/src/ExoticParticlePhysics.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/ExoticParticlePhysics.cc.o: ../src/ExoticParticlePhysics.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/NA62MC.dir/src/ExoticParticlePhysics.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/ExoticParticlePhysics.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/ExoticParticlePhysics.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/NA62MC.dir/src/ExoticParticlePhysics.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/ExoticParticlePhysics.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/ExoticParticlePhysics.cc
 
 CMakeFiles/NA62MC.dir/src/ExoticParticlePhysics.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/ExoticParticlePhysics.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/ExoticParticlePhysics.cc > CMakeFiles/NA62MC.dir/src/ExoticParticlePhysics.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/ExoticParticlePhysics.cc > CMakeFiles/NA62MC.dir/src/ExoticParticlePhysics.cc.i
 
 CMakeFiles/NA62MC.dir/src/ExoticParticlePhysics.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/ExoticParticlePhysics.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/ExoticParticlePhysics.cc -o CMakeFiles/NA62MC.dir/src/ExoticParticlePhysics.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/ExoticParticlePhysics.cc -o CMakeFiles/NA62MC.dir/src/ExoticParticlePhysics.cc.s
 
 CMakeFiles/NA62MC.dir/src/ExoticProductionMode.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/ExoticProductionMode.cc.o: ../src/ExoticProductionMode.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/NA62MC.dir/src/ExoticProductionMode.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/ExoticProductionMode.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/ExoticProductionMode.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/NA62MC.dir/src/ExoticProductionMode.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/ExoticProductionMode.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/ExoticProductionMode.cc
 
 CMakeFiles/NA62MC.dir/src/ExoticProductionMode.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/ExoticProductionMode.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/ExoticProductionMode.cc > CMakeFiles/NA62MC.dir/src/ExoticProductionMode.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/ExoticProductionMode.cc > CMakeFiles/NA62MC.dir/src/ExoticProductionMode.cc.i
 
 CMakeFiles/NA62MC.dir/src/ExoticProductionMode.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/ExoticProductionMode.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/ExoticProductionMode.cc -o CMakeFiles/NA62MC.dir/src/ExoticProductionMode.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/ExoticProductionMode.cc -o CMakeFiles/NA62MC.dir/src/ExoticProductionMode.cc.s
 
 CMakeFiles/NA62MC.dir/src/ExoticProductionTable.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/ExoticProductionTable.cc.o: ../src/ExoticProductionTable.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/NA62MC.dir/src/ExoticProductionTable.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/ExoticProductionTable.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/ExoticProductionTable.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/NA62MC.dir/src/ExoticProductionTable.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/ExoticProductionTable.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/ExoticProductionTable.cc
 
 CMakeFiles/NA62MC.dir/src/ExoticProductionTable.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/ExoticProductionTable.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/ExoticProductionTable.cc > CMakeFiles/NA62MC.dir/src/ExoticProductionTable.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/ExoticProductionTable.cc > CMakeFiles/NA62MC.dir/src/ExoticProductionTable.cc.i
 
 CMakeFiles/NA62MC.dir/src/ExoticProductionTable.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/ExoticProductionTable.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/ExoticProductionTable.cc -o CMakeFiles/NA62MC.dir/src/ExoticProductionTable.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/ExoticProductionTable.cc -o CMakeFiles/NA62MC.dir/src/ExoticProductionTable.cc.s
 
 CMakeFiles/NA62MC.dir/src/G4CMCDecayer.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/G4CMCDecayer.cc.o: ../src/G4CMCDecayer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/NA62MC.dir/src/G4CMCDecayer.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/G4CMCDecayer.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/G4CMCDecayer.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/NA62MC.dir/src/G4CMCDecayer.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/G4CMCDecayer.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/G4CMCDecayer.cc
 
 CMakeFiles/NA62MC.dir/src/G4CMCDecayer.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/G4CMCDecayer.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/G4CMCDecayer.cc > CMakeFiles/NA62MC.dir/src/G4CMCDecayer.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/G4CMCDecayer.cc > CMakeFiles/NA62MC.dir/src/G4CMCDecayer.cc.i
 
 CMakeFiles/NA62MC.dir/src/G4CMCDecayer.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/G4CMCDecayer.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/G4CMCDecayer.cc -o CMakeFiles/NA62MC.dir/src/G4CMCDecayer.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/G4CMCDecayer.cc -o CMakeFiles/NA62MC.dir/src/G4CMCDecayer.cc.s
 
 CMakeFiles/NA62MC.dir/src/GeometryParameters.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/GeometryParameters.cc.o: ../src/GeometryParameters.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/NA62MC.dir/src/GeometryParameters.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/GeometryParameters.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/GeometryParameters.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/NA62MC.dir/src/GeometryParameters.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/GeometryParameters.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/GeometryParameters.cc
 
 CMakeFiles/NA62MC.dir/src/GeometryParameters.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/GeometryParameters.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/GeometryParameters.cc > CMakeFiles/NA62MC.dir/src/GeometryParameters.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/GeometryParameters.cc > CMakeFiles/NA62MC.dir/src/GeometryParameters.cc.i
 
 CMakeFiles/NA62MC.dir/src/GeometryParameters.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/GeometryParameters.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/GeometryParameters.cc -o CMakeFiles/NA62MC.dir/src/GeometryParameters.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/GeometryParameters.cc -o CMakeFiles/NA62MC.dir/src/GeometryParameters.cc.s
 
 CMakeFiles/NA62MC.dir/src/MCTruthConfig.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/MCTruthConfig.cc.o: ../src/MCTruthConfig.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/NA62MC.dir/src/MCTruthConfig.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/MCTruthConfig.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/MCTruthConfig.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/NA62MC.dir/src/MCTruthConfig.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/MCTruthConfig.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/MCTruthConfig.cc
 
 CMakeFiles/NA62MC.dir/src/MCTruthConfig.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/MCTruthConfig.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/MCTruthConfig.cc > CMakeFiles/NA62MC.dir/src/MCTruthConfig.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/MCTruthConfig.cc > CMakeFiles/NA62MC.dir/src/MCTruthConfig.cc.i
 
 CMakeFiles/NA62MC.dir/src/MCTruthConfig.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/MCTruthConfig.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/MCTruthConfig.cc -o CMakeFiles/NA62MC.dir/src/MCTruthConfig.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/MCTruthConfig.cc -o CMakeFiles/NA62MC.dir/src/MCTruthConfig.cc.s
 
 CMakeFiles/NA62MC.dir/src/MCTruthManager.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/MCTruthManager.cc.o: ../src/MCTruthManager.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/NA62MC.dir/src/MCTruthManager.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/MCTruthManager.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/MCTruthManager.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/NA62MC.dir/src/MCTruthManager.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/MCTruthManager.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/MCTruthManager.cc
 
 CMakeFiles/NA62MC.dir/src/MCTruthManager.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/MCTruthManager.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/MCTruthManager.cc > CMakeFiles/NA62MC.dir/src/MCTruthManager.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/MCTruthManager.cc > CMakeFiles/NA62MC.dir/src/MCTruthManager.cc.i
 
 CMakeFiles/NA62MC.dir/src/MCTruthManager.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/MCTruthManager.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/MCTruthManager.cc -o CMakeFiles/NA62MC.dir/src/MCTruthManager.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/MCTruthManager.cc -o CMakeFiles/NA62MC.dir/src/MCTruthManager.cc.s
 
 CMakeFiles/NA62MC.dir/src/MCTruthTrackInformation.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/MCTruthTrackInformation.cc.o: ../src/MCTruthTrackInformation.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/NA62MC.dir/src/MCTruthTrackInformation.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/MCTruthTrackInformation.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/MCTruthTrackInformation.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/NA62MC.dir/src/MCTruthTrackInformation.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/MCTruthTrackInformation.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/MCTruthTrackInformation.cc
 
 CMakeFiles/NA62MC.dir/src/MCTruthTrackInformation.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/MCTruthTrackInformation.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/MCTruthTrackInformation.cc > CMakeFiles/NA62MC.dir/src/MCTruthTrackInformation.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/MCTruthTrackInformation.cc > CMakeFiles/NA62MC.dir/src/MCTruthTrackInformation.cc.i
 
 CMakeFiles/NA62MC.dir/src/MCTruthTrackInformation.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/MCTruthTrackInformation.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/MCTruthTrackInformation.cc -o CMakeFiles/NA62MC.dir/src/MCTruthTrackInformation.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/MCTruthTrackInformation.cc -o CMakeFiles/NA62MC.dir/src/MCTruthTrackInformation.cc.s
 
 CMakeFiles/NA62MC.dir/src/MCTruthTrackingAction.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/MCTruthTrackingAction.cc.o: ../src/MCTruthTrackingAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/NA62MC.dir/src/MCTruthTrackingAction.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/MCTruthTrackingAction.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/MCTruthTrackingAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/NA62MC.dir/src/MCTruthTrackingAction.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/MCTruthTrackingAction.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/MCTruthTrackingAction.cc
 
 CMakeFiles/NA62MC.dir/src/MCTruthTrackingAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/MCTruthTrackingAction.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/MCTruthTrackingAction.cc > CMakeFiles/NA62MC.dir/src/MCTruthTrackingAction.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/MCTruthTrackingAction.cc > CMakeFiles/NA62MC.dir/src/MCTruthTrackingAction.cc.i
 
 CMakeFiles/NA62MC.dir/src/MCTruthTrackingAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/MCTruthTrackingAction.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/MCTruthTrackingAction.cc -o CMakeFiles/NA62MC.dir/src/MCTruthTrackingAction.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/MCTruthTrackingAction.cc -o CMakeFiles/NA62MC.dir/src/MCTruthTrackingAction.cc.s
 
 CMakeFiles/NA62MC.dir/src/MatrixGun.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/MatrixGun.cc.o: ../src/MatrixGun.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/NA62MC.dir/src/MatrixGun.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/MatrixGun.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/MatrixGun.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/NA62MC.dir/src/MatrixGun.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/MatrixGun.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/MatrixGun.cc
 
 CMakeFiles/NA62MC.dir/src/MatrixGun.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/MatrixGun.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/MatrixGun.cc > CMakeFiles/NA62MC.dir/src/MatrixGun.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/MatrixGun.cc > CMakeFiles/NA62MC.dir/src/MatrixGun.cc.i
 
 CMakeFiles/NA62MC.dir/src/MatrixGun.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/MatrixGun.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/MatrixGun.cc -o CMakeFiles/NA62MC.dir/src/MatrixGun.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/MatrixGun.cc -o CMakeFiles/NA62MC.dir/src/MatrixGun.cc.s
 
 CMakeFiles/NA62MC.dir/src/PhysicsList.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/PhysicsList.cc.o: ../src/PhysicsList.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/NA62MC.dir/src/PhysicsList.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/PhysicsList.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/PhysicsList.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/NA62MC.dir/src/PhysicsList.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/PhysicsList.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/PhysicsList.cc
 
 CMakeFiles/NA62MC.dir/src/PhysicsList.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/PhysicsList.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/PhysicsList.cc > CMakeFiles/NA62MC.dir/src/PhysicsList.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/PhysicsList.cc > CMakeFiles/NA62MC.dir/src/PhysicsList.cc.i
 
 CMakeFiles/NA62MC.dir/src/PhysicsList.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/PhysicsList.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/PhysicsList.cc -o CMakeFiles/NA62MC.dir/src/PhysicsList.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/PhysicsList.cc -o CMakeFiles/NA62MC.dir/src/PhysicsList.cc.s
 
 CMakeFiles/NA62MC.dir/src/PhysicsListMessenger.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/PhysicsListMessenger.cc.o: ../src/PhysicsListMessenger.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/NA62MC.dir/src/PhysicsListMessenger.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/PhysicsListMessenger.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/PhysicsListMessenger.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/NA62MC.dir/src/PhysicsListMessenger.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/PhysicsListMessenger.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/PhysicsListMessenger.cc
 
 CMakeFiles/NA62MC.dir/src/PhysicsListMessenger.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/PhysicsListMessenger.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/PhysicsListMessenger.cc > CMakeFiles/NA62MC.dir/src/PhysicsListMessenger.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/PhysicsListMessenger.cc > CMakeFiles/NA62MC.dir/src/PhysicsListMessenger.cc.i
 
 CMakeFiles/NA62MC.dir/src/PhysicsListMessenger.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/PhysicsListMessenger.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/PhysicsListMessenger.cc -o CMakeFiles/NA62MC.dir/src/PhysicsListMessenger.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/PhysicsListMessenger.cc -o CMakeFiles/NA62MC.dir/src/PhysicsListMessenger.cc.s
 
 CMakeFiles/NA62MC.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/PrimaryGeneratorAction.cc.o: ../src/PrimaryGeneratorAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/NA62MC.dir/src/PrimaryGeneratorAction.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/PrimaryGeneratorAction.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/PrimaryGeneratorAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/NA62MC.dir/src/PrimaryGeneratorAction.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/PrimaryGeneratorAction.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/PrimaryGeneratorAction.cc
 
 CMakeFiles/NA62MC.dir/src/PrimaryGeneratorAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/PrimaryGeneratorAction.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/PrimaryGeneratorAction.cc > CMakeFiles/NA62MC.dir/src/PrimaryGeneratorAction.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/PrimaryGeneratorAction.cc > CMakeFiles/NA62MC.dir/src/PrimaryGeneratorAction.cc.i
 
 CMakeFiles/NA62MC.dir/src/PrimaryGeneratorAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/PrimaryGeneratorAction.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/PrimaryGeneratorAction.cc -o CMakeFiles/NA62MC.dir/src/PrimaryGeneratorAction.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/PrimaryGeneratorAction.cc -o CMakeFiles/NA62MC.dir/src/PrimaryGeneratorAction.cc.s
 
 CMakeFiles/NA62MC.dir/src/PrimaryGeneratorMessenger.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/PrimaryGeneratorMessenger.cc.o: ../src/PrimaryGeneratorMessenger.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/NA62MC.dir/src/PrimaryGeneratorMessenger.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/PrimaryGeneratorMessenger.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/PrimaryGeneratorMessenger.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/NA62MC.dir/src/PrimaryGeneratorMessenger.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/PrimaryGeneratorMessenger.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/PrimaryGeneratorMessenger.cc
 
 CMakeFiles/NA62MC.dir/src/PrimaryGeneratorMessenger.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/PrimaryGeneratorMessenger.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/PrimaryGeneratorMessenger.cc > CMakeFiles/NA62MC.dir/src/PrimaryGeneratorMessenger.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/PrimaryGeneratorMessenger.cc > CMakeFiles/NA62MC.dir/src/PrimaryGeneratorMessenger.cc.i
 
 CMakeFiles/NA62MC.dir/src/PrimaryGeneratorMessenger.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/PrimaryGeneratorMessenger.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/PrimaryGeneratorMessenger.cc -o CMakeFiles/NA62MC.dir/src/PrimaryGeneratorMessenger.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/PrimaryGeneratorMessenger.cc -o CMakeFiles/NA62MC.dir/src/PrimaryGeneratorMessenger.cc.s
 
 CMakeFiles/NA62MC.dir/src/RandomGenerator.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/RandomGenerator.cc.o: ../src/RandomGenerator.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/NA62MC.dir/src/RandomGenerator.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/RandomGenerator.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/RandomGenerator.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/NA62MC.dir/src/RandomGenerator.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/RandomGenerator.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/RandomGenerator.cc
 
 CMakeFiles/NA62MC.dir/src/RandomGenerator.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/RandomGenerator.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/RandomGenerator.cc > CMakeFiles/NA62MC.dir/src/RandomGenerator.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/RandomGenerator.cc > CMakeFiles/NA62MC.dir/src/RandomGenerator.cc.i
 
 CMakeFiles/NA62MC.dir/src/RandomGenerator.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/RandomGenerator.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/RandomGenerator.cc -o CMakeFiles/NA62MC.dir/src/RandomGenerator.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/RandomGenerator.cc -o CMakeFiles/NA62MC.dir/src/RandomGenerator.cc.s
 
 CMakeFiles/NA62MC.dir/src/RootIOManager.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/RootIOManager.cc.o: ../src/RootIOManager.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/NA62MC.dir/src/RootIOManager.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/RootIOManager.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/RootIOManager.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/NA62MC.dir/src/RootIOManager.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/RootIOManager.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/RootIOManager.cc
 
 CMakeFiles/NA62MC.dir/src/RootIOManager.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/RootIOManager.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/RootIOManager.cc > CMakeFiles/NA62MC.dir/src/RootIOManager.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/RootIOManager.cc > CMakeFiles/NA62MC.dir/src/RootIOManager.cc.i
 
 CMakeFiles/NA62MC.dir/src/RootIOManager.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/RootIOManager.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/RootIOManager.cc -o CMakeFiles/NA62MC.dir/src/RootIOManager.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/RootIOManager.cc -o CMakeFiles/NA62MC.dir/src/RootIOManager.cc.s
 
 CMakeFiles/NA62MC.dir/src/RunAction.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/RunAction.cc.o: ../src/RunAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/NA62MC.dir/src/RunAction.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/RunAction.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/RunAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/NA62MC.dir/src/RunAction.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/RunAction.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/RunAction.cc
 
 CMakeFiles/NA62MC.dir/src/RunAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/RunAction.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/RunAction.cc > CMakeFiles/NA62MC.dir/src/RunAction.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/RunAction.cc > CMakeFiles/NA62MC.dir/src/RunAction.cc.i
 
 CMakeFiles/NA62MC.dir/src/RunAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/RunAction.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/RunAction.cc -o CMakeFiles/NA62MC.dir/src/RunAction.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/RunAction.cc -o CMakeFiles/NA62MC.dir/src/RunAction.cc.s
 
 CMakeFiles/NA62MC.dir/src/SteppingAction.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/SteppingAction.cc.o: ../src/SteppingAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/NA62MC.dir/src/SteppingAction.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/SteppingAction.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/SteppingAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/NA62MC.dir/src/SteppingAction.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/SteppingAction.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/SteppingAction.cc
 
 CMakeFiles/NA62MC.dir/src/SteppingAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/SteppingAction.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/SteppingAction.cc > CMakeFiles/NA62MC.dir/src/SteppingAction.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/SteppingAction.cc > CMakeFiles/NA62MC.dir/src/SteppingAction.cc.i
 
 CMakeFiles/NA62MC.dir/src/SteppingAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/SteppingAction.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/SteppingAction.cc -o CMakeFiles/NA62MC.dir/src/SteppingAction.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/SteppingAction.cc -o CMakeFiles/NA62MC.dir/src/SteppingAction.cc.s
 
 CMakeFiles/NA62MC.dir/src/SteppingVerbose.cc.o: CMakeFiles/NA62MC.dir/flags.make
 CMakeFiles/NA62MC.dir/src/SteppingVerbose.cc.o: ../src/SteppingVerbose.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/NA62MC.dir/src/SteppingVerbose.cc.o"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/SteppingVerbose.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/SteppingVerbose.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/NA62MC.dir/src/SteppingVerbose.cc.o"
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NA62MC.dir/src/SteppingVerbose.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/SteppingVerbose.cc
 
 CMakeFiles/NA62MC.dir/src/SteppingVerbose.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NA62MC.dir/src/SteppingVerbose.cc.i"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/SteppingVerbose.cc > CMakeFiles/NA62MC.dir/src/SteppingVerbose.cc.i
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/SteppingVerbose.cc > CMakeFiles/NA62MC.dir/src/SteppingVerbose.cc.i
 
 CMakeFiles/NA62MC.dir/src/SteppingVerbose.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NA62MC.dir/src/SteppingVerbose.cc.s"
-	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/SteppingVerbose.cc -o CMakeFiles/NA62MC.dir/src/SteppingVerbose.cc.s
+	/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/SteppingVerbose.cc -o CMakeFiles/NA62MC.dir/src/SteppingVerbose.cc.s
 
 # Object files for target NA62MC
 NA62MC_OBJECTS = \
@@ -614,7 +614,7 @@ NA62MC: /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-
 NA62MC: /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/lib64/libG4global.so
 NA62MC: /cvmfs/sft.cern.ch/lcg/releases/clhep/2.4.1.0-2c56f/x86_64-centos7-gcc7-opt/lib/libCLHEP-2.4.1.0.so
 NA62MC: CMakeFiles/NA62MC.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Linking CXX executable NA62MC"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Linking CXX executable NA62MC"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/NA62MC.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -627,6 +627,6 @@ CMakeFiles/NA62MC.dir/clean:
 .PHONY : CMakeFiles/NA62MC.dir/clean
 
 CMakeFiles/NA62MC.dir/depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/na62fw/NA62MC /afs/cern.ch/user/d/dacross/na62fw/NA62MC /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/NA62MC.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/NA62MC.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/NA62MC.dir/depend
 

@@ -7,8 +7,8 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/afs/cern.ch/user/d/dacross/na62fw/.git/HEAD"
-  "/afs/cern.ch/user/d/dacross/na62fw/.git/refs/heads/develop"
+  "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/.git/HEAD"
+  "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/.git/refs/heads/develop"
   "../CMakeLists.txt"
   "../NA62ToolsConfig.cmake.in"
   "../Persistency/CMakeLists.txt"

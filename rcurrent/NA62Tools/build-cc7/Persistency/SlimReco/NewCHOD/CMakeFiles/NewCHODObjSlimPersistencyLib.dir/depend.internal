@@ -7,10 +7,10 @@ Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/NewCHOD
  ../Persistency/SlimReco/NA62/include/TSlimRecoVHit.hh
  ../Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODCandidate.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/SlimReco/NewCHOD/NewCHODSlimPersistencyDICT.cxx
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODCandidate.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/SlimReco/NewCHOD/NewCHODSlimPersistencyDICT.cxx
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfig.h
@@ -90,7 +90,7 @@ Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSl
  ../Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODCandidate.hh
  ../include/NA62Global.hh
  ../include/NewCHODGeometry.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NewCHOD/src/TSlimRecoNewCHODCandidate.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NewCHOD/src/TSlimRecoNewCHODCandidate.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -155,7 +155,7 @@ Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSl
  ../Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODCandidate.hh
  ../Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODEvent.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NewCHOD/src/TSlimRecoNewCHODEvent.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NewCHOD/src/TSlimRecoNewCHODEvent.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
@@ -214,7 +214,7 @@ Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSl
 Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSlimRecoNewCHODHit.cc.o
  ../Persistency/SlimReco/NA62/include/TSlimRecoVHit.hh
  ../Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NewCHOD/src/TSlimRecoNewCHODHit.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NewCHOD/src/TSlimRecoNewCHODHit.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -235,10 +235,10 @@ Persistency/SlimReco/NewCHOD/NewCHODSlimPersistencyDICT.cxx
  ../Persistency/SlimReco/NA62/include/TSlimRecoVEvent.hh
  ../Persistency/SlimReco/NA62/include/TSlimRecoVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NewCHOD/NewCHODSlimPersistencyLinkDef.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NewCHOD/NewCHODSlimPersistencyLinkDef.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODCandidate.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODHit.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h

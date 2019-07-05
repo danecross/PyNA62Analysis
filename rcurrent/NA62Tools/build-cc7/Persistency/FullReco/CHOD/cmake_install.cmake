@@ -1,8 +1,8 @@
-# Install script for directory: /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHOD
+# Install script for directory: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHOD
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools")
+  set(CMAKE_INSTALL_PREFIX "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,11 +38,11 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xpersistencylibx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7/Persistency" TYPE FILE FILES "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/CHOD/libCHODPersistency_rdict.pcm")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7/Persistency" TYPE FILE FILES "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/CHOD/libCHODPersistency_rdict.pcm")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xpersistencylibx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7/Persistency" TYPE FILE FILES "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/CHOD/libCHODPersistency.rootmap")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7/Persistency" TYPE FILE FILES "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/CHOD/libCHODPersistency.rootmap")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xpersistencylibx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -52,7 +52,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xpersistencylibx" OR NOT CMAKE_INSTA
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib-cc7/Persistency/libCHODPersistency.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7/Persistency" TYPE SHARED_LIBRARY FILES "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/CHOD/libCHODPersistency.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7/Persistency" TYPE SHARED_LIBRARY FILES "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/CHOD/libCHODPersistency.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib-cc7/Persistency/libCHODPersistency.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib-cc7/Persistency/libCHODPersistency.so")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -62,6 +62,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xpersistencylibx" OR NOT CMAKE_INSTA
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xpersistencylibx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7/Persistency" TYPE STATIC_LIBRARY FILES "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/CHOD/libCHODPersistency-static.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7/Persistency" TYPE STATIC_LIBRARY FILES "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/CHOD/libCHODPersistency-static.a")
 endif()
 

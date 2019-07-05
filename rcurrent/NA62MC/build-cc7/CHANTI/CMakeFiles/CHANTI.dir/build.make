@@ -43,10 +43,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7
 
 # Include any dependencies generated for this target.
 include CHANTI/CMakeFiles/CHANTI.dir/depend.make
@@ -62,20 +62,20 @@ CHANTI_OBJECTS =
 
 # External object files for target CHANTI
 CHANTI_EXTERNAL_OBJECTS = \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIDetector.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIDetectorMessenger.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIFiber.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIFrame.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIGeometryParameters.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIHit.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIMaterialParameters.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIRing.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIRootIO.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTISD.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTISDSiPM.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIStation.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIStrip.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIVessel.cc.o"
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIDetector.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIDetectorMessenger.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIFiber.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIFrame.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIGeometryParameters.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIHit.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIMaterialParameters.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIRing.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIRootIO.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTISD.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTISDSiPM.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIStation.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIStrip.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIVessel.cc.o"
 
 CHANTI/libCHANTI.so: CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIDetector.cc.o
 CHANTI/libCHANTI.so: CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIDetectorMessenger.cc.o
@@ -93,8 +93,8 @@ CHANTI/libCHANTI.so: CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIStrip.cc.o
 CHANTI/libCHANTI.so: CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIVessel.cc.o
 CHANTI/libCHANTI.so: CHANTI/CMakeFiles/CHANTI.dir/build.make
 CHANTI/libCHANTI.so: CHANTI/CMakeFiles/CHANTI.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX shared library libCHANTI.so"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CHANTI && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CHANTI.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX shared library libCHANTI.so"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CHANTI && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CHANTI.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 CHANTI/CMakeFiles/CHANTI.dir/build: CHANTI/libCHANTI.so
@@ -102,10 +102,10 @@ CHANTI/CMakeFiles/CHANTI.dir/build: CHANTI/libCHANTI.so
 .PHONY : CHANTI/CMakeFiles/CHANTI.dir/build
 
 CHANTI/CMakeFiles/CHANTI.dir/clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CHANTI && $(CMAKE_COMMAND) -P CMakeFiles/CHANTI.dir/cmake_clean.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CHANTI && $(CMAKE_COMMAND) -P CMakeFiles/CHANTI.dir/cmake_clean.cmake
 .PHONY : CHANTI/CMakeFiles/CHANTI.dir/clean
 
 CHANTI/CMakeFiles/CHANTI.dir/depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/na62fw/NA62MC /afs/cern.ch/user/d/dacross/na62fw/NA62MC/CHANTI /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CHANTI /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTI.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/CHANTI /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CHANTI /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CHANTI/CMakeFiles/CHANTI.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CHANTI/CMakeFiles/CHANTI.dir/depend
 

@@ -9,7 +9,7 @@ IRC/CMakeFiles/IRCObjLib.dir/src/IRCAbsorberLayer.cc.o
  ../MCBase/include/NA62VGeometryParameters.hh
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/IRC/src/IRCAbsorberLayer.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/IRC/src/IRCAbsorberLayer.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -330,7 +330,7 @@ IRC/CMakeFiles/IRCObjLib.dir/src/IRCAluminumLayer.cc.o
  ../MCBase/include/NA62VGeometryParameters.hh
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/IRC/src/IRCAluminumLayer.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/IRC/src/IRCAluminumLayer.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -652,7 +652,7 @@ IRC/CMakeFiles/IRCObjLib.dir/src/IRCBeamPipe.cc.o
  ../MCBase/include/NA62VGeometryParameters.hh
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/IRC/src/IRCBeamPipe.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/IRC/src/IRCBeamPipe.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -977,7 +977,7 @@ IRC/CMakeFiles/IRCObjLib.dir/src/IRCDetector.cc.o
  ../MCBase/include/NA62VGeometryParameters.hh
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/IRC/src/IRCDetector.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/IRC/src/IRCDetector.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -1342,7 +1342,7 @@ IRC/CMakeFiles/IRCObjLib.dir/src/IRCGeometryParameters.cc.o
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/DetectorParameter.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/IRC/src/IRCGeometryParameters.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/IRC/src/IRCGeometryParameters.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4EnvironmentUtils.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Exception.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4ExceptionSeverity.hh
@@ -1403,7 +1403,7 @@ IRC/CMakeFiles/IRCObjLib.dir/src/IRCGeometryParameters.cc.o
  /cvmfs/sft.cern.ch/lcg/releases/clhep/2.4.1.0-2c56f/x86_64-centos7-gcc7-opt/lib/CLHEP-2.4.1.0/../../include/CLHEP/Units/defs.h
 IRC/CMakeFiles/IRCObjLib.dir/src/IRCHit.cc.o
  ../IRC/include/IRCHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/IRC/src/IRCHit.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/IRC/src/IRCHit.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AllocatorPool.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AutoLock.hh
@@ -1481,7 +1481,7 @@ IRC/CMakeFiles/IRCObjLib.dir/src/IRCMaterialParameters.cc.o
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/DetectorParameter.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/IRC/src/IRCMaterialParameters.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/IRC/src/IRCMaterialParameters.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4DataVector.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4DataVector.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Element.hh
@@ -1580,7 +1580,7 @@ IRC/CMakeFiles/IRCObjLib.dir/src/IRCModule.cc.o
  ../MCBase/include/NA62VGeometryParameters.hh
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/IRC/src/IRCModule.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/IRC/src/IRCModule.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -1921,7 +1921,7 @@ IRC/CMakeFiles/IRCObjLib.dir/src/IRCRootIO.cc.o
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVEvent.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVHit.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/IRC/src/IRCRootIO.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/IRC/src/IRCRootIO.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -2292,7 +2292,7 @@ IRC/CMakeFiles/IRCObjLib.dir/src/IRCSD.cc.o
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
  ../include/MCTruthTrackInformation.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/IRC/src/IRCSD.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/IRC/src/IRCSD.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -2579,7 +2579,7 @@ IRC/CMakeFiles/IRCObjLib.dir/src/IRCScintillatorLayer.cc.o
  ../MCBase/include/NA62VGeometryParameters.hh
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/IRC/src/IRCScintillatorLayer.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/IRC/src/IRCScintillatorLayer.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -2950,7 +2950,7 @@ IRC/CMakeFiles/IRCObjLib.dir/src/IRCSegment.cc.o
  ../MCBase/include/NA62VGeometryParameters.hh
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/IRC/src/IRCSegment.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/IRC/src/IRCSegment.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh

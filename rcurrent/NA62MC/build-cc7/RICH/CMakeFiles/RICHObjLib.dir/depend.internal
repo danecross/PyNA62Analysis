@@ -4,7 +4,7 @@
 RICH/CMakeFiles/RICHObjLib.dir/src/CherenkovPhotonProd.cc.o
  ../RICH/include/CherenkovPhotonProd.hh
  ../RICH/include/Photon.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/CherenkovPhotonProd.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/CherenkovPhotonProd.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/Math/ParamFunctor.h
@@ -217,7 +217,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/PMTMap.cc.o
  ../MCBase/include/ResponsibilityRegion.hh
  ../RICH/include/PMTMap.hh
  ../RICH/include/RICHGeometryParameters.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/PMTMap.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/PMTMap.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4EnvironmentUtils.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Exception.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4ExceptionSeverity.hh
@@ -326,7 +326,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/PMTMap.cc.o
  /cvmfs/sft.cern.ch/lcg/releases/clhep/2.4.1.0-2c56f/x86_64-centos7-gcc7-opt/lib/CLHEP-2.4.1.0/../../include/CLHEP/Vector/defs.h
 RICH/CMakeFiles/RICHObjLib.dir/src/Photon.cc.o
  ../RICH/include/Photon.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/Photon.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/Photon.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -374,7 +374,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/RICHBeamWindow.cc.o
  ../RICH/include/RICHBeamWindow.hh
  ../RICH/include/RICHGeometryParameters.hh
  ../RICH/include/RICHMaterialParameters.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/RICHBeamWindow.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/RICHBeamWindow.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -741,7 +741,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/RICHDetector.cc.o
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/KinePart.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/NA62ConditionsService.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/RICHDetector.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/RICHDetector.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -1205,7 +1205,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/RICHDetectorMessenger.cc.o
  ../RICH/include/RICHPMTsWindow.hh
  ../RICH/include/RICHRadiator.hh
  ../RICH/include/RICHVessel.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/RICHDetectorMessenger.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/RICHDetectorMessenger.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -1531,7 +1531,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/RICHDetectorMessenger.cc.o
  /cvmfs/sft.cern.ch/lcg/releases/veccore/0.4.2-ff84f/x86_64-centos7-gcc7-opt/lib/cmake/VecCore/../../../include/VecCore/VecMath.h
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHFastSim.cc.o
  ../RICH/include/RICHFastSim.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/RICHFastSim.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/RICHFastSim.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/Buttons.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
@@ -1614,7 +1614,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/RICHGeometryParameters.cc.o
  ../MCBase/include/ResponsibilityRegion.hh
  ../RICH/include/RICHGeometryParameters.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/DetectorParameter.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/RICHGeometryParameters.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/RICHGeometryParameters.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4EnvironmentUtils.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Exception.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4ExceptionSeverity.hh
@@ -1688,7 +1688,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/RICHMaterialParameters.cc.o
  ../RICH/include/RICHGeometryParameters.hh
  ../RICH/include/RICHMaterialParameters.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/DetectorParameter.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/RICHMaterialParameters.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/RICHMaterialParameters.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4DataVector.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4DataVector.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Element.hh
@@ -1794,7 +1794,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirror.cc.o
  ../RICH/include/RICHGeometryParameters.hh
  ../RICH/include/RICHMaterialParameters.hh
  ../RICH/include/RICHMirror.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/RICHMirror.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/RICHMirror.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -2152,7 +2152,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirrorSupports.cc.o
  ../RICH/include/RICHGeometryParameters.hh
  ../RICH/include/RICHMaterialParameters.hh
  ../RICH/include/RICHMirrorSupports.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/RICHMirrorSupports.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/RICHMirrorSupports.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -2507,7 +2507,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirrorWindow.cc.o
  ../RICH/include/RICHGeometryParameters.hh
  ../RICH/include/RICHMaterialParameters.hh
  ../RICH/include/RICHMirrorWindow.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/RICHMirrorWindow.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/RICHMirrorWindow.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -2857,7 +2857,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/RICHOptTrack.cc.o
  ../RICH/include/RICHOptTrack.hh
  ../RICH/include/RichAcceptance.hh
  ../RICH/include/TwoMirror.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/RICHOptTrack.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/RICHOptTrack.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -3239,7 +3239,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/RICHOpticalDetector.cc.o
  ../RICH/include/RICHOpticalDetector.hh
  ../RICH/include/RICHPMTHit.hh
  ../RICH/include/RICHPMTSD.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/RICHOpticalDetector.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/RICHOpticalDetector.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -3635,7 +3635,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/RICHOpticalDetector.cc.o
  /cvmfs/sft.cern.ch/lcg/releases/veccore/0.4.2-ff84f/x86_64-centos7-gcc7-opt/lib/cmake/VecCore/../../../include/VecCore/VecMath.h
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTHit.cc.o
  ../RICH/include/RICHPMTHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/RICHPMTHit.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/RICHPMTHit.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AllocatorPool.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Circle.hh
@@ -3699,7 +3699,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTSD.cc.o
  ../RICH/include/RICHPMTHit.hh
  ../RICH/include/RICHPMTSD.hh
  ../include/MCTruthTrackInformation.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/RICHPMTSD.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/RICHPMTSD.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -4053,7 +4053,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTsWindow.cc.o
  ../RICH/include/RICHPMTSD.hh
  ../RICH/include/RICHPMTsWindow.hh
  ../RICH/include/RICHPMsParameterisation.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/RICHPMTsWindow.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/RICHPMTsWindow.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -4446,7 +4446,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMsParameterisation.cc.o
  ../RICH/include/RICHGeometryParameters.hh
  ../RICH/include/RICHMaterialParameters.hh
  ../RICH/include/RICHPMsParameterisation.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/RICHPMsParameterisation.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/RICHPMsParameterisation.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -4771,7 +4771,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/RICHRadiator.cc.o
  ../MCBase/include/ResponsibilityRegion.hh
  ../RICH/include/RICHGeometryParameters.hh
  ../RICH/include/RICHRadiator.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/RICHRadiator.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/RICHRadiator.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -5139,7 +5139,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/RICHRootIO.cc.o
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/RICH/include/TRICHEvent.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/RICH/include/TRICHHit.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/RICHRootIO.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/RICHRootIO.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -5513,7 +5513,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/RICHVessel.cc.o
  ../RICH/include/RICHGeometryParameters.hh
  ../RICH/include/RICHMaterialParameters.hh
  ../RICH/include/RICHVessel.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/RICHVessel.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/RICHVessel.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -5863,7 +5863,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/RichAcceptance.cc.o
  ../MCBase/include/ResponsibilityRegion.hh
  ../RICH/include/RICHGeometryParameters.hh
  ../RICH/include/RichAcceptance.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/RichAcceptance.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/RichAcceptance.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4EnvironmentUtils.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Exception.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4ExceptionSeverity.hh
@@ -5938,7 +5938,7 @@ RICH/CMakeFiles/RICHObjLib.dir/src/TwoMirror.cc.o
  ../RICH/include/RICHFastSim.hh
  ../RICH/include/RICHGeometryParameters.hh
  ../RICH/include/TwoMirror.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/RICH/src/TwoMirror.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/RICH/src/TwoMirror.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4EnvironmentUtils.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Exception.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4ExceptionSeverity.hh

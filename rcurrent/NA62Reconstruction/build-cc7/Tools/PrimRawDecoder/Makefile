@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ install/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimRawDecoder/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Tools/PrimRawDecoder/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimRawDecoder/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Tools/PrimRawDecoder/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Tools/PrimRawDecoder/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Tools/PrimRawDecoder/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Tools/PrimRawDecoder/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Tools/PrimRawDecoder/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Tools/PrimRawDecoder/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Tools/PrimRawDecoder/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/rule
 .PHONY : Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/rule
 
 # Convenience name for target.
@@ -168,7 +168,7 @@ PrimRawDecoder: Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/rule
 
 # fast build rule for target.
 PrimRawDecoder/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/build.make Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/build.make Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/build
 .PHONY : PrimRawDecoder/fast
 
 src/PrimRawDecoder.o: src/PrimRawDecoder.cc.o
@@ -177,7 +177,7 @@ src/PrimRawDecoder.o: src/PrimRawDecoder.cc.o
 
 # target to build an object file
 src/PrimRawDecoder.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/build.make Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/src/PrimRawDecoder.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/build.make Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/src/PrimRawDecoder.cc.o
 .PHONY : src/PrimRawDecoder.cc.o
 
 src/PrimRawDecoder.i: src/PrimRawDecoder.cc.i
@@ -186,7 +186,7 @@ src/PrimRawDecoder.i: src/PrimRawDecoder.cc.i
 
 # target to preprocess a source file
 src/PrimRawDecoder.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/build.make Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/src/PrimRawDecoder.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/build.make Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/src/PrimRawDecoder.cc.i
 .PHONY : src/PrimRawDecoder.cc.i
 
 src/PrimRawDecoder.s: src/PrimRawDecoder.cc.s
@@ -195,7 +195,7 @@ src/PrimRawDecoder.s: src/PrimRawDecoder.cc.s
 
 # target to generate assembly for a file
 src/PrimRawDecoder.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/build.make Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/src/PrimRawDecoder.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/build.make Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/src/PrimRawDecoder.cc.s
 .PHONY : src/PrimRawDecoder.cc.s
 
 # Help Target
@@ -225,6 +225,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

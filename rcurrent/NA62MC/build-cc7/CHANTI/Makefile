@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CHANTI/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 CHANTI/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CHANTI/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 CHANTI/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 CHANTI/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 CHANTI/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 CHANTI/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 CHANTI/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 CHANTI/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 CHANTI/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 CHANTI/CMakeFiles/CHANTI.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 CHANTI/CMakeFiles/CHANTI.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 CHANTI/CMakeFiles/CHANTI.dir/rule
 .PHONY : CHANTI/CMakeFiles/CHANTI.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ CHANTI: CHANTI/CMakeFiles/CHANTI.dir/rule
 
 # fast build rule for target.
 CHANTI/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTI.dir/build.make CHANTI/CMakeFiles/CHANTI.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTI.dir/build.make CHANTI/CMakeFiles/CHANTI.dir/build
 .PHONY : CHANTI/fast
 
 # Convenience name for target.
 CHANTI/CMakeFiles/CHANTIObjLib.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 CHANTI/CMakeFiles/CHANTIObjLib.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 CHANTI/CMakeFiles/CHANTIObjLib.dir/rule
 .PHONY : CHANTI/CMakeFiles/CHANTIObjLib.dir/rule
 
 # Convenience name for target.
@@ -183,12 +183,12 @@ CHANTIObjLib: CHANTI/CMakeFiles/CHANTIObjLib.dir/rule
 
 # fast build rule for target.
 CHANTIObjLib/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/build
 .PHONY : CHANTIObjLib/fast
 
 # Convenience name for target.
 CHANTI/CMakeFiles/CHANTI-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 CHANTI/CMakeFiles/CHANTI-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 CHANTI/CMakeFiles/CHANTI-static.dir/rule
 .PHONY : CHANTI/CMakeFiles/CHANTI-static.dir/rule
 
 # Convenience name for target.
@@ -198,7 +198,7 @@ CHANTI-static: CHANTI/CMakeFiles/CHANTI-static.dir/rule
 
 # fast build rule for target.
 CHANTI-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTI-static.dir/build.make CHANTI/CMakeFiles/CHANTI-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTI-static.dir/build.make CHANTI/CMakeFiles/CHANTI-static.dir/build
 .PHONY : CHANTI-static/fast
 
 src/CHANTIDetector.o: src/CHANTIDetector.cc.o
@@ -207,7 +207,7 @@ src/CHANTIDetector.o: src/CHANTIDetector.cc.o
 
 # target to build an object file
 src/CHANTIDetector.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIDetector.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIDetector.cc.o
 .PHONY : src/CHANTIDetector.cc.o
 
 src/CHANTIDetector.i: src/CHANTIDetector.cc.i
@@ -216,7 +216,7 @@ src/CHANTIDetector.i: src/CHANTIDetector.cc.i
 
 # target to preprocess a source file
 src/CHANTIDetector.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIDetector.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIDetector.cc.i
 .PHONY : src/CHANTIDetector.cc.i
 
 src/CHANTIDetector.s: src/CHANTIDetector.cc.s
@@ -225,7 +225,7 @@ src/CHANTIDetector.s: src/CHANTIDetector.cc.s
 
 # target to generate assembly for a file
 src/CHANTIDetector.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIDetector.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIDetector.cc.s
 .PHONY : src/CHANTIDetector.cc.s
 
 src/CHANTIDetectorMessenger.o: src/CHANTIDetectorMessenger.cc.o
@@ -234,7 +234,7 @@ src/CHANTIDetectorMessenger.o: src/CHANTIDetectorMessenger.cc.o
 
 # target to build an object file
 src/CHANTIDetectorMessenger.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIDetectorMessenger.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIDetectorMessenger.cc.o
 .PHONY : src/CHANTIDetectorMessenger.cc.o
 
 src/CHANTIDetectorMessenger.i: src/CHANTIDetectorMessenger.cc.i
@@ -243,7 +243,7 @@ src/CHANTIDetectorMessenger.i: src/CHANTIDetectorMessenger.cc.i
 
 # target to preprocess a source file
 src/CHANTIDetectorMessenger.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIDetectorMessenger.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIDetectorMessenger.cc.i
 .PHONY : src/CHANTIDetectorMessenger.cc.i
 
 src/CHANTIDetectorMessenger.s: src/CHANTIDetectorMessenger.cc.s
@@ -252,7 +252,7 @@ src/CHANTIDetectorMessenger.s: src/CHANTIDetectorMessenger.cc.s
 
 # target to generate assembly for a file
 src/CHANTIDetectorMessenger.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIDetectorMessenger.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIDetectorMessenger.cc.s
 .PHONY : src/CHANTIDetectorMessenger.cc.s
 
 src/CHANTIFiber.o: src/CHANTIFiber.cc.o
@@ -261,7 +261,7 @@ src/CHANTIFiber.o: src/CHANTIFiber.cc.o
 
 # target to build an object file
 src/CHANTIFiber.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIFiber.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIFiber.cc.o
 .PHONY : src/CHANTIFiber.cc.o
 
 src/CHANTIFiber.i: src/CHANTIFiber.cc.i
@@ -270,7 +270,7 @@ src/CHANTIFiber.i: src/CHANTIFiber.cc.i
 
 # target to preprocess a source file
 src/CHANTIFiber.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIFiber.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIFiber.cc.i
 .PHONY : src/CHANTIFiber.cc.i
 
 src/CHANTIFiber.s: src/CHANTIFiber.cc.s
@@ -279,7 +279,7 @@ src/CHANTIFiber.s: src/CHANTIFiber.cc.s
 
 # target to generate assembly for a file
 src/CHANTIFiber.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIFiber.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIFiber.cc.s
 .PHONY : src/CHANTIFiber.cc.s
 
 src/CHANTIFrame.o: src/CHANTIFrame.cc.o
@@ -288,7 +288,7 @@ src/CHANTIFrame.o: src/CHANTIFrame.cc.o
 
 # target to build an object file
 src/CHANTIFrame.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIFrame.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIFrame.cc.o
 .PHONY : src/CHANTIFrame.cc.o
 
 src/CHANTIFrame.i: src/CHANTIFrame.cc.i
@@ -297,7 +297,7 @@ src/CHANTIFrame.i: src/CHANTIFrame.cc.i
 
 # target to preprocess a source file
 src/CHANTIFrame.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIFrame.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIFrame.cc.i
 .PHONY : src/CHANTIFrame.cc.i
 
 src/CHANTIFrame.s: src/CHANTIFrame.cc.s
@@ -306,7 +306,7 @@ src/CHANTIFrame.s: src/CHANTIFrame.cc.s
 
 # target to generate assembly for a file
 src/CHANTIFrame.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIFrame.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIFrame.cc.s
 .PHONY : src/CHANTIFrame.cc.s
 
 src/CHANTIGeometryParameters.o: src/CHANTIGeometryParameters.cc.o
@@ -315,7 +315,7 @@ src/CHANTIGeometryParameters.o: src/CHANTIGeometryParameters.cc.o
 
 # target to build an object file
 src/CHANTIGeometryParameters.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIGeometryParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIGeometryParameters.cc.o
 .PHONY : src/CHANTIGeometryParameters.cc.o
 
 src/CHANTIGeometryParameters.i: src/CHANTIGeometryParameters.cc.i
@@ -324,7 +324,7 @@ src/CHANTIGeometryParameters.i: src/CHANTIGeometryParameters.cc.i
 
 # target to preprocess a source file
 src/CHANTIGeometryParameters.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIGeometryParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIGeometryParameters.cc.i
 .PHONY : src/CHANTIGeometryParameters.cc.i
 
 src/CHANTIGeometryParameters.s: src/CHANTIGeometryParameters.cc.s
@@ -333,7 +333,7 @@ src/CHANTIGeometryParameters.s: src/CHANTIGeometryParameters.cc.s
 
 # target to generate assembly for a file
 src/CHANTIGeometryParameters.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIGeometryParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIGeometryParameters.cc.s
 .PHONY : src/CHANTIGeometryParameters.cc.s
 
 src/CHANTIHit.o: src/CHANTIHit.cc.o
@@ -342,7 +342,7 @@ src/CHANTIHit.o: src/CHANTIHit.cc.o
 
 # target to build an object file
 src/CHANTIHit.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIHit.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIHit.cc.o
 .PHONY : src/CHANTIHit.cc.o
 
 src/CHANTIHit.i: src/CHANTIHit.cc.i
@@ -351,7 +351,7 @@ src/CHANTIHit.i: src/CHANTIHit.cc.i
 
 # target to preprocess a source file
 src/CHANTIHit.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIHit.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIHit.cc.i
 .PHONY : src/CHANTIHit.cc.i
 
 src/CHANTIHit.s: src/CHANTIHit.cc.s
@@ -360,7 +360,7 @@ src/CHANTIHit.s: src/CHANTIHit.cc.s
 
 # target to generate assembly for a file
 src/CHANTIHit.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIHit.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIHit.cc.s
 .PHONY : src/CHANTIHit.cc.s
 
 src/CHANTIMaterialParameters.o: src/CHANTIMaterialParameters.cc.o
@@ -369,7 +369,7 @@ src/CHANTIMaterialParameters.o: src/CHANTIMaterialParameters.cc.o
 
 # target to build an object file
 src/CHANTIMaterialParameters.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIMaterialParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIMaterialParameters.cc.o
 .PHONY : src/CHANTIMaterialParameters.cc.o
 
 src/CHANTIMaterialParameters.i: src/CHANTIMaterialParameters.cc.i
@@ -378,7 +378,7 @@ src/CHANTIMaterialParameters.i: src/CHANTIMaterialParameters.cc.i
 
 # target to preprocess a source file
 src/CHANTIMaterialParameters.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIMaterialParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIMaterialParameters.cc.i
 .PHONY : src/CHANTIMaterialParameters.cc.i
 
 src/CHANTIMaterialParameters.s: src/CHANTIMaterialParameters.cc.s
@@ -387,7 +387,7 @@ src/CHANTIMaterialParameters.s: src/CHANTIMaterialParameters.cc.s
 
 # target to generate assembly for a file
 src/CHANTIMaterialParameters.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIMaterialParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIMaterialParameters.cc.s
 .PHONY : src/CHANTIMaterialParameters.cc.s
 
 src/CHANTIRing.o: src/CHANTIRing.cc.o
@@ -396,7 +396,7 @@ src/CHANTIRing.o: src/CHANTIRing.cc.o
 
 # target to build an object file
 src/CHANTIRing.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIRing.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIRing.cc.o
 .PHONY : src/CHANTIRing.cc.o
 
 src/CHANTIRing.i: src/CHANTIRing.cc.i
@@ -405,7 +405,7 @@ src/CHANTIRing.i: src/CHANTIRing.cc.i
 
 # target to preprocess a source file
 src/CHANTIRing.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIRing.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIRing.cc.i
 .PHONY : src/CHANTIRing.cc.i
 
 src/CHANTIRing.s: src/CHANTIRing.cc.s
@@ -414,7 +414,7 @@ src/CHANTIRing.s: src/CHANTIRing.cc.s
 
 # target to generate assembly for a file
 src/CHANTIRing.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIRing.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIRing.cc.s
 .PHONY : src/CHANTIRing.cc.s
 
 src/CHANTIRootIO.o: src/CHANTIRootIO.cc.o
@@ -423,7 +423,7 @@ src/CHANTIRootIO.o: src/CHANTIRootIO.cc.o
 
 # target to build an object file
 src/CHANTIRootIO.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIRootIO.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIRootIO.cc.o
 .PHONY : src/CHANTIRootIO.cc.o
 
 src/CHANTIRootIO.i: src/CHANTIRootIO.cc.i
@@ -432,7 +432,7 @@ src/CHANTIRootIO.i: src/CHANTIRootIO.cc.i
 
 # target to preprocess a source file
 src/CHANTIRootIO.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIRootIO.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIRootIO.cc.i
 .PHONY : src/CHANTIRootIO.cc.i
 
 src/CHANTIRootIO.s: src/CHANTIRootIO.cc.s
@@ -441,7 +441,7 @@ src/CHANTIRootIO.s: src/CHANTIRootIO.cc.s
 
 # target to generate assembly for a file
 src/CHANTIRootIO.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIRootIO.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIRootIO.cc.s
 .PHONY : src/CHANTIRootIO.cc.s
 
 src/CHANTISD.o: src/CHANTISD.cc.o
@@ -450,7 +450,7 @@ src/CHANTISD.o: src/CHANTISD.cc.o
 
 # target to build an object file
 src/CHANTISD.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTISD.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTISD.cc.o
 .PHONY : src/CHANTISD.cc.o
 
 src/CHANTISD.i: src/CHANTISD.cc.i
@@ -459,7 +459,7 @@ src/CHANTISD.i: src/CHANTISD.cc.i
 
 # target to preprocess a source file
 src/CHANTISD.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTISD.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTISD.cc.i
 .PHONY : src/CHANTISD.cc.i
 
 src/CHANTISD.s: src/CHANTISD.cc.s
@@ -468,7 +468,7 @@ src/CHANTISD.s: src/CHANTISD.cc.s
 
 # target to generate assembly for a file
 src/CHANTISD.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTISD.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTISD.cc.s
 .PHONY : src/CHANTISD.cc.s
 
 src/CHANTISDSiPM.o: src/CHANTISDSiPM.cc.o
@@ -477,7 +477,7 @@ src/CHANTISDSiPM.o: src/CHANTISDSiPM.cc.o
 
 # target to build an object file
 src/CHANTISDSiPM.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTISDSiPM.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTISDSiPM.cc.o
 .PHONY : src/CHANTISDSiPM.cc.o
 
 src/CHANTISDSiPM.i: src/CHANTISDSiPM.cc.i
@@ -486,7 +486,7 @@ src/CHANTISDSiPM.i: src/CHANTISDSiPM.cc.i
 
 # target to preprocess a source file
 src/CHANTISDSiPM.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTISDSiPM.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTISDSiPM.cc.i
 .PHONY : src/CHANTISDSiPM.cc.i
 
 src/CHANTISDSiPM.s: src/CHANTISDSiPM.cc.s
@@ -495,7 +495,7 @@ src/CHANTISDSiPM.s: src/CHANTISDSiPM.cc.s
 
 # target to generate assembly for a file
 src/CHANTISDSiPM.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTISDSiPM.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTISDSiPM.cc.s
 .PHONY : src/CHANTISDSiPM.cc.s
 
 src/CHANTIStation.o: src/CHANTIStation.cc.o
@@ -504,7 +504,7 @@ src/CHANTIStation.o: src/CHANTIStation.cc.o
 
 # target to build an object file
 src/CHANTIStation.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIStation.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIStation.cc.o
 .PHONY : src/CHANTIStation.cc.o
 
 src/CHANTIStation.i: src/CHANTIStation.cc.i
@@ -513,7 +513,7 @@ src/CHANTIStation.i: src/CHANTIStation.cc.i
 
 # target to preprocess a source file
 src/CHANTIStation.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIStation.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIStation.cc.i
 .PHONY : src/CHANTIStation.cc.i
 
 src/CHANTIStation.s: src/CHANTIStation.cc.s
@@ -522,7 +522,7 @@ src/CHANTIStation.s: src/CHANTIStation.cc.s
 
 # target to generate assembly for a file
 src/CHANTIStation.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIStation.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIStation.cc.s
 .PHONY : src/CHANTIStation.cc.s
 
 src/CHANTIStrip.o: src/CHANTIStrip.cc.o
@@ -531,7 +531,7 @@ src/CHANTIStrip.o: src/CHANTIStrip.cc.o
 
 # target to build an object file
 src/CHANTIStrip.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIStrip.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIStrip.cc.o
 .PHONY : src/CHANTIStrip.cc.o
 
 src/CHANTIStrip.i: src/CHANTIStrip.cc.i
@@ -540,7 +540,7 @@ src/CHANTIStrip.i: src/CHANTIStrip.cc.i
 
 # target to preprocess a source file
 src/CHANTIStrip.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIStrip.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIStrip.cc.i
 .PHONY : src/CHANTIStrip.cc.i
 
 src/CHANTIStrip.s: src/CHANTIStrip.cc.s
@@ -549,7 +549,7 @@ src/CHANTIStrip.s: src/CHANTIStrip.cc.s
 
 # target to generate assembly for a file
 src/CHANTIStrip.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIStrip.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIStrip.cc.s
 .PHONY : src/CHANTIStrip.cc.s
 
 src/CHANTIVessel.o: src/CHANTIVessel.cc.o
@@ -558,7 +558,7 @@ src/CHANTIVessel.o: src/CHANTIVessel.cc.o
 
 # target to build an object file
 src/CHANTIVessel.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIVessel.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIVessel.cc.o
 .PHONY : src/CHANTIVessel.cc.o
 
 src/CHANTIVessel.i: src/CHANTIVessel.cc.i
@@ -567,7 +567,7 @@ src/CHANTIVessel.i: src/CHANTIVessel.cc.i
 
 # target to preprocess a source file
 src/CHANTIVessel.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIVessel.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIVessel.cc.i
 .PHONY : src/CHANTIVessel.cc.i
 
 src/CHANTIVessel.s: src/CHANTIVessel.cc.s
@@ -576,7 +576,7 @@ src/CHANTIVessel.s: src/CHANTIVessel.cc.s
 
 # target to generate assembly for a file
 src/CHANTIVessel.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIVessel.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CHANTI/CMakeFiles/CHANTIObjLib.dir/build.make CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIVessel.cc.s
 .PHONY : src/CHANTIVessel.cc.s
 
 # Help Target
@@ -647,6 +647,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

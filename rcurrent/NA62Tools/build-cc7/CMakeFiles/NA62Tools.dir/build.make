@@ -43,10 +43,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7
 
 # Include any dependencies generated for this target.
 include CMakeFiles/NA62Tools.dir/depend.make
@@ -62,20 +62,20 @@ NA62Tools_OBJECTS =
 
 # External object files for target NA62Tools
 NA62Tools_EXTERNAL_OBJECTS = \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/BlueTubeMagneticFieldMap.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/BlueTubeTracker.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/CHANTIGeometry.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/FringeMagneticFieldMap.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/GigaTrackerParameterTools.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/GitRevision.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/MNP33MagneticFieldMap.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/MUV3Geometry.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/NA62ConditionsService.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/NA62Global.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/NA62Utilities.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/NewCHODGeometry.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/PersistencyChanger.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/StringInterpreter.cc.o"
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/BlueTubeMagneticFieldMap.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/BlueTubeTracker.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/CHANTIGeometry.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/FringeMagneticFieldMap.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/GigaTrackerParameterTools.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/GitRevision.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/MNP33MagneticFieldMap.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/MUV3Geometry.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/NA62ConditionsService.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/NA62Global.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/NA62Utilities.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/NewCHODGeometry.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/PersistencyChanger.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles/NA62ToolsObj.dir/src/StringInterpreter.cc.o"
 
 libNA62Tools.so: CMakeFiles/NA62ToolsObj.dir/src/BlueTubeMagneticFieldMap.cc.o
 libNA62Tools.so: CMakeFiles/NA62ToolsObj.dir/src/BlueTubeTracker.cc.o
@@ -93,7 +93,7 @@ libNA62Tools.so: CMakeFiles/NA62ToolsObj.dir/src/PersistencyChanger.cc.o
 libNA62Tools.so: CMakeFiles/NA62ToolsObj.dir/src/StringInterpreter.cc.o
 libNA62Tools.so: CMakeFiles/NA62Tools.dir/build.make
 libNA62Tools.so: CMakeFiles/NA62Tools.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX shared library libNA62Tools.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX shared library libNA62Tools.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/NA62Tools.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -106,6 +106,6 @@ CMakeFiles/NA62Tools.dir/clean:
 .PHONY : CMakeFiles/NA62Tools.dir/clean
 
 CMakeFiles/NA62Tools.dir/depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/na62fw/NA62Tools /afs/cern.ch/user/d/dacross/na62fw/NA62Tools /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles/NA62Tools.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles/NA62Tools.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/NA62Tools.dir/depend
 

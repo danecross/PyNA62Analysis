@@ -1,13 +1,13 @@
 module "CedarPersistency" {
   requires cplusplus
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/CedarChannelID.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/CedarChannelID.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TCedarDigi.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TCedarDigi.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TCedarEvent.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TCedarEvent.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TCedarHit.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TCedarHit.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TCedarSpecialTriggerEvent.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TCedarSpecialTriggerEvent.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TRecoCedarCandidate.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TRecoCedarCandidate.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TRecoCedarEvent.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TRecoCedarEvent.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TRecoCedarHit.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TRecoCedarHit.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/CedarChannelID.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/CedarChannelID.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TCedarDigi.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TCedarDigi.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TCedarEvent.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TCedarEvent.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TCedarHit.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TCedarHit.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TCedarSpecialTriggerEvent.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TCedarSpecialTriggerEvent.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TRecoCedarCandidate.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TRecoCedarCandidate.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TRecoCedarEvent.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TRecoCedarEvent.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TRecoCedarHit.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TRecoCedarHit.hh" export * }
   export *
 }
 

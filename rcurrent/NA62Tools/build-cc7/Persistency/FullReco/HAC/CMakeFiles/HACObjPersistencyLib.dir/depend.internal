@@ -20,14 +20,14 @@ Persistency/FullReco/HAC/CMakeFiles/HACObjPersistencyLib.dir/HACPersistencyDICT.
  ../Persistency/FullReco/NA62/include/TVEvent.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/include/HACChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/include/THACDigi.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/include/THACEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/include/THACHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/include/TRecoHACCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/include/TRecoHACEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/include/TRecoHACHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/HAC/HACPersistencyDICT.cxx
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/include/HACChannelID.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/include/THACDigi.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/include/THACEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/include/THACHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/include/TRecoHACCandidate.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/include/TRecoHACEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/include/TRecoHACHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/HAC/HACPersistencyDICT.cxx
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfig.h
@@ -101,7 +101,7 @@ Persistency/FullReco/HAC/CMakeFiles/HACObjPersistencyLib.dir/HACPersistencyDICT.
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/strlcpy.h
 Persistency/FullReco/HAC/CMakeFiles/HACObjPersistencyLib.dir/src/HACChannelID.cc.o
  ../Persistency/FullReco/HAC/include/HACChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/src/HACChannelID.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/src/HACChannelID.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -122,7 +122,7 @@ Persistency/FullReco/HAC/CMakeFiles/HACObjPersistencyLib.dir/src/THACDigi.cc.o
  ../Persistency/FullReco/NA62/include/TVDigi.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/src/THACDigi.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/src/THACDigi.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -150,7 +150,7 @@ Persistency/FullReco/HAC/CMakeFiles/HACObjPersistencyLib.dir/src/THACEvent.cc.o
  ../Persistency/FullReco/NA62/include/TVEvent.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/src/THACEvent.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/src/THACEvent.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
@@ -210,7 +210,7 @@ Persistency/FullReco/HAC/CMakeFiles/HACObjPersistencyLib.dir/src/THACHit.cc.o
  ../Persistency/FullReco/NA62/include/TVChannelID.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/src/THACHit.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/src/THACHit.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -262,7 +262,7 @@ Persistency/FullReco/HAC/CMakeFiles/HACObjPersistencyLib.dir/src/TRecoHACCandida
  ../Persistency/FullReco/NA62/include/TVEvent.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/src/TRecoHACCandidate.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/src/TRecoHACCandidate.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
@@ -336,7 +336,7 @@ Persistency/FullReco/HAC/CMakeFiles/HACObjPersistencyLib.dir/src/TRecoHACEvent.c
  ../Persistency/FullReco/NA62/include/TVEvent.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/src/TRecoHACEvent.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/src/TRecoHACEvent.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
@@ -400,7 +400,7 @@ Persistency/FullReco/HAC/CMakeFiles/HACObjPersistencyLib.dir/src/TRecoHACHit.cc.
  ../Persistency/FullReco/NA62/include/TVDigi.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/src/TRecoHACHit.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/src/TRecoHACHit.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -456,14 +456,14 @@ Persistency/FullReco/HAC/HACPersistencyDICT.cxx
  ../Persistency/FullReco/NA62/include/TVEvent.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/HACPersistencyLinkDef.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/include/HACChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/include/THACDigi.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/include/THACEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/include/THACHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/include/TRecoHACCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/include/TRecoHACEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/HAC/include/TRecoHACHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/HACPersistencyLinkDef.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/include/HACChannelID.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/include/THACDigi.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/include/THACEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/include/THACHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/include/TRecoHACCandidate.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/include/TRecoHACEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/HAC/include/TRecoHACHit.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h

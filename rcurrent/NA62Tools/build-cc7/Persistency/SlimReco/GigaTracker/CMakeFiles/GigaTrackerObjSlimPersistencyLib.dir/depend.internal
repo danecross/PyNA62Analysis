@@ -7,10 +7,10 @@ Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir
  ../Persistency/SlimReco/NA62/include/TSlimRecoVCandidate.hh
  ../Persistency/SlimReco/NA62/include/TSlimRecoVEvent.hh
  ../Persistency/SlimReco/NA62/include/TSlimRecoVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/SlimReco/GigaTracker/GigaTrackerSlimPersistencyDICT.cxx
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerCandidate.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/SlimReco/GigaTracker/GigaTrackerSlimPersistencyDICT.cxx
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfig.h
@@ -93,7 +93,7 @@ Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir
  ../Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerCandidate.hh
  ../Persistency/SlimReco/NA62/include/TSlimRecoVCandidate.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/GigaTracker/src/TSlimRecoGigaTrackerCandidate.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/GigaTracker/src/TSlimRecoGigaTrackerCandidate.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
@@ -177,7 +177,7 @@ Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir
  ../Persistency/SlimReco/NA62/include/TSlimRecoVEvent.hh
  ../Persistency/SlimReco/NA62/include/TSlimRecoVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/GigaTracker/src/TSlimRecoGigaTrackerEvent.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/GigaTracker/src/TSlimRecoGigaTrackerEvent.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
@@ -246,7 +246,7 @@ Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir
  ../Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerHit.hh
  ../Persistency/SlimReco/NA62/include/TSlimRecoVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/GigaTracker/src/TSlimRecoGigaTrackerHit.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/GigaTracker/src/TSlimRecoGigaTrackerHit.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -290,10 +290,10 @@ Persistency/SlimReco/GigaTracker/GigaTrackerSlimPersistencyDICT.cxx
  ../Persistency/SlimReco/NA62/include/TSlimRecoVCandidate.hh
  ../Persistency/SlimReco/NA62/include/TSlimRecoVEvent.hh
  ../Persistency/SlimReco/NA62/include/TSlimRecoVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/GigaTracker/GigaTrackerSlimPersistencyLinkDef.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/GigaTracker/GigaTrackerSlimPersistencyLinkDef.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerCandidate.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerHit.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h

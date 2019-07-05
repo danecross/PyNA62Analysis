@@ -43,10 +43,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7
 
 # Include any dependencies generated for this target.
 include IRC/CMakeFiles/IRC-static.dir/depend.make
@@ -62,18 +62,18 @@ IRC__static_OBJECTS =
 
 # External object files for target IRC-static
 IRC__static_EXTERNAL_OBJECTS = \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCAbsorberLayer.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCAluminumLayer.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCBeamPipe.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCDetector.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCGeometryParameters.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCHit.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCMaterialParameters.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCModule.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCRootIO.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCSD.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCScintillatorLayer.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCSegment.cc.o"
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCAbsorberLayer.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCAluminumLayer.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCBeamPipe.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCDetector.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCGeometryParameters.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCHit.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCMaterialParameters.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCModule.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCRootIO.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCSD.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCScintillatorLayer.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/IRC/CMakeFiles/IRCObjLib.dir/src/IRCSegment.cc.o"
 
 IRC/libIRC-static.a: IRC/CMakeFiles/IRCObjLib.dir/src/IRCAbsorberLayer.cc.o
 IRC/libIRC-static.a: IRC/CMakeFiles/IRCObjLib.dir/src/IRCAluminumLayer.cc.o
@@ -89,9 +89,9 @@ IRC/libIRC-static.a: IRC/CMakeFiles/IRCObjLib.dir/src/IRCScintillatorLayer.cc.o
 IRC/libIRC-static.a: IRC/CMakeFiles/IRCObjLib.dir/src/IRCSegment.cc.o
 IRC/libIRC-static.a: IRC/CMakeFiles/IRC-static.dir/build.make
 IRC/libIRC-static.a: IRC/CMakeFiles/IRC-static.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX static library libIRC-static.a"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/IRC && $(CMAKE_COMMAND) -P CMakeFiles/IRC-static.dir/cmake_clean_target.cmake
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/IRC && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/IRC-static.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX static library libIRC-static.a"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/IRC && $(CMAKE_COMMAND) -P CMakeFiles/IRC-static.dir/cmake_clean_target.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/IRC && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/IRC-static.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 IRC/CMakeFiles/IRC-static.dir/build: IRC/libIRC-static.a
@@ -99,10 +99,10 @@ IRC/CMakeFiles/IRC-static.dir/build: IRC/libIRC-static.a
 .PHONY : IRC/CMakeFiles/IRC-static.dir/build
 
 IRC/CMakeFiles/IRC-static.dir/clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/IRC && $(CMAKE_COMMAND) -P CMakeFiles/IRC-static.dir/cmake_clean.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/IRC && $(CMAKE_COMMAND) -P CMakeFiles/IRC-static.dir/cmake_clean.cmake
 .PHONY : IRC/CMakeFiles/IRC-static.dir/clean
 
 IRC/CMakeFiles/IRC-static.dir/depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/na62fw/NA62MC /afs/cern.ch/user/d/dacross/na62fw/NA62MC/IRC /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/IRC /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/IRC/CMakeFiles/IRC-static.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/IRC /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/IRC /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/IRC/CMakeFiles/IRC-static.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : IRC/CMakeFiles/IRC-static.dir/depend
 

@@ -3,7 +3,7 @@
 
 CMakeFiles/NA62ToolsObj.dir/src/BlueTubeMagneticFieldMap.cc.o
  ../include/BlueTubeMagneticFieldMap.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/src/BlueTubeMagneticFieldMap.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/src/BlueTubeMagneticFieldMap.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -46,7 +46,7 @@ CMakeFiles/NA62ToolsObj.dir/src/BlueTubeMagneticFieldMap.cc.o
 CMakeFiles/NA62ToolsObj.dir/src/BlueTubeTracker.cc.o
  ../include/BlueTubeMagneticFieldMap.hh
  ../include/BlueTubeTracker.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/src/BlueTubeTracker.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/src/BlueTubeTracker.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -92,7 +92,7 @@ CMakeFiles/NA62ToolsObj.dir/src/BlueTubeTracker.cc.o
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/strlcpy.h
 CMakeFiles/NA62ToolsObj.dir/src/CHANTIGeometry.cc.o
  ../include/CHANTIGeometry.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/src/CHANTIGeometry.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/src/CHANTIGeometry.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -116,7 +116,7 @@ CMakeFiles/NA62ToolsObj.dir/src/CHANTIGeometry.cc.o
 CMakeFiles/NA62ToolsObj.dir/src/FringeMagneticFieldMap.cc.o
  ../include/FringeMagneticFieldMap.hh
  ../include/MNP33MagneticFieldMap.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/src/FringeMagneticFieldMap.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/src/FringeMagneticFieldMap.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/Fit/FitExecutionPolicy.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/Foption.h
@@ -179,7 +179,7 @@ CMakeFiles/NA62ToolsObj.dir/src/GigaTrackerParameterTools.cc.o
  ../include/GigaTrackerParameterTools.hh
  ../include/NA62ConditionsService.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/src/GigaTrackerParameterTools.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/src/GigaTrackerParameterTools.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -228,7 +228,7 @@ CMakeFiles/NA62ToolsObj.dir/src/GigaTrackerParameterTools.cc.o
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/strlcpy.h
 CMakeFiles/NA62ToolsObj.dir/src/GitRevision.cc.o
  ../include/GitRevision.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/src/GitRevision.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/src/GitRevision.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -252,7 +252,7 @@ CMakeFiles/NA62ToolsObj.dir/src/GitRevision.cc.o
 CMakeFiles/NA62ToolsObj.dir/src/MNP33MagneticFieldMap.cc.o
  ../include/MNP33MagneticFieldMap.hh
  ../include/NA62ConditionsService.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/src/MNP33MagneticFieldMap.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/src/MNP33MagneticFieldMap.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/Fit/FitExecutionPolicy.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/Foption.h
@@ -320,7 +320,7 @@ CMakeFiles/NA62ToolsObj.dir/src/MNP33MagneticFieldMap.cc.o
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/strlcpy.h
 CMakeFiles/NA62ToolsObj.dir/src/MUV3Geometry.cc.o
  ../include/MUV3Geometry.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/src/MUV3Geometry.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/src/MUV3Geometry.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -344,7 +344,7 @@ CMakeFiles/NA62ToolsObj.dir/src/NA62ConditionsService.cc.o
  ../include/GitRevision.hh
  ../include/NA62ConditionsService.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/src/NA62ConditionsService.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/src/NA62ConditionsService.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -380,10 +380,10 @@ CMakeFiles/NA62ToolsObj.dir/src/NA62ConditionsService.cc.o
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/strlcpy.h
 CMakeFiles/NA62ToolsObj.dir/src/NA62Global.cc.o
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/src/NA62Global.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/src/NA62Global.cc
 CMakeFiles/NA62ToolsObj.dir/src/NA62Utilities.cc.o
  ../include/NA62Utilities.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/src/NA62Utilities.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/src/NA62Utilities.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -406,7 +406,7 @@ CMakeFiles/NA62ToolsObj.dir/src/NA62Utilities.cc.o
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/strlcpy.h
 CMakeFiles/NA62ToolsObj.dir/src/NewCHODGeometry.cc.o
  ../include/NewCHODGeometry.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/src/NewCHODGeometry.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/src/NewCHODGeometry.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -584,7 +584,7 @@ CMakeFiles/NA62ToolsObj.dir/src/PersistencyChanger.cc.o
  ../Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerHit.hh
  ../include/NA62Global.hh
  ../include/PersistencyChanger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/src/PersistencyChanger.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/src/PersistencyChanger.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
@@ -644,7 +644,7 @@ CMakeFiles/NA62ToolsObj.dir/src/PersistencyChanger.cc.o
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/strlcpy.h
 CMakeFiles/NA62ToolsObj.dir/src/StringInterpreter.cc.o
  ../include/StringInterpreter.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/src/StringInterpreter.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/src/StringInterpreter.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h

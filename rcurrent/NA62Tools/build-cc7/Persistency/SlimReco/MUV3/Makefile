@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/SlimReco/MUV3/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/MUV3/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/SlimReco/MUV3/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/MUV3/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/MUV3/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/MUV3/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/MUV3/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/MUV3/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/MUV3/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/MUV3/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistencyDICT.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistencyDICT.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistencyDICT.dir/rule
 .PHONY : Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistencyDICT.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ MUV3SlimPersistencyDICT: Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistenc
 
 # fast build rule for target.
 MUV3SlimPersistencyDICT/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistencyDICT.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistencyDICT.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistencyDICT.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistencyDICT.dir/build
 .PHONY : MUV3SlimPersistencyDICT/fast
 
 # Convenience name for target.
 Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistency.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistency.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistency.dir/rule
 .PHONY : Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistency.dir/rule
 
 # Convenience name for target.
@@ -183,12 +183,12 @@ MUV3SlimPersistency: Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistency.di
 
 # fast build rule for target.
 MUV3SlimPersistency/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistency.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistency.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistency.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistency.dir/build
 .PHONY : MUV3SlimPersistency/fast
 
 # Convenience name for target.
 Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistency-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistency-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistency-static.dir/rule
 .PHONY : Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistency-static.dir/rule
 
 # Convenience name for target.
@@ -198,12 +198,12 @@ MUV3SlimPersistency-static: Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersist
 
 # fast build rule for target.
 MUV3SlimPersistency-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistency-static.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistency-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistency-static.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3SlimPersistency-static.dir/build
 .PHONY : MUV3SlimPersistency-static/fast
 
 # Convenience name for target.
 Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/rule
 .PHONY : Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/rule
 
 # Convenience name for target.
@@ -213,7 +213,7 @@ MUV3ObjSlimPersistencyLib: Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersi
 
 # fast build rule for target.
 MUV3ObjSlimPersistencyLib/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build
 .PHONY : MUV3ObjSlimPersistencyLib/fast
 
 MUV3SlimPersistencyDICT.o: MUV3SlimPersistencyDICT.cxx.o
@@ -222,7 +222,7 @@ MUV3SlimPersistencyDICT.o: MUV3SlimPersistencyDICT.cxx.o
 
 # target to build an object file
 MUV3SlimPersistencyDICT.cxx.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/MUV3SlimPersistencyDICT.cxx.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/MUV3SlimPersistencyDICT.cxx.o
 .PHONY : MUV3SlimPersistencyDICT.cxx.o
 
 MUV3SlimPersistencyDICT.i: MUV3SlimPersistencyDICT.cxx.i
@@ -231,7 +231,7 @@ MUV3SlimPersistencyDICT.i: MUV3SlimPersistencyDICT.cxx.i
 
 # target to preprocess a source file
 MUV3SlimPersistencyDICT.cxx.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/MUV3SlimPersistencyDICT.cxx.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/MUV3SlimPersistencyDICT.cxx.i
 .PHONY : MUV3SlimPersistencyDICT.cxx.i
 
 MUV3SlimPersistencyDICT.s: MUV3SlimPersistencyDICT.cxx.s
@@ -240,7 +240,7 @@ MUV3SlimPersistencyDICT.s: MUV3SlimPersistencyDICT.cxx.s
 
 # target to generate assembly for a file
 MUV3SlimPersistencyDICT.cxx.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/MUV3SlimPersistencyDICT.cxx.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/MUV3SlimPersistencyDICT.cxx.s
 .PHONY : MUV3SlimPersistencyDICT.cxx.s
 
 src/TSlimRecoMUV3Candidate.o: src/TSlimRecoMUV3Candidate.cc.o
@@ -249,7 +249,7 @@ src/TSlimRecoMUV3Candidate.o: src/TSlimRecoMUV3Candidate.cc.o
 
 # target to build an object file
 src/TSlimRecoMUV3Candidate.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Candidate.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Candidate.cc.o
 .PHONY : src/TSlimRecoMUV3Candidate.cc.o
 
 src/TSlimRecoMUV3Candidate.i: src/TSlimRecoMUV3Candidate.cc.i
@@ -258,7 +258,7 @@ src/TSlimRecoMUV3Candidate.i: src/TSlimRecoMUV3Candidate.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoMUV3Candidate.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Candidate.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Candidate.cc.i
 .PHONY : src/TSlimRecoMUV3Candidate.cc.i
 
 src/TSlimRecoMUV3Candidate.s: src/TSlimRecoMUV3Candidate.cc.s
@@ -267,7 +267,7 @@ src/TSlimRecoMUV3Candidate.s: src/TSlimRecoMUV3Candidate.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoMUV3Candidate.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Candidate.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Candidate.cc.s
 .PHONY : src/TSlimRecoMUV3Candidate.cc.s
 
 src/TSlimRecoMUV3Event.o: src/TSlimRecoMUV3Event.cc.o
@@ -276,7 +276,7 @@ src/TSlimRecoMUV3Event.o: src/TSlimRecoMUV3Event.cc.o
 
 # target to build an object file
 src/TSlimRecoMUV3Event.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Event.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Event.cc.o
 .PHONY : src/TSlimRecoMUV3Event.cc.o
 
 src/TSlimRecoMUV3Event.i: src/TSlimRecoMUV3Event.cc.i
@@ -285,7 +285,7 @@ src/TSlimRecoMUV3Event.i: src/TSlimRecoMUV3Event.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoMUV3Event.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Event.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Event.cc.i
 .PHONY : src/TSlimRecoMUV3Event.cc.i
 
 src/TSlimRecoMUV3Event.s: src/TSlimRecoMUV3Event.cc.s
@@ -294,7 +294,7 @@ src/TSlimRecoMUV3Event.s: src/TSlimRecoMUV3Event.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoMUV3Event.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Event.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Event.cc.s
 .PHONY : src/TSlimRecoMUV3Event.cc.s
 
 src/TSlimRecoMUV3Hit.o: src/TSlimRecoMUV3Hit.cc.o
@@ -303,7 +303,7 @@ src/TSlimRecoMUV3Hit.o: src/TSlimRecoMUV3Hit.cc.o
 
 # target to build an object file
 src/TSlimRecoMUV3Hit.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Hit.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Hit.cc.o
 .PHONY : src/TSlimRecoMUV3Hit.cc.o
 
 src/TSlimRecoMUV3Hit.i: src/TSlimRecoMUV3Hit.cc.i
@@ -312,7 +312,7 @@ src/TSlimRecoMUV3Hit.i: src/TSlimRecoMUV3Hit.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoMUV3Hit.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Hit.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Hit.cc.i
 .PHONY : src/TSlimRecoMUV3Hit.cc.i
 
 src/TSlimRecoMUV3Hit.s: src/TSlimRecoMUV3Hit.cc.s
@@ -321,7 +321,7 @@ src/TSlimRecoMUV3Hit.s: src/TSlimRecoMUV3Hit.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoMUV3Hit.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Hit.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/MUV3/CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Hit.cc.s
 .PHONY : src/TSlimRecoMUV3Hit.cc.s
 
 # Help Target
@@ -363,6 +363,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

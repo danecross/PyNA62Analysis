@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/SlimReco/Cedar/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Cedar/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/SlimReco/Cedar/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Cedar/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Cedar/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Cedar/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Cedar/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Cedar/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Cedar/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Cedar/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/rule
 .PHONY : Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ CedarObjSlimPersistencyLib: Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPe
 
 # fast build rule for target.
 CedarObjSlimPersistencyLib/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build
 .PHONY : CedarObjSlimPersistencyLib/fast
 
 # Convenience name for target.
 Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistencyDICT.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistencyDICT.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistencyDICT.dir/rule
 .PHONY : Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistencyDICT.dir/rule
 
 # Convenience name for target.
@@ -183,12 +183,12 @@ CedarSlimPersistencyDICT: Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersist
 
 # fast build rule for target.
 CedarSlimPersistencyDICT/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistencyDICT.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistencyDICT.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistencyDICT.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistencyDICT.dir/build
 .PHONY : CedarSlimPersistencyDICT/fast
 
 # Convenience name for target.
 Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistency.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistency.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistency.dir/rule
 .PHONY : Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistency.dir/rule
 
 # Convenience name for target.
@@ -198,12 +198,12 @@ CedarSlimPersistency: Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistency
 
 # fast build rule for target.
 CedarSlimPersistency/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistency.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistency.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistency.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistency.dir/build
 .PHONY : CedarSlimPersistency/fast
 
 # Convenience name for target.
 Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistency-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistency-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistency-static.dir/rule
 .PHONY : Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistency-static.dir/rule
 
 # Convenience name for target.
@@ -213,7 +213,7 @@ CedarSlimPersistency-static: Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPers
 
 # fast build rule for target.
 CedarSlimPersistency-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistency-static.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistency-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistency-static.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarSlimPersistency-static.dir/build
 .PHONY : CedarSlimPersistency-static/fast
 
 CedarSlimPersistencyDICT.o: CedarSlimPersistencyDICT.cxx.o
@@ -222,7 +222,7 @@ CedarSlimPersistencyDICT.o: CedarSlimPersistencyDICT.cxx.o
 
 # target to build an object file
 CedarSlimPersistencyDICT.cxx.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/CedarSlimPersistencyDICT.cxx.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/CedarSlimPersistencyDICT.cxx.o
 .PHONY : CedarSlimPersistencyDICT.cxx.o
 
 CedarSlimPersistencyDICT.i: CedarSlimPersistencyDICT.cxx.i
@@ -231,7 +231,7 @@ CedarSlimPersistencyDICT.i: CedarSlimPersistencyDICT.cxx.i
 
 # target to preprocess a source file
 CedarSlimPersistencyDICT.cxx.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/CedarSlimPersistencyDICT.cxx.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/CedarSlimPersistencyDICT.cxx.i
 .PHONY : CedarSlimPersistencyDICT.cxx.i
 
 CedarSlimPersistencyDICT.s: CedarSlimPersistencyDICT.cxx.s
@@ -240,7 +240,7 @@ CedarSlimPersistencyDICT.s: CedarSlimPersistencyDICT.cxx.s
 
 # target to generate assembly for a file
 CedarSlimPersistencyDICT.cxx.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/CedarSlimPersistencyDICT.cxx.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/CedarSlimPersistencyDICT.cxx.s
 .PHONY : CedarSlimPersistencyDICT.cxx.s
 
 src/TSlimRecoCedarCandidate.o: src/TSlimRecoCedarCandidate.cc.o
@@ -249,7 +249,7 @@ src/TSlimRecoCedarCandidate.o: src/TSlimRecoCedarCandidate.cc.o
 
 # target to build an object file
 src/TSlimRecoCedarCandidate.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/src/TSlimRecoCedarCandidate.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/src/TSlimRecoCedarCandidate.cc.o
 .PHONY : src/TSlimRecoCedarCandidate.cc.o
 
 src/TSlimRecoCedarCandidate.i: src/TSlimRecoCedarCandidate.cc.i
@@ -258,7 +258,7 @@ src/TSlimRecoCedarCandidate.i: src/TSlimRecoCedarCandidate.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoCedarCandidate.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/src/TSlimRecoCedarCandidate.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/src/TSlimRecoCedarCandidate.cc.i
 .PHONY : src/TSlimRecoCedarCandidate.cc.i
 
 src/TSlimRecoCedarCandidate.s: src/TSlimRecoCedarCandidate.cc.s
@@ -267,7 +267,7 @@ src/TSlimRecoCedarCandidate.s: src/TSlimRecoCedarCandidate.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoCedarCandidate.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/src/TSlimRecoCedarCandidate.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/src/TSlimRecoCedarCandidate.cc.s
 .PHONY : src/TSlimRecoCedarCandidate.cc.s
 
 src/TSlimRecoCedarEvent.o: src/TSlimRecoCedarEvent.cc.o
@@ -276,7 +276,7 @@ src/TSlimRecoCedarEvent.o: src/TSlimRecoCedarEvent.cc.o
 
 # target to build an object file
 src/TSlimRecoCedarEvent.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/src/TSlimRecoCedarEvent.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/src/TSlimRecoCedarEvent.cc.o
 .PHONY : src/TSlimRecoCedarEvent.cc.o
 
 src/TSlimRecoCedarEvent.i: src/TSlimRecoCedarEvent.cc.i
@@ -285,7 +285,7 @@ src/TSlimRecoCedarEvent.i: src/TSlimRecoCedarEvent.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoCedarEvent.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/src/TSlimRecoCedarEvent.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/src/TSlimRecoCedarEvent.cc.i
 .PHONY : src/TSlimRecoCedarEvent.cc.i
 
 src/TSlimRecoCedarEvent.s: src/TSlimRecoCedarEvent.cc.s
@@ -294,7 +294,7 @@ src/TSlimRecoCedarEvent.s: src/TSlimRecoCedarEvent.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoCedarEvent.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/src/TSlimRecoCedarEvent.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/src/TSlimRecoCedarEvent.cc.s
 .PHONY : src/TSlimRecoCedarEvent.cc.s
 
 src/TSlimRecoCedarHit.o: src/TSlimRecoCedarHit.cc.o
@@ -303,7 +303,7 @@ src/TSlimRecoCedarHit.o: src/TSlimRecoCedarHit.cc.o
 
 # target to build an object file
 src/TSlimRecoCedarHit.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/src/TSlimRecoCedarHit.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/src/TSlimRecoCedarHit.cc.o
 .PHONY : src/TSlimRecoCedarHit.cc.o
 
 src/TSlimRecoCedarHit.i: src/TSlimRecoCedarHit.cc.i
@@ -312,7 +312,7 @@ src/TSlimRecoCedarHit.i: src/TSlimRecoCedarHit.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoCedarHit.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/src/TSlimRecoCedarHit.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/src/TSlimRecoCedarHit.cc.i
 .PHONY : src/TSlimRecoCedarHit.cc.i
 
 src/TSlimRecoCedarHit.s: src/TSlimRecoCedarHit.cc.s
@@ -321,7 +321,7 @@ src/TSlimRecoCedarHit.s: src/TSlimRecoCedarHit.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoCedarHit.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/src/TSlimRecoCedarHit.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Cedar/CMakeFiles/CedarObjSlimPersistencyLib.dir/src/TSlimRecoCedarHit.cc.s
 .PHONY : src/TSlimRecoCedarHit.cc.s
 
 # Help Target
@@ -363,6 +363,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

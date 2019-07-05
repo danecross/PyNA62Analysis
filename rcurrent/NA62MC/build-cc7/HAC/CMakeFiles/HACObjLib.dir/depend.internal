@@ -11,7 +11,7 @@ HAC/CMakeFiles/HACObjLib.dir/src/HACAbsorberLayer.cc.o
  ../MCBase/include/NA62VGeometryParameters.hh
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACAbsorberLayer.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACAbsorberLayer.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -372,7 +372,7 @@ HAC/CMakeFiles/HACObjLib.dir/src/HACDetector.cc.o
  ../MCBase/include/NA62VGeometryParameters.hh
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACDetector.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACDetector.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -746,7 +746,7 @@ HAC/CMakeFiles/HACObjLib.dir/src/HACGeometryParameters.cc.o
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/DetectorParameter.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACGeometryParameters.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACGeometryParameters.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4EnvironmentUtils.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Exception.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4ExceptionSeverity.hh
@@ -811,7 +811,7 @@ HAC/CMakeFiles/HACObjLib.dir/src/HACGeometryParameters.cc.o
  /cvmfs/sft.cern.ch/lcg/releases/clhep/2.4.1.0-2c56f/x86_64-centos7-gcc7-opt/lib/CLHEP-2.4.1.0/../../include/CLHEP/Vector/defs.h
 HAC/CMakeFiles/HACObjLib.dir/src/HACHit.cc.o
  ../HAC/include/HACHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACHit.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACHit.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AllocatorPool.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AutoLock.hh
@@ -890,7 +890,7 @@ HAC/CMakeFiles/HACObjLib.dir/src/HACMagnet.cc.o
  ../MCBase/include/NA62VGeometryParameters.hh
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACMagnet.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACMagnet.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -1214,7 +1214,7 @@ HAC/CMakeFiles/HACObjLib.dir/src/HACMaterialParameters.cc.o
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/DetectorParameter.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACMaterialParameters.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACMaterialParameters.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4DataVector.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4DataVector.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Element.hh
@@ -1320,7 +1320,7 @@ HAC/CMakeFiles/HACObjLib.dir/src/HACModule.cc.o
  ../MCBase/include/NA62VGeometryParameters.hh
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACModule.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACModule.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -1693,7 +1693,7 @@ HAC/CMakeFiles/HACObjLib.dir/src/HACRootIO.cc.o
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVEvent.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVHit.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACRootIO.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACRootIO.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -2059,7 +2059,7 @@ HAC/CMakeFiles/HACObjLib.dir/src/HACRootIO.cc.o
 HAC/CMakeFiles/HACObjLib.dir/src/HACSD.cc.o
  ../HAC/include/HACHit.hh
  ../HAC/include/HACSD.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACSD.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACSD.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -2297,7 +2297,7 @@ HAC/CMakeFiles/HACObjLib.dir/src/HACScintillatorLayer.cc.o
  ../MCBase/include/NA62VGeometryParameters.hh
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACScintillatorLayer.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACScintillatorLayer.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh

@@ -4,7 +4,7 @@
 CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIChannel.cc.o
  ../CHANTI/include/CHANTIChannel.hh
  ../RecoBase/include/NA62VChannel.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/CHANTI/src/CHANTIChannel.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/CHANTI/src/CHANTIChannel.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/Compression.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
@@ -238,48 +238,48 @@ CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIDigitizer.cc.o
  ../RecoBase/include/NA62VRawDecoder.hh
  ../RecoBase/include/NA62VReconstruction.hh
  ../RecoBase/include/TDCBRawDecoder.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/CHANTI/src/CHANTIDigitizer.cc
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/CHANTIChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIDigi.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTICandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/BeamData.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/BeamSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/Event.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/EventBoundary.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/EventHeader.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/GenePart.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/HLTEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/KinePart.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L0TPData.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L0TPSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L1TPData.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L1TPSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L2EBData.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L2EBSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDCEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDCVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDetectorVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDetectorVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDigiVCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDigiVError.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDigiVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TEventInfo.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TRecoVCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TRecoVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TRecoVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TSpecialTriggerEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TTimeCluster.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVDigi.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/include/NA62Global.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/CHANTIChannelID.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIDigi.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTICandidate.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/BeamData.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/BeamSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/Event.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/EventBoundary.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/EventHeader.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/GenePart.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/HLTEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/KinePart.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L0TPData.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L0TPSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L1TPData.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L1TPSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L2EBData.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L2EBSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDCEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDCVHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDetectorVEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDetectorVHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDigiVCandidate.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDigiVError.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDigiVEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TEventInfo.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TRecoVCandidate.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TRecoVEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TRecoVHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TSpecialTriggerEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TTimeCluster.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVCandidate.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVChannelID.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVDigi.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/NA62Global.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/CHANTI/src/CHANTIDigitizer.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4SystemOfUnits.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/Compression.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
@@ -524,8 +524,8 @@ CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIDigitizer.cc.o
  /cvmfs/sft.cern.ch/lcg/releases/veccore/0.4.2-ff84f/x86_64-centos7-gcc7-opt/lib/cmake/VecCore/../../../include/VecCore/VecCore
  /cvmfs/sft.cern.ch/lcg/releases/veccore/0.4.2-ff84f/x86_64-centos7-gcc7-opt/lib/cmake/VecCore/../../../include/VecCore/VecMath.h
 CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIGeometry.cc.o
- /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/CHANTI/src/CHANTIGeometry.cc
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/include/CHANTIGeometry.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/CHANTIGeometry.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/CHANTI/src/CHANTIGeometry.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -557,47 +557,47 @@ CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIOnlineMonitor.cc.o
  ../RecoBase/include/NA62VRawDecoder.hh
  ../RecoBase/include/NA62VReconstruction.hh
  ../RecoBase/include/TDCBRawDecoder.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/CHANTI/src/CHANTIOnlineMonitor.cc
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/CHANTIChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTICandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/BeamData.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/BeamSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/Event.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/EventBoundary.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/EventHeader.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/GenePart.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/HLTEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/KinePart.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L0TPData.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L0TPSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L1TPData.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L1TPSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L2EBData.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L2EBSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDCEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDCVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDetectorVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDetectorVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDigiVCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDigiVError.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDigiVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TEventInfo.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TRecoVCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TRecoVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TRecoVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TSpecialTriggerEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TTimeCluster.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVDigi.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/include/NA62Global.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/CHANTIChannelID.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTICandidate.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/BeamData.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/BeamSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/Event.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/EventBoundary.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/EventHeader.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/GenePart.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/HLTEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/KinePart.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L0TPData.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L0TPSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L1TPData.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L1TPSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L2EBData.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L2EBSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDCEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDCVHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDetectorVEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDetectorVHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDigiVCandidate.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDigiVError.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDigiVEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TEventInfo.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TRecoVCandidate.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TRecoVEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TRecoVHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TSpecialTriggerEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TTimeCluster.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVCandidate.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVChannelID.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVDigi.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/NA62Global.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/CHANTI/src/CHANTIOnlineMonitor.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4SystemOfUnits.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/Buttons.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/Compression.h
@@ -898,47 +898,47 @@ CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIRawDecoder.cc.o
  ../RecoBase/include/NA62VRawDecoder.hh
  ../RecoBase/include/NA62VReconstruction.hh
  ../RecoBase/include/TDCBRawDecoder.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/CHANTI/src/CHANTIRawDecoder.cc
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/CHANTIChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTICandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/BeamData.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/BeamSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/Event.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/EventBoundary.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/EventHeader.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/GenePart.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/HLTEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/KinePart.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L0TPData.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L0TPSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L1TPData.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L1TPSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L2EBData.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L2EBSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDCEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDCVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDetectorVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDetectorVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDigiVCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDigiVError.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDigiVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TEventInfo.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TRecoVCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TRecoVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TRecoVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TSpecialTriggerEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TTimeCluster.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVDigi.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/include/NA62Global.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/CHANTIChannelID.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTICandidate.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/BeamData.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/BeamSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/Event.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/EventBoundary.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/EventHeader.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/GenePart.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/HLTEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/KinePart.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L0TPData.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L0TPSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L1TPData.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L1TPSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L2EBData.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L2EBSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDCEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDCVHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDetectorVEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDetectorVHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDigiVCandidate.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDigiVError.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDigiVEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TEventInfo.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TRecoVCandidate.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TRecoVEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TRecoVHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TSpecialTriggerEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TTimeCluster.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVCandidate.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVChannelID.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVDigi.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/NA62Global.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/CHANTI/src/CHANTIRawDecoder.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4SystemOfUnits.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/Compression.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
@@ -1192,37 +1192,37 @@ CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIRawEncoder.cc.o
  ../RecoBase/include/NA62VRawEncoder.hh
  ../RecoBase/include/NA62VReconstruction.hh
  ../RecoBase/include/TDCBRawEncoder.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/CHANTI/src/CHANTIRawEncoder.cc
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/CHANTIChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTICandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/Event.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/EventBoundary.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/GenePart.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/KinePart.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDCEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDCVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDetectorVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDetectorVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDigiVCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDigiVError.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDigiVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TEventInfo.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TRecoVCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TRecoVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TRecoVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TSpecialTriggerEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TTimeCluster.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVDigi.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/include/NA62Global.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/CHANTIChannelID.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTICandidate.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/Event.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/EventBoundary.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/GenePart.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/KinePart.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDCEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDCVHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDetectorVEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDetectorVHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDigiVCandidate.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDigiVError.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDigiVEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TEventInfo.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TRecoVCandidate.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TRecoVEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TRecoVHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TSpecialTriggerEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TTimeCluster.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVCandidate.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVChannelID.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVDigi.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/NA62Global.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/CHANTI/src/CHANTIRawEncoder.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4SystemOfUnits.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/Compression.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
@@ -1476,52 +1476,52 @@ CHANTI/CMakeFiles/CHANTIObjLib.dir/src/CHANTIReconstruction.cc.o
  ../RecoBase/include/NA62VRawDecoder.hh
  ../RecoBase/include/NA62VReconstruction.hh
  ../RecoBase/include/TDCBRawDecoder.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/CHANTI/src/CHANTIReconstruction.cc
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/CHANTIChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIDigi.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTICandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/BeamData.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/BeamSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/Event.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/EventBoundary.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/EventHeader.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/GenePart.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/HLTEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/KinePart.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L0TPData.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L0TPSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L1TPData.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L1TPSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L2EBData.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/L2EBSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDCEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDCVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDetectorVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDetectorVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDigiVCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDigiVError.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TDigiVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TEventInfo.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TPrimSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TRecoVCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TRecoVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TRecoVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TSpecialTriggerEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TTDCBSpecialTrigger.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TTimeCluster.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVDigi.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/include/CHANTIGeometry.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/include/NA62ConditionsService.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/include/NA62Global.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/CHANTIChannelID.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIDigi.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTICandidate.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/BeamData.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/BeamSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/Event.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/EventBoundary.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/EventHeader.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/GenePart.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/HLTEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/KinePart.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L0TPData.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L0TPSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L1TPData.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L1TPSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L2EBData.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/L2EBSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDCEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDCVHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDetectorVEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDetectorVHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDigiVCandidate.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDigiVError.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TDigiVEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TEventInfo.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TPrimSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TRecoVCandidate.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TRecoVEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TRecoVHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TSpecialTriggerEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TTDCBSpecialTrigger.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TTimeCluster.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVCandidate.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVChannelID.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVDigi.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVEvent.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVHit.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/CHANTIGeometry.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/NA62ConditionsService.hh
+ /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/NA62Global.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/CHANTI/src/CHANTIReconstruction.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4SystemOfUnits.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/Compression.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h

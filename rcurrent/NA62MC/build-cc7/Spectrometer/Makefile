@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Spectrometer/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Spectrometer/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Spectrometer/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Spectrometer/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Spectrometer/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Spectrometer/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Spectrometer/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Spectrometer/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Spectrometer/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Spectrometer/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Spectrometer/CMakeFiles/Spectrometer.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Spectrometer/CMakeFiles/Spectrometer.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Spectrometer/CMakeFiles/Spectrometer.dir/rule
 .PHONY : Spectrometer/CMakeFiles/Spectrometer.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ Spectrometer: Spectrometer/CMakeFiles/Spectrometer.dir/rule
 
 # fast build rule for target.
 Spectrometer/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/Spectrometer.dir/build.make Spectrometer/CMakeFiles/Spectrometer.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/Spectrometer.dir/build.make Spectrometer/CMakeFiles/Spectrometer.dir/build
 .PHONY : Spectrometer/fast
 
 # Convenience name for target.
 Spectrometer/CMakeFiles/SpectrometerObjLib.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Spectrometer/CMakeFiles/SpectrometerObjLib.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Spectrometer/CMakeFiles/SpectrometerObjLib.dir/rule
 .PHONY : Spectrometer/CMakeFiles/SpectrometerObjLib.dir/rule
 
 # Convenience name for target.
@@ -183,12 +183,12 @@ SpectrometerObjLib: Spectrometer/CMakeFiles/SpectrometerObjLib.dir/rule
 
 # fast build rule for target.
 SpectrometerObjLib/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build
 .PHONY : SpectrometerObjLib/fast
 
 # Convenience name for target.
 Spectrometer/CMakeFiles/Spectrometer-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Spectrometer/CMakeFiles/Spectrometer-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Spectrometer/CMakeFiles/Spectrometer-static.dir/rule
 .PHONY : Spectrometer/CMakeFiles/Spectrometer-static.dir/rule
 
 # Convenience name for target.
@@ -198,7 +198,7 @@ Spectrometer-static: Spectrometer/CMakeFiles/Spectrometer-static.dir/rule
 
 # fast build rule for target.
 Spectrometer-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/Spectrometer-static.dir/build.make Spectrometer/CMakeFiles/Spectrometer-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/Spectrometer-static.dir/build.make Spectrometer/CMakeFiles/Spectrometer-static.dir/build
 .PHONY : Spectrometer-static/fast
 
 src/Chamber.o: src/Chamber.cc.o
@@ -207,7 +207,7 @@ src/Chamber.o: src/Chamber.cc.o
 
 # target to build an object file
 src/Chamber.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/Chamber.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/Chamber.cc.o
 .PHONY : src/Chamber.cc.o
 
 src/Chamber.i: src/Chamber.cc.i
@@ -216,7 +216,7 @@ src/Chamber.i: src/Chamber.cc.i
 
 # target to preprocess a source file
 src/Chamber.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/Chamber.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/Chamber.cc.i
 .PHONY : src/Chamber.cc.i
 
 src/Chamber.s: src/Chamber.cc.s
@@ -225,7 +225,7 @@ src/Chamber.s: src/Chamber.cc.s
 
 # target to generate assembly for a file
 src/Chamber.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/Chamber.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/Chamber.cc.s
 .PHONY : src/Chamber.cc.s
 
 src/HalfView.o: src/HalfView.cc.o
@@ -234,7 +234,7 @@ src/HalfView.o: src/HalfView.cc.o
 
 # target to build an object file
 src/HalfView.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/HalfView.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/HalfView.cc.o
 .PHONY : src/HalfView.cc.o
 
 src/HalfView.i: src/HalfView.cc.i
@@ -243,7 +243,7 @@ src/HalfView.i: src/HalfView.cc.i
 
 # target to preprocess a source file
 src/HalfView.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/HalfView.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/HalfView.cc.i
 .PHONY : src/HalfView.cc.i
 
 src/HalfView.s: src/HalfView.cc.s
@@ -252,7 +252,7 @@ src/HalfView.s: src/HalfView.cc.s
 
 # target to generate assembly for a file
 src/HalfView.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/HalfView.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/HalfView.cc.s
 .PHONY : src/HalfView.cc.s
 
 src/SpectrometerDetector.o: src/SpectrometerDetector.cc.o
@@ -261,7 +261,7 @@ src/SpectrometerDetector.o: src/SpectrometerDetector.cc.o
 
 # target to build an object file
 src/SpectrometerDetector.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerDetector.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerDetector.cc.o
 .PHONY : src/SpectrometerDetector.cc.o
 
 src/SpectrometerDetector.i: src/SpectrometerDetector.cc.i
@@ -270,7 +270,7 @@ src/SpectrometerDetector.i: src/SpectrometerDetector.cc.i
 
 # target to preprocess a source file
 src/SpectrometerDetector.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerDetector.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerDetector.cc.i
 .PHONY : src/SpectrometerDetector.cc.i
 
 src/SpectrometerDetector.s: src/SpectrometerDetector.cc.s
@@ -279,7 +279,7 @@ src/SpectrometerDetector.s: src/SpectrometerDetector.cc.s
 
 # target to generate assembly for a file
 src/SpectrometerDetector.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerDetector.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerDetector.cc.s
 .PHONY : src/SpectrometerDetector.cc.s
 
 src/SpectrometerGeometryParameters.o: src/SpectrometerGeometryParameters.cc.o
@@ -288,7 +288,7 @@ src/SpectrometerGeometryParameters.o: src/SpectrometerGeometryParameters.cc.o
 
 # target to build an object file
 src/SpectrometerGeometryParameters.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerGeometryParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerGeometryParameters.cc.o
 .PHONY : src/SpectrometerGeometryParameters.cc.o
 
 src/SpectrometerGeometryParameters.i: src/SpectrometerGeometryParameters.cc.i
@@ -297,7 +297,7 @@ src/SpectrometerGeometryParameters.i: src/SpectrometerGeometryParameters.cc.i
 
 # target to preprocess a source file
 src/SpectrometerGeometryParameters.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerGeometryParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerGeometryParameters.cc.i
 .PHONY : src/SpectrometerGeometryParameters.cc.i
 
 src/SpectrometerGeometryParameters.s: src/SpectrometerGeometryParameters.cc.s
@@ -306,7 +306,7 @@ src/SpectrometerGeometryParameters.s: src/SpectrometerGeometryParameters.cc.s
 
 # target to generate assembly for a file
 src/SpectrometerGeometryParameters.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerGeometryParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerGeometryParameters.cc.s
 .PHONY : src/SpectrometerGeometryParameters.cc.s
 
 src/SpectrometerHit.o: src/SpectrometerHit.cc.o
@@ -315,7 +315,7 @@ src/SpectrometerHit.o: src/SpectrometerHit.cc.o
 
 # target to build an object file
 src/SpectrometerHit.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerHit.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerHit.cc.o
 .PHONY : src/SpectrometerHit.cc.o
 
 src/SpectrometerHit.i: src/SpectrometerHit.cc.i
@@ -324,7 +324,7 @@ src/SpectrometerHit.i: src/SpectrometerHit.cc.i
 
 # target to preprocess a source file
 src/SpectrometerHit.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerHit.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerHit.cc.i
 .PHONY : src/SpectrometerHit.cc.i
 
 src/SpectrometerHit.s: src/SpectrometerHit.cc.s
@@ -333,7 +333,7 @@ src/SpectrometerHit.s: src/SpectrometerHit.cc.s
 
 # target to generate assembly for a file
 src/SpectrometerHit.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerHit.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerHit.cc.s
 .PHONY : src/SpectrometerHit.cc.s
 
 src/SpectrometerMagnet.o: src/SpectrometerMagnet.cc.o
@@ -342,7 +342,7 @@ src/SpectrometerMagnet.o: src/SpectrometerMagnet.cc.o
 
 # target to build an object file
 src/SpectrometerMagnet.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerMagnet.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerMagnet.cc.o
 .PHONY : src/SpectrometerMagnet.cc.o
 
 src/SpectrometerMagnet.i: src/SpectrometerMagnet.cc.i
@@ -351,7 +351,7 @@ src/SpectrometerMagnet.i: src/SpectrometerMagnet.cc.i
 
 # target to preprocess a source file
 src/SpectrometerMagnet.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerMagnet.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerMagnet.cc.i
 .PHONY : src/SpectrometerMagnet.cc.i
 
 src/SpectrometerMagnet.s: src/SpectrometerMagnet.cc.s
@@ -360,7 +360,7 @@ src/SpectrometerMagnet.s: src/SpectrometerMagnet.cc.s
 
 # target to generate assembly for a file
 src/SpectrometerMagnet.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerMagnet.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerMagnet.cc.s
 .PHONY : src/SpectrometerMagnet.cc.s
 
 src/SpectrometerMaterialParameters.o: src/SpectrometerMaterialParameters.cc.o
@@ -369,7 +369,7 @@ src/SpectrometerMaterialParameters.o: src/SpectrometerMaterialParameters.cc.o
 
 # target to build an object file
 src/SpectrometerMaterialParameters.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerMaterialParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerMaterialParameters.cc.o
 .PHONY : src/SpectrometerMaterialParameters.cc.o
 
 src/SpectrometerMaterialParameters.i: src/SpectrometerMaterialParameters.cc.i
@@ -378,7 +378,7 @@ src/SpectrometerMaterialParameters.i: src/SpectrometerMaterialParameters.cc.i
 
 # target to preprocess a source file
 src/SpectrometerMaterialParameters.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerMaterialParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerMaterialParameters.cc.i
 .PHONY : src/SpectrometerMaterialParameters.cc.i
 
 src/SpectrometerMaterialParameters.s: src/SpectrometerMaterialParameters.cc.s
@@ -387,7 +387,7 @@ src/SpectrometerMaterialParameters.s: src/SpectrometerMaterialParameters.cc.s
 
 # target to generate assembly for a file
 src/SpectrometerMaterialParameters.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerMaterialParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerMaterialParameters.cc.s
 .PHONY : src/SpectrometerMaterialParameters.cc.s
 
 src/SpectrometerRootIO.o: src/SpectrometerRootIO.cc.o
@@ -396,7 +396,7 @@ src/SpectrometerRootIO.o: src/SpectrometerRootIO.cc.o
 
 # target to build an object file
 src/SpectrometerRootIO.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerRootIO.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerRootIO.cc.o
 .PHONY : src/SpectrometerRootIO.cc.o
 
 src/SpectrometerRootIO.i: src/SpectrometerRootIO.cc.i
@@ -405,7 +405,7 @@ src/SpectrometerRootIO.i: src/SpectrometerRootIO.cc.i
 
 # target to preprocess a source file
 src/SpectrometerRootIO.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerRootIO.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerRootIO.cc.i
 .PHONY : src/SpectrometerRootIO.cc.i
 
 src/SpectrometerRootIO.s: src/SpectrometerRootIO.cc.s
@@ -414,7 +414,7 @@ src/SpectrometerRootIO.s: src/SpectrometerRootIO.cc.s
 
 # target to generate assembly for a file
 src/SpectrometerRootIO.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerRootIO.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerRootIO.cc.s
 .PHONY : src/SpectrometerRootIO.cc.s
 
 src/SpectrometerSD.o: src/SpectrometerSD.cc.o
@@ -423,7 +423,7 @@ src/SpectrometerSD.o: src/SpectrometerSD.cc.o
 
 # target to build an object file
 src/SpectrometerSD.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerSD.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerSD.cc.o
 .PHONY : src/SpectrometerSD.cc.o
 
 src/SpectrometerSD.i: src/SpectrometerSD.cc.i
@@ -432,7 +432,7 @@ src/SpectrometerSD.i: src/SpectrometerSD.cc.i
 
 # target to preprocess a source file
 src/SpectrometerSD.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerSD.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerSD.cc.i
 .PHONY : src/SpectrometerSD.cc.i
 
 src/SpectrometerSD.s: src/SpectrometerSD.cc.s
@@ -441,7 +441,7 @@ src/SpectrometerSD.s: src/SpectrometerSD.cc.s
 
 # target to generate assembly for a file
 src/SpectrometerSD.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerSD.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerSD.cc.s
 .PHONY : src/SpectrometerSD.cc.s
 
 src/Straw.o: src/Straw.cc.o
@@ -450,7 +450,7 @@ src/Straw.o: src/Straw.cc.o
 
 # target to build an object file
 src/Straw.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/Straw.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/Straw.cc.o
 .PHONY : src/Straw.cc.o
 
 src/Straw.i: src/Straw.cc.i
@@ -459,7 +459,7 @@ src/Straw.i: src/Straw.cc.i
 
 # target to preprocess a source file
 src/Straw.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/Straw.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/Straw.cc.i
 .PHONY : src/Straw.cc.i
 
 src/Straw.s: src/Straw.cc.s
@@ -468,7 +468,7 @@ src/Straw.s: src/Straw.cc.s
 
 # target to generate assembly for a file
 src/Straw.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/Straw.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/Straw.cc.s
 .PHONY : src/Straw.cc.s
 
 src/View.o: src/View.cc.o
@@ -477,7 +477,7 @@ src/View.o: src/View.cc.o
 
 # target to build an object file
 src/View.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/View.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/View.cc.o
 .PHONY : src/View.cc.o
 
 src/View.i: src/View.cc.i
@@ -486,7 +486,7 @@ src/View.i: src/View.cc.i
 
 # target to preprocess a source file
 src/View.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/View.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/View.cc.i
 .PHONY : src/View.cc.i
 
 src/View.s: src/View.cc.s
@@ -495,7 +495,7 @@ src/View.s: src/View.cc.s
 
 # target to generate assembly for a file
 src/View.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/View.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Spectrometer/CMakeFiles/SpectrometerObjLib.dir/build.make Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/View.cc.s
 .PHONY : src/View.cc.s
 
 # Help Target
@@ -557,6 +557,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

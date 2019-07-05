@@ -43,10 +43,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7
 
 # Include any dependencies generated for this target.
 include Persistency/FullReco/LKr/CMakeFiles/LKrPersistency.dir/depend.make
@@ -62,15 +62,15 @@ LKrPersistency_OBJECTS =
 
 # External object files for target LKrPersistency
 LKrPersistency_EXTERNAL_OBJECTS = \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/src/LKrChannelID.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/src/TLKrDigi.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/src/TLKrEvent.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/src/TLKrHit.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/src/TLKrMicroCellHit.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/src/TRecoLKrCandidate.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/src/TRecoLKrEvent.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/src/TRecoLKrHit.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/LKrPersistencyDICT.cxx.o"
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/src/LKrChannelID.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/src/TLKrDigi.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/src/TLKrEvent.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/src/TLKrHit.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/src/TLKrMicroCellHit.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/src/TRecoLKrCandidate.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/src/TRecoLKrEvent.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/src/TRecoLKrHit.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/LKrPersistencyDICT.cxx.o"
 
 Persistency/FullReco/LKr/libLKrPersistency.so: Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/src/LKrChannelID.cc.o
 Persistency/FullReco/LKr/libLKrPersistency.so: Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/src/TLKrDigi.cc.o
@@ -83,8 +83,8 @@ Persistency/FullReco/LKr/libLKrPersistency.so: Persistency/FullReco/LKr/CMakeFil
 Persistency/FullReco/LKr/libLKrPersistency.so: Persistency/FullReco/LKr/CMakeFiles/LKrObjPersistencyLib.dir/LKrPersistencyDICT.cxx.o
 Persistency/FullReco/LKr/libLKrPersistency.so: Persistency/FullReco/LKr/CMakeFiles/LKrPersistency.dir/build.make
 Persistency/FullReco/LKr/libLKrPersistency.so: Persistency/FullReco/LKr/CMakeFiles/LKrPersistency.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX shared library libLKrPersistency.so"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/LKr && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LKrPersistency.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX shared library libLKrPersistency.so"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/LKr && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LKrPersistency.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 Persistency/FullReco/LKr/CMakeFiles/LKrPersistency.dir/build: Persistency/FullReco/LKr/libLKrPersistency.so
@@ -92,10 +92,10 @@ Persistency/FullReco/LKr/CMakeFiles/LKrPersistency.dir/build: Persistency/FullRe
 .PHONY : Persistency/FullReco/LKr/CMakeFiles/LKrPersistency.dir/build
 
 Persistency/FullReco/LKr/CMakeFiles/LKrPersistency.dir/clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/LKr && $(CMAKE_COMMAND) -P CMakeFiles/LKrPersistency.dir/cmake_clean.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/LKr && $(CMAKE_COMMAND) -P CMakeFiles/LKrPersistency.dir/cmake_clean.cmake
 .PHONY : Persistency/FullReco/LKr/CMakeFiles/LKrPersistency.dir/clean
 
 Persistency/FullReco/LKr/CMakeFiles/LKrPersistency.dir/depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/na62fw/NA62Tools /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/LKr /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/LKr/CMakeFiles/LKrPersistency.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/LKr /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/LKr/CMakeFiles/LKrPersistency.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Persistency/FullReco/LKr/CMakeFiles/LKrPersistency.dir/depend
 

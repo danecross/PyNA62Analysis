@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ install/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimCorrelation/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Tools/PrimCorrelation/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimCorrelation/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Tools/PrimCorrelation/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Tools/PrimCorrelation/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Tools/PrimCorrelation/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Tools/PrimCorrelation/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Tools/PrimCorrelation/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Tools/PrimCorrelation/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Tools/PrimCorrelation/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/rule
 .PHONY : Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/rule
 
 # Convenience name for target.
@@ -168,7 +168,7 @@ PrimCorrelation: Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/rule
 
 # fast build rule for target.
 PrimCorrelation/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/build.make Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/build.make Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/build
 .PHONY : PrimCorrelation/fast
 
 src/PrimCorrelation.o: src/PrimCorrelation.cc.o
@@ -177,7 +177,7 @@ src/PrimCorrelation.o: src/PrimCorrelation.cc.o
 
 # target to build an object file
 src/PrimCorrelation.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/build.make Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/src/PrimCorrelation.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/build.make Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/src/PrimCorrelation.cc.o
 .PHONY : src/PrimCorrelation.cc.o
 
 src/PrimCorrelation.i: src/PrimCorrelation.cc.i
@@ -186,7 +186,7 @@ src/PrimCorrelation.i: src/PrimCorrelation.cc.i
 
 # target to preprocess a source file
 src/PrimCorrelation.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/build.make Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/src/PrimCorrelation.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/build.make Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/src/PrimCorrelation.cc.i
 .PHONY : src/PrimCorrelation.cc.i
 
 src/PrimCorrelation.s: src/PrimCorrelation.cc.s
@@ -195,7 +195,7 @@ src/PrimCorrelation.s: src/PrimCorrelation.cc.s
 
 # target to generate assembly for a file
 src/PrimCorrelation.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/build.make Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/src/PrimCorrelation.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/build.make Tools/PrimCorrelation/CMakeFiles/PrimCorrelation.dir/src/PrimCorrelation.cc.s
 .PHONY : src/PrimCorrelation.cc.s
 
 # Help Target
@@ -225,6 +225,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

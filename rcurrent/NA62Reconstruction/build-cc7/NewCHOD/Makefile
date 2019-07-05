@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 NewCHOD/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 NewCHOD/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 NewCHOD/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 NewCHOD/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 NewCHOD/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 NewCHOD/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 NewCHOD/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 NewCHOD/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 NewCHOD/CMakeFiles/NewCHOD.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 NewCHOD/CMakeFiles/NewCHOD.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 NewCHOD/CMakeFiles/NewCHOD.dir/rule
 .PHONY : NewCHOD/CMakeFiles/NewCHOD.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ NewCHOD: NewCHOD/CMakeFiles/NewCHOD.dir/rule
 
 # fast build rule for target.
 NewCHOD/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHOD.dir/build.make NewCHOD/CMakeFiles/NewCHOD.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHOD.dir/build.make NewCHOD/CMakeFiles/NewCHOD.dir/build
 .PHONY : NewCHOD/fast
 
 # Convenience name for target.
 NewCHOD/CMakeFiles/NewCHOD-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 NewCHOD/CMakeFiles/NewCHOD-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 NewCHOD/CMakeFiles/NewCHOD-static.dir/rule
 .PHONY : NewCHOD/CMakeFiles/NewCHOD-static.dir/rule
 
 # Convenience name for target.
@@ -183,12 +183,12 @@ NewCHOD-static: NewCHOD/CMakeFiles/NewCHOD-static.dir/rule
 
 # fast build rule for target.
 NewCHOD-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHOD-static.dir/build.make NewCHOD/CMakeFiles/NewCHOD-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHOD-static.dir/build.make NewCHOD/CMakeFiles/NewCHOD-static.dir/build
 .PHONY : NewCHOD-static/fast
 
 # Convenience name for target.
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 NewCHOD/CMakeFiles/NewCHODObjLib.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 NewCHOD/CMakeFiles/NewCHODObjLib.dir/rule
 .PHONY : NewCHOD/CMakeFiles/NewCHODObjLib.dir/rule
 
 # Convenience name for target.
@@ -198,7 +198,7 @@ NewCHODObjLib: NewCHOD/CMakeFiles/NewCHODObjLib.dir/rule
 
 # fast build rule for target.
 NewCHODObjLib/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/build
 .PHONY : NewCHODObjLib/fast
 
 src/NewCHODChannel.o: src/NewCHODChannel.cc.o
@@ -207,7 +207,7 @@ src/NewCHODChannel.o: src/NewCHODChannel.cc.o
 
 # target to build an object file
 src/NewCHODChannel.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.o
 .PHONY : src/NewCHODChannel.cc.o
 
 src/NewCHODChannel.i: src/NewCHODChannel.cc.i
@@ -216,7 +216,7 @@ src/NewCHODChannel.i: src/NewCHODChannel.cc.i
 
 # target to preprocess a source file
 src/NewCHODChannel.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.i
 .PHONY : src/NewCHODChannel.cc.i
 
 src/NewCHODChannel.s: src/NewCHODChannel.cc.s
@@ -225,7 +225,7 @@ src/NewCHODChannel.s: src/NewCHODChannel.cc.s
 
 # target to generate assembly for a file
 src/NewCHODChannel.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.s
 .PHONY : src/NewCHODChannel.cc.s
 
 src/NewCHODDataQualityPlotter.o: src/NewCHODDataQualityPlotter.cc.o
@@ -234,7 +234,7 @@ src/NewCHODDataQualityPlotter.o: src/NewCHODDataQualityPlotter.cc.o
 
 # target to build an object file
 src/NewCHODDataQualityPlotter.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.o
 .PHONY : src/NewCHODDataQualityPlotter.cc.o
 
 src/NewCHODDataQualityPlotter.i: src/NewCHODDataQualityPlotter.cc.i
@@ -243,7 +243,7 @@ src/NewCHODDataQualityPlotter.i: src/NewCHODDataQualityPlotter.cc.i
 
 # target to preprocess a source file
 src/NewCHODDataQualityPlotter.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.i
 .PHONY : src/NewCHODDataQualityPlotter.cc.i
 
 src/NewCHODDataQualityPlotter.s: src/NewCHODDataQualityPlotter.cc.s
@@ -252,7 +252,7 @@ src/NewCHODDataQualityPlotter.s: src/NewCHODDataQualityPlotter.cc.s
 
 # target to generate assembly for a file
 src/NewCHODDataQualityPlotter.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.s
 .PHONY : src/NewCHODDataQualityPlotter.cc.s
 
 src/NewCHODDigitizer.o: src/NewCHODDigitizer.cc.o
@@ -261,7 +261,7 @@ src/NewCHODDigitizer.o: src/NewCHODDigitizer.cc.o
 
 # target to build an object file
 src/NewCHODDigitizer.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDigitizer.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDigitizer.cc.o
 .PHONY : src/NewCHODDigitizer.cc.o
 
 src/NewCHODDigitizer.i: src/NewCHODDigitizer.cc.i
@@ -270,7 +270,7 @@ src/NewCHODDigitizer.i: src/NewCHODDigitizer.cc.i
 
 # target to preprocess a source file
 src/NewCHODDigitizer.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDigitizer.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDigitizer.cc.i
 .PHONY : src/NewCHODDigitizer.cc.i
 
 src/NewCHODDigitizer.s: src/NewCHODDigitizer.cc.s
@@ -279,7 +279,7 @@ src/NewCHODDigitizer.s: src/NewCHODDigitizer.cc.s
 
 # target to generate assembly for a file
 src/NewCHODDigitizer.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDigitizer.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDigitizer.cc.s
 .PHONY : src/NewCHODDigitizer.cc.s
 
 src/NewCHODOnlineMonitor.o: src/NewCHODOnlineMonitor.cc.o
@@ -288,7 +288,7 @@ src/NewCHODOnlineMonitor.o: src/NewCHODOnlineMonitor.cc.o
 
 # target to build an object file
 src/NewCHODOnlineMonitor.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODOnlineMonitor.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODOnlineMonitor.cc.o
 .PHONY : src/NewCHODOnlineMonitor.cc.o
 
 src/NewCHODOnlineMonitor.i: src/NewCHODOnlineMonitor.cc.i
@@ -297,7 +297,7 @@ src/NewCHODOnlineMonitor.i: src/NewCHODOnlineMonitor.cc.i
 
 # target to preprocess a source file
 src/NewCHODOnlineMonitor.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODOnlineMonitor.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODOnlineMonitor.cc.i
 .PHONY : src/NewCHODOnlineMonitor.cc.i
 
 src/NewCHODOnlineMonitor.s: src/NewCHODOnlineMonitor.cc.s
@@ -306,7 +306,7 @@ src/NewCHODOnlineMonitor.s: src/NewCHODOnlineMonitor.cc.s
 
 # target to generate assembly for a file
 src/NewCHODOnlineMonitor.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODOnlineMonitor.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODOnlineMonitor.cc.s
 .PHONY : src/NewCHODOnlineMonitor.cc.s
 
 src/NewCHODRawDecoder.o: src/NewCHODRawDecoder.cc.o
@@ -315,7 +315,7 @@ src/NewCHODRawDecoder.o: src/NewCHODRawDecoder.cc.o
 
 # target to build an object file
 src/NewCHODRawDecoder.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawDecoder.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawDecoder.cc.o
 .PHONY : src/NewCHODRawDecoder.cc.o
 
 src/NewCHODRawDecoder.i: src/NewCHODRawDecoder.cc.i
@@ -324,7 +324,7 @@ src/NewCHODRawDecoder.i: src/NewCHODRawDecoder.cc.i
 
 # target to preprocess a source file
 src/NewCHODRawDecoder.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawDecoder.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawDecoder.cc.i
 .PHONY : src/NewCHODRawDecoder.cc.i
 
 src/NewCHODRawDecoder.s: src/NewCHODRawDecoder.cc.s
@@ -333,7 +333,7 @@ src/NewCHODRawDecoder.s: src/NewCHODRawDecoder.cc.s
 
 # target to generate assembly for a file
 src/NewCHODRawDecoder.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawDecoder.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawDecoder.cc.s
 .PHONY : src/NewCHODRawDecoder.cc.s
 
 src/NewCHODRawEncoder.o: src/NewCHODRawEncoder.cc.o
@@ -342,7 +342,7 @@ src/NewCHODRawEncoder.o: src/NewCHODRawEncoder.cc.o
 
 # target to build an object file
 src/NewCHODRawEncoder.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawEncoder.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawEncoder.cc.o
 .PHONY : src/NewCHODRawEncoder.cc.o
 
 src/NewCHODRawEncoder.i: src/NewCHODRawEncoder.cc.i
@@ -351,7 +351,7 @@ src/NewCHODRawEncoder.i: src/NewCHODRawEncoder.cc.i
 
 # target to preprocess a source file
 src/NewCHODRawEncoder.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawEncoder.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawEncoder.cc.i
 .PHONY : src/NewCHODRawEncoder.cc.i
 
 src/NewCHODRawEncoder.s: src/NewCHODRawEncoder.cc.s
@@ -360,7 +360,7 @@ src/NewCHODRawEncoder.s: src/NewCHODRawEncoder.cc.s
 
 # target to generate assembly for a file
 src/NewCHODRawEncoder.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawEncoder.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawEncoder.cc.s
 .PHONY : src/NewCHODRawEncoder.cc.s
 
 src/NewCHODReconstruction.o: src/NewCHODReconstruction.cc.o
@@ -369,7 +369,7 @@ src/NewCHODReconstruction.o: src/NewCHODReconstruction.cc.o
 
 # target to build an object file
 src/NewCHODReconstruction.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODReconstruction.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODReconstruction.cc.o
 .PHONY : src/NewCHODReconstruction.cc.o
 
 src/NewCHODReconstruction.i: src/NewCHODReconstruction.cc.i
@@ -378,7 +378,7 @@ src/NewCHODReconstruction.i: src/NewCHODReconstruction.cc.i
 
 # target to preprocess a source file
 src/NewCHODReconstruction.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODReconstruction.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODReconstruction.cc.i
 .PHONY : src/NewCHODReconstruction.cc.i
 
 src/NewCHODReconstruction.s: src/NewCHODReconstruction.cc.s
@@ -387,7 +387,7 @@ src/NewCHODReconstruction.s: src/NewCHODReconstruction.cc.s
 
 # target to generate assembly for a file
 src/NewCHODReconstruction.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODReconstruction.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODReconstruction.cc.s
 .PHONY : src/NewCHODReconstruction.cc.s
 
 src/NewCHODTile.o: src/NewCHODTile.cc.o
@@ -396,7 +396,7 @@ src/NewCHODTile.o: src/NewCHODTile.cc.o
 
 # target to build an object file
 src/NewCHODTile.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODTile.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODTile.cc.o
 .PHONY : src/NewCHODTile.cc.o
 
 src/NewCHODTile.i: src/NewCHODTile.cc.i
@@ -405,7 +405,7 @@ src/NewCHODTile.i: src/NewCHODTile.cc.i
 
 # target to preprocess a source file
 src/NewCHODTile.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODTile.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODTile.cc.i
 .PHONY : src/NewCHODTile.cc.i
 
 src/NewCHODTile.s: src/NewCHODTile.cc.s
@@ -414,7 +414,7 @@ src/NewCHODTile.s: src/NewCHODTile.cc.s
 
 # target to generate assembly for a file
 src/NewCHODTile.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODTile.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f NewCHOD/CMakeFiles/NewCHODObjLib.dir/build.make NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODTile.cc.s
 .PHONY : src/NewCHODTile.cc.s
 
 # Help Target
@@ -467,6 +467,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

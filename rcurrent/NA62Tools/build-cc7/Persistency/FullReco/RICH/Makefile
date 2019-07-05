@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/RICH/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/FullReco/RICH/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/RICH/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/FullReco/RICH/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/FullReco/RICH/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/FullReco/RICH/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/FullReco/RICH/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/FullReco/RICH/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/FullReco/RICH/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/FullReco/RICH/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/rule
 .PHONY : Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ RICHObjPersistencyLib: Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLi
 
 # fast build rule for target.
 RICHObjPersistencyLib/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build
 .PHONY : RICHObjPersistencyLib/fast
 
 # Convenience name for target.
 Persistency/FullReco/RICH/CMakeFiles/RICHPersistencyDICT.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/FullReco/RICH/CMakeFiles/RICHPersistencyDICT.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/FullReco/RICH/CMakeFiles/RICHPersistencyDICT.dir/rule
 .PHONY : Persistency/FullReco/RICH/CMakeFiles/RICHPersistencyDICT.dir/rule
 
 # Convenience name for target.
@@ -183,12 +183,12 @@ RICHPersistencyDICT: Persistency/FullReco/RICH/CMakeFiles/RICHPersistencyDICT.di
 
 # fast build rule for target.
 RICHPersistencyDICT/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHPersistencyDICT.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHPersistencyDICT.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHPersistencyDICT.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHPersistencyDICT.dir/build
 .PHONY : RICHPersistencyDICT/fast
 
 # Convenience name for target.
 Persistency/FullReco/RICH/CMakeFiles/RICHPersistency.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/FullReco/RICH/CMakeFiles/RICHPersistency.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/FullReco/RICH/CMakeFiles/RICHPersistency.dir/rule
 .PHONY : Persistency/FullReco/RICH/CMakeFiles/RICHPersistency.dir/rule
 
 # Convenience name for target.
@@ -198,12 +198,12 @@ RICHPersistency: Persistency/FullReco/RICH/CMakeFiles/RICHPersistency.dir/rule
 
 # fast build rule for target.
 RICHPersistency/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHPersistency.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHPersistency.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHPersistency.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHPersistency.dir/build
 .PHONY : RICHPersistency/fast
 
 # Convenience name for target.
 Persistency/FullReco/RICH/CMakeFiles/RICHPersistency-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/FullReco/RICH/CMakeFiles/RICHPersistency-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/FullReco/RICH/CMakeFiles/RICHPersistency-static.dir/rule
 .PHONY : Persistency/FullReco/RICH/CMakeFiles/RICHPersistency-static.dir/rule
 
 # Convenience name for target.
@@ -213,7 +213,7 @@ RICHPersistency-static: Persistency/FullReco/RICH/CMakeFiles/RICHPersistency-sta
 
 # fast build rule for target.
 RICHPersistency-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHPersistency-static.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHPersistency-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHPersistency-static.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHPersistency-static.dir/build
 .PHONY : RICHPersistency-static/fast
 
 RICHPersistencyDICT.o: RICHPersistencyDICT.cxx.o
@@ -222,7 +222,7 @@ RICHPersistencyDICT.o: RICHPersistencyDICT.cxx.o
 
 # target to build an object file
 RICHPersistencyDICT.cxx.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/RICHPersistencyDICT.cxx.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/RICHPersistencyDICT.cxx.o
 .PHONY : RICHPersistencyDICT.cxx.o
 
 RICHPersistencyDICT.i: RICHPersistencyDICT.cxx.i
@@ -231,7 +231,7 @@ RICHPersistencyDICT.i: RICHPersistencyDICT.cxx.i
 
 # target to preprocess a source file
 RICHPersistencyDICT.cxx.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/RICHPersistencyDICT.cxx.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/RICHPersistencyDICT.cxx.i
 .PHONY : RICHPersistencyDICT.cxx.i
 
 RICHPersistencyDICT.s: RICHPersistencyDICT.cxx.s
@@ -240,7 +240,7 @@ RICHPersistencyDICT.s: RICHPersistencyDICT.cxx.s
 
 # target to generate assembly for a file
 RICHPersistencyDICT.cxx.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/RICHPersistencyDICT.cxx.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/RICHPersistencyDICT.cxx.s
 .PHONY : RICHPersistencyDICT.cxx.s
 
 src/RICHChannelID.o: src/RICHChannelID.cc.o
@@ -249,7 +249,7 @@ src/RICHChannelID.o: src/RICHChannelID.cc.o
 
 # target to build an object file
 src/RICHChannelID.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/RICHChannelID.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/RICHChannelID.cc.o
 .PHONY : src/RICHChannelID.cc.o
 
 src/RICHChannelID.i: src/RICHChannelID.cc.i
@@ -258,7 +258,7 @@ src/RICHChannelID.i: src/RICHChannelID.cc.i
 
 # target to preprocess a source file
 src/RICHChannelID.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/RICHChannelID.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/RICHChannelID.cc.i
 .PHONY : src/RICHChannelID.cc.i
 
 src/RICHChannelID.s: src/RICHChannelID.cc.s
@@ -267,7 +267,7 @@ src/RICHChannelID.s: src/RICHChannelID.cc.s
 
 # target to generate assembly for a file
 src/RICHChannelID.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/RICHChannelID.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/RICHChannelID.cc.s
 .PHONY : src/RICHChannelID.cc.s
 
 src/TRICHDigi.o: src/TRICHDigi.cc.o
@@ -276,7 +276,7 @@ src/TRICHDigi.o: src/TRICHDigi.cc.o
 
 # target to build an object file
 src/TRICHDigi.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRICHDigi.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRICHDigi.cc.o
 .PHONY : src/TRICHDigi.cc.o
 
 src/TRICHDigi.i: src/TRICHDigi.cc.i
@@ -285,7 +285,7 @@ src/TRICHDigi.i: src/TRICHDigi.cc.i
 
 # target to preprocess a source file
 src/TRICHDigi.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRICHDigi.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRICHDigi.cc.i
 .PHONY : src/TRICHDigi.cc.i
 
 src/TRICHDigi.s: src/TRICHDigi.cc.s
@@ -294,7 +294,7 @@ src/TRICHDigi.s: src/TRICHDigi.cc.s
 
 # target to generate assembly for a file
 src/TRICHDigi.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRICHDigi.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRICHDigi.cc.s
 .PHONY : src/TRICHDigi.cc.s
 
 src/TRICHEvent.o: src/TRICHEvent.cc.o
@@ -303,7 +303,7 @@ src/TRICHEvent.o: src/TRICHEvent.cc.o
 
 # target to build an object file
 src/TRICHEvent.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRICHEvent.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRICHEvent.cc.o
 .PHONY : src/TRICHEvent.cc.o
 
 src/TRICHEvent.i: src/TRICHEvent.cc.i
@@ -312,7 +312,7 @@ src/TRICHEvent.i: src/TRICHEvent.cc.i
 
 # target to preprocess a source file
 src/TRICHEvent.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRICHEvent.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRICHEvent.cc.i
 .PHONY : src/TRICHEvent.cc.i
 
 src/TRICHEvent.s: src/TRICHEvent.cc.s
@@ -321,7 +321,7 @@ src/TRICHEvent.s: src/TRICHEvent.cc.s
 
 # target to generate assembly for a file
 src/TRICHEvent.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRICHEvent.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRICHEvent.cc.s
 .PHONY : src/TRICHEvent.cc.s
 
 src/TRICHHit.o: src/TRICHHit.cc.o
@@ -330,7 +330,7 @@ src/TRICHHit.o: src/TRICHHit.cc.o
 
 # target to build an object file
 src/TRICHHit.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRICHHit.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRICHHit.cc.o
 .PHONY : src/TRICHHit.cc.o
 
 src/TRICHHit.i: src/TRICHHit.cc.i
@@ -339,7 +339,7 @@ src/TRICHHit.i: src/TRICHHit.cc.i
 
 # target to preprocess a source file
 src/TRICHHit.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRICHHit.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRICHHit.cc.i
 .PHONY : src/TRICHHit.cc.i
 
 src/TRICHHit.s: src/TRICHHit.cc.s
@@ -348,7 +348,7 @@ src/TRICHHit.s: src/TRICHHit.cc.s
 
 # target to generate assembly for a file
 src/TRICHHit.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRICHHit.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRICHHit.cc.s
 .PHONY : src/TRICHHit.cc.s
 
 src/TRecoRICHCandidate.o: src/TRecoRICHCandidate.cc.o
@@ -357,7 +357,7 @@ src/TRecoRICHCandidate.o: src/TRecoRICHCandidate.cc.o
 
 # target to build an object file
 src/TRecoRICHCandidate.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRecoRICHCandidate.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRecoRICHCandidate.cc.o
 .PHONY : src/TRecoRICHCandidate.cc.o
 
 src/TRecoRICHCandidate.i: src/TRecoRICHCandidate.cc.i
@@ -366,7 +366,7 @@ src/TRecoRICHCandidate.i: src/TRecoRICHCandidate.cc.i
 
 # target to preprocess a source file
 src/TRecoRICHCandidate.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRecoRICHCandidate.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRecoRICHCandidate.cc.i
 .PHONY : src/TRecoRICHCandidate.cc.i
 
 src/TRecoRICHCandidate.s: src/TRecoRICHCandidate.cc.s
@@ -375,7 +375,7 @@ src/TRecoRICHCandidate.s: src/TRecoRICHCandidate.cc.s
 
 # target to generate assembly for a file
 src/TRecoRICHCandidate.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRecoRICHCandidate.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRecoRICHCandidate.cc.s
 .PHONY : src/TRecoRICHCandidate.cc.s
 
 src/TRecoRICHEvent.o: src/TRecoRICHEvent.cc.o
@@ -384,7 +384,7 @@ src/TRecoRICHEvent.o: src/TRecoRICHEvent.cc.o
 
 # target to build an object file
 src/TRecoRICHEvent.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRecoRICHEvent.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRecoRICHEvent.cc.o
 .PHONY : src/TRecoRICHEvent.cc.o
 
 src/TRecoRICHEvent.i: src/TRecoRICHEvent.cc.i
@@ -393,7 +393,7 @@ src/TRecoRICHEvent.i: src/TRecoRICHEvent.cc.i
 
 # target to preprocess a source file
 src/TRecoRICHEvent.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRecoRICHEvent.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRecoRICHEvent.cc.i
 .PHONY : src/TRecoRICHEvent.cc.i
 
 src/TRecoRICHEvent.s: src/TRecoRICHEvent.cc.s
@@ -402,7 +402,7 @@ src/TRecoRICHEvent.s: src/TRecoRICHEvent.cc.s
 
 # target to generate assembly for a file
 src/TRecoRICHEvent.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRecoRICHEvent.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRecoRICHEvent.cc.s
 .PHONY : src/TRecoRICHEvent.cc.s
 
 src/TRecoRICHHit.o: src/TRecoRICHHit.cc.o
@@ -411,7 +411,7 @@ src/TRecoRICHHit.o: src/TRecoRICHHit.cc.o
 
 # target to build an object file
 src/TRecoRICHHit.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRecoRICHHit.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRecoRICHHit.cc.o
 .PHONY : src/TRecoRICHHit.cc.o
 
 src/TRecoRICHHit.i: src/TRecoRICHHit.cc.i
@@ -420,7 +420,7 @@ src/TRecoRICHHit.i: src/TRecoRICHHit.cc.i
 
 # target to preprocess a source file
 src/TRecoRICHHit.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRecoRICHHit.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRecoRICHHit.cc.i
 .PHONY : src/TRecoRICHHit.cc.i
 
 src/TRecoRICHHit.s: src/TRecoRICHHit.cc.s
@@ -429,7 +429,7 @@ src/TRecoRICHHit.s: src/TRecoRICHHit.cc.s
 
 # target to generate assembly for a file
 src/TRecoRICHHit.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRecoRICHHit.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/build.make Persistency/FullReco/RICH/CMakeFiles/RICHObjPersistencyLib.dir/src/TRecoRICHHit.cc.s
 .PHONY : src/TRecoRICHHit.cc.s
 
 # Help Target
@@ -483,6 +483,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

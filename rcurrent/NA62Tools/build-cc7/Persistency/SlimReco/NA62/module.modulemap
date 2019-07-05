@@ -1,10 +1,10 @@
 module "NA62SlimPersistency" {
   requires cplusplus
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NA62/include/TSlimRecoMUVCandidate.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NA62/include/TSlimRecoMUVCandidate.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NA62/include/TSlimRecoMUVHit.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NA62/include/TSlimRecoMUVHit.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NA62/include/TSlimRecoVCandidate.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NA62/include/TSlimRecoVCandidate.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NA62/include/TSlimRecoVEvent.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NA62/include/TSlimRecoVEvent.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NA62/include/TSlimRecoVHit.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NA62/include/TSlimRecoVHit.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NA62/include/TSlimRecoMUVCandidate.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NA62/include/TSlimRecoMUVCandidate.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NA62/include/TSlimRecoMUVHit.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NA62/include/TSlimRecoMUVHit.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NA62/include/TSlimRecoVCandidate.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NA62/include/TSlimRecoVCandidate.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NA62/include/TSlimRecoVEvent.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NA62/include/TSlimRecoVEvent.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NA62/include/TSlimRecoVHit.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NA62/include/TSlimRecoVHit.hh" export * }
   export *
 }
 

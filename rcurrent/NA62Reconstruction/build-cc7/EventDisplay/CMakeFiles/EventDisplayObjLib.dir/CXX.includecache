@@ -16,19 +16,19 @@ TGeoManager.h
 TObjArray.h
 ../EventDisplay/include/TObjArray.h
 
-/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/EventDisplay/src/TNA62MagField.cc
+/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/EventDisplay/src/TNA62MagField.cc
 TNA62MagField.hh
-/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/EventDisplay/src/TNA62MagField.hh
+/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/EventDisplay/src/TNA62MagField.hh
 TGeoNode.h
-/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/EventDisplay/src/TGeoNode.h
+/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/EventDisplay/src/TGeoNode.h
 TGeoBBox.h
-/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/EventDisplay/src/TGeoBBox.h
+/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/EventDisplay/src/TGeoBBox.h
 TGeoMatrix.h
-/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/EventDisplay/src/TGeoMatrix.h
+/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/EventDisplay/src/TGeoMatrix.h
 TGeoManager.h
-/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/EventDisplay/src/TGeoManager.h
+/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/EventDisplay/src/TGeoManager.h
 Riostream.h
-/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/EventDisplay/src/Riostream.h
+/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/EventDisplay/src/Riostream.h
 
 /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
 

@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/SlimReco/HAC/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/HAC/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/SlimReco/HAC/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/HAC/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/HAC/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/HAC/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/HAC/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/HAC/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/HAC/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/HAC/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/rule
 .PHONY : Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ HACObjSlimPersistencyLib: Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersiste
 
 # fast build rule for target.
 HACObjSlimPersistencyLib/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build
 .PHONY : HACObjSlimPersistencyLib/fast
 
 # Convenience name for target.
 Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistency.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistency.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistency.dir/rule
 .PHONY : Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistency.dir/rule
 
 # Convenience name for target.
@@ -183,12 +183,12 @@ HACSlimPersistency: Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistency.dir/r
 
 # fast build rule for target.
 HACSlimPersistency/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistency.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistency.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistency.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistency.dir/build
 .PHONY : HACSlimPersistency/fast
 
 # Convenience name for target.
 Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistencyDICT.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistencyDICT.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistencyDICT.dir/rule
 .PHONY : Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistencyDICT.dir/rule
 
 # Convenience name for target.
@@ -198,12 +198,12 @@ HACSlimPersistencyDICT: Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistencyDI
 
 # fast build rule for target.
 HACSlimPersistencyDICT/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistencyDICT.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistencyDICT.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistencyDICT.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistencyDICT.dir/build
 .PHONY : HACSlimPersistencyDICT/fast
 
 # Convenience name for target.
 Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistency-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistency-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistency-static.dir/rule
 .PHONY : Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistency-static.dir/rule
 
 # Convenience name for target.
@@ -213,7 +213,7 @@ HACSlimPersistency-static: Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistenc
 
 # fast build rule for target.
 HACSlimPersistency-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistency-static.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistency-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistency-static.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACSlimPersistency-static.dir/build
 .PHONY : HACSlimPersistency-static/fast
 
 HACSlimPersistencyDICT.o: HACSlimPersistencyDICT.cxx.o
@@ -222,7 +222,7 @@ HACSlimPersistencyDICT.o: HACSlimPersistencyDICT.cxx.o
 
 # target to build an object file
 HACSlimPersistencyDICT.cxx.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/HACSlimPersistencyDICT.cxx.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/HACSlimPersistencyDICT.cxx.o
 .PHONY : HACSlimPersistencyDICT.cxx.o
 
 HACSlimPersistencyDICT.i: HACSlimPersistencyDICT.cxx.i
@@ -231,7 +231,7 @@ HACSlimPersistencyDICT.i: HACSlimPersistencyDICT.cxx.i
 
 # target to preprocess a source file
 HACSlimPersistencyDICT.cxx.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/HACSlimPersistencyDICT.cxx.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/HACSlimPersistencyDICT.cxx.i
 .PHONY : HACSlimPersistencyDICT.cxx.i
 
 HACSlimPersistencyDICT.s: HACSlimPersistencyDICT.cxx.s
@@ -240,7 +240,7 @@ HACSlimPersistencyDICT.s: HACSlimPersistencyDICT.cxx.s
 
 # target to generate assembly for a file
 HACSlimPersistencyDICT.cxx.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/HACSlimPersistencyDICT.cxx.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/HACSlimPersistencyDICT.cxx.s
 .PHONY : HACSlimPersistencyDICT.cxx.s
 
 src/TSlimRecoHACCandidate.o: src/TSlimRecoHACCandidate.cc.o
@@ -249,7 +249,7 @@ src/TSlimRecoHACCandidate.o: src/TSlimRecoHACCandidate.cc.o
 
 # target to build an object file
 src/TSlimRecoHACCandidate.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/src/TSlimRecoHACCandidate.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/src/TSlimRecoHACCandidate.cc.o
 .PHONY : src/TSlimRecoHACCandidate.cc.o
 
 src/TSlimRecoHACCandidate.i: src/TSlimRecoHACCandidate.cc.i
@@ -258,7 +258,7 @@ src/TSlimRecoHACCandidate.i: src/TSlimRecoHACCandidate.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoHACCandidate.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/src/TSlimRecoHACCandidate.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/src/TSlimRecoHACCandidate.cc.i
 .PHONY : src/TSlimRecoHACCandidate.cc.i
 
 src/TSlimRecoHACCandidate.s: src/TSlimRecoHACCandidate.cc.s
@@ -267,7 +267,7 @@ src/TSlimRecoHACCandidate.s: src/TSlimRecoHACCandidate.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoHACCandidate.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/src/TSlimRecoHACCandidate.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/src/TSlimRecoHACCandidate.cc.s
 .PHONY : src/TSlimRecoHACCandidate.cc.s
 
 src/TSlimRecoHACEvent.o: src/TSlimRecoHACEvent.cc.o
@@ -276,7 +276,7 @@ src/TSlimRecoHACEvent.o: src/TSlimRecoHACEvent.cc.o
 
 # target to build an object file
 src/TSlimRecoHACEvent.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/src/TSlimRecoHACEvent.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/src/TSlimRecoHACEvent.cc.o
 .PHONY : src/TSlimRecoHACEvent.cc.o
 
 src/TSlimRecoHACEvent.i: src/TSlimRecoHACEvent.cc.i
@@ -285,7 +285,7 @@ src/TSlimRecoHACEvent.i: src/TSlimRecoHACEvent.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoHACEvent.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/src/TSlimRecoHACEvent.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/src/TSlimRecoHACEvent.cc.i
 .PHONY : src/TSlimRecoHACEvent.cc.i
 
 src/TSlimRecoHACEvent.s: src/TSlimRecoHACEvent.cc.s
@@ -294,7 +294,7 @@ src/TSlimRecoHACEvent.s: src/TSlimRecoHACEvent.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoHACEvent.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/src/TSlimRecoHACEvent.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/src/TSlimRecoHACEvent.cc.s
 .PHONY : src/TSlimRecoHACEvent.cc.s
 
 src/TSlimRecoHACHit.o: src/TSlimRecoHACHit.cc.o
@@ -303,7 +303,7 @@ src/TSlimRecoHACHit.o: src/TSlimRecoHACHit.cc.o
 
 # target to build an object file
 src/TSlimRecoHACHit.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/src/TSlimRecoHACHit.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/src/TSlimRecoHACHit.cc.o
 .PHONY : src/TSlimRecoHACHit.cc.o
 
 src/TSlimRecoHACHit.i: src/TSlimRecoHACHit.cc.i
@@ -312,7 +312,7 @@ src/TSlimRecoHACHit.i: src/TSlimRecoHACHit.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoHACHit.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/src/TSlimRecoHACHit.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/src/TSlimRecoHACHit.cc.i
 .PHONY : src/TSlimRecoHACHit.cc.i
 
 src/TSlimRecoHACHit.s: src/TSlimRecoHACHit.cc.s
@@ -321,7 +321,7 @@ src/TSlimRecoHACHit.s: src/TSlimRecoHACHit.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoHACHit.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/src/TSlimRecoHACHit.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/HAC/CMakeFiles/HACObjSlimPersistencyLib.dir/src/TSlimRecoHACHit.cc.s
 .PHONY : src/TSlimRecoHACHit.cc.s
 
 # Help Target
@@ -363,6 +363,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

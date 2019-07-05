@@ -43,10 +43,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7
 
 # Include any dependencies generated for this target.
 include Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerPersistency.dir/depend.make
@@ -62,17 +62,17 @@ SpectrometerPersistency_OBJECTS =
 
 # External object files for target SpectrometerPersistency
 SpectrometerPersistency_EXTERNAL_OBJECTS = \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/SRBError.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/SRBEvent.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/SRBVHit.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/SpectrometerChannelID.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/TRecoSpectrometerCandidate.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/TRecoSpectrometerEvent.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/TRecoSpectrometerHit.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/TSpectrometerDigi.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/TSpectrometerEvent.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/TSpectrometerHit.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/SpectrometerPersistencyDICT.cxx.o"
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/SRBError.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/SRBEvent.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/SRBVHit.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/SpectrometerChannelID.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/TRecoSpectrometerCandidate.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/TRecoSpectrometerEvent.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/TRecoSpectrometerHit.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/TSpectrometerDigi.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/TSpectrometerEvent.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/TSpectrometerHit.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/SpectrometerPersistencyDICT.cxx.o"
 
 Persistency/FullReco/Spectrometer/libSpectrometerPersistency.so: Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/SRBError.cc.o
 Persistency/FullReco/Spectrometer/libSpectrometerPersistency.so: Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/src/SRBEvent.cc.o
@@ -87,8 +87,8 @@ Persistency/FullReco/Spectrometer/libSpectrometerPersistency.so: Persistency/Ful
 Persistency/FullReco/Spectrometer/libSpectrometerPersistency.so: Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerObjPersistencyLib.dir/SpectrometerPersistencyDICT.cxx.o
 Persistency/FullReco/Spectrometer/libSpectrometerPersistency.so: Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerPersistency.dir/build.make
 Persistency/FullReco/Spectrometer/libSpectrometerPersistency.so: Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerPersistency.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX shared library libSpectrometerPersistency.so"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SpectrometerPersistency.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX shared library libSpectrometerPersistency.so"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SpectrometerPersistency.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerPersistency.dir/build: Persistency/FullReco/Spectrometer/libSpectrometerPersistency.so
@@ -96,10 +96,10 @@ Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerPersistency.dir/build: 
 .PHONY : Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerPersistency.dir/build
 
 Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerPersistency.dir/clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer && $(CMAKE_COMMAND) -P CMakeFiles/SpectrometerPersistency.dir/cmake_clean.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer && $(CMAKE_COMMAND) -P CMakeFiles/SpectrometerPersistency.dir/cmake_clean.cmake
 .PHONY : Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerPersistency.dir/clean
 
 Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerPersistency.dir/depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/na62fw/NA62Tools /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Spectrometer /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerPersistency.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Spectrometer /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerPersistency.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Persistency/FullReco/Spectrometer/CMakeFiles/SpectrometerPersistency.dir/depend
 

@@ -3,7 +3,7 @@
 
 EventDisplay/CMakeFiles/EventDisplayObjLib.dir/src/TNA62MagField.cc.o
  ../EventDisplay/include/TNA62MagField.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/EventDisplay/src/TNA62MagField.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/EventDisplay/src/TNA62MagField.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/GuiTypes.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h

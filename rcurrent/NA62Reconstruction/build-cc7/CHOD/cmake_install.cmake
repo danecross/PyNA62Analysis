@@ -1,8 +1,8 @@
-# Install script for directory: /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/CHOD
+# Install script for directory: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/CHOD
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction")
+  set(CMAKE_INSTALL_PREFIX "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -44,7 +44,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib-cc7/libCHOD.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7" TYPE SHARED_LIBRARY FILES "/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CHOD/libCHOD.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7" TYPE SHARED_LIBRARY FILES "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CHOD/libCHOD.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib-cc7/libCHOD.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib-cc7/libCHOD.so")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -54,6 +54,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7" TYPE STATIC_LIBRARY FILES "/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CHOD/libCHOD-static.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7" TYPE STATIC_LIBRARY FILES "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CHOD/libCHOD-static.a")
 endif()
 

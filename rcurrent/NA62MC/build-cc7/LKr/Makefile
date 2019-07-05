@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 LKr/CMakeFiles/LKr.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/CMakeFiles/LKr.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/CMakeFiles/LKr.dir/rule
 .PHONY : LKr/CMakeFiles/LKr.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ LKr: LKr/CMakeFiles/LKr.dir/rule
 
 # fast build rule for target.
 LKr/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKr.dir/build.make LKr/CMakeFiles/LKr.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKr.dir/build.make LKr/CMakeFiles/LKr.dir/build
 .PHONY : LKr/fast
 
 # Convenience name for target.
 LKr/CMakeFiles/LKrObjLib.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/CMakeFiles/LKrObjLib.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/CMakeFiles/LKrObjLib.dir/rule
 .PHONY : LKr/CMakeFiles/LKrObjLib.dir/rule
 
 # Convenience name for target.
@@ -183,12 +183,12 @@ LKrObjLib: LKr/CMakeFiles/LKrObjLib.dir/rule
 
 # fast build rule for target.
 LKrObjLib/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/build
 .PHONY : LKrObjLib/fast
 
 # Convenience name for target.
 LKr/CMakeFiles/LKr-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/CMakeFiles/LKr-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/CMakeFiles/LKr-static.dir/rule
 .PHONY : LKr/CMakeFiles/LKr-static.dir/rule
 
 # Convenience name for target.
@@ -198,7 +198,7 @@ LKr-static: LKr/CMakeFiles/LKr-static.dir/rule
 
 # fast build rule for target.
 LKr-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKr-static.dir/build.make LKr/CMakeFiles/LKr-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKr-static.dir/build.make LKr/CMakeFiles/LKr-static.dir/build
 .PHONY : LKr-static/fast
 
 src/LKrBeamPipe.o: src/LKrBeamPipe.cc.o
@@ -207,7 +207,7 @@ src/LKrBeamPipe.o: src/LKrBeamPipe.cc.o
 
 # target to build an object file
 src/LKrBeamPipe.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrBeamPipe.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrBeamPipe.cc.o
 .PHONY : src/LKrBeamPipe.cc.o
 
 src/LKrBeamPipe.i: src/LKrBeamPipe.cc.i
@@ -216,7 +216,7 @@ src/LKrBeamPipe.i: src/LKrBeamPipe.cc.i
 
 # target to preprocess a source file
 src/LKrBeamPipe.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrBeamPipe.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrBeamPipe.cc.i
 .PHONY : src/LKrBeamPipe.cc.i
 
 src/LKrBeamPipe.s: src/LKrBeamPipe.cc.s
@@ -225,7 +225,7 @@ src/LKrBeamPipe.s: src/LKrBeamPipe.cc.s
 
 # target to generate assembly for a file
 src/LKrBeamPipe.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrBeamPipe.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrBeamPipe.cc.s
 .PHONY : src/LKrBeamPipe.cc.s
 
 src/LKrColdWindow.o: src/LKrColdWindow.cc.o
@@ -234,7 +234,7 @@ src/LKrColdWindow.o: src/LKrColdWindow.cc.o
 
 # target to build an object file
 src/LKrColdWindow.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrColdWindow.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrColdWindow.cc.o
 .PHONY : src/LKrColdWindow.cc.o
 
 src/LKrColdWindow.i: src/LKrColdWindow.cc.i
@@ -243,7 +243,7 @@ src/LKrColdWindow.i: src/LKrColdWindow.cc.i
 
 # target to preprocess a source file
 src/LKrColdWindow.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrColdWindow.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrColdWindow.cc.i
 .PHONY : src/LKrColdWindow.cc.i
 
 src/LKrColdWindow.s: src/LKrColdWindow.cc.s
@@ -252,7 +252,7 @@ src/LKrColdWindow.s: src/LKrColdWindow.cc.s
 
 # target to generate assembly for a file
 src/LKrColdWindow.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrColdWindow.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrColdWindow.cc.s
 .PHONY : src/LKrColdWindow.cc.s
 
 src/LKrCryostat.o: src/LKrCryostat.cc.o
@@ -261,7 +261,7 @@ src/LKrCryostat.o: src/LKrCryostat.cc.o
 
 # target to build an object file
 src/LKrCryostat.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrCryostat.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrCryostat.cc.o
 .PHONY : src/LKrCryostat.cc.o
 
 src/LKrCryostat.i: src/LKrCryostat.cc.i
@@ -270,7 +270,7 @@ src/LKrCryostat.i: src/LKrCryostat.cc.i
 
 # target to preprocess a source file
 src/LKrCryostat.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrCryostat.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrCryostat.cc.i
 .PHONY : src/LKrCryostat.cc.i
 
 src/LKrCryostat.s: src/LKrCryostat.cc.s
@@ -279,7 +279,7 @@ src/LKrCryostat.s: src/LKrCryostat.cc.s
 
 # target to generate assembly for a file
 src/LKrCryostat.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrCryostat.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrCryostat.cc.s
 .PHONY : src/LKrCryostat.cc.s
 
 src/LKrDetector.o: src/LKrDetector.cc.o
@@ -288,7 +288,7 @@ src/LKrDetector.o: src/LKrDetector.cc.o
 
 # target to build an object file
 src/LKrDetector.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDetector.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDetector.cc.o
 .PHONY : src/LKrDetector.cc.o
 
 src/LKrDetector.i: src/LKrDetector.cc.i
@@ -297,7 +297,7 @@ src/LKrDetector.i: src/LKrDetector.cc.i
 
 # target to preprocess a source file
 src/LKrDetector.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDetector.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDetector.cc.i
 .PHONY : src/LKrDetector.cc.i
 
 src/LKrDetector.s: src/LKrDetector.cc.s
@@ -306,7 +306,7 @@ src/LKrDetector.s: src/LKrDetector.cc.s
 
 # target to generate assembly for a file
 src/LKrDetector.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDetector.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDetector.cc.s
 .PHONY : src/LKrDetector.cc.s
 
 src/LKrDetectorMessenger.o: src/LKrDetectorMessenger.cc.o
@@ -315,7 +315,7 @@ src/LKrDetectorMessenger.o: src/LKrDetectorMessenger.cc.o
 
 # target to build an object file
 src/LKrDetectorMessenger.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDetectorMessenger.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDetectorMessenger.cc.o
 .PHONY : src/LKrDetectorMessenger.cc.o
 
 src/LKrDetectorMessenger.i: src/LKrDetectorMessenger.cc.i
@@ -324,7 +324,7 @@ src/LKrDetectorMessenger.i: src/LKrDetectorMessenger.cc.i
 
 # target to preprocess a source file
 src/LKrDetectorMessenger.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDetectorMessenger.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDetectorMessenger.cc.i
 .PHONY : src/LKrDetectorMessenger.cc.i
 
 src/LKrDetectorMessenger.s: src/LKrDetectorMessenger.cc.s
@@ -333,7 +333,7 @@ src/LKrDetectorMessenger.s: src/LKrDetectorMessenger.cc.s
 
 # target to generate assembly for a file
 src/LKrDetectorMessenger.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDetectorMessenger.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDetectorMessenger.cc.s
 .PHONY : src/LKrDetectorMessenger.cc.s
 
 src/LKrEMShowers.o: src/LKrEMShowers.cc.o
@@ -342,7 +342,7 @@ src/LKrEMShowers.o: src/LKrEMShowers.cc.o
 
 # target to build an object file
 src/LKrEMShowers.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrEMShowers.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrEMShowers.cc.o
 .PHONY : src/LKrEMShowers.cc.o
 
 src/LKrEMShowers.i: src/LKrEMShowers.cc.i
@@ -351,7 +351,7 @@ src/LKrEMShowers.i: src/LKrEMShowers.cc.i
 
 # target to preprocess a source file
 src/LKrEMShowers.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrEMShowers.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrEMShowers.cc.i
 .PHONY : src/LKrEMShowers.cc.i
 
 src/LKrEMShowers.s: src/LKrEMShowers.cc.s
@@ -360,7 +360,7 @@ src/LKrEMShowers.s: src/LKrEMShowers.cc.s
 
 # target to generate assembly for a file
 src/LKrEMShowers.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrEMShowers.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrEMShowers.cc.s
 .PHONY : src/LKrEMShowers.cc.s
 
 src/LKrElectrodes.o: src/LKrElectrodes.cc.o
@@ -369,7 +369,7 @@ src/LKrElectrodes.o: src/LKrElectrodes.cc.o
 
 # target to build an object file
 src/LKrElectrodes.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrElectrodes.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrElectrodes.cc.o
 .PHONY : src/LKrElectrodes.cc.o
 
 src/LKrElectrodes.i: src/LKrElectrodes.cc.i
@@ -378,7 +378,7 @@ src/LKrElectrodes.i: src/LKrElectrodes.cc.i
 
 # target to preprocess a source file
 src/LKrElectrodes.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrElectrodes.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrElectrodes.cc.i
 .PHONY : src/LKrElectrodes.cc.i
 
 src/LKrElectrodes.s: src/LKrElectrodes.cc.s
@@ -387,7 +387,7 @@ src/LKrElectrodes.s: src/LKrElectrodes.cc.s
 
 # target to generate assembly for a file
 src/LKrElectrodes.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrElectrodes.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrElectrodes.cc.s
 .PHONY : src/LKrElectrodes.cc.s
 
 src/LKrEnergySpot.o: src/LKrEnergySpot.cc.o
@@ -396,7 +396,7 @@ src/LKrEnergySpot.o: src/LKrEnergySpot.cc.o
 
 # target to build an object file
 src/LKrEnergySpot.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrEnergySpot.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrEnergySpot.cc.o
 .PHONY : src/LKrEnergySpot.cc.o
 
 src/LKrEnergySpot.i: src/LKrEnergySpot.cc.i
@@ -405,7 +405,7 @@ src/LKrEnergySpot.i: src/LKrEnergySpot.cc.i
 
 # target to preprocess a source file
 src/LKrEnergySpot.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrEnergySpot.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrEnergySpot.cc.i
 .PHONY : src/LKrEnergySpot.cc.i
 
 src/LKrEnergySpot.s: src/LKrEnergySpot.cc.s
@@ -414,7 +414,7 @@ src/LKrEnergySpot.s: src/LKrEnergySpot.cc.s
 
 # target to generate assembly for a file
 src/LKrEnergySpot.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrEnergySpot.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrEnergySpot.cc.s
 .PHONY : src/LKrEnergySpot.cc.s
 
 src/LKrFlange.o: src/LKrFlange.cc.o
@@ -423,7 +423,7 @@ src/LKrFlange.o: src/LKrFlange.cc.o
 
 # target to build an object file
 src/LKrFlange.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrFlange.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrFlange.cc.o
 .PHONY : src/LKrFlange.cc.o
 
 src/LKrFlange.i: src/LKrFlange.cc.i
@@ -432,7 +432,7 @@ src/LKrFlange.i: src/LKrFlange.cc.i
 
 # target to preprocess a source file
 src/LKrFlange.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrFlange.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrFlange.cc.i
 .PHONY : src/LKrFlange.cc.i
 
 src/LKrFlange.s: src/LKrFlange.cc.s
@@ -441,7 +441,7 @@ src/LKrFlange.s: src/LKrFlange.cc.s
 
 # target to generate assembly for a file
 src/LKrFlange.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrFlange.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrFlange.cc.s
 .PHONY : src/LKrFlange.cc.s
 
 src/LKrFlangesBolts.o: src/LKrFlangesBolts.cc.o
@@ -450,7 +450,7 @@ src/LKrFlangesBolts.o: src/LKrFlangesBolts.cc.o
 
 # target to build an object file
 src/LKrFlangesBolts.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrFlangesBolts.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrFlangesBolts.cc.o
 .PHONY : src/LKrFlangesBolts.cc.o
 
 src/LKrFlangesBolts.i: src/LKrFlangesBolts.cc.i
@@ -459,7 +459,7 @@ src/LKrFlangesBolts.i: src/LKrFlangesBolts.cc.i
 
 # target to preprocess a source file
 src/LKrFlangesBolts.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrFlangesBolts.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrFlangesBolts.cc.i
 .PHONY : src/LKrFlangesBolts.cc.i
 
 src/LKrFlangesBolts.s: src/LKrFlangesBolts.cc.s
@@ -468,7 +468,7 @@ src/LKrFlangesBolts.s: src/LKrFlangesBolts.cc.s
 
 # target to generate assembly for a file
 src/LKrFlangesBolts.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrFlangesBolts.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrFlangesBolts.cc.s
 .PHONY : src/LKrFlangesBolts.cc.s
 
 src/LKrFrontBackPlate.o: src/LKrFrontBackPlate.cc.o
@@ -477,7 +477,7 @@ src/LKrFrontBackPlate.o: src/LKrFrontBackPlate.cc.o
 
 # target to build an object file
 src/LKrFrontBackPlate.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrFrontBackPlate.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrFrontBackPlate.cc.o
 .PHONY : src/LKrFrontBackPlate.cc.o
 
 src/LKrFrontBackPlate.i: src/LKrFrontBackPlate.cc.i
@@ -486,7 +486,7 @@ src/LKrFrontBackPlate.i: src/LKrFrontBackPlate.cc.i
 
 # target to preprocess a source file
 src/LKrFrontBackPlate.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrFrontBackPlate.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrFrontBackPlate.cc.i
 .PHONY : src/LKrFrontBackPlate.cc.i
 
 src/LKrFrontBackPlate.s: src/LKrFrontBackPlate.cc.s
@@ -495,7 +495,7 @@ src/LKrFrontBackPlate.s: src/LKrFrontBackPlate.cc.s
 
 # target to generate assembly for a file
 src/LKrFrontBackPlate.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrFrontBackPlate.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrFrontBackPlate.cc.s
 .PHONY : src/LKrFrontBackPlate.cc.s
 
 src/LKrGeometryParameters.o: src/LKrGeometryParameters.cc.o
@@ -504,7 +504,7 @@ src/LKrGeometryParameters.o: src/LKrGeometryParameters.cc.o
 
 # target to build an object file
 src/LKrGeometryParameters.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrGeometryParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrGeometryParameters.cc.o
 .PHONY : src/LKrGeometryParameters.cc.o
 
 src/LKrGeometryParameters.i: src/LKrGeometryParameters.cc.i
@@ -513,7 +513,7 @@ src/LKrGeometryParameters.i: src/LKrGeometryParameters.cc.i
 
 # target to preprocess a source file
 src/LKrGeometryParameters.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrGeometryParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrGeometryParameters.cc.i
 .PHONY : src/LKrGeometryParameters.cc.i
 
 src/LKrGeometryParameters.s: src/LKrGeometryParameters.cc.s
@@ -522,7 +522,7 @@ src/LKrGeometryParameters.s: src/LKrGeometryParameters.cc.s
 
 # target to generate assembly for a file
 src/LKrGeometryParameters.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrGeometryParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrGeometryParameters.cc.s
 .PHONY : src/LKrGeometryParameters.cc.s
 
 src/LKrHit.o: src/LKrHit.cc.o
@@ -531,7 +531,7 @@ src/LKrHit.o: src/LKrHit.cc.o
 
 # target to build an object file
 src/LKrHit.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrHit.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrHit.cc.o
 .PHONY : src/LKrHit.cc.o
 
 src/LKrHit.i: src/LKrHit.cc.i
@@ -540,7 +540,7 @@ src/LKrHit.i: src/LKrHit.cc.i
 
 # target to preprocess a source file
 src/LKrHit.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrHit.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrHit.cc.i
 .PHONY : src/LKrHit.cc.i
 
 src/LKrHit.s: src/LKrHit.cc.s
@@ -549,7 +549,7 @@ src/LKrHit.s: src/LKrHit.cc.s
 
 # target to generate assembly for a file
 src/LKrHit.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrHit.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrHit.cc.s
 .PHONY : src/LKrHit.cc.s
 
 src/LKrIrregularVSpacerParameterisation.o: src/LKrIrregularVSpacerParameterisation.cc.o
@@ -558,7 +558,7 @@ src/LKrIrregularVSpacerParameterisation.o: src/LKrIrregularVSpacerParameterisati
 
 # target to build an object file
 src/LKrIrregularVSpacerParameterisation.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrIrregularVSpacerParameterisation.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrIrregularVSpacerParameterisation.cc.o
 .PHONY : src/LKrIrregularVSpacerParameterisation.cc.o
 
 src/LKrIrregularVSpacerParameterisation.i: src/LKrIrregularVSpacerParameterisation.cc.i
@@ -567,7 +567,7 @@ src/LKrIrregularVSpacerParameterisation.i: src/LKrIrregularVSpacerParameterisati
 
 # target to preprocess a source file
 src/LKrIrregularVSpacerParameterisation.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrIrregularVSpacerParameterisation.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrIrregularVSpacerParameterisation.cc.i
 .PHONY : src/LKrIrregularVSpacerParameterisation.cc.i
 
 src/LKrIrregularVSpacerParameterisation.s: src/LKrIrregularVSpacerParameterisation.cc.s
@@ -576,7 +576,7 @@ src/LKrIrregularVSpacerParameterisation.s: src/LKrIrregularVSpacerParameterisati
 
 # target to generate assembly for a file
 src/LKrIrregularVSpacerParameterisation.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrIrregularVSpacerParameterisation.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrIrregularVSpacerParameterisation.cc.s
 .PHONY : src/LKrIrregularVSpacerParameterisation.cc.s
 
 src/LKrLKrVolume.o: src/LKrLKrVolume.cc.o
@@ -585,7 +585,7 @@ src/LKrLKrVolume.o: src/LKrLKrVolume.cc.o
 
 # target to build an object file
 src/LKrLKrVolume.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrLKrVolume.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrLKrVolume.cc.o
 .PHONY : src/LKrLKrVolume.cc.o
 
 src/LKrLKrVolume.i: src/LKrLKrVolume.cc.i
@@ -594,7 +594,7 @@ src/LKrLKrVolume.i: src/LKrLKrVolume.cc.i
 
 # target to preprocess a source file
 src/LKrLKrVolume.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrLKrVolume.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrLKrVolume.cc.i
 .PHONY : src/LKrLKrVolume.cc.i
 
 src/LKrLKrVolume.s: src/LKrLKrVolume.cc.s
@@ -603,7 +603,7 @@ src/LKrLKrVolume.s: src/LKrLKrVolume.cc.s
 
 # target to generate assembly for a file
 src/LKrLKrVolume.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrLKrVolume.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrLKrVolume.cc.s
 .PHONY : src/LKrLKrVolume.cc.s
 
 src/LKrMaterialParameters.o: src/LKrMaterialParameters.cc.o
@@ -612,7 +612,7 @@ src/LKrMaterialParameters.o: src/LKrMaterialParameters.cc.o
 
 # target to build an object file
 src/LKrMaterialParameters.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrMaterialParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrMaterialParameters.cc.o
 .PHONY : src/LKrMaterialParameters.cc.o
 
 src/LKrMaterialParameters.i: src/LKrMaterialParameters.cc.i
@@ -621,7 +621,7 @@ src/LKrMaterialParameters.i: src/LKrMaterialParameters.cc.i
 
 # target to preprocess a source file
 src/LKrMaterialParameters.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrMaterialParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrMaterialParameters.cc.i
 .PHONY : src/LKrMaterialParameters.cc.i
 
 src/LKrMaterialParameters.s: src/LKrMaterialParameters.cc.s
@@ -630,7 +630,7 @@ src/LKrMaterialParameters.s: src/LKrMaterialParameters.cc.s
 
 # target to generate assembly for a file
 src/LKrMaterialParameters.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrMaterialParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrMaterialParameters.cc.s
 .PHONY : src/LKrMaterialParameters.cc.s
 
 src/LKrRootIO.o: src/LKrRootIO.cc.o
@@ -639,7 +639,7 @@ src/LKrRootIO.o: src/LKrRootIO.cc.o
 
 # target to build an object file
 src/LKrRootIO.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrRootIO.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrRootIO.cc.o
 .PHONY : src/LKrRootIO.cc.o
 
 src/LKrRootIO.i: src/LKrRootIO.cc.i
@@ -648,7 +648,7 @@ src/LKrRootIO.i: src/LKrRootIO.cc.i
 
 # target to preprocess a source file
 src/LKrRootIO.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrRootIO.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrRootIO.cc.i
 .PHONY : src/LKrRootIO.cc.i
 
 src/LKrRootIO.s: src/LKrRootIO.cc.s
@@ -657,7 +657,7 @@ src/LKrRootIO.s: src/LKrRootIO.cc.s
 
 # target to generate assembly for a file
 src/LKrRootIO.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrRootIO.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrRootIO.cc.s
 .PHONY : src/LKrRootIO.cc.s
 
 src/LKrSD.o: src/LKrSD.cc.o
@@ -666,7 +666,7 @@ src/LKrSD.o: src/LKrSD.cc.o
 
 # target to build an object file
 src/LKrSD.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrSD.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrSD.cc.o
 .PHONY : src/LKrSD.cc.o
 
 src/LKrSD.i: src/LKrSD.cc.i
@@ -675,7 +675,7 @@ src/LKrSD.i: src/LKrSD.cc.i
 
 # target to preprocess a source file
 src/LKrSD.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrSD.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrSD.cc.i
 .PHONY : src/LKrSD.cc.i
 
 src/LKrSD.s: src/LKrSD.cc.s
@@ -684,7 +684,7 @@ src/LKrSD.s: src/LKrSD.cc.s
 
 # target to generate assembly for a file
 src/LKrSD.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrSD.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrSD.cc.s
 .PHONY : src/LKrSD.cc.s
 
 src/LKrStesalitPiece.o: src/LKrStesalitPiece.cc.o
@@ -693,7 +693,7 @@ src/LKrStesalitPiece.o: src/LKrStesalitPiece.cc.o
 
 # target to build an object file
 src/LKrStesalitPiece.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrStesalitPiece.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrStesalitPiece.cc.o
 .PHONY : src/LKrStesalitPiece.cc.o
 
 src/LKrStesalitPiece.i: src/LKrStesalitPiece.cc.i
@@ -702,7 +702,7 @@ src/LKrStesalitPiece.i: src/LKrStesalitPiece.cc.i
 
 # target to preprocess a source file
 src/LKrStesalitPiece.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrStesalitPiece.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrStesalitPiece.cc.i
 .PHONY : src/LKrStesalitPiece.cc.i
 
 src/LKrStesalitPiece.s: src/LKrStesalitPiece.cc.s
@@ -711,7 +711,7 @@ src/LKrStesalitPiece.s: src/LKrStesalitPiece.cc.s
 
 # target to generate assembly for a file
 src/LKrStesalitPiece.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrStesalitPiece.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrStesalitPiece.cc.s
 .PHONY : src/LKrStesalitPiece.cc.s
 
 src/LKrVSpacerParameterisation.o: src/LKrVSpacerParameterisation.cc.o
@@ -720,7 +720,7 @@ src/LKrVSpacerParameterisation.o: src/LKrVSpacerParameterisation.cc.o
 
 # target to build an object file
 src/LKrVSpacerParameterisation.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrVSpacerParameterisation.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrVSpacerParameterisation.cc.o
 .PHONY : src/LKrVSpacerParameterisation.cc.o
 
 src/LKrVSpacerParameterisation.i: src/LKrVSpacerParameterisation.cc.i
@@ -729,7 +729,7 @@ src/LKrVSpacerParameterisation.i: src/LKrVSpacerParameterisation.cc.i
 
 # target to preprocess a source file
 src/LKrVSpacerParameterisation.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrVSpacerParameterisation.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrVSpacerParameterisation.cc.i
 .PHONY : src/LKrVSpacerParameterisation.cc.i
 
 src/LKrVSpacerParameterisation.s: src/LKrVSpacerParameterisation.cc.s
@@ -738,7 +738,7 @@ src/LKrVSpacerParameterisation.s: src/LKrVSpacerParameterisation.cc.s
 
 # target to generate assembly for a file
 src/LKrVSpacerParameterisation.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrVSpacerParameterisation.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrVSpacerParameterisation.cc.s
 .PHONY : src/LKrVSpacerParameterisation.cc.s
 
 src/LKrWarmWindow.o: src/LKrWarmWindow.cc.o
@@ -747,7 +747,7 @@ src/LKrWarmWindow.o: src/LKrWarmWindow.cc.o
 
 # target to build an object file
 src/LKrWarmWindow.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrWarmWindow.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrWarmWindow.cc.o
 .PHONY : src/LKrWarmWindow.cc.o
 
 src/LKrWarmWindow.i: src/LKrWarmWindow.cc.i
@@ -756,7 +756,7 @@ src/LKrWarmWindow.i: src/LKrWarmWindow.cc.i
 
 # target to preprocess a source file
 src/LKrWarmWindow.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrWarmWindow.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrWarmWindow.cc.i
 .PHONY : src/LKrWarmWindow.cc.i
 
 src/LKrWarmWindow.s: src/LKrWarmWindow.cc.s
@@ -765,7 +765,7 @@ src/LKrWarmWindow.s: src/LKrWarmWindow.cc.s
 
 # target to generate assembly for a file
 src/LKrWarmWindow.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrWarmWindow.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrWarmWindow.cc.s
 .PHONY : src/LKrWarmWindow.cc.s
 
 src/LKrWarmWindowFlangesBeam.o: src/LKrWarmWindowFlangesBeam.cc.o
@@ -774,7 +774,7 @@ src/LKrWarmWindowFlangesBeam.o: src/LKrWarmWindowFlangesBeam.cc.o
 
 # target to build an object file
 src/LKrWarmWindowFlangesBeam.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrWarmWindowFlangesBeam.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrWarmWindowFlangesBeam.cc.o
 .PHONY : src/LKrWarmWindowFlangesBeam.cc.o
 
 src/LKrWarmWindowFlangesBeam.i: src/LKrWarmWindowFlangesBeam.cc.i
@@ -783,7 +783,7 @@ src/LKrWarmWindowFlangesBeam.i: src/LKrWarmWindowFlangesBeam.cc.i
 
 # target to preprocess a source file
 src/LKrWarmWindowFlangesBeam.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrWarmWindowFlangesBeam.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrWarmWindowFlangesBeam.cc.i
 .PHONY : src/LKrWarmWindowFlangesBeam.cc.i
 
 src/LKrWarmWindowFlangesBeam.s: src/LKrWarmWindowFlangesBeam.cc.s
@@ -792,7 +792,7 @@ src/LKrWarmWindowFlangesBeam.s: src/LKrWarmWindowFlangesBeam.cc.s
 
 # target to generate assembly for a file
 src/LKrWarmWindowFlangesBeam.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrWarmWindowFlangesBeam.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrWarmWindowFlangesBeam.cc.s
 .PHONY : src/LKrWarmWindowFlangesBeam.cc.s
 
 src/base64.o: src/base64.cc.o
@@ -801,7 +801,7 @@ src/base64.o: src/base64.cc.o
 
 # target to build an object file
 src/base64.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/base64.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/base64.cc.o
 .PHONY : src/base64.cc.o
 
 src/base64.i: src/base64.cc.i
@@ -810,7 +810,7 @@ src/base64.i: src/base64.cc.i
 
 # target to preprocess a source file
 src/base64.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/base64.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/base64.cc.i
 .PHONY : src/base64.cc.i
 
 src/base64.s: src/base64.cc.s
@@ -819,7 +819,7 @@ src/base64.s: src/base64.cc.s
 
 # target to generate assembly for a file
 src/base64.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/base64.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/base64.cc.s
 .PHONY : src/base64.cc.s
 
 # Help Target
@@ -917,6 +917,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

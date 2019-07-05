@@ -43,10 +43,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7
 
 # Include any dependencies generated for this target.
 include GigaTracker/CMakeFiles/GigaTracker.dir/depend.make
@@ -62,31 +62,31 @@ GigaTracker_OBJECTS =
 
 # External object files for target GigaTracker
 GigaTracker_EXTERNAL_OBJECTS = \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GTKRawDecoder.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GTKTLRawDecoder.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerCluster.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerDAQBoardTimeStamp.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerDAQBoardTrailerOne.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerDAQBoardTrailerThree.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerDAQBoardTrailerTwo.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerDataChunkBase.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerDigitizer.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerErrorsHandler.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerHitsBlock.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerNa62DataBlock.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerNa62HeaderBase.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerNa62HeaderL0.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerNa62HeaderL1.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerOnlineMonitor.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerRawDecoder.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerRawEncoder.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerReconstruction.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerTLDataBlock.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerTLFrame.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerTLHit.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerTLMasks.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerTLStation.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/RG_Utilities.cc.o"
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GTKRawDecoder.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GTKTLRawDecoder.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerCluster.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerDAQBoardTimeStamp.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerDAQBoardTrailerOne.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerDAQBoardTrailerThree.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerDAQBoardTrailerTwo.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerDataChunkBase.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerDigitizer.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerErrorsHandler.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerHitsBlock.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerNa62DataBlock.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerNa62HeaderBase.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerNa62HeaderL0.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerNa62HeaderL1.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerOnlineMonitor.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerRawDecoder.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerRawEncoder.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerReconstruction.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerTLDataBlock.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerTLFrame.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerTLHit.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerTLMasks.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerTLStation.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/RG_Utilities.cc.o"
 
 GigaTracker/libGigaTracker.so: GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GTKRawDecoder.cc.o
 GigaTracker/libGigaTracker.so: GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GTKTLRawDecoder.cc.o
@@ -115,8 +115,8 @@ GigaTracker/libGigaTracker.so: GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/
 GigaTracker/libGigaTracker.so: GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/RG_Utilities.cc.o
 GigaTracker/libGigaTracker.so: GigaTracker/CMakeFiles/GigaTracker.dir/build.make
 GigaTracker/libGigaTracker.so: GigaTracker/CMakeFiles/GigaTracker.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX shared library libGigaTracker.so"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GigaTracker.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX shared library libGigaTracker.so"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GigaTracker.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 GigaTracker/CMakeFiles/GigaTracker.dir/build: GigaTracker/libGigaTracker.so
@@ -124,10 +124,10 @@ GigaTracker/CMakeFiles/GigaTracker.dir/build: GigaTracker/libGigaTracker.so
 .PHONY : GigaTracker/CMakeFiles/GigaTracker.dir/build
 
 GigaTracker/CMakeFiles/GigaTracker.dir/clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker && $(CMAKE_COMMAND) -P CMakeFiles/GigaTracker.dir/cmake_clean.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker && $(CMAKE_COMMAND) -P CMakeFiles/GigaTracker.dir/cmake_clean.cmake
 .PHONY : GigaTracker/CMakeFiles/GigaTracker.dir/clean
 
 GigaTracker/CMakeFiles/GigaTracker.dir/depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/GigaTracker /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTracker.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/GigaTracker /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/GigaTracker/CMakeFiles/GigaTracker.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : GigaTracker/CMakeFiles/GigaTracker.dir/depend
 

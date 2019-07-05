@@ -43,10 +43,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7
 
 # Include any dependencies generated for this target.
 include MUV1/CMakeFiles/MUV1ObjLib.dir/depend.make
@@ -59,289 +59,289 @@ include MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1BeamPipe.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1BeamPipe.cc.o: ../MUV1/src/MUV1BeamPipe.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1BeamPipe.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1BeamPipe.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1BeamPipe.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1BeamPipe.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1BeamPipe.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1BeamPipe.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1BeamPipe.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1BeamPipe.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1BeamPipe.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1BeamPipe.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1BeamPipe.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1BeamPipe.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1BeamPipe.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1BeamPipe.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1BeamPipe.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1BeamPipe.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1BeamPipe.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1BeamPipe.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Bolt.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Bolt.cc.o: ../MUV1/src/MUV1Bolt.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Bolt.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Bolt.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1Bolt.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Bolt.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Bolt.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1Bolt.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Bolt.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1Bolt.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1Bolt.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1Bolt.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1Bolt.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1Bolt.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Bolt.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1Bolt.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1Bolt.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Bolt.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1Bolt.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Bolt.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Detector.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Detector.cc.o: ../MUV1/src/MUV1Detector.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Detector.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Detector.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1Detector.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Detector.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Detector.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1Detector.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Detector.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1Detector.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1Detector.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1Detector.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1Detector.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1Detector.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Detector.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1Detector.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1Detector.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Detector.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1Detector.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Detector.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1DetectorMessenger.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1DetectorMessenger.cc.o: ../MUV1/src/MUV1DetectorMessenger.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1DetectorMessenger.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1DetectorMessenger.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1DetectorMessenger.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1DetectorMessenger.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1DetectorMessenger.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1DetectorMessenger.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1DetectorMessenger.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1DetectorMessenger.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1DetectorMessenger.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1DetectorMessenger.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1DetectorMessenger.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1DetectorMessenger.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1DetectorMessenger.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1DetectorMessenger.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1DetectorMessenger.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1DetectorMessenger.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1DetectorMessenger.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1DetectorMessenger.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Fiber.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Fiber.cc.o: ../MUV1/src/MUV1Fiber.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Fiber.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Fiber.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1Fiber.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Fiber.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Fiber.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1Fiber.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Fiber.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1Fiber.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1Fiber.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1Fiber.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1Fiber.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1Fiber.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Fiber.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1Fiber.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1Fiber.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Fiber.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1Fiber.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Fiber.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1FiberSD.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1FiberSD.cc.o: ../MUV1/src/MUV1FiberSD.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1FiberSD.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1FiberSD.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1FiberSD.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1FiberSD.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1FiberSD.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1FiberSD.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1FiberSD.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1FiberSD.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1FiberSD.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1FiberSD.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1FiberSD.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1FiberSD.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1FiberSD.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1FiberSD.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1FiberSD.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1FiberSD.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1FiberSD.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1FiberSD.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1GeometryParameters.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1GeometryParameters.cc.o: ../MUV1/src/MUV1GeometryParameters.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1GeometryParameters.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1GeometryParameters.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1GeometryParameters.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1GeometryParameters.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1GeometryParameters.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1GeometryParameters.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1GeometryParameters.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1GeometryParameters.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1GeometryParameters.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1GeometryParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1GeometryParameters.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1GeometryParameters.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1GeometryParameters.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1GeometryParameters.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1GeometryParameters.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1GeometryParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1GeometryParameters.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1GeometryParameters.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Groove.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Groove.cc.o: ../MUV1/src/MUV1Groove.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Groove.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Groove.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1Groove.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Groove.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Groove.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1Groove.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Groove.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1Groove.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1Groove.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1Groove.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1Groove.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1Groove.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Groove.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1Groove.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1Groove.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Groove.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1Groove.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Groove.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Hit.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Hit.cc.o: ../MUV1/src/MUV1Hit.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Hit.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Hit.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1Hit.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Hit.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Hit.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1Hit.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Hit.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1Hit.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1Hit.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1Hit.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1Hit.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1Hit.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Hit.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1Hit.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1Hit.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Hit.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1Hit.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Hit.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1HitContainer.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1HitContainer.cc.o: ../MUV1/src/MUV1HitContainer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1HitContainer.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1HitContainer.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1HitContainer.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1HitContainer.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1HitContainer.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1HitContainer.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1HitContainer.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1HitContainer.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1HitContainer.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1HitContainer.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1HitContainer.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1HitContainer.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1HitContainer.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1HitContainer.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1HitContainer.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1HitContainer.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1HitContainer.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1HitContainer.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1IronPlate.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1IronPlate.cc.o: ../MUV1/src/MUV1IronPlate.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1IronPlate.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1IronPlate.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1IronPlate.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1IronPlate.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1IronPlate.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1IronPlate.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1IronPlate.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1IronPlate.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1IronPlate.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1IronPlate.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1IronPlate.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1IronPlate.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1IronPlate.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1IronPlate.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1IronPlate.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1IronPlate.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1IronPlate.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1IronPlate.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1MaterialParameters.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1MaterialParameters.cc.o: ../MUV1/src/MUV1MaterialParameters.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1MaterialParameters.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1MaterialParameters.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1MaterialParameters.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1MaterialParameters.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1MaterialParameters.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1MaterialParameters.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1MaterialParameters.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1MaterialParameters.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1MaterialParameters.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1MaterialParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1MaterialParameters.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1MaterialParameters.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1MaterialParameters.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1MaterialParameters.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1MaterialParameters.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1MaterialParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1MaterialParameters.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1MaterialParameters.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1OuterSpacer.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1OuterSpacer.cc.o: ../MUV1/src/MUV1OuterSpacer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1OuterSpacer.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1OuterSpacer.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1OuterSpacer.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1OuterSpacer.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1OuterSpacer.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1OuterSpacer.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1OuterSpacer.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1OuterSpacer.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1OuterSpacer.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1OuterSpacer.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1OuterSpacer.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1OuterSpacer.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1OuterSpacer.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1OuterSpacer.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1OuterSpacer.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1OuterSpacer.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1OuterSpacer.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1OuterSpacer.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1PMT.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1PMT.cc.o: ../MUV1/src/MUV1PMT.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1PMT.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1PMT.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1PMT.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1PMT.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1PMT.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1PMT.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1PMT.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1PMT.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1PMT.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1PMT.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1PMT.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1PMT.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1PMT.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1PMT.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1PMT.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1PMT.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1PMT.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1PMT.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1PMTSD.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1PMTSD.cc.o: ../MUV1/src/MUV1PMTSD.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1PMTSD.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1PMTSD.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1PMTSD.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1PMTSD.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1PMTSD.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1PMTSD.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1PMTSD.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1PMTSD.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1PMTSD.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1PMTSD.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1PMTSD.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1PMTSD.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1PMTSD.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1PMTSD.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1PMTSD.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1PMTSD.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1PMTSD.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1PMTSD.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1RootIO.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1RootIO.cc.o: ../MUV1/src/MUV1RootIO.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1RootIO.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1RootIO.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1RootIO.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1RootIO.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1RootIO.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1RootIO.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1RootIO.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1RootIO.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1RootIO.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1RootIO.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1RootIO.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1RootIO.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1RootIO.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1RootIO.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1RootIO.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1RootIO.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1RootIO.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1RootIO.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1RubberPlate.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1RubberPlate.cc.o: ../MUV1/src/MUV1RubberPlate.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1RubberPlate.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1RubberPlate.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1RubberPlate.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1RubberPlate.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1RubberPlate.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1RubberPlate.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1RubberPlate.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1RubberPlate.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1RubberPlate.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1RubberPlate.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1RubberPlate.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1RubberPlate.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1RubberPlate.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1RubberPlate.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1RubberPlate.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1RubberPlate.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1RubberPlate.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1RubberPlate.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1SD.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1SD.cc.o: ../MUV1/src/MUV1SD.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1SD.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1SD.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1SD.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1SD.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1SD.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1SD.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1SD.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1SD.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1SD.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1SD.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1SD.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1SD.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1SD.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1SD.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1SD.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1SD.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1SD.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1SD.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Scintillator.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Scintillator.cc.o: ../MUV1/src/MUV1Scintillator.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Scintillator.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Scintillator.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1Scintillator.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Scintillator.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Scintillator.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1Scintillator.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Scintillator.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1Scintillator.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1Scintillator.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1Scintillator.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1Scintillator.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1Scintillator.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Scintillator.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1Scintillator.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1Scintillator.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Scintillator.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1Scintillator.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1Scintillator.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorLayer.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorLayer.cc.o: ../MUV1/src/MUV1ScintillatorLayer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorLayer.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorLayer.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1ScintillatorLayer.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorLayer.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorLayer.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1ScintillatorLayer.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorLayer.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorLayer.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1ScintillatorLayer.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorLayer.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1ScintillatorLayer.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorLayer.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorLayer.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorLayer.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1ScintillatorLayer.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorLayer.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1ScintillatorLayer.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorLayer.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorSpacer.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorSpacer.cc.o: ../MUV1/src/MUV1ScintillatorSpacer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorSpacer.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorSpacer.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1ScintillatorSpacer.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorSpacer.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorSpacer.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1ScintillatorSpacer.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorSpacer.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorSpacer.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1ScintillatorSpacer.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorSpacer.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1ScintillatorSpacer.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorSpacer.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorSpacer.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorSpacer.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1ScintillatorSpacer.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorSpacer.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1ScintillatorSpacer.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1ScintillatorSpacer.cc.s
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1TransportationTube.cc.o: MUV1/CMakeFiles/MUV1ObjLib.dir/flags.make
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1TransportationTube.cc.o: ../MUV1/src/MUV1TransportationTube.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1TransportationTube.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1TransportationTube.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1TransportationTube.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1TransportationTube.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MUV1ObjLib.dir/src/MUV1TransportationTube.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1TransportationTube.cc
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1TransportationTube.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MUV1ObjLib.dir/src/MUV1TransportationTube.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1TransportationTube.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1TransportationTube.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1TransportationTube.cc > CMakeFiles/MUV1ObjLib.dir/src/MUV1TransportationTube.cc.i
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1TransportationTube.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MUV1ObjLib.dir/src/MUV1TransportationTube.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1/src/MUV1TransportationTube.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1TransportationTube.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1/src/MUV1TransportationTube.cc -o CMakeFiles/MUV1ObjLib.dir/src/MUV1TransportationTube.cc.s
 
 MUV1ObjLib: MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1BeamPipe.cc.o
 MUV1ObjLib: MUV1/CMakeFiles/MUV1ObjLib.dir/src/MUV1Bolt.cc.o
@@ -375,10 +375,10 @@ MUV1/CMakeFiles/MUV1ObjLib.dir/build: MUV1ObjLib
 .PHONY : MUV1/CMakeFiles/MUV1ObjLib.dir/build
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 && $(CMAKE_COMMAND) -P CMakeFiles/MUV1ObjLib.dir/cmake_clean.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 && $(CMAKE_COMMAND) -P CMakeFiles/MUV1ObjLib.dir/cmake_clean.cmake
 .PHONY : MUV1/CMakeFiles/MUV1ObjLib.dir/clean
 
 MUV1/CMakeFiles/MUV1ObjLib.dir/depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/na62fw/NA62MC /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MUV1 /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1 /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MUV1/CMakeFiles/MUV1ObjLib.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MUV1 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MUV1/CMakeFiles/MUV1ObjLib.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : MUV1/CMakeFiles/MUV1ObjLib.dir/depend
 

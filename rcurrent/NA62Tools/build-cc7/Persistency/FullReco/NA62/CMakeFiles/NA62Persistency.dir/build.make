@@ -43,10 +43,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7
 
 # Include any dependencies generated for this target.
 include Persistency/FullReco/NA62/CMakeFiles/NA62Persistency.dir/depend.make
@@ -62,53 +62,53 @@ NA62Persistency_OBJECTS =
 
 # External object files for target NA62Persistency
 NA62Persistency_EXTERNAL_OBJECTS = \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/AnalysisInfo.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/AnalyzerIdentifier.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/BeamData.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/BeamSpecialTrigger.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/DetectorParameter.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/Event.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/EventBoundary.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/EventHeader.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/FADCEvent.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/FADCVHit.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/GenePart.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/HLTEvent.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/KinePart.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/L0TPData.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/L0TPSpecialTrigger.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/L1TPData.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/L1TPSpecialTrigger.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/L2EBData.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/L2EBSpecialTrigger.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/MCInfo.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/RecoInfo.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/Rndm.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/Stream.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TDCError.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TDCEvent.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TDCVHit.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TDetectorVEvent.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TDetectorVHit.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TDigiVCandidate.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TDigiVError.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TDigiVEvent.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TEventInfo.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TPrimSpecialTrigger.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TPrimitive.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TRecoVCandidate.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TRecoVEvent.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TRecoVHit.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TSpecialTrigger.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TSpecialTriggerEvent.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TTDCBSpecialTrigger.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TTimeCluster.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TVCandidate.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TVChannelID.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TVDigi.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TVEvent.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TVHit.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/NA62PersistencyDICT.cxx.o"
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/AnalysisInfo.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/AnalyzerIdentifier.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/BeamData.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/BeamSpecialTrigger.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/DetectorParameter.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/Event.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/EventBoundary.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/EventHeader.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/FADCEvent.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/FADCVHit.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/GenePart.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/HLTEvent.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/KinePart.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/L0TPData.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/L0TPSpecialTrigger.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/L1TPData.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/L1TPSpecialTrigger.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/L2EBData.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/L2EBSpecialTrigger.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/MCInfo.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/RecoInfo.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/Rndm.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/Stream.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TDCError.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TDCEvent.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TDCVHit.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TDetectorVEvent.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TDetectorVHit.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TDigiVCandidate.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TDigiVError.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TDigiVEvent.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TEventInfo.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TPrimSpecialTrigger.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TPrimitive.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TRecoVCandidate.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TRecoVEvent.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TRecoVHit.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TSpecialTrigger.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TSpecialTriggerEvent.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TTDCBSpecialTrigger.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TTimeCluster.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TVCandidate.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TVChannelID.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TVDigi.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TVEvent.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/TVHit.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/NA62PersistencyDICT.cxx.o"
 
 Persistency/FullReco/NA62/libNA62Persistency.so: Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/AnalysisInfo.cc.o
 Persistency/FullReco/NA62/libNA62Persistency.so: Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/src/AnalyzerIdentifier.cc.o
@@ -159,8 +159,8 @@ Persistency/FullReco/NA62/libNA62Persistency.so: Persistency/FullReco/NA62/CMake
 Persistency/FullReco/NA62/libNA62Persistency.so: Persistency/FullReco/NA62/CMakeFiles/NA62ObjPersistencyLib.dir/NA62PersistencyDICT.cxx.o
 Persistency/FullReco/NA62/libNA62Persistency.so: Persistency/FullReco/NA62/CMakeFiles/NA62Persistency.dir/build.make
 Persistency/FullReco/NA62/libNA62Persistency.so: Persistency/FullReco/NA62/CMakeFiles/NA62Persistency.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX shared library libNA62Persistency.so"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62 && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/NA62Persistency.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX shared library libNA62Persistency.so"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62 && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/NA62Persistency.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 Persistency/FullReco/NA62/CMakeFiles/NA62Persistency.dir/build: Persistency/FullReco/NA62/libNA62Persistency.so
@@ -168,10 +168,10 @@ Persistency/FullReco/NA62/CMakeFiles/NA62Persistency.dir/build: Persistency/Full
 .PHONY : Persistency/FullReco/NA62/CMakeFiles/NA62Persistency.dir/build
 
 Persistency/FullReco/NA62/CMakeFiles/NA62Persistency.dir/clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62 && $(CMAKE_COMMAND) -P CMakeFiles/NA62Persistency.dir/cmake_clean.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62 && $(CMAKE_COMMAND) -P CMakeFiles/NA62Persistency.dir/cmake_clean.cmake
 .PHONY : Persistency/FullReco/NA62/CMakeFiles/NA62Persistency.dir/clean
 
 Persistency/FullReco/NA62/CMakeFiles/NA62Persistency.dir/depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/na62fw/NA62Tools /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62 /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62 /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62Persistency.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/NA62 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/NA62/CMakeFiles/NA62Persistency.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Persistency/FullReco/NA62/CMakeFiles/NA62Persistency.dir/depend
 

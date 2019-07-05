@@ -43,10 +43,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7
 
 # Include any dependencies generated for this target.
 include Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/depend.make
@@ -59,16 +59,16 @@ include Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/flags.make
 
 Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/src/PrimRawDecoder.cc.o: Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/flags.make
 Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/src/PrimRawDecoder.cc.o: ../Tools/PrimRawDecoder/src/PrimRawDecoder.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/src/PrimRawDecoder.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimRawDecoder && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimRawDecoder.dir/src/PrimRawDecoder.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimRawDecoder/src/PrimRawDecoder.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/src/PrimRawDecoder.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimRawDecoder && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimRawDecoder.dir/src/PrimRawDecoder.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimRawDecoder/src/PrimRawDecoder.cc
 
 Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/src/PrimRawDecoder.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrimRawDecoder.dir/src/PrimRawDecoder.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimRawDecoder && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimRawDecoder/src/PrimRawDecoder.cc > CMakeFiles/PrimRawDecoder.dir/src/PrimRawDecoder.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimRawDecoder && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimRawDecoder/src/PrimRawDecoder.cc > CMakeFiles/PrimRawDecoder.dir/src/PrimRawDecoder.cc.i
 
 Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/src/PrimRawDecoder.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrimRawDecoder.dir/src/PrimRawDecoder.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimRawDecoder && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimRawDecoder/src/PrimRawDecoder.cc -o CMakeFiles/PrimRawDecoder.dir/src/PrimRawDecoder.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimRawDecoder && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimRawDecoder/src/PrimRawDecoder.cc -o CMakeFiles/PrimRawDecoder.dir/src/PrimRawDecoder.cc.s
 
 # Object files for target PrimRawDecoder
 PrimRawDecoder_OBJECTS = \
@@ -98,8 +98,8 @@ Tools/PrimRawDecoder/PrimRawDecoder: /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT
 Tools/PrimRawDecoder/PrimRawDecoder: /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/lib/libThread.so
 Tools/PrimRawDecoder/PrimRawDecoder: /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/lib/libMultiProc.so
 Tools/PrimRawDecoder/PrimRawDecoder: Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable PrimRawDecoder"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimRawDecoder && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PrimRawDecoder.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable PrimRawDecoder"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimRawDecoder && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PrimRawDecoder.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/build: Tools/PrimRawDecoder/PrimRawDecoder
@@ -107,10 +107,10 @@ Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/build: Tools/PrimRawDecoder/P
 .PHONY : Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/build
 
 Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimRawDecoder && $(CMAKE_COMMAND) -P CMakeFiles/PrimRawDecoder.dir/cmake_clean.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimRawDecoder && $(CMAKE_COMMAND) -P CMakeFiles/PrimRawDecoder.dir/cmake_clean.cmake
 .PHONY : Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/clean
 
 Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimRawDecoder /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimRawDecoder /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimRawDecoder /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimRawDecoder /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Tools/PrimRawDecoder/CMakeFiles/PrimRawDecoder.dir/depend
 

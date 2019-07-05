@@ -43,10 +43,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7
 
 # Include any dependencies generated for this target.
 include LKr/CMakeFiles/LKr-static.dir/depend.make
@@ -62,48 +62,48 @@ LKr__static_OBJECTS =
 
 # External object files for target LKr-static
 LKr__static_EXTERNAL_OBJECTS = \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/CPDBuffer.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/CPDRawDecoder.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrCommon.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrDigiManager.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrDigitizer.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrGeometry.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrOnlineMonitor.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrParameters.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrRawDecoder.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrRawEncoder.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrReconstruction.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/SLMBuffer.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/SLMRawDecoder.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/clus0.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/clus1.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/cluscellt0.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/crstalkcor.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/ctox.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/ctoy.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/dec000.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/digfilter.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/ecor.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/efrac.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/efrac2.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/filtini.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/filtini_mc.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/fitdead.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/lkr_common_address.c.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/profini.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/profini2.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/pulsemax.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/pulseped.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/pulserec.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/pulsesep.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/readinit.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/rmsxc.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/rmsyc.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/saveoutput.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/sortzv.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/testiter.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/tfrac.f.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/thyp.f.o"
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/CPDBuffer.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/CPDRawDecoder.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrCommon.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrDigiManager.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrDigitizer.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrGeometry.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrOnlineMonitor.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrParameters.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrRawDecoder.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrRawEncoder.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrReconstruction.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/SLMBuffer.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/SLMRawDecoder.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/clus0.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/clus1.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/cluscellt0.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/crstalkcor.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/ctox.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/ctoy.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/dec000.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/digfilter.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/ecor.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/efrac.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/efrac2.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/filtini.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/filtini_mc.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/fitdead.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/lkr_common_address.c.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/profini.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/profini2.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/pulsemax.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/pulseped.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/pulserec.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/pulsesep.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/readinit.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/rmsxc.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/rmsyc.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/saveoutput.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/sortzv.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/testiter.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/tfrac.f.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/thyp.f.o"
 
 LKr/libLKr-static.a: LKr/CMakeFiles/LKrObjLib.dir/src/CPDBuffer.cc.o
 LKr/libLKr-static.a: LKr/CMakeFiles/LKrObjLib.dir/src/CPDRawDecoder.cc.o
@@ -149,9 +149,9 @@ LKr/libLKr-static.a: LKr/CMakeFiles/LKrObjLib.dir/src/tfrac.f.o
 LKr/libLKr-static.a: LKr/CMakeFiles/LKrObjLib.dir/src/thyp.f.o
 LKr/libLKr-static.a: LKr/CMakeFiles/LKr-static.dir/build.make
 LKr/libLKr-static.a: LKr/CMakeFiles/LKr-static.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX static library libLKr-static.a"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr && $(CMAKE_COMMAND) -P CMakeFiles/LKr-static.dir/cmake_clean_target.cmake
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LKr-static.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX static library libLKr-static.a"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr && $(CMAKE_COMMAND) -P CMakeFiles/LKr-static.dir/cmake_clean_target.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LKr-static.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 LKr/CMakeFiles/LKr-static.dir/build: LKr/libLKr-static.a
@@ -159,10 +159,10 @@ LKr/CMakeFiles/LKr-static.dir/build: LKr/libLKr-static.a
 .PHONY : LKr/CMakeFiles/LKr-static.dir/build
 
 LKr/CMakeFiles/LKr-static.dir/clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr && $(CMAKE_COMMAND) -P CMakeFiles/LKr-static.dir/cmake_clean.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr && $(CMAKE_COMMAND) -P CMakeFiles/LKr-static.dir/cmake_clean.cmake
 .PHONY : LKr/CMakeFiles/LKr-static.dir/clean
 
 LKr/CMakeFiles/LKr-static.dir/depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/LKr /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKr-static.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/LKr /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/LKr-static.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : LKr/CMakeFiles/LKr-static.dir/depend
 

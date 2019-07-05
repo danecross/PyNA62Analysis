@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/IRC/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 IRC/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/IRC/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 IRC/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 IRC/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 IRC/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 IRC/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 IRC/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 IRC/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 IRC/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 IRC/CMakeFiles/IRC.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 IRC/CMakeFiles/IRC.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 IRC/CMakeFiles/IRC.dir/rule
 .PHONY : IRC/CMakeFiles/IRC.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ IRC: IRC/CMakeFiles/IRC.dir/rule
 
 # fast build rule for target.
 IRC/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRC.dir/build.make IRC/CMakeFiles/IRC.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRC.dir/build.make IRC/CMakeFiles/IRC.dir/build
 .PHONY : IRC/fast
 
 # Convenience name for target.
 IRC/CMakeFiles/IRCObjLib.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 IRC/CMakeFiles/IRCObjLib.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 IRC/CMakeFiles/IRCObjLib.dir/rule
 .PHONY : IRC/CMakeFiles/IRCObjLib.dir/rule
 
 # Convenience name for target.
@@ -183,12 +183,12 @@ IRCObjLib: IRC/CMakeFiles/IRCObjLib.dir/rule
 
 # fast build rule for target.
 IRCObjLib/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/build
 .PHONY : IRCObjLib/fast
 
 # Convenience name for target.
 IRC/CMakeFiles/IRC-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 IRC/CMakeFiles/IRC-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 IRC/CMakeFiles/IRC-static.dir/rule
 .PHONY : IRC/CMakeFiles/IRC-static.dir/rule
 
 # Convenience name for target.
@@ -198,7 +198,7 @@ IRC-static: IRC/CMakeFiles/IRC-static.dir/rule
 
 # fast build rule for target.
 IRC-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRC-static.dir/build.make IRC/CMakeFiles/IRC-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRC-static.dir/build.make IRC/CMakeFiles/IRC-static.dir/build
 .PHONY : IRC-static/fast
 
 src/IRCAbsorberLayer.o: src/IRCAbsorberLayer.cc.o
@@ -207,7 +207,7 @@ src/IRCAbsorberLayer.o: src/IRCAbsorberLayer.cc.o
 
 # target to build an object file
 src/IRCAbsorberLayer.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCAbsorberLayer.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCAbsorberLayer.cc.o
 .PHONY : src/IRCAbsorberLayer.cc.o
 
 src/IRCAbsorberLayer.i: src/IRCAbsorberLayer.cc.i
@@ -216,7 +216,7 @@ src/IRCAbsorberLayer.i: src/IRCAbsorberLayer.cc.i
 
 # target to preprocess a source file
 src/IRCAbsorberLayer.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCAbsorberLayer.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCAbsorberLayer.cc.i
 .PHONY : src/IRCAbsorberLayer.cc.i
 
 src/IRCAbsorberLayer.s: src/IRCAbsorberLayer.cc.s
@@ -225,7 +225,7 @@ src/IRCAbsorberLayer.s: src/IRCAbsorberLayer.cc.s
 
 # target to generate assembly for a file
 src/IRCAbsorberLayer.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCAbsorberLayer.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCAbsorberLayer.cc.s
 .PHONY : src/IRCAbsorberLayer.cc.s
 
 src/IRCAluminumLayer.o: src/IRCAluminumLayer.cc.o
@@ -234,7 +234,7 @@ src/IRCAluminumLayer.o: src/IRCAluminumLayer.cc.o
 
 # target to build an object file
 src/IRCAluminumLayer.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCAluminumLayer.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCAluminumLayer.cc.o
 .PHONY : src/IRCAluminumLayer.cc.o
 
 src/IRCAluminumLayer.i: src/IRCAluminumLayer.cc.i
@@ -243,7 +243,7 @@ src/IRCAluminumLayer.i: src/IRCAluminumLayer.cc.i
 
 # target to preprocess a source file
 src/IRCAluminumLayer.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCAluminumLayer.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCAluminumLayer.cc.i
 .PHONY : src/IRCAluminumLayer.cc.i
 
 src/IRCAluminumLayer.s: src/IRCAluminumLayer.cc.s
@@ -252,7 +252,7 @@ src/IRCAluminumLayer.s: src/IRCAluminumLayer.cc.s
 
 # target to generate assembly for a file
 src/IRCAluminumLayer.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCAluminumLayer.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCAluminumLayer.cc.s
 .PHONY : src/IRCAluminumLayer.cc.s
 
 src/IRCBeamPipe.o: src/IRCBeamPipe.cc.o
@@ -261,7 +261,7 @@ src/IRCBeamPipe.o: src/IRCBeamPipe.cc.o
 
 # target to build an object file
 src/IRCBeamPipe.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCBeamPipe.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCBeamPipe.cc.o
 .PHONY : src/IRCBeamPipe.cc.o
 
 src/IRCBeamPipe.i: src/IRCBeamPipe.cc.i
@@ -270,7 +270,7 @@ src/IRCBeamPipe.i: src/IRCBeamPipe.cc.i
 
 # target to preprocess a source file
 src/IRCBeamPipe.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCBeamPipe.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCBeamPipe.cc.i
 .PHONY : src/IRCBeamPipe.cc.i
 
 src/IRCBeamPipe.s: src/IRCBeamPipe.cc.s
@@ -279,7 +279,7 @@ src/IRCBeamPipe.s: src/IRCBeamPipe.cc.s
 
 # target to generate assembly for a file
 src/IRCBeamPipe.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCBeamPipe.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCBeamPipe.cc.s
 .PHONY : src/IRCBeamPipe.cc.s
 
 src/IRCDetector.o: src/IRCDetector.cc.o
@@ -288,7 +288,7 @@ src/IRCDetector.o: src/IRCDetector.cc.o
 
 # target to build an object file
 src/IRCDetector.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCDetector.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCDetector.cc.o
 .PHONY : src/IRCDetector.cc.o
 
 src/IRCDetector.i: src/IRCDetector.cc.i
@@ -297,7 +297,7 @@ src/IRCDetector.i: src/IRCDetector.cc.i
 
 # target to preprocess a source file
 src/IRCDetector.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCDetector.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCDetector.cc.i
 .PHONY : src/IRCDetector.cc.i
 
 src/IRCDetector.s: src/IRCDetector.cc.s
@@ -306,7 +306,7 @@ src/IRCDetector.s: src/IRCDetector.cc.s
 
 # target to generate assembly for a file
 src/IRCDetector.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCDetector.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCDetector.cc.s
 .PHONY : src/IRCDetector.cc.s
 
 src/IRCGeometryParameters.o: src/IRCGeometryParameters.cc.o
@@ -315,7 +315,7 @@ src/IRCGeometryParameters.o: src/IRCGeometryParameters.cc.o
 
 # target to build an object file
 src/IRCGeometryParameters.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCGeometryParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCGeometryParameters.cc.o
 .PHONY : src/IRCGeometryParameters.cc.o
 
 src/IRCGeometryParameters.i: src/IRCGeometryParameters.cc.i
@@ -324,7 +324,7 @@ src/IRCGeometryParameters.i: src/IRCGeometryParameters.cc.i
 
 # target to preprocess a source file
 src/IRCGeometryParameters.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCGeometryParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCGeometryParameters.cc.i
 .PHONY : src/IRCGeometryParameters.cc.i
 
 src/IRCGeometryParameters.s: src/IRCGeometryParameters.cc.s
@@ -333,7 +333,7 @@ src/IRCGeometryParameters.s: src/IRCGeometryParameters.cc.s
 
 # target to generate assembly for a file
 src/IRCGeometryParameters.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCGeometryParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCGeometryParameters.cc.s
 .PHONY : src/IRCGeometryParameters.cc.s
 
 src/IRCHit.o: src/IRCHit.cc.o
@@ -342,7 +342,7 @@ src/IRCHit.o: src/IRCHit.cc.o
 
 # target to build an object file
 src/IRCHit.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCHit.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCHit.cc.o
 .PHONY : src/IRCHit.cc.o
 
 src/IRCHit.i: src/IRCHit.cc.i
@@ -351,7 +351,7 @@ src/IRCHit.i: src/IRCHit.cc.i
 
 # target to preprocess a source file
 src/IRCHit.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCHit.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCHit.cc.i
 .PHONY : src/IRCHit.cc.i
 
 src/IRCHit.s: src/IRCHit.cc.s
@@ -360,7 +360,7 @@ src/IRCHit.s: src/IRCHit.cc.s
 
 # target to generate assembly for a file
 src/IRCHit.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCHit.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCHit.cc.s
 .PHONY : src/IRCHit.cc.s
 
 src/IRCMaterialParameters.o: src/IRCMaterialParameters.cc.o
@@ -369,7 +369,7 @@ src/IRCMaterialParameters.o: src/IRCMaterialParameters.cc.o
 
 # target to build an object file
 src/IRCMaterialParameters.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCMaterialParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCMaterialParameters.cc.o
 .PHONY : src/IRCMaterialParameters.cc.o
 
 src/IRCMaterialParameters.i: src/IRCMaterialParameters.cc.i
@@ -378,7 +378,7 @@ src/IRCMaterialParameters.i: src/IRCMaterialParameters.cc.i
 
 # target to preprocess a source file
 src/IRCMaterialParameters.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCMaterialParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCMaterialParameters.cc.i
 .PHONY : src/IRCMaterialParameters.cc.i
 
 src/IRCMaterialParameters.s: src/IRCMaterialParameters.cc.s
@@ -387,7 +387,7 @@ src/IRCMaterialParameters.s: src/IRCMaterialParameters.cc.s
 
 # target to generate assembly for a file
 src/IRCMaterialParameters.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCMaterialParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCMaterialParameters.cc.s
 .PHONY : src/IRCMaterialParameters.cc.s
 
 src/IRCModule.o: src/IRCModule.cc.o
@@ -396,7 +396,7 @@ src/IRCModule.o: src/IRCModule.cc.o
 
 # target to build an object file
 src/IRCModule.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCModule.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCModule.cc.o
 .PHONY : src/IRCModule.cc.o
 
 src/IRCModule.i: src/IRCModule.cc.i
@@ -405,7 +405,7 @@ src/IRCModule.i: src/IRCModule.cc.i
 
 # target to preprocess a source file
 src/IRCModule.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCModule.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCModule.cc.i
 .PHONY : src/IRCModule.cc.i
 
 src/IRCModule.s: src/IRCModule.cc.s
@@ -414,7 +414,7 @@ src/IRCModule.s: src/IRCModule.cc.s
 
 # target to generate assembly for a file
 src/IRCModule.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCModule.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCModule.cc.s
 .PHONY : src/IRCModule.cc.s
 
 src/IRCRootIO.o: src/IRCRootIO.cc.o
@@ -423,7 +423,7 @@ src/IRCRootIO.o: src/IRCRootIO.cc.o
 
 # target to build an object file
 src/IRCRootIO.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCRootIO.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCRootIO.cc.o
 .PHONY : src/IRCRootIO.cc.o
 
 src/IRCRootIO.i: src/IRCRootIO.cc.i
@@ -432,7 +432,7 @@ src/IRCRootIO.i: src/IRCRootIO.cc.i
 
 # target to preprocess a source file
 src/IRCRootIO.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCRootIO.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCRootIO.cc.i
 .PHONY : src/IRCRootIO.cc.i
 
 src/IRCRootIO.s: src/IRCRootIO.cc.s
@@ -441,7 +441,7 @@ src/IRCRootIO.s: src/IRCRootIO.cc.s
 
 # target to generate assembly for a file
 src/IRCRootIO.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCRootIO.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCRootIO.cc.s
 .PHONY : src/IRCRootIO.cc.s
 
 src/IRCSD.o: src/IRCSD.cc.o
@@ -450,7 +450,7 @@ src/IRCSD.o: src/IRCSD.cc.o
 
 # target to build an object file
 src/IRCSD.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCSD.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCSD.cc.o
 .PHONY : src/IRCSD.cc.o
 
 src/IRCSD.i: src/IRCSD.cc.i
@@ -459,7 +459,7 @@ src/IRCSD.i: src/IRCSD.cc.i
 
 # target to preprocess a source file
 src/IRCSD.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCSD.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCSD.cc.i
 .PHONY : src/IRCSD.cc.i
 
 src/IRCSD.s: src/IRCSD.cc.s
@@ -468,7 +468,7 @@ src/IRCSD.s: src/IRCSD.cc.s
 
 # target to generate assembly for a file
 src/IRCSD.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCSD.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCSD.cc.s
 .PHONY : src/IRCSD.cc.s
 
 src/IRCScintillatorLayer.o: src/IRCScintillatorLayer.cc.o
@@ -477,7 +477,7 @@ src/IRCScintillatorLayer.o: src/IRCScintillatorLayer.cc.o
 
 # target to build an object file
 src/IRCScintillatorLayer.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCScintillatorLayer.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCScintillatorLayer.cc.o
 .PHONY : src/IRCScintillatorLayer.cc.o
 
 src/IRCScintillatorLayer.i: src/IRCScintillatorLayer.cc.i
@@ -486,7 +486,7 @@ src/IRCScintillatorLayer.i: src/IRCScintillatorLayer.cc.i
 
 # target to preprocess a source file
 src/IRCScintillatorLayer.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCScintillatorLayer.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCScintillatorLayer.cc.i
 .PHONY : src/IRCScintillatorLayer.cc.i
 
 src/IRCScintillatorLayer.s: src/IRCScintillatorLayer.cc.s
@@ -495,7 +495,7 @@ src/IRCScintillatorLayer.s: src/IRCScintillatorLayer.cc.s
 
 # target to generate assembly for a file
 src/IRCScintillatorLayer.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCScintillatorLayer.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCScintillatorLayer.cc.s
 .PHONY : src/IRCScintillatorLayer.cc.s
 
 src/IRCSegment.o: src/IRCSegment.cc.o
@@ -504,7 +504,7 @@ src/IRCSegment.o: src/IRCSegment.cc.o
 
 # target to build an object file
 src/IRCSegment.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCSegment.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCSegment.cc.o
 .PHONY : src/IRCSegment.cc.o
 
 src/IRCSegment.i: src/IRCSegment.cc.i
@@ -513,7 +513,7 @@ src/IRCSegment.i: src/IRCSegment.cc.i
 
 # target to preprocess a source file
 src/IRCSegment.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCSegment.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCSegment.cc.i
 .PHONY : src/IRCSegment.cc.i
 
 src/IRCSegment.s: src/IRCSegment.cc.s
@@ -522,7 +522,7 @@ src/IRCSegment.s: src/IRCSegment.cc.s
 
 # target to generate assembly for a file
 src/IRCSegment.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCSegment.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f IRC/CMakeFiles/IRCObjLib.dir/build.make IRC/CMakeFiles/IRCObjLib.dir/src/IRCSegment.cc.s
 .PHONY : src/IRCSegment.cc.s
 
 # Help Target
@@ -587,6 +587,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

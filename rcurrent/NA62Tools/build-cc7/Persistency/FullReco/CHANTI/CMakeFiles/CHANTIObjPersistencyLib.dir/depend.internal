@@ -17,15 +17,15 @@ Persistency/FullReco/CHANTI/CHANTIPersistencyDICT.cxx
  ../Persistency/FullReco/NA62/include/TVEvent.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/CHANTIPersistencyLinkDef.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/CHANTIChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/Pair.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIDigi.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTICandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/CHANTIPersistencyLinkDef.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/include/CHANTIChannelID.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/include/Pair.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIDigi.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTICandidate.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIHit.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
@@ -100,15 +100,15 @@ Persistency/FullReco/CHANTI/CMakeFiles/CHANTIObjPersistencyLib.dir/CHANTIPersist
  ../Persistency/FullReco/NA62/include/TVEvent.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/CHANTIChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/Pair.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIDigi.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTICandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/CHANTI/CHANTIPersistencyDICT.cxx
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/include/CHANTIChannelID.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/include/Pair.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIDigi.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/include/TCHANTIHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTICandidate.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/include/TRecoCHANTIHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/CHANTI/CHANTIPersistencyDICT.cxx
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfig.h
@@ -182,7 +182,7 @@ Persistency/FullReco/CHANTI/CMakeFiles/CHANTIObjPersistencyLib.dir/CHANTIPersist
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/strlcpy.h
 Persistency/FullReco/CHANTI/CMakeFiles/CHANTIObjPersistencyLib.dir/src/CHANTIChannelID.cc.o
  ../Persistency/FullReco/CHANTI/include/CHANTIChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/src/CHANTIChannelID.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/src/CHANTIChannelID.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -203,7 +203,7 @@ Persistency/FullReco/CHANTI/CMakeFiles/CHANTIObjPersistencyLib.dir/src/TCHANTIDi
  ../Persistency/FullReco/NA62/include/TVDigi.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/src/TCHANTIDigi.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/src/TCHANTIDigi.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -231,7 +231,7 @@ Persistency/FullReco/CHANTI/CMakeFiles/CHANTIObjPersistencyLib.dir/src/TCHANTIEv
  ../Persistency/FullReco/NA62/include/TVEvent.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/src/TCHANTIEvent.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/src/TCHANTIEvent.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
@@ -291,7 +291,7 @@ Persistency/FullReco/CHANTI/CMakeFiles/CHANTIObjPersistencyLib.dir/src/TCHANTIHi
  ../Persistency/FullReco/NA62/include/TVChannelID.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/src/TCHANTIHit.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/src/TCHANTIHit.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -343,7 +343,7 @@ Persistency/FullReco/CHANTI/CMakeFiles/CHANTIObjPersistencyLib.dir/src/TRecoCHAN
  ../Persistency/FullReco/NA62/include/TVEvent.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/src/TRecoCHANTICandidate.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/src/TRecoCHANTICandidate.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
@@ -417,7 +417,7 @@ Persistency/FullReco/CHANTI/CMakeFiles/CHANTIObjPersistencyLib.dir/src/TRecoCHAN
  ../Persistency/FullReco/NA62/include/TVEvent.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/src/TRecoCHANTIEvent.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/src/TRecoCHANTIEvent.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
@@ -481,7 +481,7 @@ Persistency/FullReco/CHANTI/CMakeFiles/CHANTIObjPersistencyLib.dir/src/TRecoCHAN
  ../Persistency/FullReco/NA62/include/TVDigi.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/CHANTI/src/TRecoCHANTIHit.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/CHANTI/src/TRecoCHANTIHit.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h

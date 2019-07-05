@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/SlimReco/CHANTI/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/CHANTI/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/SlimReco/CHANTI/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/CHANTI/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/CHANTI/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/CHANTI/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/CHANTI/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/CHANTI/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/CHANTI/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/CHANTI/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistencyDICT.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistencyDICT.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistencyDICT.dir/rule
 .PHONY : Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistencyDICT.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ CHANTISlimPersistencyDICT: Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPers
 
 # fast build rule for target.
 CHANTISlimPersistencyDICT/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistencyDICT.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistencyDICT.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistencyDICT.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistencyDICT.dir/build
 .PHONY : CHANTISlimPersistencyDICT/fast
 
 # Convenience name for target.
 Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistency.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistency.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistency.dir/rule
 .PHONY : Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistency.dir/rule
 
 # Convenience name for target.
@@ -183,12 +183,12 @@ CHANTISlimPersistency: Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersiste
 
 # fast build rule for target.
 CHANTISlimPersistency/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistency.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistency.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistency.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistency.dir/build
 .PHONY : CHANTISlimPersistency/fast
 
 # Convenience name for target.
 Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/rule
 .PHONY : Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/rule
 
 # Convenience name for target.
@@ -198,12 +198,12 @@ CHANTIObjSlimPersistencyLib: Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSli
 
 # fast build rule for target.
 CHANTIObjSlimPersistencyLib/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build
 .PHONY : CHANTIObjSlimPersistencyLib/fast
 
 # Convenience name for target.
 Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistency-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistency-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistency-static.dir/rule
 .PHONY : Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistency-static.dir/rule
 
 # Convenience name for target.
@@ -213,7 +213,7 @@ CHANTISlimPersistency-static: Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimP
 
 # fast build rule for target.
 CHANTISlimPersistency-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistency-static.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistency-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistency-static.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTISlimPersistency-static.dir/build
 .PHONY : CHANTISlimPersistency-static/fast
 
 CHANTISlimPersistencyDICT.o: CHANTISlimPersistencyDICT.cxx.o
@@ -222,7 +222,7 @@ CHANTISlimPersistencyDICT.o: CHANTISlimPersistencyDICT.cxx.o
 
 # target to build an object file
 CHANTISlimPersistencyDICT.cxx.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/CHANTISlimPersistencyDICT.cxx.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/CHANTISlimPersistencyDICT.cxx.o
 .PHONY : CHANTISlimPersistencyDICT.cxx.o
 
 CHANTISlimPersistencyDICT.i: CHANTISlimPersistencyDICT.cxx.i
@@ -231,7 +231,7 @@ CHANTISlimPersistencyDICT.i: CHANTISlimPersistencyDICT.cxx.i
 
 # target to preprocess a source file
 CHANTISlimPersistencyDICT.cxx.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/CHANTISlimPersistencyDICT.cxx.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/CHANTISlimPersistencyDICT.cxx.i
 .PHONY : CHANTISlimPersistencyDICT.cxx.i
 
 CHANTISlimPersistencyDICT.s: CHANTISlimPersistencyDICT.cxx.s
@@ -240,7 +240,7 @@ CHANTISlimPersistencyDICT.s: CHANTISlimPersistencyDICT.cxx.s
 
 # target to generate assembly for a file
 CHANTISlimPersistencyDICT.cxx.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/CHANTISlimPersistencyDICT.cxx.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/CHANTISlimPersistencyDICT.cxx.s
 .PHONY : CHANTISlimPersistencyDICT.cxx.s
 
 src/TSlimRecoCHANTICandidate.o: src/TSlimRecoCHANTICandidate.cc.o
@@ -249,7 +249,7 @@ src/TSlimRecoCHANTICandidate.o: src/TSlimRecoCHANTICandidate.cc.o
 
 # target to build an object file
 src/TSlimRecoCHANTICandidate.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/src/TSlimRecoCHANTICandidate.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/src/TSlimRecoCHANTICandidate.cc.o
 .PHONY : src/TSlimRecoCHANTICandidate.cc.o
 
 src/TSlimRecoCHANTICandidate.i: src/TSlimRecoCHANTICandidate.cc.i
@@ -258,7 +258,7 @@ src/TSlimRecoCHANTICandidate.i: src/TSlimRecoCHANTICandidate.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoCHANTICandidate.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/src/TSlimRecoCHANTICandidate.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/src/TSlimRecoCHANTICandidate.cc.i
 .PHONY : src/TSlimRecoCHANTICandidate.cc.i
 
 src/TSlimRecoCHANTICandidate.s: src/TSlimRecoCHANTICandidate.cc.s
@@ -267,7 +267,7 @@ src/TSlimRecoCHANTICandidate.s: src/TSlimRecoCHANTICandidate.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoCHANTICandidate.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/src/TSlimRecoCHANTICandidate.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/src/TSlimRecoCHANTICandidate.cc.s
 .PHONY : src/TSlimRecoCHANTICandidate.cc.s
 
 src/TSlimRecoCHANTIEvent.o: src/TSlimRecoCHANTIEvent.cc.o
@@ -276,7 +276,7 @@ src/TSlimRecoCHANTIEvent.o: src/TSlimRecoCHANTIEvent.cc.o
 
 # target to build an object file
 src/TSlimRecoCHANTIEvent.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/src/TSlimRecoCHANTIEvent.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/src/TSlimRecoCHANTIEvent.cc.o
 .PHONY : src/TSlimRecoCHANTIEvent.cc.o
 
 src/TSlimRecoCHANTIEvent.i: src/TSlimRecoCHANTIEvent.cc.i
@@ -285,7 +285,7 @@ src/TSlimRecoCHANTIEvent.i: src/TSlimRecoCHANTIEvent.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoCHANTIEvent.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/src/TSlimRecoCHANTIEvent.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/src/TSlimRecoCHANTIEvent.cc.i
 .PHONY : src/TSlimRecoCHANTIEvent.cc.i
 
 src/TSlimRecoCHANTIEvent.s: src/TSlimRecoCHANTIEvent.cc.s
@@ -294,7 +294,7 @@ src/TSlimRecoCHANTIEvent.s: src/TSlimRecoCHANTIEvent.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoCHANTIEvent.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/src/TSlimRecoCHANTIEvent.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/src/TSlimRecoCHANTIEvent.cc.s
 .PHONY : src/TSlimRecoCHANTIEvent.cc.s
 
 src/TSlimRecoCHANTIHit.o: src/TSlimRecoCHANTIHit.cc.o
@@ -303,7 +303,7 @@ src/TSlimRecoCHANTIHit.o: src/TSlimRecoCHANTIHit.cc.o
 
 # target to build an object file
 src/TSlimRecoCHANTIHit.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/src/TSlimRecoCHANTIHit.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/src/TSlimRecoCHANTIHit.cc.o
 .PHONY : src/TSlimRecoCHANTIHit.cc.o
 
 src/TSlimRecoCHANTIHit.i: src/TSlimRecoCHANTIHit.cc.i
@@ -312,7 +312,7 @@ src/TSlimRecoCHANTIHit.i: src/TSlimRecoCHANTIHit.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoCHANTIHit.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/src/TSlimRecoCHANTIHit.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/src/TSlimRecoCHANTIHit.cc.i
 .PHONY : src/TSlimRecoCHANTIHit.cc.i
 
 src/TSlimRecoCHANTIHit.s: src/TSlimRecoCHANTIHit.cc.s
@@ -321,7 +321,7 @@ src/TSlimRecoCHANTIHit.s: src/TSlimRecoCHANTIHit.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoCHANTIHit.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/src/TSlimRecoCHANTIHit.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/CHANTI/CMakeFiles/CHANTIObjSlimPersistencyLib.dir/src/TSlimRecoCHANTIHit.cc.s
 .PHONY : src/TSlimRecoCHANTIHit.cc.s
 
 # Help Target
@@ -363,6 +363,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

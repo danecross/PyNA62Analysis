@@ -1,8 +1,8 @@
-# Install script for directory: /afs/cern.ch/user/d/dacross/na62fw/NA62MC/LKr
+# Install script for directory: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/LKr
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/afs/cern.ch/user/d/dacross/na62fw/NA62MC")
+  set(CMAKE_INSTALL_PREFIX "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -44,12 +44,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib-cc7/libLKr.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7" TYPE SHARED_LIBRARY FILES "/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/libLKr.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7" TYPE SHARED_LIBRARY FILES "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/libLKr.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib-cc7/libLKr.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib-cc7/libLKr.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib-cc7/libLKr.so"
-         OLD_RPATH "/afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/lib-cc7:/afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/lib-cc7/Persistency:/afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/lib-cc7/SlimPersistency:/cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/lib:/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-centos7-gcc7-opt/lib:/cvmfs/sft.cern.ch/lcg/releases/LCG_95/sqlite/3210000/x86_64-centos7-gcc7-opt/lib:/cvmfs/sft.cern.ch/lcg/releases/LCG_95/xrootd/4.8.4/x86_64-centos7-gcc7-opt/lib:/afs/cern.ch/user/d/dacross/na62fw/NA62MC:"
+         OLD_RPATH "/afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/lib-cc7:/afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/lib-cc7/Persistency:/afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/lib-cc7/SlimPersistency:/cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/lib:/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-centos7-gcc7-opt/lib:/cvmfs/sft.cern.ch/lcg/releases/LCG_95/sqlite/3210000/x86_64-centos7-gcc7-opt/lib:/cvmfs/sft.cern.ch/lcg/releases/LCG_95/xrootd/4.8.4/x86_64-centos7-gcc7-opt/lib:/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib-cc7/libLKr.so")
@@ -58,6 +58,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7" TYPE STATIC_LIBRARY FILES "/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/libLKr-static.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7" TYPE STATIC_LIBRARY FILES "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/libLKr-static.a")
 endif()
 

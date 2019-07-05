@@ -43,10 +43,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7
 
 # Include any dependencies generated for this target.
 include HAC/CMakeFiles/HACObjLib.dir/depend.make
@@ -59,133 +59,133 @@ include HAC/CMakeFiles/HACObjLib.dir/flags.make
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACAbsorberLayer.cc.o: HAC/CMakeFiles/HACObjLib.dir/flags.make
 HAC/CMakeFiles/HACObjLib.dir/src/HACAbsorberLayer.cc.o: ../HAC/src/HACAbsorberLayer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object HAC/CMakeFiles/HACObjLib.dir/src/HACAbsorberLayer.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HACObjLib.dir/src/HACAbsorberLayer.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACAbsorberLayer.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object HAC/CMakeFiles/HACObjLib.dir/src/HACAbsorberLayer.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HACObjLib.dir/src/HACAbsorberLayer.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACAbsorberLayer.cc
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACAbsorberLayer.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HACObjLib.dir/src/HACAbsorberLayer.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACAbsorberLayer.cc > CMakeFiles/HACObjLib.dir/src/HACAbsorberLayer.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACAbsorberLayer.cc > CMakeFiles/HACObjLib.dir/src/HACAbsorberLayer.cc.i
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACAbsorberLayer.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HACObjLib.dir/src/HACAbsorberLayer.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACAbsorberLayer.cc -o CMakeFiles/HACObjLib.dir/src/HACAbsorberLayer.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACAbsorberLayer.cc -o CMakeFiles/HACObjLib.dir/src/HACAbsorberLayer.cc.s
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACDetector.cc.o: HAC/CMakeFiles/HACObjLib.dir/flags.make
 HAC/CMakeFiles/HACObjLib.dir/src/HACDetector.cc.o: ../HAC/src/HACDetector.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object HAC/CMakeFiles/HACObjLib.dir/src/HACDetector.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HACObjLib.dir/src/HACDetector.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACDetector.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object HAC/CMakeFiles/HACObjLib.dir/src/HACDetector.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HACObjLib.dir/src/HACDetector.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACDetector.cc
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACDetector.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HACObjLib.dir/src/HACDetector.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACDetector.cc > CMakeFiles/HACObjLib.dir/src/HACDetector.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACDetector.cc > CMakeFiles/HACObjLib.dir/src/HACDetector.cc.i
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACDetector.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HACObjLib.dir/src/HACDetector.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACDetector.cc -o CMakeFiles/HACObjLib.dir/src/HACDetector.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACDetector.cc -o CMakeFiles/HACObjLib.dir/src/HACDetector.cc.s
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACGeometryParameters.cc.o: HAC/CMakeFiles/HACObjLib.dir/flags.make
 HAC/CMakeFiles/HACObjLib.dir/src/HACGeometryParameters.cc.o: ../HAC/src/HACGeometryParameters.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object HAC/CMakeFiles/HACObjLib.dir/src/HACGeometryParameters.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HACObjLib.dir/src/HACGeometryParameters.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACGeometryParameters.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object HAC/CMakeFiles/HACObjLib.dir/src/HACGeometryParameters.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HACObjLib.dir/src/HACGeometryParameters.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACGeometryParameters.cc
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACGeometryParameters.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HACObjLib.dir/src/HACGeometryParameters.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACGeometryParameters.cc > CMakeFiles/HACObjLib.dir/src/HACGeometryParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACGeometryParameters.cc > CMakeFiles/HACObjLib.dir/src/HACGeometryParameters.cc.i
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACGeometryParameters.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HACObjLib.dir/src/HACGeometryParameters.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACGeometryParameters.cc -o CMakeFiles/HACObjLib.dir/src/HACGeometryParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACGeometryParameters.cc -o CMakeFiles/HACObjLib.dir/src/HACGeometryParameters.cc.s
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACHit.cc.o: HAC/CMakeFiles/HACObjLib.dir/flags.make
 HAC/CMakeFiles/HACObjLib.dir/src/HACHit.cc.o: ../HAC/src/HACHit.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object HAC/CMakeFiles/HACObjLib.dir/src/HACHit.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HACObjLib.dir/src/HACHit.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACHit.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object HAC/CMakeFiles/HACObjLib.dir/src/HACHit.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HACObjLib.dir/src/HACHit.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACHit.cc
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACHit.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HACObjLib.dir/src/HACHit.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACHit.cc > CMakeFiles/HACObjLib.dir/src/HACHit.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACHit.cc > CMakeFiles/HACObjLib.dir/src/HACHit.cc.i
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACHit.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HACObjLib.dir/src/HACHit.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACHit.cc -o CMakeFiles/HACObjLib.dir/src/HACHit.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACHit.cc -o CMakeFiles/HACObjLib.dir/src/HACHit.cc.s
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACMagnet.cc.o: HAC/CMakeFiles/HACObjLib.dir/flags.make
 HAC/CMakeFiles/HACObjLib.dir/src/HACMagnet.cc.o: ../HAC/src/HACMagnet.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object HAC/CMakeFiles/HACObjLib.dir/src/HACMagnet.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HACObjLib.dir/src/HACMagnet.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACMagnet.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object HAC/CMakeFiles/HACObjLib.dir/src/HACMagnet.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HACObjLib.dir/src/HACMagnet.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACMagnet.cc
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACMagnet.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HACObjLib.dir/src/HACMagnet.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACMagnet.cc > CMakeFiles/HACObjLib.dir/src/HACMagnet.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACMagnet.cc > CMakeFiles/HACObjLib.dir/src/HACMagnet.cc.i
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACMagnet.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HACObjLib.dir/src/HACMagnet.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACMagnet.cc -o CMakeFiles/HACObjLib.dir/src/HACMagnet.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACMagnet.cc -o CMakeFiles/HACObjLib.dir/src/HACMagnet.cc.s
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACMaterialParameters.cc.o: HAC/CMakeFiles/HACObjLib.dir/flags.make
 HAC/CMakeFiles/HACObjLib.dir/src/HACMaterialParameters.cc.o: ../HAC/src/HACMaterialParameters.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object HAC/CMakeFiles/HACObjLib.dir/src/HACMaterialParameters.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HACObjLib.dir/src/HACMaterialParameters.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACMaterialParameters.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object HAC/CMakeFiles/HACObjLib.dir/src/HACMaterialParameters.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HACObjLib.dir/src/HACMaterialParameters.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACMaterialParameters.cc
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACMaterialParameters.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HACObjLib.dir/src/HACMaterialParameters.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACMaterialParameters.cc > CMakeFiles/HACObjLib.dir/src/HACMaterialParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACMaterialParameters.cc > CMakeFiles/HACObjLib.dir/src/HACMaterialParameters.cc.i
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACMaterialParameters.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HACObjLib.dir/src/HACMaterialParameters.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACMaterialParameters.cc -o CMakeFiles/HACObjLib.dir/src/HACMaterialParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACMaterialParameters.cc -o CMakeFiles/HACObjLib.dir/src/HACMaterialParameters.cc.s
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACModule.cc.o: HAC/CMakeFiles/HACObjLib.dir/flags.make
 HAC/CMakeFiles/HACObjLib.dir/src/HACModule.cc.o: ../HAC/src/HACModule.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object HAC/CMakeFiles/HACObjLib.dir/src/HACModule.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HACObjLib.dir/src/HACModule.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACModule.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object HAC/CMakeFiles/HACObjLib.dir/src/HACModule.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HACObjLib.dir/src/HACModule.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACModule.cc
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACModule.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HACObjLib.dir/src/HACModule.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACModule.cc > CMakeFiles/HACObjLib.dir/src/HACModule.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACModule.cc > CMakeFiles/HACObjLib.dir/src/HACModule.cc.i
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACModule.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HACObjLib.dir/src/HACModule.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACModule.cc -o CMakeFiles/HACObjLib.dir/src/HACModule.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACModule.cc -o CMakeFiles/HACObjLib.dir/src/HACModule.cc.s
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACRootIO.cc.o: HAC/CMakeFiles/HACObjLib.dir/flags.make
 HAC/CMakeFiles/HACObjLib.dir/src/HACRootIO.cc.o: ../HAC/src/HACRootIO.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object HAC/CMakeFiles/HACObjLib.dir/src/HACRootIO.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HACObjLib.dir/src/HACRootIO.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACRootIO.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object HAC/CMakeFiles/HACObjLib.dir/src/HACRootIO.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HACObjLib.dir/src/HACRootIO.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACRootIO.cc
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACRootIO.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HACObjLib.dir/src/HACRootIO.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACRootIO.cc > CMakeFiles/HACObjLib.dir/src/HACRootIO.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACRootIO.cc > CMakeFiles/HACObjLib.dir/src/HACRootIO.cc.i
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACRootIO.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HACObjLib.dir/src/HACRootIO.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACRootIO.cc -o CMakeFiles/HACObjLib.dir/src/HACRootIO.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACRootIO.cc -o CMakeFiles/HACObjLib.dir/src/HACRootIO.cc.s
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACSD.cc.o: HAC/CMakeFiles/HACObjLib.dir/flags.make
 HAC/CMakeFiles/HACObjLib.dir/src/HACSD.cc.o: ../HAC/src/HACSD.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object HAC/CMakeFiles/HACObjLib.dir/src/HACSD.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HACObjLib.dir/src/HACSD.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACSD.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object HAC/CMakeFiles/HACObjLib.dir/src/HACSD.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HACObjLib.dir/src/HACSD.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACSD.cc
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACSD.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HACObjLib.dir/src/HACSD.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACSD.cc > CMakeFiles/HACObjLib.dir/src/HACSD.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACSD.cc > CMakeFiles/HACObjLib.dir/src/HACSD.cc.i
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACSD.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HACObjLib.dir/src/HACSD.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACSD.cc -o CMakeFiles/HACObjLib.dir/src/HACSD.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACSD.cc -o CMakeFiles/HACObjLib.dir/src/HACSD.cc.s
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACScintillatorLayer.cc.o: HAC/CMakeFiles/HACObjLib.dir/flags.make
 HAC/CMakeFiles/HACObjLib.dir/src/HACScintillatorLayer.cc.o: ../HAC/src/HACScintillatorLayer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object HAC/CMakeFiles/HACObjLib.dir/src/HACScintillatorLayer.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HACObjLib.dir/src/HACScintillatorLayer.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACScintillatorLayer.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object HAC/CMakeFiles/HACObjLib.dir/src/HACScintillatorLayer.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HACObjLib.dir/src/HACScintillatorLayer.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACScintillatorLayer.cc
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACScintillatorLayer.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HACObjLib.dir/src/HACScintillatorLayer.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACScintillatorLayer.cc > CMakeFiles/HACObjLib.dir/src/HACScintillatorLayer.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACScintillatorLayer.cc > CMakeFiles/HACObjLib.dir/src/HACScintillatorLayer.cc.i
 
 HAC/CMakeFiles/HACObjLib.dir/src/HACScintillatorLayer.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HACObjLib.dir/src/HACScintillatorLayer.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC/src/HACScintillatorLayer.cc -o CMakeFiles/HACObjLib.dir/src/HACScintillatorLayer.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC/src/HACScintillatorLayer.cc -o CMakeFiles/HACObjLib.dir/src/HACScintillatorLayer.cc.s
 
 HACObjLib: HAC/CMakeFiles/HACObjLib.dir/src/HACAbsorberLayer.cc.o
 HACObjLib: HAC/CMakeFiles/HACObjLib.dir/src/HACDetector.cc.o
@@ -207,10 +207,10 @@ HAC/CMakeFiles/HACObjLib.dir/build: HACObjLib
 .PHONY : HAC/CMakeFiles/HACObjLib.dir/build
 
 HAC/CMakeFiles/HACObjLib.dir/clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC && $(CMAKE_COMMAND) -P CMakeFiles/HACObjLib.dir/cmake_clean.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC && $(CMAKE_COMMAND) -P CMakeFiles/HACObjLib.dir/cmake_clean.cmake
 .PHONY : HAC/CMakeFiles/HACObjLib.dir/clean
 
 HAC/CMakeFiles/HACObjLib.dir/depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/na62fw/NA62MC /afs/cern.ch/user/d/dacross/na62fw/NA62MC/HAC /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/HAC/CMakeFiles/HACObjLib.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/HAC /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/HAC/CMakeFiles/HACObjLib.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : HAC/CMakeFiles/HACObjLib.dir/depend
 

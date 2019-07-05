@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/EventDisplay/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 EventDisplay/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/EventDisplay/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 EventDisplay/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 EventDisplay/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 EventDisplay/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 EventDisplay/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 EventDisplay/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 EventDisplay/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 EventDisplay/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 EventDisplay/CMakeFiles/EventDisplay.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 EventDisplay/CMakeFiles/EventDisplay.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 EventDisplay/CMakeFiles/EventDisplay.dir/rule
 .PHONY : EventDisplay/CMakeFiles/EventDisplay.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ EventDisplay: EventDisplay/CMakeFiles/EventDisplay.dir/rule
 
 # fast build rule for target.
 EventDisplay/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f EventDisplay/CMakeFiles/EventDisplay.dir/build.make EventDisplay/CMakeFiles/EventDisplay.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f EventDisplay/CMakeFiles/EventDisplay.dir/build.make EventDisplay/CMakeFiles/EventDisplay.dir/build
 .PHONY : EventDisplay/fast
 
 # Convenience name for target.
 EventDisplay/CMakeFiles/EventDisplayObjLib.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 EventDisplay/CMakeFiles/EventDisplayObjLib.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 EventDisplay/CMakeFiles/EventDisplayObjLib.dir/rule
 .PHONY : EventDisplay/CMakeFiles/EventDisplayObjLib.dir/rule
 
 # Convenience name for target.
@@ -183,12 +183,12 @@ EventDisplayObjLib: EventDisplay/CMakeFiles/EventDisplayObjLib.dir/rule
 
 # fast build rule for target.
 EventDisplayObjLib/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f EventDisplay/CMakeFiles/EventDisplayObjLib.dir/build.make EventDisplay/CMakeFiles/EventDisplayObjLib.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f EventDisplay/CMakeFiles/EventDisplayObjLib.dir/build.make EventDisplay/CMakeFiles/EventDisplayObjLib.dir/build
 .PHONY : EventDisplayObjLib/fast
 
 # Convenience name for target.
 EventDisplay/CMakeFiles/EventDisplay-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 EventDisplay/CMakeFiles/EventDisplay-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 EventDisplay/CMakeFiles/EventDisplay-static.dir/rule
 .PHONY : EventDisplay/CMakeFiles/EventDisplay-static.dir/rule
 
 # Convenience name for target.
@@ -198,7 +198,7 @@ EventDisplay-static: EventDisplay/CMakeFiles/EventDisplay-static.dir/rule
 
 # fast build rule for target.
 EventDisplay-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f EventDisplay/CMakeFiles/EventDisplay-static.dir/build.make EventDisplay/CMakeFiles/EventDisplay-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f EventDisplay/CMakeFiles/EventDisplay-static.dir/build.make EventDisplay/CMakeFiles/EventDisplay-static.dir/build
 .PHONY : EventDisplay-static/fast
 
 src/TNA62MagField.o: src/TNA62MagField.cc.o
@@ -207,7 +207,7 @@ src/TNA62MagField.o: src/TNA62MagField.cc.o
 
 # target to build an object file
 src/TNA62MagField.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f EventDisplay/CMakeFiles/EventDisplayObjLib.dir/build.make EventDisplay/CMakeFiles/EventDisplayObjLib.dir/src/TNA62MagField.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f EventDisplay/CMakeFiles/EventDisplayObjLib.dir/build.make EventDisplay/CMakeFiles/EventDisplayObjLib.dir/src/TNA62MagField.cc.o
 .PHONY : src/TNA62MagField.cc.o
 
 src/TNA62MagField.i: src/TNA62MagField.cc.i
@@ -216,7 +216,7 @@ src/TNA62MagField.i: src/TNA62MagField.cc.i
 
 # target to preprocess a source file
 src/TNA62MagField.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f EventDisplay/CMakeFiles/EventDisplayObjLib.dir/build.make EventDisplay/CMakeFiles/EventDisplayObjLib.dir/src/TNA62MagField.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f EventDisplay/CMakeFiles/EventDisplayObjLib.dir/build.make EventDisplay/CMakeFiles/EventDisplayObjLib.dir/src/TNA62MagField.cc.i
 .PHONY : src/TNA62MagField.cc.i
 
 src/TNA62MagField.s: src/TNA62MagField.cc.s
@@ -225,7 +225,7 @@ src/TNA62MagField.s: src/TNA62MagField.cc.s
 
 # target to generate assembly for a file
 src/TNA62MagField.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f EventDisplay/CMakeFiles/EventDisplayObjLib.dir/build.make EventDisplay/CMakeFiles/EventDisplayObjLib.dir/src/TNA62MagField.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f EventDisplay/CMakeFiles/EventDisplayObjLib.dir/build.make EventDisplay/CMakeFiles/EventDisplayObjLib.dir/src/TNA62MagField.cc.s
 .PHONY : src/TNA62MagField.cc.s
 
 # Help Target
@@ -257,6 +257,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

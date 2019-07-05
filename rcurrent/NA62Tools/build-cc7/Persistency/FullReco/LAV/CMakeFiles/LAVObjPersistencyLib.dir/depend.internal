@@ -21,16 +21,16 @@ Persistency/FullReco/LAV/CMakeFiles/LAVObjPersistencyLib.dir/LAVPersistencyDICT.
  ../Persistency/FullReco/NA62/include/TVEvent.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/LAVChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/LAVDefinitions.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TLAVDigi.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TLAVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TLAVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVDigi.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/LAV/LAVPersistencyDICT.cxx
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/LAVChannelID.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/LAVDefinitions.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TLAVDigi.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TLAVEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TLAVHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVCandidate.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVDigi.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/LAV/LAVPersistencyDICT.cxx
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfig.h
@@ -104,7 +104,7 @@ Persistency/FullReco/LAV/CMakeFiles/LAVObjPersistencyLib.dir/LAVPersistencyDICT.
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/strlcpy.h
 Persistency/FullReco/LAV/CMakeFiles/LAVObjPersistencyLib.dir/src/LAVChannelID.cc.o
  ../Persistency/FullReco/LAV/include/LAVChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/src/LAVChannelID.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/src/LAVChannelID.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -125,7 +125,7 @@ Persistency/FullReco/LAV/CMakeFiles/LAVObjPersistencyLib.dir/src/TLAVDigi.cc.o
  ../Persistency/FullReco/NA62/include/TVDigi.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/src/TLAVDigi.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/src/TLAVDigi.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -156,7 +156,7 @@ Persistency/FullReco/LAV/CMakeFiles/LAVObjPersistencyLib.dir/src/TLAVEvent.cc.o
  ../Persistency/FullReco/NA62/include/TVEvent.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/src/TLAVEvent.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/src/TLAVEvent.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
@@ -216,7 +216,7 @@ Persistency/FullReco/LAV/CMakeFiles/LAVObjPersistencyLib.dir/src/TLAVHit.cc.o
  ../Persistency/FullReco/NA62/include/TVChannelID.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/src/TLAVHit.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/src/TLAVHit.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -269,7 +269,7 @@ Persistency/FullReco/LAV/CMakeFiles/LAVObjPersistencyLib.dir/src/TRecoLAVCandida
  ../Persistency/FullReco/NA62/include/TVEvent.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/src/TRecoLAVCandidate.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/src/TRecoLAVCandidate.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
@@ -327,7 +327,7 @@ Persistency/FullReco/LAV/CMakeFiles/LAVObjPersistencyLib.dir/src/TRecoLAVCandida
 Persistency/FullReco/LAV/CMakeFiles/LAVObjPersistencyLib.dir/src/TRecoLAVDigi.cc.o
  ../Persistency/FullReco/LAV/include/LAVDefinitions.hh
  ../Persistency/FullReco/LAV/include/TRecoLAVDigi.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/src/TRecoLAVDigi.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/src/TRecoLAVDigi.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -363,7 +363,7 @@ Persistency/FullReco/LAV/CMakeFiles/LAVObjPersistencyLib.dir/src/TRecoLAVEvent.c
  ../Persistency/FullReco/NA62/include/TVEvent.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/src/TRecoLAVEvent.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/src/TRecoLAVEvent.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
@@ -428,7 +428,7 @@ Persistency/FullReco/LAV/CMakeFiles/LAVObjPersistencyLib.dir/src/TRecoLAVHit.cc.
  ../Persistency/FullReco/NA62/include/TVDigi.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/src/TRecoLAVHit.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/src/TRecoLAVHit.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -491,16 +491,16 @@ Persistency/FullReco/LAV/LAVPersistencyDICT.cxx
  ../Persistency/FullReco/NA62/include/TVEvent.hh
  ../Persistency/FullReco/NA62/include/TVHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/LAVPersistencyLinkDef.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/LAVChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/LAVDefinitions.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TLAVDigi.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TLAVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TLAVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVDigi.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/LAVPersistencyLinkDef.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/LAVChannelID.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/LAVDefinitions.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TLAVDigi.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TLAVEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TLAVHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVCandidate.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVDigi.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVHit.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h

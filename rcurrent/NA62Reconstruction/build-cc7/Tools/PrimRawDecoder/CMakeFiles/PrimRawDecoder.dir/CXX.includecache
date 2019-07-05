@@ -6,7 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimRawDecoder/src/PrimRawDecoder.cc
+/afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TPrimitive.hh
+TObject.h
+/afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TObject.h
+
+/afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/NA62Global.hh
+string
+-
+ctime
+-
+
+/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimRawDecoder/src/PrimRawDecoder.cc
 stdio.h
 -
 stdlib.h
@@ -28,9 +38,9 @@ TObjString.h
 TObjArray.h
 -
 TPrimitive.hh
-/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimRawDecoder/src/TPrimitive.hh
+/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimRawDecoder/src/TPrimitive.hh
 NA62Global.hh
-/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimRawDecoder/src/NA62Global.hh
+/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimRawDecoder/src/NA62Global.hh
 iostream
 -
 fstream
@@ -46,16 +56,6 @@ TGraph.h
 chrono
 -
 signal.h
--
-
-/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TPrimitive.hh
-TObject.h
-/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include/TObject.h
-
-/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/include/NA62Global.hh
-string
--
-ctime
 -
 
 /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/Compression.h

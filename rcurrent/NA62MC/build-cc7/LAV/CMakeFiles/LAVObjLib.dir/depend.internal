@@ -15,7 +15,7 @@ LAV/CMakeFiles/LAVObjLib.dir/src/LAVAccurateBlock.cc.o
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/LAV/include/LAVChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/LAV/src/LAVAccurateBlock.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/LAV/src/LAVAccurateBlock.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -405,7 +405,7 @@ LAV/CMakeFiles/LAVObjLib.dir/src/LAVBanana.cc.o
  ../MCBase/include/NA62VGeometryParameters.hh
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/LAV/src/LAVBanana.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/LAV/src/LAVBanana.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -807,7 +807,7 @@ LAV/CMakeFiles/LAVObjLib.dir/src/LAVDetector.cc.o
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/BlueTubeMagneticFieldMap.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/FringeMagneticFieldMap.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/MNP33MagneticFieldMap.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/LAV/src/LAVDetector.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/LAV/src/LAVDetector.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -1303,7 +1303,7 @@ LAV/CMakeFiles/LAVObjLib.dir/src/LAVDetectorMessenger.cc.o
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/BlueTubeMagneticFieldMap.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/FringeMagneticFieldMap.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/MNP33MagneticFieldMap.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/LAV/src/LAVDetectorMessenger.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/LAV/src/LAVDetectorMessenger.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AllocatorPool.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4ApplicationState.hh
@@ -1467,7 +1467,7 @@ LAV/CMakeFiles/LAVObjLib.dir/src/LAVGeometryParameters.cc.o
  ../MCBase/include/ResponsibilityRegion.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/DetectorParameter.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/NA62ConditionsService.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/LAV/src/LAVGeometryParameters.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/LAV/src/LAVGeometryParameters.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4EnvironmentUtils.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Exception.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4ExceptionSeverity.hh
@@ -1552,7 +1552,7 @@ LAV/CMakeFiles/LAVObjLib.dir/src/LAVGeometryParameters.cc.o
 LAV/CMakeFiles/LAVObjLib.dir/src/LAVHit.cc.o
  ../LAV/include/LAVHit.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/LAV/include/LAVChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/LAV/src/LAVHit.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/LAV/src/LAVHit.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AllocatorPool.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AutoLock.hh
@@ -1642,7 +1642,7 @@ LAV/CMakeFiles/LAVObjLib.dir/src/LAVMaterialParameters.cc.o
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/DetectorParameter.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/LAV/src/LAVMaterialParameters.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/LAV/src/LAVMaterialParameters.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4DataVector.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4DataVector.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Element.hh
@@ -1750,7 +1750,7 @@ LAV/CMakeFiles/LAVObjLib.dir/src/LAVOptTrack.cc.o
  ../MCBase/include/NA62VGeometryParameters.hh
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/LAV/src/LAVOptTrack.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/LAV/src/LAVOptTrack.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -1974,7 +1974,7 @@ LAV/CMakeFiles/LAVObjLib.dir/src/LAVPbGlBlock.cc.o
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/LAV/include/LAVChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/LAV/src/LAVPbGlBlock.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/LAV/src/LAVPbGlBlock.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -2357,7 +2357,7 @@ LAV/CMakeFiles/LAVObjLib.dir/src/LAVPhotoMultiplier.cc.o
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/LAV/include/LAVChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/LAV/src/LAVPhotoMultiplier.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/LAV/src/LAVPhotoMultiplier.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -2759,7 +2759,7 @@ LAV/CMakeFiles/LAVObjLib.dir/src/LAVRootIO.cc.o
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVEvent.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/TVHit.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/LAV/src/LAVRootIO.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/LAV/src/LAVRootIO.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -3136,7 +3136,7 @@ LAV/CMakeFiles/LAVObjLib.dir/src/LAVSD.cc.o
  ../LAV/include/LAVSampleMatrix.hh
  ../include/MCTruthTrackInformation.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/LAV/include/LAVChannelID.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/LAV/src/LAVSD.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/LAV/src/LAVSD.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -3411,10 +3411,10 @@ LAV/CMakeFiles/LAVObjLib.dir/src/LAVSD.cc.o
 LAV/CMakeFiles/LAVObjLib.dir/src/LAVSampleMatrix.cc.o
  ../LAV/include/LAVSampleMatrix.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/LAV/src/LAVSampleMatrix.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/LAV/src/LAVSampleMatrix.cc
 LAV/CMakeFiles/LAVObjLib.dir/src/LAVVPbGlBlock.cc.o
  ../LAV/include/LAVVPbGlBlock.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/LAV/src/LAVVPbGlBlock.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/LAV/src/LAVVPbGlBlock.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4EnvironmentUtils.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Exception.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4ExceptionSeverity.hh

@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/HAC/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 HAC/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/HAC/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 HAC/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 HAC/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 HAC/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 HAC/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 HAC/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 HAC/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 HAC/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 HAC/CMakeFiles/HAC.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 HAC/CMakeFiles/HAC.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 HAC/CMakeFiles/HAC.dir/rule
 .PHONY : HAC/CMakeFiles/HAC.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ HAC: HAC/CMakeFiles/HAC.dir/rule
 
 # fast build rule for target.
 HAC/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HAC.dir/build.make HAC/CMakeFiles/HAC.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HAC.dir/build.make HAC/CMakeFiles/HAC.dir/build
 .PHONY : HAC/fast
 
 # Convenience name for target.
 HAC/CMakeFiles/HACObjLib.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 HAC/CMakeFiles/HACObjLib.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 HAC/CMakeFiles/HACObjLib.dir/rule
 .PHONY : HAC/CMakeFiles/HACObjLib.dir/rule
 
 # Convenience name for target.
@@ -183,12 +183,12 @@ HACObjLib: HAC/CMakeFiles/HACObjLib.dir/rule
 
 # fast build rule for target.
 HACObjLib/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/build
 .PHONY : HACObjLib/fast
 
 # Convenience name for target.
 HAC/CMakeFiles/HAC-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 HAC/CMakeFiles/HAC-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 HAC/CMakeFiles/HAC-static.dir/rule
 .PHONY : HAC/CMakeFiles/HAC-static.dir/rule
 
 # Convenience name for target.
@@ -198,7 +198,7 @@ HAC-static: HAC/CMakeFiles/HAC-static.dir/rule
 
 # fast build rule for target.
 HAC-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HAC-static.dir/build.make HAC/CMakeFiles/HAC-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HAC-static.dir/build.make HAC/CMakeFiles/HAC-static.dir/build
 .PHONY : HAC-static/fast
 
 src/HACChannel.o: src/HACChannel.cc.o
@@ -207,7 +207,7 @@ src/HACChannel.o: src/HACChannel.cc.o
 
 # target to build an object file
 src/HACChannel.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACChannel.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACChannel.cc.o
 .PHONY : src/HACChannel.cc.o
 
 src/HACChannel.i: src/HACChannel.cc.i
@@ -216,7 +216,7 @@ src/HACChannel.i: src/HACChannel.cc.i
 
 # target to preprocess a source file
 src/HACChannel.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACChannel.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACChannel.cc.i
 .PHONY : src/HACChannel.cc.i
 
 src/HACChannel.s: src/HACChannel.cc.s
@@ -225,7 +225,7 @@ src/HACChannel.s: src/HACChannel.cc.s
 
 # target to generate assembly for a file
 src/HACChannel.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACChannel.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACChannel.cc.s
 .PHONY : src/HACChannel.cc.s
 
 src/HACDigitizer.o: src/HACDigitizer.cc.o
@@ -234,7 +234,7 @@ src/HACDigitizer.o: src/HACDigitizer.cc.o
 
 # target to build an object file
 src/HACDigitizer.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACDigitizer.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACDigitizer.cc.o
 .PHONY : src/HACDigitizer.cc.o
 
 src/HACDigitizer.i: src/HACDigitizer.cc.i
@@ -243,7 +243,7 @@ src/HACDigitizer.i: src/HACDigitizer.cc.i
 
 # target to preprocess a source file
 src/HACDigitizer.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACDigitizer.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACDigitizer.cc.i
 .PHONY : src/HACDigitizer.cc.i
 
 src/HACDigitizer.s: src/HACDigitizer.cc.s
@@ -252,7 +252,7 @@ src/HACDigitizer.s: src/HACDigitizer.cc.s
 
 # target to generate assembly for a file
 src/HACDigitizer.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACDigitizer.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACDigitizer.cc.s
 .PHONY : src/HACDigitizer.cc.s
 
 src/HACGeometry.o: src/HACGeometry.cc.o
@@ -261,7 +261,7 @@ src/HACGeometry.o: src/HACGeometry.cc.o
 
 # target to build an object file
 src/HACGeometry.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACGeometry.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACGeometry.cc.o
 .PHONY : src/HACGeometry.cc.o
 
 src/HACGeometry.i: src/HACGeometry.cc.i
@@ -270,7 +270,7 @@ src/HACGeometry.i: src/HACGeometry.cc.i
 
 # target to preprocess a source file
 src/HACGeometry.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACGeometry.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACGeometry.cc.i
 .PHONY : src/HACGeometry.cc.i
 
 src/HACGeometry.s: src/HACGeometry.cc.s
@@ -279,7 +279,7 @@ src/HACGeometry.s: src/HACGeometry.cc.s
 
 # target to generate assembly for a file
 src/HACGeometry.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACGeometry.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACGeometry.cc.s
 .PHONY : src/HACGeometry.cc.s
 
 src/HACOnlineMonitor.o: src/HACOnlineMonitor.cc.o
@@ -288,7 +288,7 @@ src/HACOnlineMonitor.o: src/HACOnlineMonitor.cc.o
 
 # target to build an object file
 src/HACOnlineMonitor.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACOnlineMonitor.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACOnlineMonitor.cc.o
 .PHONY : src/HACOnlineMonitor.cc.o
 
 src/HACOnlineMonitor.i: src/HACOnlineMonitor.cc.i
@@ -297,7 +297,7 @@ src/HACOnlineMonitor.i: src/HACOnlineMonitor.cc.i
 
 # target to preprocess a source file
 src/HACOnlineMonitor.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACOnlineMonitor.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACOnlineMonitor.cc.i
 .PHONY : src/HACOnlineMonitor.cc.i
 
 src/HACOnlineMonitor.s: src/HACOnlineMonitor.cc.s
@@ -306,7 +306,7 @@ src/HACOnlineMonitor.s: src/HACOnlineMonitor.cc.s
 
 # target to generate assembly for a file
 src/HACOnlineMonitor.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACOnlineMonitor.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACOnlineMonitor.cc.s
 .PHONY : src/HACOnlineMonitor.cc.s
 
 src/HACRawDecoder.o: src/HACRawDecoder.cc.o
@@ -315,7 +315,7 @@ src/HACRawDecoder.o: src/HACRawDecoder.cc.o
 
 # target to build an object file
 src/HACRawDecoder.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACRawDecoder.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACRawDecoder.cc.o
 .PHONY : src/HACRawDecoder.cc.o
 
 src/HACRawDecoder.i: src/HACRawDecoder.cc.i
@@ -324,7 +324,7 @@ src/HACRawDecoder.i: src/HACRawDecoder.cc.i
 
 # target to preprocess a source file
 src/HACRawDecoder.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACRawDecoder.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACRawDecoder.cc.i
 .PHONY : src/HACRawDecoder.cc.i
 
 src/HACRawDecoder.s: src/HACRawDecoder.cc.s
@@ -333,7 +333,7 @@ src/HACRawDecoder.s: src/HACRawDecoder.cc.s
 
 # target to generate assembly for a file
 src/HACRawDecoder.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACRawDecoder.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACRawDecoder.cc.s
 .PHONY : src/HACRawDecoder.cc.s
 
 src/HACRawEncoder.o: src/HACRawEncoder.cc.o
@@ -342,7 +342,7 @@ src/HACRawEncoder.o: src/HACRawEncoder.cc.o
 
 # target to build an object file
 src/HACRawEncoder.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACRawEncoder.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACRawEncoder.cc.o
 .PHONY : src/HACRawEncoder.cc.o
 
 src/HACRawEncoder.i: src/HACRawEncoder.cc.i
@@ -351,7 +351,7 @@ src/HACRawEncoder.i: src/HACRawEncoder.cc.i
 
 # target to preprocess a source file
 src/HACRawEncoder.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACRawEncoder.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACRawEncoder.cc.i
 .PHONY : src/HACRawEncoder.cc.i
 
 src/HACRawEncoder.s: src/HACRawEncoder.cc.s
@@ -360,7 +360,7 @@ src/HACRawEncoder.s: src/HACRawEncoder.cc.s
 
 # target to generate assembly for a file
 src/HACRawEncoder.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACRawEncoder.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACRawEncoder.cc.s
 .PHONY : src/HACRawEncoder.cc.s
 
 src/HACReconstruction.o: src/HACReconstruction.cc.o
@@ -369,7 +369,7 @@ src/HACReconstruction.o: src/HACReconstruction.cc.o
 
 # target to build an object file
 src/HACReconstruction.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACReconstruction.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACReconstruction.cc.o
 .PHONY : src/HACReconstruction.cc.o
 
 src/HACReconstruction.i: src/HACReconstruction.cc.i
@@ -378,7 +378,7 @@ src/HACReconstruction.i: src/HACReconstruction.cc.i
 
 # target to preprocess a source file
 src/HACReconstruction.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACReconstruction.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACReconstruction.cc.i
 .PHONY : src/HACReconstruction.cc.i
 
 src/HACReconstruction.s: src/HACReconstruction.cc.s
@@ -387,7 +387,7 @@ src/HACReconstruction.s: src/HACReconstruction.cc.s
 
 # target to generate assembly for a file
 src/HACReconstruction.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACReconstruction.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f HAC/CMakeFiles/HACObjLib.dir/build.make HAC/CMakeFiles/HACObjLib.dir/src/HACReconstruction.cc.s
 .PHONY : src/HACReconstruction.cc.s
 
 # Help Target
@@ -437,6 +437,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

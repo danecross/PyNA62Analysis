@@ -37,14 +37,14 @@
 namespace std {} using namespace std;
 
 // Header files passed as explicit arguments
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/CedarChannelID.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TCedarDigi.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TCedarEvent.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TCedarHit.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TCedarSpecialTriggerEvent.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TRecoCedarCandidate.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TRecoCedarEvent.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include/TRecoCedarHit.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/CedarChannelID.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TCedarDigi.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TCedarEvent.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TCedarHit.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TCedarSpecialTriggerEvent.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TRecoCedarCandidate.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TRecoCedarEvent.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include/TRecoCedarHit.hh"
 
 // Header files passed via #pragma extra_include
 
@@ -954,11 +954,11 @@ namespace {
 0    };
     static const char* includePaths[] = {
 "/cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include",
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/include",
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include",
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/Cedar/include",
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/include",
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/NA62/include",
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/Cedar/include",
 "/cvmfs/sft.cern.ch/lcg/releases/ROOT/6.16.00-42022/x86_64-centos7-gcc7-opt/include",
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/Cedar/",
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/Cedar/",
 0
     };
     static const char* fwdDeclCode = R"DICTFWDDCLS(

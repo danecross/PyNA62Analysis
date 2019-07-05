@@ -37,15 +37,15 @@
 namespace std {} using namespace std;
 
 // Header files passed as explicit arguments
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/LAVChannelID.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/LAVDefinitions.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TLAVDigi.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TLAVEvent.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TLAVHit.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVCandidate.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVDigi.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVEvent.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVHit.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/LAVChannelID.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/LAVDefinitions.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TLAVDigi.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TLAVEvent.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TLAVHit.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVCandidate.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVDigi.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVEvent.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include/TRecoLAVHit.hh"
 
 // Header files passed via #pragma extra_include
 
@@ -855,11 +855,11 @@ namespace {
 0    };
     static const char* includePaths[] = {
 "/cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include",
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/include",
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include",
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LAV/include",
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/include",
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/NA62/include",
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LAV/include",
 "/cvmfs/sft.cern.ch/lcg/releases/ROOT/6.16.00-42022/x86_64-centos7-gcc7-opt/include",
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/LAV/",
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/LAV/",
 0
     };
     static const char* fwdDeclCode = R"DICTFWDDCLS(

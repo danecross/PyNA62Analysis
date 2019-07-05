@@ -37,13 +37,13 @@
 namespace std {} using namespace std;
 
 // Header files passed as explicit arguments
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/SACChannelID.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/TRecoSACCandidate.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/TRecoSACEvent.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/TRecoSACHit.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/TSACDigi.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/TSACEvent.hh"
-#include "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include/TSACHit.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/SACChannelID.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/TRecoSACCandidate.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/TRecoSACEvent.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/TRecoSACHit.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/TSACDigi.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/TSACEvent.hh"
+#include "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include/TSACHit.hh"
 
 // Header files passed via #pragma extra_include
 
@@ -753,11 +753,11 @@ namespace {
 0    };
     static const char* includePaths[] = {
 "/cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include",
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/include",
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/NA62/include",
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/SAC/include",
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/include",
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/NA62/include",
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/SAC/include",
 "/cvmfs/sft.cern.ch/lcg/releases/ROOT/6.16.00-42022/x86_64-centos7-gcc7-opt/include",
-"/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/SAC/",
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/SAC/",
 0
     };
     static const char* fwdDeclCode = R"DICTFWDDCLS(

@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/LKr/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/LKr/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 LKr/CMakeFiles/LKr.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/CMakeFiles/LKr.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/CMakeFiles/LKr.dir/rule
 .PHONY : LKr/CMakeFiles/LKr.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ LKr: LKr/CMakeFiles/LKr.dir/rule
 
 # fast build rule for target.
 LKr/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKr.dir/build.make LKr/CMakeFiles/LKr.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKr.dir/build.make LKr/CMakeFiles/LKr.dir/build
 .PHONY : LKr/fast
 
 # Convenience name for target.
 LKr/CMakeFiles/LKrObjLib.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/CMakeFiles/LKrObjLib.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/CMakeFiles/LKrObjLib.dir/rule
 .PHONY : LKr/CMakeFiles/LKrObjLib.dir/rule
 
 # Convenience name for target.
@@ -183,12 +183,12 @@ LKrObjLib: LKr/CMakeFiles/LKrObjLib.dir/rule
 
 # fast build rule for target.
 LKrObjLib/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/build
 .PHONY : LKrObjLib/fast
 
 # Convenience name for target.
 LKr/CMakeFiles/LKr-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/CMakeFiles/LKr-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 LKr/CMakeFiles/LKr-static.dir/rule
 .PHONY : LKr/CMakeFiles/LKr-static.dir/rule
 
 # Convenience name for target.
@@ -198,7 +198,7 @@ LKr-static: LKr/CMakeFiles/LKr-static.dir/rule
 
 # fast build rule for target.
 LKr-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKr-static.dir/build.make LKr/CMakeFiles/LKr-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKr-static.dir/build.make LKr/CMakeFiles/LKr-static.dir/build
 .PHONY : LKr-static/fast
 
 src/CPDBuffer.o: src/CPDBuffer.cc.o
@@ -207,7 +207,7 @@ src/CPDBuffer.o: src/CPDBuffer.cc.o
 
 # target to build an object file
 src/CPDBuffer.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/CPDBuffer.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/CPDBuffer.cc.o
 .PHONY : src/CPDBuffer.cc.o
 
 src/CPDBuffer.i: src/CPDBuffer.cc.i
@@ -216,7 +216,7 @@ src/CPDBuffer.i: src/CPDBuffer.cc.i
 
 # target to preprocess a source file
 src/CPDBuffer.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/CPDBuffer.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/CPDBuffer.cc.i
 .PHONY : src/CPDBuffer.cc.i
 
 src/CPDBuffer.s: src/CPDBuffer.cc.s
@@ -225,7 +225,7 @@ src/CPDBuffer.s: src/CPDBuffer.cc.s
 
 # target to generate assembly for a file
 src/CPDBuffer.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/CPDBuffer.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/CPDBuffer.cc.s
 .PHONY : src/CPDBuffer.cc.s
 
 src/CPDRawDecoder.o: src/CPDRawDecoder.cc.o
@@ -234,7 +234,7 @@ src/CPDRawDecoder.o: src/CPDRawDecoder.cc.o
 
 # target to build an object file
 src/CPDRawDecoder.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/CPDRawDecoder.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/CPDRawDecoder.cc.o
 .PHONY : src/CPDRawDecoder.cc.o
 
 src/CPDRawDecoder.i: src/CPDRawDecoder.cc.i
@@ -243,7 +243,7 @@ src/CPDRawDecoder.i: src/CPDRawDecoder.cc.i
 
 # target to preprocess a source file
 src/CPDRawDecoder.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/CPDRawDecoder.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/CPDRawDecoder.cc.i
 .PHONY : src/CPDRawDecoder.cc.i
 
 src/CPDRawDecoder.s: src/CPDRawDecoder.cc.s
@@ -252,7 +252,7 @@ src/CPDRawDecoder.s: src/CPDRawDecoder.cc.s
 
 # target to generate assembly for a file
 src/CPDRawDecoder.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/CPDRawDecoder.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/CPDRawDecoder.cc.s
 .PHONY : src/CPDRawDecoder.cc.s
 
 src/LKrCommon.o: src/LKrCommon.cc.o
@@ -261,7 +261,7 @@ src/LKrCommon.o: src/LKrCommon.cc.o
 
 # target to build an object file
 src/LKrCommon.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrCommon.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrCommon.cc.o
 .PHONY : src/LKrCommon.cc.o
 
 src/LKrCommon.i: src/LKrCommon.cc.i
@@ -270,7 +270,7 @@ src/LKrCommon.i: src/LKrCommon.cc.i
 
 # target to preprocess a source file
 src/LKrCommon.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrCommon.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrCommon.cc.i
 .PHONY : src/LKrCommon.cc.i
 
 src/LKrCommon.s: src/LKrCommon.cc.s
@@ -279,7 +279,7 @@ src/LKrCommon.s: src/LKrCommon.cc.s
 
 # target to generate assembly for a file
 src/LKrCommon.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrCommon.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrCommon.cc.s
 .PHONY : src/LKrCommon.cc.s
 
 src/LKrDigiManager.o: src/LKrDigiManager.cc.o
@@ -288,7 +288,7 @@ src/LKrDigiManager.o: src/LKrDigiManager.cc.o
 
 # target to build an object file
 src/LKrDigiManager.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDigiManager.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDigiManager.cc.o
 .PHONY : src/LKrDigiManager.cc.o
 
 src/LKrDigiManager.i: src/LKrDigiManager.cc.i
@@ -297,7 +297,7 @@ src/LKrDigiManager.i: src/LKrDigiManager.cc.i
 
 # target to preprocess a source file
 src/LKrDigiManager.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDigiManager.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDigiManager.cc.i
 .PHONY : src/LKrDigiManager.cc.i
 
 src/LKrDigiManager.s: src/LKrDigiManager.cc.s
@@ -306,7 +306,7 @@ src/LKrDigiManager.s: src/LKrDigiManager.cc.s
 
 # target to generate assembly for a file
 src/LKrDigiManager.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDigiManager.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDigiManager.cc.s
 .PHONY : src/LKrDigiManager.cc.s
 
 src/LKrDigitizer.o: src/LKrDigitizer.cc.o
@@ -315,7 +315,7 @@ src/LKrDigitizer.o: src/LKrDigitizer.cc.o
 
 # target to build an object file
 src/LKrDigitizer.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDigitizer.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDigitizer.cc.o
 .PHONY : src/LKrDigitizer.cc.o
 
 src/LKrDigitizer.i: src/LKrDigitizer.cc.i
@@ -324,7 +324,7 @@ src/LKrDigitizer.i: src/LKrDigitizer.cc.i
 
 # target to preprocess a source file
 src/LKrDigitizer.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDigitizer.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDigitizer.cc.i
 .PHONY : src/LKrDigitizer.cc.i
 
 src/LKrDigitizer.s: src/LKrDigitizer.cc.s
@@ -333,7 +333,7 @@ src/LKrDigitizer.s: src/LKrDigitizer.cc.s
 
 # target to generate assembly for a file
 src/LKrDigitizer.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDigitizer.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrDigitizer.cc.s
 .PHONY : src/LKrDigitizer.cc.s
 
 src/LKrGeometry.o: src/LKrGeometry.cc.o
@@ -342,7 +342,7 @@ src/LKrGeometry.o: src/LKrGeometry.cc.o
 
 # target to build an object file
 src/LKrGeometry.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrGeometry.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrGeometry.cc.o
 .PHONY : src/LKrGeometry.cc.o
 
 src/LKrGeometry.i: src/LKrGeometry.cc.i
@@ -351,7 +351,7 @@ src/LKrGeometry.i: src/LKrGeometry.cc.i
 
 # target to preprocess a source file
 src/LKrGeometry.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrGeometry.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrGeometry.cc.i
 .PHONY : src/LKrGeometry.cc.i
 
 src/LKrGeometry.s: src/LKrGeometry.cc.s
@@ -360,7 +360,7 @@ src/LKrGeometry.s: src/LKrGeometry.cc.s
 
 # target to generate assembly for a file
 src/LKrGeometry.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrGeometry.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrGeometry.cc.s
 .PHONY : src/LKrGeometry.cc.s
 
 src/LKrOnlineMonitor.o: src/LKrOnlineMonitor.cc.o
@@ -369,7 +369,7 @@ src/LKrOnlineMonitor.o: src/LKrOnlineMonitor.cc.o
 
 # target to build an object file
 src/LKrOnlineMonitor.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrOnlineMonitor.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrOnlineMonitor.cc.o
 .PHONY : src/LKrOnlineMonitor.cc.o
 
 src/LKrOnlineMonitor.i: src/LKrOnlineMonitor.cc.i
@@ -378,7 +378,7 @@ src/LKrOnlineMonitor.i: src/LKrOnlineMonitor.cc.i
 
 # target to preprocess a source file
 src/LKrOnlineMonitor.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrOnlineMonitor.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrOnlineMonitor.cc.i
 .PHONY : src/LKrOnlineMonitor.cc.i
 
 src/LKrOnlineMonitor.s: src/LKrOnlineMonitor.cc.s
@@ -387,7 +387,7 @@ src/LKrOnlineMonitor.s: src/LKrOnlineMonitor.cc.s
 
 # target to generate assembly for a file
 src/LKrOnlineMonitor.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrOnlineMonitor.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrOnlineMonitor.cc.s
 .PHONY : src/LKrOnlineMonitor.cc.s
 
 src/LKrParameters.o: src/LKrParameters.cc.o
@@ -396,7 +396,7 @@ src/LKrParameters.o: src/LKrParameters.cc.o
 
 # target to build an object file
 src/LKrParameters.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrParameters.cc.o
 .PHONY : src/LKrParameters.cc.o
 
 src/LKrParameters.i: src/LKrParameters.cc.i
@@ -405,7 +405,7 @@ src/LKrParameters.i: src/LKrParameters.cc.i
 
 # target to preprocess a source file
 src/LKrParameters.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrParameters.cc.i
 .PHONY : src/LKrParameters.cc.i
 
 src/LKrParameters.s: src/LKrParameters.cc.s
@@ -414,7 +414,7 @@ src/LKrParameters.s: src/LKrParameters.cc.s
 
 # target to generate assembly for a file
 src/LKrParameters.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrParameters.cc.s
 .PHONY : src/LKrParameters.cc.s
 
 src/LKrRawDecoder.o: src/LKrRawDecoder.cc.o
@@ -423,7 +423,7 @@ src/LKrRawDecoder.o: src/LKrRawDecoder.cc.o
 
 # target to build an object file
 src/LKrRawDecoder.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrRawDecoder.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrRawDecoder.cc.o
 .PHONY : src/LKrRawDecoder.cc.o
 
 src/LKrRawDecoder.i: src/LKrRawDecoder.cc.i
@@ -432,7 +432,7 @@ src/LKrRawDecoder.i: src/LKrRawDecoder.cc.i
 
 # target to preprocess a source file
 src/LKrRawDecoder.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrRawDecoder.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrRawDecoder.cc.i
 .PHONY : src/LKrRawDecoder.cc.i
 
 src/LKrRawDecoder.s: src/LKrRawDecoder.cc.s
@@ -441,7 +441,7 @@ src/LKrRawDecoder.s: src/LKrRawDecoder.cc.s
 
 # target to generate assembly for a file
 src/LKrRawDecoder.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrRawDecoder.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrRawDecoder.cc.s
 .PHONY : src/LKrRawDecoder.cc.s
 
 src/LKrRawEncoder.o: src/LKrRawEncoder.cc.o
@@ -450,7 +450,7 @@ src/LKrRawEncoder.o: src/LKrRawEncoder.cc.o
 
 # target to build an object file
 src/LKrRawEncoder.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrRawEncoder.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrRawEncoder.cc.o
 .PHONY : src/LKrRawEncoder.cc.o
 
 src/LKrRawEncoder.i: src/LKrRawEncoder.cc.i
@@ -459,7 +459,7 @@ src/LKrRawEncoder.i: src/LKrRawEncoder.cc.i
 
 # target to preprocess a source file
 src/LKrRawEncoder.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrRawEncoder.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrRawEncoder.cc.i
 .PHONY : src/LKrRawEncoder.cc.i
 
 src/LKrRawEncoder.s: src/LKrRawEncoder.cc.s
@@ -468,7 +468,7 @@ src/LKrRawEncoder.s: src/LKrRawEncoder.cc.s
 
 # target to generate assembly for a file
 src/LKrRawEncoder.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrRawEncoder.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrRawEncoder.cc.s
 .PHONY : src/LKrRawEncoder.cc.s
 
 src/LKrReconstruction.o: src/LKrReconstruction.cc.o
@@ -477,7 +477,7 @@ src/LKrReconstruction.o: src/LKrReconstruction.cc.o
 
 # target to build an object file
 src/LKrReconstruction.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrReconstruction.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrReconstruction.cc.o
 .PHONY : src/LKrReconstruction.cc.o
 
 src/LKrReconstruction.i: src/LKrReconstruction.cc.i
@@ -486,7 +486,7 @@ src/LKrReconstruction.i: src/LKrReconstruction.cc.i
 
 # target to preprocess a source file
 src/LKrReconstruction.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrReconstruction.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrReconstruction.cc.i
 .PHONY : src/LKrReconstruction.cc.i
 
 src/LKrReconstruction.s: src/LKrReconstruction.cc.s
@@ -495,7 +495,7 @@ src/LKrReconstruction.s: src/LKrReconstruction.cc.s
 
 # target to generate assembly for a file
 src/LKrReconstruction.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrReconstruction.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/LKrReconstruction.cc.s
 .PHONY : src/LKrReconstruction.cc.s
 
 src/SLMBuffer.o: src/SLMBuffer.cc.o
@@ -504,7 +504,7 @@ src/SLMBuffer.o: src/SLMBuffer.cc.o
 
 # target to build an object file
 src/SLMBuffer.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/SLMBuffer.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/SLMBuffer.cc.o
 .PHONY : src/SLMBuffer.cc.o
 
 src/SLMBuffer.i: src/SLMBuffer.cc.i
@@ -513,7 +513,7 @@ src/SLMBuffer.i: src/SLMBuffer.cc.i
 
 # target to preprocess a source file
 src/SLMBuffer.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/SLMBuffer.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/SLMBuffer.cc.i
 .PHONY : src/SLMBuffer.cc.i
 
 src/SLMBuffer.s: src/SLMBuffer.cc.s
@@ -522,7 +522,7 @@ src/SLMBuffer.s: src/SLMBuffer.cc.s
 
 # target to generate assembly for a file
 src/SLMBuffer.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/SLMBuffer.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/SLMBuffer.cc.s
 .PHONY : src/SLMBuffer.cc.s
 
 src/SLMRawDecoder.o: src/SLMRawDecoder.cc.o
@@ -531,7 +531,7 @@ src/SLMRawDecoder.o: src/SLMRawDecoder.cc.o
 
 # target to build an object file
 src/SLMRawDecoder.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/SLMRawDecoder.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/SLMRawDecoder.cc.o
 .PHONY : src/SLMRawDecoder.cc.o
 
 src/SLMRawDecoder.i: src/SLMRawDecoder.cc.i
@@ -540,7 +540,7 @@ src/SLMRawDecoder.i: src/SLMRawDecoder.cc.i
 
 # target to preprocess a source file
 src/SLMRawDecoder.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/SLMRawDecoder.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/SLMRawDecoder.cc.i
 .PHONY : src/SLMRawDecoder.cc.i
 
 src/SLMRawDecoder.s: src/SLMRawDecoder.cc.s
@@ -549,7 +549,7 @@ src/SLMRawDecoder.s: src/SLMRawDecoder.cc.s
 
 # target to generate assembly for a file
 src/SLMRawDecoder.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/SLMRawDecoder.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/SLMRawDecoder.cc.s
 .PHONY : src/SLMRawDecoder.cc.s
 
 src/clus0.o: src/clus0.f.o
@@ -558,7 +558,7 @@ src/clus0.o: src/clus0.f.o
 
 # target to build an object file
 src/clus0.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/clus0.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/clus0.f.o
 .PHONY : src/clus0.f.o
 
 src/clus0.i: src/clus0.f.i
@@ -567,7 +567,7 @@ src/clus0.i: src/clus0.f.i
 
 # target to preprocess a source file
 src/clus0.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/clus0.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/clus0.f.i
 .PHONY : src/clus0.f.i
 
 src/clus0.s: src/clus0.f.s
@@ -576,7 +576,7 @@ src/clus0.s: src/clus0.f.s
 
 # target to generate assembly for a file
 src/clus0.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/clus0.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/clus0.f.s
 .PHONY : src/clus0.f.s
 
 src/clus1.o: src/clus1.f.o
@@ -585,7 +585,7 @@ src/clus1.o: src/clus1.f.o
 
 # target to build an object file
 src/clus1.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/clus1.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/clus1.f.o
 .PHONY : src/clus1.f.o
 
 src/clus1.i: src/clus1.f.i
@@ -594,7 +594,7 @@ src/clus1.i: src/clus1.f.i
 
 # target to preprocess a source file
 src/clus1.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/clus1.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/clus1.f.i
 .PHONY : src/clus1.f.i
 
 src/clus1.s: src/clus1.f.s
@@ -603,7 +603,7 @@ src/clus1.s: src/clus1.f.s
 
 # target to generate assembly for a file
 src/clus1.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/clus1.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/clus1.f.s
 .PHONY : src/clus1.f.s
 
 src/cluscellt0.o: src/cluscellt0.f.o
@@ -612,7 +612,7 @@ src/cluscellt0.o: src/cluscellt0.f.o
 
 # target to build an object file
 src/cluscellt0.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/cluscellt0.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/cluscellt0.f.o
 .PHONY : src/cluscellt0.f.o
 
 src/cluscellt0.i: src/cluscellt0.f.i
@@ -621,7 +621,7 @@ src/cluscellt0.i: src/cluscellt0.f.i
 
 # target to preprocess a source file
 src/cluscellt0.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/cluscellt0.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/cluscellt0.f.i
 .PHONY : src/cluscellt0.f.i
 
 src/cluscellt0.s: src/cluscellt0.f.s
@@ -630,7 +630,7 @@ src/cluscellt0.s: src/cluscellt0.f.s
 
 # target to generate assembly for a file
 src/cluscellt0.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/cluscellt0.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/cluscellt0.f.s
 .PHONY : src/cluscellt0.f.s
 
 src/crstalkcor.o: src/crstalkcor.f.o
@@ -639,7 +639,7 @@ src/crstalkcor.o: src/crstalkcor.f.o
 
 # target to build an object file
 src/crstalkcor.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/crstalkcor.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/crstalkcor.f.o
 .PHONY : src/crstalkcor.f.o
 
 src/crstalkcor.i: src/crstalkcor.f.i
@@ -648,7 +648,7 @@ src/crstalkcor.i: src/crstalkcor.f.i
 
 # target to preprocess a source file
 src/crstalkcor.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/crstalkcor.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/crstalkcor.f.i
 .PHONY : src/crstalkcor.f.i
 
 src/crstalkcor.s: src/crstalkcor.f.s
@@ -657,7 +657,7 @@ src/crstalkcor.s: src/crstalkcor.f.s
 
 # target to generate assembly for a file
 src/crstalkcor.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/crstalkcor.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/crstalkcor.f.s
 .PHONY : src/crstalkcor.f.s
 
 src/ctox.o: src/ctox.f.o
@@ -666,7 +666,7 @@ src/ctox.o: src/ctox.f.o
 
 # target to build an object file
 src/ctox.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/ctox.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/ctox.f.o
 .PHONY : src/ctox.f.o
 
 src/ctox.i: src/ctox.f.i
@@ -675,7 +675,7 @@ src/ctox.i: src/ctox.f.i
 
 # target to preprocess a source file
 src/ctox.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/ctox.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/ctox.f.i
 .PHONY : src/ctox.f.i
 
 src/ctox.s: src/ctox.f.s
@@ -684,7 +684,7 @@ src/ctox.s: src/ctox.f.s
 
 # target to generate assembly for a file
 src/ctox.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/ctox.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/ctox.f.s
 .PHONY : src/ctox.f.s
 
 src/ctoy.o: src/ctoy.f.o
@@ -693,7 +693,7 @@ src/ctoy.o: src/ctoy.f.o
 
 # target to build an object file
 src/ctoy.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/ctoy.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/ctoy.f.o
 .PHONY : src/ctoy.f.o
 
 src/ctoy.i: src/ctoy.f.i
@@ -702,7 +702,7 @@ src/ctoy.i: src/ctoy.f.i
 
 # target to preprocess a source file
 src/ctoy.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/ctoy.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/ctoy.f.i
 .PHONY : src/ctoy.f.i
 
 src/ctoy.s: src/ctoy.f.s
@@ -711,7 +711,7 @@ src/ctoy.s: src/ctoy.f.s
 
 # target to generate assembly for a file
 src/ctoy.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/ctoy.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/ctoy.f.s
 .PHONY : src/ctoy.f.s
 
 src/dec000.o: src/dec000.f.o
@@ -720,7 +720,7 @@ src/dec000.o: src/dec000.f.o
 
 # target to build an object file
 src/dec000.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/dec000.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/dec000.f.o
 .PHONY : src/dec000.f.o
 
 src/dec000.i: src/dec000.f.i
@@ -729,7 +729,7 @@ src/dec000.i: src/dec000.f.i
 
 # target to preprocess a source file
 src/dec000.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/dec000.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/dec000.f.i
 .PHONY : src/dec000.f.i
 
 src/dec000.s: src/dec000.f.s
@@ -738,7 +738,7 @@ src/dec000.s: src/dec000.f.s
 
 # target to generate assembly for a file
 src/dec000.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/dec000.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/dec000.f.s
 .PHONY : src/dec000.f.s
 
 src/digfilter.o: src/digfilter.f.o
@@ -747,7 +747,7 @@ src/digfilter.o: src/digfilter.f.o
 
 # target to build an object file
 src/digfilter.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/digfilter.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/digfilter.f.o
 .PHONY : src/digfilter.f.o
 
 src/digfilter.i: src/digfilter.f.i
@@ -756,7 +756,7 @@ src/digfilter.i: src/digfilter.f.i
 
 # target to preprocess a source file
 src/digfilter.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/digfilter.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/digfilter.f.i
 .PHONY : src/digfilter.f.i
 
 src/digfilter.s: src/digfilter.f.s
@@ -765,7 +765,7 @@ src/digfilter.s: src/digfilter.f.s
 
 # target to generate assembly for a file
 src/digfilter.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/digfilter.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/digfilter.f.s
 .PHONY : src/digfilter.f.s
 
 src/ecor.o: src/ecor.f.o
@@ -774,7 +774,7 @@ src/ecor.o: src/ecor.f.o
 
 # target to build an object file
 src/ecor.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/ecor.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/ecor.f.o
 .PHONY : src/ecor.f.o
 
 src/ecor.i: src/ecor.f.i
@@ -783,7 +783,7 @@ src/ecor.i: src/ecor.f.i
 
 # target to preprocess a source file
 src/ecor.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/ecor.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/ecor.f.i
 .PHONY : src/ecor.f.i
 
 src/ecor.s: src/ecor.f.s
@@ -792,7 +792,7 @@ src/ecor.s: src/ecor.f.s
 
 # target to generate assembly for a file
 src/ecor.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/ecor.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/ecor.f.s
 .PHONY : src/ecor.f.s
 
 src/efrac.o: src/efrac.f.o
@@ -801,7 +801,7 @@ src/efrac.o: src/efrac.f.o
 
 # target to build an object file
 src/efrac.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/efrac.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/efrac.f.o
 .PHONY : src/efrac.f.o
 
 src/efrac.i: src/efrac.f.i
@@ -810,7 +810,7 @@ src/efrac.i: src/efrac.f.i
 
 # target to preprocess a source file
 src/efrac.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/efrac.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/efrac.f.i
 .PHONY : src/efrac.f.i
 
 src/efrac.s: src/efrac.f.s
@@ -819,7 +819,7 @@ src/efrac.s: src/efrac.f.s
 
 # target to generate assembly for a file
 src/efrac.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/efrac.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/efrac.f.s
 .PHONY : src/efrac.f.s
 
 src/efrac2.o: src/efrac2.f.o
@@ -828,7 +828,7 @@ src/efrac2.o: src/efrac2.f.o
 
 # target to build an object file
 src/efrac2.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/efrac2.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/efrac2.f.o
 .PHONY : src/efrac2.f.o
 
 src/efrac2.i: src/efrac2.f.i
@@ -837,7 +837,7 @@ src/efrac2.i: src/efrac2.f.i
 
 # target to preprocess a source file
 src/efrac2.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/efrac2.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/efrac2.f.i
 .PHONY : src/efrac2.f.i
 
 src/efrac2.s: src/efrac2.f.s
@@ -846,7 +846,7 @@ src/efrac2.s: src/efrac2.f.s
 
 # target to generate assembly for a file
 src/efrac2.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/efrac2.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/efrac2.f.s
 .PHONY : src/efrac2.f.s
 
 src/filtini.o: src/filtini.f.o
@@ -855,7 +855,7 @@ src/filtini.o: src/filtini.f.o
 
 # target to build an object file
 src/filtini.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/filtini.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/filtini.f.o
 .PHONY : src/filtini.f.o
 
 src/filtini.i: src/filtini.f.i
@@ -864,7 +864,7 @@ src/filtini.i: src/filtini.f.i
 
 # target to preprocess a source file
 src/filtini.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/filtini.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/filtini.f.i
 .PHONY : src/filtini.f.i
 
 src/filtini.s: src/filtini.f.s
@@ -873,7 +873,7 @@ src/filtini.s: src/filtini.f.s
 
 # target to generate assembly for a file
 src/filtini.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/filtini.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/filtini.f.s
 .PHONY : src/filtini.f.s
 
 src/filtini_mc.o: src/filtini_mc.f.o
@@ -882,7 +882,7 @@ src/filtini_mc.o: src/filtini_mc.f.o
 
 # target to build an object file
 src/filtini_mc.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/filtini_mc.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/filtini_mc.f.o
 .PHONY : src/filtini_mc.f.o
 
 src/filtini_mc.i: src/filtini_mc.f.i
@@ -891,7 +891,7 @@ src/filtini_mc.i: src/filtini_mc.f.i
 
 # target to preprocess a source file
 src/filtini_mc.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/filtini_mc.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/filtini_mc.f.i
 .PHONY : src/filtini_mc.f.i
 
 src/filtini_mc.s: src/filtini_mc.f.s
@@ -900,7 +900,7 @@ src/filtini_mc.s: src/filtini_mc.f.s
 
 # target to generate assembly for a file
 src/filtini_mc.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/filtini_mc.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/filtini_mc.f.s
 .PHONY : src/filtini_mc.f.s
 
 src/fitdead.o: src/fitdead.f.o
@@ -909,7 +909,7 @@ src/fitdead.o: src/fitdead.f.o
 
 # target to build an object file
 src/fitdead.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/fitdead.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/fitdead.f.o
 .PHONY : src/fitdead.f.o
 
 src/fitdead.i: src/fitdead.f.i
@@ -918,7 +918,7 @@ src/fitdead.i: src/fitdead.f.i
 
 # target to preprocess a source file
 src/fitdead.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/fitdead.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/fitdead.f.i
 .PHONY : src/fitdead.f.i
 
 src/fitdead.s: src/fitdead.f.s
@@ -927,7 +927,7 @@ src/fitdead.s: src/fitdead.f.s
 
 # target to generate assembly for a file
 src/fitdead.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/fitdead.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/fitdead.f.s
 .PHONY : src/fitdead.f.s
 
 src/lkr_common_address.o: src/lkr_common_address.c.o
@@ -936,7 +936,7 @@ src/lkr_common_address.o: src/lkr_common_address.c.o
 
 # target to build an object file
 src/lkr_common_address.c.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/lkr_common_address.c.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/lkr_common_address.c.o
 .PHONY : src/lkr_common_address.c.o
 
 src/lkr_common_address.i: src/lkr_common_address.c.i
@@ -945,7 +945,7 @@ src/lkr_common_address.i: src/lkr_common_address.c.i
 
 # target to preprocess a source file
 src/lkr_common_address.c.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/lkr_common_address.c.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/lkr_common_address.c.i
 .PHONY : src/lkr_common_address.c.i
 
 src/lkr_common_address.s: src/lkr_common_address.c.s
@@ -954,7 +954,7 @@ src/lkr_common_address.s: src/lkr_common_address.c.s
 
 # target to generate assembly for a file
 src/lkr_common_address.c.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/lkr_common_address.c.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/lkr_common_address.c.s
 .PHONY : src/lkr_common_address.c.s
 
 src/profini.o: src/profini.f.o
@@ -963,7 +963,7 @@ src/profini.o: src/profini.f.o
 
 # target to build an object file
 src/profini.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/profini.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/profini.f.o
 .PHONY : src/profini.f.o
 
 src/profini.i: src/profini.f.i
@@ -972,7 +972,7 @@ src/profini.i: src/profini.f.i
 
 # target to preprocess a source file
 src/profini.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/profini.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/profini.f.i
 .PHONY : src/profini.f.i
 
 src/profini.s: src/profini.f.s
@@ -981,7 +981,7 @@ src/profini.s: src/profini.f.s
 
 # target to generate assembly for a file
 src/profini.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/profini.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/profini.f.s
 .PHONY : src/profini.f.s
 
 src/profini2.o: src/profini2.f.o
@@ -990,7 +990,7 @@ src/profini2.o: src/profini2.f.o
 
 # target to build an object file
 src/profini2.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/profini2.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/profini2.f.o
 .PHONY : src/profini2.f.o
 
 src/profini2.i: src/profini2.f.i
@@ -999,7 +999,7 @@ src/profini2.i: src/profini2.f.i
 
 # target to preprocess a source file
 src/profini2.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/profini2.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/profini2.f.i
 .PHONY : src/profini2.f.i
 
 src/profini2.s: src/profini2.f.s
@@ -1008,7 +1008,7 @@ src/profini2.s: src/profini2.f.s
 
 # target to generate assembly for a file
 src/profini2.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/profini2.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/profini2.f.s
 .PHONY : src/profini2.f.s
 
 src/pulsemax.o: src/pulsemax.f.o
@@ -1017,7 +1017,7 @@ src/pulsemax.o: src/pulsemax.f.o
 
 # target to build an object file
 src/pulsemax.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulsemax.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulsemax.f.o
 .PHONY : src/pulsemax.f.o
 
 src/pulsemax.i: src/pulsemax.f.i
@@ -1026,7 +1026,7 @@ src/pulsemax.i: src/pulsemax.f.i
 
 # target to preprocess a source file
 src/pulsemax.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulsemax.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulsemax.f.i
 .PHONY : src/pulsemax.f.i
 
 src/pulsemax.s: src/pulsemax.f.s
@@ -1035,7 +1035,7 @@ src/pulsemax.s: src/pulsemax.f.s
 
 # target to generate assembly for a file
 src/pulsemax.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulsemax.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulsemax.f.s
 .PHONY : src/pulsemax.f.s
 
 src/pulseped.o: src/pulseped.f.o
@@ -1044,7 +1044,7 @@ src/pulseped.o: src/pulseped.f.o
 
 # target to build an object file
 src/pulseped.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulseped.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulseped.f.o
 .PHONY : src/pulseped.f.o
 
 src/pulseped.i: src/pulseped.f.i
@@ -1053,7 +1053,7 @@ src/pulseped.i: src/pulseped.f.i
 
 # target to preprocess a source file
 src/pulseped.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulseped.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulseped.f.i
 .PHONY : src/pulseped.f.i
 
 src/pulseped.s: src/pulseped.f.s
@@ -1062,7 +1062,7 @@ src/pulseped.s: src/pulseped.f.s
 
 # target to generate assembly for a file
 src/pulseped.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulseped.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulseped.f.s
 .PHONY : src/pulseped.f.s
 
 src/pulserec.o: src/pulserec.f.o
@@ -1071,7 +1071,7 @@ src/pulserec.o: src/pulserec.f.o
 
 # target to build an object file
 src/pulserec.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulserec.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulserec.f.o
 .PHONY : src/pulserec.f.o
 
 src/pulserec.i: src/pulserec.f.i
@@ -1080,7 +1080,7 @@ src/pulserec.i: src/pulserec.f.i
 
 # target to preprocess a source file
 src/pulserec.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulserec.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulserec.f.i
 .PHONY : src/pulserec.f.i
 
 src/pulserec.s: src/pulserec.f.s
@@ -1089,7 +1089,7 @@ src/pulserec.s: src/pulserec.f.s
 
 # target to generate assembly for a file
 src/pulserec.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulserec.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulserec.f.s
 .PHONY : src/pulserec.f.s
 
 src/pulsesep.o: src/pulsesep.f.o
@@ -1098,7 +1098,7 @@ src/pulsesep.o: src/pulsesep.f.o
 
 # target to build an object file
 src/pulsesep.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulsesep.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulsesep.f.o
 .PHONY : src/pulsesep.f.o
 
 src/pulsesep.i: src/pulsesep.f.i
@@ -1107,7 +1107,7 @@ src/pulsesep.i: src/pulsesep.f.i
 
 # target to preprocess a source file
 src/pulsesep.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulsesep.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulsesep.f.i
 .PHONY : src/pulsesep.f.i
 
 src/pulsesep.s: src/pulsesep.f.s
@@ -1116,7 +1116,7 @@ src/pulsesep.s: src/pulsesep.f.s
 
 # target to generate assembly for a file
 src/pulsesep.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulsesep.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/pulsesep.f.s
 .PHONY : src/pulsesep.f.s
 
 src/readinit.o: src/readinit.f.o
@@ -1125,7 +1125,7 @@ src/readinit.o: src/readinit.f.o
 
 # target to build an object file
 src/readinit.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/readinit.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/readinit.f.o
 .PHONY : src/readinit.f.o
 
 src/readinit.i: src/readinit.f.i
@@ -1134,7 +1134,7 @@ src/readinit.i: src/readinit.f.i
 
 # target to preprocess a source file
 src/readinit.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/readinit.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/readinit.f.i
 .PHONY : src/readinit.f.i
 
 src/readinit.s: src/readinit.f.s
@@ -1143,7 +1143,7 @@ src/readinit.s: src/readinit.f.s
 
 # target to generate assembly for a file
 src/readinit.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/readinit.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/readinit.f.s
 .PHONY : src/readinit.f.s
 
 src/rmsxc.o: src/rmsxc.f.o
@@ -1152,7 +1152,7 @@ src/rmsxc.o: src/rmsxc.f.o
 
 # target to build an object file
 src/rmsxc.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/rmsxc.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/rmsxc.f.o
 .PHONY : src/rmsxc.f.o
 
 src/rmsxc.i: src/rmsxc.f.i
@@ -1161,7 +1161,7 @@ src/rmsxc.i: src/rmsxc.f.i
 
 # target to preprocess a source file
 src/rmsxc.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/rmsxc.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/rmsxc.f.i
 .PHONY : src/rmsxc.f.i
 
 src/rmsxc.s: src/rmsxc.f.s
@@ -1170,7 +1170,7 @@ src/rmsxc.s: src/rmsxc.f.s
 
 # target to generate assembly for a file
 src/rmsxc.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/rmsxc.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/rmsxc.f.s
 .PHONY : src/rmsxc.f.s
 
 src/rmsyc.o: src/rmsyc.f.o
@@ -1179,7 +1179,7 @@ src/rmsyc.o: src/rmsyc.f.o
 
 # target to build an object file
 src/rmsyc.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/rmsyc.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/rmsyc.f.o
 .PHONY : src/rmsyc.f.o
 
 src/rmsyc.i: src/rmsyc.f.i
@@ -1188,7 +1188,7 @@ src/rmsyc.i: src/rmsyc.f.i
 
 # target to preprocess a source file
 src/rmsyc.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/rmsyc.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/rmsyc.f.i
 .PHONY : src/rmsyc.f.i
 
 src/rmsyc.s: src/rmsyc.f.s
@@ -1197,7 +1197,7 @@ src/rmsyc.s: src/rmsyc.f.s
 
 # target to generate assembly for a file
 src/rmsyc.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/rmsyc.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/rmsyc.f.s
 .PHONY : src/rmsyc.f.s
 
 src/saveoutput.o: src/saveoutput.f.o
@@ -1206,7 +1206,7 @@ src/saveoutput.o: src/saveoutput.f.o
 
 # target to build an object file
 src/saveoutput.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/saveoutput.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/saveoutput.f.o
 .PHONY : src/saveoutput.f.o
 
 src/saveoutput.i: src/saveoutput.f.i
@@ -1215,7 +1215,7 @@ src/saveoutput.i: src/saveoutput.f.i
 
 # target to preprocess a source file
 src/saveoutput.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/saveoutput.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/saveoutput.f.i
 .PHONY : src/saveoutput.f.i
 
 src/saveoutput.s: src/saveoutput.f.s
@@ -1224,7 +1224,7 @@ src/saveoutput.s: src/saveoutput.f.s
 
 # target to generate assembly for a file
 src/saveoutput.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/saveoutput.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/saveoutput.f.s
 .PHONY : src/saveoutput.f.s
 
 src/sortzv.o: src/sortzv.f.o
@@ -1233,7 +1233,7 @@ src/sortzv.o: src/sortzv.f.o
 
 # target to build an object file
 src/sortzv.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/sortzv.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/sortzv.f.o
 .PHONY : src/sortzv.f.o
 
 src/sortzv.i: src/sortzv.f.i
@@ -1242,7 +1242,7 @@ src/sortzv.i: src/sortzv.f.i
 
 # target to preprocess a source file
 src/sortzv.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/sortzv.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/sortzv.f.i
 .PHONY : src/sortzv.f.i
 
 src/sortzv.s: src/sortzv.f.s
@@ -1251,7 +1251,7 @@ src/sortzv.s: src/sortzv.f.s
 
 # target to generate assembly for a file
 src/sortzv.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/sortzv.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/sortzv.f.s
 .PHONY : src/sortzv.f.s
 
 src/testiter.o: src/testiter.f.o
@@ -1260,7 +1260,7 @@ src/testiter.o: src/testiter.f.o
 
 # target to build an object file
 src/testiter.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/testiter.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/testiter.f.o
 .PHONY : src/testiter.f.o
 
 src/testiter.i: src/testiter.f.i
@@ -1269,7 +1269,7 @@ src/testiter.i: src/testiter.f.i
 
 # target to preprocess a source file
 src/testiter.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/testiter.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/testiter.f.i
 .PHONY : src/testiter.f.i
 
 src/testiter.s: src/testiter.f.s
@@ -1278,7 +1278,7 @@ src/testiter.s: src/testiter.f.s
 
 # target to generate assembly for a file
 src/testiter.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/testiter.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/testiter.f.s
 .PHONY : src/testiter.f.s
 
 src/tfrac.o: src/tfrac.f.o
@@ -1287,7 +1287,7 @@ src/tfrac.o: src/tfrac.f.o
 
 # target to build an object file
 src/tfrac.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/tfrac.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/tfrac.f.o
 .PHONY : src/tfrac.f.o
 
 src/tfrac.i: src/tfrac.f.i
@@ -1296,7 +1296,7 @@ src/tfrac.i: src/tfrac.f.i
 
 # target to preprocess a source file
 src/tfrac.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/tfrac.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/tfrac.f.i
 .PHONY : src/tfrac.f.i
 
 src/tfrac.s: src/tfrac.f.s
@@ -1305,7 +1305,7 @@ src/tfrac.s: src/tfrac.f.s
 
 # target to generate assembly for a file
 src/tfrac.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/tfrac.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/tfrac.f.s
 .PHONY : src/tfrac.f.s
 
 src/thyp.o: src/thyp.f.o
@@ -1314,7 +1314,7 @@ src/thyp.o: src/thyp.f.o
 
 # target to build an object file
 src/thyp.f.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/thyp.f.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/thyp.f.o
 .PHONY : src/thyp.f.o
 
 src/thyp.i: src/thyp.f.i
@@ -1323,7 +1323,7 @@ src/thyp.i: src/thyp.f.i
 
 # target to preprocess a source file
 src/thyp.f.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/thyp.f.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/thyp.f.i
 .PHONY : src/thyp.f.i
 
 src/thyp.s: src/thyp.f.s
@@ -1332,7 +1332,7 @@ src/thyp.s: src/thyp.f.s
 
 # target to generate assembly for a file
 src/thyp.f.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/thyp.f.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(MAKE) -f LKr/CMakeFiles/LKrObjLib.dir/build.make LKr/CMakeFiles/LKrObjLib.dir/src/thyp.f.s
 .PHONY : src/thyp.f.s
 
 # Help Target
@@ -1487,6 +1487,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

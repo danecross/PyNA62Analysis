@@ -43,10 +43,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7
 
 # Include any dependencies generated for this target.
 include LKr/CMakeFiles/LKr.dir/depend.make
@@ -62,29 +62,29 @@ LKr_OBJECTS =
 
 # External object files for target LKr
 LKr_EXTERNAL_OBJECTS = \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrBeamPipe.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrColdWindow.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrCryostat.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrDetector.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrDetectorMessenger.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrEMShowers.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrElectrodes.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrEnergySpot.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrFlange.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrFlangesBolts.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrFrontBackPlate.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrGeometryParameters.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrHit.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrIrregularVSpacerParameterisation.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrLKrVolume.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrMaterialParameters.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrRootIO.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrSD.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrStesalitPiece.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrVSpacerParameterisation.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrWarmWindow.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrWarmWindowFlangesBeam.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/base64.cc.o"
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrBeamPipe.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrColdWindow.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrCryostat.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrDetector.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrDetectorMessenger.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrEMShowers.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrElectrodes.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrEnergySpot.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrFlange.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrFlangesBolts.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrFrontBackPlate.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrGeometryParameters.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrHit.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrIrregularVSpacerParameterisation.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrLKrVolume.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrMaterialParameters.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrRootIO.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrSD.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrStesalitPiece.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrVSpacerParameterisation.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrWarmWindow.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/LKrWarmWindowFlangesBeam.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKrObjLib.dir/src/base64.cc.o"
 
 LKr/libLKr.so: LKr/CMakeFiles/LKrObjLib.dir/src/LKrBeamPipe.cc.o
 LKr/libLKr.so: LKr/CMakeFiles/LKrObjLib.dir/src/LKrColdWindow.cc.o
@@ -111,8 +111,8 @@ LKr/libLKr.so: LKr/CMakeFiles/LKrObjLib.dir/src/LKrWarmWindowFlangesBeam.cc.o
 LKr/libLKr.so: LKr/CMakeFiles/LKrObjLib.dir/src/base64.cc.o
 LKr/libLKr.so: LKr/CMakeFiles/LKr.dir/build.make
 LKr/libLKr.so: LKr/CMakeFiles/LKr.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX shared library libLKr.so"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LKr.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX shared library libLKr.so"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LKr.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 LKr/CMakeFiles/LKr.dir/build: LKr/libLKr.so
@@ -120,10 +120,10 @@ LKr/CMakeFiles/LKr.dir/build: LKr/libLKr.so
 .PHONY : LKr/CMakeFiles/LKr.dir/build
 
 LKr/CMakeFiles/LKr.dir/clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr && $(CMAKE_COMMAND) -P CMakeFiles/LKr.dir/cmake_clean.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr && $(CMAKE_COMMAND) -P CMakeFiles/LKr.dir/cmake_clean.cmake
 .PHONY : LKr/CMakeFiles/LKr.dir/clean
 
 LKr/CMakeFiles/LKr.dir/depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/na62fw/NA62MC /afs/cern.ch/user/d/dacross/na62fw/NA62MC/LKr /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LKr/CMakeFiles/LKr.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/LKr /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LKr/CMakeFiles/LKr.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : LKr/CMakeFiles/LKr.dir/depend
 

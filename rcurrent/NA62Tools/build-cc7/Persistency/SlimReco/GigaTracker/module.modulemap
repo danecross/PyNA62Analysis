@@ -1,8 +1,8 @@
 module "GigaTrackerSlimPersistency" {
   requires cplusplus
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerCandidate.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerCandidate.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerEvent.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerEvent.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerHit.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerHit.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerCandidate.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerCandidate.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerEvent.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerEvent.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerHit.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/GigaTracker/include/TSlimRecoGigaTrackerHit.hh" export * }
   export *
 }
 

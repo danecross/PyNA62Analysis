@@ -43,10 +43,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7
 
 # Include any dependencies generated for this target.
 include Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/depend.make
@@ -59,133 +59,133 @@ include Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/flags.make
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/AllPrimMon.cc.o: Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/flags.make
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/AllPrimMon.cc.o: ../Tools/PrimMonitor/src/AllPrimMon.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/AllPrimMon.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimMonitor.dir/src/AllPrimMon.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/AllPrimMon.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/AllPrimMon.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimMonitor.dir/src/AllPrimMon.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/AllPrimMon.cc
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/AllPrimMon.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrimMonitor.dir/src/AllPrimMon.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/AllPrimMon.cc > CMakeFiles/PrimMonitor.dir/src/AllPrimMon.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/AllPrimMon.cc > CMakeFiles/PrimMonitor.dir/src/AllPrimMon.cc.i
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/AllPrimMon.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrimMonitor.dir/src/AllPrimMon.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/AllPrimMon.cc -o CMakeFiles/PrimMonitor.dir/src/AllPrimMon.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/AllPrimMon.cc -o CMakeFiles/PrimMonitor.dir/src/AllPrimMon.cc.s
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/CHODPrimMon.cc.o: Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/flags.make
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/CHODPrimMon.cc.o: ../Tools/PrimMonitor/src/CHODPrimMon.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/CHODPrimMon.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimMonitor.dir/src/CHODPrimMon.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/CHODPrimMon.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/CHODPrimMon.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimMonitor.dir/src/CHODPrimMon.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/CHODPrimMon.cc
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/CHODPrimMon.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrimMonitor.dir/src/CHODPrimMon.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/CHODPrimMon.cc > CMakeFiles/PrimMonitor.dir/src/CHODPrimMon.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/CHODPrimMon.cc > CMakeFiles/PrimMonitor.dir/src/CHODPrimMon.cc.i
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/CHODPrimMon.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrimMonitor.dir/src/CHODPrimMon.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/CHODPrimMon.cc -o CMakeFiles/PrimMonitor.dir/src/CHODPrimMon.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/CHODPrimMon.cc -o CMakeFiles/PrimMonitor.dir/src/CHODPrimMon.cc.s
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/IRCPrimMon.cc.o: Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/flags.make
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/IRCPrimMon.cc.o: ../Tools/PrimMonitor/src/IRCPrimMon.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/IRCPrimMon.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimMonitor.dir/src/IRCPrimMon.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/IRCPrimMon.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/IRCPrimMon.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimMonitor.dir/src/IRCPrimMon.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/IRCPrimMon.cc
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/IRCPrimMon.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrimMonitor.dir/src/IRCPrimMon.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/IRCPrimMon.cc > CMakeFiles/PrimMonitor.dir/src/IRCPrimMon.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/IRCPrimMon.cc > CMakeFiles/PrimMonitor.dir/src/IRCPrimMon.cc.i
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/IRCPrimMon.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrimMonitor.dir/src/IRCPrimMon.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/IRCPrimMon.cc -o CMakeFiles/PrimMonitor.dir/src/IRCPrimMon.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/IRCPrimMon.cc -o CMakeFiles/PrimMonitor.dir/src/IRCPrimMon.cc.s
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/LAVPrimMon.cc.o: Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/flags.make
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/LAVPrimMon.cc.o: ../Tools/PrimMonitor/src/LAVPrimMon.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/LAVPrimMon.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimMonitor.dir/src/LAVPrimMon.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/LAVPrimMon.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/LAVPrimMon.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimMonitor.dir/src/LAVPrimMon.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/LAVPrimMon.cc
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/LAVPrimMon.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrimMonitor.dir/src/LAVPrimMon.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/LAVPrimMon.cc > CMakeFiles/PrimMonitor.dir/src/LAVPrimMon.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/LAVPrimMon.cc > CMakeFiles/PrimMonitor.dir/src/LAVPrimMon.cc.i
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/LAVPrimMon.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrimMonitor.dir/src/LAVPrimMon.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/LAVPrimMon.cc -o CMakeFiles/PrimMonitor.dir/src/LAVPrimMon.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/LAVPrimMon.cc -o CMakeFiles/PrimMonitor.dir/src/LAVPrimMon.cc.s
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/LKRPrimMon.cc.o: Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/flags.make
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/LKRPrimMon.cc.o: ../Tools/PrimMonitor/src/LKRPrimMon.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/LKRPrimMon.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimMonitor.dir/src/LKRPrimMon.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/LKRPrimMon.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/LKRPrimMon.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimMonitor.dir/src/LKRPrimMon.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/LKRPrimMon.cc
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/LKRPrimMon.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrimMonitor.dir/src/LKRPrimMon.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/LKRPrimMon.cc > CMakeFiles/PrimMonitor.dir/src/LKRPrimMon.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/LKRPrimMon.cc > CMakeFiles/PrimMonitor.dir/src/LKRPrimMon.cc.i
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/LKRPrimMon.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrimMonitor.dir/src/LKRPrimMon.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/LKRPrimMon.cc -o CMakeFiles/PrimMonitor.dir/src/LKRPrimMon.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/LKRPrimMon.cc -o CMakeFiles/PrimMonitor.dir/src/LKRPrimMon.cc.s
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/MUVPrimMon.cc.o: Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/flags.make
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/MUVPrimMon.cc.o: ../Tools/PrimMonitor/src/MUVPrimMon.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/MUVPrimMon.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimMonitor.dir/src/MUVPrimMon.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/MUVPrimMon.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/MUVPrimMon.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimMonitor.dir/src/MUVPrimMon.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/MUVPrimMon.cc
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/MUVPrimMon.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrimMonitor.dir/src/MUVPrimMon.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/MUVPrimMon.cc > CMakeFiles/PrimMonitor.dir/src/MUVPrimMon.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/MUVPrimMon.cc > CMakeFiles/PrimMonitor.dir/src/MUVPrimMon.cc.i
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/MUVPrimMon.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrimMonitor.dir/src/MUVPrimMon.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/MUVPrimMon.cc -o CMakeFiles/PrimMonitor.dir/src/MUVPrimMon.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/MUVPrimMon.cc -o CMakeFiles/PrimMonitor.dir/src/MUVPrimMon.cc.s
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/PrimMonitor.cc.o: Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/flags.make
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/PrimMonitor.cc.o: ../Tools/PrimMonitor/src/PrimMonitor.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/PrimMonitor.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimMonitor.dir/src/PrimMonitor.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/PrimMonitor.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/PrimMonitor.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimMonitor.dir/src/PrimMonitor.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/PrimMonitor.cc
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/PrimMonitor.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrimMonitor.dir/src/PrimMonitor.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/PrimMonitor.cc > CMakeFiles/PrimMonitor.dir/src/PrimMonitor.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/PrimMonitor.cc > CMakeFiles/PrimMonitor.dir/src/PrimMonitor.cc.i
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/PrimMonitor.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrimMonitor.dir/src/PrimMonitor.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/PrimMonitor.cc -o CMakeFiles/PrimMonitor.dir/src/PrimMonitor.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/PrimMonitor.cc -o CMakeFiles/PrimMonitor.dir/src/PrimMonitor.cc.s
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/RICHPrimMon.cc.o: Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/flags.make
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/RICHPrimMon.cc.o: ../Tools/PrimMonitor/src/RICHPrimMon.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/RICHPrimMon.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimMonitor.dir/src/RICHPrimMon.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/RICHPrimMon.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/RICHPrimMon.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimMonitor.dir/src/RICHPrimMon.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/RICHPrimMon.cc
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/RICHPrimMon.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrimMonitor.dir/src/RICHPrimMon.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/RICHPrimMon.cc > CMakeFiles/PrimMonitor.dir/src/RICHPrimMon.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/RICHPrimMon.cc > CMakeFiles/PrimMonitor.dir/src/RICHPrimMon.cc.i
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/RICHPrimMon.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrimMonitor.dir/src/RICHPrimMon.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/RICHPrimMon.cc -o CMakeFiles/PrimMonitor.dir/src/RICHPrimMon.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/RICHPrimMon.cc -o CMakeFiles/PrimMonitor.dir/src/RICHPrimMon.cc.s
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/TALKPrimMon.cc.o: Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/flags.make
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/TALKPrimMon.cc.o: ../Tools/PrimMonitor/src/TALKPrimMon.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/TALKPrimMon.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimMonitor.dir/src/TALKPrimMon.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/TALKPrimMon.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/TALKPrimMon.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimMonitor.dir/src/TALKPrimMon.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/TALKPrimMon.cc
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/TALKPrimMon.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrimMonitor.dir/src/TALKPrimMon.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/TALKPrimMon.cc > CMakeFiles/PrimMonitor.dir/src/TALKPrimMon.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/TALKPrimMon.cc > CMakeFiles/PrimMonitor.dir/src/TALKPrimMon.cc.i
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/TALKPrimMon.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrimMonitor.dir/src/TALKPrimMon.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/TALKPrimMon.cc -o CMakeFiles/PrimMonitor.dir/src/TALKPrimMon.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/TALKPrimMon.cc -o CMakeFiles/PrimMonitor.dir/src/TALKPrimMon.cc.s
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/VPrimMon.cc.o: Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/flags.make
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/VPrimMon.cc.o: ../Tools/PrimMonitor/src/VPrimMon.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/VPrimMon.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimMonitor.dir/src/VPrimMon.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/VPrimMon.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/VPrimMon.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PrimMonitor.dir/src/VPrimMon.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/VPrimMon.cc
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/VPrimMon.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrimMonitor.dir/src/VPrimMon.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/VPrimMon.cc > CMakeFiles/PrimMonitor.dir/src/VPrimMon.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/VPrimMon.cc > CMakeFiles/PrimMonitor.dir/src/VPrimMon.cc.i
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/src/VPrimMon.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrimMonitor.dir/src/VPrimMon.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor/src/VPrimMon.cc -o CMakeFiles/PrimMonitor.dir/src/VPrimMon.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor/src/VPrimMon.cc -o CMakeFiles/PrimMonitor.dir/src/VPrimMon.cc.s
 
 # Object files for target PrimMonitor
 PrimMonitor_OBJECTS = \
@@ -233,8 +233,8 @@ Tools/PrimMonitor/PrimMonitor: /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.
 Tools/PrimMonitor/PrimMonitor: /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/lib/libThread.so
 Tools/PrimMonitor/PrimMonitor: /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/lib/libMultiProc.so
 Tools/PrimMonitor/PrimMonitor: Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable PrimMonitor"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PrimMonitor.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable PrimMonitor"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PrimMonitor.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/build: Tools/PrimMonitor/PrimMonitor
@@ -242,10 +242,10 @@ Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/build: Tools/PrimMonitor/PrimMonito
 .PHONY : Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/build
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor && $(CMAKE_COMMAND) -P CMakeFiles/PrimMonitor.dir/cmake_clean.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor && $(CMAKE_COMMAND) -P CMakeFiles/PrimMonitor.dir/cmake_clean.cmake
 .PHONY : Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/clean
 
 Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Tools/PrimMonitor/CMakeFiles/PrimMonitor.dir/depend
 

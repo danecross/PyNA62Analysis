@@ -1,8 +1,8 @@
-# Install script for directory: /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NA62
+# Install script for directory: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NA62
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools")
+  set(CMAKE_INSTALL_PREFIX "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,11 +38,11 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xslimlibx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7/SlimPersistency" TYPE FILE FILES "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/SlimReco/NA62/libNA62SlimPersistency_rdict.pcm")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7/SlimPersistency" TYPE FILE FILES "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/SlimReco/NA62/libNA62SlimPersistency_rdict.pcm")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xslimlibx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7/SlimPersistency" TYPE FILE FILES "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/SlimReco/NA62/libNA62SlimPersistency.rootmap")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7/SlimPersistency" TYPE FILE FILES "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/SlimReco/NA62/libNA62SlimPersistency.rootmap")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xslimlibx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -52,7 +52,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xslimlibx" OR NOT CMAKE_INSTALL_COMP
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib-cc7/SlimPersistency/libNA62SlimPersistency.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7/SlimPersistency" TYPE SHARED_LIBRARY FILES "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/SlimReco/NA62/libNA62SlimPersistency.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7/SlimPersistency" TYPE SHARED_LIBRARY FILES "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/SlimReco/NA62/libNA62SlimPersistency.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib-cc7/SlimPersistency/libNA62SlimPersistency.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib-cc7/SlimPersistency/libNA62SlimPersistency.so")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -62,6 +62,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xslimlibx" OR NOT CMAKE_INSTALL_COMP
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xslimlibx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7/SlimPersistency" TYPE STATIC_LIBRARY FILES "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/SlimReco/NA62/libNA62SlimPersistency-static.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib-cc7/SlimPersistency" TYPE STATIC_LIBRARY FILES "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/SlimReco/NA62/libNA62SlimPersistency-static.a")
 endif()
 

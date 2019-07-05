@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/GigaTracker/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 GigaTracker/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/GigaTracker/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 GigaTracker/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 GigaTracker/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 GigaTracker/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 GigaTracker/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 GigaTracker/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 GigaTracker/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 GigaTracker/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 GigaTracker/CMakeFiles/GigaTracker.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 GigaTracker/CMakeFiles/GigaTracker.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 GigaTracker/CMakeFiles/GigaTracker.dir/rule
 .PHONY : GigaTracker/CMakeFiles/GigaTracker.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ GigaTracker: GigaTracker/CMakeFiles/GigaTracker.dir/rule
 
 # fast build rule for target.
 GigaTracker/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTracker.dir/build.make GigaTracker/CMakeFiles/GigaTracker.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTracker.dir/build.make GigaTracker/CMakeFiles/GigaTracker.dir/build
 .PHONY : GigaTracker/fast
 
 # Convenience name for target.
 GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/rule
 .PHONY : GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/rule
 
 # Convenience name for target.
@@ -183,12 +183,12 @@ GigaTrackerObjLib: GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/rule
 
 # fast build rule for target.
 GigaTrackerObjLib/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build
 .PHONY : GigaTrackerObjLib/fast
 
 # Convenience name for target.
 GigaTracker/CMakeFiles/GigaTracker-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 GigaTracker/CMakeFiles/GigaTracker-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 GigaTracker/CMakeFiles/GigaTracker-static.dir/rule
 .PHONY : GigaTracker/CMakeFiles/GigaTracker-static.dir/rule
 
 # Convenience name for target.
@@ -198,7 +198,7 @@ GigaTracker-static: GigaTracker/CMakeFiles/GigaTracker-static.dir/rule
 
 # fast build rule for target.
 GigaTracker-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTracker-static.dir/build.make GigaTracker/CMakeFiles/GigaTracker-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTracker-static.dir/build.make GigaTracker/CMakeFiles/GigaTracker-static.dir/build
 .PHONY : GigaTracker-static/fast
 
 src/GigaTrackerBumpBondingParameterisation.o: src/GigaTrackerBumpBondingParameterisation.cc.o
@@ -207,7 +207,7 @@ src/GigaTrackerBumpBondingParameterisation.o: src/GigaTrackerBumpBondingParamete
 
 # target to build an object file
 src/GigaTrackerBumpBondingParameterisation.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerBumpBondingParameterisation.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerBumpBondingParameterisation.cc.o
 .PHONY : src/GigaTrackerBumpBondingParameterisation.cc.o
 
 src/GigaTrackerBumpBondingParameterisation.i: src/GigaTrackerBumpBondingParameterisation.cc.i
@@ -216,7 +216,7 @@ src/GigaTrackerBumpBondingParameterisation.i: src/GigaTrackerBumpBondingParamete
 
 # target to preprocess a source file
 src/GigaTrackerBumpBondingParameterisation.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerBumpBondingParameterisation.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerBumpBondingParameterisation.cc.i
 .PHONY : src/GigaTrackerBumpBondingParameterisation.cc.i
 
 src/GigaTrackerBumpBondingParameterisation.s: src/GigaTrackerBumpBondingParameterisation.cc.s
@@ -225,7 +225,7 @@ src/GigaTrackerBumpBondingParameterisation.s: src/GigaTrackerBumpBondingParamete
 
 # target to generate assembly for a file
 src/GigaTrackerBumpBondingParameterisation.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerBumpBondingParameterisation.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerBumpBondingParameterisation.cc.s
 .PHONY : src/GigaTrackerBumpBondingParameterisation.cc.s
 
 src/GigaTrackerBumpBonds.o: src/GigaTrackerBumpBonds.cc.o
@@ -234,7 +234,7 @@ src/GigaTrackerBumpBonds.o: src/GigaTrackerBumpBonds.cc.o
 
 # target to build an object file
 src/GigaTrackerBumpBonds.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerBumpBonds.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerBumpBonds.cc.o
 .PHONY : src/GigaTrackerBumpBonds.cc.o
 
 src/GigaTrackerBumpBonds.i: src/GigaTrackerBumpBonds.cc.i
@@ -243,7 +243,7 @@ src/GigaTrackerBumpBonds.i: src/GigaTrackerBumpBonds.cc.i
 
 # target to preprocess a source file
 src/GigaTrackerBumpBonds.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerBumpBonds.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerBumpBonds.cc.i
 .PHONY : src/GigaTrackerBumpBonds.cc.i
 
 src/GigaTrackerBumpBonds.s: src/GigaTrackerBumpBonds.cc.s
@@ -252,7 +252,7 @@ src/GigaTrackerBumpBonds.s: src/GigaTrackerBumpBonds.cc.s
 
 # target to generate assembly for a file
 src/GigaTrackerBumpBonds.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerBumpBonds.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerBumpBonds.cc.s
 .PHONY : src/GigaTrackerBumpBonds.cc.s
 
 src/GigaTrackerChip.o: src/GigaTrackerChip.cc.o
@@ -261,7 +261,7 @@ src/GigaTrackerChip.o: src/GigaTrackerChip.cc.o
 
 # target to build an object file
 src/GigaTrackerChip.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerChip.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerChip.cc.o
 .PHONY : src/GigaTrackerChip.cc.o
 
 src/GigaTrackerChip.i: src/GigaTrackerChip.cc.i
@@ -270,7 +270,7 @@ src/GigaTrackerChip.i: src/GigaTrackerChip.cc.i
 
 # target to preprocess a source file
 src/GigaTrackerChip.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerChip.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerChip.cc.i
 .PHONY : src/GigaTrackerChip.cc.i
 
 src/GigaTrackerChip.s: src/GigaTrackerChip.cc.s
@@ -279,7 +279,7 @@ src/GigaTrackerChip.s: src/GigaTrackerChip.cc.s
 
 # target to generate assembly for a file
 src/GigaTrackerChip.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerChip.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerChip.cc.s
 .PHONY : src/GigaTrackerChip.cc.s
 
 src/GigaTrackerCollimator.o: src/GigaTrackerCollimator.cc.o
@@ -288,7 +288,7 @@ src/GigaTrackerCollimator.o: src/GigaTrackerCollimator.cc.o
 
 # target to build an object file
 src/GigaTrackerCollimator.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerCollimator.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerCollimator.cc.o
 .PHONY : src/GigaTrackerCollimator.cc.o
 
 src/GigaTrackerCollimator.i: src/GigaTrackerCollimator.cc.i
@@ -297,7 +297,7 @@ src/GigaTrackerCollimator.i: src/GigaTrackerCollimator.cc.i
 
 # target to preprocess a source file
 src/GigaTrackerCollimator.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerCollimator.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerCollimator.cc.i
 .PHONY : src/GigaTrackerCollimator.cc.i
 
 src/GigaTrackerCollimator.s: src/GigaTrackerCollimator.cc.s
@@ -306,7 +306,7 @@ src/GigaTrackerCollimator.s: src/GigaTrackerCollimator.cc.s
 
 # target to generate assembly for a file
 src/GigaTrackerCollimator.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerCollimator.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerCollimator.cc.s
 .PHONY : src/GigaTrackerCollimator.cc.s
 
 src/GigaTrackerCoolingPlate.o: src/GigaTrackerCoolingPlate.cc.o
@@ -315,7 +315,7 @@ src/GigaTrackerCoolingPlate.o: src/GigaTrackerCoolingPlate.cc.o
 
 # target to build an object file
 src/GigaTrackerCoolingPlate.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerCoolingPlate.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerCoolingPlate.cc.o
 .PHONY : src/GigaTrackerCoolingPlate.cc.o
 
 src/GigaTrackerCoolingPlate.i: src/GigaTrackerCoolingPlate.cc.i
@@ -324,7 +324,7 @@ src/GigaTrackerCoolingPlate.i: src/GigaTrackerCoolingPlate.cc.i
 
 # target to preprocess a source file
 src/GigaTrackerCoolingPlate.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerCoolingPlate.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerCoolingPlate.cc.i
 .PHONY : src/GigaTrackerCoolingPlate.cc.i
 
 src/GigaTrackerCoolingPlate.s: src/GigaTrackerCoolingPlate.cc.s
@@ -333,7 +333,7 @@ src/GigaTrackerCoolingPlate.s: src/GigaTrackerCoolingPlate.cc.s
 
 # target to generate assembly for a file
 src/GigaTrackerCoolingPlate.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerCoolingPlate.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerCoolingPlate.cc.s
 .PHONY : src/GigaTrackerCoolingPlate.cc.s
 
 src/GigaTrackerDetector.o: src/GigaTrackerDetector.cc.o
@@ -342,7 +342,7 @@ src/GigaTrackerDetector.o: src/GigaTrackerDetector.cc.o
 
 # target to build an object file
 src/GigaTrackerDetector.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerDetector.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerDetector.cc.o
 .PHONY : src/GigaTrackerDetector.cc.o
 
 src/GigaTrackerDetector.i: src/GigaTrackerDetector.cc.i
@@ -351,7 +351,7 @@ src/GigaTrackerDetector.i: src/GigaTrackerDetector.cc.i
 
 # target to preprocess a source file
 src/GigaTrackerDetector.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerDetector.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerDetector.cc.i
 .PHONY : src/GigaTrackerDetector.cc.i
 
 src/GigaTrackerDetector.s: src/GigaTrackerDetector.cc.s
@@ -360,7 +360,7 @@ src/GigaTrackerDetector.s: src/GigaTrackerDetector.cc.s
 
 # target to generate assembly for a file
 src/GigaTrackerDetector.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerDetector.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerDetector.cc.s
 .PHONY : src/GigaTrackerDetector.cc.s
 
 src/GigaTrackerGeometryParameters.o: src/GigaTrackerGeometryParameters.cc.o
@@ -369,7 +369,7 @@ src/GigaTrackerGeometryParameters.o: src/GigaTrackerGeometryParameters.cc.o
 
 # target to build an object file
 src/GigaTrackerGeometryParameters.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerGeometryParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerGeometryParameters.cc.o
 .PHONY : src/GigaTrackerGeometryParameters.cc.o
 
 src/GigaTrackerGeometryParameters.i: src/GigaTrackerGeometryParameters.cc.i
@@ -378,7 +378,7 @@ src/GigaTrackerGeometryParameters.i: src/GigaTrackerGeometryParameters.cc.i
 
 # target to preprocess a source file
 src/GigaTrackerGeometryParameters.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerGeometryParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerGeometryParameters.cc.i
 .PHONY : src/GigaTrackerGeometryParameters.cc.i
 
 src/GigaTrackerGeometryParameters.s: src/GigaTrackerGeometryParameters.cc.s
@@ -387,7 +387,7 @@ src/GigaTrackerGeometryParameters.s: src/GigaTrackerGeometryParameters.cc.s
 
 # target to generate assembly for a file
 src/GigaTrackerGeometryParameters.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerGeometryParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerGeometryParameters.cc.s
 .PHONY : src/GigaTrackerGeometryParameters.cc.s
 
 src/GigaTrackerHit.o: src/GigaTrackerHit.cc.o
@@ -396,7 +396,7 @@ src/GigaTrackerHit.o: src/GigaTrackerHit.cc.o
 
 # target to build an object file
 src/GigaTrackerHit.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerHit.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerHit.cc.o
 .PHONY : src/GigaTrackerHit.cc.o
 
 src/GigaTrackerHit.i: src/GigaTrackerHit.cc.i
@@ -405,7 +405,7 @@ src/GigaTrackerHit.i: src/GigaTrackerHit.cc.i
 
 # target to preprocess a source file
 src/GigaTrackerHit.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerHit.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerHit.cc.i
 .PHONY : src/GigaTrackerHit.cc.i
 
 src/GigaTrackerHit.s: src/GigaTrackerHit.cc.s
@@ -414,7 +414,7 @@ src/GigaTrackerHit.s: src/GigaTrackerHit.cc.s
 
 # target to generate assembly for a file
 src/GigaTrackerHit.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerHit.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerHit.cc.s
 .PHONY : src/GigaTrackerHit.cc.s
 
 src/GigaTrackerMCBMagnet.o: src/GigaTrackerMCBMagnet.cc.o
@@ -423,7 +423,7 @@ src/GigaTrackerMCBMagnet.o: src/GigaTrackerMCBMagnet.cc.o
 
 # target to build an object file
 src/GigaTrackerMCBMagnet.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerMCBMagnet.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerMCBMagnet.cc.o
 .PHONY : src/GigaTrackerMCBMagnet.cc.o
 
 src/GigaTrackerMCBMagnet.i: src/GigaTrackerMCBMagnet.cc.i
@@ -432,7 +432,7 @@ src/GigaTrackerMCBMagnet.i: src/GigaTrackerMCBMagnet.cc.i
 
 # target to preprocess a source file
 src/GigaTrackerMCBMagnet.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerMCBMagnet.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerMCBMagnet.cc.i
 .PHONY : src/GigaTrackerMCBMagnet.cc.i
 
 src/GigaTrackerMCBMagnet.s: src/GigaTrackerMCBMagnet.cc.s
@@ -441,7 +441,7 @@ src/GigaTrackerMCBMagnet.s: src/GigaTrackerMCBMagnet.cc.s
 
 # target to generate assembly for a file
 src/GigaTrackerMCBMagnet.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerMCBMagnet.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerMCBMagnet.cc.s
 .PHONY : src/GigaTrackerMCBMagnet.cc.s
 
 src/GigaTrackerMDXMagnet.o: src/GigaTrackerMDXMagnet.cc.o
@@ -450,7 +450,7 @@ src/GigaTrackerMDXMagnet.o: src/GigaTrackerMDXMagnet.cc.o
 
 # target to build an object file
 src/GigaTrackerMDXMagnet.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerMDXMagnet.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerMDXMagnet.cc.o
 .PHONY : src/GigaTrackerMDXMagnet.cc.o
 
 src/GigaTrackerMDXMagnet.i: src/GigaTrackerMDXMagnet.cc.i
@@ -459,7 +459,7 @@ src/GigaTrackerMDXMagnet.i: src/GigaTrackerMDXMagnet.cc.i
 
 # target to preprocess a source file
 src/GigaTrackerMDXMagnet.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerMDXMagnet.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerMDXMagnet.cc.i
 .PHONY : src/GigaTrackerMDXMagnet.cc.i
 
 src/GigaTrackerMDXMagnet.s: src/GigaTrackerMDXMagnet.cc.s
@@ -468,7 +468,7 @@ src/GigaTrackerMDXMagnet.s: src/GigaTrackerMDXMagnet.cc.s
 
 # target to generate assembly for a file
 src/GigaTrackerMDXMagnet.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerMDXMagnet.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerMDXMagnet.cc.s
 .PHONY : src/GigaTrackerMDXMagnet.cc.s
 
 src/GigaTrackerMaterialParameters.o: src/GigaTrackerMaterialParameters.cc.o
@@ -477,7 +477,7 @@ src/GigaTrackerMaterialParameters.o: src/GigaTrackerMaterialParameters.cc.o
 
 # target to build an object file
 src/GigaTrackerMaterialParameters.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerMaterialParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerMaterialParameters.cc.o
 .PHONY : src/GigaTrackerMaterialParameters.cc.o
 
 src/GigaTrackerMaterialParameters.i: src/GigaTrackerMaterialParameters.cc.i
@@ -486,7 +486,7 @@ src/GigaTrackerMaterialParameters.i: src/GigaTrackerMaterialParameters.cc.i
 
 # target to preprocess a source file
 src/GigaTrackerMaterialParameters.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerMaterialParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerMaterialParameters.cc.i
 .PHONY : src/GigaTrackerMaterialParameters.cc.i
 
 src/GigaTrackerMaterialParameters.s: src/GigaTrackerMaterialParameters.cc.s
@@ -495,7 +495,7 @@ src/GigaTrackerMaterialParameters.s: src/GigaTrackerMaterialParameters.cc.s
 
 # target to generate assembly for a file
 src/GigaTrackerMaterialParameters.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerMaterialParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerMaterialParameters.cc.s
 .PHONY : src/GigaTrackerMaterialParameters.cc.s
 
 src/GigaTrackerPCBModule.o: src/GigaTrackerPCBModule.cc.o
@@ -504,7 +504,7 @@ src/GigaTrackerPCBModule.o: src/GigaTrackerPCBModule.cc.o
 
 # target to build an object file
 src/GigaTrackerPCBModule.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerPCBModule.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerPCBModule.cc.o
 .PHONY : src/GigaTrackerPCBModule.cc.o
 
 src/GigaTrackerPCBModule.i: src/GigaTrackerPCBModule.cc.i
@@ -513,7 +513,7 @@ src/GigaTrackerPCBModule.i: src/GigaTrackerPCBModule.cc.i
 
 # target to preprocess a source file
 src/GigaTrackerPCBModule.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerPCBModule.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerPCBModule.cc.i
 .PHONY : src/GigaTrackerPCBModule.cc.i
 
 src/GigaTrackerPCBModule.s: src/GigaTrackerPCBModule.cc.s
@@ -522,7 +522,7 @@ src/GigaTrackerPCBModule.s: src/GigaTrackerPCBModule.cc.s
 
 # target to generate assembly for a file
 src/GigaTrackerPCBModule.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerPCBModule.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerPCBModule.cc.s
 .PHONY : src/GigaTrackerPCBModule.cc.s
 
 src/GigaTrackerPixelParameterisation.o: src/GigaTrackerPixelParameterisation.cc.o
@@ -531,7 +531,7 @@ src/GigaTrackerPixelParameterisation.o: src/GigaTrackerPixelParameterisation.cc.
 
 # target to build an object file
 src/GigaTrackerPixelParameterisation.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerPixelParameterisation.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerPixelParameterisation.cc.o
 .PHONY : src/GigaTrackerPixelParameterisation.cc.o
 
 src/GigaTrackerPixelParameterisation.i: src/GigaTrackerPixelParameterisation.cc.i
@@ -540,7 +540,7 @@ src/GigaTrackerPixelParameterisation.i: src/GigaTrackerPixelParameterisation.cc.
 
 # target to preprocess a source file
 src/GigaTrackerPixelParameterisation.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerPixelParameterisation.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerPixelParameterisation.cc.i
 .PHONY : src/GigaTrackerPixelParameterisation.cc.i
 
 src/GigaTrackerPixelParameterisation.s: src/GigaTrackerPixelParameterisation.cc.s
@@ -549,7 +549,7 @@ src/GigaTrackerPixelParameterisation.s: src/GigaTrackerPixelParameterisation.cc.
 
 # target to generate assembly for a file
 src/GigaTrackerPixelParameterisation.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerPixelParameterisation.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerPixelParameterisation.cc.s
 .PHONY : src/GigaTrackerPixelParameterisation.cc.s
 
 src/GigaTrackerRootIO.o: src/GigaTrackerRootIO.cc.o
@@ -558,7 +558,7 @@ src/GigaTrackerRootIO.o: src/GigaTrackerRootIO.cc.o
 
 # target to build an object file
 src/GigaTrackerRootIO.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerRootIO.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerRootIO.cc.o
 .PHONY : src/GigaTrackerRootIO.cc.o
 
 src/GigaTrackerRootIO.i: src/GigaTrackerRootIO.cc.i
@@ -567,7 +567,7 @@ src/GigaTrackerRootIO.i: src/GigaTrackerRootIO.cc.i
 
 # target to preprocess a source file
 src/GigaTrackerRootIO.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerRootIO.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerRootIO.cc.i
 .PHONY : src/GigaTrackerRootIO.cc.i
 
 src/GigaTrackerRootIO.s: src/GigaTrackerRootIO.cc.s
@@ -576,7 +576,7 @@ src/GigaTrackerRootIO.s: src/GigaTrackerRootIO.cc.s
 
 # target to generate assembly for a file
 src/GigaTrackerRootIO.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerRootIO.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerRootIO.cc.s
 .PHONY : src/GigaTrackerRootIO.cc.s
 
 src/GigaTrackerSD.o: src/GigaTrackerSD.cc.o
@@ -585,7 +585,7 @@ src/GigaTrackerSD.o: src/GigaTrackerSD.cc.o
 
 # target to build an object file
 src/GigaTrackerSD.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerSD.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerSD.cc.o
 .PHONY : src/GigaTrackerSD.cc.o
 
 src/GigaTrackerSD.i: src/GigaTrackerSD.cc.i
@@ -594,7 +594,7 @@ src/GigaTrackerSD.i: src/GigaTrackerSD.cc.i
 
 # target to preprocess a source file
 src/GigaTrackerSD.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerSD.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerSD.cc.i
 .PHONY : src/GigaTrackerSD.cc.i
 
 src/GigaTrackerSD.s: src/GigaTrackerSD.cc.s
@@ -603,7 +603,7 @@ src/GigaTrackerSD.s: src/GigaTrackerSD.cc.s
 
 # target to generate assembly for a file
 src/GigaTrackerSD.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerSD.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerSD.cc.s
 .PHONY : src/GigaTrackerSD.cc.s
 
 src/GigaTrackerScraperField.o: src/GigaTrackerScraperField.cc.o
@@ -612,7 +612,7 @@ src/GigaTrackerScraperField.o: src/GigaTrackerScraperField.cc.o
 
 # target to build an object file
 src/GigaTrackerScraperField.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerScraperField.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerScraperField.cc.o
 .PHONY : src/GigaTrackerScraperField.cc.o
 
 src/GigaTrackerScraperField.i: src/GigaTrackerScraperField.cc.i
@@ -621,7 +621,7 @@ src/GigaTrackerScraperField.i: src/GigaTrackerScraperField.cc.i
 
 # target to preprocess a source file
 src/GigaTrackerScraperField.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerScraperField.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerScraperField.cc.i
 .PHONY : src/GigaTrackerScraperField.cc.i
 
 src/GigaTrackerScraperField.s: src/GigaTrackerScraperField.cc.s
@@ -630,7 +630,7 @@ src/GigaTrackerScraperField.s: src/GigaTrackerScraperField.cc.s
 
 # target to generate assembly for a file
 src/GigaTrackerScraperField.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerScraperField.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerScraperField.cc.s
 .PHONY : src/GigaTrackerScraperField.cc.s
 
 src/GigaTrackerScraperMagnet.o: src/GigaTrackerScraperMagnet.cc.o
@@ -639,7 +639,7 @@ src/GigaTrackerScraperMagnet.o: src/GigaTrackerScraperMagnet.cc.o
 
 # target to build an object file
 src/GigaTrackerScraperMagnet.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerScraperMagnet.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerScraperMagnet.cc.o
 .PHONY : src/GigaTrackerScraperMagnet.cc.o
 
 src/GigaTrackerScraperMagnet.i: src/GigaTrackerScraperMagnet.cc.i
@@ -648,7 +648,7 @@ src/GigaTrackerScraperMagnet.i: src/GigaTrackerScraperMagnet.cc.i
 
 # target to preprocess a source file
 src/GigaTrackerScraperMagnet.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerScraperMagnet.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerScraperMagnet.cc.i
 .PHONY : src/GigaTrackerScraperMagnet.cc.i
 
 src/GigaTrackerScraperMagnet.s: src/GigaTrackerScraperMagnet.cc.s
@@ -657,7 +657,7 @@ src/GigaTrackerScraperMagnet.s: src/GigaTrackerScraperMagnet.cc.s
 
 # target to generate assembly for a file
 src/GigaTrackerScraperMagnet.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerScraperMagnet.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerScraperMagnet.cc.s
 .PHONY : src/GigaTrackerScraperMagnet.cc.s
 
 src/GigaTrackerSensor.o: src/GigaTrackerSensor.cc.o
@@ -666,7 +666,7 @@ src/GigaTrackerSensor.o: src/GigaTrackerSensor.cc.o
 
 # target to build an object file
 src/GigaTrackerSensor.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerSensor.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerSensor.cc.o
 .PHONY : src/GigaTrackerSensor.cc.o
 
 src/GigaTrackerSensor.i: src/GigaTrackerSensor.cc.i
@@ -675,7 +675,7 @@ src/GigaTrackerSensor.i: src/GigaTrackerSensor.cc.i
 
 # target to preprocess a source file
 src/GigaTrackerSensor.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerSensor.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerSensor.cc.i
 .PHONY : src/GigaTrackerSensor.cc.i
 
 src/GigaTrackerSensor.s: src/GigaTrackerSensor.cc.s
@@ -684,7 +684,7 @@ src/GigaTrackerSensor.s: src/GigaTrackerSensor.cc.s
 
 # target to generate assembly for a file
 src/GigaTrackerSensor.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerSensor.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerSensor.cc.s
 .PHONY : src/GigaTrackerSensor.cc.s
 
 src/GigaTrackerSensorAssembly.o: src/GigaTrackerSensorAssembly.cc.o
@@ -693,7 +693,7 @@ src/GigaTrackerSensorAssembly.o: src/GigaTrackerSensorAssembly.cc.o
 
 # target to build an object file
 src/GigaTrackerSensorAssembly.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerSensorAssembly.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerSensorAssembly.cc.o
 .PHONY : src/GigaTrackerSensorAssembly.cc.o
 
 src/GigaTrackerSensorAssembly.i: src/GigaTrackerSensorAssembly.cc.i
@@ -702,7 +702,7 @@ src/GigaTrackerSensorAssembly.i: src/GigaTrackerSensorAssembly.cc.i
 
 # target to preprocess a source file
 src/GigaTrackerSensorAssembly.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerSensorAssembly.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerSensorAssembly.cc.i
 .PHONY : src/GigaTrackerSensorAssembly.cc.i
 
 src/GigaTrackerSensorAssembly.s: src/GigaTrackerSensorAssembly.cc.s
@@ -711,7 +711,7 @@ src/GigaTrackerSensorAssembly.s: src/GigaTrackerSensorAssembly.cc.s
 
 # target to generate assembly for a file
 src/GigaTrackerSensorAssembly.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerSensorAssembly.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerSensorAssembly.cc.s
 .PHONY : src/GigaTrackerSensorAssembly.cc.s
 
 src/GigaTrackerStation.o: src/GigaTrackerStation.cc.o
@@ -720,7 +720,7 @@ src/GigaTrackerStation.o: src/GigaTrackerStation.cc.o
 
 # target to build an object file
 src/GigaTrackerStation.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerStation.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerStation.cc.o
 .PHONY : src/GigaTrackerStation.cc.o
 
 src/GigaTrackerStation.i: src/GigaTrackerStation.cc.i
@@ -729,7 +729,7 @@ src/GigaTrackerStation.i: src/GigaTrackerStation.cc.i
 
 # target to preprocess a source file
 src/GigaTrackerStation.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerStation.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerStation.cc.i
 .PHONY : src/GigaTrackerStation.cc.i
 
 src/GigaTrackerStation.s: src/GigaTrackerStation.cc.s
@@ -738,7 +738,7 @@ src/GigaTrackerStation.s: src/GigaTrackerStation.cc.s
 
 # target to generate assembly for a file
 src/GigaTrackerStation.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerStation.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/build.make GigaTracker/CMakeFiles/GigaTrackerObjLib.dir/src/GigaTrackerStation.cc.s
 .PHONY : src/GigaTrackerStation.cc.s
 
 # Help Target
@@ -827,6 +827,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -7,10 +7,10 @@ Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.d
  ../Persistency/SlimReco/NA62/include/TSlimRecoVHit.hh
  ../Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerCandidate.hh
  ../Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/SlimReco/Spectrometer/SpectrometerSlimPersistencyDICT.cxx
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerCandidate.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/SlimReco/Spectrometer/SpectrometerSlimPersistencyDICT.cxx
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfig.h
@@ -92,7 +92,7 @@ Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.d
  ../Persistency/SlimReco/Spectrometer/../../FullReco/Spectrometer/include/TRecoSpectrometerCandidate.hh
  ../Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerCandidate.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/Spectrometer/src/TSlimRecoSpectrometerCandidate.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/Spectrometer/src/TSlimRecoSpectrometerCandidate.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
@@ -177,7 +177,7 @@ Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.d
  ../Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerEvent.hh
  ../Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/Spectrometer/src/TSlimRecoSpectrometerEvent.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/Spectrometer/src/TSlimRecoSpectrometerEvent.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ESTLType.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
@@ -245,7 +245,7 @@ Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.d
  ../Persistency/SlimReco/Spectrometer/../../FullReco/Spectrometer/include/TRecoSpectrometerHit.hh
  ../Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerHit.hh
  ../include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/Spectrometer/src/TSlimRecoSpectrometerHit.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/Spectrometer/src/TSlimRecoSpectrometerHit.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h
@@ -289,10 +289,10 @@ Persistency/SlimReco/Spectrometer/SpectrometerSlimPersistencyDICT.cxx
  ../Persistency/SlimReco/NA62/include/TSlimRecoVCandidate.hh
  ../Persistency/SlimReco/NA62/include/TSlimRecoVEvent.hh
  ../Persistency/SlimReco/NA62/include/TSlimRecoVHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/Spectrometer/SpectrometerSlimPersistencyLinkDef.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerCandidate.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerEvent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerHit.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/Spectrometer/SpectrometerSlimPersistencyLinkDef.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerCandidate.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerEvent.hh
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerHit.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/RConfigure.h
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/ROOT/RConfig.h

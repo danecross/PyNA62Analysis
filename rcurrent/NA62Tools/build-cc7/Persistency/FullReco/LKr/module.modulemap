@@ -1,13 +1,13 @@
 module "LKrPersistency" {
   requires cplusplus
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/LKrChannelID.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/LKrChannelID.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TLKrDigi.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TLKrDigi.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TLKrEvent.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TLKrEvent.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TLKrHit.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TLKrHit.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TLKrMicroCellHit.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TLKrMicroCellHit.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TRecoLKrCandidate.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TRecoLKrCandidate.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TRecoLKrEvent.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TRecoLKrEvent.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TRecoLKrHit.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco/LKr/include/TRecoLKrHit.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/LKrChannelID.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/LKrChannelID.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TLKrDigi.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TLKrDigi.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TLKrEvent.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TLKrEvent.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TLKrHit.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TLKrHit.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TLKrMicroCellHit.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TLKrMicroCellHit.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TRecoLKrCandidate.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TRecoLKrCandidate.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TRecoLKrEvent.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TRecoLKrEvent.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TRecoLKrHit.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco/LKr/include/TRecoLKrHit.hh" export * }
   export *
 }
 

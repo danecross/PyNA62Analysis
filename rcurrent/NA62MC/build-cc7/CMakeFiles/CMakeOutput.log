@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/3.11.1/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/3.11.1/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ 
@@ -23,7 +23,7 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/3.11.1/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/3.11.1/CompilerIdCXX/a.out"
 
 Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" succeeded.
 Compiler: /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran 
@@ -41,7 +41,7 @@ Configured with: /afs/cern.ch/cms/CAF/CMSCOMM/COMM_ECAL/dkonst/GCC/build/contrib
 Thread model: posix
 gcc version 7.3.0 (GCC) 
 COLLECT_GCC_OPTIONS='-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/f951 CMakeFortranCompilerId.F -ffixed-form -cpp=/tmp/dacross/ccf0S0no.f90 -quiet -v -iprefix /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/ -isystem /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/include CMakeFortranCompilerId.F -quiet -dumpbase CMakeFortranCompilerId.F -mtune=generic -march=x86-64 -auxbase CMakeFortranCompilerId -version -fintrinsic-modules-path /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/finclude -o /tmp/dacross/cc001sjt.s
+ /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/f951 CMakeFortranCompilerId.F -ffixed-form -cpp=/tmp/dacross/ccvTpogJ.f90 -quiet -v -iprefix /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/ -isystem /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/include CMakeFortranCompilerId.F -quiet -dumpbase CMakeFortranCompilerId.F -mtune=generic -march=x86-64 -auxbase CMakeFortranCompilerId -version -fintrinsic-modules-path /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/finclude -o /tmp/dacross/ccgdvrT0.s
 GNU Fortran (GCC) version 7.3.0 (x86_64-pc-linux-gnu)
 	compiled by GNU C version 7.3.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP
 
@@ -66,7 +66,7 @@ GNU Fortran2008 (GCC) version 7.3.0 (x86_64-pc-linux-gnu)
 
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 COLLECT_GCC_OPTIONS='-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- as -v --64 -o /tmp/dacross/cc8tOEqz.o /tmp/dacross/cc001sjt.s
+ as -v --64 -o /tmp/dacross/cc1nkZTi.o /tmp/dacross/ccgdvrT0.s
 GNU assembler version 2.28 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.28
 Reading specs from /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64/libgfortran.spec
 rename spec lib to liborig
@@ -74,42 +74,42 @@ COLLECT_GCC_OPTIONS='-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
 COMPILER_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/
 LIBRARY_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../:/lib/:/usr/lib/
 COLLECT_GCC_OPTIONS='-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2 -plugin /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so -plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/dacross/cc9FJtAF.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lquadmath -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../.. /tmp/dacross/cc8tOEqz.o -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtend.o /lib/../lib64/crtn.o
+ /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2 -plugin /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so -plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/dacross/ccuV6fXA.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lquadmath -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../.. /tmp/dacross/cc1nkZTi.o -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtend.o /lib/../lib64/crtn.o
 COLLECT_GCC_OPTIONS='-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
 
 
 Compilation of the Fortran compiler identification source "CMakeFortranCompilerId.F" produced "a.out"
 
-The Fortran compiler identification is GNU, found in "/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/3.11.1/CompilerIdFortran/a.out"
+The Fortran compiler identification is GNU, found in "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/3.11.1/CompilerIdFortran/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp
+Change Dir: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_48c3e/fast"
-gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-/usr/bin/gmake -f CMakeFiles/cmTC_48c3e.dir/build.make CMakeFiles/cmTC_48c3e.dir/build
-gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_48c3e.dir/testCCompiler.c.o
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc    -o CMakeFiles/cmTC_48c3e.dir/testCCompiler.c.o   -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_48c3e
-/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_48c3e.dir/link.txt --verbose=1
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc      -rdynamic CMakeFiles/cmTC_48c3e.dir/testCCompiler.c.o  -o cmTC_48c3e 
-gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/gmake" "cmTC_1fb80/fast"
+gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_1fb80.dir/build.make CMakeFiles/cmTC_1fb80.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1fb80.dir/testCCompiler.c.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc    -o CMakeFiles/cmTC_1fb80.dir/testCCompiler.c.o   -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_1fb80
+/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1fb80.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc      -rdynamic CMakeFiles/cmTC_1fb80.dir/testCCompiler.c.o  -o cmTC_1fb80 
+gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp
+Change Dir: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_6e20b/fast"
-gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-/usr/bin/gmake -f CMakeFiles/cmTC_6e20b.dir/build.make CMakeFiles/cmTC_6e20b.dir/build
-gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_6e20b.dir/CMakeCCompilerABI.c.o
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc    -o CMakeFiles/cmTC_6e20b.dir/CMakeCCompilerABI.c.o   -c /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/share/cmake-3.11/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_6e20b
-/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6e20b.dir/link.txt --verbose=1
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc     -v -rdynamic CMakeFiles/cmTC_6e20b.dir/CMakeCCompilerABI.c.o  -o cmTC_6e20b 
+Run Build Command:"/usr/bin/gmake" "cmTC_c5c5e/fast"
+gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_c5c5e.dir/build.make CMakeFiles/cmTC_c5c5e.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c5c5e.dir/CMakeCCompilerABI.c.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc    -o CMakeFiles/cmTC_c5c5e.dir/CMakeCCompilerABI.c.o   -c /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/share/cmake-3.11/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_c5c5e
+/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c5c5e.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc     -v -rdynamic CMakeFiles/cmTC_c5c5e.dir/CMakeCCompilerABI.c.o  -o cmTC_c5c5e 
 Using built-in specs.
 COLLECT_GCC=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc
 COLLECT_LTO_WRAPPER=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper
@@ -119,26 +119,26 @@ Thread model: posix
 gcc version 7.3.0 (GCC) 
 COMPILER_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/
 LIBRARY_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_6e20b' '-mtune=generic' '-march=x86-64'
- /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2 -plugin /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so -plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/dacross/cc3u1dVi.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_6e20b /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../.. CMakeFiles/cmTC_6e20b.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtend.o /lib/../lib64/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_6e20b' '-mtune=generic' '-march=x86-64'
-gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c5c5e' '-mtune=generic' '-march=x86-64'
+ /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2 -plugin /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so -plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/dacross/ccRzjL7A.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_c5c5e /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../.. CMakeFiles/cmTC_c5c5e.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtend.o /lib/../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c5c5e' '-mtune=generic' '-march=x86-64'
+gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_6e20b/fast"]
-  ignore line: [gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp']
-  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_6e20b.dir/build.make CMakeFiles/cmTC_6e20b.dir/build]
-  ignore line: [gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_6e20b.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc    -o CMakeFiles/cmTC_6e20b.dir/CMakeCCompilerABI.c.o   -c /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/share/cmake-3.11/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_6e20b]
-  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6e20b.dir/link.txt --verbose=1]
-  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc     -v -rdynamic CMakeFiles/cmTC_6e20b.dir/CMakeCCompilerABI.c.o  -o cmTC_6e20b ]
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_c5c5e/fast"]
+  ignore line: [gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_c5c5e.dir/build.make CMakeFiles/cmTC_c5c5e.dir/build]
+  ignore line: [gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_c5c5e.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc    -o CMakeFiles/cmTC_c5c5e.dir/CMakeCCompilerABI.c.o   -c /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/share/cmake-3.11/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_c5c5e]
+  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c5c5e.dir/link.txt --verbose=1]
+  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc     -v -rdynamic CMakeFiles/cmTC_c5c5e.dir/CMakeCCompilerABI.c.o  -o cmTC_c5c5e ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc]
   ignore line: [COLLECT_LTO_WRAPPER=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper]
@@ -148,13 +148,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 7.3.0 (GCC) ]
   ignore line: [COMPILER_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/]
   ignore line: [LIBRARY_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_6e20b' '-mtune=generic' '-march=x86-64']
-  link line: [ /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2 -plugin /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so -plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/dacross/cc3u1dVi.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_6e20b /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../.. CMakeFiles/cmTC_6e20b.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtend.o /lib/../lib64/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c5c5e' '-mtune=generic' '-march=x86-64']
+  link line: [ /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2 -plugin /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so -plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/dacross/ccRzjL7A.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_c5c5e /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../.. CMakeFiles/cmTC_c5c5e.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtend.o /lib/../lib64/crtn.o]
     arg [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/dacross/cc3u1dVi.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/dacross/ccRzjL7A.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -167,7 +167,7 @@ Parsed C implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_6e20b] ==> ignore
+    arg [cmTC_c5c5e] ==> ignore
     arg [/lib/../lib64/crt1.o] ==> ignore
     arg [/lib/../lib64/crti.o] ==> ignore
     arg [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o] ==> ignore
@@ -177,7 +177,7 @@ Parsed C implicit link information from above output:
     arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
     arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
     arg [-L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../..] ==> dir [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../..]
-    arg [CMakeFiles/cmTC_6e20b.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_c5c5e.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -203,19 +203,19 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp
+Change Dir: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_13c6a/fast"
-gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-/usr/bin/gmake -f CMakeFiles/cmTC_13c6a.dir/build.make CMakeFiles/cmTC_13c6a.dir/build
-gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_13c6a.dir/feature_tests.c.o
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc   -std=c11 -o CMakeFiles/cmTC_13c6a.dir/feature_tests.c.o   -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/feature_tests.c
-Linking C executable cmTC_13c6a
-/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_13c6a.dir/link.txt --verbose=1
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc      -rdynamic CMakeFiles/cmTC_13c6a.dir/feature_tests.c.o  -o cmTC_13c6a 
-gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/gmake" "cmTC_ea83e/fast"
+gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_ea83e.dir/build.make CMakeFiles/cmTC_ea83e.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ea83e.dir/feature_tests.c.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc   -std=c11 -o CMakeFiles/cmTC_ea83e.dir/feature_tests.c.o   -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/feature_tests.c
+Linking C executable cmTC_ea83e
+/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ea83e.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc      -rdynamic CMakeFiles/cmTC_ea83e.dir/feature_tests.c.o  -o cmTC_ea83e 
+gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -225,19 +225,19 @@ gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp
+Change Dir: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_ede74/fast"
-gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-/usr/bin/gmake -f CMakeFiles/cmTC_ede74.dir/build.make CMakeFiles/cmTC_ede74.dir/build
-gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_ede74.dir/feature_tests.c.o
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc   -std=c99 -o CMakeFiles/cmTC_ede74.dir/feature_tests.c.o   -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/feature_tests.c
-Linking C executable cmTC_ede74
-/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ede74.dir/link.txt --verbose=1
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc      -rdynamic CMakeFiles/cmTC_ede74.dir/feature_tests.c.o  -o cmTC_ede74 
-gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/gmake" "cmTC_c800d/fast"
+gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_c800d.dir/build.make CMakeFiles/cmTC_c800d.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c800d.dir/feature_tests.c.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc   -std=c99 -o CMakeFiles/cmTC_c800d.dir/feature_tests.c.o   -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/feature_tests.c
+Linking C executable cmTC_c800d
+/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c800d.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc      -rdynamic CMakeFiles/cmTC_c800d.dir/feature_tests.c.o  -o cmTC_c800d 
+gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -247,19 +247,19 @@ gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp
+Change Dir: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_0c5d5/fast"
-gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-/usr/bin/gmake -f CMakeFiles/cmTC_0c5d5.dir/build.make CMakeFiles/cmTC_0c5d5.dir/build
-gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_0c5d5.dir/feature_tests.c.o
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc   -std=c90 -o CMakeFiles/cmTC_0c5d5.dir/feature_tests.c.o   -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/feature_tests.c
-Linking C executable cmTC_0c5d5
-/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0c5d5.dir/link.txt --verbose=1
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc      -rdynamic CMakeFiles/cmTC_0c5d5.dir/feature_tests.c.o  -o cmTC_0c5d5 
-gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/gmake" "cmTC_f5bf3/fast"
+gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_f5bf3.dir/build.make CMakeFiles/cmTC_f5bf3.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f5bf3.dir/feature_tests.c.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc   -std=c90 -o CMakeFiles/cmTC_f5bf3.dir/feature_tests.c.o   -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/feature_tests.c
+Linking C executable cmTC_f5bf3
+/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f5bf3.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc      -rdynamic CMakeFiles/cmTC_f5bf3.dir/feature_tests.c.o  -o cmTC_f5bf3 
+gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -267,33 +267,33 @@ gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp
+Change Dir: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_38147/fast"
-gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-/usr/bin/gmake -f CMakeFiles/cmTC_38147.dir/build.make CMakeFiles/cmTC_38147.dir/build
-gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_38147.dir/testCXXCompiler.cxx.o
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++     -o CMakeFiles/cmTC_38147.dir/testCXXCompiler.cxx.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_38147
-/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_38147.dir/link.txt --verbose=1
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++       -rdynamic CMakeFiles/cmTC_38147.dir/testCXXCompiler.cxx.o  -o cmTC_38147 
-gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/gmake" "cmTC_4ef03/fast"
+gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_4ef03.dir/build.make CMakeFiles/cmTC_4ef03.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4ef03.dir/testCXXCompiler.cxx.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++     -o CMakeFiles/cmTC_4ef03.dir/testCXXCompiler.cxx.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_4ef03
+/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4ef03.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++       -rdynamic CMakeFiles/cmTC_4ef03.dir/testCXXCompiler.cxx.o  -o cmTC_4ef03 
+gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp
+Change Dir: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_bf9bf/fast"
-gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-/usr/bin/gmake -f CMakeFiles/cmTC_bf9bf.dir/build.make CMakeFiles/cmTC_bf9bf.dir/build
-gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_bf9bf.dir/CMakeCXXCompilerABI.cpp.o
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++     -o CMakeFiles/cmTC_bf9bf.dir/CMakeCXXCompilerABI.cpp.o -c /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/share/cmake-3.11/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_bf9bf
-/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bf9bf.dir/link.txt --verbose=1
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++      -v -rdynamic CMakeFiles/cmTC_bf9bf.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_bf9bf 
+Run Build Command:"/usr/bin/gmake" "cmTC_323ca/fast"
+gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_323ca.dir/build.make CMakeFiles/cmTC_323ca.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_323ca.dir/CMakeCXXCompilerABI.cpp.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++     -o CMakeFiles/cmTC_323ca.dir/CMakeCXXCompilerABI.cpp.o -c /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/share/cmake-3.11/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_323ca
+/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_323ca.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++      -v -rdynamic CMakeFiles/cmTC_323ca.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_323ca 
 Using built-in specs.
 COLLECT_GCC=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++
 COLLECT_LTO_WRAPPER=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper
@@ -303,26 +303,26 @@ Thread model: posix
 gcc version 7.3.0 (GCC) 
 COMPILER_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/
 LIBRARY_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_bf9bf' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2 -plugin /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so -plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/dacross/ccET3PUD.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_bf9bf /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../.. CMakeFiles/cmTC_bf9bf.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtend.o /lib/../lib64/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_bf9bf' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_323ca' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2 -plugin /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so -plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/dacross/cce4IxGY.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_323ca /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../.. CMakeFiles/cmTC_323ca.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtend.o /lib/../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_323ca' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_bf9bf/fast"]
-  ignore line: [gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp']
-  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_bf9bf.dir/build.make CMakeFiles/cmTC_bf9bf.dir/build]
-  ignore line: [gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_bf9bf.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++     -o CMakeFiles/cmTC_bf9bf.dir/CMakeCXXCompilerABI.cpp.o -c /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/share/cmake-3.11/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_bf9bf]
-  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bf9bf.dir/link.txt --verbose=1]
-  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++      -v -rdynamic CMakeFiles/cmTC_bf9bf.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_bf9bf ]
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_323ca/fast"]
+  ignore line: [gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_323ca.dir/build.make CMakeFiles/cmTC_323ca.dir/build]
+  ignore line: [gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_323ca.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++     -o CMakeFiles/cmTC_323ca.dir/CMakeCXXCompilerABI.cpp.o -c /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/share/cmake-3.11/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_323ca]
+  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_323ca.dir/link.txt --verbose=1]
+  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++      -v -rdynamic CMakeFiles/cmTC_323ca.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_323ca ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++]
   ignore line: [COLLECT_LTO_WRAPPER=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper]
@@ -332,13 +332,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 7.3.0 (GCC) ]
   ignore line: [COMPILER_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/]
   ignore line: [LIBRARY_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_bf9bf' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2 -plugin /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so -plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/dacross/ccET3PUD.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_bf9bf /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../.. CMakeFiles/cmTC_bf9bf.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtend.o /lib/../lib64/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_323ca' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2 -plugin /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so -plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/dacross/cce4IxGY.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_323ca /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../.. CMakeFiles/cmTC_323ca.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtend.o /lib/../lib64/crtn.o]
     arg [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/dacross/ccET3PUD.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/dacross/cce4IxGY.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -351,7 +351,7 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_bf9bf] ==> ignore
+    arg [cmTC_323ca] ==> ignore
     arg [/lib/../lib64/crt1.o] ==> ignore
     arg [/lib/../lib64/crti.o] ==> ignore
     arg [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o] ==> ignore
@@ -361,7 +361,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
     arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
     arg [-L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../..] ==> dir [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../..]
-    arg [CMakeFiles/cmTC_bf9bf.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_323ca.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -385,19 +385,19 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
-Change Dir: /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp
+Change Dir: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_30f58/fast"
-gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-/usr/bin/gmake -f CMakeFiles/cmTC_30f58.dir/build.make CMakeFiles/cmTC_30f58.dir/build
-gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_30f58.dir/feature_tests.cxx.o
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++    -std=c++1z -o CMakeFiles/cmTC_30f58.dir/feature_tests.cxx.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_30f58
-/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_30f58.dir/link.txt --verbose=1
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++       -rdynamic CMakeFiles/cmTC_30f58.dir/feature_tests.cxx.o  -o cmTC_30f58 
-gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/gmake" "cmTC_e31dd/fast"
+gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_e31dd.dir/build.make CMakeFiles/cmTC_e31dd.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e31dd.dir/feature_tests.cxx.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++    -std=c++1z -o CMakeFiles/cmTC_e31dd.dir/feature_tests.cxx.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_e31dd
+/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e31dd.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++       -rdynamic CMakeFiles/cmTC_e31dd.dir/feature_tests.cxx.o  -o cmTC_e31dd 
+gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -460,19 +460,19 @@ gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp
+Change Dir: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_1a076/fast"
-gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-/usr/bin/gmake -f CMakeFiles/cmTC_1a076.dir/build.make CMakeFiles/cmTC_1a076.dir/build
-gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_1a076.dir/feature_tests.cxx.o
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++    -std=c++14 -o CMakeFiles/cmTC_1a076.dir/feature_tests.cxx.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_1a076
-/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1a076.dir/link.txt --verbose=1
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++       -rdynamic CMakeFiles/cmTC_1a076.dir/feature_tests.cxx.o  -o cmTC_1a076 
-gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/gmake" "cmTC_c4305/fast"
+gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_c4305.dir/build.make CMakeFiles/cmTC_c4305.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c4305.dir/feature_tests.cxx.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++    -std=c++14 -o CMakeFiles/cmTC_c4305.dir/feature_tests.cxx.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_c4305
+/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c4305.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++       -rdynamic CMakeFiles/cmTC_c4305.dir/feature_tests.cxx.o  -o cmTC_c4305 
+gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -535,19 +535,19 @@ gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp
+Change Dir: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_c9398/fast"
-gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-/usr/bin/gmake -f CMakeFiles/cmTC_c9398.dir/build.make CMakeFiles/cmTC_c9398.dir/build
-gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_c9398.dir/feature_tests.cxx.o
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++    -std=c++11 -o CMakeFiles/cmTC_c9398.dir/feature_tests.cxx.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_c9398
-/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c9398.dir/link.txt --verbose=1
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++       -rdynamic CMakeFiles/cmTC_c9398.dir/feature_tests.cxx.o  -o cmTC_c9398 
-gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/gmake" "cmTC_9037b/fast"
+gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_9037b.dir/build.make CMakeFiles/cmTC_9037b.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_9037b.dir/feature_tests.cxx.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++    -std=c++11 -o CMakeFiles/cmTC_9037b.dir/feature_tests.cxx.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_9037b
+/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9037b.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++       -rdynamic CMakeFiles/cmTC_9037b.dir/feature_tests.cxx.o  -o cmTC_9037b 
+gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -610,19 +610,19 @@ gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp
+Change Dir: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_1ce5d/fast"
-gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-/usr/bin/gmake -f CMakeFiles/cmTC_1ce5d.dir/build.make CMakeFiles/cmTC_1ce5d.dir/build
-gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_1ce5d.dir/feature_tests.cxx.o
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++    -std=c++98 -o CMakeFiles/cmTC_1ce5d.dir/feature_tests.cxx.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_1ce5d
-/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1ce5d.dir/link.txt --verbose=1
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++       -rdynamic CMakeFiles/cmTC_1ce5d.dir/feature_tests.cxx.o  -o cmTC_1ce5d 
-gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/gmake" "cmTC_53a06/fast"
+gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_53a06.dir/build.make CMakeFiles/cmTC_53a06.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_53a06.dir/feature_tests.cxx.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++    -std=c++98 -o CMakeFiles/cmTC_53a06.dir/feature_tests.cxx.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_53a06
+/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_53a06.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++       -rdynamic CMakeFiles/cmTC_53a06.dir/feature_tests.cxx.o  -o cmTC_53a06 
+gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -683,34 +683,34 @@ gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
     Feature record: CXX_FEATURE:0cxx_variadic_macros
     Feature record: CXX_FEATURE:0cxx_variadic_templates
 Determining if the Fortran compiler works passed with the following output:
-Change Dir: /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp
+Change Dir: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_f9b12/fast"
-gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-/usr/bin/gmake -f CMakeFiles/cmTC_f9b12.dir/build.make CMakeFiles/cmTC_f9b12.dir/build
-gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-Building Fortran object CMakeFiles/cmTC_f9b12.dir/testFortranCompiler.f.o
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran    -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp/testFortranCompiler.f -o CMakeFiles/cmTC_f9b12.dir/testFortranCompiler.f.o
-Linking Fortran executable cmTC_f9b12
-/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f9b12.dir/link.txt --verbose=1
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran      CMakeFiles/cmTC_f9b12.dir/testFortranCompiler.f.o  -o cmTC_f9b12 
-gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/gmake" "cmTC_e63c9/fast"
+gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_e63c9.dir/build.make CMakeFiles/cmTC_e63c9.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Building Fortran object CMakeFiles/cmTC_e63c9.dir/testFortranCompiler.f.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran    -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp/testFortranCompiler.f -o CMakeFiles/cmTC_e63c9.dir/testFortranCompiler.f.o
+Linking Fortran executable cmTC_e63c9
+/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e63c9.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran      CMakeFiles/cmTC_e63c9.dir/testFortranCompiler.f.o  -o cmTC_e63c9 
+gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
 
 
 Detecting Fortran compiler ABI info compiled with the following output:
-Change Dir: /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp
+Change Dir: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_241db/fast"
-gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-/usr/bin/gmake -f CMakeFiles/cmTC_241db.dir/build.make CMakeFiles/cmTC_241db.dir/build
-gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-Building Fortran object CMakeFiles/cmTC_241db.dir/CMakeFortranCompilerABI.F.o
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran    -c /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/share/cmake-3.11/Modules/CMakeFortranCompilerABI.F -o CMakeFiles/cmTC_241db.dir/CMakeFortranCompilerABI.F.o
-Linking Fortran executable cmTC_241db
-/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_241db.dir/link.txt --verbose=1
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran   -v   CMakeFiles/cmTC_241db.dir/CMakeFortranCompilerABI.F.o  -o cmTC_241db 
-Driving: /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran -v CMakeFiles/cmTC_241db.dir/CMakeFortranCompilerABI.F.o -o cmTC_241db -l gfortran -l m -shared-libgcc
+Run Build Command:"/usr/bin/gmake" "cmTC_eb5de/fast"
+gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_eb5de.dir/build.make CMakeFiles/cmTC_eb5de.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Building Fortran object CMakeFiles/cmTC_eb5de.dir/CMakeFortranCompilerABI.F.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran    -c /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/share/cmake-3.11/Modules/CMakeFortranCompilerABI.F -o CMakeFiles/cmTC_eb5de.dir/CMakeFortranCompilerABI.F.o
+Linking Fortran executable cmTC_eb5de
+/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_eb5de.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran   -v   CMakeFiles/cmTC_eb5de.dir/CMakeFortranCompilerABI.F.o  -o cmTC_eb5de 
+Driving: /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran -v CMakeFiles/cmTC_eb5de.dir/CMakeFortranCompilerABI.F.o -o cmTC_eb5de -l gfortran -l m -shared-libgcc
 Using built-in specs.
 COLLECT_GCC=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran
 COLLECT_LTO_WRAPPER=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper
@@ -720,30 +720,30 @@ Thread model: posix
 gcc version 7.3.0 (GCC) 
 Reading specs from /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64/libgfortran.spec
 rename spec lib to liborig
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_241db' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_eb5de' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
 COMPILER_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/
 LIBRARY_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_241db' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2 -plugin /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so -plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/dacross/ccdtECMQ.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lquadmath -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_241db /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../.. CMakeFiles/cmTC_241db.dir/CMakeFortranCompilerABI.F.o -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtend.o /lib/../lib64/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_241db' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_eb5de' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2 -plugin /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so -plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/dacross/ccDCtznk.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lquadmath -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_eb5de /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../.. CMakeFiles/cmTC_eb5de.dir/CMakeFortranCompilerABI.F.o -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtend.o /lib/../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_eb5de' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
 
 
 Parsed Fortran implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_241db/fast"]
-  ignore line: [gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp']
-  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_241db.dir/build.make CMakeFiles/cmTC_241db.dir/build]
-  ignore line: [gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp']
-  ignore line: [Building Fortran object CMakeFiles/cmTC_241db.dir/CMakeFortranCompilerABI.F.o]
-  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran    -c /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/share/cmake-3.11/Modules/CMakeFortranCompilerABI.F -o CMakeFiles/cmTC_241db.dir/CMakeFortranCompilerABI.F.o]
-  ignore line: [Linking Fortran executable cmTC_241db]
-  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_241db.dir/link.txt --verbose=1]
-  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran   -v   CMakeFiles/cmTC_241db.dir/CMakeFortranCompilerABI.F.o  -o cmTC_241db ]
-  ignore line: [Driving: /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran -v CMakeFiles/cmTC_241db.dir/CMakeFortranCompilerABI.F.o -o cmTC_241db -l gfortran -l m -shared-libgcc]
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_eb5de/fast"]
+  ignore line: [gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_eb5de.dir/build.make CMakeFiles/cmTC_eb5de.dir/build]
+  ignore line: [gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp']
+  ignore line: [Building Fortran object CMakeFiles/cmTC_eb5de.dir/CMakeFortranCompilerABI.F.o]
+  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran    -c /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/share/cmake-3.11/Modules/CMakeFortranCompilerABI.F -o CMakeFiles/cmTC_eb5de.dir/CMakeFortranCompilerABI.F.o]
+  ignore line: [Linking Fortran executable cmTC_eb5de]
+  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_eb5de.dir/link.txt --verbose=1]
+  ignore line: [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran   -v   CMakeFiles/cmTC_eb5de.dir/CMakeFortranCompilerABI.F.o  -o cmTC_eb5de ]
+  ignore line: [Driving: /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran -v CMakeFiles/cmTC_eb5de.dir/CMakeFortranCompilerABI.F.o -o cmTC_eb5de -l gfortran -l m -shared-libgcc]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran]
   ignore line: [COLLECT_LTO_WRAPPER=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper]
@@ -753,16 +753,16 @@ Parsed Fortran implicit link information from above output:
   ignore line: [gcc version 7.3.0 (GCC) ]
   ignore line: [Reading specs from /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64/libgfortran.spec]
   ignore line: [rename spec lib to liborig]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_241db' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_eb5de' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
   ignore line: [COMPILER_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/]
   ignore line: [LIBRARY_PATH=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_241db' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2 -plugin /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so -plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/dacross/ccdtECMQ.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lquadmath -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_241db /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../.. CMakeFiles/cmTC_241db.dir/CMakeFortranCompilerABI.F.o -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtend.o /lib/../lib64/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_eb5de' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2 -plugin /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so -plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/dacross/ccDCtznk.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lquadmath -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_eb5de /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../.. CMakeFiles/cmTC_eb5de.dir/CMakeFortranCompilerABI.F.o -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtend.o /lib/../lib64/crtn.o]
     arg [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/dacross/ccdtECMQ.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/dacross/ccDCtznk.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lquadmath] ==> ignore
@@ -778,7 +778,7 @@ Parsed Fortran implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_241db] ==> ignore
+    arg [cmTC_eb5de] ==> ignore
     arg [/lib/../lib64/crt1.o] ==> ignore
     arg [/lib/../lib64/crti.o] ==> ignore
     arg [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/crtbegin.o] ==> ignore
@@ -788,7 +788,7 @@ Parsed Fortran implicit link information from above output:
     arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
     arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
     arg [-L/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../..] ==> dir [/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/7.3.0/../../..]
-    arg [CMakeFiles/cmTC_241db.dir/CMakeFortranCompilerABI.F.o] ==> ignore
+    arg [CMakeFiles/cmTC_eb5de.dir/CMakeFortranCompilerABI.F.o] ==> ignore
     arg [-lgfortran] ==> lib [gfortran]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -814,18 +814,18 @@ Parsed Fortran implicit link information from above output:
 
 
 Determining if the Fortran compiler supports Fortran 90 passed with the following output:
-Change Dir: /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp
+Change Dir: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_0f11f/fast"
-gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-/usr/bin/gmake -f CMakeFiles/cmTC_0f11f.dir/build.make CMakeFiles/cmTC_0f11f.dir/build
-gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-Building Fortran object CMakeFiles/cmTC_0f11f.dir/testFortranCompilerF90.f90.o
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran    -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp/testFortranCompilerF90.f90 -o CMakeFiles/cmTC_0f11f.dir/testFortranCompilerF90.f90.o
-Linking Fortran executable cmTC_0f11f
-/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0f11f.dir/link.txt --verbose=1
-/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran      CMakeFiles/cmTC_0f11f.dir/testFortranCompilerF90.f90.o  -o cmTC_0f11f 
-gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
-gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/gmake" "cmTC_fc525/fast"
+gmake[1]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+/usr/bin/gmake -f CMakeFiles/cmTC_fc525.dir/build.make CMakeFiles/cmTC_fc525.dir/build
+gmake[2]: Entering directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+Building Fortran object CMakeFiles/cmTC_fc525.dir/testFortranCompilerF90.f90.o
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran    -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp/testFortranCompilerF90.f90 -o CMakeFiles/cmTC_fc525.dir/testFortranCompilerF90.f90.o
+Linking Fortran executable cmTC_fc525
+/cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fc525.dir/link.txt --verbose=1
+/cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran      CMakeFiles/cmTC_fc525.dir/testFortranCompilerF90.f90.o  -o cmTC_fc525 
+gmake[2]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles/CMakeTmp'
 
 

@@ -34,25 +34,25 @@ math.h
 iostream
 -
 
-/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Service/src/TH1Sparse.cc
+/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Service/src/TH1Sparse.cc
 TH1Sparse.hh
-/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Service/src/TH1Sparse.hh
+/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Service/src/TH1Sparse.hh
 
-/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Service/src/TH2Sparse.cc
+/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Service/src/TH2Sparse.cc
 TH2Sparse.hh
-/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Service/src/TH2Sparse.hh
+/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Service/src/TH2Sparse.hh
 
-/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Service/src/Tools.cc
+/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Service/src/Tools.cc
 Tools.hh
-/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Service/src/Tools.hh
+/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Service/src/Tools.hh
 
-/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Service/src/q.cc
+/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Service/src/q.cc
 q.hh
-/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Service/src/q.hh
+/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Service/src/q.hh
 
-/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Service/src/wzero.cc
+/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Service/src/wzero.cc
 wzero.hh
-/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Service/src/wzero.hh
+/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Service/src/wzero.hh
 
 /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include/DllImport.h
 

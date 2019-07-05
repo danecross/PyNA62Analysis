@@ -1,8 +1,8 @@
 module "NewCHODSlimPersistency" {
   requires cplusplus
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODCandidate.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODCandidate.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODEvent.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODEvent.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODHit.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODHit.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODCandidate.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODCandidate.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODEvent.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODEvent.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODHit.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NewCHOD/include/TSlimRecoNewCHODHit.hh" export * }
   export *
 }
 

@@ -10,7 +10,7 @@ MCBase/CMakeFiles/MCBase-static.dir/src/BeamPipe.cc.o
  ../MCBase/include/NA62VGeometryParameters.hh
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MCBase/src/BeamPipe.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MCBase/src/BeamPipe.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -330,7 +330,7 @@ MCBase/CMakeFiles/MCBase-static.dir/src/BeamPipe.cc.o
 MCBase/CMakeFiles/MCBase-static.dir/src/BeamPipeMaterialParameters.cc.o
  ../MCBase/include/BeamPipeMaterialParameters.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/DetectorParameter.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MCBase/src/BeamPipeMaterialParameters.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MCBase/src/BeamPipeMaterialParameters.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4DataVector.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4DataVector.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Element.hh
@@ -428,7 +428,7 @@ MCBase/CMakeFiles/MCBase-static.dir/src/BeamTube.cc.o
  ../MCBase/include/NA62VGeometryParameters.hh
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MCBase/src/BeamTube.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MCBase/src/BeamTube.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -752,7 +752,7 @@ MCBase/CMakeFiles/MCBase-static.dir/src/BeamTubeFins.cc.o
  ../MCBase/include/NA62VGeometryParameters.hh
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MCBase/src/BeamTubeFins.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MCBase/src/BeamTubeFins.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -1074,7 +1074,7 @@ MCBase/CMakeFiles/MCBase-static.dir/src/MagneticField.cc.o
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/BlueTubeMagneticFieldMap.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/FringeMagneticFieldMap.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/MNP33MagneticFieldMap.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MCBase/src/MagneticField.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MCBase/src/MagneticField.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4EnvironmentUtils.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Exception.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4ExceptionSeverity.hh
@@ -1151,7 +1151,7 @@ MCBase/CMakeFiles/MCBase-static.dir/src/MagneticField.cc.o
  /cvmfs/sft.cern.ch/lcg/releases/clhep/2.4.1.0-2c56f/x86_64-centos7-gcc7-opt/lib/CLHEP-2.4.1.0/../../include/CLHEP/Units/defs.h
 MCBase/CMakeFiles/MCBase-static.dir/src/NA62VComponent.cc.o
  ../MCBase/include/NA62VComponent.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MCBase/src/NA62VComponent.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MCBase/src/NA62VComponent.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AllocatorPool.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AutoLock.hh
@@ -1231,7 +1231,7 @@ MCBase/CMakeFiles/MCBase-static.dir/src/NA62VGeometryParameters.cc.o
  ../MCBase/include/NA62VGeometryParameters.hh
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/ResponsibilityRegion.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MCBase/src/NA62VGeometryParameters.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MCBase/src/NA62VGeometryParameters.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4EnvironmentUtils.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Exception.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4ExceptionSeverity.hh
@@ -1250,7 +1250,7 @@ MCBase/CMakeFiles/MCBase-static.dir/src/NA62VGeometryParameters.cc.o
  /cvmfs/sft.cern.ch/lcg/releases/clhep/2.4.1.0-2c56f/x86_64-centos7-gcc7-opt/lib/CLHEP-2.4.1.0/../../include/CLHEP/Units/defs.h
 MCBase/CMakeFiles/MCBase-static.dir/src/NA62VNamed.cc.o
  ../MCBase/include/NA62VNamed.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MCBase/src/NA62VNamed.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MCBase/src/NA62VNamed.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4EnvironmentUtils.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Exception.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4ExceptionSeverity.hh
@@ -1265,7 +1265,7 @@ MCBase/CMakeFiles/MCBase-static.dir/src/NA62VNamed.cc.o
 MCBase/CMakeFiles/MCBase-static.dir/src/NA62VRootIO.cc.o
  ../MCBase/include/NA62VNamed.hh
  ../MCBase/include/NA62VRootIO.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/MCBase/src/NA62VRootIO.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/MCBase/src/NA62VRootIO.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AllocatorPool.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4DCofThisEvent.hh

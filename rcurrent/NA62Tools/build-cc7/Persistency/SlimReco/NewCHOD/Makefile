@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/SlimReco/NewCHOD/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/NewCHOD/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/SlimReco/NewCHOD/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/NewCHOD/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/NewCHOD/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/NewCHOD/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/NewCHOD/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/NewCHOD/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/NewCHOD/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/NewCHOD/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistencyDICT.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistencyDICT.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistencyDICT.dir/rule
 .PHONY : Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistencyDICT.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ NewCHODSlimPersistencyDICT: Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimP
 
 # fast build rule for target.
 NewCHODSlimPersistencyDICT/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistencyDICT.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistencyDICT.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistencyDICT.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistencyDICT.dir/build
 .PHONY : NewCHODSlimPersistencyDICT/fast
 
 # Convenience name for target.
 Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistency.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistency.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistency.dir/rule
 .PHONY : Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistency.dir/rule
 
 # Convenience name for target.
@@ -183,12 +183,12 @@ NewCHODSlimPersistency: Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersi
 
 # fast build rule for target.
 NewCHODSlimPersistency/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistency.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistency.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistency.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistency.dir/build
 .PHONY : NewCHODSlimPersistency/fast
 
 # Convenience name for target.
 Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/rule
 .PHONY : Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/rule
 
 # Convenience name for target.
@@ -198,12 +198,12 @@ NewCHODObjSlimPersistencyLib: Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObj
 
 # fast build rule for target.
 NewCHODObjSlimPersistencyLib/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build
 .PHONY : NewCHODObjSlimPersistencyLib/fast
 
 # Convenience name for target.
 Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistency-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistency-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistency-static.dir/rule
 .PHONY : Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistency-static.dir/rule
 
 # Convenience name for target.
@@ -213,7 +213,7 @@ NewCHODSlimPersistency-static: Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSl
 
 # fast build rule for target.
 NewCHODSlimPersistency-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistency-static.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistency-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistency-static.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODSlimPersistency-static.dir/build
 .PHONY : NewCHODSlimPersistency-static/fast
 
 NewCHODSlimPersistencyDICT.o: NewCHODSlimPersistencyDICT.cxx.o
@@ -222,7 +222,7 @@ NewCHODSlimPersistencyDICT.o: NewCHODSlimPersistencyDICT.cxx.o
 
 # target to build an object file
 NewCHODSlimPersistencyDICT.cxx.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/NewCHODSlimPersistencyDICT.cxx.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/NewCHODSlimPersistencyDICT.cxx.o
 .PHONY : NewCHODSlimPersistencyDICT.cxx.o
 
 NewCHODSlimPersistencyDICT.i: NewCHODSlimPersistencyDICT.cxx.i
@@ -231,7 +231,7 @@ NewCHODSlimPersistencyDICT.i: NewCHODSlimPersistencyDICT.cxx.i
 
 # target to preprocess a source file
 NewCHODSlimPersistencyDICT.cxx.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/NewCHODSlimPersistencyDICT.cxx.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/NewCHODSlimPersistencyDICT.cxx.i
 .PHONY : NewCHODSlimPersistencyDICT.cxx.i
 
 NewCHODSlimPersistencyDICT.s: NewCHODSlimPersistencyDICT.cxx.s
@@ -240,7 +240,7 @@ NewCHODSlimPersistencyDICT.s: NewCHODSlimPersistencyDICT.cxx.s
 
 # target to generate assembly for a file
 NewCHODSlimPersistencyDICT.cxx.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/NewCHODSlimPersistencyDICT.cxx.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/NewCHODSlimPersistencyDICT.cxx.s
 .PHONY : NewCHODSlimPersistencyDICT.cxx.s
 
 src/TSlimRecoNewCHODCandidate.o: src/TSlimRecoNewCHODCandidate.cc.o
@@ -249,7 +249,7 @@ src/TSlimRecoNewCHODCandidate.o: src/TSlimRecoNewCHODCandidate.cc.o
 
 # target to build an object file
 src/TSlimRecoNewCHODCandidate.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSlimRecoNewCHODCandidate.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSlimRecoNewCHODCandidate.cc.o
 .PHONY : src/TSlimRecoNewCHODCandidate.cc.o
 
 src/TSlimRecoNewCHODCandidate.i: src/TSlimRecoNewCHODCandidate.cc.i
@@ -258,7 +258,7 @@ src/TSlimRecoNewCHODCandidate.i: src/TSlimRecoNewCHODCandidate.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoNewCHODCandidate.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSlimRecoNewCHODCandidate.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSlimRecoNewCHODCandidate.cc.i
 .PHONY : src/TSlimRecoNewCHODCandidate.cc.i
 
 src/TSlimRecoNewCHODCandidate.s: src/TSlimRecoNewCHODCandidate.cc.s
@@ -267,7 +267,7 @@ src/TSlimRecoNewCHODCandidate.s: src/TSlimRecoNewCHODCandidate.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoNewCHODCandidate.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSlimRecoNewCHODCandidate.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSlimRecoNewCHODCandidate.cc.s
 .PHONY : src/TSlimRecoNewCHODCandidate.cc.s
 
 src/TSlimRecoNewCHODEvent.o: src/TSlimRecoNewCHODEvent.cc.o
@@ -276,7 +276,7 @@ src/TSlimRecoNewCHODEvent.o: src/TSlimRecoNewCHODEvent.cc.o
 
 # target to build an object file
 src/TSlimRecoNewCHODEvent.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSlimRecoNewCHODEvent.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSlimRecoNewCHODEvent.cc.o
 .PHONY : src/TSlimRecoNewCHODEvent.cc.o
 
 src/TSlimRecoNewCHODEvent.i: src/TSlimRecoNewCHODEvent.cc.i
@@ -285,7 +285,7 @@ src/TSlimRecoNewCHODEvent.i: src/TSlimRecoNewCHODEvent.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoNewCHODEvent.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSlimRecoNewCHODEvent.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSlimRecoNewCHODEvent.cc.i
 .PHONY : src/TSlimRecoNewCHODEvent.cc.i
 
 src/TSlimRecoNewCHODEvent.s: src/TSlimRecoNewCHODEvent.cc.s
@@ -294,7 +294,7 @@ src/TSlimRecoNewCHODEvent.s: src/TSlimRecoNewCHODEvent.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoNewCHODEvent.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSlimRecoNewCHODEvent.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSlimRecoNewCHODEvent.cc.s
 .PHONY : src/TSlimRecoNewCHODEvent.cc.s
 
 src/TSlimRecoNewCHODHit.o: src/TSlimRecoNewCHODHit.cc.o
@@ -303,7 +303,7 @@ src/TSlimRecoNewCHODHit.o: src/TSlimRecoNewCHODHit.cc.o
 
 # target to build an object file
 src/TSlimRecoNewCHODHit.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSlimRecoNewCHODHit.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSlimRecoNewCHODHit.cc.o
 .PHONY : src/TSlimRecoNewCHODHit.cc.o
 
 src/TSlimRecoNewCHODHit.i: src/TSlimRecoNewCHODHit.cc.i
@@ -312,7 +312,7 @@ src/TSlimRecoNewCHODHit.i: src/TSlimRecoNewCHODHit.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoNewCHODHit.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSlimRecoNewCHODHit.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSlimRecoNewCHODHit.cc.i
 .PHONY : src/TSlimRecoNewCHODHit.cc.i
 
 src/TSlimRecoNewCHODHit.s: src/TSlimRecoNewCHODHit.cc.s
@@ -321,7 +321,7 @@ src/TSlimRecoNewCHODHit.s: src/TSlimRecoNewCHODHit.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoNewCHODHit.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSlimRecoNewCHODHit.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/NewCHOD/CMakeFiles/NewCHODObjSlimPersistencyLib.dir/src/TSlimRecoNewCHODHit.cc.s
 .PHONY : src/TSlimRecoNewCHODHit.cc.s
 
 # Help Target
@@ -363,6 +363,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

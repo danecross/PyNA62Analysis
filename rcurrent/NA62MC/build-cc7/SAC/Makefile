@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/SAC/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 SAC/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/SAC/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 SAC/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 SAC/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 SAC/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 SAC/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 SAC/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 SAC/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 SAC/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 SAC/CMakeFiles/SACObjLib.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 SAC/CMakeFiles/SACObjLib.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 SAC/CMakeFiles/SACObjLib.dir/rule
 .PHONY : SAC/CMakeFiles/SACObjLib.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ SACObjLib: SAC/CMakeFiles/SACObjLib.dir/rule
 
 # fast build rule for target.
 SACObjLib/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/build
 .PHONY : SACObjLib/fast
 
 # Convenience name for target.
 SAC/CMakeFiles/SAC.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 SAC/CMakeFiles/SAC.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 SAC/CMakeFiles/SAC.dir/rule
 .PHONY : SAC/CMakeFiles/SAC.dir/rule
 
 # Convenience name for target.
@@ -183,12 +183,12 @@ SAC: SAC/CMakeFiles/SAC.dir/rule
 
 # fast build rule for target.
 SAC/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SAC.dir/build.make SAC/CMakeFiles/SAC.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SAC.dir/build.make SAC/CMakeFiles/SAC.dir/build
 .PHONY : SAC/fast
 
 # Convenience name for target.
 SAC/CMakeFiles/SAC-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 SAC/CMakeFiles/SAC-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 SAC/CMakeFiles/SAC-static.dir/rule
 .PHONY : SAC/CMakeFiles/SAC-static.dir/rule
 
 # Convenience name for target.
@@ -198,7 +198,7 @@ SAC-static: SAC/CMakeFiles/SAC-static.dir/rule
 
 # fast build rule for target.
 SAC-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SAC-static.dir/build.make SAC/CMakeFiles/SAC-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SAC-static.dir/build.make SAC/CMakeFiles/SAC-static.dir/build
 .PHONY : SAC-static/fast
 
 src/SACAbsorberLayer.o: src/SACAbsorberLayer.cc.o
@@ -207,7 +207,7 @@ src/SACAbsorberLayer.o: src/SACAbsorberLayer.cc.o
 
 # target to build an object file
 src/SACAbsorberLayer.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACAbsorberLayer.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACAbsorberLayer.cc.o
 .PHONY : src/SACAbsorberLayer.cc.o
 
 src/SACAbsorberLayer.i: src/SACAbsorberLayer.cc.i
@@ -216,7 +216,7 @@ src/SACAbsorberLayer.i: src/SACAbsorberLayer.cc.i
 
 # target to preprocess a source file
 src/SACAbsorberLayer.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACAbsorberLayer.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACAbsorberLayer.cc.i
 .PHONY : src/SACAbsorberLayer.cc.i
 
 src/SACAbsorberLayer.s: src/SACAbsorberLayer.cc.s
@@ -225,7 +225,7 @@ src/SACAbsorberLayer.s: src/SACAbsorberLayer.cc.s
 
 # target to generate assembly for a file
 src/SACAbsorberLayer.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACAbsorberLayer.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACAbsorberLayer.cc.s
 .PHONY : src/SACAbsorberLayer.cc.s
 
 src/SACAbsorberScintillator.o: src/SACAbsorberScintillator.cc.o
@@ -234,7 +234,7 @@ src/SACAbsorberScintillator.o: src/SACAbsorberScintillator.cc.o
 
 # target to build an object file
 src/SACAbsorberScintillator.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACAbsorberScintillator.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACAbsorberScintillator.cc.o
 .PHONY : src/SACAbsorberScintillator.cc.o
 
 src/SACAbsorberScintillator.i: src/SACAbsorberScintillator.cc.i
@@ -243,7 +243,7 @@ src/SACAbsorberScintillator.i: src/SACAbsorberScintillator.cc.i
 
 # target to preprocess a source file
 src/SACAbsorberScintillator.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACAbsorberScintillator.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACAbsorberScintillator.cc.i
 .PHONY : src/SACAbsorberScintillator.cc.i
 
 src/SACAbsorberScintillator.s: src/SACAbsorberScintillator.cc.s
@@ -252,7 +252,7 @@ src/SACAbsorberScintillator.s: src/SACAbsorberScintillator.cc.s
 
 # target to generate assembly for a file
 src/SACAbsorberScintillator.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACAbsorberScintillator.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACAbsorberScintillator.cc.s
 .PHONY : src/SACAbsorberScintillator.cc.s
 
 src/SACDetector.o: src/SACDetector.cc.o
@@ -261,7 +261,7 @@ src/SACDetector.o: src/SACDetector.cc.o
 
 # target to build an object file
 src/SACDetector.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACDetector.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACDetector.cc.o
 .PHONY : src/SACDetector.cc.o
 
 src/SACDetector.i: src/SACDetector.cc.i
@@ -270,7 +270,7 @@ src/SACDetector.i: src/SACDetector.cc.i
 
 # target to preprocess a source file
 src/SACDetector.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACDetector.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACDetector.cc.i
 .PHONY : src/SACDetector.cc.i
 
 src/SACDetector.s: src/SACDetector.cc.s
@@ -279,7 +279,7 @@ src/SACDetector.s: src/SACDetector.cc.s
 
 # target to generate assembly for a file
 src/SACDetector.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACDetector.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACDetector.cc.s
 .PHONY : src/SACDetector.cc.s
 
 src/SACGeometryParameters.o: src/SACGeometryParameters.cc.o
@@ -288,7 +288,7 @@ src/SACGeometryParameters.o: src/SACGeometryParameters.cc.o
 
 # target to build an object file
 src/SACGeometryParameters.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACGeometryParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACGeometryParameters.cc.o
 .PHONY : src/SACGeometryParameters.cc.o
 
 src/SACGeometryParameters.i: src/SACGeometryParameters.cc.i
@@ -297,7 +297,7 @@ src/SACGeometryParameters.i: src/SACGeometryParameters.cc.i
 
 # target to preprocess a source file
 src/SACGeometryParameters.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACGeometryParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACGeometryParameters.cc.i
 .PHONY : src/SACGeometryParameters.cc.i
 
 src/SACGeometryParameters.s: src/SACGeometryParameters.cc.s
@@ -306,7 +306,7 @@ src/SACGeometryParameters.s: src/SACGeometryParameters.cc.s
 
 # target to generate assembly for a file
 src/SACGeometryParameters.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACGeometryParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACGeometryParameters.cc.s
 .PHONY : src/SACGeometryParameters.cc.s
 
 src/SACHit.o: src/SACHit.cc.o
@@ -315,7 +315,7 @@ src/SACHit.o: src/SACHit.cc.o
 
 # target to build an object file
 src/SACHit.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACHit.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACHit.cc.o
 .PHONY : src/SACHit.cc.o
 
 src/SACHit.i: src/SACHit.cc.i
@@ -324,7 +324,7 @@ src/SACHit.i: src/SACHit.cc.i
 
 # target to preprocess a source file
 src/SACHit.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACHit.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACHit.cc.i
 .PHONY : src/SACHit.cc.i
 
 src/SACHit.s: src/SACHit.cc.s
@@ -333,7 +333,7 @@ src/SACHit.s: src/SACHit.cc.s
 
 # target to generate assembly for a file
 src/SACHit.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACHit.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACHit.cc.s
 .PHONY : src/SACHit.cc.s
 
 src/SACMaterialParameters.o: src/SACMaterialParameters.cc.o
@@ -342,7 +342,7 @@ src/SACMaterialParameters.o: src/SACMaterialParameters.cc.o
 
 # target to build an object file
 src/SACMaterialParameters.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACMaterialParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACMaterialParameters.cc.o
 .PHONY : src/SACMaterialParameters.cc.o
 
 src/SACMaterialParameters.i: src/SACMaterialParameters.cc.i
@@ -351,7 +351,7 @@ src/SACMaterialParameters.i: src/SACMaterialParameters.cc.i
 
 # target to preprocess a source file
 src/SACMaterialParameters.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACMaterialParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACMaterialParameters.cc.i
 .PHONY : src/SACMaterialParameters.cc.i
 
 src/SACMaterialParameters.s: src/SACMaterialParameters.cc.s
@@ -360,7 +360,7 @@ src/SACMaterialParameters.s: src/SACMaterialParameters.cc.s
 
 # target to generate assembly for a file
 src/SACMaterialParameters.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACMaterialParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACMaterialParameters.cc.s
 .PHONY : src/SACMaterialParameters.cc.s
 
 src/SACRootIO.o: src/SACRootIO.cc.o
@@ -369,7 +369,7 @@ src/SACRootIO.o: src/SACRootIO.cc.o
 
 # target to build an object file
 src/SACRootIO.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACRootIO.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACRootIO.cc.o
 .PHONY : src/SACRootIO.cc.o
 
 src/SACRootIO.i: src/SACRootIO.cc.i
@@ -378,7 +378,7 @@ src/SACRootIO.i: src/SACRootIO.cc.i
 
 # target to preprocess a source file
 src/SACRootIO.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACRootIO.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACRootIO.cc.i
 .PHONY : src/SACRootIO.cc.i
 
 src/SACRootIO.s: src/SACRootIO.cc.s
@@ -387,7 +387,7 @@ src/SACRootIO.s: src/SACRootIO.cc.s
 
 # target to generate assembly for a file
 src/SACRootIO.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACRootIO.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACRootIO.cc.s
 .PHONY : src/SACRootIO.cc.s
 
 src/SACSD.o: src/SACSD.cc.o
@@ -396,7 +396,7 @@ src/SACSD.o: src/SACSD.cc.o
 
 # target to build an object file
 src/SACSD.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACSD.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACSD.cc.o
 .PHONY : src/SACSD.cc.o
 
 src/SACSD.i: src/SACSD.cc.i
@@ -405,7 +405,7 @@ src/SACSD.i: src/SACSD.cc.i
 
 # target to preprocess a source file
 src/SACSD.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACSD.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACSD.cc.i
 .PHONY : src/SACSD.cc.i
 
 src/SACSD.s: src/SACSD.cc.s
@@ -414,7 +414,7 @@ src/SACSD.s: src/SACSD.cc.s
 
 # target to generate assembly for a file
 src/SACSD.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACSD.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACSD.cc.s
 .PHONY : src/SACSD.cc.s
 
 src/SACScintillatorLayer.o: src/SACScintillatorLayer.cc.o
@@ -423,7 +423,7 @@ src/SACScintillatorLayer.o: src/SACScintillatorLayer.cc.o
 
 # target to build an object file
 src/SACScintillatorLayer.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACScintillatorLayer.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACScintillatorLayer.cc.o
 .PHONY : src/SACScintillatorLayer.cc.o
 
 src/SACScintillatorLayer.i: src/SACScintillatorLayer.cc.i
@@ -432,7 +432,7 @@ src/SACScintillatorLayer.i: src/SACScintillatorLayer.cc.i
 
 # target to preprocess a source file
 src/SACScintillatorLayer.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACScintillatorLayer.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACScintillatorLayer.cc.i
 .PHONY : src/SACScintillatorLayer.cc.i
 
 src/SACScintillatorLayer.s: src/SACScintillatorLayer.cc.s
@@ -441,7 +441,7 @@ src/SACScintillatorLayer.s: src/SACScintillatorLayer.cc.s
 
 # target to generate assembly for a file
 src/SACScintillatorLayer.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACScintillatorLayer.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACScintillatorLayer.cc.s
 .PHONY : src/SACScintillatorLayer.cc.s
 
 src/SACSegment.o: src/SACSegment.cc.o
@@ -450,7 +450,7 @@ src/SACSegment.o: src/SACSegment.cc.o
 
 # target to build an object file
 src/SACSegment.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACSegment.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACSegment.cc.o
 .PHONY : src/SACSegment.cc.o
 
 src/SACSegment.i: src/SACSegment.cc.i
@@ -459,7 +459,7 @@ src/SACSegment.i: src/SACSegment.cc.i
 
 # target to preprocess a source file
 src/SACSegment.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACSegment.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACSegment.cc.i
 .PHONY : src/SACSegment.cc.i
 
 src/SACSegment.s: src/SACSegment.cc.s
@@ -468,7 +468,7 @@ src/SACSegment.s: src/SACSegment.cc.s
 
 # target to generate assembly for a file
 src/SACSegment.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACSegment.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f SAC/CMakeFiles/SACObjLib.dir/build.make SAC/CMakeFiles/SACObjLib.dir/src/SACSegment.cc.s
 .PHONY : src/SACSegment.cc.s
 
 # Help Target
@@ -527,6 +527,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

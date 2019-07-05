@@ -1,8 +1,8 @@
-# Install script for directory: /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/Tools/PrimMonitor
+# Install script for directory: /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/Tools/PrimMonitor
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction")
+  set(CMAKE_INSTALL_PREFIX "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -44,12 +44,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xtoolsexex" OR NOT CMAKE_INSTALL_COM
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin-cc7/PrimMonitor"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin-cc7" TYPE EXECUTABLE FILES "/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/Tools/PrimMonitor/PrimMonitor")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin-cc7" TYPE EXECUTABLE FILES "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/Tools/PrimMonitor/PrimMonitor")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin-cc7/PrimMonitor" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin-cc7/PrimMonitor")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin-cc7/PrimMonitor"
-         OLD_RPATH "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/lib-cc7:/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/lib-cc7/Persistency:/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/lib-cc7/SlimPersistency:/cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/lib:/cvmfs/sft.cern.ch/lcg/releases/LCG_95/sqlite/3210000/x86_64-centos7-gcc7-opt/lib:/cvmfs/sft.cern.ch/lcg/releases/LCG_95/xrootd/4.8.4/x86_64-centos7-gcc7-opt/lib64:/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-centos7-gcc7-opt/lib:"
+         OLD_RPATH "/afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/lib-cc7:/afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/lib-cc7/Persistency:/afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/lib-cc7/SlimPersistency:/cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/lib:/cvmfs/sft.cern.ch/lcg/releases/LCG_95/sqlite/3210000/x86_64-centos7-gcc7-opt/lib:/cvmfs/sft.cern.ch/lcg/releases/LCG_95/xrootd/4.8.4/x86_64-centos7-gcc7-opt/lib64:/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-centos7-gcc7-opt/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin-cc7/PrimMonitor")

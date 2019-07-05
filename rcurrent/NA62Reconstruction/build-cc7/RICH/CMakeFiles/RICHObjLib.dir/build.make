@@ -43,10 +43,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7
 
 # Include any dependencies generated for this target.
 include RICH/CMakeFiles/RICHObjLib.dir/depend.make
@@ -59,81 +59,81 @@ include RICH/CMakeFiles/RICHObjLib.dir/flags.make
 
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHChannel.cc.o: RICH/CMakeFiles/RICHObjLib.dir/flags.make
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHChannel.cc.o: ../RICH/src/RICHChannel.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object RICH/CMakeFiles/RICHObjLib.dir/src/RICHChannel.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RICHObjLib.dir/src/RICHChannel.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/RICH/src/RICHChannel.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object RICH/CMakeFiles/RICHObjLib.dir/src/RICHChannel.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RICHObjLib.dir/src/RICHChannel.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/RICH/src/RICHChannel.cc
 
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHChannel.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RICHObjLib.dir/src/RICHChannel.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/RICH/src/RICHChannel.cc > CMakeFiles/RICHObjLib.dir/src/RICHChannel.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/RICH/src/RICHChannel.cc > CMakeFiles/RICHObjLib.dir/src/RICHChannel.cc.i
 
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHChannel.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RICHObjLib.dir/src/RICHChannel.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/RICH/src/RICHChannel.cc -o CMakeFiles/RICHObjLib.dir/src/RICHChannel.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/RICH/src/RICHChannel.cc -o CMakeFiles/RICHObjLib.dir/src/RICHChannel.cc.s
 
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHDigitizer.cc.o: RICH/CMakeFiles/RICHObjLib.dir/flags.make
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHDigitizer.cc.o: ../RICH/src/RICHDigitizer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object RICH/CMakeFiles/RICHObjLib.dir/src/RICHDigitizer.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RICHObjLib.dir/src/RICHDigitizer.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/RICH/src/RICHDigitizer.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object RICH/CMakeFiles/RICHObjLib.dir/src/RICHDigitizer.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RICHObjLib.dir/src/RICHDigitizer.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/RICH/src/RICHDigitizer.cc
 
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHDigitizer.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RICHObjLib.dir/src/RICHDigitizer.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/RICH/src/RICHDigitizer.cc > CMakeFiles/RICHObjLib.dir/src/RICHDigitizer.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/RICH/src/RICHDigitizer.cc > CMakeFiles/RICHObjLib.dir/src/RICHDigitizer.cc.i
 
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHDigitizer.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RICHObjLib.dir/src/RICHDigitizer.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/RICH/src/RICHDigitizer.cc -o CMakeFiles/RICHObjLib.dir/src/RICHDigitizer.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/RICH/src/RICHDigitizer.cc -o CMakeFiles/RICHObjLib.dir/src/RICHDigitizer.cc.s
 
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHOnlineMonitor.cc.o: RICH/CMakeFiles/RICHObjLib.dir/flags.make
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHOnlineMonitor.cc.o: ../RICH/src/RICHOnlineMonitor.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object RICH/CMakeFiles/RICHObjLib.dir/src/RICHOnlineMonitor.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RICHObjLib.dir/src/RICHOnlineMonitor.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/RICH/src/RICHOnlineMonitor.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object RICH/CMakeFiles/RICHObjLib.dir/src/RICHOnlineMonitor.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RICHObjLib.dir/src/RICHOnlineMonitor.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/RICH/src/RICHOnlineMonitor.cc
 
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHOnlineMonitor.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RICHObjLib.dir/src/RICHOnlineMonitor.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/RICH/src/RICHOnlineMonitor.cc > CMakeFiles/RICHObjLib.dir/src/RICHOnlineMonitor.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/RICH/src/RICHOnlineMonitor.cc > CMakeFiles/RICHObjLib.dir/src/RICHOnlineMonitor.cc.i
 
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHOnlineMonitor.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RICHObjLib.dir/src/RICHOnlineMonitor.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/RICH/src/RICHOnlineMonitor.cc -o CMakeFiles/RICHObjLib.dir/src/RICHOnlineMonitor.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/RICH/src/RICHOnlineMonitor.cc -o CMakeFiles/RICHObjLib.dir/src/RICHOnlineMonitor.cc.s
 
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHRawDecoder.cc.o: RICH/CMakeFiles/RICHObjLib.dir/flags.make
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHRawDecoder.cc.o: ../RICH/src/RICHRawDecoder.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object RICH/CMakeFiles/RICHObjLib.dir/src/RICHRawDecoder.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RICHObjLib.dir/src/RICHRawDecoder.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/RICH/src/RICHRawDecoder.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object RICH/CMakeFiles/RICHObjLib.dir/src/RICHRawDecoder.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RICHObjLib.dir/src/RICHRawDecoder.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/RICH/src/RICHRawDecoder.cc
 
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHRawDecoder.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RICHObjLib.dir/src/RICHRawDecoder.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/RICH/src/RICHRawDecoder.cc > CMakeFiles/RICHObjLib.dir/src/RICHRawDecoder.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/RICH/src/RICHRawDecoder.cc > CMakeFiles/RICHObjLib.dir/src/RICHRawDecoder.cc.i
 
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHRawDecoder.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RICHObjLib.dir/src/RICHRawDecoder.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/RICH/src/RICHRawDecoder.cc -o CMakeFiles/RICHObjLib.dir/src/RICHRawDecoder.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/RICH/src/RICHRawDecoder.cc -o CMakeFiles/RICHObjLib.dir/src/RICHRawDecoder.cc.s
 
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHRawEncoder.cc.o: RICH/CMakeFiles/RICHObjLib.dir/flags.make
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHRawEncoder.cc.o: ../RICH/src/RICHRawEncoder.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object RICH/CMakeFiles/RICHObjLib.dir/src/RICHRawEncoder.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RICHObjLib.dir/src/RICHRawEncoder.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/RICH/src/RICHRawEncoder.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object RICH/CMakeFiles/RICHObjLib.dir/src/RICHRawEncoder.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RICHObjLib.dir/src/RICHRawEncoder.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/RICH/src/RICHRawEncoder.cc
 
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHRawEncoder.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RICHObjLib.dir/src/RICHRawEncoder.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/RICH/src/RICHRawEncoder.cc > CMakeFiles/RICHObjLib.dir/src/RICHRawEncoder.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/RICH/src/RICHRawEncoder.cc > CMakeFiles/RICHObjLib.dir/src/RICHRawEncoder.cc.i
 
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHRawEncoder.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RICHObjLib.dir/src/RICHRawEncoder.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/RICH/src/RICHRawEncoder.cc -o CMakeFiles/RICHObjLib.dir/src/RICHRawEncoder.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/RICH/src/RICHRawEncoder.cc -o CMakeFiles/RICHObjLib.dir/src/RICHRawEncoder.cc.s
 
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHReconstruction.cc.o: RICH/CMakeFiles/RICHObjLib.dir/flags.make
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHReconstruction.cc.o: ../RICH/src/RICHReconstruction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object RICH/CMakeFiles/RICHObjLib.dir/src/RICHReconstruction.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RICHObjLib.dir/src/RICHReconstruction.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/RICH/src/RICHReconstruction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object RICH/CMakeFiles/RICHObjLib.dir/src/RICHReconstruction.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RICHObjLib.dir/src/RICHReconstruction.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/RICH/src/RICHReconstruction.cc
 
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHReconstruction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RICHObjLib.dir/src/RICHReconstruction.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/RICH/src/RICHReconstruction.cc > CMakeFiles/RICHObjLib.dir/src/RICHReconstruction.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/RICH/src/RICHReconstruction.cc > CMakeFiles/RICHObjLib.dir/src/RICHReconstruction.cc.i
 
 RICH/CMakeFiles/RICHObjLib.dir/src/RICHReconstruction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RICHObjLib.dir/src/RICHReconstruction.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/RICH/src/RICHReconstruction.cc -o CMakeFiles/RICHObjLib.dir/src/RICHReconstruction.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/RICH/src/RICHReconstruction.cc -o CMakeFiles/RICHObjLib.dir/src/RICHReconstruction.cc.s
 
 RICHObjLib: RICH/CMakeFiles/RICHObjLib.dir/src/RICHChannel.cc.o
 RICHObjLib: RICH/CMakeFiles/RICHObjLib.dir/src/RICHDigitizer.cc.o
@@ -151,10 +151,10 @@ RICH/CMakeFiles/RICHObjLib.dir/build: RICHObjLib
 .PHONY : RICH/CMakeFiles/RICHObjLib.dir/build
 
 RICH/CMakeFiles/RICHObjLib.dir/clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH && $(CMAKE_COMMAND) -P CMakeFiles/RICHObjLib.dir/cmake_clean.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH && $(CMAKE_COMMAND) -P CMakeFiles/RICHObjLib.dir/cmake_clean.cmake
 .PHONY : RICH/CMakeFiles/RICHObjLib.dir/clean
 
 RICH/CMakeFiles/RICHObjLib.dir/depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/RICH /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/RICH/CMakeFiles/RICHObjLib.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/RICH /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/RICH/CMakeFiles/RICHObjLib.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : RICH/CMakeFiles/RICHObjLib.dir/depend
 

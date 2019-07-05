@@ -1,8 +1,8 @@
 module "SAVSlimPersistency" {
   requires cplusplus
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/SAV/include/TSlimRecoSAVCandidate.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/SAV/include/TSlimRecoSAVCandidate.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/SAV/include/TSlimRecoSAVEvent.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/SAV/include/TSlimRecoSAVEvent.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/SAV/include/TSlimRecoSAVHit.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/SAV/include/TSlimRecoSAVHit.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/SAV/include/TSlimRecoSAVCandidate.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/SAV/include/TSlimRecoSAVCandidate.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/SAV/include/TSlimRecoSAVEvent.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/SAV/include/TSlimRecoSAVEvent.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/SAV/include/TSlimRecoSAVHit.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/SAV/include/TSlimRecoSAVHit.hh" export * }
   export *
 }
 

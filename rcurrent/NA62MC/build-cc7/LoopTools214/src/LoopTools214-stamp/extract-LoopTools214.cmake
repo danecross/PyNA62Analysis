@@ -1,7 +1,7 @@
 # Make file names absolute:
 #
-get_filename_component(filename "/afs/cern.ch/user/d/dacross/na62fw/NA62MC/ExternalLibs/LoopTools-2.14.tar.gz" ABSOLUTE)
-get_filename_component(directory "/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/LoopTools214/src/LoopTools214" ABSOLUTE)
+get_filename_component(filename "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/ExternalLibs/LoopTools-2.14.tar.gz" ABSOLUTE)
+get_filename_component(directory "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/LoopTools214/src/LoopTools214" ABSOLUTE)
 
 message(STATUS "extracting...
      src='${filename}'

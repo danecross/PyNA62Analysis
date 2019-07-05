@@ -6,5 +6,5 @@ CXX_FLAGS =   -pipe -m64 -fsigned-char -pthread -std=c++1z -W -Wall -ansi -pedan
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include -I/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/include -I/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/../FullReco/NA62/include -I/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/NA62/include -I/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/HAC/include -I/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/HAC/../../FullReco/HAC/include 
+CXX_INCLUDES = -I/cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include -I/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/include -I/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/../FullReco/NA62/include -I/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/NA62/include -I/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/HAC/include -I/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/HAC/../../FullReco/HAC/include 
 

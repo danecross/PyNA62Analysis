@@ -43,10 +43,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7
 
 # Include any dependencies generated for this target.
 include Generator/CMakeFiles/CMC.dir/depend.make
@@ -59,653 +59,653 @@ include Generator/CMakeFiles/CMC.dir/flags.make
 
 Generator/CMakeFiles/CMC.dir/CustomMuonDecay.cc.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/CustomMuonDecay.cc.o: ../Generator/CustomMuonDecay.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Generator/CMakeFiles/CMC.dir/CustomMuonDecay.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/CustomMuonDecay.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/CustomMuonDecay.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Generator/CMakeFiles/CMC.dir/CustomMuonDecay.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/CustomMuonDecay.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/CustomMuonDecay.cc
 
 Generator/CMakeFiles/CMC.dir/CustomMuonDecay.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CMC.dir/CustomMuonDecay.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/CustomMuonDecay.cc > CMakeFiles/CMC.dir/CustomMuonDecay.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/CustomMuonDecay.cc > CMakeFiles/CMC.dir/CustomMuonDecay.cc.i
 
 Generator/CMakeFiles/CMC.dir/CustomMuonDecay.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CMC.dir/CustomMuonDecay.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/CustomMuonDecay.cc -o CMakeFiles/CMC.dir/CustomMuonDecay.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/CustomMuonDecay.cc -o CMakeFiles/CMC.dir/CustomMuonDecay.cc.s
 
 Generator/CMakeFiles/CMC.dir/GaussLegendre.cc.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/GaussLegendre.cc.o: ../Generator/GaussLegendre.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object Generator/CMakeFiles/CMC.dir/GaussLegendre.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/GaussLegendre.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/GaussLegendre.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object Generator/CMakeFiles/CMC.dir/GaussLegendre.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/GaussLegendre.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/GaussLegendre.cc
 
 Generator/CMakeFiles/CMC.dir/GaussLegendre.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CMC.dir/GaussLegendre.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/GaussLegendre.cc > CMakeFiles/CMC.dir/GaussLegendre.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/GaussLegendre.cc > CMakeFiles/CMC.dir/GaussLegendre.cc.i
 
 Generator/CMakeFiles/CMC.dir/GaussLegendre.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CMC.dir/GaussLegendre.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/GaussLegendre.cc -o CMakeFiles/CMC.dir/GaussLegendre.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/GaussLegendre.cc -o CMakeFiles/CMC.dir/GaussLegendre.cc.s
 
 Generator/CMakeFiles/CMC.dir/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc.o: ../Generator/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object Generator/CMakeFiles/CMC.dir/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object Generator/CMakeFiles/CMC.dir/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc
 
 Generator/CMakeFiles/CMC.dir/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CMC.dir/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc > CMakeFiles/CMC.dir/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc > CMakeFiles/CMC.dir/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc.i
 
 Generator/CMakeFiles/CMC.dir/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CMC.dir/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc -o CMakeFiles/CMC.dir/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc -o CMakeFiles/CMC.dir/MuonRadiativeDecayChannelWithSpinWithEgammaCut.cc.s
 
 Generator/CMakeFiles/CMC.dir/kch2lnununu.cc.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2lnununu.cc.o: ../Generator/kch2lnununu.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object Generator/CMakeFiles/CMC.dir/kch2lnununu.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/kch2lnununu.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2lnununu.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object Generator/CMakeFiles/CMC.dir/kch2lnununu.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/kch2lnununu.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2lnununu.cc
 
 Generator/CMakeFiles/CMC.dir/kch2lnununu.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CMC.dir/kch2lnununu.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2lnununu.cc > CMakeFiles/CMC.dir/kch2lnununu.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2lnununu.cc > CMakeFiles/CMC.dir/kch2lnununu.cc.i
 
 Generator/CMakeFiles/CMC.dir/kch2lnununu.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CMC.dir/kch2lnununu.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2lnununu.cc -o CMakeFiles/CMC.dir/kch2lnununu.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2lnununu.cc -o CMakeFiles/CMC.dir/kch2lnununu.cc.s
 
 Generator/CMakeFiles/CMC.dir/kch2munuA.cc.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2munuA.cc.o: ../Generator/kch2munuA.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object Generator/CMakeFiles/CMC.dir/kch2munuA.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/kch2munuA.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2munuA.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object Generator/CMakeFiles/CMC.dir/kch2munuA.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/kch2munuA.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2munuA.cc
 
 Generator/CMakeFiles/CMC.dir/kch2munuA.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CMC.dir/kch2munuA.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2munuA.cc > CMakeFiles/CMC.dir/kch2munuA.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2munuA.cc > CMakeFiles/CMC.dir/kch2munuA.cc.i
 
 Generator/CMakeFiles/CMC.dir/kch2munuA.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CMC.dir/kch2munuA.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2munuA.cc -o CMakeFiles/CMC.dir/kch2munuA.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2munuA.cc -o CMakeFiles/CMC.dir/kch2munuA.cc.s
 
 Generator/CMakeFiles/CMC.dir/kch2pinunu.cc.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2pinunu.cc.o: ../Generator/kch2pinunu.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object Generator/CMakeFiles/CMC.dir/kch2pinunu.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/kch2pinunu.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pinunu.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object Generator/CMakeFiles/CMC.dir/kch2pinunu.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/kch2pinunu.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pinunu.cc
 
 Generator/CMakeFiles/CMC.dir/kch2pinunu.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CMC.dir/kch2pinunu.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pinunu.cc > CMakeFiles/CMC.dir/kch2pinunu.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pinunu.cc > CMakeFiles/CMC.dir/kch2pinunu.cc.i
 
 Generator/CMakeFiles/CMC.dir/kch2pinunu.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CMC.dir/kch2pinunu.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pinunu.cc -o CMakeFiles/CMC.dir/kch2pinunu.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pinunu.cc -o CMakeFiles/CMC.dir/kch2pinunu.cc.s
 
 Generator/CMakeFiles/CMC.dir/kch2pipipig.cc.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2pipipig.cc.o: ../Generator/kch2pipipig.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object Generator/CMakeFiles/CMC.dir/kch2pipipig.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/kch2pipipig.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipipig.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object Generator/CMakeFiles/CMC.dir/kch2pipipig.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/kch2pipipig.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipipig.cc
 
 Generator/CMakeFiles/CMC.dir/kch2pipipig.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CMC.dir/kch2pipipig.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipipig.cc > CMakeFiles/CMC.dir/kch2pipipig.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipipig.cc > CMakeFiles/CMC.dir/kch2pipipig.cc.i
 
 Generator/CMakeFiles/CMC.dir/kch2pipipig.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CMC.dir/kch2pipipig.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipipig.cc -o CMakeFiles/CMC.dir/kch2pipipig.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipipig.cc -o CMakeFiles/CMC.dir/kch2pipipig.cc.s
 
 Generator/CMakeFiles/CMC.dir/kl2pi0ll.cc.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kl2pi0ll.cc.o: ../Generator/kl2pi0ll.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object Generator/CMakeFiles/CMC.dir/kl2pi0ll.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/kl2pi0ll.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kl2pi0ll.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object Generator/CMakeFiles/CMC.dir/kl2pi0ll.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/kl2pi0ll.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kl2pi0ll.cc
 
 Generator/CMakeFiles/CMC.dir/kl2pi0ll.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CMC.dir/kl2pi0ll.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kl2pi0ll.cc > CMakeFiles/CMC.dir/kl2pi0ll.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kl2pi0ll.cc > CMakeFiles/CMC.dir/kl2pi0ll.cc.i
 
 Generator/CMakeFiles/CMC.dir/kl2pi0ll.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CMC.dir/kl2pi0ll.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kl2pi0ll.cc -o CMakeFiles/CMC.dir/kl2pi0ll.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kl2pi0ll.cc -o CMakeFiles/CMC.dir/kl2pi0ll.cc.s
 
 Generator/CMakeFiles/CMC.dir/kl2pi0pi0pi0.cc.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kl2pi0pi0pi0.cc.o: ../Generator/kl2pi0pi0pi0.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object Generator/CMakeFiles/CMC.dir/kl2pi0pi0pi0.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/kl2pi0pi0pi0.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kl2pi0pi0pi0.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object Generator/CMakeFiles/CMC.dir/kl2pi0pi0pi0.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/kl2pi0pi0pi0.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kl2pi0pi0pi0.cc
 
 Generator/CMakeFiles/CMC.dir/kl2pi0pi0pi0.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CMC.dir/kl2pi0pi0pi0.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kl2pi0pi0pi0.cc > CMakeFiles/CMC.dir/kl2pi0pi0pi0.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kl2pi0pi0pi0.cc > CMakeFiles/CMC.dir/kl2pi0pi0pi0.cc.i
 
 Generator/CMakeFiles/CMC.dir/kl2pi0pi0pi0.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CMC.dir/kl2pi0pi0pi0.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kl2pi0pi0pi0.cc -o CMakeFiles/CMC.dir/kl2pi0pi0pi0.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kl2pi0pi0pi0.cc -o CMakeFiles/CMC.dir/kl2pi0pi0pi0.cc.s
 
 Generator/CMakeFiles/CMC.dir/kl2pipipi0.cc.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kl2pipipi0.cc.o: ../Generator/kl2pipipi0.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object Generator/CMakeFiles/CMC.dir/kl2pipipi0.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/kl2pipipi0.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kl2pipipi0.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object Generator/CMakeFiles/CMC.dir/kl2pipipi0.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/kl2pipipi0.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kl2pipipi0.cc
 
 Generator/CMakeFiles/CMC.dir/kl2pipipi0.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CMC.dir/kl2pipipi0.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kl2pipipi0.cc > CMakeFiles/CMC.dir/kl2pipipi0.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kl2pipipi0.cc > CMakeFiles/CMC.dir/kl2pipipi0.cc.i
 
 Generator/CMakeFiles/CMC.dir/kl2pipipi0.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CMC.dir/kl2pipipi0.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kl2pipipi0.cc -o CMakeFiles/CMC.dir/kl2pipipi0.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kl2pipipi0.cc -o CMakeFiles/CMC.dir/kl2pipipi0.cc.s
 
 Generator/CMakeFiles/CMC.dir/mcadd4cpp.cc.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/mcadd4cpp.cc.o: ../Generator/mcadd4cpp.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object Generator/CMakeFiles/CMC.dir/mcadd4cpp.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/mcadd4cpp.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/mcadd4cpp.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object Generator/CMakeFiles/CMC.dir/mcadd4cpp.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/mcadd4cpp.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/mcadd4cpp.cc
 
 Generator/CMakeFiles/CMC.dir/mcadd4cpp.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CMC.dir/mcadd4cpp.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/mcadd4cpp.cc > CMakeFiles/CMC.dir/mcadd4cpp.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/mcadd4cpp.cc > CMakeFiles/CMC.dir/mcadd4cpp.cc.i
 
 Generator/CMakeFiles/CMC.dir/mcadd4cpp.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CMC.dir/mcadd4cpp.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/mcadd4cpp.cc -o CMakeFiles/CMC.dir/mcadd4cpp.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/mcadd4cpp.cc -o CMakeFiles/CMC.dir/mcadd4cpp.cc.s
 
 Generator/CMakeFiles/CMC.dir/pi0DDalitz.cc.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/pi0DDalitz.cc.o: ../Generator/pi0DDalitz.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object Generator/CMakeFiles/CMC.dir/pi0DDalitz.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/pi0DDalitz.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/pi0DDalitz.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object Generator/CMakeFiles/CMC.dir/pi0DDalitz.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/pi0DDalitz.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/pi0DDalitz.cc
 
 Generator/CMakeFiles/CMC.dir/pi0DDalitz.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CMC.dir/pi0DDalitz.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/pi0DDalitz.cc > CMakeFiles/CMC.dir/pi0DDalitz.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/pi0DDalitz.cc > CMakeFiles/CMC.dir/pi0DDalitz.cc.i
 
 Generator/CMakeFiles/CMC.dir/pi0DDalitz.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CMC.dir/pi0DDalitz.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/pi0DDalitz.cc -o CMakeFiles/CMC.dir/pi0DDalitz.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/pi0DDalitz.cc -o CMakeFiles/CMC.dir/pi0DDalitz.cc.s
 
 Generator/CMakeFiles/CMC.dir/pi0Dalitz.cc.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/pi0Dalitz.cc.o: ../Generator/pi0Dalitz.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object Generator/CMakeFiles/CMC.dir/pi0Dalitz.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/pi0Dalitz.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/pi0Dalitz.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object Generator/CMakeFiles/CMC.dir/pi0Dalitz.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/pi0Dalitz.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/pi0Dalitz.cc
 
 Generator/CMakeFiles/CMC.dir/pi0Dalitz.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CMC.dir/pi0Dalitz.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/pi0Dalitz.cc > CMakeFiles/CMC.dir/pi0Dalitz.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/pi0Dalitz.cc > CMakeFiles/CMC.dir/pi0Dalitz.cc.i
 
 Generator/CMakeFiles/CMC.dir/pi0Dalitz.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CMC.dir/pi0Dalitz.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/pi0Dalitz.cc -o CMakeFiles/CMC.dir/pi0Dalitz.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/pi0Dalitz.cc -o CMakeFiles/CMC.dir/pi0Dalitz.cc.s
 
 Generator/CMakeFiles/CMC.dir/pi0ee.cc.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/pi0ee.cc.o: ../Generator/pi0ee.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object Generator/CMakeFiles/CMC.dir/pi0ee.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/pi0ee.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/pi0ee.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object Generator/CMakeFiles/CMC.dir/pi0ee.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/pi0ee.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/pi0ee.cc
 
 Generator/CMakeFiles/CMC.dir/pi0ee.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CMC.dir/pi0ee.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/pi0ee.cc > CMakeFiles/CMC.dir/pi0ee.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/pi0ee.cc > CMakeFiles/CMC.dir/pi0ee.cc.i
 
 Generator/CMakeFiles/CMC.dir/pi0ee.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CMC.dir/pi0ee.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/pi0ee.cc -o CMakeFiles/CMC.dir/pi0ee.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/pi0ee.cc -o CMakeFiles/CMC.dir/pi0ee.cc.s
 
 Generator/CMakeFiles/CMC.dir/rndmcpp.cc.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/rndmcpp.cc.o: ../Generator/rndmcpp.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object Generator/CMakeFiles/CMC.dir/rndmcpp.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/rndmcpp.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/rndmcpp.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object Generator/CMakeFiles/CMC.dir/rndmcpp.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/rndmcpp.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/rndmcpp.cc
 
 Generator/CMakeFiles/CMC.dir/rndmcpp.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CMC.dir/rndmcpp.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/rndmcpp.cc > CMakeFiles/CMC.dir/rndmcpp.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/rndmcpp.cc > CMakeFiles/CMC.dir/rndmcpp.cc.i
 
 Generator/CMakeFiles/CMC.dir/rndmcpp.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CMC.dir/rndmcpp.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/rndmcpp.cc -o CMakeFiles/CMC.dir/rndmcpp.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/rndmcpp.cc -o CMakeFiles/CMC.dir/rndmcpp.cc.s
 
 Generator/CMakeFiles/CMC.dir/two_body_decay.cc.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/two_body_decay.cc.o: ../Generator/two_body_decay.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object Generator/CMakeFiles/CMC.dir/two_body_decay.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/two_body_decay.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/two_body_decay.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object Generator/CMakeFiles/CMC.dir/two_body_decay.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CMC.dir/two_body_decay.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/two_body_decay.cc
 
 Generator/CMakeFiles/CMC.dir/two_body_decay.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CMC.dir/two_body_decay.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/two_body_decay.cc > CMakeFiles/CMC.dir/two_body_decay.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/two_body_decay.cc > CMakeFiles/CMC.dir/two_body_decay.cc.i
 
 Generator/CMakeFiles/CMC.dir/two_body_decay.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CMC.dir/two_body_decay.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/two_body_decay.cc -o CMakeFiles/CMC.dir/two_body_decay.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/two_body_decay.cc -o CMakeFiles/CMC.dir/two_body_decay.cc.s
 
 Generator/CMakeFiles/CMC.dir/boost.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/boost.F.o: ../Generator/boost.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building Fortran object Generator/CMakeFiles/CMC.dir/boost.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/boost.F -o CMakeFiles/CMC.dir/boost.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building Fortran object Generator/CMakeFiles/CMC.dir/boost.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/boost.F -o CMakeFiles/CMC.dir/boost.F.o
 
 Generator/CMakeFiles/CMC.dir/boost.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/boost.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/boost.F > CMakeFiles/CMC.dir/boost.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/boost.F > CMakeFiles/CMC.dir/boost.F.i
 
 Generator/CMakeFiles/CMC.dir/boost.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/boost.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/boost.F -o CMakeFiles/CMC.dir/boost.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/boost.F -o CMakeFiles/CMC.dir/boost.F.s
 
 Generator/CMakeFiles/CMC.dir/dilog64.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/dilog64.F.o: ../Generator/dilog64.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building Fortran object Generator/CMakeFiles/CMC.dir/dilog64.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/dilog64.F -o CMakeFiles/CMC.dir/dilog64.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building Fortran object Generator/CMakeFiles/CMC.dir/dilog64.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/dilog64.F -o CMakeFiles/CMC.dir/dilog64.F.o
 
 Generator/CMakeFiles/CMC.dir/dilog64.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/dilog64.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/dilog64.F > CMakeFiles/CMC.dir/dilog64.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/dilog64.F > CMakeFiles/CMC.dir/dilog64.F.i
 
 Generator/CMakeFiles/CMC.dir/dilog64.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/dilog64.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/dilog64.F -o CMakeFiles/CMC.dir/dilog64.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/dilog64.F -o CMakeFiles/CMC.dir/dilog64.F.s
 
 Generator/CMakeFiles/CMC.dir/genbod.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/genbod.F.o: ../Generator/genbod.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building Fortran object Generator/CMakeFiles/CMC.dir/genbod.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/genbod.F -o CMakeFiles/CMC.dir/genbod.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building Fortran object Generator/CMakeFiles/CMC.dir/genbod.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/genbod.F -o CMakeFiles/CMC.dir/genbod.F.o
 
 Generator/CMakeFiles/CMC.dir/genbod.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/genbod.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/genbod.F > CMakeFiles/CMC.dir/genbod.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/genbod.F > CMakeFiles/CMC.dir/genbod.F.i
 
 Generator/CMakeFiles/CMC.dir/genbod.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/genbod.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/genbod.F -o CMakeFiles/CMC.dir/genbod.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/genbod.F -o CMakeFiles/CMC.dir/genbod.F.s
 
 Generator/CMakeFiles/CMC.dir/gensph.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/gensph.F.o: ../Generator/gensph.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building Fortran object Generator/CMakeFiles/CMC.dir/gensph.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/gensph.F -o CMakeFiles/CMC.dir/gensph.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building Fortran object Generator/CMakeFiles/CMC.dir/gensph.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/gensph.F -o CMakeFiles/CMC.dir/gensph.F.o
 
 Generator/CMakeFiles/CMC.dir/gensph.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/gensph.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/gensph.F > CMakeFiles/CMC.dir/gensph.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/gensph.F > CMakeFiles/CMC.dir/gensph.F.i
 
 Generator/CMakeFiles/CMC.dir/gensph.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/gensph.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/gensph.F -o CMakeFiles/CMC.dir/gensph.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/gensph.F -o CMakeFiles/CMC.dir/gensph.F.s
 
 Generator/CMakeFiles/CMC.dir/kch2lnug.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2lnug.F.o: ../Generator/kch2lnug.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2lnug.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2lnug.F -o CMakeFiles/CMC.dir/kch2lnug.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2lnug.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2lnug.F -o CMakeFiles/CMC.dir/kch2lnug.F.o
 
 Generator/CMakeFiles/CMC.dir/kch2lnug.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch2lnug.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2lnug.F > CMakeFiles/CMC.dir/kch2lnug.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2lnug.F > CMakeFiles/CMC.dir/kch2lnug.F.i
 
 Generator/CMakeFiles/CMC.dir/kch2lnug.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch2lnug.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2lnug.F -o CMakeFiles/CMC.dir/kch2lnug.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2lnug.F -o CMakeFiles/CMC.dir/kch2lnug.F.s
 
 Generator/CMakeFiles/CMC.dir/kch2lnug_ib.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2lnug_ib.F.o: ../Generator/kch2lnug_ib.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2lnug_ib.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2lnug_ib.F -o CMakeFiles/CMC.dir/kch2lnug_ib.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2lnug_ib.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2lnug_ib.F -o CMakeFiles/CMC.dir/kch2lnug_ib.F.o
 
 Generator/CMakeFiles/CMC.dir/kch2lnug_ib.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch2lnug_ib.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2lnug_ib.F > CMakeFiles/CMC.dir/kch2lnug_ib.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2lnug_ib.F > CMakeFiles/CMC.dir/kch2lnug_ib.F.i
 
 Generator/CMakeFiles/CMC.dir/kch2lnug_ib.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch2lnug_ib.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2lnug_ib.F -o CMakeFiles/CMC.dir/kch2lnug_ib.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2lnug_ib.F -o CMakeFiles/CMC.dir/kch2lnug_ib.F.s
 
 Generator/CMakeFiles/CMC.dir/kch2lnull.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2lnull.F.o: ../Generator/kch2lnull.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2lnull.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2lnull.F -o CMakeFiles/CMC.dir/kch2lnull.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2lnull.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2lnull.F -o CMakeFiles/CMC.dir/kch2lnull.F.o
 
 Generator/CMakeFiles/CMC.dir/kch2lnull.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch2lnull.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2lnull.F > CMakeFiles/CMC.dir/kch2lnull.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2lnull.F > CMakeFiles/CMC.dir/kch2lnull.F.i
 
 Generator/CMakeFiles/CMC.dir/kch2lnull.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch2lnull.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2lnull.F -o CMakeFiles/CMC.dir/kch2lnull.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2lnull.F -o CMakeFiles/CMC.dir/kch2lnull.F.s
 
 Generator/CMakeFiles/CMC.dir/kch2pi0enu.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2pi0enu.F.o: ../Generator/kch2pi0enu.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pi0enu.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pi0enu.F -o CMakeFiles/CMC.dir/kch2pi0enu.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pi0enu.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pi0enu.F -o CMakeFiles/CMC.dir/kch2pi0enu.F.o
 
 Generator/CMakeFiles/CMC.dir/kch2pi0enu.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch2pi0enu.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pi0enu.F > CMakeFiles/CMC.dir/kch2pi0enu.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pi0enu.F > CMakeFiles/CMC.dir/kch2pi0enu.F.i
 
 Generator/CMakeFiles/CMC.dir/kch2pi0enu.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch2pi0enu.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pi0enu.F -o CMakeFiles/CMC.dir/kch2pi0enu.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pi0enu.F -o CMakeFiles/CMC.dir/kch2pi0enu.F.s
 
 Generator/CMakeFiles/CMC.dir/kch2pi0enug_ib_de.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2pi0enug_ib_de.F.o: ../Generator/kch2pi0enug_ib_de.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pi0enug_ib_de.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pi0enug_ib_de.F -o CMakeFiles/CMC.dir/kch2pi0enug_ib_de.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pi0enug_ib_de.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pi0enug_ib_de.F -o CMakeFiles/CMC.dir/kch2pi0enug_ib_de.F.o
 
 Generator/CMakeFiles/CMC.dir/kch2pi0enug_ib_de.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch2pi0enug_ib_de.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pi0enug_ib_de.F > CMakeFiles/CMC.dir/kch2pi0enug_ib_de.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pi0enug_ib_de.F > CMakeFiles/CMC.dir/kch2pi0enug_ib_de.F.i
 
 Generator/CMakeFiles/CMC.dir/kch2pi0enug_ib_de.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch2pi0enug_ib_de.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pi0enug_ib_de.F -o CMakeFiles/CMC.dir/kch2pi0enug_ib_de.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pi0enug_ib_de.F -o CMakeFiles/CMC.dir/kch2pi0enug_ib_de.F.s
 
 Generator/CMakeFiles/CMC.dir/kch2pi0enug_kloe.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2pi0enug_kloe.F.o: ../Generator/kch2pi0enug_kloe.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pi0enug_kloe.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pi0enug_kloe.F -o CMakeFiles/CMC.dir/kch2pi0enug_kloe.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pi0enug_kloe.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pi0enug_kloe.F -o CMakeFiles/CMC.dir/kch2pi0enug_kloe.F.o
 
 Generator/CMakeFiles/CMC.dir/kch2pi0enug_kloe.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch2pi0enug_kloe.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pi0enug_kloe.F > CMakeFiles/CMC.dir/kch2pi0enug_kloe.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pi0enug_kloe.F > CMakeFiles/CMC.dir/kch2pi0enug_kloe.F.i
 
 Generator/CMakeFiles/CMC.dir/kch2pi0enug_kloe.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch2pi0enug_kloe.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pi0enug_kloe.F -o CMakeFiles/CMC.dir/kch2pi0enug_kloe.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pi0enug_kloe.F -o CMakeFiles/CMC.dir/kch2pi0enug_kloe.F.s
 
 Generator/CMakeFiles/CMC.dir/kch2pi0munu.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2pi0munu.F.o: ../Generator/kch2pi0munu.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pi0munu.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pi0munu.F -o CMakeFiles/CMC.dir/kch2pi0munu.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pi0munu.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pi0munu.F -o CMakeFiles/CMC.dir/kch2pi0munu.F.o
 
 Generator/CMakeFiles/CMC.dir/kch2pi0munu.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch2pi0munu.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pi0munu.F > CMakeFiles/CMC.dir/kch2pi0munu.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pi0munu.F > CMakeFiles/CMC.dir/kch2pi0munu.F.i
 
 Generator/CMakeFiles/CMC.dir/kch2pi0munu.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch2pi0munu.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pi0munu.F -o CMakeFiles/CMC.dir/kch2pi0munu.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pi0munu.F -o CMakeFiles/CMC.dir/kch2pi0munu.F.s
 
 Generator/CMakeFiles/CMC.dir/kch2pi0munug_kloe.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2pi0munug_kloe.F.o: ../Generator/kch2pi0munug_kloe.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pi0munug_kloe.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pi0munug_kloe.F -o CMakeFiles/CMC.dir/kch2pi0munug_kloe.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pi0munug_kloe.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pi0munug_kloe.F -o CMakeFiles/CMC.dir/kch2pi0munug_kloe.F.o
 
 Generator/CMakeFiles/CMC.dir/kch2pi0munug_kloe.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch2pi0munug_kloe.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pi0munug_kloe.F > CMakeFiles/CMC.dir/kch2pi0munug_kloe.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pi0munug_kloe.F > CMakeFiles/CMC.dir/kch2pi0munug_kloe.F.i
 
 Generator/CMakeFiles/CMC.dir/kch2pi0munug_kloe.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch2pi0munug_kloe.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pi0munug_kloe.F -o CMakeFiles/CMC.dir/kch2pi0munug_kloe.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pi0munug_kloe.F -o CMakeFiles/CMC.dir/kch2pi0munug_kloe.F.s
 
 Generator/CMakeFiles/CMC.dir/kch2pi0pi0enu.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2pi0pi0enu.F.o: ../Generator/kch2pi0pi0enu.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pi0pi0enu.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pi0pi0enu.F -o CMakeFiles/CMC.dir/kch2pi0pi0enu.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pi0pi0enu.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pi0pi0enu.F -o CMakeFiles/CMC.dir/kch2pi0pi0enu.F.o
 
 Generator/CMakeFiles/CMC.dir/kch2pi0pi0enu.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch2pi0pi0enu.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pi0pi0enu.F > CMakeFiles/CMC.dir/kch2pi0pi0enu.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pi0pi0enu.F > CMakeFiles/CMC.dir/kch2pi0pi0enu.F.i
 
 Generator/CMakeFiles/CMC.dir/kch2pi0pi0enu.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch2pi0pi0enu.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pi0pi0enu.F -o CMakeFiles/CMC.dir/kch2pi0pi0enu.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pi0pi0enu.F -o CMakeFiles/CMC.dir/kch2pi0pi0enu.F.s
 
 Generator/CMakeFiles/CMC.dir/kch2pigg.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2pigg.F.o: ../Generator/kch2pigg.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pigg.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pigg.F -o CMakeFiles/CMC.dir/kch2pigg.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pigg.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pigg.F -o CMakeFiles/CMC.dir/kch2pigg.F.o
 
 Generator/CMakeFiles/CMC.dir/kch2pigg.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch2pigg.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pigg.F > CMakeFiles/CMC.dir/kch2pigg.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pigg.F > CMakeFiles/CMC.dir/kch2pigg.F.i
 
 Generator/CMakeFiles/CMC.dir/kch2pigg.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch2pigg.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pigg.F -o CMakeFiles/CMC.dir/kch2pigg.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pigg.F -o CMakeFiles/CMC.dir/kch2pigg.F.s
 
 Generator/CMakeFiles/CMC.dir/kch2pigll.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2pigll.F.o: ../Generator/kch2pigll.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pigll.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pigll.F -o CMakeFiles/CMC.dir/kch2pigll.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pigll.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pigll.F -o CMakeFiles/CMC.dir/kch2pigll.F.o
 
 Generator/CMakeFiles/CMC.dir/kch2pigll.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch2pigll.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pigll.F > CMakeFiles/CMC.dir/kch2pigll.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pigll.F > CMakeFiles/CMC.dir/kch2pigll.F.i
 
 Generator/CMakeFiles/CMC.dir/kch2pigll.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch2pigll.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pigll.F -o CMakeFiles/CMC.dir/kch2pigll.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pigll.F -o CMakeFiles/CMC.dir/kch2pigll.F.s
 
 Generator/CMakeFiles/CMC.dir/kch2pill.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2pill.F.o: ../Generator/kch2pill.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pill.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pill.F -o CMakeFiles/CMC.dir/kch2pill.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pill.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pill.F -o CMakeFiles/CMC.dir/kch2pill.F.o
 
 Generator/CMakeFiles/CMC.dir/kch2pill.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch2pill.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pill.F > CMakeFiles/CMC.dir/kch2pill.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pill.F > CMakeFiles/CMC.dir/kch2pill.F.i
 
 Generator/CMakeFiles/CMC.dir/kch2pill.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch2pill.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pill.F -o CMakeFiles/CMC.dir/kch2pill.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pill.F -o CMakeFiles/CMC.dir/kch2pill.F.s
 
 Generator/CMakeFiles/CMC.dir/kch2pipi0dg.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2pipi0dg.F.o: ../Generator/kch2pipi0dg.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pipi0dg.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipi0dg.F -o CMakeFiles/CMC.dir/kch2pipi0dg.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pipi0dg.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipi0dg.F -o CMakeFiles/CMC.dir/kch2pipi0dg.F.o
 
 Generator/CMakeFiles/CMC.dir/kch2pipi0dg.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch2pipi0dg.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipi0dg.F > CMakeFiles/CMC.dir/kch2pipi0dg.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipi0dg.F > CMakeFiles/CMC.dir/kch2pipi0dg.F.i
 
 Generator/CMakeFiles/CMC.dir/kch2pipi0dg.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch2pipi0dg.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipi0dg.F -o CMakeFiles/CMC.dir/kch2pipi0dg.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipi0dg.F -o CMakeFiles/CMC.dir/kch2pipi0dg.F.s
 
 Generator/CMakeFiles/CMC.dir/kch2pipi0ee_ib.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2pipi0ee_ib.F.o: ../Generator/kch2pipi0ee_ib.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pipi0ee_ib.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipi0ee_ib.F -o CMakeFiles/CMC.dir/kch2pipi0ee_ib.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pipi0ee_ib.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipi0ee_ib.F -o CMakeFiles/CMC.dir/kch2pipi0ee_ib.F.o
 
 Generator/CMakeFiles/CMC.dir/kch2pipi0ee_ib.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch2pipi0ee_ib.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipi0ee_ib.F > CMakeFiles/CMC.dir/kch2pipi0ee_ib.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipi0ee_ib.F > CMakeFiles/CMC.dir/kch2pipi0ee_ib.F.i
 
 Generator/CMakeFiles/CMC.dir/kch2pipi0ee_ib.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch2pipi0ee_ib.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipi0ee_ib.F -o CMakeFiles/CMC.dir/kch2pipi0ee_ib.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipi0ee_ib.F -o CMakeFiles/CMC.dir/kch2pipi0ee_ib.F.s
 
 Generator/CMakeFiles/CMC.dir/kch2pipi0g.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2pipi0g.F.o: ../Generator/kch2pipi0g.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pipi0g.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipi0g.F -o CMakeFiles/CMC.dir/kch2pipi0g.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pipi0g.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipi0g.F -o CMakeFiles/CMC.dir/kch2pipi0g.F.o
 
 Generator/CMakeFiles/CMC.dir/kch2pipi0g.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch2pipi0g.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipi0g.F > CMakeFiles/CMC.dir/kch2pipi0g.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipi0g.F > CMakeFiles/CMC.dir/kch2pipi0g.F.i
 
 Generator/CMakeFiles/CMC.dir/kch2pipi0g.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch2pipi0g.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipi0g.F -o CMakeFiles/CMC.dir/kch2pipi0g.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipi0g.F -o CMakeFiles/CMC.dir/kch2pipi0g.F.s
 
 Generator/CMakeFiles/CMC.dir/kch2pipi0g_ib.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2pipi0g_ib.F.o: ../Generator/kch2pipi0g_ib.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pipi0g_ib.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipi0g_ib.F -o CMakeFiles/CMC.dir/kch2pipi0g_ib.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pipi0g_ib.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipi0g_ib.F -o CMakeFiles/CMC.dir/kch2pipi0g_ib.F.o
 
 Generator/CMakeFiles/CMC.dir/kch2pipi0g_ib.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch2pipi0g_ib.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipi0g_ib.F > CMakeFiles/CMC.dir/kch2pipi0g_ib.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipi0g_ib.F > CMakeFiles/CMC.dir/kch2pipi0g_ib.F.i
 
 Generator/CMakeFiles/CMC.dir/kch2pipi0g_ib.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch2pipi0g_ib.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipi0g_ib.F -o CMakeFiles/CMC.dir/kch2pipi0g_ib.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipi0g_ib.F -o CMakeFiles/CMC.dir/kch2pipi0g_ib.F.s
 
 Generator/CMakeFiles/CMC.dir/kch2pipi0pi0.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2pipi0pi0.F.o: ../Generator/kch2pipi0pi0.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pipi0pi0.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipi0pi0.F -o CMakeFiles/CMC.dir/kch2pipi0pi0.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pipi0pi0.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipi0pi0.F -o CMakeFiles/CMC.dir/kch2pipi0pi0.F.o
 
 Generator/CMakeFiles/CMC.dir/kch2pipi0pi0.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch2pipi0pi0.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipi0pi0.F > CMakeFiles/CMC.dir/kch2pipi0pi0.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipi0pi0.F > CMakeFiles/CMC.dir/kch2pipi0pi0.F.i
 
 Generator/CMakeFiles/CMC.dir/kch2pipi0pi0.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch2pipi0pi0.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipi0pi0.F -o CMakeFiles/CMC.dir/kch2pipi0pi0.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipi0pi0.F -o CMakeFiles/CMC.dir/kch2pipi0pi0.F.s
 
 Generator/CMakeFiles/CMC.dir/kch2pipienu.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2pipienu.F.o: ../Generator/kch2pipienu.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pipienu.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipienu.F -o CMakeFiles/CMC.dir/kch2pipienu.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pipienu.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipienu.F -o CMakeFiles/CMC.dir/kch2pipienu.F.o
 
 Generator/CMakeFiles/CMC.dir/kch2pipienu.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch2pipienu.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipienu.F > CMakeFiles/CMC.dir/kch2pipienu.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipienu.F > CMakeFiles/CMC.dir/kch2pipienu.F.i
 
 Generator/CMakeFiles/CMC.dir/kch2pipienu.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch2pipienu.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipienu.F -o CMakeFiles/CMC.dir/kch2pipienu.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipienu.F -o CMakeFiles/CMC.dir/kch2pipienu.F.s
 
 Generator/CMakeFiles/CMC.dir/kch2pipilnu_ferrara.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2pipilnu_ferrara.F.o: ../Generator/kch2pipilnu_ferrara.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pipilnu_ferrara.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipilnu_ferrara.F -o CMakeFiles/CMC.dir/kch2pipilnu_ferrara.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pipilnu_ferrara.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipilnu_ferrara.F -o CMakeFiles/CMC.dir/kch2pipilnu_ferrara.F.o
 
 Generator/CMakeFiles/CMC.dir/kch2pipilnu_ferrara.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch2pipilnu_ferrara.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipilnu_ferrara.F > CMakeFiles/CMC.dir/kch2pipilnu_ferrara.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipilnu_ferrara.F > CMakeFiles/CMC.dir/kch2pipilnu_ferrara.F.i
 
 Generator/CMakeFiles/CMC.dir/kch2pipilnu_ferrara.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch2pipilnu_ferrara.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipilnu_ferrara.F -o CMakeFiles/CMC.dir/kch2pipilnu_ferrara.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipilnu_ferrara.F -o CMakeFiles/CMC.dir/kch2pipilnu_ferrara.F.s
 
 Generator/CMakeFiles/CMC.dir/kch2pipipi.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch2pipipi.F.o: ../Generator/kch2pipipi.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pipipi.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipipi.F -o CMakeFiles/CMC.dir/kch2pipipi.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch2pipipi.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipipi.F -o CMakeFiles/CMC.dir/kch2pipipi.F.o
 
 Generator/CMakeFiles/CMC.dir/kch2pipipi.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch2pipipi.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipipi.F > CMakeFiles/CMC.dir/kch2pipipi.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipipi.F > CMakeFiles/CMC.dir/kch2pipipi.F.i
 
 Generator/CMakeFiles/CMC.dir/kch2pipipi.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch2pipipi.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch2pipipi.F -o CMakeFiles/CMC.dir/kch2pipipi.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch2pipipi.F -o CMakeFiles/CMC.dir/kch2pipipi.F.s
 
 Generator/CMakeFiles/CMC.dir/kch3body.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch3body.F.o: ../Generator/kch3body.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch3body.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch3body.F -o CMakeFiles/CMC.dir/kch3body.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch3body.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch3body.F -o CMakeFiles/CMC.dir/kch3body.F.o
 
 Generator/CMakeFiles/CMC.dir/kch3body.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch3body.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch3body.F > CMakeFiles/CMC.dir/kch3body.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch3body.F > CMakeFiles/CMC.dir/kch3body.F.i
 
 Generator/CMakeFiles/CMC.dir/kch3body.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch3body.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch3body.F -o CMakeFiles/CMC.dir/kch3body.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch3body.F -o CMakeFiles/CMC.dir/kch3body.F.s
 
 Generator/CMakeFiles/CMC.dir/kch4body.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kch4body.F.o: ../Generator/kch4body.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch4body.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch4body.F -o CMakeFiles/CMC.dir/kch4body.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building Fortran object Generator/CMakeFiles/CMC.dir/kch4body.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch4body.F -o CMakeFiles/CMC.dir/kch4body.F.o
 
 Generator/CMakeFiles/CMC.dir/kch4body.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kch4body.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch4body.F > CMakeFiles/CMC.dir/kch4body.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch4body.F > CMakeFiles/CMC.dir/kch4body.F.i
 
 Generator/CMakeFiles/CMC.dir/kch4body.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kch4body.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kch4body.F -o CMakeFiles/CMC.dir/kch4body.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kch4body.F -o CMakeFiles/CMC.dir/kch4body.F.s
 
 Generator/CMakeFiles/CMC.dir/kl4_ferrara.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/kl4_ferrara.F.o: ../Generator/kl4_ferrara.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building Fortran object Generator/CMakeFiles/CMC.dir/kl4_ferrara.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kl4_ferrara.F -o CMakeFiles/CMC.dir/kl4_ferrara.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building Fortran object Generator/CMakeFiles/CMC.dir/kl4_ferrara.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kl4_ferrara.F -o CMakeFiles/CMC.dir/kl4_ferrara.F.o
 
 Generator/CMakeFiles/CMC.dir/kl4_ferrara.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/kl4_ferrara.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kl4_ferrara.F > CMakeFiles/CMC.dir/kl4_ferrara.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kl4_ferrara.F > CMakeFiles/CMC.dir/kl4_ferrara.F.i
 
 Generator/CMakeFiles/CMC.dir/kl4_ferrara.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/kl4_ferrara.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/kl4_ferrara.F -o CMakeFiles/CMC.dir/kl4_ferrara.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/kl4_ferrara.F -o CMakeFiles/CMC.dir/kl4_ferrara.F.s
 
 Generator/CMakeFiles/CMC.dir/mcadd4.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/mcadd4.F.o: ../Generator/mcadd4.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building Fortran object Generator/CMakeFiles/CMC.dir/mcadd4.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/mcadd4.F -o CMakeFiles/CMC.dir/mcadd4.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building Fortran object Generator/CMakeFiles/CMC.dir/mcadd4.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/mcadd4.F -o CMakeFiles/CMC.dir/mcadd4.F.o
 
 Generator/CMakeFiles/CMC.dir/mcadd4.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/mcadd4.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/mcadd4.F > CMakeFiles/CMC.dir/mcadd4.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/mcadd4.F > CMakeFiles/CMC.dir/mcadd4.F.i
 
 Generator/CMakeFiles/CMC.dir/mcadd4.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/mcadd4.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/mcadd4.F -o CMakeFiles/CMC.dir/mcadd4.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/mcadd4.F -o CMakeFiles/CMC.dir/mcadd4.F.s
 
 Generator/CMakeFiles/CMC.dir/photos.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/photos.F.o: ../Generator/photos.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building Fortran object Generator/CMakeFiles/CMC.dir/photos.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/photos.F -o CMakeFiles/CMC.dir/photos.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building Fortran object Generator/CMakeFiles/CMC.dir/photos.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/photos.F -o CMakeFiles/CMC.dir/photos.F.o
 
 Generator/CMakeFiles/CMC.dir/photos.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/photos.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/photos.F > CMakeFiles/CMC.dir/photos.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/photos.F > CMakeFiles/CMC.dir/photos.F.i
 
 Generator/CMakeFiles/CMC.dir/photos.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/photos.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/photos.F -o CMakeFiles/CMC.dir/photos.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/photos.F -o CMakeFiles/CMC.dir/photos.F.s
 
 Generator/CMakeFiles/CMC.dir/pi0decays.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/pi0decays.F.o: ../Generator/pi0decays.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building Fortran object Generator/CMakeFiles/CMC.dir/pi0decays.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/pi0decays.F -o CMakeFiles/CMC.dir/pi0decays.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building Fortran object Generator/CMakeFiles/CMC.dir/pi0decays.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/pi0decays.F -o CMakeFiles/CMC.dir/pi0decays.F.o
 
 Generator/CMakeFiles/CMC.dir/pi0decays.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/pi0decays.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/pi0decays.F > CMakeFiles/CMC.dir/pi0decays.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/pi0decays.F > CMakeFiles/CMC.dir/pi0decays.F.i
 
 Generator/CMakeFiles/CMC.dir/pi0decays.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/pi0decays.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/pi0decays.F -o CMakeFiles/CMC.dir/pi0decays.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/pi0decays.F -o CMakeFiles/CMC.dir/pi0decays.F.s
 
 Generator/CMakeFiles/CMC.dir/proglib.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/proglib.F.o: ../Generator/proglib.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building Fortran object Generator/CMakeFiles/CMC.dir/proglib.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/proglib.F -o CMakeFiles/CMC.dir/proglib.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building Fortran object Generator/CMakeFiles/CMC.dir/proglib.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/proglib.F -o CMakeFiles/CMC.dir/proglib.F.o
 
 Generator/CMakeFiles/CMC.dir/proglib.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/proglib.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/proglib.F > CMakeFiles/CMC.dir/proglib.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/proglib.F > CMakeFiles/CMC.dir/proglib.F.i
 
 Generator/CMakeFiles/CMC.dir/proglib.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/proglib.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/proglib.F -o CMakeFiles/CMC.dir/proglib.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/proglib.F -o CMakeFiles/CMC.dir/proglib.F.s
 
 Generator/CMakeFiles/CMC.dir/rambos.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/rambos.F.o: ../Generator/rambos.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building Fortran object Generator/CMakeFiles/CMC.dir/rambos.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/rambos.F -o CMakeFiles/CMC.dir/rambos.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building Fortran object Generator/CMakeFiles/CMC.dir/rambos.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/rambos.F -o CMakeFiles/CMC.dir/rambos.F.o
 
 Generator/CMakeFiles/CMC.dir/rambos.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/rambos.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/rambos.F > CMakeFiles/CMC.dir/rambos.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/rambos.F > CMakeFiles/CMC.dir/rambos.F.i
 
 Generator/CMakeFiles/CMC.dir/rambos.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/rambos.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/rambos.F -o CMakeFiles/CMC.dir/rambos.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/rambos.F -o CMakeFiles/CMC.dir/rambos.F.s
 
 Generator/CMakeFiles/CMC.dir/random_generators.F.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/random_generators.F.o: ../Generator/random_generators.F
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building Fortran object Generator/CMakeFiles/CMC.dir/random_generators.F.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/random_generators.F -o CMakeFiles/CMC.dir/random_generators.F.o
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building Fortran object Generator/CMakeFiles/CMC.dir/random_generators.F.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/random_generators.F -o CMakeFiles/CMC.dir/random_generators.F.o
 
 Generator/CMakeFiles/CMC.dir/random_generators.F.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing Fortran source to CMakeFiles/CMC.dir/random_generators.F.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/random_generators.F > CMakeFiles/CMC.dir/random_generators.F.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/random_generators.F > CMakeFiles/CMC.dir/random_generators.F.i
 
 Generator/CMakeFiles/CMC.dir/random_generators.F.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling Fortran source to assembly CMakeFiles/CMC.dir/random_generators.F.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator/random_generators.F -o CMakeFiles/CMC.dir/random_generators.F.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator/random_generators.F -o CMakeFiles/CMC.dir/random_generators.F.s
 
 Generator/CMakeFiles/CMC.dir/__/src/cmc_common_address.c.o: Generator/CMakeFiles/CMC.dir/flags.make
 Generator/CMakeFiles/CMC.dir/__/src/cmc_common_address.c.o: ../src/cmc_common_address.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object Generator/CMakeFiles/CMC.dir/__/src/cmc_common_address.c.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/CMC.dir/__/src/cmc_common_address.c.o   -c /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/cmc_common_address.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object Generator/CMakeFiles/CMC.dir/__/src/cmc_common_address.c.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/CMC.dir/__/src/cmc_common_address.c.o   -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/cmc_common_address.c
 
 Generator/CMakeFiles/CMC.dir/__/src/cmc_common_address.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/CMC.dir/__/src/cmc_common_address.c.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/cmc_common_address.c > CMakeFiles/CMC.dir/__/src/cmc_common_address.c.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/cmc_common_address.c > CMakeFiles/CMC.dir/__/src/cmc_common_address.c.i
 
 Generator/CMakeFiles/CMC.dir/__/src/cmc_common_address.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/CMC.dir/__/src/cmc_common_address.c.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62MC/src/cmc_common_address.c -o CMakeFiles/CMC.dir/__/src/cmc_common_address.c.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/src/cmc_common_address.c -o CMakeFiles/CMC.dir/__/src/cmc_common_address.c.s
 
 # Object files for target CMC
 CMC_OBJECTS = \
@@ -815,8 +815,8 @@ Generator/libCMC.so: Generator/CMakeFiles/CMC.dir/random_generators.F.o
 Generator/libCMC.so: Generator/CMakeFiles/CMC.dir/__/src/cmc_common_address.c.o
 Generator/libCMC.so: Generator/CMakeFiles/CMC.dir/build.make
 Generator/libCMC.so: Generator/CMakeFiles/CMC.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Linking CXX shared library libCMC.so"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CMC.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Linking CXX shared library libCMC.so"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CMC.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 Generator/CMakeFiles/CMC.dir/build: Generator/libCMC.so
@@ -824,10 +824,10 @@ Generator/CMakeFiles/CMC.dir/build: Generator/libCMC.so
 .PHONY : Generator/CMakeFiles/CMC.dir/build
 
 Generator/CMakeFiles/CMC.dir/clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator && $(CMAKE_COMMAND) -P CMakeFiles/CMC.dir/cmake_clean.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator && $(CMAKE_COMMAND) -P CMakeFiles/CMC.dir/cmake_clean.cmake
 .PHONY : Generator/CMakeFiles/CMC.dir/clean
 
 Generator/CMakeFiles/CMC.dir/depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/na62fw/NA62MC /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Generator /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Generator/CMakeFiles/CMC.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Generator /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Generator/CMakeFiles/CMC.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Generator/CMakeFiles/CMC.dir/depend
 

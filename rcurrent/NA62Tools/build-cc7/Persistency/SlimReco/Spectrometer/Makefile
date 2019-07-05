@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/SlimReco/Spectrometer/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Spectrometer/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/SlimReco/Spectrometer/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Spectrometer/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Spectrometer/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Spectrometer/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Spectrometer/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Spectrometer/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Spectrometer/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Spectrometer/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/rule
 .PHONY : Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ SpectrometerObjSlimPersistencyLib: Persistency/SlimReco/Spectrometer/CMakeFiles/
 
 # fast build rule for target.
 SpectrometerObjSlimPersistencyLib/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build
 .PHONY : SpectrometerObjSlimPersistencyLib/fast
 
 # Convenience name for target.
 Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistencyDICT.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistencyDICT.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistencyDICT.dir/rule
 .PHONY : Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistencyDICT.dir/rule
 
 # Convenience name for target.
@@ -183,12 +183,12 @@ SpectrometerSlimPersistencyDICT: Persistency/SlimReco/Spectrometer/CMakeFiles/Sp
 
 # fast build rule for target.
 SpectrometerSlimPersistencyDICT/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistencyDICT.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistencyDICT.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistencyDICT.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistencyDICT.dir/build
 .PHONY : SpectrometerSlimPersistencyDICT/fast
 
 # Convenience name for target.
 Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistency.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistency.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistency.dir/rule
 .PHONY : Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistency.dir/rule
 
 # Convenience name for target.
@@ -198,12 +198,12 @@ SpectrometerSlimPersistency: Persistency/SlimReco/Spectrometer/CMakeFiles/Spectr
 
 # fast build rule for target.
 SpectrometerSlimPersistency/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistency.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistency.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistency.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistency.dir/build
 .PHONY : SpectrometerSlimPersistency/fast
 
 # Convenience name for target.
 Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistency-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistency-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistency-static.dir/rule
 .PHONY : Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistency-static.dir/rule
 
 # Convenience name for target.
@@ -213,7 +213,7 @@ SpectrometerSlimPersistency-static: Persistency/SlimReco/Spectrometer/CMakeFiles
 
 # fast build rule for target.
 SpectrometerSlimPersistency-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistency-static.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistency-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistency-static.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerSlimPersistency-static.dir/build
 .PHONY : SpectrometerSlimPersistency-static/fast
 
 SpectrometerSlimPersistencyDICT.o: SpectrometerSlimPersistencyDICT.cxx.o
@@ -222,7 +222,7 @@ SpectrometerSlimPersistencyDICT.o: SpectrometerSlimPersistencyDICT.cxx.o
 
 # target to build an object file
 SpectrometerSlimPersistencyDICT.cxx.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/SpectrometerSlimPersistencyDICT.cxx.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/SpectrometerSlimPersistencyDICT.cxx.o
 .PHONY : SpectrometerSlimPersistencyDICT.cxx.o
 
 SpectrometerSlimPersistencyDICT.i: SpectrometerSlimPersistencyDICT.cxx.i
@@ -231,7 +231,7 @@ SpectrometerSlimPersistencyDICT.i: SpectrometerSlimPersistencyDICT.cxx.i
 
 # target to preprocess a source file
 SpectrometerSlimPersistencyDICT.cxx.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/SpectrometerSlimPersistencyDICT.cxx.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/SpectrometerSlimPersistencyDICT.cxx.i
 .PHONY : SpectrometerSlimPersistencyDICT.cxx.i
 
 SpectrometerSlimPersistencyDICT.s: SpectrometerSlimPersistencyDICT.cxx.s
@@ -240,7 +240,7 @@ SpectrometerSlimPersistencyDICT.s: SpectrometerSlimPersistencyDICT.cxx.s
 
 # target to generate assembly for a file
 SpectrometerSlimPersistencyDICT.cxx.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/SpectrometerSlimPersistencyDICT.cxx.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/SpectrometerSlimPersistencyDICT.cxx.s
 .PHONY : SpectrometerSlimPersistencyDICT.cxx.s
 
 src/TSlimRecoSpectrometerCandidate.o: src/TSlimRecoSpectrometerCandidate.cc.o
@@ -249,7 +249,7 @@ src/TSlimRecoSpectrometerCandidate.o: src/TSlimRecoSpectrometerCandidate.cc.o
 
 # target to build an object file
 src/TSlimRecoSpectrometerCandidate.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/src/TSlimRecoSpectrometerCandidate.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/src/TSlimRecoSpectrometerCandidate.cc.o
 .PHONY : src/TSlimRecoSpectrometerCandidate.cc.o
 
 src/TSlimRecoSpectrometerCandidate.i: src/TSlimRecoSpectrometerCandidate.cc.i
@@ -258,7 +258,7 @@ src/TSlimRecoSpectrometerCandidate.i: src/TSlimRecoSpectrometerCandidate.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoSpectrometerCandidate.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/src/TSlimRecoSpectrometerCandidate.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/src/TSlimRecoSpectrometerCandidate.cc.i
 .PHONY : src/TSlimRecoSpectrometerCandidate.cc.i
 
 src/TSlimRecoSpectrometerCandidate.s: src/TSlimRecoSpectrometerCandidate.cc.s
@@ -267,7 +267,7 @@ src/TSlimRecoSpectrometerCandidate.s: src/TSlimRecoSpectrometerCandidate.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoSpectrometerCandidate.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/src/TSlimRecoSpectrometerCandidate.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/src/TSlimRecoSpectrometerCandidate.cc.s
 .PHONY : src/TSlimRecoSpectrometerCandidate.cc.s
 
 src/TSlimRecoSpectrometerEvent.o: src/TSlimRecoSpectrometerEvent.cc.o
@@ -276,7 +276,7 @@ src/TSlimRecoSpectrometerEvent.o: src/TSlimRecoSpectrometerEvent.cc.o
 
 # target to build an object file
 src/TSlimRecoSpectrometerEvent.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/src/TSlimRecoSpectrometerEvent.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/src/TSlimRecoSpectrometerEvent.cc.o
 .PHONY : src/TSlimRecoSpectrometerEvent.cc.o
 
 src/TSlimRecoSpectrometerEvent.i: src/TSlimRecoSpectrometerEvent.cc.i
@@ -285,7 +285,7 @@ src/TSlimRecoSpectrometerEvent.i: src/TSlimRecoSpectrometerEvent.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoSpectrometerEvent.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/src/TSlimRecoSpectrometerEvent.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/src/TSlimRecoSpectrometerEvent.cc.i
 .PHONY : src/TSlimRecoSpectrometerEvent.cc.i
 
 src/TSlimRecoSpectrometerEvent.s: src/TSlimRecoSpectrometerEvent.cc.s
@@ -294,7 +294,7 @@ src/TSlimRecoSpectrometerEvent.s: src/TSlimRecoSpectrometerEvent.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoSpectrometerEvent.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/src/TSlimRecoSpectrometerEvent.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/src/TSlimRecoSpectrometerEvent.cc.s
 .PHONY : src/TSlimRecoSpectrometerEvent.cc.s
 
 src/TSlimRecoSpectrometerHit.o: src/TSlimRecoSpectrometerHit.cc.o
@@ -303,7 +303,7 @@ src/TSlimRecoSpectrometerHit.o: src/TSlimRecoSpectrometerHit.cc.o
 
 # target to build an object file
 src/TSlimRecoSpectrometerHit.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/src/TSlimRecoSpectrometerHit.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/src/TSlimRecoSpectrometerHit.cc.o
 .PHONY : src/TSlimRecoSpectrometerHit.cc.o
 
 src/TSlimRecoSpectrometerHit.i: src/TSlimRecoSpectrometerHit.cc.i
@@ -312,7 +312,7 @@ src/TSlimRecoSpectrometerHit.i: src/TSlimRecoSpectrometerHit.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoSpectrometerHit.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/src/TSlimRecoSpectrometerHit.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/src/TSlimRecoSpectrometerHit.cc.i
 .PHONY : src/TSlimRecoSpectrometerHit.cc.i
 
 src/TSlimRecoSpectrometerHit.s: src/TSlimRecoSpectrometerHit.cc.s
@@ -321,7 +321,7 @@ src/TSlimRecoSpectrometerHit.s: src/TSlimRecoSpectrometerHit.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoSpectrometerHit.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/src/TSlimRecoSpectrometerHit.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/Spectrometer/CMakeFiles/SpectrometerObjSlimPersistencyLib.dir/src/TSlimRecoSpectrometerHit.cc.s
 .PHONY : src/TSlimRecoSpectrometerHit.cc.s
 
 # Help Target
@@ -363,6 +363,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -43,10 +43,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7
 
 # Include any dependencies generated for this target.
 include Spectrometer/CMakeFiles/Spectrometer-static.dir/depend.make
@@ -62,17 +62,17 @@ Spectrometer__static_OBJECTS =
 
 # External object files for target Spectrometer-static
 Spectrometer__static_EXTERNAL_OBJECTS = \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/Chamber.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/HalfView.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerDetector.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerGeometryParameters.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerHit.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerMagnet.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerMaterialParameters.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerRootIO.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerSD.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/Straw.cc.o" \
-"/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/View.cc.o"
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/Chamber.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/HalfView.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerDetector.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerGeometryParameters.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerHit.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerMagnet.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerMaterialParameters.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerRootIO.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerSD.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/Straw.cc.o" \
+"/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/View.cc.o"
 
 Spectrometer/libSpectrometer-static.a: Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/Chamber.cc.o
 Spectrometer/libSpectrometer-static.a: Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/HalfView.cc.o
@@ -87,9 +87,9 @@ Spectrometer/libSpectrometer-static.a: Spectrometer/CMakeFiles/SpectrometerObjLi
 Spectrometer/libSpectrometer-static.a: Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/View.cc.o
 Spectrometer/libSpectrometer-static.a: Spectrometer/CMakeFiles/Spectrometer-static.dir/build.make
 Spectrometer/libSpectrometer-static.a: Spectrometer/CMakeFiles/Spectrometer-static.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX static library libSpectrometer-static.a"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Spectrometer && $(CMAKE_COMMAND) -P CMakeFiles/Spectrometer-static.dir/cmake_clean_target.cmake
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Spectrometer && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Spectrometer-static.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX static library libSpectrometer-static.a"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Spectrometer && $(CMAKE_COMMAND) -P CMakeFiles/Spectrometer-static.dir/cmake_clean_target.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Spectrometer && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Spectrometer-static.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 Spectrometer/CMakeFiles/Spectrometer-static.dir/build: Spectrometer/libSpectrometer-static.a
@@ -97,10 +97,10 @@ Spectrometer/CMakeFiles/Spectrometer-static.dir/build: Spectrometer/libSpectrome
 .PHONY : Spectrometer/CMakeFiles/Spectrometer-static.dir/build
 
 Spectrometer/CMakeFiles/Spectrometer-static.dir/clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Spectrometer && $(CMAKE_COMMAND) -P CMakeFiles/Spectrometer-static.dir/cmake_clean.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Spectrometer && $(CMAKE_COMMAND) -P CMakeFiles/Spectrometer-static.dir/cmake_clean.cmake
 .PHONY : Spectrometer/CMakeFiles/Spectrometer-static.dir/clean
 
 Spectrometer/CMakeFiles/Spectrometer-static.dir/depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/na62fw/NA62MC /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Spectrometer /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Spectrometer /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Spectrometer/CMakeFiles/Spectrometer-static.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Spectrometer /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Spectrometer /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Spectrometer/CMakeFiles/Spectrometer-static.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Spectrometer/CMakeFiles/Spectrometer-static.dir/depend
 

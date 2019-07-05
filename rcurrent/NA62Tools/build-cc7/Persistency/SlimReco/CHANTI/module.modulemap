@@ -1,8 +1,8 @@
 module "CHANTISlimPersistency" {
   requires cplusplus
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/CHANTI/include/TSlimRecoCHANTICandidate.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/CHANTI/include/TSlimRecoCHANTICandidate.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/CHANTI/include/TSlimRecoCHANTIEvent.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/CHANTI/include/TSlimRecoCHANTIEvent.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/CHANTI/include/TSlimRecoCHANTIHit.hh" { header "/afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco/CHANTI/include/TSlimRecoCHANTIHit.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/CHANTI/include/TSlimRecoCHANTICandidate.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/CHANTI/include/TSlimRecoCHANTICandidate.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/CHANTI/include/TSlimRecoCHANTIEvent.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/CHANTI/include/TSlimRecoCHANTIEvent.hh" export * }
+  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/CHANTI/include/TSlimRecoCHANTIHit.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/CHANTI/include/TSlimRecoCHANTIHit.hh" export * }
   export *
 }
 

@@ -20,7 +20,7 @@ NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDetector.cc.o
  ../include/MCTruthManager.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/GenePart.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/KinePart.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/NewCHOD/src/NewCHODDetector.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/NewCHOD/src/NewCHODDetector.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -469,7 +469,7 @@ NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODGeometryParameters.cc.o
  ../MCBase/include/ResponsibilityRegion.hh
  ../NewCHOD/include/NewCHODGeometryParameters.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/DetectorParameter.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/NewCHOD/src/NewCHODGeometryParameters.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/NewCHOD/src/NewCHODGeometryParameters.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4EnvironmentUtils.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Exception.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4ExceptionSeverity.hh
@@ -534,7 +534,7 @@ NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODGeometryParameters.cc.o
  /cvmfs/sft.cern.ch/lcg/releases/clhep/2.4.1.0-2c56f/x86_64-centos7-gcc7-opt/lib/CLHEP-2.4.1.0/../../include/CLHEP/Vector/defs.h
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODHit.cc.o
  ../NewCHOD/include/NewCHODHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/NewCHOD/src/NewCHODHit.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/NewCHOD/src/NewCHODHit.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AllocatorPool.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AutoLock.hh
@@ -607,7 +607,7 @@ NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODHit.cc.o
  /cvmfs/sft.cern.ch/lcg/releases/clhep/2.4.1.0-2c56f/x86_64-centos7-gcc7-opt/lib/CLHEP-2.4.1.0/../../include/CLHEP/Vector/defs.h
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODMaterialParameters.cc.o
  ../NewCHOD/include/NewCHODMaterialParameters.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/NewCHOD/src/NewCHODMaterialParameters.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/NewCHOD/src/NewCHODMaterialParameters.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4DataVector.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4DataVector.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Element.hh
@@ -712,7 +712,7 @@ NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRootIO.cc.o
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NewCHOD/include/TNewCHODEvent.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NewCHOD/include/TNewCHODHit.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/NewCHOD/src/NewCHODRootIO.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/NewCHOD/src/NewCHODRootIO.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -1078,7 +1078,7 @@ NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRootIO.cc.o
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODSD.cc.o
  ../NewCHOD/include/NewCHODHit.hh
  ../NewCHOD/include/NewCHODSD.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/NewCHOD/src/NewCHODSD.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/NewCHOD/src/NewCHODSD.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -1213,7 +1213,7 @@ NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODScintillatorCounter.cc.o
  ../NewCHOD/include/NewCHODMaterialParameters.hh
  ../NewCHOD/include/NewCHODSD.hh
  ../NewCHOD/include/NewCHODScintillatorCounter.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/NewCHOD/src/NewCHODScintillatorCounter.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/NewCHOD/src/NewCHODScintillatorCounter.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh

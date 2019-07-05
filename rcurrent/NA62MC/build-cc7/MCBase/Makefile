@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ install/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/MCBase/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 MCBase/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/MCBase/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 MCBase/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 MCBase/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 MCBase/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 MCBase/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 MCBase/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 MCBase/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 MCBase/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 MCBase/CMakeFiles/MCBase-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 MCBase/CMakeFiles/MCBase-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 MCBase/CMakeFiles/MCBase-static.dir/rule
 .PHONY : MCBase/CMakeFiles/MCBase-static.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ MCBase-static: MCBase/CMakeFiles/MCBase-static.dir/rule
 
 # fast build rule for target.
 MCBase-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/build
 .PHONY : MCBase-static/fast
 
 # Convenience name for target.
 MCBase/CMakeFiles/MCBase.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 MCBase/CMakeFiles/MCBase.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 MCBase/CMakeFiles/MCBase.dir/rule
 .PHONY : MCBase/CMakeFiles/MCBase.dir/rule
 
 # Convenience name for target.
@@ -183,7 +183,7 @@ MCBase: MCBase/CMakeFiles/MCBase.dir/rule
 
 # fast build rule for target.
 MCBase/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/build
 .PHONY : MCBase/fast
 
 src/BeamPipe.o: src/BeamPipe.cc.o
@@ -192,8 +192,8 @@ src/BeamPipe.o: src/BeamPipe.cc.o
 
 # target to build an object file
 src/BeamPipe.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamPipe.cc.o
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamPipe.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamPipe.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamPipe.cc.o
 .PHONY : src/BeamPipe.cc.o
 
 src/BeamPipe.i: src/BeamPipe.cc.i
@@ -202,8 +202,8 @@ src/BeamPipe.i: src/BeamPipe.cc.i
 
 # target to preprocess a source file
 src/BeamPipe.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamPipe.cc.i
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamPipe.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamPipe.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamPipe.cc.i
 .PHONY : src/BeamPipe.cc.i
 
 src/BeamPipe.s: src/BeamPipe.cc.s
@@ -212,8 +212,8 @@ src/BeamPipe.s: src/BeamPipe.cc.s
 
 # target to generate assembly for a file
 src/BeamPipe.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamPipe.cc.s
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamPipe.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamPipe.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamPipe.cc.s
 .PHONY : src/BeamPipe.cc.s
 
 src/BeamPipeMaterialParameters.o: src/BeamPipeMaterialParameters.cc.o
@@ -222,8 +222,8 @@ src/BeamPipeMaterialParameters.o: src/BeamPipeMaterialParameters.cc.o
 
 # target to build an object file
 src/BeamPipeMaterialParameters.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamPipeMaterialParameters.cc.o
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamPipeMaterialParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamPipeMaterialParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamPipeMaterialParameters.cc.o
 .PHONY : src/BeamPipeMaterialParameters.cc.o
 
 src/BeamPipeMaterialParameters.i: src/BeamPipeMaterialParameters.cc.i
@@ -232,8 +232,8 @@ src/BeamPipeMaterialParameters.i: src/BeamPipeMaterialParameters.cc.i
 
 # target to preprocess a source file
 src/BeamPipeMaterialParameters.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamPipeMaterialParameters.cc.i
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamPipeMaterialParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamPipeMaterialParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamPipeMaterialParameters.cc.i
 .PHONY : src/BeamPipeMaterialParameters.cc.i
 
 src/BeamPipeMaterialParameters.s: src/BeamPipeMaterialParameters.cc.s
@@ -242,8 +242,8 @@ src/BeamPipeMaterialParameters.s: src/BeamPipeMaterialParameters.cc.s
 
 # target to generate assembly for a file
 src/BeamPipeMaterialParameters.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamPipeMaterialParameters.cc.s
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamPipeMaterialParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamPipeMaterialParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamPipeMaterialParameters.cc.s
 .PHONY : src/BeamPipeMaterialParameters.cc.s
 
 src/BeamTube.o: src/BeamTube.cc.o
@@ -252,8 +252,8 @@ src/BeamTube.o: src/BeamTube.cc.o
 
 # target to build an object file
 src/BeamTube.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamTube.cc.o
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamTube.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamTube.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamTube.cc.o
 .PHONY : src/BeamTube.cc.o
 
 src/BeamTube.i: src/BeamTube.cc.i
@@ -262,8 +262,8 @@ src/BeamTube.i: src/BeamTube.cc.i
 
 # target to preprocess a source file
 src/BeamTube.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamTube.cc.i
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamTube.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamTube.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamTube.cc.i
 .PHONY : src/BeamTube.cc.i
 
 src/BeamTube.s: src/BeamTube.cc.s
@@ -272,8 +272,8 @@ src/BeamTube.s: src/BeamTube.cc.s
 
 # target to generate assembly for a file
 src/BeamTube.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamTube.cc.s
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamTube.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamTube.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamTube.cc.s
 .PHONY : src/BeamTube.cc.s
 
 src/BeamTubeFins.o: src/BeamTubeFins.cc.o
@@ -282,8 +282,8 @@ src/BeamTubeFins.o: src/BeamTubeFins.cc.o
 
 # target to build an object file
 src/BeamTubeFins.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamTubeFins.cc.o
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamTubeFins.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamTubeFins.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamTubeFins.cc.o
 .PHONY : src/BeamTubeFins.cc.o
 
 src/BeamTubeFins.i: src/BeamTubeFins.cc.i
@@ -292,8 +292,8 @@ src/BeamTubeFins.i: src/BeamTubeFins.cc.i
 
 # target to preprocess a source file
 src/BeamTubeFins.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamTubeFins.cc.i
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamTubeFins.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamTubeFins.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamTubeFins.cc.i
 .PHONY : src/BeamTubeFins.cc.i
 
 src/BeamTubeFins.s: src/BeamTubeFins.cc.s
@@ -302,8 +302,8 @@ src/BeamTubeFins.s: src/BeamTubeFins.cc.s
 
 # target to generate assembly for a file
 src/BeamTubeFins.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamTubeFins.cc.s
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamTubeFins.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/BeamTubeFins.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/BeamTubeFins.cc.s
 .PHONY : src/BeamTubeFins.cc.s
 
 src/MagneticField.o: src/MagneticField.cc.o
@@ -312,8 +312,8 @@ src/MagneticField.o: src/MagneticField.cc.o
 
 # target to build an object file
 src/MagneticField.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/MagneticField.cc.o
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/MagneticField.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/MagneticField.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/MagneticField.cc.o
 .PHONY : src/MagneticField.cc.o
 
 src/MagneticField.i: src/MagneticField.cc.i
@@ -322,8 +322,8 @@ src/MagneticField.i: src/MagneticField.cc.i
 
 # target to preprocess a source file
 src/MagneticField.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/MagneticField.cc.i
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/MagneticField.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/MagneticField.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/MagneticField.cc.i
 .PHONY : src/MagneticField.cc.i
 
 src/MagneticField.s: src/MagneticField.cc.s
@@ -332,8 +332,8 @@ src/MagneticField.s: src/MagneticField.cc.s
 
 # target to generate assembly for a file
 src/MagneticField.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/MagneticField.cc.s
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/MagneticField.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/MagneticField.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/MagneticField.cc.s
 .PHONY : src/MagneticField.cc.s
 
 src/NA62VComponent.o: src/NA62VComponent.cc.o
@@ -342,8 +342,8 @@ src/NA62VComponent.o: src/NA62VComponent.cc.o
 
 # target to build an object file
 src/NA62VComponent.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VComponent.cc.o
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VComponent.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VComponent.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VComponent.cc.o
 .PHONY : src/NA62VComponent.cc.o
 
 src/NA62VComponent.i: src/NA62VComponent.cc.i
@@ -352,8 +352,8 @@ src/NA62VComponent.i: src/NA62VComponent.cc.i
 
 # target to preprocess a source file
 src/NA62VComponent.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VComponent.cc.i
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VComponent.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VComponent.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VComponent.cc.i
 .PHONY : src/NA62VComponent.cc.i
 
 src/NA62VComponent.s: src/NA62VComponent.cc.s
@@ -362,8 +362,8 @@ src/NA62VComponent.s: src/NA62VComponent.cc.s
 
 # target to generate assembly for a file
 src/NA62VComponent.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VComponent.cc.s
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VComponent.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VComponent.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VComponent.cc.s
 .PHONY : src/NA62VComponent.cc.s
 
 src/NA62VGeometryParameters.o: src/NA62VGeometryParameters.cc.o
@@ -372,8 +372,8 @@ src/NA62VGeometryParameters.o: src/NA62VGeometryParameters.cc.o
 
 # target to build an object file
 src/NA62VGeometryParameters.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VGeometryParameters.cc.o
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VGeometryParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VGeometryParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VGeometryParameters.cc.o
 .PHONY : src/NA62VGeometryParameters.cc.o
 
 src/NA62VGeometryParameters.i: src/NA62VGeometryParameters.cc.i
@@ -382,8 +382,8 @@ src/NA62VGeometryParameters.i: src/NA62VGeometryParameters.cc.i
 
 # target to preprocess a source file
 src/NA62VGeometryParameters.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VGeometryParameters.cc.i
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VGeometryParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VGeometryParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VGeometryParameters.cc.i
 .PHONY : src/NA62VGeometryParameters.cc.i
 
 src/NA62VGeometryParameters.s: src/NA62VGeometryParameters.cc.s
@@ -392,8 +392,8 @@ src/NA62VGeometryParameters.s: src/NA62VGeometryParameters.cc.s
 
 # target to generate assembly for a file
 src/NA62VGeometryParameters.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VGeometryParameters.cc.s
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VGeometryParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VGeometryParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VGeometryParameters.cc.s
 .PHONY : src/NA62VGeometryParameters.cc.s
 
 src/NA62VNamed.o: src/NA62VNamed.cc.o
@@ -402,8 +402,8 @@ src/NA62VNamed.o: src/NA62VNamed.cc.o
 
 # target to build an object file
 src/NA62VNamed.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VNamed.cc.o
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VNamed.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VNamed.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VNamed.cc.o
 .PHONY : src/NA62VNamed.cc.o
 
 src/NA62VNamed.i: src/NA62VNamed.cc.i
@@ -412,8 +412,8 @@ src/NA62VNamed.i: src/NA62VNamed.cc.i
 
 # target to preprocess a source file
 src/NA62VNamed.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VNamed.cc.i
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VNamed.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VNamed.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VNamed.cc.i
 .PHONY : src/NA62VNamed.cc.i
 
 src/NA62VNamed.s: src/NA62VNamed.cc.s
@@ -422,8 +422,8 @@ src/NA62VNamed.s: src/NA62VNamed.cc.s
 
 # target to generate assembly for a file
 src/NA62VNamed.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VNamed.cc.s
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VNamed.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VNamed.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VNamed.cc.s
 .PHONY : src/NA62VNamed.cc.s
 
 src/NA62VRootIO.o: src/NA62VRootIO.cc.o
@@ -432,8 +432,8 @@ src/NA62VRootIO.o: src/NA62VRootIO.cc.o
 
 # target to build an object file
 src/NA62VRootIO.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VRootIO.cc.o
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VRootIO.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VRootIO.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VRootIO.cc.o
 .PHONY : src/NA62VRootIO.cc.o
 
 src/NA62VRootIO.i: src/NA62VRootIO.cc.i
@@ -442,8 +442,8 @@ src/NA62VRootIO.i: src/NA62VRootIO.cc.i
 
 # target to preprocess a source file
 src/NA62VRootIO.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VRootIO.cc.i
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VRootIO.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VRootIO.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VRootIO.cc.i
 .PHONY : src/NA62VRootIO.cc.i
 
 src/NA62VRootIO.s: src/NA62VRootIO.cc.s
@@ -452,8 +452,8 @@ src/NA62VRootIO.s: src/NA62VRootIO.cc.s
 
 # target to generate assembly for a file
 src/NA62VRootIO.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VRootIO.cc.s
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VRootIO.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase-static.dir/build.make MCBase/CMakeFiles/MCBase-static.dir/src/NA62VRootIO.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f MCBase/CMakeFiles/MCBase.dir/build.make MCBase/CMakeFiles/MCBase.dir/src/NA62VRootIO.cc.s
 .PHONY : src/NA62VRootIO.cc.s
 
 # Help Target
@@ -508,6 +508,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

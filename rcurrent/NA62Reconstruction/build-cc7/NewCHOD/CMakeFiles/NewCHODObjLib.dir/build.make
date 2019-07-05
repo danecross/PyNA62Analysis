@@ -43,10 +43,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7
 
 # Include any dependencies generated for this target.
 include NewCHOD/CMakeFiles/NewCHODObjLib.dir/depend.make
@@ -59,107 +59,107 @@ include NewCHOD/CMakeFiles/NewCHODObjLib.dir/flags.make
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.o: NewCHOD/CMakeFiles/NewCHODObjLib.dir/flags.make
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.o: ../NewCHOD/src/NewCHODChannel.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODChannel.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODChannel.cc
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODChannel.cc > CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODChannel.cc > CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.i
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODChannel.cc -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODChannel.cc -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.s
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.o: NewCHOD/CMakeFiles/NewCHODObjLib.dir/flags.make
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.o: ../NewCHOD/src/NewCHODDataQualityPlotter.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODDataQualityPlotter.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODDataQualityPlotter.cc
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODDataQualityPlotter.cc > CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODDataQualityPlotter.cc > CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.i
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODDataQualityPlotter.cc -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODDataQualityPlotter.cc -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.s
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDigitizer.cc.o: NewCHOD/CMakeFiles/NewCHODObjLib.dir/flags.make
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDigitizer.cc.o: ../NewCHOD/src/NewCHODDigitizer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDigitizer.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODDigitizer.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODDigitizer.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDigitizer.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODDigitizer.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODDigitizer.cc
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDigitizer.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NewCHODObjLib.dir/src/NewCHODDigitizer.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODDigitizer.cc > CMakeFiles/NewCHODObjLib.dir/src/NewCHODDigitizer.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODDigitizer.cc > CMakeFiles/NewCHODObjLib.dir/src/NewCHODDigitizer.cc.i
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDigitizer.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NewCHODObjLib.dir/src/NewCHODDigitizer.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODDigitizer.cc -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODDigitizer.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODDigitizer.cc -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODDigitizer.cc.s
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODOnlineMonitor.cc.o: NewCHOD/CMakeFiles/NewCHODObjLib.dir/flags.make
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODOnlineMonitor.cc.o: ../NewCHOD/src/NewCHODOnlineMonitor.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODOnlineMonitor.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODOnlineMonitor.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODOnlineMonitor.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODOnlineMonitor.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODOnlineMonitor.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODOnlineMonitor.cc
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODOnlineMonitor.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NewCHODObjLib.dir/src/NewCHODOnlineMonitor.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODOnlineMonitor.cc > CMakeFiles/NewCHODObjLib.dir/src/NewCHODOnlineMonitor.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODOnlineMonitor.cc > CMakeFiles/NewCHODObjLib.dir/src/NewCHODOnlineMonitor.cc.i
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODOnlineMonitor.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NewCHODObjLib.dir/src/NewCHODOnlineMonitor.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODOnlineMonitor.cc -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODOnlineMonitor.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODOnlineMonitor.cc -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODOnlineMonitor.cc.s
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawDecoder.cc.o: NewCHOD/CMakeFiles/NewCHODObjLib.dir/flags.make
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawDecoder.cc.o: ../NewCHOD/src/NewCHODRawDecoder.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawDecoder.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawDecoder.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODRawDecoder.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawDecoder.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawDecoder.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODRawDecoder.cc
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawDecoder.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawDecoder.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODRawDecoder.cc > CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawDecoder.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODRawDecoder.cc > CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawDecoder.cc.i
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawDecoder.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawDecoder.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODRawDecoder.cc -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawDecoder.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODRawDecoder.cc -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawDecoder.cc.s
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawEncoder.cc.o: NewCHOD/CMakeFiles/NewCHODObjLib.dir/flags.make
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawEncoder.cc.o: ../NewCHOD/src/NewCHODRawEncoder.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawEncoder.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawEncoder.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODRawEncoder.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawEncoder.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawEncoder.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODRawEncoder.cc
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawEncoder.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawEncoder.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODRawEncoder.cc > CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawEncoder.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODRawEncoder.cc > CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawEncoder.cc.i
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawEncoder.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawEncoder.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODRawEncoder.cc -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawEncoder.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODRawEncoder.cc -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODRawEncoder.cc.s
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODReconstruction.cc.o: NewCHOD/CMakeFiles/NewCHODObjLib.dir/flags.make
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODReconstruction.cc.o: ../NewCHOD/src/NewCHODReconstruction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODReconstruction.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODReconstruction.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODReconstruction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODReconstruction.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODReconstruction.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODReconstruction.cc
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODReconstruction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NewCHODObjLib.dir/src/NewCHODReconstruction.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODReconstruction.cc > CMakeFiles/NewCHODObjLib.dir/src/NewCHODReconstruction.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODReconstruction.cc > CMakeFiles/NewCHODObjLib.dir/src/NewCHODReconstruction.cc.i
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODReconstruction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NewCHODObjLib.dir/src/NewCHODReconstruction.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODReconstruction.cc -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODReconstruction.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODReconstruction.cc -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODReconstruction.cc.s
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODTile.cc.o: NewCHOD/CMakeFiles/NewCHODObjLib.dir/flags.make
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODTile.cc.o: ../NewCHOD/src/NewCHODTile.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODTile.cc.o"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODTile.cc.o -c /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODTile.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODTile.cc.o"
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODTile.cc.o -c /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODTile.cc
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODTile.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NewCHODObjLib.dir/src/NewCHODTile.cc.i"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODTile.cc > CMakeFiles/NewCHODObjLib.dir/src/NewCHODTile.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODTile.cc > CMakeFiles/NewCHODObjLib.dir/src/NewCHODTile.cc.i
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODTile.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NewCHODObjLib.dir/src/NewCHODTile.cc.s"
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD/src/NewCHODTile.cc -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODTile.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && /cvmfs/sft.cern.ch/lcg/releases/gcc/7.3.0-cb1ee/x86_64-centos7/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD/src/NewCHODTile.cc -o CMakeFiles/NewCHODObjLib.dir/src/NewCHODTile.cc.s
 
 NewCHODObjLib: NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODChannel.cc.o
 NewCHODObjLib: NewCHOD/CMakeFiles/NewCHODObjLib.dir/src/NewCHODDataQualityPlotter.cc.o
@@ -179,10 +179,10 @@ NewCHOD/CMakeFiles/NewCHODObjLib.dir/build: NewCHODObjLib
 .PHONY : NewCHOD/CMakeFiles/NewCHODObjLib.dir/build
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD && $(CMAKE_COMMAND) -P CMakeFiles/NewCHODObjLib.dir/cmake_clean.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD && $(CMAKE_COMMAND) -P CMakeFiles/NewCHODObjLib.dir/cmake_clean.cmake
 .PHONY : NewCHOD/CMakeFiles/NewCHODObjLib.dir/clean
 
 NewCHOD/CMakeFiles/NewCHODObjLib.dir/depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/NewCHOD /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD /afs/cern.ch/user/d/dacross/na62fw/NA62Reconstruction/build-cc7/NewCHOD/CMakeFiles/NewCHODObjLib.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/NewCHOD /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Reconstruction/build-cc7/NewCHOD/CMakeFiles/NewCHODObjLib.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : NewCHOD/CMakeFiles/NewCHODObjLib.dir/depend
 

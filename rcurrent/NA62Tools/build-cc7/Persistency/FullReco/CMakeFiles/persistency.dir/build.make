@@ -43,10 +43,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7
 
 # Utility rule file for persistency.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7
 include Persistency/FullReco/CMakeFiles/persistency.dir/progress.make
 
 Persistency/FullReco/CMakeFiles/persistency:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco && /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -DCMAKE_INSTALL_COMPONENT=persistencylib -P /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/cmake_install.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco && /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -DCMAKE_INSTALL_COMPONENT=persistencylib -P /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/cmake_install.cmake
 
 persistency: Persistency/FullReco/CMakeFiles/persistency
 persistency: Persistency/FullReco/CMakeFiles/persistency.dir/build.make
@@ -67,10 +67,10 @@ Persistency/FullReco/CMakeFiles/persistency.dir/build: persistency
 .PHONY : Persistency/FullReco/CMakeFiles/persistency.dir/build
 
 Persistency/FullReco/CMakeFiles/persistency.dir/clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco && $(CMAKE_COMMAND) -P CMakeFiles/persistency.dir/cmake_clean.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco && $(CMAKE_COMMAND) -P CMakeFiles/persistency.dir/cmake_clean.cmake
 .PHONY : Persistency/FullReco/CMakeFiles/persistency.dir/clean
 
 Persistency/FullReco/CMakeFiles/persistency.dir/depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/na62fw/NA62Tools /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/FullReco /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/FullReco/CMakeFiles/persistency.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/FullReco /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/FullReco/CMakeFiles/persistency.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Persistency/FullReco/CMakeFiles/persistency.dir/depend
 

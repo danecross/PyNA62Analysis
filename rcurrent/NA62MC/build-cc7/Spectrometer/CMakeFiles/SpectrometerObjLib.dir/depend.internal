@@ -10,7 +10,7 @@ Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/Chamber.cc.o
  ../Spectrometer/include/SpectrometerGeometryParameters.hh
  ../Spectrometer/include/SpectrometerMaterialParameters.hh
  ../Spectrometer/include/View.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Spectrometer/src/Chamber.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Spectrometer/src/Chamber.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -330,7 +330,7 @@ Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/HalfView.cc.o
  ../Spectrometer/include/SpectrometerMaterialParameters.hh
  ../Spectrometer/include/SpectrometerSD.hh
  ../Spectrometer/include/Straw.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Spectrometer/src/HalfView.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Spectrometer/src/HalfView.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -706,7 +706,7 @@ Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerDetector.cc.o
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/BlueTubeMagneticFieldMap.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/FringeMagneticFieldMap.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/MNP33MagneticFieldMap.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Spectrometer/src/SpectrometerDetector.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Spectrometer/src/SpectrometerDetector.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -1166,7 +1166,7 @@ Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerGeometryParameter
  ../MCBase/include/ResponsibilityRegion.hh
  ../Spectrometer/include/SpectrometerGeometryParameters.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/DetectorParameter.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Spectrometer/src/SpectrometerGeometryParameters.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Spectrometer/src/SpectrometerGeometryParameters.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4EnvironmentUtils.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Exception.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4ExceptionSeverity.hh
@@ -1227,7 +1227,7 @@ Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerGeometryParameter
  /cvmfs/sft.cern.ch/lcg/releases/clhep/2.4.1.0-2c56f/x86_64-centos7-gcc7-opt/lib/CLHEP-2.4.1.0/../../include/CLHEP/Units/defs.h
 Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerHit.cc.o
  ../Spectrometer/include/SpectrometerHit.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Spectrometer/src/SpectrometerHit.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Spectrometer/src/SpectrometerHit.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AllocatorPool.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AutoLock.hh
@@ -1306,7 +1306,7 @@ Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerMagnet.cc.o
  ../Spectrometer/include/SpectrometerGeometryParameters.hh
  ../Spectrometer/include/SpectrometerMagnet.hh
  ../Spectrometer/include/SpectrometerMaterialParameters.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Spectrometer/src/SpectrometerMagnet.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Spectrometer/src/SpectrometerMagnet.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -1615,7 +1615,7 @@ Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerMaterialParameter
  ../Spectrometer/include/SpectrometerGeometryParameters.hh
  ../Spectrometer/include/SpectrometerMaterialParameters.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/NA62/include/DetectorParameter.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Spectrometer/src/SpectrometerMaterialParameters.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Spectrometer/src/SpectrometerMaterialParameters.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4DataVector.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4DataVector.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Element.hh
@@ -1733,7 +1733,7 @@ Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerRootIO.cc.o
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/Spectrometer/include/TSpectrometerEvent.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/Persistency/FullReco/Spectrometer/include/TSpectrometerHit.hh
  /afs/cern.ch/na62/offline/NA62FW/dev/r2779/NA62Tools/include/NA62Global.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Spectrometer/src/SpectrometerRootIO.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Spectrometer/src/SpectrometerRootIO.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -2100,7 +2100,7 @@ Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/SpectrometerSD.cc.o
  ../Spectrometer/include/SpectrometerHit.hh
  ../Spectrometer/include/SpectrometerSD.hh
  ../include/MCTruthTrackInformation.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Spectrometer/src/SpectrometerSD.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Spectrometer/src/SpectrometerSD.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -2570,7 +2570,7 @@ Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/Straw.cc.o
  ../Spectrometer/include/SpectrometerMaterialParameters.hh
  ../Spectrometer/include/SpectrometerSD.hh
  ../Spectrometer/include/Straw.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Spectrometer/src/Straw.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Spectrometer/src/Straw.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh
@@ -2937,7 +2937,7 @@ Spectrometer/CMakeFiles/SpectrometerObjLib.dir/src/View.cc.o
  ../Spectrometer/include/SpectrometerMaterialParameters.hh
  ../Spectrometer/include/SpectrometerSD.hh
  ../Spectrometer/include/View.hh
- /afs/cern.ch/user/d/dacross/na62fw/NA62MC/Spectrometer/src/View.cc
+ /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/Spectrometer/src/View.cc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.hh
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4AffineTransform.icc
  /cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4/G4Allocator.hh

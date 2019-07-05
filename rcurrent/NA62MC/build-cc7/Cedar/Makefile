@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/Cedar/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Cedar/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/Cedar/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Cedar/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Cedar/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Cedar/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Cedar/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Cedar/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Cedar/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Cedar/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Cedar/CMakeFiles/Cedar.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Cedar/CMakeFiles/Cedar.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Cedar/CMakeFiles/Cedar.dir/rule
 .PHONY : Cedar/CMakeFiles/Cedar.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ Cedar: Cedar/CMakeFiles/Cedar.dir/rule
 
 # fast build rule for target.
 Cedar/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/Cedar.dir/build.make Cedar/CMakeFiles/Cedar.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/Cedar.dir/build.make Cedar/CMakeFiles/Cedar.dir/build
 .PHONY : Cedar/fast
 
 # Convenience name for target.
 Cedar/CMakeFiles/CedarObjLib.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Cedar/CMakeFiles/CedarObjLib.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Cedar/CMakeFiles/CedarObjLib.dir/rule
 .PHONY : Cedar/CMakeFiles/CedarObjLib.dir/rule
 
 # Convenience name for target.
@@ -183,12 +183,12 @@ CedarObjLib: Cedar/CMakeFiles/CedarObjLib.dir/rule
 
 # fast build rule for target.
 CedarObjLib/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/build
 .PHONY : CedarObjLib/fast
 
 # Convenience name for target.
 Cedar/CMakeFiles/Cedar-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Cedar/CMakeFiles/Cedar-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Cedar/CMakeFiles/Cedar-static.dir/rule
 .PHONY : Cedar/CMakeFiles/Cedar-static.dir/rule
 
 # Convenience name for target.
@@ -198,7 +198,7 @@ Cedar-static: Cedar/CMakeFiles/Cedar-static.dir/rule
 
 # fast build rule for target.
 Cedar-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/Cedar-static.dir/build.make Cedar/CMakeFiles/Cedar-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/Cedar-static.dir/build.make Cedar/CMakeFiles/Cedar-static.dir/build
 .PHONY : Cedar-static/fast
 
 src/CedarAtexCylinder.o: src/CedarAtexCylinder.cc.o
@@ -207,7 +207,7 @@ src/CedarAtexCylinder.o: src/CedarAtexCylinder.cc.o
 
 # target to build an object file
 src/CedarAtexCylinder.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarAtexCylinder.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarAtexCylinder.cc.o
 .PHONY : src/CedarAtexCylinder.cc.o
 
 src/CedarAtexCylinder.i: src/CedarAtexCylinder.cc.i
@@ -216,7 +216,7 @@ src/CedarAtexCylinder.i: src/CedarAtexCylinder.cc.i
 
 # target to preprocess a source file
 src/CedarAtexCylinder.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarAtexCylinder.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarAtexCylinder.cc.i
 .PHONY : src/CedarAtexCylinder.cc.i
 
 src/CedarAtexCylinder.s: src/CedarAtexCylinder.cc.s
@@ -225,7 +225,7 @@ src/CedarAtexCylinder.s: src/CedarAtexCylinder.cc.s
 
 # target to generate assembly for a file
 src/CedarAtexCylinder.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarAtexCylinder.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarAtexCylinder.cc.s
 .PHONY : src/CedarAtexCylinder.cc.s
 
 src/CedarChromaticCorrector.o: src/CedarChromaticCorrector.cc.o
@@ -234,7 +234,7 @@ src/CedarChromaticCorrector.o: src/CedarChromaticCorrector.cc.o
 
 # target to build an object file
 src/CedarChromaticCorrector.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarChromaticCorrector.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarChromaticCorrector.cc.o
 .PHONY : src/CedarChromaticCorrector.cc.o
 
 src/CedarChromaticCorrector.i: src/CedarChromaticCorrector.cc.i
@@ -243,7 +243,7 @@ src/CedarChromaticCorrector.i: src/CedarChromaticCorrector.cc.i
 
 # target to preprocess a source file
 src/CedarChromaticCorrector.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarChromaticCorrector.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarChromaticCorrector.cc.i
 .PHONY : src/CedarChromaticCorrector.cc.i
 
 src/CedarChromaticCorrector.s: src/CedarChromaticCorrector.cc.s
@@ -252,7 +252,7 @@ src/CedarChromaticCorrector.s: src/CedarChromaticCorrector.cc.s
 
 # target to generate assembly for a file
 src/CedarChromaticCorrector.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarChromaticCorrector.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarChromaticCorrector.cc.s
 .PHONY : src/CedarChromaticCorrector.cc.s
 
 src/CedarCondenser.o: src/CedarCondenser.cc.o
@@ -261,7 +261,7 @@ src/CedarCondenser.o: src/CedarCondenser.cc.o
 
 # target to build an object file
 src/CedarCondenser.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarCondenser.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarCondenser.cc.o
 .PHONY : src/CedarCondenser.cc.o
 
 src/CedarCondenser.i: src/CedarCondenser.cc.i
@@ -270,7 +270,7 @@ src/CedarCondenser.i: src/CedarCondenser.cc.i
 
 # target to preprocess a source file
 src/CedarCondenser.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarCondenser.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarCondenser.cc.i
 .PHONY : src/CedarCondenser.cc.i
 
 src/CedarCondenser.s: src/CedarCondenser.cc.s
@@ -279,7 +279,7 @@ src/CedarCondenser.s: src/CedarCondenser.cc.s
 
 # target to generate assembly for a file
 src/CedarCondenser.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarCondenser.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarCondenser.cc.s
 .PHONY : src/CedarCondenser.cc.s
 
 src/CedarDetector.o: src/CedarDetector.cc.o
@@ -288,7 +288,7 @@ src/CedarDetector.o: src/CedarDetector.cc.o
 
 # target to build an object file
 src/CedarDetector.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarDetector.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarDetector.cc.o
 .PHONY : src/CedarDetector.cc.o
 
 src/CedarDetector.i: src/CedarDetector.cc.i
@@ -297,7 +297,7 @@ src/CedarDetector.i: src/CedarDetector.cc.i
 
 # target to preprocess a source file
 src/CedarDetector.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarDetector.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarDetector.cc.i
 .PHONY : src/CedarDetector.cc.i
 
 src/CedarDetector.s: src/CedarDetector.cc.s
@@ -306,7 +306,7 @@ src/CedarDetector.s: src/CedarDetector.cc.s
 
 # target to generate assembly for a file
 src/CedarDetector.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarDetector.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarDetector.cc.s
 .PHONY : src/CedarDetector.cc.s
 
 src/CedarDetectorMessenger.o: src/CedarDetectorMessenger.cc.o
@@ -315,7 +315,7 @@ src/CedarDetectorMessenger.o: src/CedarDetectorMessenger.cc.o
 
 # target to build an object file
 src/CedarDetectorMessenger.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarDetectorMessenger.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarDetectorMessenger.cc.o
 .PHONY : src/CedarDetectorMessenger.cc.o
 
 src/CedarDetectorMessenger.i: src/CedarDetectorMessenger.cc.i
@@ -324,7 +324,7 @@ src/CedarDetectorMessenger.i: src/CedarDetectorMessenger.cc.i
 
 # target to preprocess a source file
 src/CedarDetectorMessenger.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarDetectorMessenger.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarDetectorMessenger.cc.i
 .PHONY : src/CedarDetectorMessenger.cc.i
 
 src/CedarDetectorMessenger.s: src/CedarDetectorMessenger.cc.s
@@ -333,7 +333,7 @@ src/CedarDetectorMessenger.s: src/CedarDetectorMessenger.cc.s
 
 # target to generate assembly for a file
 src/CedarDetectorMessenger.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarDetectorMessenger.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarDetectorMessenger.cc.s
 .PHONY : src/CedarDetectorMessenger.cc.s
 
 src/CedarDiaphragm.o: src/CedarDiaphragm.cc.o
@@ -342,7 +342,7 @@ src/CedarDiaphragm.o: src/CedarDiaphragm.cc.o
 
 # target to build an object file
 src/CedarDiaphragm.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarDiaphragm.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarDiaphragm.cc.o
 .PHONY : src/CedarDiaphragm.cc.o
 
 src/CedarDiaphragm.i: src/CedarDiaphragm.cc.i
@@ -351,7 +351,7 @@ src/CedarDiaphragm.i: src/CedarDiaphragm.cc.i
 
 # target to preprocess a source file
 src/CedarDiaphragm.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarDiaphragm.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarDiaphragm.cc.i
 .PHONY : src/CedarDiaphragm.cc.i
 
 src/CedarDiaphragm.s: src/CedarDiaphragm.cc.s
@@ -360,7 +360,7 @@ src/CedarDiaphragm.s: src/CedarDiaphragm.cc.s
 
 # target to generate assembly for a file
 src/CedarDiaphragm.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarDiaphragm.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarDiaphragm.cc.s
 .PHONY : src/CedarDiaphragm.cc.s
 
 src/CedarExitPipe.o: src/CedarExitPipe.cc.o
@@ -369,7 +369,7 @@ src/CedarExitPipe.o: src/CedarExitPipe.cc.o
 
 # target to build an object file
 src/CedarExitPipe.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarExitPipe.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarExitPipe.cc.o
 .PHONY : src/CedarExitPipe.cc.o
 
 src/CedarExitPipe.i: src/CedarExitPipe.cc.i
@@ -378,7 +378,7 @@ src/CedarExitPipe.i: src/CedarExitPipe.cc.i
 
 # target to preprocess a source file
 src/CedarExitPipe.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarExitPipe.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarExitPipe.cc.i
 .PHONY : src/CedarExitPipe.cc.i
 
 src/CedarExitPipe.s: src/CedarExitPipe.cc.s
@@ -387,7 +387,7 @@ src/CedarExitPipe.s: src/CedarExitPipe.cc.s
 
 # target to generate assembly for a file
 src/CedarExitPipe.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarExitPipe.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarExitPipe.cc.s
 .PHONY : src/CedarExitPipe.cc.s
 
 src/CedarExternalLens.o: src/CedarExternalLens.cc.o
@@ -396,7 +396,7 @@ src/CedarExternalLens.o: src/CedarExternalLens.cc.o
 
 # target to build an object file
 src/CedarExternalLens.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarExternalLens.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarExternalLens.cc.o
 .PHONY : src/CedarExternalLens.cc.o
 
 src/CedarExternalLens.i: src/CedarExternalLens.cc.i
@@ -405,7 +405,7 @@ src/CedarExternalLens.i: src/CedarExternalLens.cc.i
 
 # target to preprocess a source file
 src/CedarExternalLens.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarExternalLens.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarExternalLens.cc.i
 .PHONY : src/CedarExternalLens.cc.i
 
 src/CedarExternalLens.s: src/CedarExternalLens.cc.s
@@ -414,7 +414,7 @@ src/CedarExternalLens.s: src/CedarExternalLens.cc.s
 
 # target to generate assembly for a file
 src/CedarExternalLens.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarExternalLens.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarExternalLens.cc.s
 .PHONY : src/CedarExternalLens.cc.s
 
 src/CedarGeometryParameters.o: src/CedarGeometryParameters.cc.o
@@ -423,7 +423,7 @@ src/CedarGeometryParameters.o: src/CedarGeometryParameters.cc.o
 
 # target to build an object file
 src/CedarGeometryParameters.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarGeometryParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarGeometryParameters.cc.o
 .PHONY : src/CedarGeometryParameters.cc.o
 
 src/CedarGeometryParameters.i: src/CedarGeometryParameters.cc.i
@@ -432,7 +432,7 @@ src/CedarGeometryParameters.i: src/CedarGeometryParameters.cc.i
 
 # target to preprocess a source file
 src/CedarGeometryParameters.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarGeometryParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarGeometryParameters.cc.i
 .PHONY : src/CedarGeometryParameters.cc.i
 
 src/CedarGeometryParameters.s: src/CedarGeometryParameters.cc.s
@@ -441,7 +441,7 @@ src/CedarGeometryParameters.s: src/CedarGeometryParameters.cc.s
 
 # target to generate assembly for a file
 src/CedarGeometryParameters.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarGeometryParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarGeometryParameters.cc.s
 .PHONY : src/CedarGeometryParameters.cc.s
 
 src/CedarHit.o: src/CedarHit.cc.o
@@ -450,7 +450,7 @@ src/CedarHit.o: src/CedarHit.cc.o
 
 # target to build an object file
 src/CedarHit.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarHit.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarHit.cc.o
 .PHONY : src/CedarHit.cc.o
 
 src/CedarHit.i: src/CedarHit.cc.i
@@ -459,7 +459,7 @@ src/CedarHit.i: src/CedarHit.cc.i
 
 # target to preprocess a source file
 src/CedarHit.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarHit.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarHit.cc.i
 .PHONY : src/CedarHit.cc.i
 
 src/CedarHit.s: src/CedarHit.cc.s
@@ -468,7 +468,7 @@ src/CedarHit.s: src/CedarHit.cc.s
 
 # target to generate assembly for a file
 src/CedarHit.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarHit.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarHit.cc.s
 .PHONY : src/CedarHit.cc.s
 
 src/CedarLightGuide.o: src/CedarLightGuide.cc.o
@@ -477,7 +477,7 @@ src/CedarLightGuide.o: src/CedarLightGuide.cc.o
 
 # target to build an object file
 src/CedarLightGuide.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarLightGuide.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarLightGuide.cc.o
 .PHONY : src/CedarLightGuide.cc.o
 
 src/CedarLightGuide.i: src/CedarLightGuide.cc.i
@@ -486,7 +486,7 @@ src/CedarLightGuide.i: src/CedarLightGuide.cc.i
 
 # target to preprocess a source file
 src/CedarLightGuide.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarLightGuide.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarLightGuide.cc.i
 .PHONY : src/CedarLightGuide.cc.i
 
 src/CedarLightGuide.s: src/CedarLightGuide.cc.s
@@ -495,7 +495,7 @@ src/CedarLightGuide.s: src/CedarLightGuide.cc.s
 
 # target to generate assembly for a file
 src/CedarLightGuide.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarLightGuide.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarLightGuide.cc.s
 .PHONY : src/CedarLightGuide.cc.s
 
 src/CedarLightGuide2011.o: src/CedarLightGuide2011.cc.o
@@ -504,7 +504,7 @@ src/CedarLightGuide2011.o: src/CedarLightGuide2011.cc.o
 
 # target to build an object file
 src/CedarLightGuide2011.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarLightGuide2011.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarLightGuide2011.cc.o
 .PHONY : src/CedarLightGuide2011.cc.o
 
 src/CedarLightGuide2011.i: src/CedarLightGuide2011.cc.i
@@ -513,7 +513,7 @@ src/CedarLightGuide2011.i: src/CedarLightGuide2011.cc.i
 
 # target to preprocess a source file
 src/CedarLightGuide2011.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarLightGuide2011.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarLightGuide2011.cc.i
 .PHONY : src/CedarLightGuide2011.cc.i
 
 src/CedarLightGuide2011.s: src/CedarLightGuide2011.cc.s
@@ -522,7 +522,7 @@ src/CedarLightGuide2011.s: src/CedarLightGuide2011.cc.s
 
 # target to generate assembly for a file
 src/CedarLightGuide2011.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarLightGuide2011.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarLightGuide2011.cc.s
 .PHONY : src/CedarLightGuide2011.cc.s
 
 src/CedarManginMirror.o: src/CedarManginMirror.cc.o
@@ -531,7 +531,7 @@ src/CedarManginMirror.o: src/CedarManginMirror.cc.o
 
 # target to build an object file
 src/CedarManginMirror.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarManginMirror.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarManginMirror.cc.o
 .PHONY : src/CedarManginMirror.cc.o
 
 src/CedarManginMirror.i: src/CedarManginMirror.cc.i
@@ -540,7 +540,7 @@ src/CedarManginMirror.i: src/CedarManginMirror.cc.i
 
 # target to preprocess a source file
 src/CedarManginMirror.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarManginMirror.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarManginMirror.cc.i
 .PHONY : src/CedarManginMirror.cc.i
 
 src/CedarManginMirror.s: src/CedarManginMirror.cc.s
@@ -549,7 +549,7 @@ src/CedarManginMirror.s: src/CedarManginMirror.cc.s
 
 # target to generate assembly for a file
 src/CedarManginMirror.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarManginMirror.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarManginMirror.cc.s
 .PHONY : src/CedarManginMirror.cc.s
 
 src/CedarMaterialParameters.o: src/CedarMaterialParameters.cc.o
@@ -558,7 +558,7 @@ src/CedarMaterialParameters.o: src/CedarMaterialParameters.cc.o
 
 # target to build an object file
 src/CedarMaterialParameters.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarMaterialParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarMaterialParameters.cc.o
 .PHONY : src/CedarMaterialParameters.cc.o
 
 src/CedarMaterialParameters.i: src/CedarMaterialParameters.cc.i
@@ -567,7 +567,7 @@ src/CedarMaterialParameters.i: src/CedarMaterialParameters.cc.i
 
 # target to preprocess a source file
 src/CedarMaterialParameters.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarMaterialParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarMaterialParameters.cc.i
 .PHONY : src/CedarMaterialParameters.cc.i
 
 src/CedarMaterialParameters.s: src/CedarMaterialParameters.cc.s
@@ -576,7 +576,7 @@ src/CedarMaterialParameters.s: src/CedarMaterialParameters.cc.s
 
 # target to generate assembly for a file
 src/CedarMaterialParameters.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarMaterialParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarMaterialParameters.cc.s
 .PHONY : src/CedarMaterialParameters.cc.s
 
 src/CedarOctant.o: src/CedarOctant.cc.o
@@ -585,7 +585,7 @@ src/CedarOctant.o: src/CedarOctant.cc.o
 
 # target to build an object file
 src/CedarOctant.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarOctant.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarOctant.cc.o
 .PHONY : src/CedarOctant.cc.o
 
 src/CedarOctant.i: src/CedarOctant.cc.i
@@ -594,7 +594,7 @@ src/CedarOctant.i: src/CedarOctant.cc.i
 
 # target to preprocess a source file
 src/CedarOctant.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarOctant.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarOctant.cc.i
 .PHONY : src/CedarOctant.cc.i
 
 src/CedarOctant.s: src/CedarOctant.cc.s
@@ -603,7 +603,7 @@ src/CedarOctant.s: src/CedarOctant.cc.s
 
 # target to generate assembly for a file
 src/CedarOctant.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarOctant.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarOctant.cc.s
 .PHONY : src/CedarOctant.cc.s
 
 src/CedarOldPMT.o: src/CedarOldPMT.cc.o
@@ -612,7 +612,7 @@ src/CedarOldPMT.o: src/CedarOldPMT.cc.o
 
 # target to build an object file
 src/CedarOldPMT.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarOldPMT.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarOldPMT.cc.o
 .PHONY : src/CedarOldPMT.cc.o
 
 src/CedarOldPMT.i: src/CedarOldPMT.cc.i
@@ -621,7 +621,7 @@ src/CedarOldPMT.i: src/CedarOldPMT.cc.i
 
 # target to preprocess a source file
 src/CedarOldPMT.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarOldPMT.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarOldPMT.cc.i
 .PHONY : src/CedarOldPMT.cc.i
 
 src/CedarOldPMT.s: src/CedarOldPMT.cc.s
@@ -630,7 +630,7 @@ src/CedarOldPMT.s: src/CedarOldPMT.cc.s
 
 # target to generate assembly for a file
 src/CedarOldPMT.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarOldPMT.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarOldPMT.cc.s
 .PHONY : src/CedarOldPMT.cc.s
 
 src/CedarPMT.o: src/CedarPMT.cc.o
@@ -639,7 +639,7 @@ src/CedarPMT.o: src/CedarPMT.cc.o
 
 # target to build an object file
 src/CedarPMT.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarPMT.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarPMT.cc.o
 .PHONY : src/CedarPMT.cc.o
 
 src/CedarPMT.i: src/CedarPMT.cc.i
@@ -648,7 +648,7 @@ src/CedarPMT.i: src/CedarPMT.cc.i
 
 # target to preprocess a source file
 src/CedarPMT.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarPMT.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarPMT.cc.i
 .PHONY : src/CedarPMT.cc.i
 
 src/CedarPMT.s: src/CedarPMT.cc.s
@@ -657,7 +657,7 @@ src/CedarPMT.s: src/CedarPMT.cc.s
 
 # target to generate assembly for a file
 src/CedarPMT.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarPMT.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarPMT.cc.s
 .PHONY : src/CedarPMT.cc.s
 
 src/CedarQFSMagnet.o: src/CedarQFSMagnet.cc.o
@@ -666,7 +666,7 @@ src/CedarQFSMagnet.o: src/CedarQFSMagnet.cc.o
 
 # target to build an object file
 src/CedarQFSMagnet.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarQFSMagnet.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarQFSMagnet.cc.o
 .PHONY : src/CedarQFSMagnet.cc.o
 
 src/CedarQFSMagnet.i: src/CedarQFSMagnet.cc.i
@@ -675,7 +675,7 @@ src/CedarQFSMagnet.i: src/CedarQFSMagnet.cc.i
 
 # target to preprocess a source file
 src/CedarQFSMagnet.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarQFSMagnet.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarQFSMagnet.cc.i
 .PHONY : src/CedarQFSMagnet.cc.i
 
 src/CedarQFSMagnet.s: src/CedarQFSMagnet.cc.s
@@ -684,7 +684,7 @@ src/CedarQFSMagnet.s: src/CedarQFSMagnet.cc.s
 
 # target to generate assembly for a file
 src/CedarQFSMagnet.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarQFSMagnet.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarQFSMagnet.cc.s
 .PHONY : src/CedarQFSMagnet.cc.s
 
 src/CedarRootIO.o: src/CedarRootIO.cc.o
@@ -693,7 +693,7 @@ src/CedarRootIO.o: src/CedarRootIO.cc.o
 
 # target to build an object file
 src/CedarRootIO.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarRootIO.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarRootIO.cc.o
 .PHONY : src/CedarRootIO.cc.o
 
 src/CedarRootIO.i: src/CedarRootIO.cc.i
@@ -702,7 +702,7 @@ src/CedarRootIO.i: src/CedarRootIO.cc.i
 
 # target to preprocess a source file
 src/CedarRootIO.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarRootIO.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarRootIO.cc.i
 .PHONY : src/CedarRootIO.cc.i
 
 src/CedarRootIO.s: src/CedarRootIO.cc.s
@@ -711,7 +711,7 @@ src/CedarRootIO.s: src/CedarRootIO.cc.s
 
 # target to generate assembly for a file
 src/CedarRootIO.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarRootIO.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarRootIO.cc.s
 .PHONY : src/CedarRootIO.cc.s
 
 src/CedarSD.o: src/CedarSD.cc.o
@@ -720,7 +720,7 @@ src/CedarSD.o: src/CedarSD.cc.o
 
 # target to build an object file
 src/CedarSD.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarSD.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarSD.cc.o
 .PHONY : src/CedarSD.cc.o
 
 src/CedarSD.i: src/CedarSD.cc.i
@@ -729,7 +729,7 @@ src/CedarSD.i: src/CedarSD.cc.i
 
 # target to preprocess a source file
 src/CedarSD.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarSD.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarSD.cc.i
 .PHONY : src/CedarSD.cc.i
 
 src/CedarSD.s: src/CedarSD.cc.s
@@ -738,7 +738,7 @@ src/CedarSD.s: src/CedarSD.cc.s
 
 # target to generate assembly for a file
 src/CedarSD.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarSD.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarSD.cc.s
 .PHONY : src/CedarSD.cc.s
 
 src/CedarSphericalMirror.o: src/CedarSphericalMirror.cc.o
@@ -747,7 +747,7 @@ src/CedarSphericalMirror.o: src/CedarSphericalMirror.cc.o
 
 # target to build an object file
 src/CedarSphericalMirror.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarSphericalMirror.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarSphericalMirror.cc.o
 .PHONY : src/CedarSphericalMirror.cc.o
 
 src/CedarSphericalMirror.i: src/CedarSphericalMirror.cc.i
@@ -756,7 +756,7 @@ src/CedarSphericalMirror.i: src/CedarSphericalMirror.cc.i
 
 # target to preprocess a source file
 src/CedarSphericalMirror.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarSphericalMirror.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarSphericalMirror.cc.i
 .PHONY : src/CedarSphericalMirror.cc.i
 
 src/CedarSphericalMirror.s: src/CedarSphericalMirror.cc.s
@@ -765,7 +765,7 @@ src/CedarSphericalMirror.s: src/CedarSphericalMirror.cc.s
 
 # target to generate assembly for a file
 src/CedarSphericalMirror.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarSphericalMirror.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarSphericalMirror.cc.s
 .PHONY : src/CedarSphericalMirror.cc.s
 
 src/CedarSphericalMirrorMount.o: src/CedarSphericalMirrorMount.cc.o
@@ -774,7 +774,7 @@ src/CedarSphericalMirrorMount.o: src/CedarSphericalMirrorMount.cc.o
 
 # target to build an object file
 src/CedarSphericalMirrorMount.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarSphericalMirrorMount.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarSphericalMirrorMount.cc.o
 .PHONY : src/CedarSphericalMirrorMount.cc.o
 
 src/CedarSphericalMirrorMount.i: src/CedarSphericalMirrorMount.cc.i
@@ -783,7 +783,7 @@ src/CedarSphericalMirrorMount.i: src/CedarSphericalMirrorMount.cc.i
 
 # target to preprocess a source file
 src/CedarSphericalMirrorMount.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarSphericalMirrorMount.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarSphericalMirrorMount.cc.i
 .PHONY : src/CedarSphericalMirrorMount.cc.i
 
 src/CedarSphericalMirrorMount.s: src/CedarSphericalMirrorMount.cc.s
@@ -792,7 +792,7 @@ src/CedarSphericalMirrorMount.s: src/CedarSphericalMirrorMount.cc.s
 
 # target to generate assembly for a file
 src/CedarSphericalMirrorMount.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarSphericalMirrorMount.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarSphericalMirrorMount.cc.s
 .PHONY : src/CedarSphericalMirrorMount.cc.s
 
 src/CedarVessel.o: src/CedarVessel.cc.o
@@ -801,7 +801,7 @@ src/CedarVessel.o: src/CedarVessel.cc.o
 
 # target to build an object file
 src/CedarVessel.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarVessel.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarVessel.cc.o
 .PHONY : src/CedarVessel.cc.o
 
 src/CedarVessel.i: src/CedarVessel.cc.i
@@ -810,7 +810,7 @@ src/CedarVessel.i: src/CedarVessel.cc.i
 
 # target to preprocess a source file
 src/CedarVessel.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarVessel.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarVessel.cc.i
 .PHONY : src/CedarVessel.cc.i
 
 src/CedarVessel.s: src/CedarVessel.cc.s
@@ -819,7 +819,7 @@ src/CedarVessel.s: src/CedarVessel.cc.s
 
 # target to generate assembly for a file
 src/CedarVessel.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarVessel.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f Cedar/CMakeFiles/CedarObjLib.dir/build.make Cedar/CMakeFiles/CedarObjLib.dir/src/CedarVessel.cc.s
 .PHONY : src/CedarVessel.cc.s
 
 # Help Target
@@ -917,6 +917,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

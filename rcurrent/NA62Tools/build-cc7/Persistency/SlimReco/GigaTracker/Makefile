@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/SlimReco/GigaTracker/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/GigaTracker/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/SlimReco/GigaTracker/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/GigaTracker/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/GigaTracker/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/GigaTracker/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/GigaTracker/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/GigaTracker/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/GigaTracker/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/GigaTracker/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/rule
 .PHONY : Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ GigaTrackerObjSlimPersistencyLib: Persistency/SlimReco/GigaTracker/CMakeFiles/Gi
 
 # fast build rule for target.
 GigaTrackerObjSlimPersistencyLib/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build
 .PHONY : GigaTrackerObjSlimPersistencyLib/fast
 
 # Convenience name for target.
 Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistency-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistency-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistency-static.dir/rule
 .PHONY : Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistency-static.dir/rule
 
 # Convenience name for target.
@@ -183,12 +183,12 @@ GigaTrackerSlimPersistency-static: Persistency/SlimReco/GigaTracker/CMakeFiles/G
 
 # fast build rule for target.
 GigaTrackerSlimPersistency-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistency-static.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistency-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistency-static.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistency-static.dir/build
 .PHONY : GigaTrackerSlimPersistency-static/fast
 
 # Convenience name for target.
 Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistencyDICT.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistencyDICT.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistencyDICT.dir/rule
 .PHONY : Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistencyDICT.dir/rule
 
 # Convenience name for target.
@@ -198,12 +198,12 @@ GigaTrackerSlimPersistencyDICT: Persistency/SlimReco/GigaTracker/CMakeFiles/Giga
 
 # fast build rule for target.
 GigaTrackerSlimPersistencyDICT/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistencyDICT.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistencyDICT.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistencyDICT.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistencyDICT.dir/build
 .PHONY : GigaTrackerSlimPersistencyDICT/fast
 
 # Convenience name for target.
 Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistency.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistency.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistency.dir/rule
 .PHONY : Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistency.dir/rule
 
 # Convenience name for target.
@@ -213,7 +213,7 @@ GigaTrackerSlimPersistency: Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrac
 
 # fast build rule for target.
 GigaTrackerSlimPersistency/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistency.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistency.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistency.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerSlimPersistency.dir/build
 .PHONY : GigaTrackerSlimPersistency/fast
 
 GigaTrackerSlimPersistencyDICT.o: GigaTrackerSlimPersistencyDICT.cxx.o
@@ -222,7 +222,7 @@ GigaTrackerSlimPersistencyDICT.o: GigaTrackerSlimPersistencyDICT.cxx.o
 
 # target to build an object file
 GigaTrackerSlimPersistencyDICT.cxx.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/GigaTrackerSlimPersistencyDICT.cxx.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/GigaTrackerSlimPersistencyDICT.cxx.o
 .PHONY : GigaTrackerSlimPersistencyDICT.cxx.o
 
 GigaTrackerSlimPersistencyDICT.i: GigaTrackerSlimPersistencyDICT.cxx.i
@@ -231,7 +231,7 @@ GigaTrackerSlimPersistencyDICT.i: GigaTrackerSlimPersistencyDICT.cxx.i
 
 # target to preprocess a source file
 GigaTrackerSlimPersistencyDICT.cxx.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/GigaTrackerSlimPersistencyDICT.cxx.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/GigaTrackerSlimPersistencyDICT.cxx.i
 .PHONY : GigaTrackerSlimPersistencyDICT.cxx.i
 
 GigaTrackerSlimPersistencyDICT.s: GigaTrackerSlimPersistencyDICT.cxx.s
@@ -240,7 +240,7 @@ GigaTrackerSlimPersistencyDICT.s: GigaTrackerSlimPersistencyDICT.cxx.s
 
 # target to generate assembly for a file
 GigaTrackerSlimPersistencyDICT.cxx.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/GigaTrackerSlimPersistencyDICT.cxx.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/GigaTrackerSlimPersistencyDICT.cxx.s
 .PHONY : GigaTrackerSlimPersistencyDICT.cxx.s
 
 src/TSlimRecoGigaTrackerCandidate.o: src/TSlimRecoGigaTrackerCandidate.cc.o
@@ -249,7 +249,7 @@ src/TSlimRecoGigaTrackerCandidate.o: src/TSlimRecoGigaTrackerCandidate.cc.o
 
 # target to build an object file
 src/TSlimRecoGigaTrackerCandidate.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerCandidate.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerCandidate.cc.o
 .PHONY : src/TSlimRecoGigaTrackerCandidate.cc.o
 
 src/TSlimRecoGigaTrackerCandidate.i: src/TSlimRecoGigaTrackerCandidate.cc.i
@@ -258,7 +258,7 @@ src/TSlimRecoGigaTrackerCandidate.i: src/TSlimRecoGigaTrackerCandidate.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoGigaTrackerCandidate.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerCandidate.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerCandidate.cc.i
 .PHONY : src/TSlimRecoGigaTrackerCandidate.cc.i
 
 src/TSlimRecoGigaTrackerCandidate.s: src/TSlimRecoGigaTrackerCandidate.cc.s
@@ -267,7 +267,7 @@ src/TSlimRecoGigaTrackerCandidate.s: src/TSlimRecoGigaTrackerCandidate.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoGigaTrackerCandidate.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerCandidate.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerCandidate.cc.s
 .PHONY : src/TSlimRecoGigaTrackerCandidate.cc.s
 
 src/TSlimRecoGigaTrackerEvent.o: src/TSlimRecoGigaTrackerEvent.cc.o
@@ -276,7 +276,7 @@ src/TSlimRecoGigaTrackerEvent.o: src/TSlimRecoGigaTrackerEvent.cc.o
 
 # target to build an object file
 src/TSlimRecoGigaTrackerEvent.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerEvent.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerEvent.cc.o
 .PHONY : src/TSlimRecoGigaTrackerEvent.cc.o
 
 src/TSlimRecoGigaTrackerEvent.i: src/TSlimRecoGigaTrackerEvent.cc.i
@@ -285,7 +285,7 @@ src/TSlimRecoGigaTrackerEvent.i: src/TSlimRecoGigaTrackerEvent.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoGigaTrackerEvent.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerEvent.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerEvent.cc.i
 .PHONY : src/TSlimRecoGigaTrackerEvent.cc.i
 
 src/TSlimRecoGigaTrackerEvent.s: src/TSlimRecoGigaTrackerEvent.cc.s
@@ -294,7 +294,7 @@ src/TSlimRecoGigaTrackerEvent.s: src/TSlimRecoGigaTrackerEvent.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoGigaTrackerEvent.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerEvent.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerEvent.cc.s
 .PHONY : src/TSlimRecoGigaTrackerEvent.cc.s
 
 src/TSlimRecoGigaTrackerHit.o: src/TSlimRecoGigaTrackerHit.cc.o
@@ -303,7 +303,7 @@ src/TSlimRecoGigaTrackerHit.o: src/TSlimRecoGigaTrackerHit.cc.o
 
 # target to build an object file
 src/TSlimRecoGigaTrackerHit.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerHit.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerHit.cc.o
 .PHONY : src/TSlimRecoGigaTrackerHit.cc.o
 
 src/TSlimRecoGigaTrackerHit.i: src/TSlimRecoGigaTrackerHit.cc.i
@@ -312,7 +312,7 @@ src/TSlimRecoGigaTrackerHit.i: src/TSlimRecoGigaTrackerHit.cc.i
 
 # target to preprocess a source file
 src/TSlimRecoGigaTrackerHit.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerHit.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerHit.cc.i
 .PHONY : src/TSlimRecoGigaTrackerHit.cc.i
 
 src/TSlimRecoGigaTrackerHit.s: src/TSlimRecoGigaTrackerHit.cc.s
@@ -321,7 +321,7 @@ src/TSlimRecoGigaTrackerHit.s: src/TSlimRecoGigaTrackerHit.cc.s
 
 # target to generate assembly for a file
 src/TSlimRecoGigaTrackerHit.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerHit.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(MAKE) -f Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/build.make Persistency/SlimReco/GigaTracker/CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerHit.cc.s
 .PHONY : src/TSlimRecoGigaTrackerHit.cc.s
 
 # Help Target
@@ -363,6 +363,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

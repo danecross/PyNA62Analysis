@@ -43,10 +43,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7
 
 # Utility rule file for slimpersistency.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7
 include Persistency/SlimReco/CMakeFiles/slimpersistency.dir/progress.make
 
 Persistency/SlimReco/CMakeFiles/slimpersistency:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/SlimReco && /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -DCMAKE_INSTALL_COMPONENT=slimlib -P /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/cmake_install.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/SlimReco && /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/bin/cmake -DCMAKE_INSTALL_COMPONENT=slimlib -P /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/cmake_install.cmake
 
 slimpersistency: Persistency/SlimReco/CMakeFiles/slimpersistency
 slimpersistency: Persistency/SlimReco/CMakeFiles/slimpersistency.dir/build.make
@@ -67,10 +67,10 @@ Persistency/SlimReco/CMakeFiles/slimpersistency.dir/build: slimpersistency
 .PHONY : Persistency/SlimReco/CMakeFiles/slimpersistency.dir/build
 
 Persistency/SlimReco/CMakeFiles/slimpersistency.dir/clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/SlimReco && $(CMAKE_COMMAND) -P CMakeFiles/slimpersistency.dir/cmake_clean.cmake
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/SlimReco && $(CMAKE_COMMAND) -P CMakeFiles/slimpersistency.dir/cmake_clean.cmake
 .PHONY : Persistency/SlimReco/CMakeFiles/slimpersistency.dir/clean
 
 Persistency/SlimReco/CMakeFiles/slimpersistency.dir/depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/na62fw/NA62Tools /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/Persistency/SlimReco /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7 /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/SlimReco /afs/cern.ch/user/d/dacross/na62fw/NA62Tools/build-cc7/Persistency/SlimReco/CMakeFiles/slimpersistency.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7 /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/SlimReco /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/build-cc7/Persistency/SlimReco/CMakeFiles/slimpersistency.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Persistency/SlimReco/CMakeFiles/slimpersistency.dir/depend
 

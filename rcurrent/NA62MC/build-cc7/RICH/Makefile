@@ -48,10 +48,10 @@ RM = /cvmfs/sft.cern.ch/lcg/releases/CMake/3.11.1-daf3a/x86_64-centos7-gcc7-opt/
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC
+CMAKE_SOURCE_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7
+CMAKE_BINARY_DIR = /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/RICH/CMakeFiles/progress.marks
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 RICH/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7/CMakeFiles 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/RICH/CMakeFiles/progress.marks
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 RICH/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 RICH/clean
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 RICH/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 RICH/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 RICH/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 RICH/preinstall
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 RICH/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 RICH/CMakeFiles/RICH.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 RICH/CMakeFiles/RICH.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 RICH/CMakeFiles/RICH.dir/rule
 .PHONY : RICH/CMakeFiles/RICH.dir/rule
 
 # Convenience name for target.
@@ -168,12 +168,12 @@ RICH: RICH/CMakeFiles/RICH.dir/rule
 
 # fast build rule for target.
 RICH/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICH.dir/build.make RICH/CMakeFiles/RICH.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICH.dir/build.make RICH/CMakeFiles/RICH.dir/build
 .PHONY : RICH/fast
 
 # Convenience name for target.
 RICH/CMakeFiles/RICH-static.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 RICH/CMakeFiles/RICH-static.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 RICH/CMakeFiles/RICH-static.dir/rule
 .PHONY : RICH/CMakeFiles/RICH-static.dir/rule
 
 # Convenience name for target.
@@ -183,12 +183,12 @@ RICH-static: RICH/CMakeFiles/RICH-static.dir/rule
 
 # fast build rule for target.
 RICH-static/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICH-static.dir/build.make RICH/CMakeFiles/RICH-static.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICH-static.dir/build.make RICH/CMakeFiles/RICH-static.dir/build
 .PHONY : RICH-static/fast
 
 # Convenience name for target.
 RICH/CMakeFiles/RICHObjLib.dir/rule:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 RICH/CMakeFiles/RICHObjLib.dir/rule
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f CMakeFiles/Makefile2 RICH/CMakeFiles/RICHObjLib.dir/rule
 .PHONY : RICH/CMakeFiles/RICHObjLib.dir/rule
 
 # Convenience name for target.
@@ -198,7 +198,7 @@ RICHObjLib: RICH/CMakeFiles/RICHObjLib.dir/rule
 
 # fast build rule for target.
 RICHObjLib/fast:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/build
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/build
 .PHONY : RICHObjLib/fast
 
 src/CherenkovPhotonProd.o: src/CherenkovPhotonProd.cc.o
@@ -207,7 +207,7 @@ src/CherenkovPhotonProd.o: src/CherenkovPhotonProd.cc.o
 
 # target to build an object file
 src/CherenkovPhotonProd.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/CherenkovPhotonProd.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/CherenkovPhotonProd.cc.o
 .PHONY : src/CherenkovPhotonProd.cc.o
 
 src/CherenkovPhotonProd.i: src/CherenkovPhotonProd.cc.i
@@ -216,7 +216,7 @@ src/CherenkovPhotonProd.i: src/CherenkovPhotonProd.cc.i
 
 # target to preprocess a source file
 src/CherenkovPhotonProd.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/CherenkovPhotonProd.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/CherenkovPhotonProd.cc.i
 .PHONY : src/CherenkovPhotonProd.cc.i
 
 src/CherenkovPhotonProd.s: src/CherenkovPhotonProd.cc.s
@@ -225,7 +225,7 @@ src/CherenkovPhotonProd.s: src/CherenkovPhotonProd.cc.s
 
 # target to generate assembly for a file
 src/CherenkovPhotonProd.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/CherenkovPhotonProd.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/CherenkovPhotonProd.cc.s
 .PHONY : src/CherenkovPhotonProd.cc.s
 
 src/PMTMap.o: src/PMTMap.cc.o
@@ -234,7 +234,7 @@ src/PMTMap.o: src/PMTMap.cc.o
 
 # target to build an object file
 src/PMTMap.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/PMTMap.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/PMTMap.cc.o
 .PHONY : src/PMTMap.cc.o
 
 src/PMTMap.i: src/PMTMap.cc.i
@@ -243,7 +243,7 @@ src/PMTMap.i: src/PMTMap.cc.i
 
 # target to preprocess a source file
 src/PMTMap.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/PMTMap.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/PMTMap.cc.i
 .PHONY : src/PMTMap.cc.i
 
 src/PMTMap.s: src/PMTMap.cc.s
@@ -252,7 +252,7 @@ src/PMTMap.s: src/PMTMap.cc.s
 
 # target to generate assembly for a file
 src/PMTMap.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/PMTMap.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/PMTMap.cc.s
 .PHONY : src/PMTMap.cc.s
 
 src/Photon.o: src/Photon.cc.o
@@ -261,7 +261,7 @@ src/Photon.o: src/Photon.cc.o
 
 # target to build an object file
 src/Photon.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/Photon.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/Photon.cc.o
 .PHONY : src/Photon.cc.o
 
 src/Photon.i: src/Photon.cc.i
@@ -270,7 +270,7 @@ src/Photon.i: src/Photon.cc.i
 
 # target to preprocess a source file
 src/Photon.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/Photon.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/Photon.cc.i
 .PHONY : src/Photon.cc.i
 
 src/Photon.s: src/Photon.cc.s
@@ -279,7 +279,7 @@ src/Photon.s: src/Photon.cc.s
 
 # target to generate assembly for a file
 src/Photon.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/Photon.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/Photon.cc.s
 .PHONY : src/Photon.cc.s
 
 src/RICHBeamWindow.o: src/RICHBeamWindow.cc.o
@@ -288,7 +288,7 @@ src/RICHBeamWindow.o: src/RICHBeamWindow.cc.o
 
 # target to build an object file
 src/RICHBeamWindow.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHBeamWindow.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHBeamWindow.cc.o
 .PHONY : src/RICHBeamWindow.cc.o
 
 src/RICHBeamWindow.i: src/RICHBeamWindow.cc.i
@@ -297,7 +297,7 @@ src/RICHBeamWindow.i: src/RICHBeamWindow.cc.i
 
 # target to preprocess a source file
 src/RICHBeamWindow.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHBeamWindow.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHBeamWindow.cc.i
 .PHONY : src/RICHBeamWindow.cc.i
 
 src/RICHBeamWindow.s: src/RICHBeamWindow.cc.s
@@ -306,7 +306,7 @@ src/RICHBeamWindow.s: src/RICHBeamWindow.cc.s
 
 # target to generate assembly for a file
 src/RICHBeamWindow.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHBeamWindow.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHBeamWindow.cc.s
 .PHONY : src/RICHBeamWindow.cc.s
 
 src/RICHDetector.o: src/RICHDetector.cc.o
@@ -315,7 +315,7 @@ src/RICHDetector.o: src/RICHDetector.cc.o
 
 # target to build an object file
 src/RICHDetector.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHDetector.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHDetector.cc.o
 .PHONY : src/RICHDetector.cc.o
 
 src/RICHDetector.i: src/RICHDetector.cc.i
@@ -324,7 +324,7 @@ src/RICHDetector.i: src/RICHDetector.cc.i
 
 # target to preprocess a source file
 src/RICHDetector.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHDetector.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHDetector.cc.i
 .PHONY : src/RICHDetector.cc.i
 
 src/RICHDetector.s: src/RICHDetector.cc.s
@@ -333,7 +333,7 @@ src/RICHDetector.s: src/RICHDetector.cc.s
 
 # target to generate assembly for a file
 src/RICHDetector.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHDetector.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHDetector.cc.s
 .PHONY : src/RICHDetector.cc.s
 
 src/RICHDetectorMessenger.o: src/RICHDetectorMessenger.cc.o
@@ -342,7 +342,7 @@ src/RICHDetectorMessenger.o: src/RICHDetectorMessenger.cc.o
 
 # target to build an object file
 src/RICHDetectorMessenger.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHDetectorMessenger.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHDetectorMessenger.cc.o
 .PHONY : src/RICHDetectorMessenger.cc.o
 
 src/RICHDetectorMessenger.i: src/RICHDetectorMessenger.cc.i
@@ -351,7 +351,7 @@ src/RICHDetectorMessenger.i: src/RICHDetectorMessenger.cc.i
 
 # target to preprocess a source file
 src/RICHDetectorMessenger.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHDetectorMessenger.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHDetectorMessenger.cc.i
 .PHONY : src/RICHDetectorMessenger.cc.i
 
 src/RICHDetectorMessenger.s: src/RICHDetectorMessenger.cc.s
@@ -360,7 +360,7 @@ src/RICHDetectorMessenger.s: src/RICHDetectorMessenger.cc.s
 
 # target to generate assembly for a file
 src/RICHDetectorMessenger.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHDetectorMessenger.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHDetectorMessenger.cc.s
 .PHONY : src/RICHDetectorMessenger.cc.s
 
 src/RICHFastSim.o: src/RICHFastSim.cc.o
@@ -369,7 +369,7 @@ src/RICHFastSim.o: src/RICHFastSim.cc.o
 
 # target to build an object file
 src/RICHFastSim.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHFastSim.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHFastSim.cc.o
 .PHONY : src/RICHFastSim.cc.o
 
 src/RICHFastSim.i: src/RICHFastSim.cc.i
@@ -378,7 +378,7 @@ src/RICHFastSim.i: src/RICHFastSim.cc.i
 
 # target to preprocess a source file
 src/RICHFastSim.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHFastSim.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHFastSim.cc.i
 .PHONY : src/RICHFastSim.cc.i
 
 src/RICHFastSim.s: src/RICHFastSim.cc.s
@@ -387,7 +387,7 @@ src/RICHFastSim.s: src/RICHFastSim.cc.s
 
 # target to generate assembly for a file
 src/RICHFastSim.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHFastSim.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHFastSim.cc.s
 .PHONY : src/RICHFastSim.cc.s
 
 src/RICHGeometryParameters.o: src/RICHGeometryParameters.cc.o
@@ -396,7 +396,7 @@ src/RICHGeometryParameters.o: src/RICHGeometryParameters.cc.o
 
 # target to build an object file
 src/RICHGeometryParameters.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHGeometryParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHGeometryParameters.cc.o
 .PHONY : src/RICHGeometryParameters.cc.o
 
 src/RICHGeometryParameters.i: src/RICHGeometryParameters.cc.i
@@ -405,7 +405,7 @@ src/RICHGeometryParameters.i: src/RICHGeometryParameters.cc.i
 
 # target to preprocess a source file
 src/RICHGeometryParameters.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHGeometryParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHGeometryParameters.cc.i
 .PHONY : src/RICHGeometryParameters.cc.i
 
 src/RICHGeometryParameters.s: src/RICHGeometryParameters.cc.s
@@ -414,7 +414,7 @@ src/RICHGeometryParameters.s: src/RICHGeometryParameters.cc.s
 
 # target to generate assembly for a file
 src/RICHGeometryParameters.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHGeometryParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHGeometryParameters.cc.s
 .PHONY : src/RICHGeometryParameters.cc.s
 
 src/RICHMaterialParameters.o: src/RICHMaterialParameters.cc.o
@@ -423,7 +423,7 @@ src/RICHMaterialParameters.o: src/RICHMaterialParameters.cc.o
 
 # target to build an object file
 src/RICHMaterialParameters.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMaterialParameters.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMaterialParameters.cc.o
 .PHONY : src/RICHMaterialParameters.cc.o
 
 src/RICHMaterialParameters.i: src/RICHMaterialParameters.cc.i
@@ -432,7 +432,7 @@ src/RICHMaterialParameters.i: src/RICHMaterialParameters.cc.i
 
 # target to preprocess a source file
 src/RICHMaterialParameters.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMaterialParameters.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMaterialParameters.cc.i
 .PHONY : src/RICHMaterialParameters.cc.i
 
 src/RICHMaterialParameters.s: src/RICHMaterialParameters.cc.s
@@ -441,7 +441,7 @@ src/RICHMaterialParameters.s: src/RICHMaterialParameters.cc.s
 
 # target to generate assembly for a file
 src/RICHMaterialParameters.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMaterialParameters.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMaterialParameters.cc.s
 .PHONY : src/RICHMaterialParameters.cc.s
 
 src/RICHMirror.o: src/RICHMirror.cc.o
@@ -450,7 +450,7 @@ src/RICHMirror.o: src/RICHMirror.cc.o
 
 # target to build an object file
 src/RICHMirror.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirror.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirror.cc.o
 .PHONY : src/RICHMirror.cc.o
 
 src/RICHMirror.i: src/RICHMirror.cc.i
@@ -459,7 +459,7 @@ src/RICHMirror.i: src/RICHMirror.cc.i
 
 # target to preprocess a source file
 src/RICHMirror.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirror.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirror.cc.i
 .PHONY : src/RICHMirror.cc.i
 
 src/RICHMirror.s: src/RICHMirror.cc.s
@@ -468,7 +468,7 @@ src/RICHMirror.s: src/RICHMirror.cc.s
 
 # target to generate assembly for a file
 src/RICHMirror.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirror.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirror.cc.s
 .PHONY : src/RICHMirror.cc.s
 
 src/RICHMirrorSupports.o: src/RICHMirrorSupports.cc.o
@@ -477,7 +477,7 @@ src/RICHMirrorSupports.o: src/RICHMirrorSupports.cc.o
 
 # target to build an object file
 src/RICHMirrorSupports.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirrorSupports.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirrorSupports.cc.o
 .PHONY : src/RICHMirrorSupports.cc.o
 
 src/RICHMirrorSupports.i: src/RICHMirrorSupports.cc.i
@@ -486,7 +486,7 @@ src/RICHMirrorSupports.i: src/RICHMirrorSupports.cc.i
 
 # target to preprocess a source file
 src/RICHMirrorSupports.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirrorSupports.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirrorSupports.cc.i
 .PHONY : src/RICHMirrorSupports.cc.i
 
 src/RICHMirrorSupports.s: src/RICHMirrorSupports.cc.s
@@ -495,7 +495,7 @@ src/RICHMirrorSupports.s: src/RICHMirrorSupports.cc.s
 
 # target to generate assembly for a file
 src/RICHMirrorSupports.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirrorSupports.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirrorSupports.cc.s
 .PHONY : src/RICHMirrorSupports.cc.s
 
 src/RICHMirrorWindow.o: src/RICHMirrorWindow.cc.o
@@ -504,7 +504,7 @@ src/RICHMirrorWindow.o: src/RICHMirrorWindow.cc.o
 
 # target to build an object file
 src/RICHMirrorWindow.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirrorWindow.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirrorWindow.cc.o
 .PHONY : src/RICHMirrorWindow.cc.o
 
 src/RICHMirrorWindow.i: src/RICHMirrorWindow.cc.i
@@ -513,7 +513,7 @@ src/RICHMirrorWindow.i: src/RICHMirrorWindow.cc.i
 
 # target to preprocess a source file
 src/RICHMirrorWindow.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirrorWindow.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirrorWindow.cc.i
 .PHONY : src/RICHMirrorWindow.cc.i
 
 src/RICHMirrorWindow.s: src/RICHMirrorWindow.cc.s
@@ -522,7 +522,7 @@ src/RICHMirrorWindow.s: src/RICHMirrorWindow.cc.s
 
 # target to generate assembly for a file
 src/RICHMirrorWindow.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirrorWindow.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHMirrorWindow.cc.s
 .PHONY : src/RICHMirrorWindow.cc.s
 
 src/RICHOptTrack.o: src/RICHOptTrack.cc.o
@@ -531,7 +531,7 @@ src/RICHOptTrack.o: src/RICHOptTrack.cc.o
 
 # target to build an object file
 src/RICHOptTrack.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHOptTrack.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHOptTrack.cc.o
 .PHONY : src/RICHOptTrack.cc.o
 
 src/RICHOptTrack.i: src/RICHOptTrack.cc.i
@@ -540,7 +540,7 @@ src/RICHOptTrack.i: src/RICHOptTrack.cc.i
 
 # target to preprocess a source file
 src/RICHOptTrack.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHOptTrack.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHOptTrack.cc.i
 .PHONY : src/RICHOptTrack.cc.i
 
 src/RICHOptTrack.s: src/RICHOptTrack.cc.s
@@ -549,7 +549,7 @@ src/RICHOptTrack.s: src/RICHOptTrack.cc.s
 
 # target to generate assembly for a file
 src/RICHOptTrack.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHOptTrack.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHOptTrack.cc.s
 .PHONY : src/RICHOptTrack.cc.s
 
 src/RICHOpticalDetector.o: src/RICHOpticalDetector.cc.o
@@ -558,7 +558,7 @@ src/RICHOpticalDetector.o: src/RICHOpticalDetector.cc.o
 
 # target to build an object file
 src/RICHOpticalDetector.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHOpticalDetector.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHOpticalDetector.cc.o
 .PHONY : src/RICHOpticalDetector.cc.o
 
 src/RICHOpticalDetector.i: src/RICHOpticalDetector.cc.i
@@ -567,7 +567,7 @@ src/RICHOpticalDetector.i: src/RICHOpticalDetector.cc.i
 
 # target to preprocess a source file
 src/RICHOpticalDetector.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHOpticalDetector.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHOpticalDetector.cc.i
 .PHONY : src/RICHOpticalDetector.cc.i
 
 src/RICHOpticalDetector.s: src/RICHOpticalDetector.cc.s
@@ -576,7 +576,7 @@ src/RICHOpticalDetector.s: src/RICHOpticalDetector.cc.s
 
 # target to generate assembly for a file
 src/RICHOpticalDetector.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHOpticalDetector.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHOpticalDetector.cc.s
 .PHONY : src/RICHOpticalDetector.cc.s
 
 src/RICHPMTHit.o: src/RICHPMTHit.cc.o
@@ -585,7 +585,7 @@ src/RICHPMTHit.o: src/RICHPMTHit.cc.o
 
 # target to build an object file
 src/RICHPMTHit.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTHit.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTHit.cc.o
 .PHONY : src/RICHPMTHit.cc.o
 
 src/RICHPMTHit.i: src/RICHPMTHit.cc.i
@@ -594,7 +594,7 @@ src/RICHPMTHit.i: src/RICHPMTHit.cc.i
 
 # target to preprocess a source file
 src/RICHPMTHit.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTHit.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTHit.cc.i
 .PHONY : src/RICHPMTHit.cc.i
 
 src/RICHPMTHit.s: src/RICHPMTHit.cc.s
@@ -603,7 +603,7 @@ src/RICHPMTHit.s: src/RICHPMTHit.cc.s
 
 # target to generate assembly for a file
 src/RICHPMTHit.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTHit.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTHit.cc.s
 .PHONY : src/RICHPMTHit.cc.s
 
 src/RICHPMTSD.o: src/RICHPMTSD.cc.o
@@ -612,7 +612,7 @@ src/RICHPMTSD.o: src/RICHPMTSD.cc.o
 
 # target to build an object file
 src/RICHPMTSD.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTSD.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTSD.cc.o
 .PHONY : src/RICHPMTSD.cc.o
 
 src/RICHPMTSD.i: src/RICHPMTSD.cc.i
@@ -621,7 +621,7 @@ src/RICHPMTSD.i: src/RICHPMTSD.cc.i
 
 # target to preprocess a source file
 src/RICHPMTSD.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTSD.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTSD.cc.i
 .PHONY : src/RICHPMTSD.cc.i
 
 src/RICHPMTSD.s: src/RICHPMTSD.cc.s
@@ -630,7 +630,7 @@ src/RICHPMTSD.s: src/RICHPMTSD.cc.s
 
 # target to generate assembly for a file
 src/RICHPMTSD.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTSD.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTSD.cc.s
 .PHONY : src/RICHPMTSD.cc.s
 
 src/RICHPMTsWindow.o: src/RICHPMTsWindow.cc.o
@@ -639,7 +639,7 @@ src/RICHPMTsWindow.o: src/RICHPMTsWindow.cc.o
 
 # target to build an object file
 src/RICHPMTsWindow.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTsWindow.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTsWindow.cc.o
 .PHONY : src/RICHPMTsWindow.cc.o
 
 src/RICHPMTsWindow.i: src/RICHPMTsWindow.cc.i
@@ -648,7 +648,7 @@ src/RICHPMTsWindow.i: src/RICHPMTsWindow.cc.i
 
 # target to preprocess a source file
 src/RICHPMTsWindow.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTsWindow.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTsWindow.cc.i
 .PHONY : src/RICHPMTsWindow.cc.i
 
 src/RICHPMTsWindow.s: src/RICHPMTsWindow.cc.s
@@ -657,7 +657,7 @@ src/RICHPMTsWindow.s: src/RICHPMTsWindow.cc.s
 
 # target to generate assembly for a file
 src/RICHPMTsWindow.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTsWindow.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMTsWindow.cc.s
 .PHONY : src/RICHPMTsWindow.cc.s
 
 src/RICHPMsParameterisation.o: src/RICHPMsParameterisation.cc.o
@@ -666,7 +666,7 @@ src/RICHPMsParameterisation.o: src/RICHPMsParameterisation.cc.o
 
 # target to build an object file
 src/RICHPMsParameterisation.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMsParameterisation.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMsParameterisation.cc.o
 .PHONY : src/RICHPMsParameterisation.cc.o
 
 src/RICHPMsParameterisation.i: src/RICHPMsParameterisation.cc.i
@@ -675,7 +675,7 @@ src/RICHPMsParameterisation.i: src/RICHPMsParameterisation.cc.i
 
 # target to preprocess a source file
 src/RICHPMsParameterisation.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMsParameterisation.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMsParameterisation.cc.i
 .PHONY : src/RICHPMsParameterisation.cc.i
 
 src/RICHPMsParameterisation.s: src/RICHPMsParameterisation.cc.s
@@ -684,7 +684,7 @@ src/RICHPMsParameterisation.s: src/RICHPMsParameterisation.cc.s
 
 # target to generate assembly for a file
 src/RICHPMsParameterisation.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMsParameterisation.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHPMsParameterisation.cc.s
 .PHONY : src/RICHPMsParameterisation.cc.s
 
 src/RICHRadiator.o: src/RICHRadiator.cc.o
@@ -693,7 +693,7 @@ src/RICHRadiator.o: src/RICHRadiator.cc.o
 
 # target to build an object file
 src/RICHRadiator.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHRadiator.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHRadiator.cc.o
 .PHONY : src/RICHRadiator.cc.o
 
 src/RICHRadiator.i: src/RICHRadiator.cc.i
@@ -702,7 +702,7 @@ src/RICHRadiator.i: src/RICHRadiator.cc.i
 
 # target to preprocess a source file
 src/RICHRadiator.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHRadiator.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHRadiator.cc.i
 .PHONY : src/RICHRadiator.cc.i
 
 src/RICHRadiator.s: src/RICHRadiator.cc.s
@@ -711,7 +711,7 @@ src/RICHRadiator.s: src/RICHRadiator.cc.s
 
 # target to generate assembly for a file
 src/RICHRadiator.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHRadiator.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHRadiator.cc.s
 .PHONY : src/RICHRadiator.cc.s
 
 src/RICHRootIO.o: src/RICHRootIO.cc.o
@@ -720,7 +720,7 @@ src/RICHRootIO.o: src/RICHRootIO.cc.o
 
 # target to build an object file
 src/RICHRootIO.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHRootIO.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHRootIO.cc.o
 .PHONY : src/RICHRootIO.cc.o
 
 src/RICHRootIO.i: src/RICHRootIO.cc.i
@@ -729,7 +729,7 @@ src/RICHRootIO.i: src/RICHRootIO.cc.i
 
 # target to preprocess a source file
 src/RICHRootIO.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHRootIO.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHRootIO.cc.i
 .PHONY : src/RICHRootIO.cc.i
 
 src/RICHRootIO.s: src/RICHRootIO.cc.s
@@ -738,7 +738,7 @@ src/RICHRootIO.s: src/RICHRootIO.cc.s
 
 # target to generate assembly for a file
 src/RICHRootIO.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHRootIO.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHRootIO.cc.s
 .PHONY : src/RICHRootIO.cc.s
 
 src/RICHVessel.o: src/RICHVessel.cc.o
@@ -747,7 +747,7 @@ src/RICHVessel.o: src/RICHVessel.cc.o
 
 # target to build an object file
 src/RICHVessel.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHVessel.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHVessel.cc.o
 .PHONY : src/RICHVessel.cc.o
 
 src/RICHVessel.i: src/RICHVessel.cc.i
@@ -756,7 +756,7 @@ src/RICHVessel.i: src/RICHVessel.cc.i
 
 # target to preprocess a source file
 src/RICHVessel.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHVessel.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHVessel.cc.i
 .PHONY : src/RICHVessel.cc.i
 
 src/RICHVessel.s: src/RICHVessel.cc.s
@@ -765,7 +765,7 @@ src/RICHVessel.s: src/RICHVessel.cc.s
 
 # target to generate assembly for a file
 src/RICHVessel.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHVessel.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RICHVessel.cc.s
 .PHONY : src/RICHVessel.cc.s
 
 src/RichAcceptance.o: src/RichAcceptance.cc.o
@@ -774,7 +774,7 @@ src/RichAcceptance.o: src/RichAcceptance.cc.o
 
 # target to build an object file
 src/RichAcceptance.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RichAcceptance.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RichAcceptance.cc.o
 .PHONY : src/RichAcceptance.cc.o
 
 src/RichAcceptance.i: src/RichAcceptance.cc.i
@@ -783,7 +783,7 @@ src/RichAcceptance.i: src/RichAcceptance.cc.i
 
 # target to preprocess a source file
 src/RichAcceptance.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RichAcceptance.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RichAcceptance.cc.i
 .PHONY : src/RichAcceptance.cc.i
 
 src/RichAcceptance.s: src/RichAcceptance.cc.s
@@ -792,7 +792,7 @@ src/RichAcceptance.s: src/RichAcceptance.cc.s
 
 # target to generate assembly for a file
 src/RichAcceptance.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RichAcceptance.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/RichAcceptance.cc.s
 .PHONY : src/RichAcceptance.cc.s
 
 src/TwoMirror.o: src/TwoMirror.cc.o
@@ -801,7 +801,7 @@ src/TwoMirror.o: src/TwoMirror.cc.o
 
 # target to build an object file
 src/TwoMirror.cc.o:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/TwoMirror.cc.o
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/TwoMirror.cc.o
 .PHONY : src/TwoMirror.cc.o
 
 src/TwoMirror.i: src/TwoMirror.cc.i
@@ -810,7 +810,7 @@ src/TwoMirror.i: src/TwoMirror.cc.i
 
 # target to preprocess a source file
 src/TwoMirror.cc.i:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/TwoMirror.cc.i
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/TwoMirror.cc.i
 .PHONY : src/TwoMirror.cc.i
 
 src/TwoMirror.s: src/TwoMirror.cc.s
@@ -819,7 +819,7 @@ src/TwoMirror.s: src/TwoMirror.cc.s
 
 # target to generate assembly for a file
 src/TwoMirror.cc.s:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/TwoMirror.cc.s
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(MAKE) -f RICH/CMakeFiles/RICHObjLib.dir/build.make RICH/CMakeFiles/RICHObjLib.dir/src/TwoMirror.cc.s
 .PHONY : src/TwoMirror.cc.s
 
 # Help Target
@@ -917,6 +917,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cern.ch/user/d/dacross/na62fw/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62MC/build-cc7 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
