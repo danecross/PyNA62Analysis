@@ -7,7 +7,7 @@
  *
  * */
 
-
+#include<math.h>
 #include <Python.h>
 #define PY_SSIZE_T_CLEAN
 #include "UserMethods.hh"
