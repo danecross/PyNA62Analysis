@@ -1,2 +1,0 @@
-/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ar qc libGigaTrackerSlimPersistency-static.a  CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerCandidate.cc.o CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerEvent.cc.o CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/src/TSlimRecoGigaTrackerHit.cc.o CMakeFiles/GigaTrackerObjSlimPersistencyLib.dir/GigaTrackerSlimPersistencyDICT.cxx.o
-/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ranlib libGigaTrackerSlimPersistency-static.a

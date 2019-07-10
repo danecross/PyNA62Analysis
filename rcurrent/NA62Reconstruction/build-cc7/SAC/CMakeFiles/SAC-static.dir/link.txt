@@ -1,2 +1,0 @@
-/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ar qc libSAC-static.a  CMakeFiles/SACObjLib.dir/src/SACChannel.cc.o CMakeFiles/SACObjLib.dir/src/SACDigitizer.cc.o CMakeFiles/SACObjLib.dir/src/SACGeometry.cc.o CMakeFiles/SACObjLib.dir/src/SACOnlineMonitor.cc.o CMakeFiles/SACObjLib.dir/src/SACRawDecoder.cc.o CMakeFiles/SACObjLib.dir/src/SACRawEncoder.cc.o CMakeFiles/SACObjLib.dir/src/SACReconstruction.cc.o
-/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ranlib libSAC-static.a

@@ -1,8 +1,0 @@
-module "RICHSlimPersistency" {
-  requires cplusplus
-  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/RICH/include/TSlimRecoRICHCandidate.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/RICH/include/TSlimRecoRICHCandidate.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/RICH/include/TSlimRecoRICHEvent.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/RICH/include/TSlimRecoRICHEvent.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/RICH/include/TSlimRecoRICHHit.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/RICH/include/TSlimRecoRICHHit.hh" export * }
-  export *
-}
-

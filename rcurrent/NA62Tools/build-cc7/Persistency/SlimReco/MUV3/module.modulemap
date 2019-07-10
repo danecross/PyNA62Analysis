@@ -1,8 +1,0 @@
-module "MUV3SlimPersistency" {
-  requires cplusplus
-  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/MUV3/include/TSlimRecoMUV3Candidate.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/MUV3/include/TSlimRecoMUV3Candidate.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/MUV3/include/TSlimRecoMUV3Event.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/MUV3/include/TSlimRecoMUV3Event.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/MUV3/include/TSlimRecoMUV3Hit.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/MUV3/include/TSlimRecoMUV3Hit.hh" export * }
-  export *
-}
-

@@ -1,2 +1,0 @@
-/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ar qc libIRCSlimPersistency-static.a  CMakeFiles/IRCObjSlimPersistencyLib.dir/src/TSlimRecoIRCCandidate.cc.o CMakeFiles/IRCObjSlimPersistencyLib.dir/src/TSlimRecoIRCEvent.cc.o CMakeFiles/IRCObjSlimPersistencyLib.dir/src/TSlimRecoIRCHit.cc.o CMakeFiles/IRCObjSlimPersistencyLib.dir/IRCSlimPersistencyDICT.cxx.o
-/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ranlib libIRCSlimPersistency-static.a

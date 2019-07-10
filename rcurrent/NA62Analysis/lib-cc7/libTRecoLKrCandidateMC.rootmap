@@ -1,4 +1,0 @@
-[ libTRecoLKrCandidateMC.so ]
-# List of selected classes
-class TRecoLKrCandidateMC
-header TRecoLKrCandidateMC.hh

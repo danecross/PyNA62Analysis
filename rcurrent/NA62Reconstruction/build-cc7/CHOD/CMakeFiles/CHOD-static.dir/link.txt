@@ -1,2 +1,0 @@
-/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ar qc libCHOD-static.a  CMakeFiles/CHODObjLib.dir/src/CHODChannel.cc.o CMakeFiles/CHODObjLib.dir/src/CHODDigitizer.cc.o CMakeFiles/CHODObjLib.dir/src/CHODGeometry.cc.o CMakeFiles/CHODObjLib.dir/src/CHODOnlineMonitor.cc.o CMakeFiles/CHODObjLib.dir/src/CHODRawDecoder.cc.o CMakeFiles/CHODObjLib.dir/src/CHODRawEncoder.cc.o CMakeFiles/CHODObjLib.dir/src/CHODReconstruction.cc.o
-/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ranlib libCHOD-static.a

@@ -1,8 +1,0 @@
-module "LKrSlimPersistency" {
-  requires cplusplus
-  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/LKr/include/TSlimRecoLKrCandidate.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/LKr/include/TSlimRecoLKrCandidate.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/LKr/include/TSlimRecoLKrEvent.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/LKr/include/TSlimRecoLKrEvent.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/LKr/include/TSlimRecoLKrHit.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/LKr/include/TSlimRecoLKrHit.hh" export * }
-  export *
-}
-

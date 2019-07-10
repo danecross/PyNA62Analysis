@@ -1,2 +1,0 @@
-/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ar qc libSAV-static.a  CMakeFiles/SAVObjLib.dir/src/SAVDigitizer.cc.o CMakeFiles/SAVObjLib.dir/src/SAVOnlineMonitor.cc.o CMakeFiles/SAVObjLib.dir/src/SAVRawDecoder.cc.o CMakeFiles/SAVObjLib.dir/src/SAVRawEncoder.cc.o CMakeFiles/SAVObjLib.dir/src/SAVReconstruction.cc.o
-/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ranlib libSAV-static.a

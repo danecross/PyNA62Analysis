@@ -1,2 +1,0 @@
-/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ar qc libCHODSlimPersistency-static.a  CMakeFiles/CHODObjSlimPersistencyLib.dir/src/TSlimRecoCHODCandidate.cc.o CMakeFiles/CHODObjSlimPersistencyLib.dir/src/TSlimRecoCHODEvent.cc.o CMakeFiles/CHODObjSlimPersistencyLib.dir/src/TSlimRecoCHODHit.cc.o CMakeFiles/CHODObjSlimPersistencyLib.dir/CHODSlimPersistencyDICT.cxx.o
-/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ranlib libCHODSlimPersistency-static.a

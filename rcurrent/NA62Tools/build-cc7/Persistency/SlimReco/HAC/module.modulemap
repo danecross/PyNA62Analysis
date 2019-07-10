@@ -1,8 +1,0 @@
-module "HACSlimPersistency" {
-  requires cplusplus
-  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/HAC/include/TSlimRecoHACCandidate.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/HAC/include/TSlimRecoHACCandidate.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/HAC/include/TSlimRecoHACEvent.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/HAC/include/TSlimRecoHACEvent.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/HAC/include/TSlimRecoHACHit.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/HAC/include/TSlimRecoHACHit.hh" export * }
-  export *
-}
-

@@ -3,7 +3,15 @@ rcurrent/NA62MC/.rootlogon.C
 rcurrent/NA62Reconstruction/.rootlogon.C
 rcurrent/NA62Analysis/build-cc7/
 rcurrent/NA62FWBuildRunTree.py
-*.a
+
+*cc7/
+*.internal
 *.pcm
+*.cmake
+*.log
 .__afs*
+
+/rcurrent/*/*cc7/
+
+rcurrent/NA62Analysis/scripts/NA62AnalysisBuilder.py
 

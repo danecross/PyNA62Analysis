@@ -1,9 +1,0 @@
-{ decls }
-namespace std {  }
-
-[ libToolsLibObjects.so ]
-# List of selected classes
-class CalorimeterCluster
-class vector<TVector2>
-class vector<TVector3>
-header CalorimeterCluster.hh

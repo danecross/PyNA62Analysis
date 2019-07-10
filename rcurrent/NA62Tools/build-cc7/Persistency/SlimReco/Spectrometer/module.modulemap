@@ -1,8 +1,0 @@
-module "SpectrometerSlimPersistency" {
-  requires cplusplus
-  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerCandidate.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerCandidate.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerEvent.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerEvent.hh" export * }
-  module "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerHit.hh" { header "/afs/cern.ch/user/d/dacross/SummerProject/rcurrent/NA62Tools/Persistency/SlimReco/Spectrometer/include/TSlimRecoSpectrometerHit.hh" export * }
-  export *
-}
-

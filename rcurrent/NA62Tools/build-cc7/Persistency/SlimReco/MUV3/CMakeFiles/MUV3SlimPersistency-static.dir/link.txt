@@ -1,2 +1,0 @@
-/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ar qc libMUV3SlimPersistency-static.a  CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Candidate.cc.o CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Event.cc.o CMakeFiles/MUV3ObjSlimPersistencyLib.dir/src/TSlimRecoMUV3Hit.cc.o CMakeFiles/MUV3ObjSlimPersistencyLib.dir/MUV3SlimPersistencyDICT.cxx.o
-/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ranlib libMUV3SlimPersistency-static.a

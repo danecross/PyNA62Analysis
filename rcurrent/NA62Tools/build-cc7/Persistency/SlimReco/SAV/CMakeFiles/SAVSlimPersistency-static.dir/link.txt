@@ -1,2 +1,0 @@
-/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ar qc libSAVSlimPersistency-static.a  CMakeFiles/SAVObjSlimPersistencyLib.dir/src/TSlimRecoSAVCandidate.cc.o CMakeFiles/SAVObjSlimPersistencyLib.dir/src/TSlimRecoSAVEvent.cc.o CMakeFiles/SAVObjSlimPersistencyLib.dir/src/TSlimRecoSAVHit.cc.o CMakeFiles/SAVObjSlimPersistencyLib.dir/SAVSlimPersistencyDICT.cxx.o
-/cvmfs/sft.cern.ch/lcg/releases/binutils/2.28-a983d/x86_64-centos7/bin/ranlib libSAVSlimPersistency-static.a

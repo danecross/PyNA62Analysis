@@ -1,9 +1,0 @@
-{ decls }
-namespace std {  }
-
-[ libIRCSlimPersistency.so ]
-# List of selected classes
-class TSlimRecoIRCCandidate
-class TSlimRecoIRCEvent
-class TSlimRecoIRCHit
-class vector<TSlimRecoIRCCandidate>
