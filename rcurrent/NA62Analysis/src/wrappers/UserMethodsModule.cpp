@@ -26,12 +26,28 @@ static PyObject* UM_test(PyObject *self, PyObject *args){
         return PyLong_FromLong(sts);
 }
 
+static PyObject* UserMethods::ExportAllPlot(PyObject* self, PyObject* args)
+{
+	std::map<TString, TTree*> &trees;
+	std::map<TString, void*> &branches)
+	fHisto.ExportAllPlot(trees, branches);
+	return Py_None;
+}
 
+static PyObject* UserMethods::UpdateCanvas(PyObject* self, PyObject* args)
+{
+	TString canvasName;
+	if (!PyArg_ParseTuple(args, "i", &n))
+		return NULL;
+	return Py_BuildValue("i", fHisto.UpdateCanvas(canvasName));
+}
 
 
 static PyMethodDef UserMethods[] = {
 
 	{"system", UM_test, METH_VARARGS, "execute shell command."},
+	{ "ExportAllPlot", ExportAllPlot, METH_NOARGS, "Exports all plots" },
+	{ "UpdateCanvas", UpdateCanvas, METH_VARARGS, "Updates canvas" },
         {NULL, NULL, 0, NULL}
 
 };
