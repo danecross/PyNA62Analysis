@@ -13,14 +13,17 @@
 # 	6. plot products
 
 #import statements
-import UserMethods as um
+import PyNA62Analysis.Configure as config
+import PyNA62Analysis.UserMethods as um
 #import ROOT
 
 # configuration
 # this forgoes the need for a config file
 def configure():
 
-	input_files = [] # write the path to the desired input files here
+	input_files = ["example.txt"] # write the path to the desired input files here
+	config.set_input_files(input_files)
+
 	
 	preanalyzersList = [] #list of preanalyzers
 	analyzersList = [] #list of the analyzers you will create
@@ -46,9 +49,7 @@ def configure():
 	eventsToIgnore = [] # string list of events to ignore
 
 	# mandatory call that configures our BaseAnalysis object
-	um.configure(input_files, preanalyzersList, analyzersList, 
-			extraLibs, extralibsdirs, extraincludedirs, parameters, 
-			burstsToIgnore, eventsToIgnore, *args)
+	config.configure() 
 
 
 # initialize analyzers
@@ -82,13 +83,12 @@ def postProcess():
 def plots():
 	print("plots")
 
-def runAll():
 
-	configure()
-	initializeAnalyzer()
-	defineAnalyzer()
-	UserMethods.runAnalyzer() # this should be defined by us not the user
-	plots()
+configure()
+initializeAnalyzer()
+defineAnalyzer()
+#UserMethods.runAnalyzer() # this should be defined by us not the user
+plots()
 
 
 
