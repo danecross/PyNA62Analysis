@@ -77,7 +77,7 @@ static PyObject* UM_configure(PyObject *self, PyObject *args){
 }
 
 static PyObject* RequestL0Data(PyObject* self, PyObject* args){
-	return RequestL0Data();
+	return UserMethods::RequestL0Data();
 }
 
 static PyMethodDef UserMethods[] = {
