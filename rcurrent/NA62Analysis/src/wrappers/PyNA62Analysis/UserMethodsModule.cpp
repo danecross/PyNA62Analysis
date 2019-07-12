@@ -76,12 +76,17 @@ static PyObject* UM_configure(PyObject *self, PyObject *args){
 	return PyLong_FromLong(0);	
 }
 
+static PyObject* RequestL0Data(PyObject* self, PyObject* args){
+	return UserMethods::RequestL0Data();
+}
+
 static PyMethodDef UserMethods[] = {
 
 	{"system", UM_test, METH_VARARGS, "execute shell command."},
 	{"configure", UM_configure, METH_NOARGS, "configures our base analysis object"}, 
 	{"set_input_files", UM_setInputFiles, METH_VARARGS, "add input files to base analysis object"},
-	{"set_preAnalyzers", UM_setPreAnalyzers, METH_VARARGS, "add pre analyzers to the base analysis object"},  
+	{"set_preAnalyzers", UM_setPreAnalyzers, METH_VARARGS, "add pre analyzers to the base analysis object"},
+	{"RequestL0Data", RequestL0Data, METH_NOARGS, "Calls function 'RequestL0Data' "},
         {NULL, NULL, 0, NULL}
 
 };
