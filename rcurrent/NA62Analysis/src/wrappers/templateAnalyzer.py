@@ -13,43 +13,51 @@
 # 	6. plot products
 
 #import statements
-import PyNA62Analysis.Configure as config
 import PyNA62Analysis.UserMethods as um
+import PyNA62Analysis.PyBaseAnalysis as BaseAnalysis
 #import ROOT
 
 # configuration
 # this forgoes the need for a config file
 def configure():
 
-	input_files = ["example.txt"] # write the path to the desired input files here
-	config.set_input_files(input_files)
+	ban = BaseAnalysis.PyBaseAnalysis() #initialize base analysis object
 
+	input_files = ["example.txt"] # write the path to the desired input files here
+	setattr(ban, "input_files", input_files)
 	
 	preanalyzersList = [] #list of preanalyzers
+	#setattr(ban, "pre_analyzers", preanalyzersList)
 	analyzersList = [] #list of the analyzers you will create
-	
+	#setattr(ban, "analyzers", analyzersList)
+
 	extraLibs = []
+	#setattr...
 	extralibsdirs = []
+	#setattr...
 	extraincludedirs = []
+	#setattr...
 	
 	parameters = []
+	#setattr...
 
 	# set boolean flags 
-	# booleans you can set:
-	# 	UseLogFile, graphicMode, UseDownscaling, UsePrimitiveFile, FastStart, 
-	# 	SkipIsFatal, ContinuousReading, Filter, SpecialOnly, HistoMode
+	# booleans you can set: 
+	# 	ban.anVerbosity        ban.coreVerbosity      ban.graphicMode        ban.useDownscaling     
+	# 	ban.fastStart          ban.histoMode          ban.skipIsFatal        ban.useLogFile         
+	# 	ban.continuousReading  ban.filter             ban.specialOnly        ban.usePrimitiveFile
 	# default value is False 
-
-	args = () # put aruments here. e.g: (UseLogFile = True, FastStart = True)
+	# set these values with setattr, like above. For example:
+	
+	setattr(ban, "histoMode", True)
 	
 	# other stuff
-	# TODO: CoreVerbosity, AnVerbosity, 
 	
 	burstsToIgnore = [] # string list of bursts to ignore
 	eventsToIgnore = [] # string list of events to ignore
 
 	# mandatory call that configures our BaseAnalysis object
-	config.configure() 
+	ban.configure() 
 
 
 # initialize analyzers

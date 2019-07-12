@@ -53,15 +53,22 @@ UM_module = Extension('PyNA62Analysis.UserMethods', sources=['PyNA62Analysis/Use
 			extra_compile_args=['-std=c++11'],
 			libraries=['stdc++'],)
 
-UM_Config_Module = Extension('PyNA62Analysis.Configure', sources=['PyNA62Analysis/ConfigureModule.cpp'], language='C++', 
+#Config_Module = Extension('PyNA62Analysis.Configure', sources=['PyNA62Analysis/ConfigureModule.cpp'], language='C++', 
+#				include_dirs=dirs_incl,
+#                        	extra_link_args=link_args,
+#                        	extra_compile_args=['-std=c++11'],
+#                        	libraries=['stdc++'],
+
+PyBaseAnalysis_Struct = Extension('PyNA62Analysis.PyBaseAnalysis', ['PyNA62Analysis/PyBaseAnalysisModule.cpp'], language='C++', 
 				include_dirs=dirs_incl,
-                        	extra_link_args=link_args,
-                        	extra_compile_args=['-std=c++11'],
-                        	libraries=['stdc++'],)
+                                extra_link_args=link_args,
+                                extra_compile_args=['-std=c++11'],
+                                libraries=['stdc++'],)
+
 setup(name='PyNA62Analysis',
       version='1.0',
       packages = ['PyNA62Analysis'],
-      ext_modules=[UM_module, UM_Config_Module],
+      ext_modules=[UM_module, PyBaseAnalysis_Struct],
       ) 
 
 
