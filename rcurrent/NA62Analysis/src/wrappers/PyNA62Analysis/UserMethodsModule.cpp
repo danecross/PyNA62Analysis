@@ -29,13 +29,8 @@ static PyObject* UM_test(PyObject *self, PyObject *args){
 }
 
 
-static PyObject* RequestL0Data(PyObject* self, PyObject* args){
-	return UserMethods::RequestL0Data();
-}
-
 static PyMethodDef UserMethods[] = {
 
-	{"RequestL0Data", RequestL0Data, METH_NOARGS, "Calls function 'RequestL0Data' "},
         {NULL, NULL, 0, NULL}
 
 };
