@@ -7,7 +7,7 @@ rcurrent/NA62FWBuildRunTree.py
 *cc7/
 *.internal
 *.pcm
-*.cmake
+# *.cmake
 *.log
 .__afs*
 
