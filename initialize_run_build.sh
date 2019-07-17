@@ -4,11 +4,13 @@ cd rcurrent/
 source NA62Reconstruction/scripts/env.sh
 cd NA62Tools
 make clean
-make
+make 
 cd ../NA62Reconstruction
 make clean
 make
 cd ../NA62Analysis
+make clean
+make
 source scripts/env.sh
 
 source initialize_run_source.sh
