@@ -11,6 +11,8 @@ rcurrent/NA62FWBuildRunTree.py
 *.log
 .__afs*
 
+*.so
+
 /rcurrent/*/*cc7/
 
 rcurrent/NA62Analysis/scripts/NA62AnalysisBuilder.py
