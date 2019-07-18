@@ -8,24 +8,18 @@ make
 cd ../NA62Reconstruction
 make clean
 make
-cd ../NA62Analysis
+
+~/SummerProject/rcurrent/NA62FWBuildRunTree.py -v rcurrent -w ~/Analysis
+cd ~/Analysis
+source envAnalysis.sh
+NA62AnalysisBuilder.py prepare MyAnalysis
+cd MyAnalysis
 source scripts/env.sh
 
-source initialize_run_source.sh
+NA62AnalysisBuilder.py cleanall
+NA62AnalysisBuilder.py build ~/Analysis/config --shared
 
-#prepare the user directory
-#~/SummerProject/rcurrent/NA62FWBuildRunTree.py -v rcurrent -w ~/Analysis
-#cd ~/Analysis
-#source envAnalysis.sh 
-#NA62AnalysisBuilder.py prepare MyAnalysis
-#cd MyAnalysis
-#source scripts/env.sh
-
-#make a new *python* analyzer
-###NA62AnalysisBuilder.py new analyzer-Name.py
-
-
-#cd ../../SummerProject/
+cd ../../SummerProject/
 
 
 
