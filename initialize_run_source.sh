@@ -8,8 +8,6 @@ cd NA62Tools
 source scripts/env.sh
 cd ../NA62Reconstruction
 source scripts/env.sh
-cd ../NA62Analysis
-source scripts/env.sh
 cd ../NA62MC
 source scripts/env.sh
 
@@ -20,10 +18,6 @@ source envAnalysis.sh
 NA62AnalysisBuilder.py prepare MyAnalysis
 cd MyAnalysis
 source scripts/env.sh
-
-#make a new *python* analyzer
-###NA62AnalysisBuilder.py new analyzer-Name.py
-
 
 cd ../../SummerProject/
 

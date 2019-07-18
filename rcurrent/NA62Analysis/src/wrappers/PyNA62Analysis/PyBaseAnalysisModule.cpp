@@ -17,12 +17,9 @@
 #include<iostream>
 #include <structmember.h>
 #include <TApplication.h>
-
+#include "BaseAnalysis.hh"
 
 using namespace std;
-
-NA62Analysis::Core::BaseAnalysis *ban = 0;
-TApplication *theApp = 0;
 
 typedef struct{
 
@@ -38,6 +35,7 @@ typedef struct{
 
         PyObject *coreVerbosity;
         PyObject *anVerbosity;
+
         PyObject *useLogFile;
         PyObject *graphicMode;
         PyObject *useDownscaling;
@@ -52,6 +50,9 @@ typedef struct{
 	PyObject *burstsToIgnore;
 	PyObject *eventsToIgnore;
 
+	NA62Analysis::Core::BaseAnalysis *ban = 0; 	// maintain reference to C++ base analysis object after configuration
+	TApplication *theApp = 0;		   	// maintain reference to App for visual implementations
+
 } PyBaseAnalysis;
 
 // PYTHON DESTRUCTOR
@@ -65,9 +66,10 @@ static void PyBaseAnalysis_dealloc(PyBaseAnalysis *self){
         Py_XDECREF(self->extraLibsDirs);
         Py_XDECREF(self->extraIncludedDirs);
         Py_XDECREF(self->parameters);
-	
+
         Py_XDECREF(self->coreVerbosity);
         Py_XDECREF(self->anVerbosity);
+
         Py_XDECREF(self->useLogFile);
         Py_XDECREF(self->graphicMode);
         Py_XDECREF(self->useDownscaling);
@@ -81,6 +83,9 @@ static void PyBaseAnalysis_dealloc(PyBaseAnalysis *self){
         
 	Py_XDECREF(self->burstsToIgnore);
 	Py_XDECREF(self->eventsToIgnore);
+
+//	delete ban;
+//	delete theApp;
 
 	Py_TYPE(self)->tp_free((PyObject *) self);
 }
@@ -108,37 +113,39 @@ static PyObject * PyBaseAnalysis_new(PyTypeObject *type, PyObject *args, PyObjec
 		}
 
 		self->extraLibs = PyList_New(0);
-		if(self->extraLibs = NULL){
+		if(self->extraLibs == NULL){
 			Py_DECREF(self);
                         return NULL;
 		}
 		self->extraLibsDirs = PyList_New(0);
-                if(self->extraLibsDirs = NULL){
+                if(self->extraLibsDirs == NULL){
                         Py_DECREF(self);
                         return NULL;
                 }
 		self->extraIncludedDirs = PyList_New(0);
-                if(self->extraIncludedDirs = NULL){
+                if(self->extraIncludedDirs == NULL){
                         Py_DECREF(self);
                         return NULL;
                 }
 		self->parameters = PyList_New(0);
-                if(self->parameters = NULL){
+                if(self->parameters == NULL){
                         Py_DECREF(self);
                         return NULL;
                 }
 
 
-		self->coreVerbosity = PyBool_FromLong(0);
+		self->coreVerbosity = PyUnicode_FromString("");
                 if (self->coreVerbosity == NULL){
                         Py_DECREF(self);
                         return NULL;
                 }
-		self->anVerbosity = PyBool_FromLong(0);
+		self->anVerbosity = PyUnicode_FromString("");
                 if (self->anVerbosity == NULL){
                         Py_DECREF(self);
                         return NULL;
                 }
+
+
 		self->useLogFile = PyBool_FromLong(0);
                 if (self->useLogFile == NULL){
                         Py_DECREF(self);
@@ -210,57 +217,171 @@ static PyObject * PyBaseAnalysis_new(PyTypeObject *type, PyObject *args, PyObjec
 // REGISTER PYTHON MEMBERS
 static PyMemberDef PyBanMembers[] = {
 
-	{"input_files", T_OBJECT_EX, offsetof(PyBaseAnalysis, inputFiles), 0,
-		"list of input files to use" }, 
-	{"pre_analyzers", T_OBJECT_EX, offsetof(PyBaseAnalysis, preAnalyzers), 0,
-		"list of pre analyzers to use"}, 
-	{"analyzers", T_OBJECT_EX, offsetof(PyBaseAnalysis, analyzers), 0, 
-		"list of analyzers to make"}, 
-	{"extra_libs", T_OBJECT_EX, offsetof(PyBaseAnalysis,extraLibs), 0, 
-		"list of extra libraries to include"}, 
-	{"extra_libs_dirs", T_OBJECT_EX, offsetof(PyBaseAnalysis, extraLibsDirs), 0, 
-                "list of extra library directories"},
-        {"extra_include_dirs", T_OBJECT_EX, offsetof(PyBaseAnalysis, extraIncludedDirs), 0, 
-                "list of extra include directories"},
-	{"parameters", T_OBJECT_EX, offsetof(PyBaseAnalysis, parameters), 0, 
-		"list of extra compiling parameters"},
-	{"coreVerbosity", T_OBJECT_EX, offsetof(PyBaseAnalysis, coreVerbosity), 0, 
-		"coreVerbosity flag"}, 
-	{"anVerbosity", T_OBJECT_EX, offsetof(PyBaseAnalysis, anVerbosity), 0,
-                "anVerbosity flag"},
-	{"useLogFile", T_OBJECT_EX, offsetof(PyBaseAnalysis, useLogFile), 0,
-                "useLogFile flag"},
-        {"graphicMode", T_OBJECT_EX, offsetof(PyBaseAnalysis, graphicMode), 0,
-                "graphicMode flag"},
-        {"useDownscaling", T_OBJECT_EX, offsetof(PyBaseAnalysis, useDownscaling), 0,
-                "useDownscaling flag"},
-        {"histoMode", T_OBJECT_EX, offsetof(PyBaseAnalysis, histoMode), 0,
-                "histoMode flag"},
-        {"usePrimitiveFile", T_OBJECT_EX, offsetof(PyBaseAnalysis, usePrimitiveFile), 0,
-                "usePrimitiveFile flag"},
-        {"fastStart", T_OBJECT_EX, offsetof(PyBaseAnalysis, fastStart), 0,
-                "fastStart flag"},
-        {"skipIsFatal", T_OBJECT_EX, offsetof(PyBaseAnalysis, skipIsFatal), 0,
-                "skipIsFatal flag"},
-        {"continuousReading", T_OBJECT_EX, offsetof(PyBaseAnalysis, continuousReading), 0,
-                "continuousReading flag"},
-        {"filter", T_OBJECT_EX, offsetof(PyBaseAnalysis, filter), 0,
-                "filter flag"},
-        {"specialOnly", T_OBJECT_EX, offsetof(PyBaseAnalysis, specialOnly), 0,
-                "specialOnly flag"},
-	{"bursts_to_ignore", T_OBJECT_EX, offsetof(PyBaseAnalysis, burstsToIgnore), 0, 
-		"list of bursts to ignore"}, 
-	{"events_to_ignore", T_OBJECT_EX, offsetof(PyBaseAnalysis, eventsToIgnore), 0, 
-		"list of events to ignore"}, 
+	{"input_files", T_OBJECT_EX, offsetof(PyBaseAnalysis, inputFiles), 0}, 
+	{"pre_analyzers", T_OBJECT_EX, offsetof(PyBaseAnalysis, preAnalyzers), 0}, 
+	{"analyzers", T_OBJECT_EX, offsetof(PyBaseAnalysis, analyzers), 0} ,
+	{"extra_libs", T_OBJECT_EX, offsetof(PyBaseAnalysis,extraLibs), 0 }, 
+	{"extra_libs_dirs", T_OBJECT_EX, offsetof(PyBaseAnalysis, extraLibsDirs), 0}, 
+        {"extra_include_dirs", T_OBJECT_EX, offsetof(PyBaseAnalysis, extraIncludedDirs), 0} , 
+	{"parameters", T_OBJECT_EX, offsetof(PyBaseAnalysis, parameters), 0} , 
+	{"coreVerbosity", T_OBJECT_EX, offsetof(PyBaseAnalysis, coreVerbosity), 0}, 
+	{"anVerbosity", T_OBJECT_EX, offsetof(PyBaseAnalysis, anVerbosity), 0}, 
+	{"useLogFile", T_OBJECT_EX, offsetof(PyBaseAnalysis, useLogFile), 0}, 
+        {"graphicMode", T_OBJECT_EX, offsetof(PyBaseAnalysis, graphicMode), 0}, 
+        {"useDownscaling", T_OBJECT_EX, offsetof(PyBaseAnalysis, useDownscaling), 0}, 
+        {"histoMode", T_OBJECT_EX, offsetof(PyBaseAnalysis, histoMode), 0}, 
+        {"usePrimitiveFile", T_OBJECT_EX, offsetof(PyBaseAnalysis, usePrimitiveFile), 0}, 
+        {"fastStart", T_OBJECT_EX, offsetof(PyBaseAnalysis, fastStart), 0}, 
+        {"skipIsFatal", T_OBJECT_EX, offsetof(PyBaseAnalysis, skipIsFatal), 0}, 
+        {"continuousReading", T_OBJECT_EX, offsetof(PyBaseAnalysis, continuousReading), 0}, 
+        {"filter", T_OBJECT_EX, offsetof(PyBaseAnalysis, filter), 0}, 
+        {"specialOnly", T_OBJECT_EX, offsetof(PyBaseAnalysis, specialOnly), 0}, 
+	{"bursts_to_ignore", T_OBJECT_EX, offsetof(PyBaseAnalysis, burstsToIgnore), 0}, 
+	{"events_to_ignore", T_OBJECT_EX, offsetof(PyBaseAnalysis, eventsToIgnore), 0}, 
         {NULL}
 
 };
 
+static string getFileString(PyObject *);
+static void Init(NA62Analysis::Core::BaseAnalysis *, PyObject *, PyObject *, PyObject *, PyObject *, PyObject *);
+static int Process(PyObject *, int, int);
+static int setGlobalVerbosity(NA62Analysis::Core::BaseAnalysis *, PyObject *, PyObject *);
+
 // METHOD DEFINITIONS
 static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 
-	return PyBool_FromLong(0);
+	self->ban = new NA62Analysis::Core::BaseAnalysis();
+	if (!setGlobalVerbosity(self->ban, self->coreVerbosity, self->anVerbosity)){return NULL;}
+//	fLogFile <== TODO
+	self->ban->SetGraphicMode(PyObject_IsTrue(self->graphicMode));	
+	self->ban->SetDownscaling(PyObject_IsTrue(self->useDownscaling));
+	if(PyObject_IsTrue(self->histoMode)) 
+		self->ban->SetReadType(NA62Analysis::Core::IOHandlerType::kHISTO);
+        else self->ban->SetReadType(NA62Analysis::Core::IOHandlerType::kTREE);
+	if(PyObject_IsTrue(self->usePrimitiveFile)){self->ban->InitPrimitives();}
+	if(PyObject_IsTrue(self->fastStart)){self->ban->SetFastStart(true);}
+	if(PyObject_IsTrue(self->skipIsFatal)){self->ban->SetSkipIsFatal(true);}
+	if(PyObject_IsTrue(self->continuousReading)){self->ban->SetContinuousReading(true);}
+	if(PyObject_IsTrue(self->filter)){
+		self->ban->SetFiltering(true);
+		//fNoSkipBadBurst = true; <-- TODO
+		//fNoCheckEvents = true;  <-- TODO
+	}
+	if(PyObject_IsTrue(self->specialOnly)){self->ban->SetSpecialOnly(true);}
 
+	/*$$FORCENOCHECKDETECTORS$$*/ //<-- TODO
+	/*$$FORCENOBADBURSTDETECTORS$$*/ //<-- TODO
+	/*$$FORCEPARAMETERS$$*/ //<-- TODO
+
+	string inputFileString = getFileString(self->inputFiles);
+	self->ban->AddInputFiles(inputFileString, (int)PyList_Size(self->inputFiles));
+	
+	//DEF_ANALYZER is the ClassName of the analyzer. Defined by Makefile target
+	/*$$ANALYZERSNEW$$*/ //<-- TODO
+
+	if(PyObject_IsTrue(self->usePrimitiveFile)){/*//primitiveFile ----> new entry in ban*/}
+/*	Init(self->ban, getFileString(self->outputFile), 	//TODO: add outputFile to the parameters
+			self->parameters, 		//TODO: parameters: what should it be?
+			self->configFile, 		//TODO: add config file
+			self->referenceFile, 		//TODO: add reference file
+			self->ignoreNonExistingTrees);	//TODO: add ignoreNonExistingTrees
+*/	int retCode = 0;
+//	if(self->continuousReading){self->ban->startContinuous(inputFileString);}
+//	else{
+//		retCode = Process(startEvent, NEvents, NBursts); // TODO: what is NEvents and NBursts
+//	}
+
+	if(self->graphicMode){self->theApp->Run();}
+
+	/*$$ANALYZERSDELETE$$*/ //<-- TODO
+
+	return PyBool_FromLong(retCode);
+
+}
+
+static NA62Analysis::Verbosity::CoreVerbosityLevel getGlobalVerb(PyObject *);
+static NA62Analysis::Verbosity::AnalyzerVerbosityLevel getAnalyzerVerb(PyObject *);
+
+static int setGlobalVerbosity(NA62Analysis::Core::BaseAnalysis *ban, PyObject *global, PyObject *analyzer){
+	
+	NA62Analysis::Verbosity::CoreVerbosityLevel core;
+	NA62Analysis::Verbosity::AnalyzerVerbosityLevel an;
+
+	if ( !PyUnicode_Check(global) ){
+		PyErr_SetString(PyExc_ValueError, "global verbosity must be enetered in string format");
+		return 0;
+	}
+	else if ( !PyUnicode_Check(analyzer) ){
+		PyErr_SetString(PyExc_ValueError, "analyzer verbosity must be entered in string format");
+		return 0;
+	}
+
+	core = getGlobalVerb(global);
+	an = getAnalyzerVerb(analyzer);
+	if ( core != NULL && an != NULL){
+		ban->SetGlobalVerbosity(core, an);
+		return 1;
+	}
+	else{
+		return 0;
+	}
+}
+
+static NA62Analysis::Verbosity::CoreVerbosityLevel getGlobalVerb(PyObject *coreStr){
+	string input = PyUnicode_AsUTF8(coreStr);
+
+	if ( input == "always"){return NA62Analysis::Verbosity::CoreVerbosityLevel::kAlways;}
+	else if ( input == "normal" ) {return NA62Analysis::Verbosity::CoreVerbosityLevel::kNormal;}
+	else if (input == "extended"){return NA62Analysis::Verbosity::CoreVerbosityLevel::kExtended ;}
+        else if (input == "debug"){return NA62Analysis::Verbosity::CoreVerbosityLevel::kDebug ;}
+        else if (input == "trace"){return NA62Analysis::Verbosity::CoreVerbosityLevel::kTrace ;}
+        else if (input == "cDisable"){return NA62Analysis::Verbosity::CoreVerbosityLevel::kCDisable ;}
+	else{
+		PyErr_SetString(PyExc_ValueError, "your coreVerbosity is not a valid input. choices are: always, normal, extended, debug, trace, cDisable.");
+		return NA62Analysis::Verbosity::CoreVerbosityLevel::kNormal; //TODO: figure out how to throw an error value here
+	}
+}
+
+static NA62Analysis::Verbosity::AnalyzerVerbosityLevel getAnalyzerVerb(PyObject *anStr){
+
+	string input = PyUnicode_AsUTF8(anStr);
+	
+	if (input == "always"){return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUserAlways;}
+	else if (input == "normal") {return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUserNormal ;}
+        else if (input == "user") {return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUser ;}
+        else if (input == "uDisable") {return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUDisable ;}
+	else{
+		PyErr_SetString(PyExc_ValueError, "your anVerbosity is not a valid input. choices are: always, normal, user, uDisable.");
+                return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUserNormal; //TODO: figure out how to throw an error value here
+	}
+	
+}
+
+static string getFileString(PyObject *files){
+
+	string inp_file = "";
+        for (Py_ssize_t i = 0 ; i < PyList_Size(files) ; ++i){
+                PyObject *file = PyList_GetItem(files, i);
+                if(!PyUnicode_Check(file)){
+                        PyErr_SetString(PyExc_ValueError, "input files must be string paths.");
+                        return NULL;
+                }
+                inp_file += PyUnicode_AsUTF8(file);
+        }
+
+	return inp_file;
+
+}
+
+//TODO: write these
+static void Init(NA62Analysis::Core::BaseAnalysis *ban, PyObject *outputFile, PyObject *parameters, 
+			PyObject *configFile, PyObject *referenceFile, PyObject *ignoreNonExistingTrees){
+	//empty ....
+}
+
+static int Process(PyObject startEvent, int NEvents, int NBursts){
+	//empty ....
+	return 0;
 }
 
 static PyMethodDef PBAN_methods[] = {
