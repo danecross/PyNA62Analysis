@@ -10,6 +10,9 @@ rcurrent/NA62FWBuildRunTree.py
 # *.cmake
 *.log
 .__afs*
+*.cmake
+
+#.gitignore
 
 *.so
 *.a
