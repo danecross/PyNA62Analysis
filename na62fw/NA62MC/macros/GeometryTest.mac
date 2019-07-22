@@ -1,0 +1,34 @@
+############################################
+# MACRO FILE FOR GEOMETRY TESTING
+# Enable only the detector(s) to be debugged
+
+/run/initialize
+
+################################################
+
+/Detector/EnableSubDetector Cedar
+#/Detector/EnableSubDetector CHANTI
+#/Detector/EnableSubDetector CHOD
+#/Detector/EnableSubDetector GigaTracker
+#/Detector/EnableSubDetector HAC
+#/Detector/EnableSubDetector IRC
+#/Detector/EnableSubDetector LAV
+#/Detector/EnableSubDetector LKr
+#/Detector/EnableSubDetector RICH
+#/Detector/EnableSubDetector MUV0 
+#/Detector/EnableSubDetector MUV1 
+#/Detector/EnableSubDetector MUV2 
+#/Detector/EnableSubDetector MUV3
+#/Detector/EnableSubDetector NewCHOD
+#/Detector/EnableSubDetector SAC
+#/Detector/EnableSubDetector Spectrometer
+
+################################################
+
+/Detector/UpdateGeometry
+
+##################################
+# true: in-depth test, very slow
+# false: one-level test, very fast
+
+/geometry/test/run true

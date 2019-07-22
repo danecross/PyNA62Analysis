@@ -1,8 +1,8 @@
 *.pyc
-rcurrent/NA62MC/.rootlogon.C
-rcurrent/NA62Reconstruction/.rootlogon.C
-rcurrent/NA62Analysis/build-cc7/
-rcurrent/NA62FWBuildRunTree.py
+na62fw/NA62MC/.rootlogon.C
+na62fw/NA62Reconstruction/.rootlogon.C
+na62fw/NA62Analysis/build-cc7/
+na62fw/NA62FWBuildRunTree.py
 
 *cc7/
 *.internal
@@ -12,15 +12,13 @@ rcurrent/NA62FWBuildRunTree.py
 .__afs*
 *.cmake
 
-#.gitignore
-
 *.so
 *.a
 *.root
 
-/rcurrent/NA62Analysis/PythonAnalyzer/build/
+/na62fw/NA62Analysis/PythonAnalyzer/build/
 
-/rcurrent/*/*cc7/
+/na62fw/*/*cc7/
 
-rcurrent/NA62Analysis/scripts/NA62AnalysisBuilder.py
+na62fw/NA62Analysis/scripts/NA62AnalysisBuilder.py
 

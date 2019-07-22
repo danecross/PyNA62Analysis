@@ -1,0 +1,33 @@
+# - Config file for the NA62TOOLS package
+# It defines the following variables
+#  NA62TOOLS_FOUND - True
+# Paths
+#  NA62TOOLS_PERS_INCLUDE_DIRS     - include directories for NA62TOOLS Persistency
+#  NA62TOOLS_SLIM_INCLUDE_DIRS     - include directories for NA62TOOLS Slim Persistency
+#  NA62TOOLS_INCLUDE_DIRS          - include directories for NA62TOOLS
+#  NA62TOOLS_CONFIG_DIR            - configuration files path (cmake, conf, ...)
+#  NA62TOOLS_LIBRARY_DIRS          - library directories for NA62TOOLS
+# Lists
+#  NA62TOOLS_PERS_LIBRARIES        - persistency libraries to link against
+#  NA62TOOLS_PERS_LIBRARIES-STATIC - persistency static libraries to link against
+#  NA62TOOLS_SLIM_LIBRARIES        - slim persistency libraries to link against
+#  NA62TOOLS_SLIM_LIBRARIES-STATIC - slim persistency static libraries to link against
+#  NA62TOOLS_LIBRARIES             - NA62Tools libraries to link against
+#  NA62TOOLS_LIBRARIES-STATIC      - NA62Tools static libraries to link against
+ 
+set(NA62TOOLS_FOUND 1)
+# Compute paths
+get_filename_component(NA62TOOLS_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+set(NA62TOOLS_INCLUDE_DIRS "@CONF_INCLUDE_DIRS@")
+set(NA62TOOLS_CONFIG_DIR "@CONF_CONFIG_DIR@")
+set(NA62TOOLS_LIBRARY_DIRS "@CONF_LIB_DIR@")
+set(NA62TOOLS_LIBRARIES NA62ToolsMain)
+set(NA62TOOLS_LIBRARIES_STATIC NA62ToolsMain-static)
+
+set(NA62TOOLS_PERS_INCLUDE_DIRS "@CONF_PERS_INCLUDE_DIRS@")
+set(NA62TOOLS_PERS_LIBRARIES "@CONF_SUBDET_PERS@")
+set(NA62TOOLS_PERS_LIBRARIES_STATIC "@CONF_SUBDET_PERS_STATIC@")
+
+set(NA62TOOLS_SLIM_INCLUDE_DIRS "@CONF_SLIM_INCLUDE_DIRS@")
+set(NA62TOOLS_SLIM_LIBRARIES "@CONF_SUBDET_SLIM@")
+set(NA62TOOLS_SLIM_LIBRARIES_STATIC "@CONF_SUBDET_SLIM_STATIC@")
