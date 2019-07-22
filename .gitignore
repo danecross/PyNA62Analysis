@@ -12,6 +12,10 @@ rcurrent/NA62FWBuildRunTree.py
 .__afs*
 
 *.so
+*.a
+*.root
+
+/rcurrent/NA62Analysis/PythonAnalyzer/build/
 
 /rcurrent/*/*cc7/
 
