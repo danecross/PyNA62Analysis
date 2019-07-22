@@ -25,8 +25,8 @@ typedef struct{
 
         PyObject_HEAD
         PyObject *inputFiles;
-        PyObject *preAnalyzers;
-	PyObject *analyzers;
+//	PyObject *preAnalyzers;
+//	PyObject *analyzers;
 
 	PyObject *extraLibs;
 	PyObject *extraLibsDirs;
@@ -36,11 +36,13 @@ typedef struct{
         PyObject *coreVerbosity;
         PyObject *anVerbosity;
 
-        PyObject *useLogFile;
+	PyObject *logFile;
+	PyObject *outputFile;
+	PyObject *primitiveFile;
+
         PyObject *graphicMode;
         PyObject *useDownscaling;
         PyObject *histoMode;
-        PyObject *usePrimitiveFile;
         PyObject *fastStart;
         PyObject *skipIsFatal;
         PyObject *continuousReading;
@@ -50,8 +52,15 @@ typedef struct{
 	PyObject *burstsToIgnore;
 	PyObject *eventsToIgnore;
 
+	PyObject *startEvent;
+	PyObject *NEvents;
+	PyObject *NBursts;
+
 	NA62Analysis::Core::BaseAnalysis *ban = 0; 	// maintain reference to C++ base analysis object after configuration
 	TApplication *theApp = 0;		   	// maintain reference to App for visual implementations
+
+	bool noSkipBadBurst;
+	bool noCheckEvents;
 
 } PyBaseAnalysis;
 
@@ -59,8 +68,8 @@ typedef struct{
 static void PyBaseAnalysis_dealloc(PyBaseAnalysis *self){
 
 	Py_XDECREF(self->inputFiles);
-	Py_XDECREF(self->preAnalyzers);
-	Py_XDECREF(self->analyzers);
+//	Py_XDECREF(self->preAnalyzers);
+//	Py_XDECREF(self->analyzers);
 
 	Py_XDECREF(self->extraLibs);
         Py_XDECREF(self->extraLibsDirs);
@@ -70,11 +79,13 @@ static void PyBaseAnalysis_dealloc(PyBaseAnalysis *self){
         Py_XDECREF(self->coreVerbosity);
         Py_XDECREF(self->anVerbosity);
 
-        Py_XDECREF(self->useLogFile);
+        Py_XDECREF(self->logFile);
+	Py_XDECREF(self->outputFile);
+	Py_XDECREF(self->primitiveFile);
+
         Py_XDECREF(self->graphicMode);
         Py_XDECREF(self->useDownscaling);
         Py_XDECREF(self->histoMode);
-        Py_XDECREF(self->usePrimitiveFile);
         Py_XDECREF(self->fastStart);
         Py_XDECREF(self->skipIsFatal);
         Py_XDECREF(self->continuousReading);
@@ -83,6 +94,10 @@ static void PyBaseAnalysis_dealloc(PyBaseAnalysis *self){
         
 	Py_XDECREF(self->burstsToIgnore);
 	Py_XDECREF(self->eventsToIgnore);
+
+	Py_XDECREF(self->startEvent);
+	Py_XDECREF(self->NEvents);
+	Py_XDECREF(self->NBursts);
 
 //	delete ban;
 //	delete theApp;
@@ -101,7 +116,7 @@ static PyObject * PyBaseAnalysis_new(PyTypeObject *type, PyObject *args, PyObjec
 			Py_DECREF(self);
 			return NULL;
 		}
-		self->preAnalyzers = PyList_New(0);
+/*		self->preAnalyzers = PyList_New(0);
 		if (self->preAnalyzers == NULL){
 			Py_DECREF(self);
 			return NULL;
@@ -111,7 +126,7 @@ static PyObject * PyBaseAnalysis_new(PyTypeObject *type, PyObject *args, PyObjec
 			Py_DECREF(self);
 			return NULL;
 		}
-
+*/
 		self->extraLibs = PyList_New(0);
 		if(self->extraLibs == NULL){
 			Py_DECREF(self);
@@ -146,11 +161,18 @@ static PyObject * PyBaseAnalysis_new(PyTypeObject *type, PyObject *args, PyObjec
                 }
 
 
-		self->useLogFile = PyBool_FromLong(0);
-                if (self->useLogFile == NULL){
+		self->logFile = PyUnicode_FromString("");
+                if (self->logFile == NULL){
                         Py_DECREF(self);
                         return NULL;
-                }	
+                }
+		self->outputFile = PyUnicode_FromString("");
+		if (self->outputFile == NULL){
+			Py_DECREF(self);
+			return NULL;
+		}
+
+	
 		self->graphicMode = PyBool_FromLong(0);
                 if (self->graphicMode == NULL){
                         Py_DECREF(self);
@@ -166,8 +188,8 @@ static PyObject * PyBaseAnalysis_new(PyTypeObject *type, PyObject *args, PyObjec
                         Py_DECREF(self);
                         return NULL;
                 }	
-		self->usePrimitiveFile = PyBool_FromLong(0);
-                if (self->usePrimitiveFile == NULL){
+		self->primitiveFile = PyBool_FromLong(0);
+                if (self->primitiveFile == NULL){
                         Py_DECREF(self);
                         return NULL;
                 }
@@ -207,7 +229,26 @@ static PyObject * PyBaseAnalysis_new(PyTypeObject *type, PyObject *args, PyObjec
 			Py_DECREF(self);
                         return NULL;
 		}
-              
+              	
+
+		self->startEvent = PyLong_FromLong(0);
+		if (self->startEvent == NULL){
+			Py_DECREF(self);
+			return NULL;
+		}		
+		self->NEvents = PyLong_FromLong(0);
+		if (self->NEvents == NULL){
+			Py_DECREF(self);
+			return NULL;
+		}
+		self->NBursts = PyLong_FromLong(0);
+                if (self->NBursts == NULL){
+                        Py_DECREF(self);
+                        return NULL;
+                }
+
+		self->noSkipBadBurst = false;
+		self->noCheckEvents = false;
 	}
 	return (PyObject *) self;
 
@@ -218,19 +259,19 @@ static PyObject * PyBaseAnalysis_new(PyTypeObject *type, PyObject *args, PyObjec
 static PyMemberDef PyBanMembers[] = {
 
 	{"input_files", T_OBJECT_EX, offsetof(PyBaseAnalysis, inputFiles), 0}, 
-	{"pre_analyzers", T_OBJECT_EX, offsetof(PyBaseAnalysis, preAnalyzers), 0}, 
-	{"analyzers", T_OBJECT_EX, offsetof(PyBaseAnalysis, analyzers), 0} ,
+//	{"pre_analyzers", T_OBJECT_EX, offsetof(PyBaseAnalysis, preAnalyzers), 0}, 
+//	{"analyzers", T_OBJECT_EX, offsetof(PyBaseAnalysis, analyzers), 0} ,
 	{"extra_libs", T_OBJECT_EX, offsetof(PyBaseAnalysis,extraLibs), 0 }, 
 	{"extra_libs_dirs", T_OBJECT_EX, offsetof(PyBaseAnalysis, extraLibsDirs), 0}, 
         {"extra_include_dirs", T_OBJECT_EX, offsetof(PyBaseAnalysis, extraIncludedDirs), 0} , 
 	{"parameters", T_OBJECT_EX, offsetof(PyBaseAnalysis, parameters), 0} , 
 	{"coreVerbosity", T_OBJECT_EX, offsetof(PyBaseAnalysis, coreVerbosity), 0}, 
 	{"anVerbosity", T_OBJECT_EX, offsetof(PyBaseAnalysis, anVerbosity), 0}, 
-	{"useLogFile", T_OBJECT_EX, offsetof(PyBaseAnalysis, useLogFile), 0}, 
+	{"logFile", T_OBJECT_EX, offsetof(PyBaseAnalysis, logFile), 0}, 
         {"graphicMode", T_OBJECT_EX, offsetof(PyBaseAnalysis, graphicMode), 0}, 
         {"useDownscaling", T_OBJECT_EX, offsetof(PyBaseAnalysis, useDownscaling), 0}, 
         {"histoMode", T_OBJECT_EX, offsetof(PyBaseAnalysis, histoMode), 0}, 
-        {"usePrimitiveFile", T_OBJECT_EX, offsetof(PyBaseAnalysis, usePrimitiveFile), 0}, 
+        {"primitiveFile", T_OBJECT_EX, offsetof(PyBaseAnalysis, primitiveFile), 0}, 
         {"fastStart", T_OBJECT_EX, offsetof(PyBaseAnalysis, fastStart), 0}, 
         {"skipIsFatal", T_OBJECT_EX, offsetof(PyBaseAnalysis, skipIsFatal), 0}, 
         {"continuousReading", T_OBJECT_EX, offsetof(PyBaseAnalysis, continuousReading), 0}, 
@@ -238,12 +279,29 @@ static PyMemberDef PyBanMembers[] = {
         {"specialOnly", T_OBJECT_EX, offsetof(PyBaseAnalysis, specialOnly), 0}, 
 	{"bursts_to_ignore", T_OBJECT_EX, offsetof(PyBaseAnalysis, burstsToIgnore), 0}, 
 	{"events_to_ignore", T_OBJECT_EX, offsetof(PyBaseAnalysis, eventsToIgnore), 0}, 
+	{"startEvent", T_OBJECT_EX, offsetof(PyBaseAnalysis, startEvent), 0 }, 
+	{"NEvents", T_OBJECT_EX, offsetof(PyBaseAnalysis, NEvents), 0},
+	{"NBursts", T_OBJECT_EX, offsetof(PyBaseAnalysis, NBursts), 0},
         {NULL}
 
 };
 
+// adds an anlyzer to our ban object.
+static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *self, PyObject *args){
+	
+	string *anName;
+	if (!PyArg_ParseTuple(args, "s", &anName)){
+		return NULL;
+	}
+
+	 
+	
+	return PyLong_FromLong(0);
+
+}
+
 static string getFileString(PyObject *);
-static void Init(NA62Analysis::Core::BaseAnalysis *, PyObject *, PyObject *, PyObject *, PyObject *, PyObject *);
+static void Init(NA62Analysis::Core::BaseAnalysis *, string, PyObject *);//, PyObject *, PyObject *, PyObject *);
 static int Process(PyObject *, int, int);
 static int setGlobalVerbosity(NA62Analysis::Core::BaseAnalysis *, PyObject *, PyObject *);
 
@@ -252,20 +310,23 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 
 	self->ban = new NA62Analysis::Core::BaseAnalysis();
 	if (!setGlobalVerbosity(self->ban, self->coreVerbosity, self->anVerbosity)){return NULL;}
-//	fLogFile <== TODO
+	if (PyUnicode_Check(self->logFile) && PyUnicode_GET_LENGTH(self->logFile) > 0){
+		self->ban->SetLogToFile(PyUnicode_AsUTF8(self->logFile));
+	}
 	self->ban->SetGraphicMode(PyObject_IsTrue(self->graphicMode));	
 	self->ban->SetDownscaling(PyObject_IsTrue(self->useDownscaling));
 	if(PyObject_IsTrue(self->histoMode)) 
 		self->ban->SetReadType(NA62Analysis::Core::IOHandlerType::kHISTO);
         else self->ban->SetReadType(NA62Analysis::Core::IOHandlerType::kTREE);
-	if(PyObject_IsTrue(self->usePrimitiveFile)){self->ban->InitPrimitives();}
+	if(PyUnicode_Check(self->primitiveFile) && PyUnicode_GET_SIZE(self->primitiveFile) > 0)
+		self->ban->InitPrimitives();
 	if(PyObject_IsTrue(self->fastStart)){self->ban->SetFastStart(true);}
 	if(PyObject_IsTrue(self->skipIsFatal)){self->ban->SetSkipIsFatal(true);}
 	if(PyObject_IsTrue(self->continuousReading)){self->ban->SetContinuousReading(true);}
 	if(PyObject_IsTrue(self->filter)){
 		self->ban->SetFiltering(true);
-		//fNoSkipBadBurst = true; <-- TODO
-		//fNoCheckEvents = true;  <-- TODO
+		self->noSkipBadBurst = true; 
+		self->noCheckEvents = true;  
 	}
 	if(PyObject_IsTrue(self->specialOnly)){self->ban->SetSpecialOnly(true);}
 
@@ -279,17 +340,22 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 	//DEF_ANALYZER is the ClassName of the analyzer. Defined by Makefile target
 	/*$$ANALYZERSNEW$$*/ //<-- TODO
 
-	if(PyObject_IsTrue(self->usePrimitiveFile)){/*//primitiveFile ----> new entry in ban*/}
-/*	Init(self->ban, getFileString(self->outputFile), 	//TODO: add outputFile to the parameters
-			self->parameters, 		//TODO: parameters: what should it be?
-			self->configFile, 		//TODO: add config file
-			self->referenceFile, 		//TODO: add reference file
-			self->ignoreNonExistingTrees);	//TODO: add ignoreNonExistingTrees
-*/	int retCode = 0;
-//	if(self->continuousReading){self->ban->startContinuous(inputFileString);}
-//	else{
-//		retCode = Process(startEvent, NEvents, NBursts); // TODO: what is NEvents and NBursts
-//	}
+	if(PyUnicode_Check(self->primitiveFile)){
+		PyErr_SetString(PyExc_ValueError, "primitive file must be a string path to the file.");
+		return NULL;
+	}
+	else if (PyUnicode_GET_SIZE(self->primitiveFile) > 0)
+		self->ban->SetPrimitiveFile(PyUnicode_AsUTF8(self->primitiveFile));
+	Init(self->ban, getFileString(self->outputFile), 
+			self->parameters);//, 	
+//			self->configFile, 		//TODO: add config file
+//			self->referenceFile, 		//TODO: add reference file
+//			self->ignoreNonExistingTrees);	//TODO: add ignoreNonExistingTrees
+	int retCode = 0;
+	if(self->continuousReading){self->ban->StartContinuous(inputFileString);}
+	else{
+		retCode = Process(self->startEvent, (int)(PyLong_AsLong(self->NEvents)), (int)(PyLong_AsLong(self->NBursts))); 
+	}
 
 	if(self->graphicMode){self->theApp->Run();}
 
@@ -374,20 +440,23 @@ static string getFileString(PyObject *files){
 }
 
 //TODO: write these
-static void Init(NA62Analysis::Core::BaseAnalysis *ban, PyObject *outputFile, PyObject *parameters, 
-			PyObject *configFile, PyObject *referenceFile, PyObject *ignoreNonExistingTrees){
-	//empty ....
+static void Init(NA62Analysis::Core::BaseAnalysis *ban, string outputFile, PyObject *parameters){//, 
+	//		PyObject *configFile, PyObject *referenceFile, PyObject *ignoreNonExistingTrees){
+	
+	//empty ...
+
 }
 
-static int Process(PyObject startEvent, int NEvents, int NBursts){
+static int Process(PyObject *startEvent, int NEvents, int NBursts){
 	//empty ....
 	return 0;
 }
 
 static PyMethodDef PBAN_methods[] = {
     	{"configure", (PyCFunction) PBAN_configure, METH_NOARGS,
-     		"Configure the Base Analysis type based on the inputs from the user"
-    	},
+     		"Configure the Base Analysis type based on the inputs from the user"},
+	{"addAnalyzer", (PyCFunction) PBAN_addAnalyzer, METH_VARARGS, 
+		"Add an analyzer to our base analysis object"}, 
     	{NULL}  
 };
 
