@@ -10,7 +10,7 @@ na62fw/NA62FWBuildRunTree.py
 # *.cmake
 *.log
 .__afs*
-*.cmake
+#*.cmake
 
 *.so
 *.a
