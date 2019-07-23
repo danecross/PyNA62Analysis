@@ -1,6 +1,6 @@
 
 #remake Tools and Reconstruction and Analysis
-cd rcurrent/
+cd na62fw/
 source NA62Reconstruction/scripts/env.sh
 cd NA62Tools
 make clean
@@ -9,7 +9,7 @@ source scripts/env.sh
 make clean
 make
 
-~/SummerProject/rcurrent/NA62FWBuildRunTree.py -v rcurrent -w ~/Analysis
+~/SummerProject/na62fw/NA62FWBuildRunTree.py -v rcurrent -w ~/Analysis
 cd ~/Analysis
 source envAnalysis.sh
 NA62AnalysisBuilder.py prepare MyAnalysis
