@@ -20,6 +20,10 @@
 #include "BaseAnalysis.hh"
 #include "include/PyAnalysis.hh"
 
+#define VALUE_ERR_AN_VERB -2
+#define VALUE_ERR_CORE_VERB -3
+#define NULL_VERBOSITY -4
+
 using namespace std;
 
 typedef struct{
@@ -305,31 +309,51 @@ static string * generateConfigFile(NA62Analysis::Core::BaseAnalysis *);
 // METHOD DEFINITIONS
 static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 
-	PySys_WriteStdout("\nPBAN_configure called\n");
+	cout << "\nPBAN_configure called...reading in configuration information." << endl;
 
-	if (!setGlobalVerbosity(self->ban, self->coreVerbosity, self->anVerbosity)){
-		PyErr_SetString(PyExc_ValueError, "error with setting GlobalVerbosity parameters.");	
+	int verbSet = setGlobalVerbosity(self->ban, self->coreVerbosity, self->anVerbosity);
+	if (verbSet == VALUE_ERR_AN_VERB){
+		PyErr_SetString(PyExc_ValueError, "invalid core verbosity"); 
 		return NULL;
 	}
+	else if (verbSet == VALUE_ERR_CORE_VERB){
+		PyErr_SetString(PyExc_ValueError, "invalid analyzer verbosity") ; 
+		return NULL;
+	}
+	else if (verbSet == NULL_VERBOSITY){
+		PyErr_SetString(PyExc_ValueError, "error setting verbosities") ; 
+		return NULL;
+	}
+
 	if (PyUnicode_Check(self->logFile) && PyUnicode_GET_LENGTH(self->logFile) > 0){
 		self->ban->SetLogToFile(PyUnicode_AsUTF8(self->logFile));
 	}
+
 	self->ban->SetGraphicMode(PyObject_IsTrue(self->graphicMode));	
+
 	self->ban->SetDownscaling(PyObject_IsTrue(self->useDownscaling));
+
 	if(PyObject_IsTrue(self->histoMode)) 
 		self->ban->SetReadType(NA62Analysis::Core::IOHandlerType::kHISTO);
         else self->ban->SetReadType(NA62Analysis::Core::IOHandlerType::kTREE);
+
 	if(PyUnicode_Check(self->primitiveFile) && PyUnicode_GET_SIZE(self->primitiveFile) > 0)
 		self->ban->InitPrimitives();
+
 	if(PyObject_IsTrue(self->fastStart)){self->ban->SetFastStart(true);}
+
 	if(PyObject_IsTrue(self->skipIsFatal)){self->ban->SetSkipIsFatal(true);}
+
 	if(PyObject_IsTrue(self->continuousReading)){self->ban->SetContinuousReading(true);}
+
 	if(PyObject_IsTrue(self->filter)){
 		self->ban->SetFiltering(true);
 		self->noSkipBadBurst = true; 
 		self->noCheckEvents = true;  
 	}
+
 	if(PyObject_IsTrue(self->specialOnly)){self->ban->SetSpecialOnly(true);}
+
 	//self->ban->SetIsPython(true); //<-- TODO: alter baseanalysis class
 
 	if (PyBool_Check(self->noCheckDetectors) && PyObject_IsTrue(self->noCheckDetectors)){
@@ -341,16 +365,16 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 	
 	/*$$FORCENOBADBURSTDETECTORS$$*/ //<-- TODO
 	/*$$FORCEPARAMETERS$$*/ //<-- TODO
-	
-	if (PyList_Size(self->inputFiles) != (Py_ssize_t)(0)){
-		cout << "Number of input files: " << PyList_Size(self->inputFiles) << endl << endl;;
-		PySys_WriteStdout("\ncalling getFileString...\n");
+
+	if (PyList_Size(self->inputFiles) > (Py_ssize_t)(0)){
+		cout << "Number of input files: " << PyList_Size(self->inputFiles) << endl << endl;
+		cout << "calling getFileString..." << endl;
 		string inputFileString = getFileString(self->inputFiles);
-		PySys_WriteStdout("\ncalling ban->AddInputFiles ... \n");
+		cout << "calling ban->AddInputFiles ..." << endl;
 		self->ban->AddInputFiles(inputFileString, (int)PyList_Size(self->inputFiles));
 	}
 
-	PySys_WriteStdout("\nvariable setting done\n\n");
+	cout << "variable setting done" << endl;
 	
 	//DEF_ANALYZER is the ClassName of the analyzer. Defined by Makefile target
 	/*$$ANALYZERSNEW$$*/ //<-- TODO
@@ -367,7 +391,7 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 	TString *nullstr;
 	string *configFile = generateConfigFile(self->ban);
 
-	cout << "\ncalling Init()" << endl;
+	cout << "\ncalling Init()" << endl << endl;
 
 //	self->ban->Init(*PyUnicode_AsUTF8(self->outputFile),
 //                  	*PyUnicode_AsUTF8(self->parameters),
@@ -387,6 +411,8 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 
 	/*$$ANALYZERSDELETE$$*/ //<-- TODO
 
+	cout << "BaseAnalysis is configured. " << endl;
+
 	return PyBool_FromLong(retCode);
 
 }
@@ -401,32 +427,28 @@ static int setGlobalVerbosity(NA62Analysis::Core::BaseAnalysis *ban, PyObject *g
 
 	if ( !PyUnicode_Check(global) ){
 		PyErr_SetString(PyExc_ValueError, "global verbosity must be enetered in string format");
-		return 0;
+		return VALUE_ERR_CORE_VERB;
 	}
 	else if ( !PyUnicode_Check(analyzer) ){
 		PyErr_SetString(PyExc_ValueError, "analyzer verbosity must be entered in string format");
-		return 0;
+		return VALUE_ERR_AN_VERB;
 	}
 
 	core = getGlobalVerb(global);
 	an = getAnalyzerVerb(analyzer);
-	if ( core != NULL && an != NULL){
+	if ( core > -1 && an > -1){
 		ban->SetGlobalVerbosity(core, an);
-		return 1;
+		return EXIT_SUCCESS;
 	}
 	else{
-		return 0;
+		return NULL_VERBOSITY;
 	}
 }
 
 static NA62Analysis::Verbosity::CoreVerbosityLevel getGlobalVerb(PyObject *coreStr){
 	string input = PyUnicode_AsUTF8(coreStr);
 
-        PySys_WriteStdout("Core verbosity output: ");
-        char *inp = new char[input.length()+1];
-	strcpy(inp, input.c_str());
-	PySys_WriteStdout(inp);
-	delete inp;
+        cout << "Core verbosity output: " << input << endl;
 
 	if ( input == "always"){return NA62Analysis::Verbosity::CoreVerbosityLevel::kAlways;}
 	else if ( input == "normal" ) {return NA62Analysis::Verbosity::CoreVerbosityLevel::kNormal;}
@@ -435,9 +457,8 @@ static NA62Analysis::Verbosity::CoreVerbosityLevel getGlobalVerb(PyObject *coreS
         else if (input == "trace"){return NA62Analysis::Verbosity::CoreVerbosityLevel::kTrace ;}
         else if (input == "cDisable"){return NA62Analysis::Verbosity::CoreVerbosityLevel::kCDisable ;}
 	else{
-		PySys_WriteStdout("\n\nWARNING: your coreVerbosity level is not a valid choice. defaulting to normal verbosity. \n	options are: always, normal, extended, debug, trace, cDisable. \n");
-		//PyErr_SetString(PyExc_ValueError, "your coreVerbosity is not a valid input. choices are: always, normal, extended, debug, trace, cDisable.");
-		return NA62Analysis::Verbosity::CoreVerbosityLevel::kNormal; //TODO: figure out how to throw an error value here
+		cout << "WARNING: your coreVerbosity level is not a valid choice.\n	options are: always, normal, extended, debug, trace, cDisable."<< endl;
+		return NA62Analysis::Verbosity::CoreVerbosityLevel::kNormal;
 	}
 }
 
@@ -445,20 +466,15 @@ static NA62Analysis::Verbosity::AnalyzerVerbosityLevel getAnalyzerVerb(PyObject 
 
 	string input = PyUnicode_AsUTF8(anStr);
 	
-	PySys_WriteStdout("Analyzer verbosity output: ");
-	char *inp = new char[input.length()+1];
-        strcpy(inp, input.c_str());
-        PySys_WriteStdout(inp);
-        delete inp;
-	
+	cout << "Analyzer verbosity output: " << input << endl;;
+
 	if (input == "always"){return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUserAlways;}
 	else if (input == "normal") {return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUserNormal ;}
         else if (input == "user") {return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUser ;}
         else if (input == "uDisable") {return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUDisable ;}
 	else{
-		PySys_WriteStdout("\n\nWARNING: your anVerbosity level is not a valid choice. defaulting to normal verbosity. \n   	options are: always, normal, extended, debug, trace, cDisable. \n");
-		//PyErr_SetString(PyExc_ValueError, "your anVerbosity is not a valid input. choices are: always, normal, user, uDisable.");
-                return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUserNormal; //TODO: figure out how to throw an error value here
+		cout << "WARNING: your anVerbosity level is not a valid choice.\n   	options are: always, normal, user, uDisable." << endl;
+                return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUserNormal;
 	}
 	
 }
@@ -473,7 +489,6 @@ static string getFileString(PyObject *files){
                         return NULL;
                 }
                 inp_file += PyUnicode_AsUTF8(file);
-        	PySys_WriteStdout(inp_file.c_str());
 	}
 
 	return inp_file;

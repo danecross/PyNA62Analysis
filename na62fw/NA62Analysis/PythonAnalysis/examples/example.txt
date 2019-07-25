@@ -1,2 +1,1 @@
-this is an exampe input file
-
+/eos/experiment/na62/data/offline/data/2018A/v1.1.2/filter/na62_2018.008525.CTRL_p.v1.1.2-01_f.v1.1.2-01/na62_2018.008525.v1.1.2-01_f.v1.1.2-01.008525-0011-0020_CTRL.root.1

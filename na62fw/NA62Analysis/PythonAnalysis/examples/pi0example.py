@@ -29,8 +29,9 @@ def configure():
 
 	ban = BaseAnalysis() #initialize base analysis object
 
-#	input_files = ["/afs/cern.ch/user/d/dacross/SummerProject/na62fw/NA62Analysis/PythonAnalysis/examples/example.txt"] # write the path to the desired input files here
-#	setattr(ban, "input_files", input_files)
+	# write the path to files which contain paths to your input files. 
+	input_files = ["/afs/cern.ch/user/d/dacross/SummerProject/na62fw/NA62Analysis/PythonAnalysis/examples/example.txt"] 
+	setattr(ban, "input_files", input_files)
 
 	log_file = ""
 #	outputFile = "examplePi0"
@@ -47,8 +48,9 @@ def configure():
 #	parameters = "f"
 	#setattr...
 	
-	coreVerbosity = "extended" ; anVerbosity = "always"
-#	setattr(ban, "coreVerbosity", coreVerbosity)
+	coreVerbosity = "always" ; anVerbosity = "always"
+	setattr(ban, "coreVerbosity", coreVerbosity)
+	setattr(ban, "anVerbosity", anVerbosity)
 
 	# set boolean flags 
 	# booleans you can set: 
