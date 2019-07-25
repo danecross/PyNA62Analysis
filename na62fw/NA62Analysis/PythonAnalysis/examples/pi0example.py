@@ -19,20 +19,22 @@
 
 #import statements
 import PyNA62Analysis.UserMethods as um
-import PyNA62Analysis.PyBaseAnalysis as BaseAnalysis
+from PyNA62Analysis.PyBaseAnalysis import PyBaseAnalysis as BaseAnalysis
+from PyNA62Analysis.PyAnalyzer import PyAnalysis as Analyzer
 #import ROOT
 
 # configuration
 # this forgoes the need for a config file
 def configure():
 
-	ban = BaseAnalysis.PyBaseAnalysis() #initialize base analysis object
+	ban = BaseAnalysis() #initialize base analysis object
 
-	input_files = ["example.txt"] # write the path to the desired input files here
-	setattr(ban, "input_files", input_files)
+#	input_files = ["/afs/cern.ch/user/d/dacross/SummerProject/na62fw/NA62Analysis/PythonAnalysis/examples/example.txt"] # write the path to the desired input files here
+#	setattr(ban, "input_files", input_files)
 
 	log_file = ""
-	outputFile = ""
+#	outputFile = "examplePi0"
+	#setattr(ban, "outputFile", outputFile)
 	primitiveFile = ""
 	
 	extraLibs = []
@@ -42,11 +44,11 @@ def configure():
 	extraincludedirs = []
 	#setattr...
 	
-	parameters = "f"
+#	parameters = "f"
 	#setattr...
 	
-	coreVerbosity = "" ; anVerbosity = ""
-	#setattr...
+	coreVerbosity = "extended" ; anVerbosity = "always"
+#	setattr(ban, "coreVerbosity", coreVerbosity)
 
 	# set boolean flags 
 	# booleans you can set: 
@@ -56,28 +58,18 @@ def configure():
 	# default value is False 
 	# set these values with setattr, like above. For example:
 	
-	setattr(ban, "histoMode", True)
+#	setattr(ban, "histoMode", True)
 	
 	# other stuff
-	
-#	burstsToIgnore = [] # string list of bursts to ignore
-#	eventsToIgnore = [] # string list of events to ignore
-
-	print("\n\nattributes in python set \n\n")
 
 	#create and add analyzers to base analysis object. 
-        an1 = Analyzer()
-        an2 = Analyzer()
+	an1 = Analyzer()
+	an2 = Analyzer()
 
-        ban.addAnalyzer(an1)
-        ban.addAnalyzer(an2)
-	
-	print("\nanalyzers added\n")
+#	setattr(ban, "analyzers", [an1, an2])
 
 	# mandatory call that configures our BaseAnalysis object
 	ban.configure()
-
-	print("configure done")
 
 	return ban
 
