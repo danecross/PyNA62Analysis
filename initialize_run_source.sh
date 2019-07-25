@@ -26,7 +26,7 @@ source scripts/env.sh
 #cd ~/Analysis
 #source scripts/env.sh
 
-cd ../SummerProject/
+#cd ../SummerProject/
 
-
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/afs/cern.ch/user/d/dacross/SummerProject/na62fw/NA62Analysis/lib-cc7/
 
