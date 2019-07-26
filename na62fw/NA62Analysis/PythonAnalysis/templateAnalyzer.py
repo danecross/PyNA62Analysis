@@ -18,22 +18,24 @@
 #print("\n\npython path: ", os.environ.get("PYTHONPATH"))
 
 #import statements
-import PyNA62Analysis.UserMethods as um
-import PyNA62Analysis.PyBaseAnalysis as BaseAnalysis
+from PyNA62Analysis.PyBaseAnalysis import PyBaseAnalysis as BaseAnalysis
+from PyNA62Analysis.PyAnalyzer import PyAnalysis as Analyzer
 #import ROOT
 
 # configuration
 # this forgoes the need for a config file
+# to set an attribute to the base analysis instance, you must call setattr(ban, "parameterName", value)
 def configure():
 
 	ban = BaseAnalysis.PyBaseAnalysis() #initialize base analysis object
 
-	input_files = ["example.txt"] # write the path to the desired input files here
+	input_files = [] # write the path to a file containing paths to data files
 	setattr(ban, "input_files", input_files)
 
 	log_file = ""
-	outputFile = ""
+	outputFile = "templateOutput"
 	primitiveFile = ""
+	#setattr...
 	
 	extraLibs = []
 	#setattr...
@@ -42,7 +44,7 @@ def configure():
 	extraincludedirs = []
 	#setattr...
 	
-	parameters = "f"
+	parameters = ""
 	#setattr...
 	
 	coreVerbosity = "" ; anVerbosity = ""
@@ -65,15 +67,6 @@ def configure():
 
 	print("\n\nattributes in python set \n\n")
 
-	#create and add analyzers to base analysis object. 
-        an1 = Analyzer()
-        an2 = Analyzer()
-
-        ban.addAnalyzer(an1)
-        ban.addAnalyzer(an2)
-	
-	print("\nanalyzers added\n")
-
 	# mandatory call that configures our BaseAnalysis object
 	ban.configure()
 
@@ -89,14 +82,23 @@ def configure():
 # here we initialize analyzers, request data, request histograms, add particles to 
 # MC simulator, add parameters, etc.
 # 
-def initializeAnalyzer():
-	print("initialize analyzer")	
+def initializeAnalyzer(ban):
+	#create and add analyzers to base analysis object. 
+    	an1 = Analyzer()
+       	an2 = Analyzer()
+
+      	ban.addAnalyzer(an1)
+ 	ban.addAnalyzer(an2)
+	
+	print("analyzers initialized")
+	
+	return ban
 
 # write analyzers
 # this replaces the Process method
 # 
 # here we do the bulk processing of the data and get it ready to be put into histograms
-def defineAnalyzer():
+def runAnalyzer():
 	print("define analyzer")
 
 # perform post-analysis processing
@@ -116,8 +118,7 @@ def plots():
 
 baseAn = configure()
 initializeAnalyzer()
-defineAnalyzer()
-#UserMethods.runAnalyzer() # this should be defined by us not the user
+runAnalyzer()
 plots()
 
 

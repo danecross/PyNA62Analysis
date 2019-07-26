@@ -12,10 +12,6 @@ root_path = "/cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-
 root_incl = root_path + "include/"
 root_lib = root_path + "lib/"
 
-print("\n\nuser path: ", user_path)
-print("\n\nroot path: ", root_path)
-print("\n\nlibrary path: ", os.environ.get("LD_LIBRARY_PATH"), "\n\n")
-
 dirs_incl = [ 
 		"/cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include", 
 		"/cvmfs/sft.cern.ch/lcg/releases/clhep/2.4.1.0-2c56f/x86_64-centos7-gcc7-opt/lib/CLHEP-2.4.1.0/../../include -isystem ", 
@@ -114,10 +110,6 @@ for d in lib_dirs:
 	os.environ["PYTHONPATH"] += ":"
 	os.environ["PYTHONPATH"] += d
 
-print("\n\n HERE: ", os.environ.get("PYTHONPATH"))
-
-print("\n\nLIBPATH: ", os.environ.get("LIBRARY_PATH"))
-
 libs = ['stdc++', 
 	# NA62Analysis
 	'AnalysisFW', 'Algorithms', 'Comparator', 'ToolsLibObjects', 'ToolsLib', 'TRecoLKrCandidateMC',  
@@ -145,12 +137,6 @@ extra_objs = [user_path + '/NA62Analysis/build-cc7/CMakeFiles/AnalysisFW-static.
 
 ext_compile_args = [ '-std=c++17']
 
-UM_module = Extension('PyNA62Analysis.UserMethods', sources=['PyNA62Analysis/UserMethodsModule.cpp'], language='C++', 
-			include_dirs=dirs_incl,
-			extra_link_args=link_args,  
-			extra_compile_args=ext_compile_args,
-			libraries=libs,)
-
 PyBaseAnalysis_Struct = Extension('PyNA62Analysis.PyBaseAnalysis', ['PyNA62Analysis/PyBaseAnalysisModule.cpp'], language='C++', 
 				include_dirs=dirs_incl,
                                 extra_link_args=link_args,
@@ -159,14 +145,14 @@ PyBaseAnalysis_Struct = Extension('PyNA62Analysis.PyBaseAnalysis', ['PyNA62Analy
 
 PyAnalyzer = Extension('PyNA62Analysis/PyAnalyzer', ['PyNA62Analysis/PyAnalyzer.cpp'], language='C++', 
 				include_dirs=dirs_incl,
-                                extra_link_args=link_args,
+                                extra_link_args=link_args, 
                                 extra_compile_args=ext_compile_args,
                                 libraries=libs,)
 
 setup(name='PyNA62Analysis',
       version='1.0',
       packages = ['PyNA62Analysis'],
-      ext_modules=[UM_module, PyBaseAnalysis_Struct, PyAnalyzer],
+      ext_modules=[PyBaseAnalysis_Struct, PyAnalyzer],
       ) 
 
 

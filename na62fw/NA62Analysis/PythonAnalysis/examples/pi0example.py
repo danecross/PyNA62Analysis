@@ -13,9 +13,6 @@
 # 	6. plot products
 
 #import os
-#print("\n\nlibrary path: ", os.environ.get("LD_LIBRARY_PATH"))
-#print("\n\npython home: ", os.environ.get("PYTHONHOME"))
-#print("\n\npython path: ", os.environ.get("PYTHONPATH"))
 
 #import statements
 import PyNA62Analysis.UserMethods as um
@@ -45,7 +42,7 @@ def configure():
 	extraincludedirs = []
 	#setattr...
 	
-#	parameters = "f"
+	parameters = ""
 	#setattr...
 	
 	coreVerbosity = "always" ; anVerbosity = "always"
@@ -67,8 +64,9 @@ def configure():
 	#create and add analyzers to base analysis object. 
 	an1 = Analyzer()
 	an2 = Analyzer()
-
-#	setattr(ban, "analyzers", [an1, an2])
+	
+	ban.addAnalyzer(an1);
+	ban.addAnalyzer(an2);
 
 	# mandatory call that configures our BaseAnalysis object
 	ban.configure()

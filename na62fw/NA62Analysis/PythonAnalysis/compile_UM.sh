@@ -12,5 +12,4 @@ export PYTHONPATH="/afs/cern.ch/user/d/dacross/SummerProject/na62fw/NA62Analysis
 
 python3 setup.py install --user  
 
-
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
