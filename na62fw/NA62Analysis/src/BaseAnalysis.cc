@@ -143,10 +143,9 @@ void BaseAnalysis::Init(TString outFileName, TString params, TString configFile,
 	//##############################
 	std::cout << extended() << "Starting time based memory usage thread... " << std::endl;
 	StartMemoryMonitor();
-
+	Configuration::ConfigAnalyzer confParser;
 	std::cout << extended() << "Parsing parameters" << std::endl;
 	//Parse parameters from file
-	Configuration::ConfigAnalyzer confParser;
 	confParser.ParseFile(configFile);
 	//Parse parameters from commandLine
 	confParser.ParseCLI(params);
@@ -269,23 +268,24 @@ void BaseAnalysis::Init(TString outFileName, TString params, TString configFile,
 	//
 	if(fForcePreAnalyzers || !fFiltering)
 		fFirstAnalyzer = 0;
-	for (unsigned int i = fFirstAnalyzer; i < fAnalyzerList.size(); i++) {
-		for(auto itOutputHandler : fOStream) {
-			itOutputHandler.second.fOutputHandler->MkOutputDir(fAnalyzerList[i]->GetAnalyzerName());
+	if (!fIsPythonFile){
+		for (unsigned int i = fFirstAnalyzer; i < fAnalyzerList.size(); i++) {
+			for(auto itOutputHandler : fOStream) {
+				itOutputHandler.second.fOutputHandler->MkOutputDir(fAnalyzerList[i]->GetAnalyzerName());
+			}
+			GetOHandler(fDefaultOStream)->SetOutputFileAsCurrent(fAnalyzerList[i]->GetAnalyzerName());
+	
+			confParser.ApplyParams(fAnalyzerList[i]);
+	
+			fAnalyzerList[i]->InitOutput();
+			fAnalyzerList[i]->InitHist();
+			fAnalyzerList[i]->PrepareTrees();
+	
+			fAnalyzerList[i]->DefineMCSimple();
+			fAnalyzerList[i]->PrintInitSummary();
+			GetOHandler(fDefaultOStream)->SetOutputFileAsCurrent();
 		}
-		GetOHandler(fDefaultOStream)->SetOutputFileAsCurrent(fAnalyzerList[i]->GetAnalyzerName());
-
-		confParser.ApplyParams(fAnalyzerList[i]);
-
-		fAnalyzerList[i]->InitOutput();
-		fAnalyzerList[i]->InitHist();
-		fAnalyzerList[i]->PrepareTrees();
-
-		fAnalyzerList[i]->DefineMCSimple();
-		fAnalyzerList[i]->PrintInitSummary();
-		GetOHandler(fDefaultOStream)->SetOutputFileAsCurrent();
 	}
-
 	PrintInitSummary();
 
 	if(IsTreeType()){
@@ -1381,6 +1381,10 @@ void BaseAnalysis::DoEndOfBurstActions() {
 		GetOHandler(fDefaultOStream)->SetOutputFileAsCurrent(analyzer->GetAnalyzerName());
 		analyzer->EndOfBurst();
 	}
+}
+
+void BaseAnalysis::SetIsPython(bool isPython){
+	fIsPythonFile = isPython;
 }
 
 } /* namespace Core */

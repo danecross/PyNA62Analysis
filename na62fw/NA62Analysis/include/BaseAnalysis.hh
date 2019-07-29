@@ -148,6 +148,8 @@ public:
 
 	bool AnalyzerRanOnEvent(TString thisAnName, TString anName);
 
+	void SetIsPython(bool);
+
 private:
 	BaseAnalysis(const BaseAnalysis&); ///< Prevents copy construction
 	BaseAnalysis& operator=(const BaseAnalysis&); ///< Prevents copy assignment
@@ -212,6 +214,8 @@ protected:
 	bool fForcePreAnalyzers; ///< Do we force the pre-analyzers to run?
 	bool fSpecialOnly;
 	int fFirstAnalyzer; ///< First analyzer to run. 0 if all will run, including pre-analyzers, else will be the number of pre-analyzers.
+
+	bool fIsPythonFile = false; // < indicates if this is being run by a python script or C++ script. 
 
 	TString fDefaultOStream; ///< ID of the default output stream (first stream created)
 
