@@ -7,7 +7,7 @@
 #
 # 	1. import statements 
 # 	2. configuration
-# 	3. initialize analyzers
+# 	3. configure analyzers
 # 	4. write and run analyzers
 # 	5. do post-analysis processing
 # 	6. plot products
@@ -40,21 +40,25 @@ def configure(currentPath):
 	extraincludedirs = []
 	#setattr...
 	
-	coreVerbosity = "extended" ; anVerbosity = "extended"
+	coreVerbosity = "extended" ; anVerbosity = "normal"
 	setattr(ban, "coreVerbosity", coreVerbosity)
 	setattr(ban, "anVerbosity", anVerbosity)
 
 	# set boolean flags 
 	# booleans you can set: 
 	# 	ban.graphicMode        ban.useDownscaling     
-	# 	ban.fastStart          ban.histoMode          ban.skipIsFatal        ban.useLogFile         
-	# 	ban.continuousReading  ban.filter             ban.specialOnly        ban.usePrimitiveFile
+	# 	ban.fastStart          ban.histoMode          ban.skipIsFatal
+	# 	ban.continuousReading  ban.filter             ban.specialOnly
 	# default value is False 
 	# set these values with setattr, like above. For example:
 	
-#	setattr(ban, "histoMode", True)
-	setattr(ban, "noCheckBadBurst", ["GigaTracker", "SAV"])
-	setattr(ban, "noCheckDetectors", True)
+	#setattr(ban, "histoMode", True)
+
+	# burst and event checking: set all to true, just use True, to set specific 
+	# trackers, use a list:
+
+	#setattr(ban, "noCheckBadBurst", ["GigaTracker", "SAV"])
+	#setattr(ban, "noCheckDetectors", True)
 		
 	# other stuff
 

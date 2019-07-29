@@ -6,34 +6,30 @@
 # 6 steps:
 #
 # 	1. import statements 
-# 	2. configuration
-# 	3. initialize analyzers
-# 	4. write and run analyzers
+# 	2. configuration for BaseAnalysis
+# 	3. configuration for Analyzers
+# 	4. operate on Analyzers
 # 	5. do post-analysis processing
 # 	6. plot products
-
-#import os
-#print("\n\nlibrary path: ", os.environ.get("LD_LIBRARY_PATH"))
-#print("\n\npython home: ", os.environ.get("PYTHONHOME"))
-#print("\n\npython path: ", os.environ.get("PYTHONPATH"))
 
 #import statements
 from PyNA62Analysis.PyBaseAnalysis import PyBaseAnalysis as BaseAnalysis
 from PyNA62Analysis.PyAnalyzer import PyAnalysis as Analyzer
 #import ROOT
 
+import os
+
 # configuration
 # this forgoes the need for a config file
 # to set an attribute to the base analysis instance, you must call setattr(ban, "parameterName", value)
 def configure():
 
-	ban = BaseAnalysis.PyBaseAnalysis() #initialize base analysis object
+	ban = BaseAnalysis() #initialize base analysis object
 
-	input_files = [] # write the path to a file containing paths to data files
+	input_files = [os.getcwd() + "/examples/example.txt"] # write the path to a file containing paths to data files
 	setattr(ban, "input_files", input_files)
 
 	log_file = ""
-	outputFile = "templateOutput"
 	primitiveFile = ""
 	#setattr...
 	
@@ -47,25 +43,34 @@ def configure():
 	parameters = ""
 	#setattr...
 	
-	coreVerbosity = "" ; anVerbosity = ""
-	#setattr...
+	coreVerbosity = "normal" ; anVerbosity = "normal"
+	setattr(ban, "coreVerbosity", coreVerbosity)
+	setattr(ban, "anVerbosity", anVerbosity)
 
 	# set boolean flags 
 	# booleans you can set: 
 	# 	ban.graphicMode        ban.useDownscaling     
-	# 	ban.fastStart          ban.histoMode          ban.skipIsFatal        ban.useLogFile         
-	# 	ban.continuousReading  ban.filter             ban.specialOnly        ban.usePrimitiveFile
-	# default value is False 
+	# 	ban.fastStart          ban.histoMode          ban.skipIsFatal
+	# 	ban.continuousReading  ban.filter             ban.specialOnly
+	# DEFAULT VALUE IS False 
 	# set these values with setattr, like above. For example:
 	
-	setattr(ban, "histoMode", True)
+	#setattr(ban, "histoMode", True)
 	
 	# other stuff
 	
-#	burstsToIgnore = [] # string list of bursts to ignore
-#	eventsToIgnore = [] # string list of events to ignore
+	# burst and event checking: set all to true, just use True, to set specific 
+        # trackers, use a list:
 
-	print("\n\nattributes in python set \n\n")
+        #setattr(ban, "noCheckBadBurst", ["GigaTracker", "SAV"])
+        #setattr(ban, "noCheckDetectors", True)
+
+	#create and add analyzers to base analysis object. 
+	an1 = Analyzer("Analyzer1")
+	an2 = Analyzer("Analyzer2")
+
+	ban.addAnalyzer(an1);
+	ban.addAnalyzer(an2);
 
 	# mandatory call that configures our BaseAnalysis object
 	ban.configure()
@@ -82,16 +87,9 @@ def configure():
 # here we initialize analyzers, request data, request histograms, add particles to 
 # MC simulator, add parameters, etc.
 # 
-def initializeAnalyzer(ban):
-	#create and add analyzers to base analysis object. 
-    	an1 = Analyzer()
-       	an2 = Analyzer()
+def configureAnalyzer(ban):
+	analyzers = ban.analyzers
 
-      	ban.addAnalyzer(an1)
- 	ban.addAnalyzer(an2)
-	
-	print("analyzers initialized")
-	
 	return ban
 
 # write analyzers
@@ -117,7 +115,7 @@ def plots():
 
 
 baseAn = configure()
-initializeAnalyzer()
+configureAnalyzer(baseAn)
 runAnalyzer()
 plots()
 
