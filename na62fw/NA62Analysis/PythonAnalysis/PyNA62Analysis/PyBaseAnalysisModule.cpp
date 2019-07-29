@@ -14,7 +14,8 @@
 #include <Python.h>
 #define PY_SSIZE_T_CLEAN
 #include "UserMethods.hh"
-#include<iostream>
+#include <iostream>
+#include <fstream>
 #include <structmember.h>
 #include <TApplication.h>
 #include "BaseAnalysis.hh"
@@ -46,9 +47,17 @@ static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *self, PyObject *args){
 
 }
 
+/*
+ * from main.cc file that still needs to be done: 
+ * 	- fExternalCDBDirectoryPath in main() 
+ *	- fConditionsServiceExitLevel in main()
+ *	- continuous reading
+ *	- graphic mode
+ *
+ * */
 static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 
-	cout << "\nPBAN_configure called...reading in configuration information." << endl;
+	cout << extended() << "\nPBAN_configure called...reading in configuration information." << endl;
 
 	int verbSet = setGlobalVerbosity(self->ban, self->coreVerbosity, self->anVerbosity);
 	if (verbSet == VALUE_ERR_AN_VERB){
@@ -93,67 +102,81 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 
 	if(PyObject_IsTrue(self->specialOnly)){self->ban->SetSpecialOnly(true);}
 
-	//self->ban->SetIsPython(true); //<-- TODO: alter baseanalysis class
+	self->ban->SetIsPython(true); 
 
 	if (PyBool_Check(self->noCheckDetectors) && PyObject_IsTrue(self->noCheckDetectors)){
 		self->noCheckEvents = true;
 	}
 	else if (PyList_Check(self->noCheckDetectors) && PyList_Size(self->noCheckDetectors) > 0){
-		//noCheckSystems.insert(nameOfSystem); //TODO
+		if (addPyItemsToVector(self->noCheckDetectors, self->eventsToIgnore) == PYOBJECT_NOT_STRING){
+			PyErr_SetString(PyExc_ValueError , "noCheckDetectors values must be strings");
+			return NULL;
+		}
 	}
-	
-	/*$$FORCENOBADBURSTDETECTORS$$*/ //<-- TODO
-	/*$$FORCEPARAMETERS$$*/ //<-- TODO
+	if (PyBool_Check(self->noCheckBadBurst) && PyObject_IsTrue(self->noCheckBadBurst)){
+		self->noSkipBadBurst = true;
+	}
+	else if (PyList_Check(self->noCheckBadBurst) && PyList_Size(self->noCheckBadBurst) > 0){
+		if (addPyItemsToVector(self->noCheckBadBurst, self->burstsToIgnore) == PYOBJECT_NOT_STRING){
+                        PyErr_SetString(PyExc_ValueError , "noCheckBadBurst values must be strings");
+                        return NULL;
+                }
+	}
+
+	self->parameters = generateParameters(self);
 
 	if (PyList_Size(self->inputFiles) > (Py_ssize_t)(0)){
-		cout << "Number of input files: " << PyList_Size(self->inputFiles) << endl;
+		cout << extended() << "Number of input files: " << PyList_Size(self->inputFiles) << endl;
 		string inputFileString = getFileString(self->inputFiles);
 		self->ban->AddInputFiles(inputFileString, (int)PyList_Size(self->inputFiles));
+	} else {
+		PyErr_SetString(PyExc_ValueError, "must have an input file.");
+                return NULL;
 	}
 
-	cout << "variable setting done" << endl;
+	cout << extended() << "variable setting done" << endl;
 	
-	//DEF_ANALYZER is the ClassName of the analyzer. Defined by Makefile target
-	/*$$ANALYZERSNEW$$*/ //<-- TODO
-
 	if(self->primitiveFile != NULL && PyUnicode_Check(self->primitiveFile)){
 		PyErr_SetString(PyExc_ValueError, "primitive file must be a string path to the file.");
 		return NULL;
-	}
-	else if (self->primitiveFile !=NULL && 
+	} else if (self->primitiveFile !=NULL && 
 			PyUnicode_Check(self->primitiveFile) &&
 			PyUnicode_GET_SIZE(self->primitiveFile) > 0)
 		self->ban->SetPrimitiveFile(PyUnicode_AsUTF8(self->primitiveFile));
 
-	TString *nullstr;
-	string *configFile = generateConfigFile(self->ban);
+	string configFile = generateConfigFile(self);
 
-	cout << "\ncalling Init()" << endl << endl;
+	cout << extended() << "Checking Init parameters" << endl;
+	if (!PyUnicode_Check(self->outputFile) || PyUnicode_GET_LENGTH(self->outputFile) != 0){
+		PyErr_SetString(PyExc_ValueError, "must set an output file.");
+		return NULL;
+	} else if (!PyUnicode_Check(self->parameters)){
+		self->parameters = PyUnicode_FromString("");
+	}
 
-//	self->ban->Init(*PyUnicode_AsUTF8(self->outputFile),
-//                  	*PyUnicode_AsUTF8(self->parameters),
-//                  	*configFile,
-//                  	*nullstr, //TODO: figure out reference file
-//                  	true); //TODO: figure out ignoreNonExistingTrees
+	cout << extended() << "calling Init()" << endl << endl;
+
+	self->ban->Init(*PyUnicode_AsUTF8(self->outputFile),
+                  	*PyUnicode_AsUTF8(self->parameters),
+                  	configFile,
+                  	"dummyRefName", //TODO: figure out reference file
+                  	true); //TODO: figure out ignoreNonExistingTrees
 	int retCode = EXIT_SUCCESS;
-//	if(self->continuousReading && PyList_Size(self->inputFiles) == (Py_ssize_t)(0)){
-//		cout << "WARNING: there are no input files to read continuously. " << endl;
-//	}
-//	else if (self->continuousReading){self->ban->StartContinuous(inputFileString);}
-//	else{
-//		retCode = Process(self->startEvent, (int)(PyLong_AsLong(self->NEvents)), (int)(PyLong_AsLong(self->NBursts))); 
-//	}
 
-//	if(self->graphicMode){self->theApp->Run();}
-
-	/*$$ANALYZERSDELETE$$*/ //<-- TODO
-
-	cout << "BaseAnalysis is configured. " << endl;
+	cout << extended() << "BaseAnalysis is configured. " << endl;
 
 	return PyBool_FromLong(retCode);
 
 }
 
+//TODO: make this work for parameters in general
+static PyObject * generateParameters(PyBaseAnalysis *self){
+	
+	
+	
+	return PyUnicode_FromString("Qi0Reconstruction:HistoMode=true");
+	
+}
 
 static int setGlobalVerbosity(NA62Analysis::Core::BaseAnalysis *ban, PyObject *global, PyObject *analyzer){
 	
@@ -183,7 +206,7 @@ static int setGlobalVerbosity(NA62Analysis::Core::BaseAnalysis *ban, PyObject *g
 static NA62Analysis::Verbosity::CoreVerbosityLevel getGlobalVerb(PyObject *coreStr){
 	string input = PyUnicode_AsUTF8(coreStr);
 
-        cout << "Core verbosity output: " << input << endl;
+        cout << extended() << "Core verbosity output: " << input << endl;
 
 	if ( input == "always"){return NA62Analysis::Verbosity::CoreVerbosityLevel::kAlways;}
 	else if ( input == "normal" ) {return NA62Analysis::Verbosity::CoreVerbosityLevel::kNormal;}
@@ -192,7 +215,7 @@ static NA62Analysis::Verbosity::CoreVerbosityLevel getGlobalVerb(PyObject *coreS
         else if (input == "trace"){return NA62Analysis::Verbosity::CoreVerbosityLevel::kTrace ;}
         else if (input == "cDisable"){return NA62Analysis::Verbosity::CoreVerbosityLevel::kCDisable ;}
 	else{
-		cout << "WARNING: your coreVerbosity level is not a valid choice.\n	options are: always, normal, extended, debug, trace, cDisable."<< endl;
+		cout << extended() << "WARNING: your coreVerbosity level is not a valid choice.\n	options are: always, normal, extended, debug, trace, cDisable."<< endl;
 		return NA62Analysis::Verbosity::CoreVerbosityLevel::kNormal;
 	}
 }
@@ -201,14 +224,14 @@ static NA62Analysis::Verbosity::AnalyzerVerbosityLevel getAnalyzerVerb(PyObject 
 
 	string input = PyUnicode_AsUTF8(anStr);
 	
-	cout << "Analyzer verbosity output: " << input << endl;;
+	cout << extended() << "Analyzer verbosity output: " << input << endl;;
 
 	if (input == "always"){return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUserAlways;}
 	else if (input == "normal") {return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUserNormal ;}
         else if (input == "user") {return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUser ;}
         else if (input == "uDisable") {return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUDisable ;}
 	else{
-		cout << "WARNING: your anVerbosity level is not a valid choice.\n   	options are: always, normal, user, uDisable." << endl;
+		cout << extended() << "WARNING: your anVerbosity level is not a valid choice.\n   	options are: always, normal, user, uDisable." << endl;
                 return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUserNormal;
 	}
 	
@@ -230,11 +253,52 @@ static string getFileString(PyObject *files){
 
 }
 
-//TODO: write this
-static string * generateConfigFile(NA62Analysis::Core::BaseAnalysis *ban){
-	string fileName = "hello world";
+static int addPyItemsToVector(PyObject *list, vector<string> *vec){
 
-	return &fileName;
+	PyObject *item;
+
+	for ( Py_ssize_t i = 0 ; i < PyList_Size(list) ; ++i){
+		item = PyList_GetItem(list, i);
+		if (!PyUnicode_Check(item)){
+			return PYOBJECT_NOT_STRING;
+		}
+		vec->push_back(PyUnicode_AsUTF8(item));
+	}
+
+	return EXIT_SUCCESS;
+	
+}
+
+//TODO: write this
+static string  generateConfigFile(PyBaseAnalysis *self){
+
+	ofstream config ("config");
+
+	config << "analyzers =";
+	if (!PyList_Check(self->analyzers) || PyList_Size(self->analyzers) == 0){
+		PyErr_SetString(PyExc_ValueError, "analyzers must be a non-empty list of analyzer names");
+		return NULL;
+	} 
+	for ( Py_ssize_t i = 0 ; i < PyList_Size(self->analyzers) ; ++i){
+		PyObject *item = PyList_GetItem(self->analyzers, i);
+		PyObject *name = ((PyAnalyzer *)item)->name;
+		
+		if (!PyUnicode_Check(name) || name == NULL){
+			PyErr_SetString(PyExc_ValueError, "analyzer name must be a string");
+			return NULL;
+		}
+		
+		config << " " << (string)(PyUnicode_AsUTF8(name)); 
+	}
+	config << endl;
+
+	config << "exec = dummyExec" << endl;
+	
+	config.close();
+	
+	string configFile = (string)(PyUnicode_AsUTF8(self->currentPath)) + "/config";
+
+	return configFile;
 
 }
 
@@ -242,6 +306,7 @@ static string * generateConfigFile(NA62Analysis::Core::BaseAnalysis *ban){
 static void PyBaseAnalysis_dealloc(PyBaseAnalysis *self){
 
         Py_XDECREF(self->inputFiles);
+	Py_XDECREF(self->currentPath);
 
         Py_XDECREF(self->extraLibs);
         Py_XDECREF(self->extraLibsDirs);
@@ -292,6 +357,12 @@ static PyObject * PyBaseAnalysis_new(PyTypeObject *type, PyObject *args, PyObjec
                         Py_DECREF(self);
                         return NULL;
                 }
+		self->currentPath = PyUnicode_FromString("");
+		if (self->currentPath == NULL){
+			Py_DECREF(self);
+			return NULL;
+		}
+		
                 self->extraLibs = PyList_New(0);
                 if(self->extraLibs == NULL){
                         Py_DECREF(self);
@@ -384,18 +455,6 @@ static PyObject * PyBaseAnalysis_new(PyTypeObject *type, PyObject *args, PyObjec
                         return NULL;
                 }
 
-                self->burstsToIgnore = PyList_New(0);
-                if (self->burstsToIgnore == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-                self->eventsToIgnore = PyList_New(0);
-                if (self->eventsToIgnore == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-
-
                 self->startEvent = PyLong_FromLong(0);
                 if (self->startEvent == NULL){
                         Py_DECREF(self);
@@ -423,9 +482,17 @@ static PyObject * PyBaseAnalysis_new(PyTypeObject *type, PyObject *args, PyObjec
                         Py_DECREF(self);
                         return NULL;
                 }
+		self->noCheckBadBurst = PyBool_FromLong(0);
+		if (self->noCheckBadBurst == NULL){
+			Py_DECREF(self);
+			return NULL;
+		}
 
                 self->noSkipBadBurst = false;
                 self->noCheckEvents = false;
+
+		self->eventsToIgnore = new vector<string>();
+		self->burstsToIgnore = new vector<string>();
         }
 
         self->ban = new NA62Analysis::Core::BaseAnalysis();

@@ -13,6 +13,7 @@
 #define VALUE_ERR_AN_VERB -2
 #define VALUE_ERR_CORE_VERB -3
 #define NULL_VERBOSITY -4
+#define PYOBJECT_NOT_STRING -5
 
 using namespace std;
 
@@ -21,6 +22,7 @@ using namespace std;
 typedef struct{
 
         PyObject_HEAD
+	PyObject *currentPath;
         PyObject *inputFiles;
 
         PyObject *extraLibs;
@@ -44,8 +46,8 @@ typedef struct{
         PyObject *filter;
         PyObject *specialOnly;
 
-        PyObject *burstsToIgnore;
-        PyObject *eventsToIgnore;
+//        PyObject *burstsToIgnore;
+//PyObject *eventsToIgnore;
 
         PyObject *startEvent;
         PyObject *NEvents;
@@ -54,12 +56,16 @@ typedef struct{
         PyObject *analyzers;
 
         PyObject *noCheckDetectors;
+	PyObject *noCheckBadBurst;
 
         NA62Analysis::Core::BaseAnalysis *ban = 0;      // maintain reference to C++ base analysis object after configuration
 //      TApplication *theApp = 0;                       // maintain reference to App for visual implementations
 
         bool noSkipBadBurst;
         bool noCheckEvents;
+
+	vector<string> *burstsToIgnore;
+	vector<string> *eventsToIgnore;
 
 } PyBaseAnalysis;
 
@@ -72,16 +78,20 @@ static void PyBaseAnalysis_dealloc(PyBaseAnalysis *);
 static PyObject * PyBaseAnalysis_new(PyTypeObject *, PyObject *, PyObject *);
 
 //METHODS USED BY ABOVE METHODS
+static PyObject * generateParameters(PyBaseAnalysis *);
 static string getFileString(PyObject *);
+static int addPyItemsToVector(PyObject *, vector<string> *);
 static int setGlobalVerbosity(NA62Analysis::Core::BaseAnalysis *, PyObject *, PyObject *);
-static string * generateConfigFile(NA62Analysis::Core::BaseAnalysis *);
+static string generateConfigFile(PyBaseAnalysis *);
 static NA62Analysis::Verbosity::CoreVerbosityLevel getGlobalVerb(PyObject *);
 static NA62Analysis::Verbosity::AnalyzerVerbosityLevel getAnalyzerVerb(PyObject *);
 
+static string extended(){return "[PyBaseAnalysis ] ";}
 
 static PyMemberDef PyBanMembers[] = {
 
         {"input_files", T_OBJECT_EX, offsetof(PyBaseAnalysis, inputFiles), 0},
+	{"currentPath", T_OBJECT_EX, offsetof(PyBaseAnalysis, currentPath), 0},
         {"extra_libs", T_OBJECT_EX, offsetof(PyBaseAnalysis,extraLibs), 0 },
         {"extra_libs_dirs", T_OBJECT_EX, offsetof(PyBaseAnalysis, extraLibsDirs), 0},
         {"extra_include_dirs", T_OBJECT_EX, offsetof(PyBaseAnalysis, extraIncludedDirs), 0} ,
@@ -105,6 +115,7 @@ static PyMemberDef PyBanMembers[] = {
         {"NBursts", T_OBJECT_EX, offsetof(PyBaseAnalysis, NBursts), 0},
         {"analyzers", T_OBJECT_EX, offsetof(PyBaseAnalysis, analyzers), 0},
         {"noCheckDetectors", T_OBJECT_EX, offsetof(PyBaseAnalysis, noCheckDetectors), 0},
+	{"noCheckBadBurst", T_OBJECT_EX, offsetof(PyBaseAnalysis, noCheckBadBurst), 0}, 
         {NULL}
 
 };

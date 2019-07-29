@@ -58,19 +58,23 @@ static PyObject * PyAnalyzer_new(PyTypeObject *type, PyObject *args, PyObject *k
 // CUSTOM ANALYZER
 static int PyAnalyzer_init(PyAnalyzer *self, PyObject *args, PyObject *kwds){
 
-	static char *kwlist[] = {"name", NULL};
-	PyObject *name; PyObject *tmp; 
+	const char *name; PyObject *tmp; 
 
-	if (!PyArg_ParseTupleAndKeywords(args, kwds, "|s", kwlist, &name)){
+	if (!PyArg_ParseTuple(args, "s", &name)){
+		PyErr_SetString(PyExc_ValueError, "name must be a string");
                 return -1;
         }
 
 	if (name){
 		tmp = self->name;
 		Py_INCREF(name);
-		self->name = name;
+		self->name = PyUnicode_FromString(name);
 		Py_XDECREF(tmp);
 	}
+
+	cout << "creating analyzer: ";
+	cout << name << endl;
+
 	return 0;
 }
 

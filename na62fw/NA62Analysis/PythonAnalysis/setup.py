@@ -87,8 +87,6 @@ dirs_incl = [
 		user_path + "NA62Analysis/", 
 		"/usr/include/root"]
 
-print("\n\nthis is what we are accessing: ", user_path + "NA62Analysis/lib-cc7/libAnalysisFW.so\n\n")
-
 link_args=[
 		root_lib + 'libSpectrum.so', 
 		"/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-centos7-gcc7-opt/lib/libboost_program_options.so",  

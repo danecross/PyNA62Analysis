@@ -15,24 +15,22 @@
 #import os
 
 #import statements
-import PyNA62Analysis.UserMethods as um
 from PyNA62Analysis.PyBaseAnalysis import PyBaseAnalysis as BaseAnalysis
 from PyNA62Analysis.PyAnalyzer import PyAnalysis as Analyzer
 #import ROOT
 
 # configuration
 # this forgoes the need for a config file
-def configure():
+def configure(currentPath):
 
 	ban = BaseAnalysis() #initialize base analysis object
+	setattr(ban, "currentPath", currentPath) #mandatory path setting
 
 	# write the path to files which contain paths to your input files. 
-	input_files = ["/afs/cern.ch/user/d/dacross/SummerProject/na62fw/NA62Analysis/PythonAnalysis/examples/example.txt"] 
+	input_files = [currentPath + "/examples/example.txt"] 
 	setattr(ban, "input_files", input_files)
 
 	log_file = ""
-#	outputFile = "examplePi0"
-	#setattr(ban, "outputFile", outputFile)
 	primitiveFile = ""
 	
 	extraLibs = []
@@ -42,10 +40,7 @@ def configure():
 	extraincludedirs = []
 	#setattr...
 	
-	parameters = ""
-	#setattr...
-	
-	coreVerbosity = "always" ; anVerbosity = "always"
+	coreVerbosity = "extended" ; anVerbosity = "extended"
 	setattr(ban, "coreVerbosity", coreVerbosity)
 	setattr(ban, "anVerbosity", anVerbosity)
 
@@ -58,12 +53,14 @@ def configure():
 	# set these values with setattr, like above. For example:
 	
 #	setattr(ban, "histoMode", True)
-	
+	setattr(ban, "noCheckBadBurst", ["GigaTracker", "SAV"])
+	setattr(ban, "noCheckDetectors", True)
+		
 	# other stuff
 
 	#create and add analyzers to base analysis object. 
-	an1 = Analyzer()
-	an2 = Analyzer()
+	an1 = Analyzer("Pi0Reconstruction")
+	an2 = Analyzer("VertexCDA")
 	
 	ban.addAnalyzer(an1);
 	ban.addAnalyzer(an2);
@@ -106,7 +103,11 @@ def plots():
 	print("plots")
 
 
-baseAn = configure()
+import os
+path = os.getcwd()
+
+
+baseAn = configure(path)
 initializeAnalyzer()
 defineAnalyzer()
 #UserMethods.runAnalyzer() # this should be defined by us not the user

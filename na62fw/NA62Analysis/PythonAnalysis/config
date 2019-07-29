@@ -1,0 +1,2 @@
+analyzers = Qi0Reconstruction WertexCDA
+exec = dummyExec
