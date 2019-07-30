@@ -28,7 +28,8 @@ using namespace std;
 
 static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *self, PyObject *args){
 
-	PyObject *newAnalyzer;
+	PyObject *newAnalyzer; PyAnalyzer *newAn; NA62Analysis::Analyzer* an;
+	string name; 
 
 	if (!PyArg_ParseTuple(args, "O", &newAnalyzer)){
 		return NULL;
@@ -41,7 +42,23 @@ static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *self, PyObject *args){
 		PyErr_SetString(PyExc_ValueError, "argument to addAnalyzer must be an analyzer.");
 	}
 
-	((PyAnalyzer *)newAnalyzer)->um = new UserMethods(self->ban);
+	newAn = ((PyAnalyzer *)newAnalyzer);
+	an = (NA62Analysis::Analyzer*)newAn;
+
+	if (!(newAn->name)){
+		std::stringstream n;
+		n << "analyzer" << self->numAnalyzers;
+		newAn->name = PyUnicode_FromString(n.str().c_str());
+	}
+
+	name = PyUnicode_AsUTF8(newAn->name);
+
+	cout << extended() << "adding analyzer: " << (string)(PyUnicode_AsUTF8(newAn->name)) << endl;
+
+	newAn->um = new UserMethods(self->ban, name);
+	self->ban->AddAnalyzer((NA62Analysis::Analyzer*)(((PyAnalyzer *)newAnalyzer)->um));
+
+	++(self->numAnalyzers);
 
 	return PyLong_FromLong(PyList_Append(self->analyzers, newAnalyzer));
 
@@ -57,7 +74,7 @@ static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *self, PyObject *args){
  * */
 static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 
-	cout << extended() << "\nPBAN_configure called...reading in configuration information." << endl;
+	cout << extended() << "configure called...reading in configuration information." << endl;
 
 	int verbSet = setGlobalVerbosity(self->ban, self->coreVerbosity, self->anVerbosity);
 	if (verbSet == VALUE_ERR_AN_VERB){
@@ -129,10 +146,7 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 		cout << extended() << "Number of input files: " << PyList_Size(self->inputFiles) << endl;
 		string inputFileString = getFileString(self->inputFiles);
 		self->ban->AddInputFiles(inputFileString, (int)PyList_Size(self->inputFiles));
-	} else {
-		PyErr_SetString(PyExc_ValueError, "must have an input file.");
-                return NULL;
-	}
+	} 
 
 	cout << extended() << "variable setting done" << endl;
 	
@@ -160,7 +174,7 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
                   	*PyUnicode_AsUTF8(self->parameters),
                   	configFile,
                   	"dummyRefName", //TODO: figure out reference file
-                  	true); //TODO: figure out ignoreNonExistingTrees
+                  	false); //TODO: figure out ignoreNonExistingTrees
 	int retCode = EXIT_SUCCESS;
 
 	cout << extended() << "BaseAnalysis is configured. " << endl;
@@ -493,6 +507,8 @@ static PyObject * PyBaseAnalysis_new(PyTypeObject *type, PyObject *args, PyObjec
 
 		self->eventsToIgnore = new vector<string>();
 		self->burstsToIgnore = new vector<string>();
+
+		self->numAnalyzers = 0;
         }
 
         self->ban = new NA62Analysis::Core::BaseAnalysis();

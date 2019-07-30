@@ -9,11 +9,10 @@
 #ifndef PY_NA62ANALYSIS
 #define PY_NA62ANALYSIS
 
-
-#include <Python.h>
-#include <structmember.h>
+//#include <structmember.h>
 #include "UserMethods.hh"
 
+using namespace std;
 using namespace NA62Analysis;
 using namespace Core;
 
@@ -25,6 +24,9 @@ typedef struct {
 
         UserMethods *um;
 
+	MCSimple fMCSimple;
+	HistoHandler fHisto;
+	
 } PyAnalyzer ;
 
 
@@ -32,6 +34,14 @@ static void PyAnalyzer_dealloc(PyAnalyzer *);
 static PyObject * PyAnalyzer_new(PyTypeObject *, PyObject *, PyObject *);
 static int PyAnalyzer_init(PyAnalyzer *, PyObject *, PyObject *);
 
+// METHOD DEFINITONS FOR PYTHON USER
+static PyObject * PAN_MC_addParticle(PyAnalyzer *, PyObject *);
+static PyObject * PAN_MC_status(PyAnalyzer *, PyObject *);
+static PyObject * PAN_MC_getEvent(PyAnalyzer *, PyObject *);
+static PyObject * PAN_getOutput(PyAnalyzer *, PyObject *);
+static PyObject * PAN_BookHisto(PyAnalyzer *, PyObject *);
+
+static string extended(){return "[PyAnalysis     ] ";}
 
 static PyMemberDef PyAnalysisMembers[] = {
 
@@ -42,7 +52,17 @@ static PyMemberDef PyAnalysisMembers[] = {
 
 static PyMethodDef PyAnalysis_methods[] = {
 
-        {NULL}
+        {"MC_addParticle", (PyCFunction) PAN_MC_addParticle, METH_VARARGS,
+		""}, 
+	{"MCstatus", (PyCFunction) PAN_MC_status, METH_NOARGS, 
+		"retreives the status of the fMCSimple instance in string format"}, 
+	{"MC_getEvent", (PyCFunction) PAN_MC_getEvent, METH_NOARGS, 
+		"retreives the nearest event"}, 
+	{"getOutput", (PyCFunction) PAN_getOutput, METH_VARARGS, 
+		""}, 
+	{"bookHisto", (PyCFunction) PAN_BookHisto, METH_VARARGS, 
+		"books a histogram for output"}, 
+	{NULL}
 
 };
 

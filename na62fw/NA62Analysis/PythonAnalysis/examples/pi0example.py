@@ -12,12 +12,13 @@
 # 	5. do post-analysis processing
 # 	6. plot products
 
-#import os
-
 #import statements
 from PyNA62Analysis.PyBaseAnalysis import PyBaseAnalysis as BaseAnalysis
 from PyNA62Analysis.PyAnalyzer import PyAnalysis as Analyzer
+from PyNA62Analysis.PyNA62Event import PyNA62Event as Event
 #import ROOT
+
+import os
 
 # configuration
 # this forgoes the need for a config file
@@ -52,7 +53,7 @@ def configure(currentPath):
 	# default value is False 
 	# set these values with setattr, like above. For example:
 	
-	#setattr(ban, "histoMode", True)
+	setattr(ban, "histoMode", True)
 
 	# burst and event checking: set all to true, just use True, to set specific 
 	# trackers, use a list:
@@ -82,40 +83,93 @@ def configure(currentPath):
 # here we initialize analyzers, request data, request histograms, add particles to 
 # MC simulator, add parameters, etc.
 # 
-def initializeAnalyzer():
-	print("initialize analyzer")	
+def initializeAnalyzers(ban):
+	
+	analyzers = ban.analyzers
+	Pi0 = analyzers[0]
+	
+	Pi0.bookHisto("TH1I", "g1Energy", "Energy of g1", 100, 0, 75000)
+	Pi0.bookHisto("TH1I", "g2Energy", "Energy of g2", 100, 0, 75000)
+	Pi0.bookHisto("TH2I", "g1Reco", "g1 Reco vs. Real", 100, 0, 75000, 100, 0, 750000)
+	# ...
+	Pi0.bookHisto("TGraph")
+
+	return ban
+
+
+def MonteCarlo(ban):
+	
+	analyzers = ban.analyzers
+
+	Pi0 = analyzers[0]
+
+	kaonID = Pi0.MC_addParticle(0, 321) 	# beam kaon
+	Pi0.MC_addParticle(kaonID, 211) 	# positive pion from beam kaon
+	pipID = Pi0.MC_addParticle(kaonID, 111)	# positive pion from initial kaon decay
+	Pi0.MC_addParticle(pipID, 22)		# positive pion from kaon decay
+	Pi0.MC_addParticle(pipID, 22)		# positive pion from kaon decay
+
+	return ban
 
 # write analyzers
 # this replaces the Process method
 # 
 # here we do the bulk processing of the data and get it ready to be put into histograms
-def defineAnalyzer():
-	print("define analyzer")
+def runAnalyzer(ban):
+	analyzers = ban.analyzers
+	Pi0 = analyzers[0]
+	VertexCDA = analyzers[1]
+	
+	LKrStartPos = 240413
+
+	#TRecoLKrEvent *LKrEvent = GetEvent<TRecoLKrEvent>()
+
+	calibMult = 0.9744
+	calibConst = -366.5
+	
+	withMC = True
+	print("MCstatus:", Pi0.MCstatus())
+	if Pi0.MCstatus()=="missing":
+		event = Pi0.MC_getEvent()
+#		for i in range(Pi0.MC_numParticles):
+			#graph MC events 
+		withMC = False
+	elif Pi0.MCstatus() == "empty": 
+		withMC = False
+
+	vertex, state = VertexCDA.getOutput("Vertex")
+	print("vertex, state:", vertex, state)
+
+	
+	
+	return ban
 
 # perform post-analysis processing
 # this replaces the PostProcess, EndOfBurstUser, and EndOfRunUser methods
 #
 # here we do any last-minute processing before we plot the data
-def postProcess():
+def postProcess(ban):
 	print("post process")
+	return ban
 
 # plot products
 # this replaces EndOfJobUser and DrawPlot()
 # 
 # here we use ROOT to plot our prepared data. 
-def plots():
+def plots(ban):
 	print("plots")
+	return ban
 
 
-import os
+
 path = os.getcwd()
 
 
 baseAn = configure(path)
-initializeAnalyzer()
-defineAnalyzer()
-#UserMethods.runAnalyzer() # this should be defined by us not the user
-plots()
+baseAn = initializeAnalyzers(baseAn)
+baseAn = MonteCarlo(baseAn)
+baseAn = runAnalyzer(baseAn)
+plots(baseAn)
 
 
 

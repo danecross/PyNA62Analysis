@@ -1,2 +1,2 @@
-analyzers = Bnalyzer1 Bnalyzer2
+analyzers = Analyzer1 Analyzer2
 exec = dummyExec

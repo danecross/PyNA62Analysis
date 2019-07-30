@@ -89,6 +89,7 @@ dirs_incl = [
 
 link_args=[
 		root_lib + 'libSpectrum.so', 
+#		root_lib + 'PyROOT.so',
 		"/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-centos7-gcc7-opt/lib/libboost_program_options.so",  
 		"/cvmfs/sft.cern.ch/lcg/releases/LCG_95/sqlite/3210000/x86_64-centos7-gcc7-opt/lib/libsqlite3.so", 
 		'-Wl,--no-undefined', '-lm'
@@ -147,10 +148,16 @@ PyAnalyzer = Extension('PyNA62Analysis/PyAnalyzer', ['PyNA62Analysis/PyAnalyzer.
                                 extra_compile_args=ext_compile_args,
                                 libraries=libs,)
 
+PyNA62Event = Extension('PyNA62Analysis.PyNA62Event', ['PyNA62Analysis/PyNA62Event.cpp'], language='C++', 
+				include_dirs=dirs_incl,
+                                extra_link_args=link_args,
+                                extra_compile_args=ext_compile_args,
+                                libraries=libs,)
+
 setup(name='PyNA62Analysis',
       version='1.0',
       packages = ['PyNA62Analysis'],
-      ext_modules=[PyBaseAnalysis_Struct, PyAnalyzer],
+      ext_modules=[PyBaseAnalysis_Struct, PyAnalyzer, PyNA62Event],
       ) 
 
 

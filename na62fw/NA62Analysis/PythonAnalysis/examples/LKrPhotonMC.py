@@ -15,7 +15,6 @@
 #import statements
 from PyNA62Analysis.PyBaseAnalysis import PyBaseAnalysis as BaseAnalysis
 from PyNA62Analysis.PyAnalyzer import PyAnalysis as Analyzer
-#import ROOT
 
 import os
 
@@ -26,8 +25,8 @@ def configure():
 
 	ban = BaseAnalysis() #initialize base analysis object
 
-	input_files = [] # write the path to a file containing paths to data files
-	#setattr(ban, "input_files", input_files)
+	input_files = [os.getcwd() + "/examples/example.txt"] # write the path to a file containing paths to data files
+	setattr(ban, "input_files", input_files)
 
 	log_file = ""
 	primitiveFile = ""

@@ -17,8 +17,6 @@
 
 using namespace std;
 
-
-
 typedef struct{
 
         PyObject_HEAD
@@ -46,9 +44,6 @@ typedef struct{
         PyObject *filter;
         PyObject *specialOnly;
 
-//        PyObject *burstsToIgnore;
-//PyObject *eventsToIgnore;
-
         PyObject *startEvent;
         PyObject *NEvents;
         PyObject *NBursts;
@@ -66,6 +61,8 @@ typedef struct{
 
 	vector<string> *burstsToIgnore;
 	vector<string> *eventsToIgnore;
+
+	int numAnalyzers;
 
 } PyBaseAnalysis;
 
