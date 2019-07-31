@@ -97,8 +97,8 @@ static PyObject * PAN_getOutput(PyAnalyzer *self, PyObject *args){
 
 static PyObject * PAN_BookHisto(PyAnalyzer *self, PyObject *args){
 	
-	const char *type, *yaxis, *title ; int one, two, three, four, five, six;
-	if (!PyArg_ParseTuple(args, "s|ssiiiiii", &type, &yaxis, &title, &one, &two, &three, &four, &five, &six)){
+	const char *type, *yaxis, *title ; float one, two, three, four, five, six;
+	if (!PyArg_ParseTuple(args, "s|ssffffff", &type, &yaxis, &title, &one, &two, &three, &four, &five, &six)){
                 PyErr_SetString(PyExc_ValueError, "bookHisto requires at least 1 string argument.");
                 return NULL;
         }
@@ -126,9 +126,11 @@ static PyObject * PAN_requestTree(PyAnalyzer *self, PyObject *args){
                 PyErr_SetString(PyExc_ValueError, "requestTree requires 2 string arguments: name and type.");
                 return NULL;
         }
-	if ((string)type == ("TRecoLKrEvent")){cout << (string)type << "..."; self->um->RequestTree("LKr", new TRecoLKrEvent);}
+	if ((string)type == ("TRecoLKrEvent")){cout << (string)name << "..."; self->um->RequestTree((string)name, new TRecoLKrEvent);}
+	else if ((string)type == ("TRecoGigaTrackerEvent")){cout << (string)name << "..."; self->um->RequestTree((string)name, new TRecoGigaTrackerEvent);}
+	else if ((string)type == ("TRecoSpectrometerEvent")){cout << (string)name << "..."; self->um->RequestTree((string)name, new TRecoSpectrometerEvent);}
 	else {
-		PyErr_SetString(PyExc_ValueError, "invalid type request. supported types are: TRecoLKrEvent");
+		PyErr_SetString(PyExc_ValueError, "invalid type request. supported types are: TRecoLKrEvent, TRecoGigaTrackerEvent, TRecoSpectrometerEvent");
 		return NULL;
 	}
 
@@ -147,8 +149,9 @@ static PyObject * PAN_registerOutput(PyAnalyzer *self, PyObject *args){
         }
 //	cout << extended() << "Registering " << (string)name << " of type " << (string)type << endl;
 	if ((string)type == ("KinePart")){KinePart obj;	self->um->RegisterOutput((string)name, &obj);}
+	else if ((string)type == ("TVector3")){TVector3 obj; self->um->RegisterOutput((string)name, &obj);}
 	else{
-		PyErr_SetString(PyExc_ValueError, "invalid type request. supported types are: KinePart");
+		PyErr_SetString(PyExc_ValueError, "invalid type request. supported types are: KinePart, TVector");
 		return NULL;
 	}
 
@@ -161,7 +164,9 @@ static void PyAnalyzer_dealloc(PyAnalyzer *self){
 
 	Py_XDECREF(self->name);
 
-	if(self->um){delete self->um;}
+	if(self->um != NULL){delete self->um;}
+//	if(self->fHisto != NULL){delete self->fHisto;}
+//	if(self->fMCSimple != NULL){delete self->fMCSimple;}
 
 	Py_TYPE(self)->tp_free((PyObject *) self);
 

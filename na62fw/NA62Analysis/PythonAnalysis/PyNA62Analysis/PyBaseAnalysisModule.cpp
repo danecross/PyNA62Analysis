@@ -53,7 +53,7 @@ static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *self, PyObject *args){
 
 	name = PyUnicode_AsUTF8(newAn->name);
 
-	cout << extended() << "adding analyzer: " << (string)(PyUnicode_AsUTF8(newAn->name)) << endl;
+	cout << BANextended() << "adding analyzer: " << (string)(PyUnicode_AsUTF8(newAn->name)) << endl;
 
 	newAn->um = new UserMethods(self->ban, name);
 	self->ban->AddAnalyzer((NA62Analysis::Analyzer*)(((PyAnalyzer *)newAnalyzer)->um));
@@ -74,7 +74,7 @@ static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *self, PyObject *args){
  * */
 static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 
-	cout << extended() << "configure called...reading in configuration information." << endl;
+	cout << BANextended() << "configure called...reading in configuration information." << endl;
 
 	int verbSet = setGlobalVerbosity(self->ban, self->coreVerbosity, self->anVerbosity);
 	if (verbSet == VALUE_ERR_AN_VERB){
@@ -143,12 +143,12 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 	self->parameters = generateParameters(self);
 
 	if (PyList_Size(self->inputFiles) > (Py_ssize_t)(0)){
-		cout << extended() << "Number of input files: " << PyList_Size(self->inputFiles) << endl;
+		cout << BANextended() << "Number of input files: " << PyList_Size(self->inputFiles) << endl;
 		string inputFileString = getFileString(self->inputFiles);
 		self->ban->AddInputFiles(inputFileString, (int)PyList_Size(self->inputFiles));
 	} 
 
-	cout << extended() << "variable setting done" << endl;
+	cout << BANextended() << "variable setting done" << endl;
 	
 	if(self->primitiveFile != NULL && PyUnicode_Check(self->primitiveFile)){
 		PyErr_SetString(PyExc_ValueError, "primitive file must be a string path to the file.");
@@ -160,7 +160,7 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 
 	string configFile = generateConfigFile(self);
 
-	cout << extended() << "Checking Init parameters" << endl;
+	cout << BANextended() << "Checking Init parameters" << endl;
 	if (!PyUnicode_Check(self->outputFile) || PyUnicode_GET_LENGTH(self->outputFile) != 0){
 		PyErr_SetString(PyExc_ValueError, "must set an output file.");
 		return NULL;
@@ -168,7 +168,7 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 		self->parameters = PyUnicode_FromString("");
 	}
 
-	cout << extended() << "calling Init()" << endl << endl;
+	cout << BANextended() << "calling Init()" << endl << endl;
 
 	self->ban->Init(*PyUnicode_AsUTF8(self->outputFile),
                   	*PyUnicode_AsUTF8(self->parameters),
@@ -177,7 +177,7 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
                   	false); //TODO: figure out ignoreNonExistingTrees
 	int retCode = EXIT_SUCCESS;
 
-	cout << extended() << "BaseAnalysis is configured. " << endl;
+	cout << BANextended() << "BaseAnalysis is configured. " << endl;
 
 	return PyBool_FromLong(retCode);
 
@@ -220,7 +220,7 @@ static int setGlobalVerbosity(NA62Analysis::Core::BaseAnalysis *ban, PyObject *g
 static NA62Analysis::Verbosity::CoreVerbosityLevel getGlobalVerb(PyObject *coreStr){
 	string input = PyUnicode_AsUTF8(coreStr);
 
-        cout << extended() << "Core verbosity output: " << input << endl;
+        cout << BANextended() << "Core verbosity output: " << input << endl;
 
 	if ( input == "always"){return NA62Analysis::Verbosity::CoreVerbosityLevel::kAlways;}
 	else if ( input == "normal" ) {return NA62Analysis::Verbosity::CoreVerbosityLevel::kNormal;}
@@ -229,7 +229,7 @@ static NA62Analysis::Verbosity::CoreVerbosityLevel getGlobalVerb(PyObject *coreS
         else if (input == "trace"){return NA62Analysis::Verbosity::CoreVerbosityLevel::kTrace ;}
         else if (input == "cDisable"){return NA62Analysis::Verbosity::CoreVerbosityLevel::kCDisable ;}
 	else{
-		cout << extended() << "WARNING: your coreVerbosity level is not a valid choice.\n	options are: always, normal, extended, debug, trace, cDisable."<< endl;
+		cout << BANextended() << "WARNING: your coreVerbosity level is not a valid choice.\n	options are: always, normal, extended, debug, trace, cDisable."<< endl;
 		return NA62Analysis::Verbosity::CoreVerbosityLevel::kNormal;
 	}
 }
@@ -238,14 +238,14 @@ static NA62Analysis::Verbosity::AnalyzerVerbosityLevel getAnalyzerVerb(PyObject 
 
 	string input = PyUnicode_AsUTF8(anStr);
 	
-	cout << extended() << "Analyzer verbosity output: " << input << endl;;
+	cout << BANextended() << "Analyzer verbosity output: " << input << endl;;
 
 	if (input == "always"){return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUserAlways;}
 	else if (input == "normal") {return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUserNormal ;}
         else if (input == "user") {return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUser ;}
         else if (input == "uDisable") {return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUDisable ;}
 	else{
-		cout << extended() << "WARNING: your anVerbosity level is not a valid choice.\n   	options are: always, normal, user, uDisable." << endl;
+		cout << BANextended() << "WARNING: your anVerbosity level is not a valid choice.\n   	options are: always, normal, user, uDisable." << endl;
                 return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUserNormal;
 	}
 	
@@ -354,9 +354,12 @@ static void PyBaseAnalysis_dealloc(PyBaseAnalysis *self){
 
         Py_XDECREF(self->noCheckDetectors);
 
-//      if (self->ban != NULL){delete self->ban;}
+	if (self->ban){delete self->ban;}
 //      if (self->theApp != NULL){delete self->theApp;}
-//
+	
+	if(self->burstsToIgnore != NULL){cout << "need to delete burstsToIgnore" << endl;}
+	if(self->eventsToIgnore != NULL){cout << "need to delete eventsToIgnore" << endl;}
+
         Py_TYPE(self)->tp_free((PyObject *) self);
 }
 

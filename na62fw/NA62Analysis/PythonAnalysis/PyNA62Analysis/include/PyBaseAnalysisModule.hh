@@ -83,7 +83,7 @@ static string generateConfigFile(PyBaseAnalysis *);
 static NA62Analysis::Verbosity::CoreVerbosityLevel getGlobalVerb(PyObject *);
 static NA62Analysis::Verbosity::AnalyzerVerbosityLevel getAnalyzerVerb(PyObject *);
 
-static string extended(){return "[PyBaseAnalysis ] ";}
+static string BANextended(){return "[PyBaseAnalysis ] ";}
 
 static PyMemberDef PyBanMembers[] = {
 

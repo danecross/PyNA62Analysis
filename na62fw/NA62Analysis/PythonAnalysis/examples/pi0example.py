@@ -83,7 +83,9 @@ def configure(currentPath):
 # here we initialize analyzers, request data, request histograms, add particles to 
 # MC simulator, add parameters, etc.
 # 
-def initializeAnalyzers(ban):
+def initializePi0Analyzer(ban):
+
+	print("PI0 RECONSTRUCTION INITIALIZATION: ")
 	
 	analyzers = ban.analyzers
 	Pi0 = analyzers[0]
@@ -119,8 +121,43 @@ def initializeAnalyzers(ban):
 
 	return ban
 
+def initializeVertexCDAAnalyzer(ban):
+	
+	print("VERTEX CDA INITIALIZATION:")
+	
+	analyzers = ban.analyzers
+	VCDA = analyzers[1]
+	
+	VCDA.requestTree("GigaTracker", "TRecoGigaTrackerEvent")
+	VCDA.requestTree("Spectrometer", "TRecoSpectrometerEvent")
+
+	VCDA.bookHisto("TH1I", "VertexX", "Reconstructed vertex X position; vtx_{x}^{reco}", 250, -250, 250)
+	VCDA.bookHisto("TH1I", "VertexY", "Reconstructed vertex Y position; vtx_{y}^{reco}", 150, -150, 150)
+	VCDA.bookHisto("TH1I", "VertexZ", "Reconstructed vertex Z position; vtx_{z}^{reco}", 100, 0, 300000)
+
+	VCDA.bookHisto("TH1I", "DiffVertexX", "X difference between reco and real vertex; vtx_{x}^{reco}-vtx_{x}", 200, -50, 50)
+	VCDA.bookHisto("TH1I", "DiffVertexY", "Y difference between reco and real vertex; vtx_{y}^{reco}-vtx_{y}", 200, -50, 50)
+	VCDA.bookHisto("TH1I", "DiffVertexZ", "Z difference between reco and real vertex; vtx_{z}^{reco}-vtx_{z}", 200, -10000, 10000)
+
+	VCDA.bookHisto("TH2I", "VertexRecoRealX", "Reconstructed vs. Real (X)", 250, -250, 250, 250, -250, 250)
+	VCDA.bookHisto("TH2I", "VertexRecoRealY", "Reconstructed vs. Real (Y)", 150, -150, 150, 150, -150, 150)
+	VCDA.bookHisto("TH2I", "VertexRecoRealZ", "Reconstructed vs. Real (Z)", 200, 0, 300000, 200, 0, 300000)
+
+	VCDA.bookHisto("TH1I", "GTKMultiplicity", "Multiplicity in GTK", 11, -0.5, 10.5)
+	VCDA.bookHisto("TH1I", "StrawMultiplicity", "Multiplicity in Straw", 11, -0.5, 10.5)
+	
+	#VCDA.bookHistoArray("TH2I", "BeamXY", "BeamXY", 100, -100, 100, 100, -100, 100, 20)
+	
+	#counters and other things
+
+	VCDA.registerOutput("Vertex", "TVector3")
+
+	return ban
+
 
 def MonteCarlo(ban):
+
+	print("MONTE CARLO INITIALIZATION: " )
 	
 	analyzers = ban.analyzers
 
@@ -138,7 +175,8 @@ def MonteCarlo(ban):
 # this replaces the Process method
 # 
 # here we do the bulk processing of the data and get it ready to be put into histograms
-def runAnalyzer(ban):
+def runPi0Reconstruction(ban):
+	print("RUNNING PI0 RECONSTRUCTION ANALYZER:")
 	analyzers = ban.analyzers
 	Pi0 = analyzers[0]
 	VertexCDA = analyzers[1]
@@ -189,9 +227,10 @@ path = os.getcwd()
 
 
 baseAn = configure(path)
-baseAn = initializeAnalyzers(baseAn)
+baseAn = initializePi0Analyzer(baseAn)
+baseAn = initializeVertexCDAAnalyzer(baseAn)
 baseAn = MonteCarlo(baseAn)
-baseAn = runAnalyzer(baseAn)
+baseAn = runPi0Reconstruction(baseAn)
 plots(baseAn)
 
 
