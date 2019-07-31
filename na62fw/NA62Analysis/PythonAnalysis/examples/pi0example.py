@@ -65,7 +65,7 @@ def configure(currentPath):
 
 	#create and add analyzers to base analysis object. 
 	an1 = Analyzer("Pi0Reconstruction")
-	an2 = Analyzer("VertexCDA")
+	an2 = Analyzer("VertexCDA")	
 	
 	ban.addAnalyzer(an1);
 	ban.addAnalyzer(an2);
@@ -87,11 +87,32 @@ def initializeAnalyzers(ban):
 	
 	analyzers = ban.analyzers
 	Pi0 = analyzers[0]
+
+	Pi0.requestTree("LKr", "TRecoLKrEvent")
 	
 	Pi0.bookHisto("TH1I", "g1Energy", "Energy of g1", 100, 0, 75000)
 	Pi0.bookHisto("TH1I", "g2Energy", "Energy of g2", 100, 0, 75000)
-	Pi0.bookHisto("TH2I", "g1Reco", "g1 Reco vs. Real", 100, 0, 75000, 100, 0, 750000)
-	# ...
+	Pi0.bookHisto("TH2I", "g1Reco", "g1 Reco vs. Real", 100, 0, 75000, 100, 0, 75000)
+	Pi0.bookHisto("TH2I", "g2Reco", "g2 Reco vs. Real", 100, 0, 75000, 100, 0, 75000)
+	Pi0.bookHisto("TH2I", "g1px", "g1 px Reco vs. Real", 200, 0, 2000, 200, 0, 2000)
+	Pi0.bookHisto("TH2I", "g2px", "g2 px Reco vs. Real", 200, 0, 2000, 200, 0, 2000)
+	Pi0.bookHisto("TH2I", "g1py", "g1 py Reco vs. Real", 200, 0, 2000, 200, 0, 2000)
+	Pi0.bookHisto("TH2I", "g2py", "g2 py Reco vs. Real", 200, 0, 2000, 200, 0, 2000)
+	Pi0.bookHisto("TH2I", "g1pz", "g1 pz Reco vs. Real", 10, 240000, 250000, 10, 240000, 250000)
+	Pi0.bookHisto("TH2I", "g2pz", "g2 pz Reco vs. Real", 10, 240000, 250000, 10, 240000, 250000)
+	Pi0.bookHisto("TH1I", "pi0Energy", "Energy of pi0", 100, 0, 75000)
+	Pi0.bookHisto("TH1I", "pi0Mass", "Reconstructed mass of pi0", 200, 0, 200)
+	Pi0.bookHisto("TH2I", "clusterPosition", "Cluster position on LKr", 500, -2000, 2000, 500, -2000, 2000)
+	Pi0.bookHisto("TH1I", "photonsNbr", "Photons multiplicity/event", 10, 0, 10)
+	Pi0.bookHisto("TH1I", "g1EnergyFraction", "Fraction between real energy and reco energy", 1000, 0, 100)
+	Pi0.bookHisto("TH1I", "g2EnergyFraction", "Fraction between real energy and reco energy", 1000, 0, 100)
+
+	Pi0.bookHisto("TH1I", "gPairSelected", "Pair of gamma selected for Pi0", 10, 0, 10)
+	Pi0.bookHisto("TH1I", "g1FirstVol", "First touched volume for g1", 15, 0, 15)
+	Pi0.bookHisto("TH1I", "g2FirstVol", "First touched volume for g2", 15, 0, 15)
+
+	Pi0.bookHisto("TH1I", "pdgID", "Non complete events : pdgID", 0, 0, 0)
+
 	Pi0.bookHisto("TGraph")
 
 	return ban

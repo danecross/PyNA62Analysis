@@ -1,2 +1,2 @@
-analyzers = Analyzer1 Analyzer2
+analyzers = Pi0Reconstruction VertexCDA
 exec = dummyExec

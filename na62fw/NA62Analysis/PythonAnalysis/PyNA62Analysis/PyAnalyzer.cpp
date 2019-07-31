@@ -20,6 +20,11 @@
 #include "include/PyAnalysis.hh"
 #include "PyNA62Event.cpp"
 
+#include "Event.hh"
+#include "MCSimple.hh"
+#include "functions.hh"
+#include "Persistency.hh"
+
 #include <iostream>
 using namespace std;
 using namespace NA62Analysis;
@@ -109,6 +114,27 @@ static PyObject * PAN_BookHisto(PyAnalyzer *self, PyObject *args){
 	cout << extended() << "Booked Histogram: " << (string)(title) << endl;
 
 	return PyBool_FromLong(EXIT_SUCCESS);	
+
+}
+
+static PyObject * PAN_requestTree(PyAnalyzer *self, PyObject *args){
+
+	cout << extended() << "requesting tree " ;
+	
+	const char *name, *type;
+	if (!PyArg_ParseTuple(args, "ss", &name, &type)){
+                PyErr_SetString(PyExc_ValueError, "requestTree requires 2 string arguments: name and type.");
+                return NULL;
+        }
+	if ((string)type == ("TRecoLKrEvent")){cout << (string)type << "..."; self->um->RequestTree("LKr", new TRecoLKrEvent);}
+	else {
+		PyErr_SetString(PyExc_ValueError, "invalid type request. supported types are: TRecoLKrEvent");
+		return NULL;
+	}
+
+	cout << "success" << endl;
+	
+	return PyBool_FromLong(EXIT_SUCCESS);
 
 }
 
