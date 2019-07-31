@@ -138,6 +138,24 @@ static PyObject * PAN_requestTree(PyAnalyzer *self, PyObject *args){
 
 }
 
+static PyObject * PAN_registerOutput(PyAnalyzer *self, PyObject *args){
+	
+	const char *name, *type;
+	if (!PyArg_ParseTuple(args, "ss", &name, &type)){
+                PyErr_SetString(PyExc_ValueError, "registerOutput requires 2 string arguments: name and type.");
+                return NULL;
+        }
+//	cout << extended() << "Registering " << (string)name << " of type " << (string)type << endl;
+	if ((string)type == ("KinePart")){KinePart obj;	self->um->RegisterOutput((string)name, &obj);}
+	else{
+		PyErr_SetString(PyExc_ValueError, "invalid type request. supported types are: KinePart");
+		return NULL;
+	}
+
+	return PyLong_FromLong(EXIT_SUCCESS);
+}
+
+
 //DEALLOC
 static void PyAnalyzer_dealloc(PyAnalyzer *self){
 

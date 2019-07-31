@@ -115,6 +115,8 @@ def initializeAnalyzers(ban):
 
 	Pi0.bookHisto("TGraph")
 
+	Pi0.registerOutput("pi0", "KinePart")
+
 	return ban
 
 

@@ -41,6 +41,7 @@ static PyObject * PAN_MC_getEvent(PyAnalyzer *, PyObject *);
 static PyObject * PAN_getOutput(PyAnalyzer *, PyObject *);
 static PyObject * PAN_BookHisto(PyAnalyzer *, PyObject *);
 static PyObject * PAN_requestTree(PyAnalyzer *, PyObject *);
+static PyObject * PAN_registerOutput(PyAnalyzer *, PyObject *);
 
 static string extended(){return "[PyAnalysis     ] ";}
 
@@ -65,6 +66,8 @@ static PyMethodDef PyAnalysis_methods[] = {
 		"books a histogram for output"}, 
 	{"requestTree", (PyCFunction) PAN_requestTree, METH_VARARGS, 
 		"requests an event tree"}, 
+	{"registerOutput", (PyCFunction) PAN_registerOutput, METH_VARARGS, 
+		""}, 
 	{NULL}
 
 };
