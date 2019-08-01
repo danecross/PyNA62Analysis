@@ -41,7 +41,7 @@ def configure(currentPath):
 	extraincludedirs = []
 	#setattr...
 	
-	coreVerbosity = "extended" ; anVerbosity = "normal"
+	coreVerbosity = "trace" ; anVerbosity = "normal"
 	setattr(ban, "coreVerbosity", coreVerbosity)
 	setattr(ban, "anVerbosity", anVerbosity)
 
@@ -53,7 +53,7 @@ def configure(currentPath):
 	# default value is False 
 	# set these values with setattr, like above. For example:
 	
-	setattr(ban, "histoMode", True)
+#	setattr(ban, "histoMode", True)
 
 	# burst and event checking: set all to true, just use True, to set specific 
 	# trackers, use a list:
@@ -155,9 +155,21 @@ def initializeVertexCDAAnalyzer(ban):
 	return ban
 
 
-def MonteCarlo(ban):
+def VCDAMonteCarlo(ban):
 
-	print("MONTE CARLO INITIALIZATION: " )
+	print("VCDA MONTE CARLO INITIALIZATION: " )
+
+	analyzers = ban.analyzers
+	VCDA = analyzers[1]
+
+	kaonID = VCDA.MC_addParticle(0, 321)
+	VCDA.MC_addParticle(kaonID, 211)
+	
+	return ban
+
+def Pi0MonteCarlo(ban):
+
+	print("Pi0 MONTE CARLO INITIALIZATION: " )
 	
 	analyzers = ban.analyzers
 
@@ -175,6 +187,26 @@ def MonteCarlo(ban):
 # this replaces the Process method
 # 
 # here we do the bulk processing of the data and get it ready to be put into histograms
+def runVertexCDA(ban):
+	print("RUNNING VERTEX CDA RECONSTRUCTION ANALYZER:")
+	analyzers = ban.analyzers
+	VCDA = analyzers[1]
+	
+	badEvent = False
+	withMC = True
+	
+	if VCDA.MCstatus() != "complete":
+		withMC = False
+
+#	GTKEvent = VCDA.getEvent("TRecoGigaTrackerEvent")
+#	SpectrometerEvent = VCDA.getEvent("TRecoSpectrometerEvent")
+
+	
+	
+	return ban
+
+
+
 def runPi0Reconstruction(ban):
 	print("RUNNING PI0 RECONSTRUCTION ANALYZER:")
 	analyzers = ban.analyzers
@@ -183,15 +215,16 @@ def runPi0Reconstruction(ban):
 	
 	LKrStartPos = 240413
 
-	#TRecoLKrEvent *LKrEvent = GetEvent<TRecoLKrEvent>()
+	LKrEvent = Pi0.getEvent("TRecoLKrEvent")
 
 	calibMult = 0.9744
 	calibConst = -366.5
-	
+
 	withMC = True
 	print("MCstatus:", Pi0.MCstatus())
 	if Pi0.MCstatus()=="missing":
 		event = Pi0.MC_getEvent()
+		print("number of MC particles is:", Pi0.MC_numParticles())
 #		for i in range(Pi0.MC_numParticles):
 			#graph MC events 
 		withMC = False
@@ -199,9 +232,6 @@ def runPi0Reconstruction(ban):
 		withMC = False
 
 	vertex, state = VertexCDA.getOutput("Vertex")
-	print("vertex, state:", vertex, state)
-
-	
 	
 	return ban
 
@@ -228,8 +258,10 @@ path = os.getcwd()
 
 baseAn = configure(path)
 baseAn = initializePi0Analyzer(baseAn)
-baseAn = initializeVertexCDAAnalyzer(baseAn)
-baseAn = MonteCarlo(baseAn)
+baseAn = initializeVertexCDAAnalyzer(baseAn)	
+baseAn = Pi0MonteCarlo(baseAn)
+baseAn = VCDAMonteCarlo(baseAn)
+baseAn = runVertexCDA(baseAn)
 baseAn = runPi0Reconstruction(baseAn)
 plots(baseAn)
 

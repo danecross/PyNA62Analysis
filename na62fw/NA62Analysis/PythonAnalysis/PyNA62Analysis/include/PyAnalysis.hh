@@ -12,6 +12,15 @@
 //#include <structmember.h>
 #include "UserMethods.hh"
 
+#include <stdlib.h>
+#include <iostream>
+#include <TChain.h>
+#include <TFile.h>
+#include "Event.hh"
+#include "MCSimple.hh"
+#include "functions.hh"
+#include "Persistency.hh"
+
 using namespace std;
 using namespace NA62Analysis;
 using namespace Core;
@@ -42,12 +51,14 @@ static PyObject * PAN_getOutput(PyAnalyzer *, PyObject *);
 static PyObject * PAN_BookHisto(PyAnalyzer *, PyObject *);
 static PyObject * PAN_requestTree(PyAnalyzer *, PyObject *);
 static PyObject * PAN_registerOutput(PyAnalyzer *, PyObject *);
+static PyObject * PAN_getEvent(PyAnalyzer *, PyObject *);
+static PyObject * PAN_MC_getNParticles(PyAnalyzer *, PyObject *);
 
 static string extended(){return "[PyAnalysis     ] ";}
 
 static PyMemberDef PyAnalysisMembers[] = {
 
-        {"name", T_OBJECT_EX, offsetof(PyAnalyzer, name), 0},
+        {(char *)"name", T_OBJECT_EX, offsetof(PyAnalyzer, name), 0},
         {NULL}
 
 };
@@ -67,58 +78,62 @@ static PyMethodDef PyAnalysis_methods[] = {
 	{"requestTree", (PyCFunction) PAN_requestTree, METH_VARARGS, 
 		"requests an event tree"}, 
 	{"registerOutput", (PyCFunction) PAN_registerOutput, METH_VARARGS, 
-		""}, 
+		""},
+	{"getEvent", (PyCFunction) PAN_getEvent, METH_VARARGS, 
+		"gets previously requested event from tree"},  
+	{"MC_numParticles", (PyCFunction) PAN_MC_getNParticles, METH_NOARGS, 
+		"returns number of MC particles"},
 	{NULL}
 
 };
 
 static PyTypeObject PyAnalysisS = {
-        PyVarObject_HEAD_INIT(NULL, 0)
+        PyVarObject_HEAD_INIT(0, 0)
         .tp_name = "PyAnalyzer",
         .tp_basicsize = sizeof(PyAnalyzer),
         .tp_itemsize = 0,
         .tp_dealloc = (destructor) PyAnalyzer_dealloc,
-        .tp_print = NULL,
-        .tp_getattr = NULL,
-        .tp_setattr = NULL,
-        .tp_as_async = NULL,
+        .tp_print = 0,
+        .tp_getattr = 0,
+        .tp_setattr = 0,
+        .tp_as_async = 0,
         .tp_repr = 0,
         .tp_as_number = 0,
         .tp_as_sequence = 0,
         .tp_as_mapping = 0,
         .tp_hash = 0,
-        .tp_call = NULL,
+        .tp_call = 0,
         .tp_str = 0,
-        .tp_getattro = NULL,
-        .tp_setattro = NULL,
+        .tp_getattro = 0,
+        .tp_setattro = 0,
         .tp_as_buffer = 0,
         .tp_flags = Py_TPFLAGS_DEFAULT,
         .tp_doc = "Analysis object to keep track of analyzer information",
-        .tp_traverse = NULL,
-        .tp_clear = NULL,
-        .tp_richcompare = NULL,
-        .tp_weaklistoffset = NULL,
-        .tp_iter = NULL,
-        .tp_iternext = NULL,
+        .tp_traverse = 0,
+        .tp_clear = 0,
+        .tp_richcompare = 0,
+        .tp_weaklistoffset = 0,
+        .tp_iter = 0,
+        .tp_iternext = 0,
         .tp_methods = PyAnalysis_methods,
         .tp_members = PyAnalysisMembers,
-        .tp_getset = NULL,
-        .tp_base = NULL,
-        .tp_dict = NULL,
-        .tp_descr_get = NULL,
-        .tp_descr_set = NULL,
-        .tp_dictoffset = NULL,
+        .tp_getset = 0,
+        .tp_base = 0,
+        .tp_dict = 0,
+        .tp_descr_get = 0,
+        .tp_descr_set = 0,
+        .tp_dictoffset = 0,
         .tp_init = (initproc) PyAnalyzer_init,
-        .tp_alloc = NULL,
+        .tp_alloc = 0,
         .tp_new = PyAnalyzer_new,
-        .tp_free = NULL,
-        .tp_is_gc = NULL,
-        .tp_bases = NULL,
-        .tp_mro = NULL,
-        .tp_cache = NULL,
-        .tp_subclasses = NULL,
-        .tp_weaklist = NULL,
-        .tp_del = NULL,
+        .tp_free = 0,
+        .tp_is_gc = 0,
+        .tp_bases = 0,
+        .tp_mro = 0,
+        .tp_cache = 0,
+        .tp_subclasses = 0,
+        .tp_weaklist = 0,
+        .tp_del = 0,
         .tp_version_tag = 0,
         .tp_finalize = 0
 };

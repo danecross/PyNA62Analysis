@@ -18,7 +18,7 @@
 
 #include "UserMethods.hh"
 #include "include/PyAnalysis.hh"
-#include "PyNA62Event.cpp"
+#include "WrapperObjectModule.cpp"
 
 #include "Event.hh"
 #include "MCSimple.hh"
@@ -26,6 +26,7 @@
 #include "Persistency.hh"
 
 #include <iostream>
+
 using namespace std;
 using namespace NA62Analysis;
 using namespace NA62Constants;
@@ -47,9 +48,10 @@ static PyObject * PAN_MC_addParticle(PyAnalyzer *self, PyObject *args){
 
 PyObject * PAN_MC_getEvent(PyAnalyzer *self, PyObject *args){
 
-	PyObject *newEvent = newPyNA62Event(&PyEvent, self->um->GetMCEvent());
-
-	return newEvent;
+	WrapperObj *newEvent = PyObject_New(WrapperObj, &WrapperObject);
+	Py_INCREF(newEvent);
+	newEvent->event = (Event *)self->um->GetMCEvent();
+	return (PyObject *)newEvent;
 
 }
 
@@ -70,7 +72,7 @@ static PyObject * PAN_MC_status(PyAnalyzer *self, PyObject *args){
 
 static PyObject * PAN_getOutput(PyAnalyzer *self, PyObject *args){
 
-	UserMethods::OutputState state; const char *name; std::stringstream n;
+	UserMethods::OutputState state; const char *name; WrapperObj *v;
 	PyObject *valueTuple = PyTuple_New(2); string request ;
 	
 	if (!PyArg_ParseTuple(args, "s", &name)){
@@ -78,10 +80,12 @@ static PyObject * PAN_getOutput(PyAnalyzer *self, PyObject *args){
                 return NULL;
         }
 
-	n << (string)(PyUnicode_AsUTF8(self->name)) << "." << (string)(name);
-	request = n.str();
+	stringstream n;
+	n << (string)PyUnicode_AsUTF8(self->name) << "." << (string)name;
 
-	auto vertex = (self->um->GetOutput(request, state));
+	cout << extended() << "getting output: " << n.str() << "...";
+	
+	TVector3 *vertex = (TVector3*)(self->um->GetOutput(n.str().c_str(), state));
 	
 	if (!state){PyTuple_SetItem(valueTuple, 1, PyUnicode_FromString("uninit"));}
 	else if (state == UserMethods::OutputState::kOUninit){PyTuple_SetItem(valueTuple, 1, PyUnicode_FromString("uninit"));}
@@ -89,8 +93,18 @@ static PyObject * PAN_getOutput(PyAnalyzer *self, PyObject *args){
 	else if (state == UserMethods::OutputState::kOInvalid) {PyTuple_SetItem(valueTuple, 1, PyUnicode_FromString("invalid"));}
 	else {PyTuple_SetItem(valueTuple, 1, PyUnicode_FromString("no state type"));}
 
-	//TODO: TVector3 ? should we make a wrapper or is there a way to use PyROOT?
-	PyTuple_SetItem(valueTuple, 0, PyLong_FromLong(0));
+	if (!vertex){
+		cout << "not found." << endl;
+		PyTuple_SetItem(valueTuple, 0, PyBool_FromLong(0));
+	}
+	else {
+		v = PyObject_New(WrapperObj, &WrapperObject);
+		Py_INCREF(v);
+		v->vector3 = vertex;
+		PyTuple_SetItem(valueTuple, 0, (PyObject *)v);
+		cout << "success" << endl;
+	}
+
 	return valueTuple;
 
 }
@@ -119,22 +133,37 @@ static PyObject * PAN_BookHisto(PyAnalyzer *self, PyObject *args){
 
 static PyObject * PAN_requestTree(PyAnalyzer *self, PyObject *args){
 
-	cout << extended() << "requesting tree " ;
-	
 	const char *name, *type;
 	if (!PyArg_ParseTuple(args, "ss", &name, &type)){
                 PyErr_SetString(PyExc_ValueError, "requestTree requires 2 string arguments: name and type.");
                 return NULL;
         }
-	if ((string)type == ("TRecoLKrEvent")){cout << (string)name << "..."; self->um->RequestTree((string)name, new TRecoLKrEvent);}
-	else if ((string)type == ("TRecoGigaTrackerEvent")){cout << (string)name << "..."; self->um->RequestTree((string)name, new TRecoGigaTrackerEvent);}
-	else if ((string)type == ("TRecoSpectrometerEvent")){cout << (string)name << "..."; self->um->RequestTree((string)name, new TRecoSpectrometerEvent);}
+
+//	cout << extended() << "requesting tree " << (string)name << endl ;
+
+	if ((string)type == ("TRecoLKrEvent")){self->um->RequestTree((string)name, new TRecoLKrEvent);}
+	else if ((string)type == ("TRecoGigaTrackerEvent")){self->um->RequestTree((string)name, new TRecoGigaTrackerEvent);}
+	else if ((string)type == ("TRecoSpectrometerEvent")){self->um->RequestTree((string)name, new TRecoSpectrometerEvent);}
+	else if ((string)type == ("TRecoCedarEvent")){self->um->RequestTree((string)name, new TRecoCedarEvent);}
+	else if ((string)type == ("TRecoCHANTIEvent")){self->um->RequestTree((string)name, new TRecoCHANTIEvent);}
+        else if ((string)type == ("TLAVEvent")){self->um->RequestTree((string)name, new TLAVEvent);}
+        else if ((string)type == ("TMUV0Event")){self->um->RequestTree((string)name, new TMUV0Event);}
+        else if ((string)type == ("TMUV1Event")){self->um->RequestTree((string)name, new TMUV1Event);}
+        else if ((string)type == ("TMUV2Event")){self->um->RequestTree((string)name, new TMUV2Event);}
+        else if ((string)type == ("TMUV3Event")){self->um->RequestTree((string)name, new TMUV3Event);}
+        else if ((string)type == ("TRICHEvent")){self->um->RequestTree((string)name, new TRICHEvent);}
+        else if ((string)type == ("TSpectrometerEvent")){self->um->RequestTree((string)name, new TSpectrometerEvent);}
+        else if ((string)type == ("TSACEvent")){self->um->RequestTree((string)name, new TSACEvent);}
+        else if ((string)type == ("THACEvent")){self->um->RequestTree((string)name, new THACEvent);}
+        else if ((string)type == ("TCHODEvent")){self->um->RequestTree((string)name, new TCHODEvent);}
+        else if ((string)type == ("TRecoIRCEvent")){self->um->RequestTree((string)name, new TRecoIRCEvent);}
+        else if ((string)type == ("TRecoSAVEvent")){self->um->RequestTree((string)name, new TRecoSAVEvent);}
 	else {
-		PyErr_SetString(PyExc_ValueError, "invalid type request. supported types are: TRecoLKrEvent, TRecoGigaTrackerEvent, TRecoSpectrometerEvent");
+		PyErr_SetString(PyExc_ValueError, "invalid type request. supported types are:\n\tTRecoLKrEvent, TRecoGigaTrackerEvent, TRecoSpectrometerEvent, \n\tTRecoCedarEvent, TRecoCHANTIEvent, TLAVEvent, TMUV0Event, \n\tTMUV1Event, TMUV2Event, TMUV3Event, TRICHEvent, \n\tTSpectrometerEvent, TSACEvent, THACEvent, TCHODEvent, \n\tTRecoIRCEvent, TRecoSAVEvent");
 		return NULL;
 	}
 
-	cout << "success" << endl;
+	
 	
 	return PyBool_FromLong(EXIT_SUCCESS);
 
@@ -158,6 +187,43 @@ static PyObject * PAN_registerOutput(PyAnalyzer *self, PyObject *args){
 	return PyLong_FromLong(EXIT_SUCCESS);
 }
 
+static PyObject * PAN_getEvent(PyAnalyzer *self, PyObject *args){
+
+	const char *type; TDetectorVEvent *event; WrapperObj *theObj;
+	if (!PyArg_ParseTuple(args, "s", &type)){
+                PyErr_SetString(PyExc_ValueError, "getEvent requires 1 string argument: type.");
+                return NULL;
+        }
+	cout << extended() << "Getting event " << ((string)type) << endl;
+
+
+	if ((string)type == ("TRecoGigaTrackerEvent")){event = (TRecoGigaTrackerEvent *)self->um->GetEvent<TRecoGigaTrackerEvent>();}
+	else if ((string)type == ("TRecoSpectrometerEvent")){event = (TRecoSpectrometerEvent *)self->um->GetEvent<TRecoSpectrometerEvent>();}
+	else if ((string)type == ("TRecoLKrEvent")){event = (TRecoLKrEvent *)self->um->GetEvent<TRecoLKrEvent>();}
+	else{
+		event = nullptr;
+		cout << "not in events list..." << endl;
+	}
+
+	if (event != nullptr){
+                theObj = PyObject_New(WrapperObj, &WrapperObject);
+		Py_INCREF(theObj);
+		((WrapperObj *)theObj)->detectorEvent = event;
+		((WrapperObj *)theObj)->name = PyUnicode_FromString((char *)type);
+		return (PyObject *)theObj;
+        }
+	else {
+		cout << "no such event found" << endl;
+	}
+
+	return PyBool_FromLong(0);
+
+}
+
+static PyObject * PAN_MC_getNParticles(PyAnalyzer *self, PyObject *args){	
+	
+	return PyLong_FromLong(0);
+}
 
 //DEALLOC
 static void PyAnalyzer_dealloc(PyAnalyzer *self){
@@ -165,8 +231,6 @@ static void PyAnalyzer_dealloc(PyAnalyzer *self){
 	Py_XDECREF(self->name);
 
 	if(self->um != NULL){delete self->um;}
-//	if(self->fHisto != NULL){delete self->fHisto;}
-//	if(self->fMCSimple != NULL){delete self->fMCSimple;}
 
 	Py_TYPE(self)->tp_free((PyObject *) self);
 

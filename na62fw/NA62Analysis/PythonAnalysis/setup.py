@@ -142,22 +142,29 @@ PyBaseAnalysis_Struct = Extension('PyNA62Analysis.PyBaseAnalysis', ['PyNA62Analy
                                 extra_compile_args=ext_compile_args,
                                 libraries=libs,)
 
-PyAnalyzer = Extension('PyNA62Analysis/PyAnalyzer', ['PyNA62Analysis/PyAnalyzer.cpp'], language='C++', 
+PyAnalyzer = Extension('PyNA62Analysis.PyAnalyzer', ['PyNA62Analysis/PyAnalyzer.cpp'], language='C++', 
 				include_dirs=dirs_incl,
                                 extra_link_args=link_args, 
                                 extra_compile_args=ext_compile_args,
                                 libraries=libs,)
 
-PyNA62Event = Extension('PyNA62Analysis.PyNA62Event', ['PyNA62Analysis/PyNA62Event.cpp'], language='C++', 
+#PyNA62Event = Extension('PyNA62Analysis.PyNA62Event', ['PyNA62Analysis/PyNA62Event.cpp'], language='C++', 
+#				include_dirs=dirs_incl,
+#                                extra_link_args=link_args,
+#                                extra_compile_args=ext_compile_args,
+#                                libraries=libs,)
+
+WrapperObject = Extension('PyNA62Analysis.WrapperObject', ['PyNA62Analysis/WrapperObjectModule.cpp'], language='C++', 
 				include_dirs=dirs_incl,
                                 extra_link_args=link_args,
                                 extra_compile_args=ext_compile_args,
                                 libraries=libs,)
 
+
 setup(name='PyNA62Analysis',
       version='1.0',
       packages = ['PyNA62Analysis'],
-      ext_modules=[PyBaseAnalysis_Struct, PyAnalyzer, PyNA62Event],
+      ext_modules=[PyBaseAnalysis_Struct, PyAnalyzer, WrapperObject],
       ) 
 
 

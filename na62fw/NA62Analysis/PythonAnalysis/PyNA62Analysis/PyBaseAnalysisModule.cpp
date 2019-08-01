@@ -357,9 +357,6 @@ static void PyBaseAnalysis_dealloc(PyBaseAnalysis *self){
 	if (self->ban){delete self->ban;}
 //      if (self->theApp != NULL){delete self->theApp;}
 	
-	if(self->burstsToIgnore != NULL){cout << "need to delete burstsToIgnore" << endl;}
-	if(self->eventsToIgnore != NULL){cout << "need to delete eventsToIgnore" << endl;}
-
         Py_TYPE(self)->tp_free((PyObject *) self);
 }
 
