@@ -131,6 +131,25 @@ static PyObject * PAN_BookHisto(PyAnalyzer *self, PyObject *args){
 
 }
 
+static PyObject * PAN_BookHistoArray(PyAnalyzer *self, PyObject *args){
+
+	const char *type, *xaxis, *yaxis ; float one, two, three, four, five, six, seven;
+	if (!PyArg_ParseTuple(args, "sss|fffffff", &type, &xaxis, &yaxis, &one, &two, &three, &four, &five, &six, &seven)){
+                PyErr_SetString(PyExc_ValueError, "bookHistoArray requires at 3 string arguments");
+                return NULL;
+        }
+
+	if((string)type == ("TH2I")){self->um->BookHistoArray(new TH2I(xaxis, yaxis, one, two, three, four, five, six), seven);}
+	else{
+		PyErr_SetString(PyExc_ValueError, "invlaid type. Supported types: TH2I");
+		return NULL;
+	}
+
+	cout << extended() << "Booked Histogram Array: " << (string)(xaxis) << endl;
+
+	return PyBool_FromLong(EXIT_SUCCESS);
+}
+
 static PyObject * PAN_requestTree(PyAnalyzer *self, PyObject *args){
 
 	const char *name, *type;
@@ -138,8 +157,6 @@ static PyObject * PAN_requestTree(PyAnalyzer *self, PyObject *args){
                 PyErr_SetString(PyExc_ValueError, "requestTree requires 2 string arguments: name and type.");
                 return NULL;
         }
-
-//	cout << extended() << "requesting tree " << (string)name << endl ;
 
 	if ((string)type == ("TRecoLKrEvent")){self->um->RequestTree((string)name, new TRecoLKrEvent);}
 	else if ((string)type == ("TRecoGigaTrackerEvent")){self->um->RequestTree((string)name, new TRecoGigaTrackerEvent);}

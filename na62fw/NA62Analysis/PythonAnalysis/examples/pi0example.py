@@ -146,7 +146,7 @@ def initializeVertexCDAAnalyzer(ban):
 	VCDA.bookHisto("TH1I", "GTKMultiplicity", "Multiplicity in GTK", 11, -0.5, 10.5)
 	VCDA.bookHisto("TH1I", "StrawMultiplicity", "Multiplicity in Straw", 11, -0.5, 10.5)
 	
-	#VCDA.bookHistoArray("TH2I", "BeamXY", "BeamXY", 100, -100, 100, 100, -100, 100, 20)
+	VCDA.bookHistoArray("TH2I", "BeamXY", "BeamXY", 100, -100, 100, 100, -100, 100, 20)
 	
 	#counters and other things
 
@@ -198,8 +198,8 @@ def runVertexCDA(ban):
 	if VCDA.MCstatus() != "complete":
 		withMC = False
 
-#	GTKEvent = VCDA.getEvent("TRecoGigaTrackerEvent")
-#	SpectrometerEvent = VCDA.getEvent("TRecoSpectrometerEvent")
+	GTKEvent = VCDA.getEvent("TRecoGigaTrackerEvent")
+	SpectrometerEvent = VCDA.getEvent("TRecoSpectrometerEvent")
 
 	
 	

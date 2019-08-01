@@ -53,6 +53,7 @@ static PyObject * PAN_requestTree(PyAnalyzer *, PyObject *);
 static PyObject * PAN_registerOutput(PyAnalyzer *, PyObject *);
 static PyObject * PAN_getEvent(PyAnalyzer *, PyObject *);
 static PyObject * PAN_MC_getNParticles(PyAnalyzer *, PyObject *);
+static PyObject * PAN_BookHistoArray(PyAnalyzer *, PyObject *);
 
 static string extended(){return "[PyAnalysis     ] ";}
 
@@ -83,6 +84,8 @@ static PyMethodDef PyAnalysis_methods[] = {
 		"gets previously requested event from tree"},  
 	{"MC_numParticles", (PyCFunction) PAN_MC_getNParticles, METH_NOARGS, 
 		"returns number of MC particles"},
+	{"bookHistoArray", (PyCFunction) PAN_BookHistoArray, METH_VARARGS, 
+		"books histo array"},
 	{NULL}
 
 };
