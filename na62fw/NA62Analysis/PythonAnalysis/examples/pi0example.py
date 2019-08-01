@@ -197,6 +197,8 @@ def runVertexCDA(ban):
 	
 	badEvent = False
 	withMC = True
+
+	VCDA.incrementCounter("Total_Events")
 	
 	if VCDA.MCstatus() != "complete":
 		withMC = False

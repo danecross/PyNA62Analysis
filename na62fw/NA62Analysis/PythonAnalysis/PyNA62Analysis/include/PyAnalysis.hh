@@ -55,6 +55,7 @@ static PyObject * PAN_getEvent(PyAnalyzer *, PyObject *);
 static PyObject * PAN_MC_getNParticles(PyAnalyzer *, PyObject *);
 static PyObject * PAN_BookHistoArray(PyAnalyzer *, PyObject *);
 static PyObject * PAN_bookCounter(PyAnalyzer *, PyObject *);
+static PyObject * PAN_incrementCounter(PyAnalyzer *, PyObject *);
 
 static string extended(){return "[PyAnalysis     ] ";}
 
@@ -89,6 +90,8 @@ static PyMethodDef PyAnalysis_methods[] = {
 		"books histo array"},
 	{"bookCounter", (PyCFunction) PAN_bookCounter, METH_VARARGS, 
 		"books counter"},
+	{"incrementCounter", (PyCFunction) PAN_incrementCounter, METH_VARARGS, 
+		"increments the indicated counter by argument"}, 
 	{NULL}
 
 };

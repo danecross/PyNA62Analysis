@@ -245,11 +245,23 @@ static PyObject * PAN_bookCounter(PyAnalyzer *self, PyObject *args){
                 return NULL;
         }
 	
-	cout << extended() << "Booking counter: " << (string)name << endl;
-
 	self->um->BookCounter((string)name);
 
-	return PyLong_FromLong(0);
+	return PyLong_FromLong(1);
+}
+
+static PyObject * PAN_incrementCounter(PyAnalyzer *self, PyObject *args){
+
+	const char *name;
+        if (!PyArg_ParseTuple(args, "s", &name)){
+                PyErr_SetString(PyExc_ValueError, "incrementCounter requires 1 string argument: name.");
+                return NULL;
+        }
+
+	self->um->IncrementCounter((string)name);
+	cout << extended() << "Counter " << (string)name << " incremented to " <<  self->um->GetCounterValue((string)name) << endl;
+
+	return PyBool_FromLong(1);
 }
 
 static PyObject * PAN_MC_getNParticles(PyAnalyzer *self, PyObject *args){	
