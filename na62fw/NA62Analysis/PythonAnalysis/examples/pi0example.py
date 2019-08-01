@@ -149,6 +149,9 @@ def initializeVertexCDAAnalyzer(ban):
 	VCDA.bookHistoArray("TH2I", "BeamXY", "BeamXY", 100, -100, 100, 100, -100, 100, 20)
 	
 	#counters and other things
+	VCDA.bookCounter("Total_Events")
+	VCDA.bookCounter("Good_GTK_Mult")
+	VCDA.bookCounter("Good_Straw_Mult")
 
 	VCDA.registerOutput("Vertex", "TVector3")
 

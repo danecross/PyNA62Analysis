@@ -54,6 +54,7 @@ static PyObject * PAN_registerOutput(PyAnalyzer *, PyObject *);
 static PyObject * PAN_getEvent(PyAnalyzer *, PyObject *);
 static PyObject * PAN_MC_getNParticles(PyAnalyzer *, PyObject *);
 static PyObject * PAN_BookHistoArray(PyAnalyzer *, PyObject *);
+static PyObject * PAN_bookCounter(PyAnalyzer *, PyObject *);
 
 static string extended(){return "[PyAnalysis     ] ";}
 
@@ -86,6 +87,8 @@ static PyMethodDef PyAnalysis_methods[] = {
 		"returns number of MC particles"},
 	{"bookHistoArray", (PyCFunction) PAN_BookHistoArray, METH_VARARGS, 
 		"books histo array"},
+	{"bookCounter", (PyCFunction) PAN_bookCounter, METH_VARARGS, 
+		"books counter"},
 	{NULL}
 
 };
