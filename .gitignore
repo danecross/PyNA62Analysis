@@ -16,6 +16,8 @@ na62fw/NA62FWBuildRunTree.py
 *.a
 *.root
 
+na62fw/NA62Analysis/PythonAnalysis/build/temp.linux-x86_64-3.6/PyNA62Analysis/*
+
 /na62fw/NA62Analysis/PythonAnalyzer/build/
 
 /na62fw/*/*cc7/
