@@ -28,16 +28,19 @@ typedef struct{
 
 
 static void WO_dealloc(WrapperObj *);
-//static PyObject * WO_init(PyTypeObject *, PyObject *, PyObject *);
-static PyObject * WO_new(PyTypeObject *, PyObject *, PyObject *);
-//static PyObject * newWrapperObject(string *);
+static int WO_init(WrapperObj *, PyObject *, PyObject *);
 
+//METHODS FOR THE USER
+static PyObject * PAN_getNCandidates(WrapperObj *, PyObject *);
 
 static PyMemberDef WOMembers[] = {
+	{(char *)"name", T_OBJECT_EX, offsetof(WrapperObj, name), 0}, 
         {NULL}
 };
 
 static PyMethodDef WOMethods[] = {
+	{"getNCandidates", (PyCFunction) PAN_getNCandidates, METH_NOARGS, 
+                "returns the number of candidates"},
         {NULL}
 };
 
@@ -77,9 +80,9 @@ static PyTypeObject WrapperObject= {
         .tp_descr_get = NULL,
         .tp_descr_set = NULL,
         .tp_dictoffset = NULL,
-        .tp_init = NULL,
+        .tp_init = (initproc)WO_init,
         .tp_alloc = NULL,
-        .tp_new = WO_new,
+        .tp_new = PyType_GenericNew,
         .tp_free = NULL,
         .tp_is_gc = NULL,
         .tp_bases = NULL,

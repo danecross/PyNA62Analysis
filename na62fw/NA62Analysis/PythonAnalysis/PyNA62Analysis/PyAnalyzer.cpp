@@ -51,6 +51,7 @@ PyObject * PAN_MC_getEvent(PyAnalyzer *self, PyObject *args){
 	WrapperObj *newEvent = PyObject_New(WrapperObj, &WrapperObject);
 	Py_INCREF(newEvent);
 	newEvent->event = (Event *)self->um->GetMCEvent();
+	newEvent->name = PyUnicode_FromString("Event");
 	return (PyObject *)newEvent;
 
 }
@@ -98,9 +99,13 @@ static PyObject * PAN_getOutput(PyAnalyzer *self, PyObject *args){
 		PyTuple_SetItem(valueTuple, 0, PyBool_FromLong(0));
 	}
 	else {
-		v = PyObject_New(WrapperObj, &WrapperObject);
-		Py_INCREF(v);
+//		v = PyObject_New(WrapperObj, &WrapperObject);
+//		Py_INCREF(v);
+		if (PyType_Ready(&WrapperObject) < 0){cout << "WrapperObject is not ready" << endl; return NULL;}
+                v = (WrapperObj *)PyObject_CallObject((PyObject *)&WrapperObject, NULL);
+                Py_XINCREF((PyObject *)v);
 		v->vector3 = vertex;
+		v->name = PyUnicode_FromString("TVector3");
 		PyTuple_SetItem(valueTuple, 0, (PyObject *)v);
 		cout << "success" << endl;
 	}
@@ -221,12 +226,13 @@ static PyObject * PAN_getEvent(PyAnalyzer *self, PyObject *args){
 		event = nullptr;
 		cout << "not in events list..." << endl;
 	}
-
+	cout << "retreived event" << endl;
 	if (event != nullptr){
-                theObj = PyObject_New(WrapperObj, &WrapperObject);
-		Py_INCREF(theObj);
-		((WrapperObj *)theObj)->detectorEvent = event;
-		((WrapperObj *)theObj)->name = PyUnicode_FromString((char *)type);
+		if (PyType_Ready(&WrapperObject) < 0){cout << "WrapperObject is not ready" << endl; return NULL;}
+		theObj = (WrapperObj *)PyObject_CallObject((PyObject *)&WrapperObject, NULL);
+		Py_XINCREF(theObj);
+		theObj->detectorEvent = event;
+		theObj->name = PyUnicode_FromString(type);
 		return (PyObject *)theObj;
         }
 	else {
@@ -263,6 +269,7 @@ static PyObject * PAN_incrementCounter(PyAnalyzer *self, PyObject *args){
 
 	return PyBool_FromLong(1);
 }
+
 
 static PyObject * PAN_MC_getNParticles(PyAnalyzer *self, PyObject *args){	
 	

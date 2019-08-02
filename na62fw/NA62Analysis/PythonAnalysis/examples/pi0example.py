@@ -15,7 +15,7 @@
 #import statements
 from PyNA62Analysis.PyBaseAnalysis import PyBaseAnalysis as BaseAnalysis
 from PyNA62Analysis.PyAnalyzer import PyAnalysis as Analyzer
-from PyNA62Analysis.PyNA62Event import PyNA62Event as Event
+from PyNA62Analysis.WrapperObject import WrapperObject as WO
 #import ROOT
 
 import os
@@ -198,15 +198,20 @@ def runVertexCDA(ban):
 	badEvent = False
 	withMC = True
 
-	VCDA.incrementCounter("Total_Events")
-	
 	if VCDA.MCstatus() != "complete":
 		withMC = False
 
+	print("HERE1")
+
 	GTKEvent = VCDA.getEvent("TRecoGigaTrackerEvent")
+	print("HERE2")
+
 	SpectrometerEvent = VCDA.getEvent("TRecoSpectrometerEvent")
 
-	
+	VCDA.incrementCounter("Total_Events")
+	#VCDA.fillHisto("GTKMultiplicity", GTKEvent->GetNCandidates())
+	print("HERE")
+	GTKEvent.getNCandidates()
 	
 	return ban
 

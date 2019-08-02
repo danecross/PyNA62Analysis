@@ -11,6 +11,37 @@
 
 #include "include/WrapperObjectModule.hh"
 
+
+
+static PyObject * PAN_getNCandidates(WrapperObj *self, PyObject *args){
+	
+	int nCand;	
+
+	if (self->detectorEvent == nullptr){
+		stringstream n;
+		n << "\'" << (string)PyUnicode_AsUTF8(self->name) << "\' has no attribute getNCandidates";
+		PyErr_SetString(PyExc_AttributeError, n.str().c_str());
+		return NULL;
+	}
+
+	if ((string)PyUnicode_AsUTF8(self->name) == "TRecoGigaTrackerEvent")
+		nCand = ((TRecoGigaTrackerEvent *)(self->detectorEvent))->GetNCandidates();
+	else if ((string)PyUnicode_AsUTF8(self->name) == "TRecoSpectrometerEvent")
+		nCand = ((TRecoSpectrometerEvent *)(self->detectorEvent))->GetNCandidates();
+	else if ((string)PyUnicode_AsUTF8(self->name) == "TRecoLKrEvent")
+		nCand = ((TRecoLKrEvent *)(self->detectorEvent))->GetNCandidates();
+	else{
+		nCand = 0;
+	}
+
+        return PyLong_FromLong(nCand);
+}
+
+
+
+
+
+
 static void WO_dealloc(WrapperObj *self){
 
 	if (self->event){delete self->event;}
@@ -19,22 +50,8 @@ static void WO_dealloc(WrapperObj *self){
 	Py_TYPE(self)->tp_free((PyObject *) self);
 }
 
-static PyObject * WO_new(PyTypeObject *type, PyObject *args, PyObject *kwds){
-
-	cout << "new is called" << endl;
-
-	WrapperObj *self;
-        self = (WrapperObj *) type->tp_alloc(type, 0);
-
-	if (self != NULL){
-		self->name = PyUnicode_FromString("");
-		if (self->name == NULL){
-			return NULL;
-		}
-	}
-
-        return (PyObject *)self;
-
+static int WO_init(WrapperObj *self, PyObject *unused, PyObject *notused){
+	return EXIT_SUCCESS;
 }
 
 static PyModuleDef WrapperObjectModule = {
