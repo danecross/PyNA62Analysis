@@ -17,6 +17,7 @@
 #include <structmember.h>
 
 #include "UserMethods.hh"
+
 #include "include/PyAnalysis.hh"
 #include "WrapperObjectModule.cpp"
 
@@ -84,7 +85,7 @@ static PyObject * PAN_getOutput(PyAnalyzer *self, PyObject *args){
 	stringstream n;
 	n << (string)PyUnicode_AsUTF8(self->name) << "." << (string)name;
 
-	cout << extended() << "getting output: " << n.str() << "...";
+//	cout << extended() << "getting output: " << n.str() << "...";
 	
 	TVector3 *vertex = (TVector3*)(self->um->GetOutput(n.str().c_str(), state));
 	
@@ -95,19 +96,17 @@ static PyObject * PAN_getOutput(PyAnalyzer *self, PyObject *args){
 	else {PyTuple_SetItem(valueTuple, 1, PyUnicode_FromString("no state type"));}
 
 	if (!vertex){
-		cout << "not found." << endl;
+//		cout << "not found." << endl;
 		PyTuple_SetItem(valueTuple, 0, PyBool_FromLong(0));
 	}
 	else {
-//		v = PyObject_New(WrapperObj, &WrapperObject);
-//		Py_INCREF(v);
 		if (PyType_Ready(&WrapperObject) < 0){cout << "WrapperObject is not ready" << endl; return NULL;}
                 v = (WrapperObj *)PyObject_CallObject((PyObject *)&WrapperObject, NULL);
                 Py_XINCREF((PyObject *)v);
 		v->vector3 = vertex;
 		v->name = PyUnicode_FromString("TVector3");
 		PyTuple_SetItem(valueTuple, 0, (PyObject *)v);
-		cout << "success" << endl;
+//		cout << "success" << endl;
 	}
 
 	return valueTuple;
@@ -130,7 +129,7 @@ static PyObject * PAN_BookHisto(PyAnalyzer *self, PyObject *args){
 		return NULL;
 	}
 
-	cout << extended() << "Booked Histogram: " << (string)(title) << endl;
+//	cout << extended() << "Booked Histogram: " << (string)(title) << endl;
 
 	return PyBool_FromLong(EXIT_SUCCESS);	
 
@@ -150,9 +149,20 @@ static PyObject * PAN_BookHistoArray(PyAnalyzer *self, PyObject *args){
 		return NULL;
 	}
 
-	cout << extended() << "Booked Histogram Array: " << (string)(xaxis) << endl;
-
 	return PyBool_FromLong(EXIT_SUCCESS);
+}
+
+static PyObject * PAN_fillHisto(PyAnalyzer *self, PyObject *args){
+	
+	const char *name ; float one;
+        if (!PyArg_ParseTuple(args, "sf", &name, &one)){
+                PyErr_SetString(PyExc_ValueError, "fillHisto requires 1 string argument and at least 1 double argument.");
+                return NULL;
+        }
+
+	self->um->FillHisto((string)name, (double)one);
+	
+	return PyBool_FromLong(1);
 }
 
 static PyObject * PAN_requestTree(PyAnalyzer *self, PyObject *args){
@@ -181,7 +191,15 @@ static PyObject * PAN_requestTree(PyAnalyzer *self, PyObject *args){
         else if ((string)type == ("TRecoIRCEvent")){self->um->RequestTree((string)name, new TRecoIRCEvent);}
         else if ((string)type == ("TRecoSAVEvent")){self->um->RequestTree((string)name, new TRecoSAVEvent);}
 	else {
-		PyErr_SetString(PyExc_ValueError, "invalid type request. supported types are:\n\tTRecoLKrEvent, TRecoGigaTrackerEvent, TRecoSpectrometerEvent, \n\tTRecoCedarEvent, TRecoCHANTIEvent, TLAVEvent, TMUV0Event, \n\tTMUV1Event, TMUV2Event, TMUV3Event, TRICHEvent, \n\tTSpectrometerEvent, TSACEvent, THACEvent, TCHODEvent, \n\tTRecoIRCEvent, TRecoSAVEvent");
+		stringstream ss;
+		ss << (string)type << "is not a supported type. \n" ;
+		ss << "\tSupported types are: "
+			<< "\t\tTRecoLKrEvent, TRecoGigaTrackerEvent, TRecoSpectrometerEvent, \n"
+			<< "\t\tTRecoCedarEvent, TRecoCHANTIEvent, TLAVEvent, TMUV0Event, \n"
+			<< "\t\tTMUV1Event, TMUV2Event, TMUV3Event, TRICHEvent, \n"
+			<< "\t\tTSpectrometerEvent, TSACEvent, THACEvent, TCHODEvent, \n"
+			<< "\t\tTRecoIRCEvent, TRecoSAVEvent";
+		PyErr_SetString(PyExc_ValueError, s.str().c_str());
 		return NULL;
 	}
 
@@ -198,7 +216,6 @@ static PyObject * PAN_registerOutput(PyAnalyzer *self, PyObject *args){
                 PyErr_SetString(PyExc_ValueError, "registerOutput requires 2 string arguments: name and type.");
                 return NULL;
         }
-//	cout << extended() << "Registering " << (string)name << " of type " << (string)type << endl;
 	if ((string)type == ("KinePart")){KinePart obj;	self->um->RegisterOutput((string)name, &obj);}
 	else if ((string)type == ("TVector3")){TVector3 obj; self->um->RegisterOutput((string)name, &obj);}
 	else{
@@ -216,31 +233,44 @@ static PyObject * PAN_getEvent(PyAnalyzer *self, PyObject *args){
                 PyErr_SetString(PyExc_ValueError, "getEvent requires 1 string argument: type.");
                 return NULL;
         }
-	cout << extended() << "Getting event " << ((string)type) << endl;
-
 
 	if ((string)type == ("TRecoGigaTrackerEvent")){event = (TRecoGigaTrackerEvent *)self->um->GetEvent<TRecoGigaTrackerEvent>();}
 	else if ((string)type == ("TRecoSpectrometerEvent")){event = (TRecoSpectrometerEvent *)self->um->GetEvent<TRecoSpectrometerEvent>();}
 	else if ((string)type == ("TRecoLKrEvent")){event = (TRecoLKrEvent *)self->um->GetEvent<TRecoLKrEvent>();}
+	else if ((string)type == ("TRecoCedarEvent")){event = (TRecoCedarEvent *)self->um->GetEvent<TRecoCedarEvent>();}
+        else if ((string)type == ("TRecoCHANTIEvent")){event = (TRecoCHANTIEvent *)self->um->GetEvent<TRecoCHANTIEvent>();}
+        else if ((string)type == ("TLAVEvent")){event = (TLAVEvent *)self->um->GetEvent<TLAVEvent>();}
+        else if ((string)type == ("TMUV0Event")){event = (TMUV0Event *)self->um->GetEvent<TMUV0Event>();}
+        else if ((string)type == ("TMUV1Event")){event = (TMUV1Event *)self->um->GetEvent<TMUV1Event>();}
+        else if ((string)type == ("TMUV2Event")){event = (TMUV2Event *)self->um->GetEvent<TMUV2Event>();}
+        else if ((string)type == ("TMUV3Event")){event = (TMUV3Event *)self->um->GetEvent<TMUV3Event>();}
+        else if ((string)type == ("TRICHEvent")){event = (TRICHEvent *)self->um->GetEvent<TRICHEvent>();}
+        else if ((string)type == ("TSACEvent")){event = (TSACEvent *)self->um->GetEvent<TSACEvent>();}
+        else if ((string)type == ("THACEvent")){event = (THACEvent *)self->um->GetEvent<THACEvent>();}
+        else if ((string)type == ("TCHODEvent")){event = (TCHODEvent *)self->um->GetEvent<TCHODEvent>();}
+        else if ((string)type == ("TRecoIRCEvent")){event = (TRecoIRCEvent *)self->um->GetEvent<TRecoIRCEvent>();}
+        else if ((string)type == ("TRecoSAVEvent")){event = (TRecoSAVEvent *)self->um->GetEvent<TRecoSAVEvent>();}
 	else{
-		event = nullptr;
-		cout << "not in events list..." << endl;
+		stringstream ss;
+		ss << (string)type << "is not a supported event type.\n";
+		ss << "\tSupported types are: \n"
+			<< "\t\tTRecoGigaTrackerEvent, TRecoSpectrometerEvent, TRecoLKrEvent\n"
+                        << "\t\tTRecoCedarEvent, TRecoCHANTIEvent, TLAVEvent, TMUV0Event, \n"
+                        << "\t\tTMUV1Event, TMUV2Event, TMUV3Event, TRICHEvent, \n"
+                        << "\t\tTSpectrometerEvent, TSACEvent, THACEvent, TCHODEvent, \n"
+                        << "\t\tTRecoIRCEvent, TRecoSAVEvent";
+		PyErr_SetString(PyExc_AttributeError, ss.str().c_str());
+		return NULL;
 	}
-	cout << "retreived event" << endl;
-	if (event != nullptr){
-		if (PyType_Ready(&WrapperObject) < 0){cout << "WrapperObject is not ready" << endl; return NULL;}
-		theObj = (WrapperObj *)PyObject_CallObject((PyObject *)&WrapperObject, NULL);
-		Py_XINCREF(theObj);
-		theObj->detectorEvent = event;
-		theObj->name = PyUnicode_FromString(type);
-		return (PyObject *)theObj;
-        }
-	else {
-		cout << "no such event found" << endl;
-	}
+	
+	if (PyType_Ready(&WrapperObject) < 0){cout << "WrapperObject is not ready" << endl; return NULL;}
 
-	return PyBool_FromLong(0);
+	theObj = (WrapperObj *)PyObject_CallObject((PyObject *)&WrapperObject, NULL);
+	Py_XINCREF(theObj);
+	theObj->detectorEvent = event;
+	theObj->name = PyUnicode_FromString(type);
 
+	return (PyObject *)theObj;
 }
 
 static PyObject * PAN_bookCounter(PyAnalyzer *self, PyObject *args){
@@ -265,7 +295,7 @@ static PyObject * PAN_incrementCounter(PyAnalyzer *self, PyObject *args){
         }
 
 	self->um->IncrementCounter((string)name);
-	cout << extended() << "Counter " << (string)name << " incremented to " <<  self->um->GetCounterValue((string)name) << endl;
+//	cout << extended() << "Counter " << (string)name << " incremented to " <<  self->um->GetCounterValue((string)name) << endl;
 
 	return PyBool_FromLong(1);
 }

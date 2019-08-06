@@ -54,8 +54,6 @@ BaseAnalysis::BaseAnalysis() :
 	fResidentMemoryVsEvent->SetTitle("Resident memory vs. Event");
 	fResidentMemoryVsTime->SetName("fResidentMemoryVsTime");
 	fResidentMemoryVsTime->SetTitle("Resident memory vs. Time");
-
-	NA62ConditionsService::GetInstance()->SetAdditionalDirectoryPath(Configuration::ConfigSettings::global::fMetadataPath);
 }
 
 BaseAnalysis::~BaseAnalysis() {

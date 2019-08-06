@@ -56,6 +56,7 @@ static PyObject * PAN_MC_getNParticles(PyAnalyzer *, PyObject *);
 static PyObject * PAN_BookHistoArray(PyAnalyzer *, PyObject *);
 static PyObject * PAN_bookCounter(PyAnalyzer *, PyObject *);
 static PyObject * PAN_incrementCounter(PyAnalyzer *, PyObject *);
+static PyObject * PAN_fillHisto(PyAnalyzer *, PyObject *);
 
 static string extended(){return "[PyAnalysis     ] ";}
 
@@ -91,7 +92,9 @@ static PyMethodDef PyAnalysis_methods[] = {
 	{"bookCounter", (PyCFunction) PAN_bookCounter, METH_VARARGS, 
 		"books counter"},
 	{"incrementCounter", (PyCFunction) PAN_incrementCounter, METH_VARARGS, 
-		"increments the indicated counter by argument"}, 
+		"increments the indicated counter by argument"},
+	{"fillHisto", (PyCFunction) PAN_fillHisto, METH_VARARGS, 
+		"fills requested histogram"},  
 	{NULL}
 
 };

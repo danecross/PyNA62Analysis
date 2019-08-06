@@ -47,7 +47,8 @@ typedef struct{
         PyObject *startEvent;
         PyObject *NEvents;
         PyObject *NBursts;
-
+	PyObject *maxBurst;
+	
         PyObject *analyzers;
 
         PyObject *noCheckDetectors;
@@ -112,7 +113,8 @@ static PyMemberDef PyBanMembers[] = {
         {(char *)"NBursts", T_OBJECT_EX, offsetof(PyBaseAnalysis, NBursts), 0},
         {(char *)"analyzers", T_OBJECT_EX, offsetof(PyBaseAnalysis, analyzers), 0},
         {(char *)"noCheckDetectors", T_OBJECT_EX, offsetof(PyBaseAnalysis, noCheckDetectors), 0},
-	{(char *)"noCheckBadBurst", T_OBJECT_EX, offsetof(PyBaseAnalysis, noCheckBadBurst), 0}, 
+	{(char *)"noCheckBadBurst", T_OBJECT_EX, offsetof(PyBaseAnalysis, noCheckBadBurst), 0},
+	{(char *)"maxBurst", T_OBJECT_EX, offsetof(PyBaseAnalysis, maxBurst), 0}, 
         {NULL}
 
 };

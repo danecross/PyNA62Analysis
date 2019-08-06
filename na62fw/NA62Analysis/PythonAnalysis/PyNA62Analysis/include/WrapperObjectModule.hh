@@ -1,5 +1,16 @@
 
 
+/*
+ *
+ *	Header file for Wrapper Object
+ *
+ *	Written by: Dane Cross and Amanda Hoebel
+ *
+ *
+ *
+ *
+ * */
+
 #ifndef __WRAPPEROBJ_HH__
 #define __WRAPPEROBJ_HH__
 

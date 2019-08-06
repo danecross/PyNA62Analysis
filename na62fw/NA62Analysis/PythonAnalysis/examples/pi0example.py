@@ -41,7 +41,7 @@ def configure(currentPath):
 	extraincludedirs = []
 	#setattr...
 	
-	coreVerbosity = "trace" ; anVerbosity = "normal"
+	coreVerbosity = "normal" ; anVerbosity = "normal"
 	setattr(ban, "coreVerbosity", coreVerbosity)
 	setattr(ban, "anVerbosity", anVerbosity)
 
@@ -69,6 +69,11 @@ def configure(currentPath):
 	
 	ban.addAnalyzer(an1);
 	ban.addAnalyzer(an2);
+
+#	ban.requestTree("LKr", "TRecoLKrEvent")
+#	ban.requestTree("GigaTracker", "TRecoGigaTrackerEvent")
+#	ban.requestTree("Spectrometer", "TRecoSpectrometerEvent")
+
 
 	# mandatory call that configures our BaseAnalysis object
 	ban.configure()
@@ -190,8 +195,9 @@ def Pi0MonteCarlo(ban):
 # this replaces the Process method
 # 
 # here we do the bulk processing of the data and get it ready to be put into histograms
-def runVertexCDA(ban):
-	print("RUNNING VERTEX CDA RECONSTRUCTION ANALYZER:")
+def runVertexCDA(event_num, ban):
+	
+#	print("RUNNING VERTEX CDA RECONSTRUCTION ANALYZER:")
 	analyzers = ban.analyzers
 	VCDA = analyzers[1]
 	
@@ -201,23 +207,26 @@ def runVertexCDA(ban):
 	if VCDA.MCstatus() != "complete":
 		withMC = False
 
-	print("HERE1")
-
 	GTKEvent = VCDA.getEvent("TRecoGigaTrackerEvent")
-	print("HERE2")
-
 	SpectrometerEvent = VCDA.getEvent("TRecoSpectrometerEvent")
 
 	VCDA.incrementCounter("Total_Events")
-	#VCDA.fillHisto("GTKMultiplicity", GTKEvent->GetNCandidates())
-	print("HERE")
-	GTKEvent.getNCandidates()
+	n = GTKEvent.getNCandidates()
+	n1 = SpectrometerEvent.getNCandidates()
+	if n1 != 0 or n != 0:
+		print("spectrometer num cand: ", n1)
+		print("GTK num cand: ", n)
+	VCDA.fillHisto("GTKMultiplicity", n)
+	if n1 == 1:
+		print("this isn't true")
+	else:
+		badEvent = True
 	
 	return ban
 
 
 
-def runPi0Reconstruction(ban):
+def runPi0Reconstruction(event_num, ban):
 	print("RUNNING PI0 RECONSTRUCTION ANALYZER:")
 	analyzers = ban.analyzers
 	Pi0 = analyzers[0]
@@ -271,8 +280,24 @@ baseAn = initializePi0Analyzer(baseAn)
 baseAn = initializeVertexCDAAnalyzer(baseAn)	
 baseAn = Pi0MonteCarlo(baseAn)
 baseAn = VCDAMonteCarlo(baseAn)
-baseAn = runVertexCDA(baseAn)
-baseAn = runPi0Reconstruction(baseAn)
+
+
+start = baseAn.startEvent
+print("first good event: ", start)
+
+if baseAn.maxBurst > 0:
+	end = baseAn.maxBurst + start
+else:
+	end = baseAn.NEvents
+print("last event to process: " , end)
+
+end = 100000
+
+for event in range(start, end):
+#	continue
+	baseAn = runVertexCDA(event, baseAn)
+#	baseAn = runPi0Reconstruction(event, baseAn)
+
 plots(baseAn)
 
 

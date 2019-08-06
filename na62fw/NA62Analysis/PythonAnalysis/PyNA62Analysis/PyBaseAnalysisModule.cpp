@@ -177,6 +177,9 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
                   	false); //TODO: figure out ignoreNonExistingTrees
 	int retCode = EXIT_SUCCESS;
 
+	self->startEvent = PyLong_FromLong(self->ban->GetFirstGoodEvent());
+	self->NEvents = PyLong_FromLong(self->ban->GetNEvents());
+	
 	cout << BANextended() << "BaseAnalysis is configured. " << endl;
 
 	return PyBool_FromLong(retCode);
@@ -185,10 +188,8 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 
 //TODO: make this work for parameters in general
 static PyObject * generateParameters(PyBaseAnalysis *self){
-	
-	
-	
-	return PyUnicode_FromString("Qi0Reconstruction:HistoMode=true");
+		
+	return PyUnicode_FromString("dummy=123");
 	
 }
 
@@ -316,7 +317,6 @@ static string  generateConfigFile(PyBaseAnalysis *self){
 
 }
 
-
 static void PyBaseAnalysis_dealloc(PyBaseAnalysis *self){
 
         Py_XDECREF(self->inputFiles);
@@ -343,16 +343,15 @@ static void PyBaseAnalysis_dealloc(PyBaseAnalysis *self){
         Py_XDECREF(self->filter);
         Py_XDECREF(self->specialOnly);
 
-        Py_XDECREF(self->burstsToIgnore);
-        Py_XDECREF(self->eventsToIgnore);
-
         Py_XDECREF(self->startEvent);
         Py_XDECREF(self->NEvents);
         Py_XDECREF(self->NBursts);
+	Py_XDECREF(self->maxBurst);
 
         Py_XDECREF(self->analyzers);
 
         Py_XDECREF(self->noCheckDetectors);
+	Py_XDECREF(self->noCheckBadBurst);
 
 	if (self->ban){delete self->ban;}
 //      if (self->theApp != NULL){delete self->theApp;}
@@ -500,6 +499,12 @@ static PyObject * PyBaseAnalysis_new(PyTypeObject *type, PyObject *args, PyObjec
 		if (self->noCheckBadBurst == NULL){
 			Py_DECREF(self);
 			return NULL;
+		}
+
+		self->maxBurst = PyLong_FromLong(0);
+		if (self->maxBurst == NULL){
+			Py_DECREF(self);
+                        return NULL;
 		}
 
                 self->noSkipBadBurst = false;

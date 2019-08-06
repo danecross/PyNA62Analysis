@@ -1,4 +1,25 @@
 
+
+/*
+ *
+ *
+ *	Wrapper Object class
+ *
+ *	purpose: create an object that can be stored in python but holds NA62
+ *	data types. 
+ *
+ *	supported types:
+ *	   - Event
+ *	   	- getNCandidates()
+ *	   - TDetectorVEvent
+ *	   - TVector3
+ *
+ *
+ * 	written by: Dane Cross and Amanda Hoebel
+ * */
+
+
+
 #ifndef __WRAPPEROBJ_CC__
 #define __WRAPPEROBJ_CC__
 
@@ -23,15 +44,30 @@ static PyObject * PAN_getNCandidates(WrapperObj *self, PyObject *args){
 		PyErr_SetString(PyExc_AttributeError, n.str().c_str());
 		return NULL;
 	}
+/*
+	cout << "HERE:" << (string)PyUnicode_AsUTF8(self->name) << endl;
+
+	cout << ((TRecoSpectrometerEvent *)(self->detectorEvent))->GetNCandidates() << "<-- this is what we get from the call" << endl;
+	
+	TRecoVEvent *ev = ((TRecoVEvent *)self->detectorEvent);
+
+	cout << "burstID: " << ((TRecoSpectrometerEvent *)ev)->GetBurstID() << endl;;
+
+	nCand = ev->GetNCandidates();
+*/
 
 	if ((string)PyUnicode_AsUTF8(self->name) == "TRecoGigaTrackerEvent")
 		nCand = ((TRecoGigaTrackerEvent *)(self->detectorEvent))->GetNCandidates();
-	else if ((string)PyUnicode_AsUTF8(self->name) == "TRecoSpectrometerEvent")
+	else if ((string)PyUnicode_AsUTF8(self->name) == "TRecoSpectrometerEvent"){
 		nCand = ((TRecoSpectrometerEvent *)(self->detectorEvent))->GetNCandidates();
+//		TRecoSpectrometerEvent *ev = (TRecoSpectrometerEvent *)self->detectorEvent;
+//		cout << "burstID: " << ((TRecoSpectrometerEvent *)ev)->GetBurstID() << endl;
+	}
 	else if ((string)PyUnicode_AsUTF8(self->name) == "TRecoLKrEvent")
 		nCand = ((TRecoLKrEvent *)(self->detectorEvent))->GetNCandidates();
 	else{
-		nCand = 0;
+		cout << "no candidate named " << (string)PyUnicode_AsUTF8(self->name) << endl;
+		nCand = -1;
 	}
 
         return PyLong_FromLong(nCand);
