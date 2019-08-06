@@ -45,7 +45,6 @@
 #define PI0DALITZ_H
 
 #include "masses.hh"
-const double a         = 1/137.035999; // fine structure constant
 const double v         = 2*MEL/MP0; // Mee/Mpi0 minimal value
 const double v2        = v*v;       // x mininimal value
 const double aslopeVMD = 0.032;     // VMD value of the form factor slope

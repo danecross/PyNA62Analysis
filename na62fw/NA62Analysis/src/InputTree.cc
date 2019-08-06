@@ -677,6 +677,14 @@ EventHeader* InputTree::GetEventHeaderEvent(TString treeName) {
 		if (itObj != itObjTree->second.end())
 			return static_cast<EventHeader*>(itObj->second->fObject);
 	}
+	if(treeName.EqualTo("Reco")){
+		itObjTree = fObject.find("SlimReco");
+		if (itObjTree != fObject.end()) {
+			itObj = itObjTree->second.find("EventHeader");
+			if (itObj != itObjTree->second.end())
+				return static_cast<EventHeader*>(itObj->second->fObject);
+		}
+	}
 	std::cout << standard() << "EventHeader not found in tree " << treeName << std::endl;
 	return nullptr;
 }

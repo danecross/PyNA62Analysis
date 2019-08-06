@@ -10,6 +10,7 @@
 #include "SpectrometerRICHAssociationOutput.hh"
 #include "TRecoSpectrometerCandidate.hh"
 #include "MatchingRG.hh"
+#include "FakeTrackSelection.hh"
 #include "GigaTrackerRecoAlgorithm.hh"
 #include "BlueTubeTracker.hh"
 #include <TCanvas.h>
@@ -53,6 +54,7 @@ private:
   TRecoSpectrometerEvent *fSTRAWEvent;
   MatchingRG *fMatchingRG;
   GigaTrackerRecoAlgorithm *fGTKReco;
+  FakeTrackSelection *fFakeTrackSelection;
   TRecoCHODEvent *fCHODEvent;
   TRecoLKrEvent *fLKrEvent;
   std::vector<SpectrometerNewCHODAssociationOutput> fSpecNewCHOD;

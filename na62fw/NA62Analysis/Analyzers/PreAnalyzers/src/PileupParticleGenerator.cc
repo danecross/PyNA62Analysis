@@ -20,22 +20,23 @@
 ///
 /// A single particle of a given ID can be added at t=0 using the "InTimeParticleID" parameter.
 /// Valid particle ID values are:
-/// 100 -- kaon, decaying according to normal rules;<br>
-/// 101 -- kaon, forced Km2 decay inside FV;<br>
-/// 102 -- kaon, forced K2pi decay inside FV;<br>
-/// 103 -- kaon, forced K3pi decay inside FV;<br>
-/// 104 -- kaon, forced Ke3 decay inside FV;<br>
-/// 105 -- kaon, forced Km3 decay inside FV;<br>
-/// 106 -- kaon, forced K3pi0 decay inside FV;<br>
-/// 107 -- kaon, forced Km2 decay in extended decay region (180-265m);<br>
-/// 108 -- kaon, forced K2pi decay in extended decay region (180-265m);<br>
-/// 109 -- kaon, forced K3pi decay in extended decay region (180-265m);<br>
-/// 200 -- pion, decaying according to normal rules;<br>
-/// 201 -- pion, forced Pim2 decay in full region (102.425-265m);<br>
-/// 300 -- proton, decaying according to normal rules;<br>
-/// 400 -- halo muon, from any source.
-/// 401 -- halo muon, from a positive particle
-/// 402 -- halo muon, from a negative particle
+/// 100  -- kaon, decaying according to normal rules;<br>
+/// 101  -- kaon, forced Km2 decay inside FV;<br>
+/// 102  -- kaon, forced K2pi decay inside FV;<br>
+/// 103  -- kaon, forced K3pi decay inside FV;<br>
+/// 104  -- kaon, forced Ke3 decay inside FV;<br>
+/// 105  -- kaon, forced Km3 decay inside FV;<br>
+/// 106  -- kaon, forced K3pi0 decay inside FV;<br>
+/// 107  -- kaon, forced Km2 decay in extended decay region (180-265m);<br>
+/// 108  -- kaon, forced K2pi decay in extended decay region (180-265m);<br>
+/// 109  -- kaon, forced K3pi decay in extended decay region (180-265m);<br>
+/// 200  -- pion, decaying according to normal rules;<br>
+/// 201  -- pion, forced Pim2 decay in full region (102.425-265m);<br>
+/// 300  -- proton, decaying according to normal rules;<br>
+/// 400  -- halo muon, from any source.;<br>
+/// 401  -- halo muon, from a positive particle;<br>
+/// 402  -- halo muon, from a negative particle;<br>
+/// 1000 -- control triggered data event (downstream only)
 /// \author Chris Parkinson (chris.parkinson@cern.ch)
 /// \EndDetailed
 
@@ -99,13 +100,23 @@ void PileupParticleGenerator::Process(Int_t) {
   if (!GetWithMC() && !fForcedOnData) return;
   if (!GetIsTree()) return;
   if (!GetEventHeader()) return; // do not run on NA62MC output
-
   
   //////////////////////////////////////////////////////////////////////////
+  // Overlay a control trigger event. For now no activity in the upstream,
+  // so using the Halo container.
+  if(fInTimeParticleID==1000){
+    Double_t time = GetEventHeader()->GetFineTime()*TdcCalib;    
+    fNTracksGenerated = 1;
+    fBeamParticles.resize(0);
+    fHaloParticles.resize(fNTracksGenerated);
+    fHaloParticles[0] = std::pair<Double_t, Int_t>(time, fInTimeParticleID);
+  }
+
+  //////////////////////////////////////////////////////////////////////////
+  // Generate one particle in time with the MC event, with given particle ID
   // Generate a (positive, negative) halo muon if ID is 400 (401, 402).
-  // Otherwise a kaon/pion decay is generated.
   if(fInTimeParticleID==400 || fInTimeParticleID==401 || fInTimeParticleID==402){
-    Double_t time = GetEventHeader()->GetFineTime()*TdcCalib;
+    Double_t time = GetEventHeader()->GetFineTime()*TdcCalib;    
     fNTracksGenerated = 1;
     fBeamParticles.resize(0);
     fHaloParticles.resize(fNTracksGenerated);

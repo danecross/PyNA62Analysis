@@ -56,6 +56,14 @@ CHANTIDigitizer::CHANTIDigitizer(NA62VReconstruction* Reco) : NA62VDigitizer(Rec
 CHANTIDigitizer::~CHANTIDigitizer(){
 }
 
+void CHANTIDigitizer::StartOfBurst() {
+  NA62VDigitizer::StartOfBurst();
+}
+
+void CHANTIDigitizer::EndOfBurst() {
+  NA62VDigitizer::EndOfBurst();
+}
+
 TDetectorVEvent * CHANTIDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
 
   if(tEvent->GetHits()->GetClass()->InheritsFrom("TVDigi") || tEvent->IsA() == TSpecialTriggerEvent::Class())
@@ -65,7 +73,7 @@ TDetectorVEvent * CHANTIDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
   //Inizialization
   Int_t NHits = CHANTIEvent->GetNHits();
   fDigiEvent->Clear();
-  (*(TVEvent*)fDigiEvent)=(*(TVEvent*)CHANTIEvent);
+  fDigiEvent->TVEvent::operator=(*static_cast<TVEvent*>(CHANTIEvent));
   if (!NHits) return fDigiEvent;
 
   //Loop on MC hit

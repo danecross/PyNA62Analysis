@@ -1,29 +1,29 @@
-#include "StrawsTracksFilterAlgo.hh" 
+#include "StrawsTracksFilterAlgo.hh"
 
 namespace NA62Analysis
 {
-  //  ==============================================  
+  //  ==============================================
   StrawsTracksFilterAlgo::StrawsTracksFilterAlgo(BaseAnalysis *ba, Analyzer* ana, const std::string &name):
     Algorithm(ba,ana,name)
   {
 
     fSpectrometerEvent = new TRecoSpectrometerEvent;
     RequestTree("Spectrometer", fSpectrometerEvent, "Reco");
-    
+
     AddParam("DeltaP" 	                , &fDeltaP                            ,  20000.	);
     AddParam("Chi2" 	                , &fChi2                              ,  20.	);
     AddParam("Chi2Fake" 	        , &fChi2Fake                          ,  30.	);
     //AddParam("IsoDeltaT" 	                , &fIsoDeltaT                         ,  50.	);
     //AddParam("IsoChi2" 	                , &fIsoChi2                            ,  15.	);
-    
+
     BookHisto(new TH1F("BadTrackRate", ";Bad Track Fraction;count", 10,0.,1.));
     BookHisto(new TH1F("NbGoodTracks", ";Nb Good Tracks;count", 10,0.,10.));
-    
+
   }
-  
-  //==============================================  
+
+  //==============================================
   vector<TRecoSpectrometerCandidate*> StrawsTracksFilterAlgo::GetGoodTracks(){
-    
+
     fSpectrometerEvent = GetEvent<TRecoSpectrometerEvent>();
 
     //copy tracks in a vector
@@ -32,24 +32,27 @@ namespace NA62Analysis
     for (int i(0);i<fSpectrometerEvent->GetNCandidates();++i)tracks.push_back( static_cast<TRecoSpectrometerCandidate*>(fSpectrometerEvent->GetCandidate(i)));
 
     //remove fake tracks
+    //I believe this could be replaced with
+    //tracks.erase(std::remove_if(tracks.begin(), tracks.end(), IsFake), tracks.end());
     auto it = tracks.begin();
-    // cppcheck-suppress eraseDereference symbolName=it
     while(it!=tracks.end()){
-      if(IsFake(*it)) tracks.erase(it);
+      if(IsFake(*it)) it = tracks.erase(it);
       else ++it;
     }
 
     //remove bad tracks
+    //I believe this could be replaced with
+    //tracks.erase(std::remove_if(tracks.begin(), tracks.end(), [] (TRecoSpectrometerCandidate* c){return !IsGood(c);}), tracks.end());
     it = tracks.begin();
     while(it!=tracks.end()){
-      if(!IsGood(*it)) tracks.erase(it);
+      if(!IsGood(*it)) it = tracks.erase(it);
       else ++it;
     }
 
     return tracks;
   }
 
-  //==============================================  
+  //==============================================
   void StrawsTracksFilterAlgo::FilterGoodTrack(){
 
     fSpectrometerEvent = GetEvent<TRecoSpectrometerEvent>();
@@ -74,7 +77,7 @@ namespace NA62Analysis
   }
 
   /*
-  //  ==============================================  
+  //  ==============================================
   vector<TRecoSpectrometerCandidate*> StrawsTracksFilterAlgo::GetIsolatedTracks(TRecoSpectrometerEvent*){
     //copy tracks in a vector
     vector<TRecoSpectrometerCandidate*> tracks;
@@ -134,7 +137,7 @@ namespace NA62Analysis
         }
       }
       if(nHitCommon > 1) return 1;
-    }    
+    }
     return 0;
   }
 

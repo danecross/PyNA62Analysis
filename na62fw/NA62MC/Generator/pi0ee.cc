@@ -116,11 +116,11 @@ void generate_pi0ee_3body(TLorentzVector &epmom, TLorentzVector &emmom, TLorentz
 
     // following variables are defined static, as they need to be initialized only once
     static TLorentzVector ppion(0.0, 0.0, 0.0, MP0); // pi0 at rest
-    static double masses[3] = {MEL, MEL, 0}; // e+, e-, g
     static TGenPhaseSpace pi0ee3bodyEvent;
     static int gen_phase_space_calls = 0;
 
     if (!gen_phase_space_calls) {
+        static double masses[3] = {MEL, MEL, 0}; // e+, e-, g
         pi0ee3bodyEvent.SetDecay(ppion, 3, masses);
         gen_phase_space_calls++;
     }
@@ -178,8 +178,6 @@ void generate_pi0ee_3body(TLorentzVector &epmom, TLorentzVector &emmom, TLorentz
 double M2_piee_brems(double x, double y)
 {
     double mpi0 = MP0 * 1e3;    // the formula assumes mass in MeV
-    static double normalization_constant =
-        pow(AlphaQED,5) / pow(Fpi0,2)* pow(mpi0,4) * (16 * TMath::Pi()) / 8 / pow(16 * pow(TMath::Pi(),2),2);
     double M2 = pow((1-x),2) * (pow(mpi0,2) * (x * (1 - pow(y,2)) - v2) * (
                                     x * pow(mpi0,2) * (pow(ImP(x, y),2) + pow(ReP(x, y),2))
                                     + 2 * sqrt(v2) * mpi0 * (ImP(x, y)*(ImA(x, -y) + ImA(x, y)) + ReP(x, y)*(ReA(x, -y) + ReA(x, y)))
@@ -191,6 +189,8 @@ double M2_piee_brems(double x, double y)
                                 - 4 * v2 * pow(mpi0,2) * pow(y,2) * (ImA(x, -y) * ImA(x, y) + ReA(x, -y) * ReA(x, y))
                                 + 8 * (1 - pow(y,2)) * (pow(ImT(x, y),2) + pow(ReT(x, y),2)));
     if (CMC::GetInstance()->GetVerbose() >= 3) {
+        static double normalization_constant =
+            pow(AlphaQED,5) / pow(Fpi0,2)* pow(mpi0,4) * (16 * TMath::Pi()) / 8 / pow(16 * pow(TMath::Pi(),2),2);
         cout << " pi0->eeg: "<< "x = " << x << " y = " << y << endl
              << " Cnorm = " << normalization_constant << " |M(x,y)|^2 = " << M2 << endl;
     }

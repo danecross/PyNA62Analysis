@@ -285,12 +285,14 @@ UInt_t MUV3PileupGenerator::getNaccidentals(Double_t intensity) {
   return Naccidentals;
 }
 
-void MUV3PileupGenerator::EndOfJobUser(){
+void MUV3PileupGenerator::EndOfJobUser() {
   if (!GetIsTree()) { // histo mode: save N_accidentals profiles in beam intensity bins
     TH2F* h2D = fhnAccidentalCandsVsBeamIntensity;
-    for (Int_t ibin=1; ibin<=h2D->GetXaxis()->GetNbins(); ibin++) {
-      TH1D* hSlice = h2D->ProjectionY(Form("NaccidentalsInIntensityBin_%i", ibin), ibin, ibin);
-      hSlice->Write();
+    if (h2D) {
+      for (Int_t ibin=1; ibin<=h2D->GetXaxis()->GetNbins(); ibin++) {
+	TH1D* hSlice = h2D->ProjectionY(Form("NaccidentalsInIntensityBin_%i", ibin), ibin, ibin);
+	hSlice->Write();
+      }
     }
   }
   SaveAllPlots();

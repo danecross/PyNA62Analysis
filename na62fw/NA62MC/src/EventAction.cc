@@ -41,7 +41,6 @@
 #include "G4Trajectory.hh"
 #include "G4VVisManager.hh"
 #include "G4ios.hh"
-#include "G4Timer.hh"
 #include "MCTruthManager.hh"
 #include "G4SDManager.hh"
 #include "DatacardManager.hh"
@@ -56,10 +55,9 @@
 #include "NA62Global.hh"
 
 EventAction::EventAction(int SeedNum) :
-  timer(new G4Timer),
   fEventID(0), fCurrentEventCount(0),
   fRandomDecayState(nullptr), fRandomEngineStateFileExist(true),
-  fCommandLineSeed(SeedNum), fSkip(false) {
+  fCommandLineSeed(SeedNum), fSkip(false), fTimer(nullptr), fTimerID(0) {
   fRanecuState[0] = 0;
   fRanecuState[1] = 0;
   struct stat buffer;
@@ -76,7 +74,6 @@ EventAction::EventAction(int SeedNum) :
 }
 
 EventAction::~EventAction() {
-  delete timer;
   if (fRandomEngineStateFileExist) {
     delete fRandomDecayState;
     fRandomEngineStateFile->Close();
@@ -85,7 +82,7 @@ EventAction::~EventAction() {
 }
 
 void EventAction::BeginOfEventAction(const G4Event *evt) {
-  timer->Start();
+  if(fTimer) fTimer->StartTimer(fTimerID);
   fEventID = evt->GetEventID();
   fSkip = false;
 
@@ -118,7 +115,7 @@ void EventAction::EndOfEventAction(const G4Event* evt) {
   if (!fSkip) RootIOManager::GetInstance()->SaveEvent(evt);
 
   // Stop event timer
-  timer->Stop();
+  if(fTimer) fTimer->StopTimer(fTimerID);
 
   // Get number of stored trajectories
   G4TrajectoryContainer* trajectoryContainer = evt->GetTrajectoryContainer();

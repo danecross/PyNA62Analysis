@@ -25,12 +25,12 @@
 // History:
 //
 // Modified by Alina Kleimenova & Joel Swallow (June 2019)
-// - Added G4BeamLine input option 
-//   (use G4BeamLine simulation (Marcel R.) output [Target--Cedar] and 
+// - Added G4BeamLine input option
+//   (use G4BeamLine simulation (Marcel R.) output [Target--Cedar] and
 //    inject particles which reach Cedar front plane [z=69.2m] into NA62MC)
 //
 // Modified by Viacheslav Duk (05.2019)
-// - forced triple pion decays from K3pi (via capped lifetime) added 
+// - forced triple pion decays from K3pi (via capped lifetime) added
 //
 // Modified by Lorenza Iacobuzio (October 2018)
 // - Added heavy neutral lepton routine: production from D mesons and decay to two-body leptonic final state
@@ -85,7 +85,7 @@
 #include "G4ParticleTable.hh"
 #include "G4ParticleDefinition.hh"
 #include "G4PhysicalConstants.hh"
-#include "beam.hh"
+#include "FastBeam.hh"
 #include "G4CMCDecayer.hh"
 #include "DatacardManager.hh"
 #include "PrimaryGeneratorMessenger.hh"
@@ -103,13 +103,17 @@
 #include "MUV3GeometryParameters.hh"
 #include "NA62ConditionsService.hh"
 
-TF2* func_loc; // pointer for MINUIT minimisation (HNL mode)
+TF1 *func_loc_min = nullptr; // functions for TMinuit (hnl mode)
+TF1* function1 = nullptr;
+TF1* function2 = nullptr;
+TF1* function3 = nullptr;
+TF1* function4 = nullptr;
 
 PrimaryGeneratorAction::PrimaryGeneratorAction(DetectorConstruction* myDC, EventAction& myEVACT) :
   fMaxKaonMomentum(-1.0),
   fExoticProdMode(0), myDetector(myDC), inputEventFile(NULL),
   fCurrentInputEvent(0), fMaxInputEvent(0), fNKinePartsBr(nullptr),
-  fKinePartsBr(nullptr), fKinePartsInput(nullptr) {
+  fKinePartsBr(nullptr), fKinePartsInput(nullptr), fTimer(nullptr), fTimerID(0) {
   fMyEventAct = &myEVACT;
   fParticleTable = G4ParticleTable::GetParticleTable();
   fMessenger = new PrimaryGeneratorMessenger(this);
@@ -130,6 +134,7 @@ PrimaryGeneratorAction::PrimaryGeneratorAction(DetectorConstruction* myDC, Event
   fTurtleBeam  = nullptr; // The turtle generator
   fParticleDef = nullptr; // Used to turtle generation
   fReadCharmSpectrum = false;
+  fGausRand = nullptr;
 
   // Run-dependent K+ beam fine tuning parameters
   fRunNumber  = 0;
@@ -158,23 +163,31 @@ PrimaryGeneratorAction::PrimaryGeneratorAction(DetectorConstruction* myDC, Event
   fMKStar    = 891.76;
   fMK0Star   = 895.55;
 
-  // Lifetimes
-  fDlife   = fParticleTable->FindParticle("D+")  ->GetPDGLifeTime();
-  fDSlife  = fParticleTable->FindParticle("Ds+") ->GetPDGLifeTime();
-  fD0life  = fParticleTable->FindParticle("D0")  ->GetPDGLifeTime();  
-  ftaulife = fParticleTable->FindParticle("tau-")->GetPDGLifeTime();
+  // Lifetimes for BR computation
+
+  fDlife = 1.579*1.E9; // MeV^-1
+  fD0life = 6.227*1.E8;
+  fDSlife = 7.595*1.E8;
+  ftaulife = 4.42*1.E8;
+
+  // Lifetimes for kinematics computation
+
+  fDlife1 = 1.04*1.E-3; // ns
+  fD0life1 = 4.1*1.E-4;
+  fDSlife1 = 5.*1.E-4;
+  ftaulife1 = 2.9*1.E-4;
 
   // Constants
-  fhc       = 197.327E-12; // MeV mm
-  fGF       = 1.166E-11; // MeV^-2
-  fPi       = 130.41;  // MeV
-  fRho      = 1.04E5; // MeV^2
-  fD        = 222.6;
-  fDS       = 280.1;
-  fK        = 159.8;
-  fEta      = 1.2*fPi;
+  fhc = 197.327E-12; // MeV mm
+  fGF = 1.166E-11; // MeV^-2
+  fPi = 130.41;  // MeV
+  fRho = 1.04E5; // MeV^2
+  fD = 222.6;
+  fDS = 280.1;
+  fK = 159.8;
+  fEta = 1.2*fPi;
   fEtaprime = -0.45*fPi;
-  fsigmacc  = 2.3*75.; //mubarn at sqrt(s) = 82 GeV (400 GeV proton on Be(9) (mBe = 9*1 GeV), taken from Gaia's note
+  fsigmacc = 2.3*75.; //mubarn at sqrt(s) = 82 GeV (400 GeV proton on Be(9) (mBe = 9*1 GeV), taken from Gaia's note
 
   // CKM
   fVcs = 0.9734;
@@ -183,41 +196,41 @@ PrimaryGeneratorAction::PrimaryGeneratorAction(DetectorConstruction* myDC, Event
   fVus = 0.2253;
 
   // Form factors, pseudoscalar and vector mesons
-  fDK0   = 0.745; // f+
-  fDpi0  = 0.648;
-  fD0K   = 0.736;
-  fD0pi  = 0.637;
-  fgDK0  = -0.495; // f-
+  fDK0 = 0.745; // f+
+  fDpi0 = 0.648;
+  fD0K = 0.736;
+  fD0pi = 0.637;
+  fgDK0 = -0.495; // f-
   fgDpi0 = -0.435;
-  fgD0K  = fgDK0;
+  fgD0K = fgDK0;
   fgD0pi = fgDpi0;
 
-  fA0D  = 0.398;
-  fA1D  = 0.47;
-  fA2D  = -1.24;
-  fVD   = 0.66;
+  fA0D = 0.398;
+  fA1D = 0.47;
+  fA2D = -1.24;
+  fVD = 0.66;
   fA0D0 = 0.4;
   fA1D0 = 0.47;
   fA2D0 = -1.24;
-  fVD0  = 0.66;
+  fVD0 = 0.66;
 
   // Fragmentation fractions
-  ffD  = 0.246;
+  ffD = 0.246;
   ffD0 = 0.565;
   ffDS = 0.08;
 
   // NA62 parameters
-  fpMom         = 400000.; // MeV
-  fBeA          = 4;
-  fBeDensity    = 1.85; // g/cm3
-  fpBeLambda    = 421.; // mm
+  fpMom = 400000.; // MeV
+  fBeA = 4;
+  fBeDensity = 1.85; // g/cm3
+  fpBeLambda = 421.; // mm
   ftargetLength = 400.; // mm
-  fCuA          = 29;
-  fCuDensity    = 8.96; // g/cm3
-  fpCuLambda    = 153.; // mm
-  fTAXLength    = 1615.; // mm
-  fTAXDistance  = 23070.;
-  fbeamLength   = 102425.; // mm
+  fCuA = 29;
+  fCuDensity = 8.96; // g/cm3
+  fpCuLambda = 153.; // mm
+  fTAXLength = 1615.; // mm
+  fTAXDistance = 23070.;
+  fbeamLength = 102425.; // mm
 
   // Other parameters
   fPTotal[0] = 0.13966; //Probabilities for species: DPlus, DSPlus, DMinus, DSMinus, D0, D0Bar from pp (np) interactions in the target
@@ -231,7 +244,7 @@ PrimaryGeneratorAction::PrimaryGeneratorAction(DetectorConstruction* myDC, Event
 
   // Settings for external particle beam
   fExternalParticlesInitialized = false;
-  
+
   // G4BeamLine output read
   fG4Beam        = nullptr;
   fG4BeamLineOut = nullptr;
@@ -245,9 +258,11 @@ PrimaryGeneratorAction::~PrimaryGeneratorAction() {
   if (fExoticPartGun) delete fExoticPartGun;
   if (fDecay) delete fDecay;
   if (fG4BeamLineOut) fG4BeamLineOut->Close();
+  if (fGausRand) delete fGausRand;
 }
 
 void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
+  if(fTimer) fTimer->StartTimer(fTimerID);
   fMyEventAct->FillRandomEnginesStates();
   TRandom3* RandomDecay = (RandomGenerator::GetInstance())->GetRandomDecay();
 
@@ -276,43 +291,43 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
   case 5: // Replay mode -- not documented (???)
     {
       if (inputEventFile==NULL) {
-	G4cout << "[PrimaryGeneratorAction] Error: Input file process is not found" << G4endl;
-	exit(kWrongConfiguration);
+        G4cout << "[PrimaryGeneratorAction] Error: Input file process is not found" << G4endl;
+        exit(kWrongConfiguration);
       }
       if (fCurrentInputEvent==fMaxInputEvent) {
-	G4cout << "[PrimaryGeneratorAction] Error: Input file process is finished" << G4endl;
-	exit(kWrongConfiguration);
+        G4cout << "[PrimaryGeneratorAction] Error: Input file process is finished" << G4endl;
+        exit(kWrongConfiguration);
       }
       fKinePartsBr->GetEntry(fCurrentInputEvent);
       G4int Nobj = fKinePartsInput->GetEntries();
       if (!Nobj) {
-	G4cout << "[PrimaryGeneratorAction] Error: KinePart bank is empty" << G4endl;
-	exit(kWrongConfiguration);
+        G4cout << "[PrimaryGeneratorAction] Error: KinePart bank is empty" << G4endl;
+        exit(kWrongConfiguration);
       }
 
       vector<G4int> tracksID;
       for(G4int iPart=0; iPart<Nobj; iPart++){
-	KinePart* Particle = static_cast<KinePart*>(fKinePartsInput->At(iPart));
-	G4double startPozZ = Particle->GetProdPos().Z();
-	G4double endPozZ = Particle->GetEndPos().Z();
-	if (startPozZ < 219546.0 && endPozZ > 219546.0) {
-	  if (Particle->GetID() > 1) {
-	    vector<G4int>::iterator i = find(tracksID.begin(), tracksID.end(), Particle->GetID());
-	    if (!(i != tracksID.end())) {
-	      tracksID.push_back(Particle->GetID());
-	      G4ThreeVector position = G4ThreeVector(Particle->GetProdPos().X()*mm, Particle->GetProdPos().Y()*mm, startPozZ*mm);
-	      G4double time = 0.0;
-	      G4PrimaryVertex* vertex = new G4PrimaryVertex(position, time);
-	      G4ThreeVector momentum = G4ThreeVector(Particle->GetInitialMomentum().X(), Particle->GetInitialMomentum().Y(), Particle->GetInitialMomentum().Z());
-	      G4PrimaryParticle* primaryParticle = new G4PrimaryParticle(fParticleTable->FindParticle(Particle->GetPDGcode()), momentum.x(), momentum.y(), momentum.z());
-	      primaryParticle->SetMass(fParticleTable->FindParticle(Particle->GetPDGcode())->GetPDGMass());
-	      // G4double part_energy = sqrt(Particle->GetInitialEnergy());
-	      primaryParticle->SetCharge(fParticleTable->FindParticle(Particle->GetPDGcode())->GetPDGCharge());
-	      vertex->SetPrimary(primaryParticle);
-	      anEvent->AddPrimaryVertex(vertex);
-	    }
-	  }
-	}
+        KinePart* Particle = static_cast<KinePart*>(fKinePartsInput->At(iPart));
+        G4double startPozZ = Particle->GetProdPos().Z();
+        G4double endPozZ = Particle->GetEndPos().Z();
+        if (startPozZ < 219546.0 && endPozZ > 219546.0) {
+          if (Particle->GetID() > 1) {
+            vector<G4int>::iterator i = find(tracksID.begin(), tracksID.end(), Particle->GetID());
+            if (!(i != tracksID.end())) {
+              tracksID.push_back(Particle->GetID());
+              G4ThreeVector position = G4ThreeVector(Particle->GetProdPos().X()*mm, Particle->GetProdPos().Y()*mm, startPozZ*mm);
+              G4double time = 0.0;
+              G4PrimaryVertex* vertex = new G4PrimaryVertex(position, time);
+              G4ThreeVector momentum = G4ThreeVector(Particle->GetInitialMomentum().X(), Particle->GetInitialMomentum().Y(), Particle->GetInitialMomentum().Z());
+              G4PrimaryParticle* primaryParticle = new G4PrimaryParticle(fParticleTable->FindParticle(Particle->GetPDGcode()), momentum.x(), momentum.y(), momentum.z());
+              primaryParticle->SetMass(fParticleTable->FindParticle(Particle->GetPDGcode())->GetPDGMass());
+              // G4double part_energy = sqrt(Particle->GetInitialEnergy());
+              primaryParticle->SetCharge(fParticleTable->FindParticle(Particle->GetPDGcode())->GetPDGCharge());
+              vertex->SetPrimary(primaryParticle);
+              anEvent->AddPrimaryVertex(vertex);
+            }
+          }
+        }
       }
       fCurrentInputEvent++;
       break;
@@ -324,23 +339,23 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
 
       // For forced KL decay, account for the decay probability first
       if (DatacardManager::GetInstance()->GetDecayForce()) {
-	G4double Prob_survival;
-	do {
-	  GenerateKLMomentum();
-	  G4double bgct = f4Momentum.beta()*f4Momentum.gamma()*c_light*fParticleDef->GetPDGLifeTime();
-	  Prob_survival = exp(-DatacardManager::GetInstance()->GetDecayPath()/bgct);
-	  // probability of KL decay before reaching the FV is not taken into account yet...
-	} while (RandomDecay->Uniform()<Prob_survival);
+        G4double Prob_survival;
+        do {
+          GenerateKLMomentum();
+          G4double bgct = f4Momentum.beta()*f4Momentum.gamma()*c_light*fParticleDef->GetPDGLifeTime();
+          Prob_survival = exp(-DatacardManager::GetInstance()->GetDecayPath()/bgct);
+          // probability of KL decay before reaching the FV is not taken into account yet...
+        } while (RandomDecay->Uniform()<Prob_survival);
       }
       else {
-	GenerateKLMomentum();
+        GenerateKLMomentum();
       }
 
       G4LorentzVector PosTime = GenerateKLPositionTime();
       G4ThreeVector Pos       = PosTime.vect(); // mm
       G4double Time           = PosTime.t();    // ns
       G4PrimaryParticle *BeamParticle = new
-	G4PrimaryParticle(fParticleDef, f4Momentum.px(), f4Momentum.py(), f4Momentum.pz()); // MeV
+              G4PrimaryParticle(fParticleDef, f4Momentum.px(), f4Momentum.py(), f4Momentum.pz()); // MeV
 
       // Attach daughters if the forced decay mode is set.
       // The daughters are boosted into the INITIAL kaon rest frame in the decay generators.
@@ -348,20 +363,20 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
 
       if (DatacardManager::GetInstance()->GetDecayForce()) {
 
-	// Set the pre-assigned decay time to the beam kaon (KL)
-	BeamParticle->SetProperTime(ProperTime(fParticleDef->GetPDGLifeTime(), Pos.z()));
+        // Set the pre-assigned decay time to the beam kaon (KL)
+        BeamParticle->SetProperTime(ProperTime(fParticleDef->GetPDGLifeTime(), Pos.z()));
 
-	if (!fDecay) fDecay = new G4CMCDecayer();
-	G4int Ndaughters = fDecay->Generate
-	  (f4Momentum.x(), f4Momentum.y(), f4Momentum.z(), f4Momentum.e());
-	for (G4int j=0; j<Ndaughters; j++) {
-	  CMCParticle *part = fDecay->GetParticles()->at(j);
-	  G4ParticleDefinition* daughter = fParticleTable->FindParticle(part->fPid);
-	  G4PrimaryParticle *daughterpart = new
-	    G4PrimaryParticle(daughter, part->fPx*GeV, part->fPy*GeV, part->fPz*GeV); // GeV-->MeV conversion
-	  daughterpart->SetPolarization(part->fPolX, part->fPolY, part->fPolZ);
-	  BeamParticle->SetDaughter(daughterpart);
-	}
+        if (!fDecay) fDecay = new G4CMCDecayer();
+        G4int Ndaughters = fDecay->Generate
+                (f4Momentum.x(), f4Momentum.y(), f4Momentum.z(), f4Momentum.e());
+        for (G4int j=0; j<Ndaughters; j++) {
+          CMCParticle *part = fDecay->GetParticles()->at(j);
+          G4ParticleDefinition* daughter = fParticleTable->FindParticle(part->fPid);
+          G4PrimaryParticle *daughterpart = new
+                  G4PrimaryParticle(daughter, part->fPx*GeV, part->fPy*GeV, part->fPz*GeV); // GeV-->MeV conversion
+          daughterpart->SetPolarization(part->fPolX, part->fPolY, part->fPolZ);
+          BeamParticle->SetDaughter(daughterpart);
+        }
       }
 
       // Define the event and attach the beam particle to the event
@@ -373,27 +388,27 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
 
   case 50: // HNL production and decay
     {
-      if (ExoticParticle::Definition(0)->GetPDGStable() == kTRUE) {
-	G4cout << "[PrimaryGeneratorAction] ERROR: stable/invisible decay mode not implemented for heavy neutral leptons. Please set a different exotic decay mode in the macro file." << G4endl;
-	exit(kWrongConfiguration);
-      }
-
-      if (ExoticParticle::Definition(0)->GetPDGMass() >= fMDS) {
-	G4cout << "[PrimaryGeneratorAction] ERROR: heavy neutral lepton mass bigger than D meson masses. Please set a different mass in the macro file." << G4endl;
-	exit(kWrongConfiguration);
-      }
-
       G4DecayTable *Table = ExoticParticle::Definition(0)->GetDecayTable();
       G4String Name1 = Table->GetDecayChannel(0)->GetDaughterName(0);
       G4String Name2 = Table->GetDecayChannel(0)->GetDaughterName(1);
 
+      if (ExoticParticle::Definition(0)->GetPDGStable() == kTRUE) {
+        G4cout << "[PrimaryGeneratorAction] ERROR: stable/invisible decay mode not implemented for heavy neutral leptons. Please set a different exotic decay mode in the macro file." << G4endl;
+        exit(kWrongConfiguration);
+      }
+
+      if (ExoticParticle::Definition(0)->GetPDGMass() >= fMDS) {
+        G4cout << "[PrimaryGeneratorAction] ERROR: heavy neutral lepton mass bigger than DS meson mass. Please set a different mass in the macro file." << G4endl;
+        exit(kWrongConfiguration);
+      }
+
       if (Table->GetDecayChannel(0)->GetNumberOfDaughters() != 2 || ((Name1 != "pi+" && Name1 != "pi-" && Name1 != "rho+" && Name1 != "rho-") || (Name2 != "mu+" && Name2 != "mu-" && Name2 != "e+" && Name2 != "e-")))  {
-	G4cout << "[PrimaryGeneratorAction] ERROR: mode not implemented for heavy neutral leptons. Please set a different exotic decay mode in the macro file." << G4endl;
-	exit(kWrongConfiguration);
+        G4cout << "[PrimaryGeneratorAction] ERROR: mode not implemented for heavy neutral leptons. Please set a different exotic decay mode in the macro file." << G4endl;
+        exit(kWrongConfiguration);
       }
 
       if (ExoticParticle::Definition(0)->GetPDGMass() < (Table->GetDecayChannel(0)->GetDaughter(0)->GetPDGMass() + Table->GetDecayChannel(0)->GetDaughter(1)->GetPDGMass())) {
-	G4cout << "[PrimaryGeneratorAction] ERROR: heavy neutral lepton too light to decay into " << Name1 << " " << Name2 << ". Please set a different hnl mass or exotic decay mode in the macro file." << G4endl;
+        G4cout << "[PrimaryGeneratorAction] ERROR: heavy neutral lepton too light to decay into " << Name1 << " " << Name2 << ". Please set a different hnl mass or exotic decay mode in the macro file." << G4endl;
         exit(kWrongConfiguration);
       }
 
@@ -407,18 +422,18 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
       G4int evID = anEvent->GetEventID();
       fParticleDef = fParticleTable->FindParticle(fExternalParticlesArray.pdg_code[evID]);
       G4ThreeVector P = G4ThreeVector
-	(fExternalParticlesArray.px[evID],
-	 fExternalParticlesArray.py[evID],
-	 fExternalParticlesArray.pz[evID]);
+              (fExternalParticlesArray.px[evID],
+               fExternalParticlesArray.py[evID],
+               fExternalParticlesArray.pz[evID]);
       G4double mass = fParticleDef->GetPDGMass();
       f4Momentum = G4LorentzVector(P, sqrt(P.mag2()+mass*mass));
       G4PrimaryParticle *ExternalBeamParticle = new
         G4PrimaryParticle(fParticleDef, f4Momentum.x(), f4Momentum.y(), f4Momentum.z());
       G4ThreeVector Pos
-        (fExternalParticlesArray.x[evID],
-	 fExternalParticlesArray.y[evID],
-	 fExternalParticlesArray.z[evID]);
-      G4double Time = fExternalParticlesArray.z[evID]/c_light;  
+      (fExternalParticlesArray.x[evID],
+              fExternalParticlesArray.y[evID],
+              fExternalParticlesArray.z[evID]);
+      G4double Time = fExternalParticlesArray.z[evID]/c_light;
       G4PrimaryVertex *PrimaryVertex = new G4PrimaryVertex(Pos, Time);
       PrimaryVertex->SetPrimary(ExternalBeamParticle);
       anEvent->AddPrimaryVertex(PrimaryVertex);
@@ -427,7 +442,6 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
 
   case 52: // new beam from geant4beamline
   {
-    std::vector<Int_t> eventIDtree;
     Bool_t ForcedKaonDecay = false;
     Bool_t ForcedPionDecay = false;
     ForcedKaonDecay = DatacardManager::GetInstance()->GetDecayForce() && (DatacardManager::GetInstance()->GetDecayType() < 200);
@@ -476,22 +490,22 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
       if (eventid!=randevt) continue;
       fParticleDef    = fParticleTable->FindParticle(pdgid);
       G4double mass   = fParticleDef->GetPDGMass();
-      G4ThreeVector P = fMomentumScaleFactor * G4ThreeVector(px, py, pz);         
+      G4ThreeVector P = fMomentumScaleFactor * G4ThreeVector(px, py, pz);
       f4Momentum      = G4LorentzVector(P, sqrt(P.mag2() + mass*mass));
 
       G4PrimaryParticle *G4BeamParticle = new G4PrimaryParticle
-	(fParticleDef, f4Momentum.x(), f4Momentum.y(), f4Momentum.z());  
+              (fParticleDef, f4Momentum.x(), f4Momentum.y(), f4Momentum.z());
       G4ThreeVector Pos(x + fAlignmentX, y + fAlignmentY, z);
 
       // Forced decay mode: attach daughters.
       // For beam K+ or pi+ depending on decay type, momentum and initial position
-      if (((ForcedKaonDecay && pdgid==321) || (ForcedPionDecay && pdgid==211)) && 
-	  ForceDecay && pz>70000 && (sqrt(pow(initx,2)+pow(inity,2))<1.0)) {
+      if (((ForcedKaonDecay && pdgid==321) || (ForcedPionDecay && pdgid==211)) &&
+              ForceDecay && pz>70000 && (sqrt(pow(initx,2)+pow(inity,2))<1.0)) {
         ForcedDecay(G4BeamParticle, Pos);
         ForceDecay=kFALSE;
       } // end of "forced beam particle decay" condition
       G4double Time = z/c_light;
-      G4PrimaryVertex *PrimaryVertex = new G4PrimaryVertex(Pos, Time); 
+      G4PrimaryVertex *PrimaryVertex = new G4PrimaryVertex(Pos, Time);
       PrimaryVertex->SetPrimary(G4BeamParticle);
       anEvent->AddPrimaryVertex(PrimaryVertex);
     }
@@ -502,65 +516,65 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
     {
       // Turtle and alignment initialization
       if (!fTurtleBeam) {
-	fTurtleBeam = new FastBeam(DatacardManager::GetInstance()->GetTurtleDatacardFileName());
-	fParticleDef = fParticleTable->FindParticle(fParticleName);
-	if (!fParticleDef) {
-	  G4cout << "[PrimaryGeneratorAction] Error: Invalid beam particle specified: " <<
-	    fParticleName << G4endl;
-	  exit(kWrongConfiguration);
-	}
-	fAlignmentX = DatacardManager::GetInstance()->GetBeamAlignmentX()*mm;
-	fAlignmentY = DatacardManager::GetInstance()->GetBeamAlignmentY()*mm;
-	fMomentumScaleFactor = DatacardManager::GetInstance()->GetBeamMomentumScaleFactor();
-	G4cout << "[PrimaryGeneratorAction] Beam alignment x,y [mm]: " <<
-	  Form("%4.2f", fAlignmentX/mm) << " " << Form("%4.2f", fAlignmentY/mm) << G4endl;
-	G4cout << "[PrimaryGeneratorAction] Beam momentum scale factor: " <<
-	  Form("%5.3f", fMomentumScaleFactor) << G4endl;
+        fTurtleBeam = new FastBeam();
+        fParticleDef = fParticleTable->FindParticle(fParticleName);
+        if (!fParticleDef) {
+          G4cout << "[PrimaryGeneratorAction] Error: Invalid beam particle specified: " <<
+                  fParticleName << G4endl;
+          exit(kWrongConfiguration);
+        }
+        fAlignmentX = DatacardManager::GetInstance()->GetBeamAlignmentX()*mm;
+        fAlignmentY = DatacardManager::GetInstance()->GetBeamAlignmentY()*mm;
+        fMomentumScaleFactor = DatacardManager::GetInstance()->GetBeamMomentumScaleFactor();
+        G4cout << "[PrimaryGeneratorAction] Beam alignment x,y [mm]: " <<
+                Form("%4.2f", fAlignmentX/mm) << " " << Form("%4.2f", fAlignmentY/mm) << G4endl;
+        G4cout << "[PrimaryGeneratorAction] Beam momentum scale factor: " <<
+                Form("%5.3f", fMomentumScaleFactor) << G4endl;
       }
 
       // Compute the maximum decay probability (at p = 70 GeV/c)
       G4double Prob_decay_max = 1.0;
       if (fParticleName == "kaon+" || fParticleName == "pi+") {
-	Prob_decay_max = MaxDecayProb(70000., fParticleDef->GetPDGMass(), fParticleDef->GetPDGLifeTime());
+        Prob_decay_max = MaxDecayProb(70000., fParticleDef->GetPDGMass(), fParticleDef->GetPDGLifeTime());
       }
 
       // Transport the beam particle through the beam line up to the G4 starting point
       G4double Prob_decay = 999.;
       do {
-	fTurtleBeam->SetN(0);
-	fTurtleBeam->Generate();
+        fTurtleBeam->SetN(0);
+        fTurtleBeam->Generate();
 
-	//Note: fTurtleBeam is in GeV/c
-	//      G4 needs MeV/c
-	//      Fortran decay model needs GeV/c
-	//      Convert GeV->MeV <=> *GeV
-	//              MeV->GeV <=> /GeV
+        //Note: fTurtleBeam is in GeV/c
+        //      G4 needs MeV/c
+        //      Fortran decay model needs GeV/c
+        //      Convert GeV->MeV <=> *GeV
+        //              MeV->GeV <=> /GeV
 
-	// All the quantities in the following 7 lines are in [MeV]
-	G4ThreeVector P = fMomentumScaleFactor * GeV *
-	  G4ThreeVector(fTurtleBeam->GetPx(0),
-			fTurtleBeam->GetPy(0),
-			fTurtleBeam->GetPz(0));
-	G4double mass = fParticleDef->GetPDGMass();
-	G4double E = sqrt(P.mag2() + mass*mass);
-	f4Momentum = G4LorentzVector(P, E);
+        // All the quantities in the following 7 lines are in [MeV]
+        G4ThreeVector P = fMomentumScaleFactor * GeV *
+                G4ThreeVector(fTurtleBeam->GetPx(0),
+                        fTurtleBeam->GetPy(0),
+                        fTurtleBeam->GetPz(0));
+        G4double mass = fParticleDef->GetPDGMass();
+        G4double E = sqrt(P.mag2() + mass*mass);
+        f4Momentum = G4LorentzVector(P, E);
 
-	if ((fParticleName == "kaon+" || fParticleName == "pi+") &&
-	    DatacardManager::GetInstance()->GetDecayForce()) {
-	  G4double bgct = f4Momentum.beta()*f4Momentum.gamma()*c_light*fParticleDef->GetPDGLifeTime();
-	  Prob_decay = 1.0 - exp(-DatacardManager::GetInstance()->GetDecayPath()/bgct);
-	}
-	else {
-	  Prob_decay = 999.; // no rejection if forced decay is not required
-	}
+        if ((fParticleName == "kaon+" || fParticleName == "pi+") &&
+                DatacardManager::GetInstance()->GetDecayForce()) {
+          G4double bgct = f4Momentum.beta()*f4Momentum.gamma()*c_light*fParticleDef->GetPDGLifeTime();
+          Prob_decay = 1.0 - exp(-DatacardManager::GetInstance()->GetDecayPath()/bgct);
+        }
+        else {
+          Prob_decay = 999.; // no rejection if forced decay is not required
+        }
       } while (RandomDecay->Uniform() > Prob_decay/Prob_decay_max);
 
       G4PrimaryParticle *BeamParticle = new
-	G4PrimaryParticle(fParticleDef, f4Momentum.x(), f4Momentum.y(), f4Momentum.z()); // MeV
+              G4PrimaryParticle(fParticleDef, f4Momentum.x(), f4Momentum.y(), f4Momentum.z()); // MeV
       G4ThreeVector Pos
-	(fTurtleBeam->GetX(0)*m + fAlignmentX,
-	 fTurtleBeam->GetY(0)*m + fAlignmentY,
-	 fTurtleBeam->GetZ(0)*m); // mm
+      (fTurtleBeam->GetX(0)*m + fAlignmentX,
+              fTurtleBeam->GetY(0)*m + fAlignmentY,
+              fTurtleBeam->GetZ(0)*m); // mm
       G4double Time = fTurtleBeam->GetTime(0);
 
       // Forced decay mode: attach daughters.
@@ -568,7 +582,7 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
       // However Geant4 then makes a correction to boost them into the FINAL kaon rest frame.
 
       if ((fParticleName == "kaon+" || fParticleName == "pi+") &&
-	  DatacardManager::GetInstance()->GetDecayForce()) {
+              DatacardManager::GetInstance()->GetDecayForce()) {
         ForcedDecay(BeamParticle, Pos);
       } // end of "forced beam particle decay" condition
 
@@ -578,6 +592,8 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
       anEvent->AddPrimaryVertex(PrimaryVertex); // can add multiple vertices, in principle
     }
   }
+
+  if(fTimer) fTimer->StopTimer(fTimerID);
 }
 
 //////////////////////
@@ -687,6 +703,7 @@ void PrimaryGeneratorAction::InitializeExoticDaughter(TRandom3* RandomDecay) {
   G4DecayTable *Table = ExoticParticle::Definition(0)->GetDecayTable();
   G4String Name1 = Table->GetDecayChannel(0)->GetDaughterName(0);
   G4String Name2 = Table->GetDecayChannel(0)->GetDaughterName(1);
+
   Name1 = Name1.strip(1, '+');
   Name1 = Name1.strip(1, '-');
   Name2 = Name2.strip(1, '+');
@@ -705,7 +722,7 @@ void PrimaryGeneratorAction::InitializeExoticDaughter(TRandom3* RandomDecay) {
 
 void PrimaryGeneratorAction::ReadCharmSpectrum() {
   fHDPlusPtPl   = TH2D("DPlusPlPt",   "DPlusPlPt",   50, 0., 250., 10, 0., 5.); // [GeV]
-  fHDMinusPtPl  = TH2D("DMinusPlPt",  "DMinusPlPt",  50, 0., 250., 10, 0., 5.); // [GeV]  
+  fHDMinusPtPl  = TH2D("DMinusPlPt",  "DMinusPlPt",  50, 0., 250., 10, 0., 5.); // [GeV]
   fHDSPlusPtPl  = TH2D("DSPlusPlPt",  "DSPlusPlPt",  50, 0., 250., 10, 0., 5.); // [GeV]
   fHDSMinusPtPl = TH2D("DSMinusPlPt", "DSMinusPlPt", 50, 0., 250., 10, 0., 5.); // [GeV]
   fHD0PtPl      = TH2D("D0PlPt",      "D0PlPt",      50, 0., 250., 10, 0., 5.); // [GeV]
@@ -846,8 +863,7 @@ G4LorentzVector PrimaryGeneratorAction::GenerateKLPositionTime() {
 // Phasespace for 2-body HNL production mode
 
 G4double PrimaryGeneratorAction::PhaseSpace(G4double Mass1, G4double Mass2, G4double Mass3) {
-  G4double phaseSpace =
-    TMath::Power(Mass1*Mass1 - Mass2*Mass2 - Mass3*Mass3, 2) - 4.*Mass2*Mass2*Mass3*Mass3;
+  G4double phaseSpace = TMath::Power(Mass1*Mass1 - Mass2*Mass2 - Mass3*Mass3, 2) - 4.*Mass2*Mass2*Mass3*Mass3;
   return phaseSpace;
 }
 
@@ -866,12 +882,8 @@ G4double PrimaryGeneratorAction::TwoBodyBR(G4double Mass1, G4double Mass2, G4dou
 
   G4double brt = 0.;
   G4double life = 0.;
-  G4double V = 0.;
+  G4double V, a, b, c, d;
   G4double f = 0.;
-  G4double a = 0.;
-  G4double b = 0.;
-  G4double c = 0.;
-  G4double d = 0.;
 
   if (Mass1 >= (Mass2 + Mass3) && PhaseSpaceFactor(Mass1, Mass2, Mass3) > 0.) {
     if (Mass1 == fMD) {
@@ -888,11 +900,11 @@ G4double PrimaryGeneratorAction::TwoBodyBR(G4double Mass1, G4double Mass2, G4dou
       life = ftaulife;
       V = fVud;
       if (Mass3 == fMpi)
-	f = fPi;
+        f = fPi;
       else if (Mass3 == fMK)
-	f = fK;
+        f = fK;
       else if (Mass3 == fMrho)
-	f = fRho;
+        f = fRho;
     }
     else {
       G4cout << "[TwoBodyBR] ERROR: Unknown mother hadron" << G4endl;
@@ -913,20 +925,20 @@ G4double PrimaryGeneratorAction::TwoBodyBR(G4double Mass1, G4double Mass2, G4dou
     }
     else { // D,DS->taunu; tau->NH (H = pi, K, rho)
       if ((Dorigin == 0 && PhaseSpaceFactor(fMD, fMtau, 0.) > 0.) || (Dorigin == 1 && PhaseSpaceFactor(fMDS, fMtau, 0.))) {
-	if (Mass3 == fMpi || Mass3 == fMK) {
-	  a = life*fGF*fGF*V*V*f*f*Mass1*Mass1*Mass1/(16.*TMath::Pi());
-	  b = TMath::Power(1. - Mass2*Mass2/(Mass1*Mass1), 2.) - (1. + Mass2*Mass2/(Mass1*Mass1))*Mass3*Mass3/(Mass1*Mass1);
-	  c = 1. - ((Mass3 - Mass2)*(Mass3 - Mass2)/(Mass1*Mass1));
-	  d = 1. - ((Mass3 + Mass2)*(Mass3 + Mass2)/(Mass1*Mass1));
-	  brt = a*b*TMath::Sqrt(c*d);
-	}
-	else if (Mass3 == fMrho) {
-	  a = life*fRho*fRho*fGF*fGF*V*V*Mass1*Mass1*Mass1/(8.*TMath::Pi()*Mass3*Mass3);
-	  b = TMath::Power(1. - Mass2*Mass2/(Mass1*Mass1), 2.) + (1. + (Mass2*Mass2 - 2.*Mass3*Mass3)/(Mass1*Mass1))*Mass3*Mass3/(Mass1*Mass1);
-	  c = 1. - ((Mass3 - Mass2)*(Mass3 - Mass2)/(Mass1*Mass1));
-	  d = 1. - ((Mass3 + Mass2)*(Mass3 + Mass2)/(Mass1*Mass1));
-	  brt = a*b*TMath::Sqrt(c*d);
-	}
+        if (Mass3 == fMpi || Mass3 == fMK) {
+          a = life*fGF*fGF*V*V*f*f*Mass1*Mass1*Mass1/(16.*TMath::Pi());
+          b = TMath::Power(1. - Mass2*Mass2/(Mass1*Mass1), 2.) - (1. + Mass2*Mass2/(Mass1*Mass1))*Mass3*Mass3/(Mass1*Mass1);
+          c = 1. - ((Mass3 - Mass2)*(Mass3 - Mass2)/(Mass1*Mass1));
+          d = 1. - ((Mass3 + Mass2)*(Mass3 + Mass2)/(Mass1*Mass1));
+          brt = a*b*TMath::Sqrt(c*d);
+        }
+        else if (Mass3 == fMrho) {
+          a = life*fRho*fRho*fGF*fGF*V*V*Mass1*Mass1*Mass1/(8.*TMath::Pi()*Mass3*Mass3);
+          b = TMath::Power(1. - Mass2*Mass2/(Mass1*Mass1), 2.) + (1. + (Mass2*Mass2 - 2.*Mass3*Mass3)/(Mass1*Mass1))*Mass3*Mass3/(Mass1*Mass1);
+          c = 1. - ((Mass3 - Mass2)*(Mass3 - Mass2)/(Mass1*Mass1));
+          d = 1. - ((Mass3 + Mass2)*(Mass3 + Mass2)/(Mass1*Mass1));
+          brt = a*b*TMath::Sqrt(c*d);
+        }
       }
     }
   }
@@ -939,276 +951,410 @@ G4double PrimaryGeneratorAction::TwoBodyBR(G4double Mass1, G4double Mass2, G4dou
 // Total BR for 3-body HNL production mode
 
 G4double PrimaryGeneratorAction::ThreeBodyBR(G4double Mass1, G4double Mass2, G4double Mass3, G4double Mass4, G4bool eval, G4bool max, G4double q2, G4double EN, G4int Dorigin) {
-  
+
   G4double br = 0.;
-  
+  G4double Nsteps = 5.;
+
   if (Mass1 >= (Mass2 + Mass3 + Mass4)) {
     if (Mass3 == fMK || Mass3 == fMK0 || Mass3 == fMpi || Mass3 == fMpi0) { // D,D0->NHl (H = pi, pi0, K, K0)
-      if (Mass1 == fMD || Mass1 == fMD0) { 
-	G4double ENmin = Mass2; // N at rest, K and e back to back                                   
-	G4double ENmax = (Mass1*Mass1 + Mass2*Mass2 - TMath::Power(Mass4 + Mass3, 2.))/(2.*Mass1); // N one way,K and e other way, their momenta summed equal to the N one
-	G4double q2min = TMath::Power(Mass2 + Mass4, 2.); // sum of masses of lepton pair
-	G4double q2max = TMath::Power(Mass1 - Mass3, 2.); // sum of 4momenta of lepton pair, when K at rest and N and e back to back
-	G4double tau = 0.;
-	G4double V = 0.;
-	G4double f = 0.;
-	G4double a = 0.;
-	G4double b = 0.;
-	G4double g = 0.;
+      if (Mass1 == fMD || Mass1 == fMD0) {
+        if (eval == kFALSE) { // Integral for total BR
+          G4double minKl = TMath::Power(Mass3+Mass4, 2.);
+          G4double maxKl = TMath::Power(Mass1-Mass2, 2.);
+          G4double ENmin = (Mass1*Mass1 - maxKl + Mass2*Mass2)/(2.*Mass1);
+          G4double ENmax = (Mass1*Mass1 - minKl + Mass2*Mass2)/(2.*Mass1);
+          G4double ENstep = (ENmax-ENmin)/Nsteps;
+          G4double q2min;
+          G4double q2max;
+          G4double a = 0.;
 
-	if (Mass1 == fMD) {
-	  tau = fDlife;
-	  if (Mass3 == fMK0) {
-	    V = fVcs;
-	    f = fDK0;
-	    g = fgDK0;
-	  }
-	  else if (Mass3 == fMpi0) {
-	    V = fVcd;
-	    f = fDpi0;
-	    g = fgDpi0;
-	  }
-	  else {
-	    G4cout << "[ThreeBodyBR] ERROR: Unknown daughter hadron" << G4endl;
-	    exit(kWrongConfiguration);
-	  }
-	}
-	else if (Mass1 == fMD0) {
-	  tau = fD0life;
-	  if (Mass3 == fMK) {
-	    V = fVcs;
-	    f = fD0K;
-	    g = fgD0K;
-	  }
-	  else if (Mass3 == fMpi) {
-	    V = fVcd;
-	    f = fD0pi;
-	    g = fgD0pi;
-	  }
-	  else {
-	    G4cout << "[ThreeBodyBR] ERROR: Unknown daughter hadron" << G4endl;
-	    exit(kWrongConfiguration);
-	  }
-	}
-	a = tau*V*V*fGF*fGF/(64.*TMath::Power(TMath::Pi(), 3.)*Mass1*Mass1);
+          for (G4double EN = ENmin; EN < ENmax; EN += ENstep) {
+            Double_t mKl = Mass1*Mass1 - 2.*Mass1*EN + Mass2*Mass2;
+            Double_t El = (mKl - Mass3*Mass3 + Mass4*Mass4)/(2.*TMath::Sqrt(mKl));
+            Double_t PN = TMath::Sqrt(TMath::Abs(EN*EN - Mass2*Mass2));
+            Double_t Pl = TMath::Sqrt(TMath::Abs(El*El - Mass4*Mass4));
+            Double_t PKl = PN;
+            Double_t EKl = TMath::Sqrt(PKl*PKl + mKl);
+            Double_t betaKl = PN/EKl;
+            Double_t gammaKl = 1./(TMath::Sqrt(1. - betaKl*betaKl));
+            Double_t Pl1 = gammaKl*(-Pl - betaKl*El);
+            Double_t Pl2 = gammaKl*(Pl - betaKl*El);
+            Double_t El1 = gammaKl*(El + betaKl*Pl);
+            Double_t El2 = gammaKl*(El - betaKl*Pl);
 
-	std::string function = ThreeBodyFunction(Mass1, Mass3);
-	func_loc = new TF2("func", function.c_str());
-	func_loc->SetParameter(0, f);
-	func_loc->SetParameter(1, Mass1);
-	func_loc->SetParameter(2, Mass2);
-	func_loc->SetParameter(3, Mass3);
-	func_loc->SetParameter(4, Mass4);
-	func_loc->SetParameter(5, g);
+            q2max = (EN+El1)*(EN+El1) - (PN+Pl1)*(PN+Pl1);
+            q2min = (EN+El2)*(EN+El2) - (PN+Pl2)*(PN+Pl2);
 
-	if (eval == kFALSE) { // Integral for total BR
-	  ROOT::Math::WrappedMultiTF1 wf1(*func_loc, 2);
-	  ROOT::Math::AdaptiveIntegratorMultiDim ig;
-	  ig.SetFunction(wf1);
-	  ig.SetRelTolerance(0.001);
-	  double xmin[] = {q2min, ENmin};
-	  double xmax[] = {q2max, ENmax};
-	  b = ig.Integral(xmin, xmax);
-	  br = a*b;
-	}
-	else {
-	  if (max == kFALSE) { // Evaluation at q2, EN for hit/miss
-	    br = func_loc->Eval(q2, EN);
-	  }
-	  else { // Maximum of function for hit/miss
-	    TMinuit min;
-	    min.SetPrintLevel(-1);
-	    min.SetFCN(PrimaryGeneratorAction::minFunctionStatic);
-	    min.DefineParameter(0, "x", (q2min+q2max)/2., 0.01, q2min, q2max);
-	    min.DefineParameter(1, "y", (ENmin+ENmax)/2., 0.01, ENmin, ENmax);
-	    min.Migrad();
+            G4double tau = 0.;
+            G4double V = 0.;
+            G4double f = 0.;
+            G4double g = 0.;
+
+            if (Mass1 == fMD) {
+              tau = fDlife;
+              if (Mass3 == fMK0) {
+                V = fVcs;
+                f = fDK0;
+                g = fgDK0;
+              }
+              else if (Mass3 == fMpi0) {
+                V = fVcd;
+                f = fDpi0;
+                g = fgDpi0;
+              }
+              else {
+                G4cout << "[ThreeBodyBR] ERROR: Unknown daughter hadron" << G4endl;
+                exit(kWrongConfiguration);
+              }
+            }
+            else if (Mass1 == fMD0) {
+              tau = fD0life;
+              if (Mass3 == fMK) {
+                V = fVcs;
+                f = fD0K;
+                g = fgD0K;
+              }
+              else if (Mass3 == fMpi) {
+                V = fVcd;
+                f = fD0pi;
+                g = fgD0pi;
+              }
+              else {
+                G4cout << "[ThreeBodyBR] ERROR: Unknown daughter hadron" << G4endl;
+                exit(kWrongConfiguration);
+              }
+            }
+
+            a = tau*V*V*fGF*fGF/(64.*TMath::Power(TMath::Pi(), 3.)*Mass1*Mass1);
+
+            TF1* function = ThreeBodyFunction(Mass1, Mass3, eval);
+            function->SetParameter(0, f);
+            function->SetParameter(1, Mass1);
+            function->SetParameter(2, Mass2);
+            function->SetParameter(3, Mass3);
+            function->SetParameter(4, Mass4);
+            function->SetParameter(5, g);
+            function->SetParameter(6, EN);
+            func_loc_min = function;
+
+            ROOT::Math::WrappedTF1 wf1(*func_loc_min);
+            ROOT::Math::GaussLegendreIntegrator ig;
+            ig.SetFunction(wf1);
+            G4double b = ig.Integral(q2min, q2max);
+            br += b;
+          }
+          br *= a*ENstep;
+        }
+        else {
+          G4double tau = 0.;
+          G4double V = 0.;
+          G4double f = 0.;
+          G4double a = 0.;
+          G4double g = 0.;
+          G4double minKl = TMath::Power(Mass3+Mass4, 2.);
+          G4double maxKl = TMath::Power(Mass1-Mass2, 2.);
+          G4double ENmin = (Mass1*Mass1 - maxKl + Mass2*Mass2)/(2.*Mass1);
+          G4double ENmax = (Mass1*Mass1 - minKl + Mass2*Mass2)/(2.*Mass1);
+          G4double q2min = TMath::Power(Mass2+Mass4, 2.);
+          G4double q2max = TMath::Power(Mass1-Mass3, 2.);
+
+          if (Mass1 == fMD) {
+            tau = fDlife;
+            if (Mass3 == fMK0) {
+              V = fVcs;
+              f = fDK0;
+              g = fgDK0;
+            }
+            else if (Mass3 == fMpi0) {
+              V = fVcd;
+              f = fDpi0;
+              g = fgDpi0;
+            }
+            else {
+              G4cout << "[ThreeBodyBR] ERROR: Unknown daughter hadron" << G4endl;
+              exit(kWrongConfiguration);
+            }
+          }
+          else if (Mass1 == fMD0) {
+            tau = fD0life;
+            if (Mass3 == fMK) {
+              V = fVcs;
+              f = fD0K;
+              g = fgD0K;
+            }
+            else if (Mass3 == fMpi) {
+              V = fVcd;
+              f = fD0pi;
+              g = fgD0pi;
+            }
+            else {
+              G4cout << "[ThreeBodyBR] ERROR: Unknown daughter hadron" << G4endl;
+              exit(kWrongConfiguration);
+            }
+          }
+
+          a = tau*V*V*fGF*fGF/(64.*TMath::Power(TMath::Pi(), 3.)*Mass1*Mass1);
+
+          TF1* function = ThreeBodyFunction(Mass1, Mass3, eval);
+          function->SetParameter(0, f);
+          function->SetParameter(1, Mass1);
+          function->SetParameter(2, Mass2);
+          function->SetParameter(3, Mass3);
+          function->SetParameter(4, Mass4);
+          function->SetParameter(5, g);
+          func_loc_min = function;
+
+          if (max == kFALSE) { // Evaluation at q2, EN for hit/miss
+            br = function->Eval(q2, EN)*a;
+          }
+          else { // Maximum of function for hit/miss
+            TMinuit min;
+            min.SetPrintLevel(-1);
+            min.SetFCN(PrimaryGeneratorAction::minFunctionStatic);
+            min.DefineParameter(0, "x", (q2min+q2max)/2., 0.01, q2min, q2max);
+            min.DefineParameter(1, "y", (ENmin+ENmax)/2., 0.01, ENmin, ENmax);
+            min.Migrad();
             G4double bestX = 0.;
             G4double bestY = 0.;
-	    G4double errX = 0.;
-	    G4double errY = 0.;
-	    min.GetParameter(0, bestX, errX);
-	    min.GetParameter(1, bestY, errY);
-	    br = func_loc->Eval(bestX, bestY); 
-	  }
-	}	  
-	delete func_loc;
-	func_loc = nullptr;
-      }
-      else {
-	br = 0.;
+            G4double errX = 0.;
+            G4double errY = 0.;
+            min.GetParameter(0, bestX, errX);
+            min.GetParameter(1, bestY, errY);
+            br = function->Eval(bestX, bestY)*a;
+          }
+        }
       }
     }
     else if (Mass3 == fMKStar || Mass3 == fMK0Star) { // D,D0->NVl (V = K*, K0*)
       if (Mass1 == fMD || Mass1 == fMD0) {
-	G4double ENmin = Mass2; // N at rest, K and e back to back
-	G4double ENmax = (Mass1*Mass1 + Mass2*Mass2 - TMath::Power(Mass4 + Mass3, 2.))/(2.*Mass1); // N one way, K and e other way, their momenta summed equal to the N one
-	G4double q2min = TMath::Power(Mass2 + Mass4, 2.); // sum of masses of lepton pair
-	G4double q2max = TMath::Power(Mass1 - Mass3, 2.); // sum of 4momenta of lepton pair, when K at rest and N and e back to back
+        if (eval == kFALSE) {
+          G4double minKl = TMath::Power(Mass3+Mass4, 2.);
+          G4double maxKl = TMath::Power(Mass1-Mass2, 2.);
+          G4double ENmin = (Mass1*Mass1 - maxKl + Mass2*Mass2)/(2.*Mass1);
+          G4double ENmax = (Mass1*Mass1 - minKl + Mass2*Mass2)/(2.*Mass1);
+          G4double ENstep = (ENmax-ENmin)/Nsteps;
+          G4double q2min;
+          G4double q2max;
+          G4double a = 0.;
 
-	G4double tau = 0.;
-	G4double V = 0.;
-	G4double f1 = 0.;
-	G4double f2 = 0.;
-	G4double f3 = 0.;
-	G4double f4 = 0.;
-	G4double a = 0.;
-	G4double b = 0.;
-	G4double omega2 = 0.;
-	G4double Omega2 = 0.;
+          for (G4double EN = ENmin; EN < ENmax; EN += ENstep) {
+            Double_t mKl = Mass1*Mass1 - 2.*Mass1*EN + Mass2*Mass2;
+            Double_t El = (mKl - Mass3*Mass3 + Mass4*Mass4)/(2.*TMath::Sqrt(mKl));
+            Double_t PN = TMath::Sqrt(TMath::Abs(EN*EN - Mass2*Mass2));
+            Double_t Pl = TMath::Sqrt(TMath::Abs(El*El - Mass4*Mass4));
+            Double_t PKl = PN;
+            Double_t EKl = TMath::Sqrt(PKl*PKl + mKl);
+            Double_t betaKl = PN/EKl;
+            Double_t gammaKl = 1./(TMath::Sqrt(1. - betaKl*betaKl));
+            Double_t Pl1 = gammaKl*(-Pl - betaKl*El);
+            Double_t Pl2 = gammaKl*(Pl - betaKl*El);
+            Double_t El1 = gammaKl*(El + betaKl*Pl);
+            Double_t El2 = gammaKl*(El - betaKl*Pl);
 
-	if (Mass1 == fMD) {
-	  tau = fDlife;
-	  V = fVcs;
-	  f1 = fVD/(Mass1 + Mass3);
-	  f2 = (Mass1 + Mass3)*fA1D;
-	  f3 = -fA2D/(Mass1 + Mass3);
-	  f4 = Mass3*(2.*fA0D - fA1D - fA2D) + Mass1*(fA2D - fA1D); // to be multiplied by 1/x        
-	}
-	else if (Mass1 == fMD0) {
-	  tau = fD0life;
-	  V = fVcs;
-	  f1 = fVD0/(Mass1 + Mass3);
-	  f2 = (Mass1 + Mass3)*fA1D0;
-	  f3 = -fA2D0/(Mass1 + Mass3);
-	  f4 = Mass3*(2.*fA0D0 - fA1D0 - fA2D0) + Mass1*(fA2D0 - fA1D0); // to be multiplied by 1/x 
-	}
+            q2max = (EN+El1)*(EN+El1) - (PN+Pl1)*(PN+Pl1);
+            q2min = (EN+El2)*(EN+El2) - (PN+Pl2)*(PN+Pl2);
 
-	omega2 = Mass1*Mass1 - Mass3*Mass3 + Mass2*Mass2 - Mass4*Mass4; // add - 2.*Mass1*y;  
-	Omega2 = Mass1*Mass1 - Mass3*Mass3; // add -x                                            
-	a = tau*V*V*fGF*fGF/(32.*TMath::Power(TMath::Pi(), 3.)*Mass1*Mass1);
+            G4double tau = 0.;
+            G4double V = 0.;
+            G4double f1 = 0.;
+            G4double f2 = 0.;
+            G4double f3 = 0.;
+            G4double f4 = 0.;
+            G4double omega2 = 0.;
+            G4double Omega2 = 0.;
 
-	std::string function = ThreeBodyFunction(Mass1, Mass3);
-	func_loc = new TF2("func", function.c_str());
-	func_loc->SetParameter(0, omega2);
-	func_loc->SetParameter(1, Omega2);
-	func_loc->SetParameter(2, Mass2);
-	func_loc->SetParameter(3, Mass3);
-	func_loc->SetParameter(4, Mass4);
-	func_loc->SetParameter(5, f1);
-	func_loc->SetParameter(6, f2);
-	func_loc->SetParameter(7, f3);
-	func_loc->SetParameter(8, f4);
-	func_loc->SetParameter(9, Mass1);
+            if (Mass1 == fMD) {
+              tau = fDlife;
+              V = fVcs;
+              f1 = fVD/(Mass1 + Mass3);
+              f2 = (Mass1 + Mass3)*fA1D;
+              f3 = -fA2D/(Mass1 + Mass3);
+              f4 = Mass3*(2.*fA0D - fA1D - fA2D) + Mass1*(fA2D - fA1D); // to be multiplied by 1/x
+            }
+            else if (Mass1 == fMD0) {
+              tau = fD0life;
+              V = fVcs;
+              f1 = fVD0/(Mass1 + Mass3);
+              f2 = (Mass1 + Mass3)*fA1D0;
+              f3 = -fA2D0/(Mass1 + Mass3);
+              f4 = Mass3*(2.*fA0D0 - fA1D0 - fA2D0) + Mass1*(fA2D0 - fA1D0); // to be multiplied by 1/x
+            }
 
-	if (eval == kFALSE) {
-	  ROOT::Math::WrappedMultiTF1 wf1(*func_loc, 2);
-	  ROOT::Math::AdaptiveIntegratorMultiDim ig;
-	  ig.SetFunction(wf1);
-	  ig.SetRelTolerance(0.001);
-	  double xmin[] = {q2min, ENmin};
-	  double xmax[] = {q2max, ENmax};
-	  b = ig.Integral(xmin, xmax);
-	  br = a*b;
-	}
-	else {
-	  if (max == kFALSE) {
-            br = func_loc->Eval(q2, EN);
+            omega2 = Mass1*Mass1 - Mass3*Mass3 + Mass2*Mass2 - Mass4*Mass4; // add - 2.*Mass1*y;
+            Omega2 = Mass1*Mass1 - Mass3*Mass3; // add -x
+            a = tau*V*V*fGF*fGF/(32.*TMath::Power(TMath::Pi(), 3.)*Mass1*Mass1);
+
+            TF1* function = ThreeBodyFunction(Mass1, Mass3, eval);
+            function->SetParameter(0, omega2);
+            function->SetParameter(1, Omega2);
+            function->SetParameter(2, Mass2);
+            function->SetParameter(3, Mass3);
+            function->SetParameter(4, Mass4);
+            function->SetParameter(5, f1);
+            function->SetParameter(6, f2);
+            function->SetParameter(7, f3);
+            function->SetParameter(8, f4);
+            function->SetParameter(9, Mass1);
+            function->SetParameter(10, EN);
+            func_loc_min = function;
+
+            ROOT::Math::WrappedTF1 wf1(*func_loc_min);
+            ROOT::Math::GaussLegendreIntegrator ig;
+            ig.SetFunction(wf1);
+            G4double b = ig.Integral(q2min, q2max);
+            br += b;
+          }
+          br *= a*ENstep;
+        }
+        else {
+          G4double minKl = TMath::Power(Mass3+Mass4, 2.);
+          G4double maxKl = TMath::Power(Mass1-Mass2, 2.);
+          G4double ENmin = (Mass1*Mass1 - maxKl + Mass2*Mass2)/(2.*Mass1);
+          G4double ENmax = (Mass1*Mass1 - minKl + Mass2*Mass2)/(2.*Mass1);
+          G4double q2min = TMath::Power(Mass2+Mass4, 2.);
+          G4double q2max = TMath::Power(Mass1-Mass3, 2.);
+          G4double tau = 0.;
+          G4double V = 0.;
+          G4double f1 = 0.;
+          G4double f2 = 0.;
+          G4double f3 = 0.;
+          G4double f4 = 0.;
+          G4double a = 0.;
+          G4double omega2 = 0.;
+          G4double Omega2 = 0.;
+
+          if (Mass1 == fMD) {
+            tau = fDlife;
+            V = fVcs;
+            f1 = fVD/(Mass1 + Mass3);
+            f2 = (Mass1 + Mass3)*fA1D;
+            f3 = -fA2D/(Mass1 + Mass3);
+            f4 = Mass3*(2.*fA0D - fA1D - fA2D) + Mass1*(fA2D - fA1D); // to be multiplied by 1/x
+          }
+          else if (Mass1 == fMD0) {
+            tau = fD0life;
+            V = fVcs;
+            f1 = fVD0/(Mass1 + Mass3);
+            f2 = (Mass1 + Mass3)*fA1D0;
+            f3 = -fA2D0/(Mass1 + Mass3);
+            f4 = Mass3*(2.*fA0D0 - fA1D0 - fA2D0) + Mass1*(fA2D0 - fA1D0); // to be multiplied by 1/x
+          }
+
+          omega2 = Mass1*Mass1 - Mass3*Mass3 + Mass2*Mass2 - Mass4*Mass4; // add - 2.*Mass1*y;
+          Omega2 = Mass1*Mass1 - Mass3*Mass3; // add -x
+          a = tau*V*V*fGF*fGF/(32.*TMath::Power(TMath::Pi(), 3.)*Mass1*Mass1);
+
+          TF1* function = ThreeBodyFunction(Mass1, Mass3, eval);
+          function->SetParameter(0, omega2);
+          function->SetParameter(1, Omega2);
+          function->SetParameter(2, Mass2);
+          function->SetParameter(3, Mass3);
+          function->SetParameter(4, Mass4);
+          function->SetParameter(5, f1);
+          function->SetParameter(6, f2);
+          function->SetParameter(7, f3);
+          function->SetParameter(8, f4);
+          function->SetParameter(9, Mass1);
+          func_loc_min = function;
+
+          if (max == kFALSE) {
+            br = function->Eval(q2, EN)*a;
           }
           else {
-	    TMinuit min;
-	    min.SetPrintLevel(-1);
-	    min.SetFCN(PrimaryGeneratorAction::minFunctionStatic);
-	    min.DefineParameter(0, "x", (q2min+q2max)/2., 0.01, q2min, q2max);
-	    min.DefineParameter(1, "y", (ENmin+ENmax)/2., 0.01, ENmin, ENmax);
-	    min.Migrad();
+            TMinuit min;
+            min.SetPrintLevel(-1);
+            min.SetFCN(PrimaryGeneratorAction::minFunctionStatic);
+            min.DefineParameter(0, "x", (q2min+q2max)/2., 0.01, q2min, q2max);
+            min.DefineParameter(1, "y", (ENmin+ENmax)/2., 0.01, ENmin, ENmax);
+            min.Migrad();
             G4double bestX = 0.;
             G4double bestY = 0.;
-	    G4double errX = 0.;
-	    G4double errY = 0.;
-	    min.GetParameter(0, bestX, errX);
-	    min.GetParameter(1, bestY, errY);
-	    br = func_loc->Eval(bestX, bestY); 
+            G4double errX = 0.;
+            G4double errY = 0.;
+            min.GetParameter(0, bestX, errX);
+            min.GetParameter(1, bestY, errY);
+            br = function->Eval(bestX, bestY)*a;
           }
         }
-	delete func_loc;
-	func_loc = nullptr;
-      }
-      else {
-	br = 0.;
       }
     }
     else if (Mass1 == fMtau) {
       if ((Dorigin == 0 && PhaseSpaceFactor(fMD, fMtau, 0.) > 0.) || (Dorigin == 1 && PhaseSpaceFactor(fMDS, fMtau, 0.))) {
-	G4double b = 0.;
-	G4double ENmin = 0.;
-	G4double ENmax = 0.;
-	G4double life = ftaulife;
+        G4double ENmin;
+        G4double ENmax;
+        G4double life = ftaulife;
 
-	if (Mass3 == 0.1) { // D,DS->taunu_tau; tau->Nlnu_tau 
-	  std::string function = ThreeBodyFunction(Mass1, Mass3);
-	  Mass3 = 0.;
-	  ENmin = Mass2; // N at rest, l and nu back to back
-	  ENmax = (Mass1*Mass1 + Mass2*Mass2 - TMath::Power(Mass4 + Mass3, 2.))/(2.*Mass1); // N one way, l and nu other way, their momenta summed equal to the N one
-	  TF1 func("func", function.c_str());
-	  func.SetParameter(0, life);
-	  func.SetParameter(1, Mass1);
-	  func.SetParameter(2, Mass2);
-	  func.SetParameter(3, fGF);
-	  func.SetParameter(4, Mass4);
+        if (Mass3 == 0.1) { // D,DS->taunu_tau; tau->Nlnu_tau
+          ENmin = Mass2; // N at rest, l and nu back to back
+          ENmax = (Mass1*Mass1 + Mass2*Mass2 - TMath::Power(Mass4, 2.))/(2.*Mass1); // N one way, l and nu other way, their momenta summed equal to the N one
+          TF1* function = ThreeBodyFunction(Mass1, Mass3, eval);
+          Mass3 = 0.;
+          function->SetParameter(0, life);
+          function->SetParameter(1, Mass1);
+          function->SetParameter(2, Mass2);
+          function->SetParameter(3, fGF);
+          function->SetParameter(4, Mass4);
 
-	  if (eval == kFALSE) {
-	    ROOT::Math::WrappedTF1 wf1(func);
-	    ROOT::Math::GaussLegendreIntegrator ig;
-	    ig.SetFunction(wf1);
-	    b = ig.Integral(ENmin, ENmax);
-	    br = b;
-	  }
-	  else {
-	    if (max == kFALSE) {
-	      br = func.Eval(EN);
-	    }
-	    else {
-	      TF1 funcMinus("funcMinus","-func");
-	      ROOT::Math::BrentMinimizer1D bm;
-	      bm.SetNpx(1.E3);
-	      ROOT::Math::WrappedTF1 wf(funcMinus);
-	      bm.SetFunction(wf, ENmin, ENmax);
-	      bm.Minimize(1.E2, 1.E-3, 1.E-3);
-	      br = -bm.FValMinimum();
-	    }
-	  }
-	}
-	else if (Mass3 == 0.01) { // D,DS->taunu_tau; tau->Nlnu_l
-	  std::string function = ThreeBodyFunction(Mass1, Mass3);
-	  Mass3 = 0.;
-	  ENmin = Mass2; // N at rest, l and nu back to back
-	  ENmax = (Mass1*Mass1 + Mass2*Mass2 - TMath::Power(Mass4 + Mass3, 2.))/(2.*Mass1); // N one way, l and	nu other way, their momenta summed equal to the N one
-	  TF1 func("func", function.c_str());
-	  func.SetParameter(0, life);
-	  func.SetParameter(1, Mass1);
-	  func.SetParameter(2, Mass2);
-	  func.SetParameter(3, fGF);
-	  func.SetParameter(4, Mass4);
+          if (eval == kFALSE) {
+            ROOT::Math::WrappedTF1 wf1(*function);
+            ROOT::Math::GaussLegendreIntegrator ig;
+            ig.SetFunction(wf1);
+            br = ig.Integral(ENmin, ENmax);
+          }
+          else {
+            if (max == kFALSE) {
+              br = function->Eval(EN);
+            }
+            else {
+              TF1 funcMinus("funcMinus", "-function3");
+              ROOT::Math::BrentMinimizer1D bm;
+              bm.SetNpx(1.E3);
+              ROOT::Math::WrappedTF1 wf(funcMinus);
+              bm.SetFunction(wf, ENmin, ENmax);
+              bm.Minimize(1.E2, 1.E-3, 1.E-3);
+              br = -bm.FValMinimum();
+            }
+          }
+        }
+        else if (Mass3 == 0.01) { // D,DS->taunu_tau; tau->Nlnu_l
+          ENmin = Mass2; // N at rest, l and nu back to back
+          ENmax = (Mass1*Mass1 + Mass2*Mass2 - TMath::Power(Mass4, 2.))/(2.*Mass1); // N one way, l and nu other way, their momenta summed equal to the N one
+          auto function = ThreeBodyFunction(Mass1, Mass3, eval);
+          Mass3 = 0.;
+          function->SetParameter(0, life);
+          function->SetParameter(1, Mass1);
+          function->SetParameter(2, Mass2);
+          function->SetParameter(3, fGF);
+          function->SetParameter(4, Mass4);
 
-	  if (eval == kFALSE) {
-	    ROOT::Math::WrappedTF1 wf1(func);
-	    ROOT::Math::GaussLegendreIntegrator ig;
-	    ig.SetFunction(wf1);
-	    b = ig.Integral(ENmin, ENmax);
-	    br = b;
-	  }
-	  else {
-	    if (max == kFALSE) {
-	      br = func.Eval(EN);
-	    }
-	    else {
-	      TF1 funcMinus("funcMinus","-func");
-	      ROOT::Math::BrentMinimizer1D bm;
-	      bm.SetNpx(1.E3);
-	      ROOT::Math::WrappedTF1 wf(funcMinus);
-	      bm.SetFunction(wf, ENmin, ENmax);
-	      bm.Minimize(1.E2, 1.E-3, 1.E-3);
-	      br = -bm.FValMinimum();
-	    }
-	  }
-	}
-	else {
-	  G4cout << "[ThreeBodyBR] ERROR: Unknown neutrino type in N 3-body production mode" << G4endl;
-	  exit(kWrongConfiguration);
-	}
+          if (eval == kFALSE) {
+            ROOT::Math::WrappedTF1 wf1(*function);
+            ROOT::Math::GaussLegendreIntegrator ig;
+            ig.SetFunction(wf1);
+            br = ig.Integral(ENmin, ENmax);
+          }
+          else {
+            if (max == kFALSE) {
+              br = function->Eval(EN);
+            }
+            else {
+              TF1 funcMinus("funcMinus", "-function4");
+              ROOT::Math::BrentMinimizer1D bm;
+              bm.SetNpx(1.E3);
+              ROOT::Math::WrappedTF1 wf(funcMinus);
+              bm.SetFunction(wf, ENmin, ENmax);
+              bm.Minimize(1.E2, 1.E-3, 1.E-3);
+              br = -bm.FValMinimum();
+            }
+          }
+        }
+        else {
+          G4cout << "[ThreeBodyBR] ERROR: Unknown neutrino type in N 3-body production mode" << G4endl;
+          exit(kWrongConfiguration);
+        }
       }
       else {
-	br = 0.;
+        br = 0.;
       }
     }
     else {
@@ -1219,34 +1365,62 @@ G4double PrimaryGeneratorAction::ThreeBodyBR(G4double Mass1, G4double Mass2, G4d
   else {
     br = 0.;
   }
+
   return br;
 }
 
 // Create string function for 3-body total BR of HNL production mode
-std::string PrimaryGeneratorAction::ThreeBodyFunction(G4double Mass1, G4double Mass3) {
-  std::string function = "";
-  if (Mass1 == fMD || Mass1 == fMD0) {  
-    if (Mass3 == fMK || Mass3 == fMK0 || Mass3 == fMpi || Mass3 == fMpi0) { // D,D0->NHl
-      function = "([5]*[5]*(x*([2]*[2] + [4]*[4]) - TMath::Power([2]*[2] - [4]*[4], 2.)) + 2.*[5]*[0]*([2]*[2]*(2.*[1]*[1] - 2.*[3]*[3] -4.*y*[1] - [4]*[4] + [2]*[2] + x) + [4]*[4]*(4.*y*[1] + [4]*[4] - [2]*[2] - x)) + [0]*[0]*((4.*y*[1] + [4]*[4] - [2]*[2] - x)*(2.*[1]*[1] - 2.*[3]*[3] - 4.*y*[1] - [4]*[4] + [2]*[2] + x) + (2.*[1]*[1] + 2.*[3]*[3] - x)*(x - [2]*[2] - [4]*[4])))";
-    }
-    else if (Mass3 == fMKStar || Mass3 == fMK0Star) { // D,D0->NVl
-      function = "(([6]*[6]/2.)*(x - [2]*[2] - [4]*[4] + ([0] - 2.*[9]*y)*([1] - x - ([0] - 2.*[9]*y))/([3]*[3])) + (([7]+[8]*1./x)*([7]+[8]*1./x)/2.)*([2]*[2] + [4]*[4])*(x - [2]*[2] + [4]*[4])*(([1] - x)*([1] - x)/(4.*[3]*[3]) - x) + 2.*[7]*[7]*[3]*[3]*(([1] - x)*([1] - x)/(4.*[3]*[3]) - x)*([2]*[2] + [4]*[4] - x + ([0] - 2.*[9]*y)*([1] - x - ([0] - 2.*[9]*y))/([3]*[3])) + 2.*[7]*([7]+[8]*1./x)*([2]*[2]*([0] - 2.*[9]*y) + ([1] - x - ([0] - 2.*[9]*y))*[4]*[4])*(([1] - x)*([1] - x)/(4.*[3]*[3]) - x) + 2.*[5]*[6]*(x*(2.*([0] - 2.*[9]*y) - [1] + x) + ([1] - x)*([2]*[2] - [4]*[4])) + ([6]*([7]+[8]*1./x)/2.)*(([0] - 2.*[9]*y)*([1] - x)/([3]*[3])*([2]*[2] - [4]*[4]) + ([1] - x)*([1] - x)*[4]*[4]/([3]*[3]) + 2.*TMath::Power([2]*[2] - [4]*[4], 2.) - 2.*x*([2]*[2] + [4]*[4])) + [6]*[7]*(([1] - x)*([0] - 2.*[9]*y)*([1] - x - ([0] - 2.*[9]*y))/([3]*[3]) + 2.*([0] - 2.*[9]*y)*([4]*[4] - [2]*[2]) + ([1] - x)*([2]*[2] - [4]*[4] - x)) + [5]*[5]*(([1] - x)*([1] - x)*(x - [2]*[2] + [4]*[4]) - 2.*[3]*[3]*(x*x - TMath::Power([2]*[2] - [4]*[4], 2.)) + 2.*([0] - 2.*[9]*y)*([1] - x)*([2]*[2] - x - [4]*[4]) + 2.*([0] - 2.*[9]*y)*([0] - 2.*[9]*y)*x))";
+TF1* PrimaryGeneratorAction::ThreeBodyFunction(G4double Mass1, G4double Mass3, G4bool eval) {
+  TF1* function = nullptr;
+
+  if (eval == kFALSE) { // Integral for total BR
+    if (Mass1 == fMD || Mass1 == fMD0) {
+      if (Mass3 == fMK || Mass3 == fMK0 || Mass3 == fMpi || Mass3 == fMpi0) { // D,D0->NHl
+         if (!function1)
+           function1 = new TF1("function1", "([5]*[5]*(x*([2]*[2] + [4]*[4]) - TMath::Power([2]*[2] - [4]*[4], 2.)) + 2.*[5]*[0]*([2]*[2]*(2.*[1]*[1] - 2.*[3]*[3] -4.*[6]*[1] - [4]*[4] + [2]*[2] + x) + [4]*[4]*(4.*[6]*[1] + [4]*[4] - [2]*[2] - x)) + [0]*[0]*((4.*[6]*[1] + [4]*[4] - [2]*[2] - x)*(2.*[1]*[1] - 2.*[3]*[3] - 4.*[6]*[1] - [4]*[4] + [2]*[2] + x) - (2.*[1]*[1] + 2.*[3]*[3] - x)*(x - [2]*[2] - [4]*[4])))");
+         function = function1;
+      }
+      else if (Mass3 == fMKStar || Mass3 == fMK0Star) { // D,D0->NVl
+        if (!function2)
+          function2 = new TF1("function2", "(([6]*[6]/2.)*(x - [2]*[2] - [4]*[4] + ([0] - 2.*[9]*[10])*([1] - x - ([0] - 2.*[9]*[10]))/([3]*[3])) + (([7]+[8]*1./x)*([7]+[8]*1./x)/2.)*([2]*[2] + [4]*[4])*(x - [2]*[2] + [4]*[4])*(([1] - x)*([1] - x)/(4.*[3]*[3]) - x) + 2.*[7]*[7]*[3]*[3]*(([1] - x)*([1] - x)/(4.*[3]*[3]) - x)*([2]*[2] + [4]*[4] - x + ([0] - 2.*[9]*[10])*([1] - x - ([0] - 2.*[9]*[10]))/([3]*[3])) + 2.*[7]*([7]+[8]*1./x)*([2]*[2]*([0] - 2.*[9]*[10]) + ([1] - x - ([0] - 2.*[9]*[10]))*[4]*[4])*(([1] - x)*([1] - x)/(4.*[3]*[3]) - x) + 2.*[5]*[6]*(x*(2.*([0] - 2.*[9]*[10]) - [1] + x) + ([1] - x)*([2]*[2] - [4]*[4])) + ([6]*([7]+[8]*1./x)/2.)*(([0] - 2.*[9]*[10])*([1] - x)/([3]*[3])*([2]*[2] - [4]*[4]) + ([1] - x)*([1] - x)*[4]*[4]/([3]*[3]) + 2.*TMath::Power([2]*[2] - [4]*[4], 2.) - 2.*x*([2]*[2] + [4]*[4])) + [6]*[7]*(([1] - x)*([0] - 2.*[9]*[10])*([1] - x - ([0] - 2.*[9]*[10]))/([3]*[3]) + 2.*([0] - 2.*[9]*[10])*([4]*[4] - [2]*[2]) + ([1] - x)*([2]*[2] - [4]*[4] - x)) + [5]*[5]*(([1] - x)*([1] - x)*(x - [2]*[2] + [4]*[4]) - 2.*[3]*[3]*(x*x - TMath::Power([2]*[2] - [4]*[4], 2.)) + 2.*([0] - 2.*[9]*[10])*([1] - x)*([2]*[2] - x - [4]*[4]) + 2.*([0] - 2.*[9]*[10])*([0] - 2.*[9]*[10])*x))");
+        function = function2;
+      }
     }
   }
-  else if (Mass1 == fMtau) { // D,DS->taunu_tau; tau->Nlnu
+  else {
+    if (Mass1 == fMD || Mass1 == fMD0) {
+      if (Mass3 == fMK || Mass3 == fMK0 || Mass3 == fMpi || Mass3 == fMpi0) { // D,D0->NHl
+        if (!function1)
+          function1 = new TF2("function1", "([5]*[5]*(x*([2]*[2] + [4]*[4]) - TMath::Power([2]*[2] - [4]*[4], 2.)) + 2.*[5]*[0]*([2]*[2]*(2.*[1]*[1] - 2.*[3]*[3] -4.*y*[1] - [4]*[4] + [2]*[2] + x) + [4]*[4]*(4.*y*[1] + [4]*[4] - [2]*[2] - x)) + [0]*[0]*((4.*y*[1] + [4]*[4] - [2]*[2] - x)*(2.*[1]*[1] - 2.*[3]*[3] - 4.*y*[1] - [4]*[4] + [2]*[2] + x) - (2.*[1]*[1] + 2.*[3]*[3] - x)*(x - [2]*[2] - [4]*[4])))");
+        function = function1;
+      }
+      else if (Mass3 == fMKStar || Mass3 == fMK0Star) { // D,D0->NVl
+        if (!function2)
+          function2 = new TF2("function2", "(([6]*[6]/2.)*(x - [2]*[2] - [4]*[4] + ([0] - 2.*[9]*y)*([1] - x - ([0] - 2.*[9]*y))/([3]*[3])) + (([7]+[8]*1./x)*([7]+[8]*1./x)/2.)*([2]*[2] + [4]*[4])*(x - [2]*[2] + [4]*[4])*(([1] - x)*([1] - x)/(4.*[3]*[3]) - x) + 2.*[7]*[7]*[3]*[3]*(([1] - x)*([1] - x)/(4.*[3]*[3]) - x)*([2]*[2] + [4]*[4] - x + ([0] - 2.*[9]*y)*([1] - x - ([0] - 2.*[9]*y))/([3]*[3])) + 2.*[7]*([7]+[8]*1./x)*([2]*[2]*([0] - 2.*[9]*y) + ([1] - x - ([0] - 2.*[9]*y))*[4]*[4])*(([1] - x)*([1] - x)/(4.*[3]*[3]) - x) + 2.*[5]*[6]*(x*(2.*([0] - 2.*[9]*y) - [1] + x) + ([1] - x)*([2]*[2] - [4]*[4])) + ([6]*([7]+[8]*1./x)/2.)*(([0] - 2.*[9]*y)*([1] - x)/([3]*[3])*([2]*[2] - [4]*[4]) + ([1] - x)*([1] - x)*[4]*[4]/([3]*[3]) + 2.*TMath::Power([2]*[2] - [4]*[4], 2.) - 2.*x*([2]*[2] + [4]*[4])) + [6]*[7]*(([1] - x)*([0] - 2.*[9]*y)*([1] - x - ([0] - 2.*[9]*y))/([3]*[3]) + 2.*([0] - 2.*[9]*y)*([4]*[4] - [2]*[2]) + ([1] - x)*([2]*[2] - [4]*[4] - x)) + [5]*[5]*(([1] - x)*([1] - x)*(x - [2]*[2] + [4]*[4]) - 2.*[3]*[3]*(x*x - TMath::Power([2]*[2] - [4]*[4], 2.)) + 2.*([0] - 2.*[9]*y)*([1] - x)*([2]*[2] - x - [4]*[4]) + 2.*([0] - 2.*[9]*y)*([0] - 2.*[9]*y)*x))");
+        function = function2;
+      }
+    }
+  }
+
+  if (Mass1 == fMtau) { // D,DS->taunu_tau; tau->Nlnu
     if (Mass3 == 0.1) { //nu_tau
-      function = "([0]*[3]*[3]*[1]*[1]*x/(2.*TMath::Power(TMath::Pi(), 3.)))*(1. + ([2]*[2] - [4]*[4])/([1]*[1]) - 2.*x/[1])*(1. - [4]*[4]/([1]*[1] + [2]*[2] - 2.*x*[1]))*(TMath::Sqrt(x*x - [2]*[2]))";
+      if (!function3)
+        function3 = new TF1("function3", "([0]*[3]*[3]*[1]*[1]*x/(2.*TMath::Power(TMath::Pi(), 3.)))*(1. + ([2]*[2] - [4]*[4])/([1]*[1]) - 2.*x/[1])*(1. - [4]*[4]/([1]*[1] + [2]*[2] - 2.*x*[1]))*(TMath::Sqrt(x*x - [2]*[2]))");
+      function = function3;
     }
-    else if (Mass3 == 0.01) { //nu_e or nu_mu                                       
-      function = "([0]*[3]*[3]*[1]*[1]/(4.*TMath::Power(TMath::Pi(), 3.)))*(TMath::Power((1. - [4]*[4]/([1]*[1] + [2]*[2] - 2.*x*[1])), 2.)*TMath::Sqrt(x*x - [2]*[2]))*(([1] - x)*(1. - ([2]*[2] + [4]*[4])/([1]*[1])) - (1. - [4]*[4]/([1]*[1] + [2]*[2] - 2.*x*[1]))*(([1] - x)*([1] - x)/[1] + (x*x - [2]*[2])/(3.*[1])))";
+    else if (Mass3 == 0.01) { //nu_e or nu_mu
+      if (!function4)
+        function4 = new TF1("function4", "([0]*[3]*[3]*[1]*[1]/(4.*TMath::Power(TMath::Pi(), 3.)))*(TMath::Power((1. - [4]*[4]/([1]*[1] + [2]*[2] - 2.*x*[1])), 2.)*TMath::Sqrt(x*x - [2]*[2]))*(([1] - x)*(1. - ([2]*[2] + [4]*[4])/([1]*[1])) - (1. - [4]*[4]/([1]*[1] + [2]*[2] - 2.*x*[1]))*(([1] - x)*([1] - x)/[1] + (x*x - [2]*[2])/(3.*[1])))");
+      function = function4;
     }
   }
+
   return function;
 }
 
 // MINUIT function object for maximum of function in 3-body production
 void PrimaryGeneratorAction::minFunctionStatic(int&, double*, double& result, double* par, int) {
-  result = -func_loc->Eval(par[0], par[1]);
+  result = -func_loc_min->Eval(par[0], par[1]);
 }
 
 // Lambda function
@@ -1256,74 +1430,140 @@ G4double PrimaryGeneratorAction::lambda(G4double a, G4double b, G4double c) {
 
 // Generation function
 void PrimaryGeneratorAction::GenerateHeavyNeutrino(G4Event* anEvent, TRandom3* RandomDecay) {
+
   InitializeExoticDaughter(RandomDecay);
-  G4double Mass1       = fExoticDaughterGun1->GetParticleDefinition()->GetPDGMass();
-  G4double Mass2       = fExoticDaughterGun2->GetParticleDefinition()->GetPDGMass();
-  G4double Charge1     = fExoticDaughterGun1->GetParticleDefinition()->GetPDGCharge();
-  G4double Charge2     = fExoticDaughterGun2->GetParticleDefinition()->GetPDGCharge();
+
+  G4double Mass1 = fExoticDaughterGun1->GetParticleDefinition()->GetPDGMass();
+  G4double Mass2 = fExoticDaughterGun2->GetParticleDefinition()->GetPDGMass();
+  G4double Charge1 = fExoticDaughterGun1->GetParticleDefinition()->GetPDGCharge();
+  G4double Charge2 = fExoticDaughterGun2->GetParticleDefinition()->GetPDGCharge();
   G4double InitialMass = fAxionGun->GetParticleDefinition()->GetPDGMass();
-  G4double MassStep    = PhysicsList::GetInstance()->GetExoticParticleMassStep();
-  G4int NPart          = PhysicsList::GetInstance()->GetExoticParticleNumberOfGeneratedParticles();
-  G4double HNLMass     = InitialMass + MassStep*(fExoticCounter%NPart);
+  G4double MassStep = PhysicsList::GetInstance()->GetExoticParticleMassStep();
+  G4int NPart = PhysicsList::GetInstance()->GetExoticParticleNumberOfGeneratedParticles();
+  G4double HNLMass = InitialMass + MassStep*(fExoticCounter%NPart);
 
-  G4double prodTime              = 0.;
-  G4double TwoBodyLeptonMass     = 0.; // is lepton for 2-body leptonic production and pseudoscalar meson for 2-body semi-leptonic production
-  G4double ThreeBodyLeptonMass   = 0.; // is lepton for 3-body production
-  G4double ThreeBodyMesonMass    = 0.; // is meson for 3-body production and neutrino for 3-body leptonic production
-  G4double TwoBodyLeptonCharge   = 0.;
+  G4double prodTime = 0.;
+  G4double TwoBodyLeptonMass = 0.; // is lepton for 2-body leptonic production and pseudoscalar meson for 2-body semi-leptonic production
+  G4double ThreeBodyLeptonMass = 0.; // is lepton for 3-body production
+  G4double ThreeBodyMesonMass = 0.; // is meson for 3-body production and neutrino for 3-body leptonic production
+  G4double TwoBodyLeptonCharge = 0.;
   G4double ThreeBodyLeptonCharge = 0.;
-  G4double ThreeBodyMesonCharge  = 0.;
-  G4double Rand                  = 0.;
-  G4double ptotal                = 0.;
-  G4double motherTheta           = 0.;
-  G4double motherPhi             = 0.;
-  G4double motherLambda          = 0.;
-  G4double motherMomentum        = 0.;
-  G4double motherProd            = 0.;
-  G4double motherPath            = 0.;
-  G4double motherMass            = 0.;
-  G4int BiasFactor               = 0;
-  G4int iSpecies                 = 0;
-  G4int Dorigin                  = -1;
+  G4double ThreeBodyMesonCharge = 0.;
+  G4double Rand = 0.;
+  G4double ptotal = 0.;
+  G4double motherTheta = 0.;
+  G4double motherPhi = 0.;
+  G4double motherLambda = 0.;
+  G4double motherMomentum = 0.;
+  G4double motherProd = 0.;
+  G4double motherPath = 0.;
+  G4double motherMass = 0.;
+  G4double BrForWeight = 0.;
+  G4int BiasFactor = 0;
+  G4int iSpecies = 0;
+  G4int Dorigin = -1;
 
-  G4bool inAcc1                   = false;
-  G4bool inAcc2                   = false;
-  G4bool ThreeBody                = false;
-  std::string TwoBodyLeptonName   = "";
+  G4bool inAcc1 = false;
+  G4bool inAcc2 = false;
+  G4bool ThreeBody = false;
+  std::string TwoBodyLeptonName = "";
   std::string ThreeBodyLeptonName = "";
-  std::string ThreeBodyMesonName  = "";
+  std::string ThreeBodyMesonName = "";
 
   TLorentzVector HNLMomentum(0.,0.,0.,0.);
   TLorentzVector HNLProdPos(0.,0.,0.,0.);
   TLorentzVector HNLEndPos(0.,0.,0.,0.);
   TLorentzVector P1(0.,0.,0.,0.);
   TLorentzVector P2(0.,0.,0.,0.);
-  TRandom *gausRand = new TRandom();
+
+  if (!fGausRand)
+    fGausRand = new TRandom3();
 
   // Read Pythia distributions for D mesons
   if (!fReadCharmSpectrum) ReadCharmSpectrum();
 
   fExoticCounter++;
-  iSpecies = -1;
+
+  // Computation of total BRs for HNL mode
+
+  G4double BR2De       = TwoBodyBR(fMD,   HNLMass, fMe,   0);
+  G4double BR2Dmu      = TwoBodyBR(fMD,   HNLMass, fMmu,  0);
+  G4double BR2DSe      = TwoBodyBR(fMDS,  HNLMass, fMe,   1);
+  G4double BR2DSmu     = TwoBodyBR(fMDS,  HNLMass, fMmu,  1);
+  G4double BR2DStau    = TwoBodyBR(fMDS,  HNLMass, fMtau, 1);
+  G4double BR2Dtaupi   = TwoBodyBR(fMtau, HNLMass, fMpi,  0);
+  G4double BR2DtauK    = TwoBodyBR(fMtau, HNLMass, fMK,   0);
+  G4double BR2Dtaurho  = TwoBodyBR(fMtau, HNLMass, fMrho, 0);
+  G4double BR2DStaupi  = TwoBodyBR(fMtau, HNLMass, fMpi,  1);
+  G4double BR2DStauK   = TwoBodyBR(fMtau, HNLMass, fMK,   1);
+  G4double BR2DStaurho = TwoBodyBR(fMtau, HNLMass, fMrho, 1);
+
+  G4double BR3DK0e          = ThreeBodyBR(fMD,   HNLMass, fMK0,     fMe,  kFALSE, kFALSE, 0., 0.,  0);
+  G4double BR3Dpi0e         = ThreeBodyBR(fMD,   HNLMass, fMpi0,    fMe,  kFALSE, kFALSE, 0., 0.,  0);
+  G4double BR3D0Ke          = ThreeBodyBR(fMD0,  HNLMass, fMK,      fMe,  kFALSE, kFALSE, 0., 0., -1);
+  G4double BR3D0pie         = ThreeBodyBR(fMD0,  HNLMass, fMpi,     fMe,  kFALSE, kFALSE, 0., 0., -1);
+  G4double BR3DK0mu         = ThreeBodyBR(fMD,   HNLMass, fMK0,     fMmu, kFALSE, kFALSE, 0., 0.,  0);
+  G4double BR3Dpi0mu        = ThreeBodyBR(fMD,   HNLMass, fMpi0,    fMmu, kFALSE, kFALSE, 0., 0.,  0);
+  G4double BR3D0Kmu         = ThreeBodyBR(fMD0,  HNLMass, fMK,      fMmu, kFALSE, kFALSE, 0., 0., -1);
+  G4double BR3D0pimu        = ThreeBodyBR(fMD0,  HNLMass, fMpi,     fMmu, kFALSE, kFALSE, 0., 0., -1);
+  G4double BR3DK0Stare      = ThreeBodyBR(fMD,   HNLMass, fMK0Star, fMe,  kFALSE, kFALSE, 0., 0.,  0);
+  G4double BR3D0KStare      = ThreeBodyBR(fMD0,  HNLMass, fMKStar,  fMe,  kFALSE, kFALSE, 0., 0., -1);
+  G4double BR3DK0Starmu     = ThreeBodyBR(fMD,   HNLMass, fMK0Star, fMmu, kFALSE, kFALSE, 0., 0.,  0);
+  G4double BR3D0KStarmu     = ThreeBodyBR(fMD0,  HNLMass, fMKStar,  fMmu, kFALSE, kFALSE, 0., 0., -1);
+  G4double BR3Dtauenu_tau   = ThreeBodyBR(fMtau, HNLMass, 0.1,      fMe,  kFALSE, kFALSE, 0., 0.,  0);
+  G4double BR3Dtauenu_e     = ThreeBodyBR(fMtau, HNLMass, 0.01,     fMe,  kFALSE, kFALSE, 0., 0.,  0);
+  G4double BR3Dtaumunu_tau  = ThreeBodyBR(fMtau, HNLMass, 0.1,      fMmu, kFALSE, kFALSE, 0., 0.,  0);
+  G4double BR3Dtaumunu_mu   = ThreeBodyBR(fMtau, HNLMass, 0.01,     fMmu, kFALSE, kFALSE, 0., 0.,  0);
+  G4double BR3DStauenu_tau  = ThreeBodyBR(fMtau, HNLMass, 0.1,      fMe,  kFALSE, kFALSE, 0., 0.,  1);
+  G4double BR3DStauenu_e    = ThreeBodyBR(fMtau, HNLMass, 0.01,     fMe,  kFALSE, kFALSE, 0., 0.,  1);
+  G4double BR3DStaumunu_tau = ThreeBodyBR(fMtau, HNLMass, 0.1,      fMmu, kFALSE, kFALSE, 0., 0.,  1);
+  G4double BR3DStaumunu_mu  = ThreeBodyBR(fMtau, HNLMass, 0.01,     fMmu, kFALSE, kFALSE, 0., 0.,  1);
+
+  if (HNLMass > (fMD0 - fMpi - fMe) && HNLMass <= (fMD - fMe)) {
+    fPTotal[0] = 0.34274;
+    fPTotal[1] = 0.10383;
+    fPTotal[2] = 0.43013;
+    fPTotal[3] = 0.12329;
+    fPTotal[4] = 0.;
+    fPTotal[5] = 0.;
+  }
+  else if (HNLMass > (fMD - fMe) && HNLMass <= (fMDS - fMe)) {
+    fPTotal[0] = 0.;
+    fPTotal[1] = 0.45715;
+    fPTotal[2] = 0.;
+    fPTotal[3] = 0.54284;
+    fPTotal[4] = 0.;
+    fPTotal[5] = 0.;
+  }
+  else {
+    fPTotal[0] = 0.13966;
+    fPTotal[1] = 0.04231;
+    fPTotal[2] = 0.17527;
+    fPTotal[3] = 0.05024;
+    fPTotal[4] = 0.26369;
+    fPTotal[5] = 0.32883;
+  }
 
   // Start regeneration process
 
   do {
-    
+
     // Choose D meson species
 
     G4double rrr = RandomDecay->Rndm();
-    
+
+    iSpecies = -1;
+
     for (G4int q = 0; q < fNSpecies; q++) {
       if (rrr < ptotal + fPTotal[q]) {
-	iSpecies = q; 
-	break;
+        iSpecies = q;
+        break;
       }
       ptotal += fPTotal[q];
     }
-    
+
     ptotal = 0.;
-    
+
     G4double w0 = 0.;
     G4double z0 = 0.;
     G4double y0 = 0.;
@@ -1385,8 +1625,8 @@ void PrimaryGeneratorAction::GenerateHeavyNeutrino(G4Event* anEvent, TRandom3* R
     }
     else { // D meson production in the Cu TAXs
       expLength = fbeamLength;
-      w0 = (1. - TMath::Exp(-fTAXLength/fpCuLambda));      
-      z0 = -fpCuLambda*TMath::Log(1. - w0*RandomDecay->Rndm()); 
+      w0 = (1. - TMath::Exp(-fTAXLength/fpCuLambda));
+      z0 = -fpCuLambda*TMath::Log(1. - w0*RandomDecay->Rndm());
       pBG = fpMom/fMp;
       pG = TMath::Power(fMp*fMp + fpMom*fpMom, 0.5)/fMp;
       pB = pBG/pG;
@@ -1396,48 +1636,48 @@ void PrimaryGeneratorAction::GenerateHeavyNeutrino(G4Event* anEvent, TRandom3* R
     }
 
     // Choose D meson momentum
-    switch (iSpecies) {	  
+    switch (iSpecies) {
     case 0: // "D+"
       {
-	fHDPlusPtPl.GetRandom2(mesonPz, mesonPt);
-	fmesonMass[iSpecies] = fMD;
-	fmesonTau[iSpecies] = fDlife;
-	break;
+        fHDPlusPtPl.GetRandom2(mesonPz, mesonPt);
+        fmesonMass[iSpecies] = fMD;
+        fmesonTau[iSpecies] = fDlife1;
+        break;
       }
     case 1: // "DS+"
       {
-	fHDSPlusPtPl.GetRandom2(mesonPz, mesonPt);
-	fmesonMass[iSpecies] = fMDS;
-	fmesonTau[iSpecies] = fDSlife;
-	break;
+        fHDSPlusPtPl.GetRandom2(mesonPz, mesonPt);
+        fmesonMass[iSpecies] = fMDS;
+        fmesonTau[iSpecies] = fDSlife1;
+        break;
       }
     case 2: // "D-"
       {
-	fHDMinusPtPl.GetRandom2(mesonPz, mesonPt);
-	fmesonMass[iSpecies] = fMD;
-	fmesonTau[iSpecies] = fDlife;
-	break;
+        fHDMinusPtPl.GetRandom2(mesonPz, mesonPt);
+        fmesonMass[iSpecies] = fMD;
+        fmesonTau[iSpecies] = fDlife1;
+        break;
       }
     case 3: // "DS-"
       {
-	fHDSMinusPtPl.GetRandom2(mesonPz, mesonPt);
-	fmesonMass[iSpecies] = fMDS;
-	fmesonTau[iSpecies] = fDSlife;
-	break;
+        fHDSMinusPtPl.GetRandom2(mesonPz, mesonPt);
+        fmesonMass[iSpecies] = fMDS;
+        fmesonTau[iSpecies] = fDSlife1;
+        break;
       }
     case 4: // "D0"
       {
-	fHD0PtPl.GetRandom2(mesonPz, mesonPt);
-	fmesonMass[iSpecies] = fMD0;
-	fmesonTau[iSpecies] = fD0life;
-	break;
+        fHD0PtPl.GetRandom2(mesonPz, mesonPt);
+        fmesonMass[iSpecies] = fMD0;
+        fmesonTau[iSpecies] = fD0life1;
+        break;
       }
     case 5: // "D0Bar"
       {
-	fHD0BarPtPl.GetRandom2(mesonPz, mesonPt);
-	fmesonMass[iSpecies] = fMD0;
-	fmesonTau[iSpecies] = fD0life;
-	break;
+        fHD0BarPtPl.GetRandom2(mesonPz, mesonPt);
+        fmesonMass[iSpecies] = fMD0;
+        fmesonTau[iSpecies] = fD0life1;
+        break;
       }
     }
 
@@ -1467,14 +1707,14 @@ void PrimaryGeneratorAction::GenerateHeavyNeutrino(G4Event* anEvent, TRandom3* R
       prodTime = t0;
     }
     else {
-      x0 = gausRand->Gaus(0., 4.7); // due to non-pencil beam
-      y0 = gausRand->Gaus(-22., 3.2); // due to non-pencil beam
+      x0 = fGausRand->Gaus(0., 4.7); // due to non-pencil beam
+      y0 = fGausRand->Gaus(-22., 3.2); // due to non-pencil beam
       thetax0 = TMath::ATan(0.05*1.E-3*x0); // due to non-pencil beam
       thetay0 = TMath::ATan(0.03*1.E-3*y0 - 0.03*1.E-3); // due to non-pencil beam
-      Double_t cx = TMath::Cos(thetax0);
-      Double_t cy = TMath::Cos(thetay0);
-      Double_t sx = TMath::Sin(thetax0);
-      Double_t sy = TMath::Sin(thetay0);
+      G4double cx = TMath::Cos(thetax0);
+      G4double cy = TMath::Cos(thetay0);
+      G4double sx = TMath::Sin(thetax0);
+      G4double sy = TMath::Sin(thetay0);
       px0 = cx*mesonPx + sy*sx*mesonPy + sx*cy*mesonPz;
       py0 = cy*mesonPy - sy*mesonPz;
       pz0 = -sx*mesonPx + cx*sy*mesonPy + cx*cy*mesonPz;
@@ -1491,109 +1731,81 @@ void PrimaryGeneratorAction::GenerateHeavyNeutrino(G4Event* anEvent, TRandom3* R
       Dorigin = 1;
     }
 
-    G4double BR2De     = TwoBodyBR(fMD,   HNLMass, fMe,   Dorigin);
-    G4double BR2Dmu    = TwoBodyBR(fMD,   HNLMass, fMmu,  Dorigin);
-    G4double BR2DSe    = TwoBodyBR(fMDS,  HNLMass, fMe,   Dorigin);
-    G4double BR2DSmu   = TwoBodyBR(fMDS,  HNLMass, fMmu,  Dorigin);
-    G4double BR2DStau  = TwoBodyBR(fMDS,  HNLMass, fMtau, Dorigin);
-    G4double BR2taupi  = TwoBodyBR(fMtau, HNLMass, fMpi,  Dorigin);
-    G4double BR2tauK   = TwoBodyBR(fMtau, HNLMass, fMK,   Dorigin);
-    G4double BR2taurho = TwoBodyBR(fMtau, HNLMass, fMrho, Dorigin);
-
-    G4double BR3DK0e        = ThreeBodyBR(fMD,   HNLMass, fMK0,     fMe,  kFALSE, kFALSE, 0., 0., Dorigin); 
-    G4double BR3Dpi0e       = ThreeBodyBR(fMD,   HNLMass, fMpi0,    fMe,  kFALSE, kFALSE, 0., 0., Dorigin);
-    G4double BR3D0Ke        = ThreeBodyBR(fMD0,  HNLMass, fMK,      fMe,  kFALSE, kFALSE, 0., 0., Dorigin);
-    G4double BR3D0pie       = ThreeBodyBR(fMD0,  HNLMass, fMpi,     fMe,  kFALSE, kFALSE, 0., 0., Dorigin);
-    G4double BR3DK0mu       = ThreeBodyBR(fMD,   HNLMass, fMK0,     fMmu, kFALSE, kFALSE, 0., 0., Dorigin);
-    G4double BR3Dpi0mu      = ThreeBodyBR(fMD,   HNLMass, fMpi0,    fMmu, kFALSE, kFALSE, 0., 0., Dorigin);
-    G4double BR3D0Kmu       = ThreeBodyBR(fMD0,  HNLMass, fMK,      fMmu, kFALSE, kFALSE, 0., 0., Dorigin);
-    G4double BR3D0pimu      = ThreeBodyBR(fMD0,  HNLMass, fMpi,     fMmu, kFALSE, kFALSE, 0., 0., Dorigin);
-    G4double BR3DK0Stare    = ThreeBodyBR(fMD,   HNLMass, fMK0Star, fMe,  kFALSE, kFALSE, 0., 0., Dorigin);
-    G4double BR3D0KStare    = ThreeBodyBR(fMD0,  HNLMass, fMKStar,  fMe,  kFALSE, kFALSE, 0., 0., Dorigin);
-    G4double BR3DK0Starmu   = ThreeBodyBR(fMD,   HNLMass, fMK0Star, fMmu, kFALSE, kFALSE, 0., 0., Dorigin);
-    G4double BR3D0KStarmu   = ThreeBodyBR(fMD0,  HNLMass, fMKStar,  fMmu, kFALSE, kFALSE, 0., 0., Dorigin);
-    G4double BR3tauenu_tau  = ThreeBodyBR(fMtau, HNLMass, 0.1,      fMe,  kFALSE, kFALSE, 0., 0., Dorigin);
-    G4double BR3tauenu_e    = ThreeBodyBR(fMtau, HNLMass, 0.01,     fMe,  kFALSE, kFALSE, 0., 0., Dorigin);
-    G4double BR3taumunu_tau = ThreeBodyBR(fMtau, HNLMass, 0.1,      fMmu, kFALSE, kFALSE, 0., 0., Dorigin);
-    G4double BR3taumunu_mu  = ThreeBodyBR(fMtau, HNLMass, 0.01,     fMmu, kFALSE, kFALSE, 0., 0., Dorigin);
-
-    G4double BR2DTotal[5]  = {BR2De, BR2Dmu, BR2taupi, BR2tauK, BR2taurho}; // mode 0-4
-    G4double BR3DTotal[10] = {BR3DK0e, BR3DK0mu, BR3Dpi0e, BR3Dpi0mu, BR3DK0Stare, BR3DK0Starmu, BR3tauenu_tau, BR3taumunu_tau, BR3tauenu_e, BR3taumunu_mu}; // mode 5-14
-    G4double BR2DSTotal[6] = {BR2DSe, BR2DSmu, BR2DStau, BR2taupi, BR2tauK, BR2taurho}; // mode 15-20
-    G4double BR3DSTotal[4] = {BR3tauenu_tau, BR3taumunu_tau, BR3tauenu_e, BR3taumunu_mu}; // mode 21-24
+    G4double BR2DTotal[5] = {BR2De, BR2Dmu, BR2Dtaupi, BR2DtauK, BR2Dtaurho}; // mode 0-4
+    G4double BR3DTotal[10] = {BR3DK0e, BR3DK0mu, BR3Dpi0e, BR3Dpi0mu, BR3DK0Stare, BR3DK0Starmu, BR3Dtauenu_tau, BR3Dtaumunu_tau, BR3Dtauenu_e, BR3Dtaumunu_mu}; // mode 5-14
+    G4double BR2DSTotal[6] = {BR2DSe, BR2DSmu, BR2DStau, BR2DStaupi, BR2DStauK, BR2DStaurho}; // mode 15-20
+    G4double BR3DSTotal[4] = {BR3DStauenu_tau, BR3DStaumunu_tau, BR3DStauenu_e, BR3DStaumunu_mu}; // mode 21-24
     G4double BR3D0Total[6] = {BR3D0Ke, BR3D0Kmu, BR3D0pie, BR3D0pimu, BR3D0KStare, BR3D0KStarmu}; // mode 25-30
-    G4double BR2Dtot  = BR2De + BR2Dmu + BR2taupi + BR2tauK + BR2taurho;
-    G4double BR2DStot = BR2DSe + BR2DSmu + BR2DStau + BR2taupi + BR2tauK + BR2taurho;
-    G4double BR3Dtot  = BR3DK0e + BR3DK0mu + BR3Dpi0e + BR3Dpi0mu + BR3DK0Stare + BR3DK0Starmu + BR3tauenu_tau + BR3taumunu_tau + BR3tauenu_e + BR3taumunu_mu;
-    G4double BR3DStot = BR3tauenu_tau + BR3taumunu_tau + BR3tauenu_e + BR3taumunu_mu;
+    G4double BR2Dtot = BR2De + BR2Dmu + BR2Dtaupi + BR2DtauK + BR2Dtaurho;
+    G4double BR2DStot = BR2DSe + BR2DSmu + BR2DStau + BR2DStaupi + BR2DStauK + BR2DStaurho;
+    G4double BR3Dtot = BR3DK0e + BR3DK0mu + BR3Dpi0e + BR3Dpi0mu + BR3DK0Stare + BR3DK0Starmu + BR3Dtauenu_tau + BR3Dtaumunu_tau + BR3Dtauenu_e + BR3Dtaumunu_mu;
+    G4double BR3DStot = BR3DStauenu_tau + BR3DStaumunu_tau + BR3DStauenu_e + BR3DStaumunu_mu;
     G4double BR3D0tot = BR3D0Ke + BR3D0Kmu + BR3D0pie + BR3D0pimu + BR3D0KStare + BR3D0KStarmu;
-    G4double BRDtot   = BR2Dtot + BR3Dtot;
-    G4double BRDStot  = BR2DStot + BR3DStot;
-    G4double R        = RandomDecay->Rndm();
-    G4double RR       = RandomDecay->Rndm();
+    G4double BRDtot = BR2Dtot + BR3Dtot;
+    G4double BRDStot = BR2DStot + BR3DStot;
+    G4double R = RandomDecay->Rndm();
+    G4double RR = RandomDecay->Rndm();
     G4double pBRtotal = 0.;
-    G4int prodMode    = -1;
-
-    Dorigin = -1;
+    G4int prodMode = -1;
 
     // Choose between 2- and 3-body production and then choose specific production mode
 
     if (iSpecies == 0 || iSpecies == 2) { // D
       if (R < BR2Dtot/BRDtot) { // 2-body
-	ThreeBody = kFALSE;
+        ThreeBody = kFALSE;
         for (G4int q = 0; q < 5; q++) {
-	  if (RR < pBRtotal + BR2DTotal[q]/BR2Dtot) {
-	    prodMode = q;
-	    break;
-	  }
-	  pBRtotal += BR2DTotal[q]/BR2Dtot;
-	}
-	pBRtotal = 0.;
+          if (RR < pBRtotal + BR2DTotal[q]/BR2Dtot) {
+            prodMode = q;
+            break;
+          }
+          pBRtotal += BR2DTotal[q]/BR2Dtot;
+        }
+        pBRtotal = 0.;
       }
       else { // 3-body
-	ThreeBody = kTRUE;
-	for (G4int q = 0; q < 10; q++) {
-	  if (RR < pBRtotal + BR3DTotal[q]/BR3Dtot) {
-	    prodMode = q + 5;      
-	    break;
-	  }                                                                               
-	  pBRtotal += BR3DTotal[q]/BR3Dtot;
-	}
-	pBRtotal = 0.;
+        ThreeBody = kTRUE;
+        for (G4int q = 0; q < 10; q++) {
+          if (RR < pBRtotal + BR3DTotal[q]/BR3Dtot) {
+            prodMode = q + 5;
+            break;
+          }
+          pBRtotal += BR3DTotal[q]/BR3Dtot;
+        }
+        pBRtotal = 0.;
       }
     }
     else if (iSpecies == 1 || iSpecies == 3) { // DS
       if (R < BR2DStot/BRDStot) { // 2-body
-	ThreeBody = kFALSE;
-	for (G4int q = 0; q < 6; q++) {
-	  if (RR < pBRtotal + BR2DSTotal[q]/BR2DStot) {
-	    prodMode = q + 15;
-	    break;
-	  }
-	  pBRtotal += BR2DSTotal[q]/BR2DStot;
-	}
-	pBRtotal = 0.;
+        ThreeBody = kFALSE;
+        for (G4int q = 0; q < 6; q++) {
+          if (RR < pBRtotal + BR2DSTotal[q]/BR2DStot) {
+            prodMode = q + 15;
+            break;
+          }
+          pBRtotal += BR2DSTotal[q]/BR2DStot;
+        }
+        pBRtotal = 0.;
       }
       else { // 3-body
-	ThreeBody = kTRUE;
-	for (G4int q = 0; q < 4; q++) {
-	  if (RR < pBRtotal + BR3DSTotal[q]/BR3DStot) {
-	    prodMode = q + 21;
-	    break;
-	  }
-	  pBRtotal += BR3DSTotal[q]/BR3DStot;
-	}
-	pBRtotal = 0.;
+        ThreeBody = kTRUE;
+        for (G4int q = 0; q < 4; q++) {
+          if (RR < pBRtotal + BR3DSTotal[q]/BR3DStot) {
+            prodMode = q + 21;
+            break;
+          }
+          pBRtotal += BR3DSTotal[q]/BR3DStot;
+        }
+        pBRtotal = 0.;
       }
     }
     else if (iSpecies == 4 || iSpecies == 5) { // D0, 3-body
       ThreeBody = kTRUE;
       for (G4int q = 0; q < 6; q++) {
-	if (RR < pBRtotal + BR3D0Total[q]/BR3D0tot) {
-	  prodMode = q + 25;
-	  break;
-	}
-	pBRtotal += BR3D0Total[q]/BR3D0tot;
+        if (RR < pBRtotal + BR3D0Total[q]/BR3D0tot) {
+          prodMode = q + 25;
+          break;
+        }
+        pBRtotal += BR3D0Total[q]/BR3D0tot;
       }
       pBRtotal = 0.;
     }
@@ -1601,48 +1813,48 @@ void PrimaryGeneratorAction::GenerateHeavyNeutrino(G4Event* anEvent, TRandom3* R
     // Set lepton and meson charges
     if ((prodMode >= 0 && prodMode <= 4) || (prodMode >= 15 && prodMode <= 20)) { // D,DS 2-body
       if (iSpecies == 0 || iSpecies == 1) {
-	TwoBodyLeptonCharge = 1.;
-	ThreeBodyLeptonCharge = 0.;
-	ThreeBodyMesonCharge = 0.;
+        TwoBodyLeptonCharge = 1.;
+        ThreeBodyLeptonCharge = 0.;
+        ThreeBodyMesonCharge = 0.;
       }
       else if (iSpecies == 2 || iSpecies == 3) {
-	TwoBodyLeptonCharge = -1.;
-	ThreeBodyLeptonCharge = 0.;
-	ThreeBodyMesonCharge = 0.;
+        TwoBodyLeptonCharge = -1.;
+        ThreeBodyLeptonCharge = 0.;
+        ThreeBodyMesonCharge = 0.;
       }
     }
     else if ((prodMode >= 5 && prodMode <= 14) || (prodMode >= 21 && prodMode <= 30)) { // D,DS,D0 3-body
       if (iSpecies == 0 || iSpecies == 1) {
-	TwoBodyLeptonCharge = 0.;
-	ThreeBodyLeptonCharge = 1.;
-	ThreeBodyMesonCharge = 0.;
+        TwoBodyLeptonCharge = 0.;
+        ThreeBodyLeptonCharge = 1.;
+        ThreeBodyMesonCharge = 0.;
       }
       else if (iSpecies == 2 || iSpecies == 3) {
-	TwoBodyLeptonCharge = 0.;
-	ThreeBodyLeptonCharge = -1.;
-	ThreeBodyMesonCharge = 0.;
+        TwoBodyLeptonCharge = 0.;
+        ThreeBodyLeptonCharge = -1.;
+        ThreeBodyMesonCharge = 0.;
       }
       else if (iSpecies == 4 || iSpecies == 5) {
-	G4double r = RandomDecay->Rndm();
-	while (r == 0.5)
-	  r = RandomDecay->Rndm();
-	if (r < 0.5) {
-	  TwoBodyLeptonCharge = 0.;
-	  ThreeBodyLeptonCharge = 1.;
-	  ThreeBodyMesonCharge = -1.;
-	}
-	else {
-	  TwoBodyLeptonCharge = 0.;
-	  ThreeBodyLeptonCharge = -1.;
-	  ThreeBodyMesonCharge = 1.;
-	}
+        G4double r = RandomDecay->Rndm();
+        while (r == 0.5)
+          r = RandomDecay->Rndm();
+        if (r < 0.5) {
+          TwoBodyLeptonCharge = 0.;
+          ThreeBodyLeptonCharge = 1.;
+          ThreeBodyMesonCharge = -1.;
+        }
+        else {
+          TwoBodyLeptonCharge = 0.;
+          ThreeBodyLeptonCharge = -1.;
+          ThreeBodyMesonCharge = 1.;
+        }
       }
     }
 
     if ((prodMode >= 0 && prodMode<= 1) || (prodMode>= 5 && prodMode<=10) ||
-	(prodMode >=15 && prodMode<=17) || (prodMode>=25 && prodMode<=30)) {
-      // D,DS,D0 meson decay/HNL production (D,DS for 2- and 3-body production)      
-      motherMass = fmesonMass[iSpecies];    
+            (prodMode >=15 && prodMode<=17) || (prodMode>=25 && prodMode<=30)) {
+      // D,DS,D0 meson decay/HNL production (D,DS for 2- and 3-body production)
+      motherMass = fmesonMass[iSpecies];
       mesonMomentum = TMath::Sqrt(px0*px0 + py0*py0 + pz0*pz0);
       mesonLambda = mesonMomentum/fmesonMass[iSpecies]*c_light*fmesonTau[iSpecies];
       mesonW = (1. - TMath::Exp(-(expLength - z0)/mesonLambda));
@@ -1661,50 +1873,50 @@ void PrimaryGeneratorAction::GenerateHeavyNeutrino(G4Event* anEvent, TRandom3* R
       HNLProdPos.SetXYZT(xProduction, yProduction, zProduction, prodTime);
 
       if (prodMode == 0 || prodMode == 1 ||prodMode == 15 ||prodMode == 16 ||prodMode == 17) { // D,DS->Nl
-	if (prodMode == 0 || prodMode == 15) {
-	  TwoBodyLeptonMass = fMe;
-	  TwoBodyLeptonName = "e";
-	  ThreeBodyLeptonMass = 0.;
-	  ThreeBodyLeptonName = "";
-	  ThreeBodyMesonMass = 0.;
-	  ThreeBodyMesonName = "";
-	}
-	else if (prodMode == 1 || prodMode == 16) {
-	  TwoBodyLeptonMass = fMmu;
-	  TwoBodyLeptonName = "mu";
-	  ThreeBodyLeptonMass = 0.;
-	  ThreeBodyLeptonName = "";
-	  ThreeBodyMesonMass = 0.;
-	  ThreeBodyMesonName = "";
-	}
-	else if (prodMode == 17) {
-	  TwoBodyLeptonMass = fMtau;
-	  TwoBodyLeptonName = "tau";
-	  ThreeBodyLeptonMass = 0.;
-	  ThreeBodyLeptonName = "";
-	  ThreeBodyMesonMass = 0.;
-	  ThreeBodyMesonName = "";
-	}
+        if (prodMode == 0 || prodMode == 15) {
+          TwoBodyLeptonMass = fMe;
+          TwoBodyLeptonName = "e";
+          ThreeBodyLeptonMass = 0.;
+          ThreeBodyLeptonName = "";
+          ThreeBodyMesonMass = 0.;
+          ThreeBodyMesonName = "";
+        }
+        else if (prodMode == 1 || prodMode == 16) {
+          TwoBodyLeptonMass = fMmu;
+          TwoBodyLeptonName = "mu";
+          ThreeBodyLeptonMass = 0.;
+          ThreeBodyLeptonName = "";
+          ThreeBodyMesonMass = 0.;
+          ThreeBodyMesonName = "";
+        }
+        else if (prodMode == 17) {
+          TwoBodyLeptonMass = fMtau;
+          TwoBodyLeptonName = "tau";
+          ThreeBodyLeptonMass = 0.;
+          ThreeBodyLeptonName = "";
+          ThreeBodyMesonMass = 0.;
+          ThreeBodyMesonName = "";
+        }
 
-	// HNL kinematics at production point (D,DS leptonic 2-body production)
-	HNLcTheta = -1. + 2.*RandomDecay->Rndm(); // flat distribution on costheta
-	HNLTheta = TMath::ACos(HNLcTheta);  // theta value in (0,pi);
-	HNLPhi = 2.*TMath::Pi()*RandomDecay->Rndm(); // flat distribution		
-	HNLpStar = TMath::Power(lambda(fmesonMass[iSpecies]*fmesonMass[iSpecies], TwoBodyLeptonMass*TwoBodyLeptonMass, HNLMass*HNLMass), 0.5)/(2.*fmesonMass[iSpecies]);   
-	HNLMomentum.SetPxPyPzE(HNLpStar*TMath::Sin(HNLTheta)*TMath::Cos(HNLPhi), HNLpStar*TMath::Sin(HNLTheta)*TMath::Sin(HNLPhi), HNLpStar*TMath::Cos(HNLTheta), TMath::Power(HNLpStar*HNLpStar + HNLMass*HNLMass, 0.5));
+        // HNL kinematics at production point (D,DS leptonic 2-body production)
+        HNLcTheta = -1. + 2.*RandomDecay->Rndm(); // flat distribution on costheta
+        HNLTheta = TMath::ACos(HNLcTheta);  // theta value in (0,pi);
+        HNLPhi = 2.*TMath::Pi()*RandomDecay->Rndm(); // flat distribution
+        HNLpStar = TMath::Power(lambda(fmesonMass[iSpecies]*fmesonMass[iSpecies], TwoBodyLeptonMass*TwoBodyLeptonMass, HNLMass*HNLMass), 0.5)/(2.*fmesonMass[iSpecies]);
+        HNLMomentum.SetPxPyPzE(HNLpStar*TMath::Sin(HNLTheta)*TMath::Cos(HNLPhi), HNLpStar*TMath::Sin(HNLTheta)*TMath::Sin(HNLPhi), HNLpStar*TMath::Cos(HNLTheta), TMath::Power(HNLpStar*HNLpStar + HNLMass*HNLMass, 0.5));
 
-	// HNL boost in lab frame (D,DS leptonic 2-body production)
-	HNLbb.SetXYZ(mesonB*TMath::Sin(theta0)*TMath::Cos(phi0), mesonB*TMath::Sin(theta0)*TMath::Sin(phi0), mesonB*TMath::Cos(theta0));
-	HNLMomentum.Boost(HNLbb);
+        // HNL boost in lab frame (D,DS leptonic 2-body production)
+        HNLbb.SetXYZ(mesonB*TMath::Sin(theta0)*TMath::Cos(phi0), mesonB*TMath::Sin(theta0)*TMath::Sin(phi0), mesonB*TMath::Cos(theta0));
+        HNLMomentum.Boost(HNLbb);
       }
     }
     else if ((prodMode >= 2 && prodMode <= 4) || (prodMode >= 11 && prodMode <= 14) || (prodMode >= 18 && prodMode <= 24)) { // D,DS->taunu for 2- and 3-body production
 
       if (iSpecies == 0 || iSpecies == 2) {
-	Dorigin = 0;
+        Dorigin = 0;
       }
       else if (iSpecies == 1 || iSpecies == 3) {
-	Dorigin = 1;
+        Dorigin = 1;
       }
 
       // D meson decay/tau production (D,DS->taunu for 2- and 3-body production)
@@ -1724,17 +1936,17 @@ void PrimaryGeneratorAction::GenerateHeavyNeutrino(G4Event* anEvent, TRandom3* R
       // Tau kinematics at production point and boost in lab frame (D,DS->taunu for 2- and 3-body production)
       taucTheta = -1. + 2.*RandomDecay->Rndm(); // flat distribution on costheta
       tauTheta = TMath::ACos(taucTheta);  // theta value in (0,pi);
-      tauPhi = 2.*TMath::Pi()*RandomDecay->Rndm(); // flat distribution		
-      taupStar = TMath::Power(lambda(fmesonMass[iSpecies]*fmesonMass[iSpecies], 0., fMtau*fMtau), 0.5)/(2.*fmesonMass[iSpecies]);      
+      tauPhi = 2.*TMath::Pi()*RandomDecay->Rndm(); // flat distribution
+      taupStar = TMath::Power(lambda(fmesonMass[iSpecies]*fmesonMass[iSpecies], 0., fMtau*fMtau), 0.5)/(2.*fmesonMass[iSpecies]);
       tauMomentum.SetPxPyPzE(taupStar*TMath::Sin(tauTheta)*TMath::Cos(tauPhi), taupStar*TMath::Sin(tauTheta)*TMath::Sin(tauPhi), taupStar*TMath::Cos(tauTheta), TMath::Power(taupStar*taupStar + fMtau*fMtau, 0.5));
-      Taubb.SetXYZ(mesonB*TMath::Sin(theta0)*TMath::Cos(phi0), mesonB*TMath::Sin(theta0)*TMath::Sin(phi0), mesonB*TMath::Cos(theta0));      
+      Taubb.SetXYZ(mesonB*TMath::Sin(theta0)*TMath::Cos(phi0), mesonB*TMath::Sin(theta0)*TMath::Sin(phi0), mesonB*TMath::Cos(theta0));
       tauMomentum.Boost(Taubb);
 
       // Tau decay/HNL production (D,DS->taunu for 2- and 3-body production)
       tauTheta = tauMomentum.Theta();
-      tauPhi = tauMomentum.Phi();      
+      tauPhi = tauMomentum.Phi();
       tauMom = TMath::Sqrt(tauMomentum.Px()*tauMomentum.Px() + tauMomentum.Py()*tauMomentum.Py() + tauMomentum.Pz()*tauMomentum.Pz());
-      tauLambda = tauMom/fMtau*c_light*ftaulife; 
+      tauLambda = tauMom/fMtau*c_light*ftaulife1;
       tauTravelLength = fbeamLength - zProduction;
       tauW = (1. - TMath::Exp(-(tauTravelLength)/tauLambda));
       rProduction = -tauLambda*TMath::Log(1. - tauW*RandomDecay->Rndm());
@@ -1753,15 +1965,15 @@ void PrimaryGeneratorAction::GenerateHeavyNeutrino(G4Event* anEvent, TRandom3* R
 
       if (prodMode == 2 || prodMode == 3 || prodMode == 4 || prodMode == 18 || prodMode == 19 || prodMode == 20) { // D, DS->taunu for 2-body production
 
-	motherMass = fMtau;
-	if (prodMode == 2 || prodMode == 18) {
-	  TwoBodyLeptonMass = fMpi;
-	  TwoBodyLeptonName = "pi";
-	  ThreeBodyLeptonMass = 0.;
-	  ThreeBodyLeptonName = "";
-	  ThreeBodyMesonMass = 0.;
-	  ThreeBodyMesonName = "";
-	}
+        motherMass = fMtau;
+        if (prodMode == 2 || prodMode == 18) {
+          TwoBodyLeptonMass = fMpi;
+          TwoBodyLeptonName = "pi";
+          ThreeBodyLeptonMass = 0.;
+          ThreeBodyLeptonName = "";
+          ThreeBodyMesonMass = 0.;
+          ThreeBodyMesonName = "";
+        }
         else if (prodMode == 3 || prodMode == 19) {
           TwoBodyLeptonMass = fMK;
           TwoBodyLeptonName = "K";
@@ -1770,25 +1982,25 @@ void PrimaryGeneratorAction::GenerateHeavyNeutrino(G4Event* anEvent, TRandom3* R
           ThreeBodyMesonMass = 0.;
           ThreeBodyMesonName = "";
         }
-	else if (prodMode == 4 || prodMode == 20) {
-	  TwoBodyLeptonMass = fMrho;
-	  TwoBodyLeptonName = "rho";
-	  ThreeBodyLeptonMass = 0.;
-	  ThreeBodyLeptonName = "";
-	  ThreeBodyMesonMass = 0.;
-	  ThreeBodyMesonName = "";
-	}
+        else if (prodMode == 4 || prodMode == 20) {
+          TwoBodyLeptonMass = fMrho;
+          TwoBodyLeptonName = "rho";
+          ThreeBodyLeptonMass = 0.;
+          ThreeBodyLeptonName = "";
+          ThreeBodyMesonMass = 0.;
+          ThreeBodyMesonName = "";
+        }
 
-	// HNL kinematics at production point (D, DS->taunu for 2-body production)
-	HNLcTheta = -1. + 2.*RandomDecay->Rndm(); // flat distribution on costheta
-	HNLTheta = TMath::ACos(HNLcTheta);  // theta value in (0,pi);
-	HNLPhi = 2.*TMath::Pi()*RandomDecay->Rndm(); // flat distribution		
-	HNLpStar = TMath::Power(lambda(fMtau*fMtau, TwoBodyLeptonMass*TwoBodyLeptonMass, HNLMass*HNLMass), 0.5)/(2.*fMtau);      
-	HNLMomentum.SetPxPyPzE(HNLpStar*TMath::Sin(HNLTheta)*TMath::Cos(HNLPhi), HNLpStar*TMath::Sin(HNLTheta)*TMath::Sin(HNLPhi), HNLpStar*TMath::Cos(HNLTheta), TMath::Power(HNLpStar*HNLpStar + HNLMass*HNLMass, 0.5));
-      
-	// HNL boost in lab frame (D, DS->taunu for 2-body production)
-	HNLbb.SetXYZ(tauB*TMath::Sin(tauTheta)*TMath::Cos(tauPhi), tauB*TMath::Sin(tauTheta)*TMath::Sin(tauPhi), tauB*TMath::Cos(tauTheta));      
-	HNLMomentum.Boost(HNLbb);
+        // HNL kinematics at production point (D, DS->taunu for 2-body production)
+        HNLcTheta = -1. + 2.*RandomDecay->Rndm(); // flat distribution on costheta
+        HNLTheta = TMath::ACos(HNLcTheta);  // theta value in (0,pi);
+        HNLPhi = 2.*TMath::Pi()*RandomDecay->Rndm(); // flat distribution
+        HNLpStar = TMath::Power(lambda(fMtau*fMtau, TwoBodyLeptonMass*TwoBodyLeptonMass, HNLMass*HNLMass), 0.5)/(2.*fMtau);
+        HNLMomentum.SetPxPyPzE(HNLpStar*TMath::Sin(HNLTheta)*TMath::Cos(HNLPhi), HNLpStar*TMath::Sin(HNLTheta)*TMath::Sin(HNLPhi), HNLpStar*TMath::Cos(HNLTheta), TMath::Power(HNLpStar*HNLpStar + HNLMass*HNLMass, 0.5));
+
+        // HNL boost in lab frame (D, DS->taunu for 2-body production)
+        HNLbb.SetXYZ(tauB*TMath::Sin(tauTheta)*TMath::Cos(tauPhi), tauB*TMath::Sin(tauTheta)*TMath::Sin(tauPhi), tauB*TMath::Cos(tauTheta));
+        HNLMomentum.Boost(HNLbb);
       }
     }
 
@@ -1797,96 +2009,106 @@ void PrimaryGeneratorAction::GenerateHeavyNeutrino(G4Event* anEvent, TRandom3* R
       TwoBodyLeptonName = "";
 
       if (prodMode >= 5 && prodMode <= 10) { // Set mother
-	motherMass = fMD;
+        motherMass = fMD;
       }
       else if (prodMode >= 25 && prodMode <= 30) {
-	motherMass = fMD0;
+        motherMass = fMD0;
       }
       else if ((prodMode >= 11 && prodMode <= 14) || (prodMode >= 21 && prodMode <= 24)) {
-	motherMass = fMtau;
+        motherMass = fMtau;
       }
 
       if (prodMode == 5 || prodMode == 7 || prodMode == 9 || prodMode == 11 || prodMode == 13 || prodMode == 21 || prodMode == 23 || prodMode == 25 || prodMode == 27 || prodMode == 29) { // Set lepton
-	ThreeBodyLeptonMass = fMe;
-	ThreeBodyLeptonName = "e";
+        ThreeBodyLeptonMass = fMe;
+        ThreeBodyLeptonName = "e";
       }
       else {
-	ThreeBodyLeptonMass = fMmu;
-	ThreeBodyLeptonName = "mu";
+        ThreeBodyLeptonMass = fMmu;
+        ThreeBodyLeptonName = "mu";
       }
       if (prodMode == 5 || prodMode == 6) { // Set meson
-	ThreeBodyMesonMass = fMK0;
-	ThreeBodyMesonName = "K0";
+        ThreeBodyMesonMass = fMK0;
+        ThreeBodyMesonName = "K0";
       }
       else if (prodMode == 7 || prodMode == 8) {
-	ThreeBodyMesonMass = fMpi0;
-	ThreeBodyMesonName = "pi0";
+        ThreeBodyMesonMass = fMpi0;
+        ThreeBodyMesonName = "pi0";
       }
       else if (prodMode == 9 || prodMode == 10) {
-	ThreeBodyMesonMass = fMK0Star;
-	ThreeBodyMesonName = "K0*";
+        ThreeBodyMesonMass = fMK0Star;
+        ThreeBodyMesonName = "K0*";
       }
       else if (prodMode == 25 || prodMode == 26) {
-	ThreeBodyMesonMass = fMK;
-	ThreeBodyMesonName = "K";
+        ThreeBodyMesonMass = fMK;
+        ThreeBodyMesonName = "K";
       }
       else if (prodMode == 27 || prodMode == 28) {
-	ThreeBodyMesonMass = fMpi;
-	ThreeBodyMesonName = "pi";
+        ThreeBodyMesonMass = fMpi;
+        ThreeBodyMesonName = "pi";
       }
       else if (prodMode == 29 || prodMode == 30) {
-	ThreeBodyMesonMass = fMKStar;
-	ThreeBodyMesonName = "K*";
+        ThreeBodyMesonMass = fMKStar;
+        ThreeBodyMesonName = "K*";
       }
       else if (prodMode == 11 || prodMode == 12 || prodMode == 21 || prodMode == 22) {
-	ThreeBodyMesonMass = 0.1; // nu_tau
-	ThreeBodyMesonName = "nu_tau";
+        ThreeBodyMesonMass = 0.1; // nu_tau
+        ThreeBodyMesonName = "nu_tau";
       }
       else if (prodMode == 13 || prodMode == 14 || prodMode == 23 || prodMode == 24) {
-	ThreeBodyMesonMass = 0.01; // nu_l
-	if (ThreeBodyLeptonName == "e") {
-	  ThreeBodyMesonName = "nu_e";
-	}
-	else if (ThreeBodyLeptonName == "mu") {
-	  ThreeBodyMesonName = "nu_mu";
-	}
+        ThreeBodyMesonMass = 0.01; // nu_l
+        if (ThreeBodyLeptonName == "e") {
+          ThreeBodyMesonName = "nu_e";
+        }
+        else if (ThreeBodyLeptonName == "mu") {
+          ThreeBodyMesonName = "nu_mu";
+        }
       }
 
       G4double wMax = 0.5;
       G4double W = 0.;
       G4double randW = 0.;
-      G4double evalFunc = 0.;                                                   
-      G4double randFunc = 0.;                                                    
-      G4double funcMax = 0.;                                                                    
-      G4double q2 = 0.;                                                                            
-      G4double EN = 0.;      
+      G4double evalFunc = 0.;
+      G4double randFunc = 0.;
+      G4double funcMax = -1.E-20;
+      G4double evalFuncMax = 0.;
+      G4double q2 = 0.;
+      G4double EN = 0.;
       TGenPhaseSpace Event;
       TLorentzVector Mother(0., 0., 0., motherMass);
       Double_t Daughters[3] = {HNLMass, ThreeBodyLeptonMass, ThreeBodyMesonMass};
-      
+
       do {
-	do {
-	  Event.SetDecay(Mother, 3, Daughters);
-	  W = Event.Generate();
-	  randW = RandomDecay->Rndm(); 
-	} while (randW > W/wMax);
+        do {
+          Event.SetDecay(Mother, 3, Daughters);
+          W = Event.Generate();
+          randW = RandomDecay->Rndm();
+          TLorentzVector *p1 = Event.GetDecay(0);
+          TLorentzVector *p2 = Event.GetDecay(1);
+          Double_t p1mod = TMath::Sqrt(p1->E()*p1->E()-HNLMass*HNLMass);
+          Double_t p2mod = TMath::Sqrt(p2->E()*p2->E()-ThreeBodyLeptonMass*ThreeBodyLeptonMass);
+          q2 = (p1->E()+p2->E())*(p1->E()+p2->E()) - (p1mod+p2mod)*(p1mod+p2mod);
+          EN = p1->E();
+          evalFuncMax = ThreeBodyBR(motherMass, HNLMass, ThreeBodyMesonMass, ThreeBodyLeptonMass, kTRUE, kFALSE, q2, EN, Dorigin);
+          if (evalFuncMax > funcMax)
+            funcMax = evalFuncMax;
+        } while (randW > W/wMax);
 
-	TLorentzVector *p1 = Event.GetDecay(0);
-	TLorentzVector *p3 = Event.GetDecay(2);
-	TLorentzVector p12 = Mother - *p3;
-	q2 = p12.Mag2();
-	EN = p1->E();
+        TLorentzVector *p1 = Event.GetDecay(0);
+        TLorentzVector *p2 = Event.GetDecay(1);
+        Double_t p1mod = TMath::Sqrt(p1->E()*p1->E()-HNLMass*HNLMass);
+        Double_t p2mod = TMath::Sqrt(p2->E()*p2->E()-ThreeBodyLeptonMass*ThreeBodyLeptonMass);
+        q2 = (p1->E()+p2->E())*(p1->E()+p2->E()) - (p1mod+p2mod)*(p1mod+p2mod);
+        EN = p1->E();
 
-	// Hit and miss for decay kinematics (D,D0,tau 3-body production)           
-	
-	evalFunc = ThreeBodyBR(motherMass, HNLMass, ThreeBodyMesonMass, ThreeBodyLeptonMass, kTRUE, kFALSE, q2, EN, Dorigin); // f in (q2,EN)
-	funcMax = ThreeBodyBR(motherMass, HNLMass, ThreeBodyMesonMass, ThreeBodyLeptonMass, kTRUE, kTRUE, q2, EN, Dorigin); // f max
-	randFunc = RandomDecay->Rndm();
+        // Hit and miss for decay kinematics (D,D0,tau 3-body production)
+
+        evalFunc = ThreeBodyBR(motherMass, HNLMass, ThreeBodyMesonMass, ThreeBodyLeptonMass, kTRUE, kFALSE, q2, EN, Dorigin); // f in (q2,EN)
+        randFunc = RandomDecay->Rndm();
       } while (randFunc > evalFunc/funcMax);
 
       // HNL kinematics at production point (D,D0,tau 3-body production)
       G4double HNLmom = TMath::Sqrt(EN*EN - HNLMass*HNLMass);
-      HNLcTheta = -1. + 2.*RandomDecay->Rndm(); // flat distribution on costheta   
+      HNLcTheta = -1. + 2.*RandomDecay->Rndm(); // flat distribution on costheta
       HNLTheta = TMath::ACos(HNLcTheta);  // theta value in (0,pi);
       HNLPhi = 2.*TMath::Pi()*RandomDecay->Rndm();
       HNLMomentum.SetPxPyPzE(HNLmom*TMath::Sin(HNLTheta)*TMath::Cos(HNLPhi), HNLmom*TMath::Sin(HNLTheta)*TMath::Sin(HNLPhi), HNLmom*TMath::Cos(HNLTheta), EN);
@@ -1896,7 +2118,6 @@ void PrimaryGeneratorAction::GenerateHeavyNeutrino(G4Event* anEvent, TRandom3* R
       HNLMomentum.Boost(HNLbb);
     }
     else if (prodMode == -1) {
-      G4cout << "[PrimaryGeneratorAction] WARNING: no heavy neutral lepton production mode allowed by kinematics. Mother mass: " << fmesonMass[iSpecies] << ", HNL mass: " << HNLMass << G4endl;
       return;
     }
 
@@ -1971,81 +2192,82 @@ void PrimaryGeneratorAction::GenerateHeavyNeutrino(G4Event* anEvent, TRandom3* R
       inAcc2 = (Rho2 > rMinPlane && Rho2 < rMaxPlane);
 
       // Add HNL to KineParts, despite it being in acceptance or not
+
       KinePart *HNL = MCTruthManager::GetInstance()->AddParticle();
-      TString HNLName             = "";
-      TString HNLGood             = "bad";
-      TString TwoBodyLeptonSign   = "";
+      TString HNLName = "";
+      TString HNLGood = "bad";
+      TString TwoBodyLeptonSign = "";
       TString ThreeBodyLeptonSign = "";
-      TString MesonSign           = "";
+      TString MesonSign = "";
 
       switch (iSpecies) { // Set D meson name
       case 0 :
-	{
-	  HNLName += "D+"; 
-	  break;
-	}
+      {
+        HNLName += "D+";
+        break;
+      }
       case 1:
-	{
-	  HNLName += "DS+";
-	  break;
-	}
+      {
+        HNLName += "DS+";
+        break;
+      }
       case 2:
-	{
-	  HNLName += "D-";
-	  break;
-	}
+      {
+        HNLName += "D-";
+        break;
+      }
       case 3:
-	{
-	  HNLName += "DS-";
-	  break;
-	}
+      {
+        HNLName += "DS-";
+        break;
+      }
       case 4:
-	{
-	  HNLName += "D0";
-	  break;
-	}
+      {
+        HNLName += "D0";
+        break;
+      }
       case 5:
-	{
-	  HNLName += "D0Bar";
-	  break;
-	}
+      {
+        HNLName += "D0Bar";
+        break;
+      }
       }
       HNLName += "->";
 
       if (TwoBodyLeptonCharge == -1.) { // Set charges for lepton
-	TwoBodyLeptonSign = "-";
+        TwoBodyLeptonSign = "-";
       }
       else if (TwoBodyLeptonCharge == 1.) {
-	TwoBodyLeptonSign = "+";
+        TwoBodyLeptonSign = "+";
       }
       if (ThreeBodyLeptonCharge == -1.) { // Set charges for lepton
-	ThreeBodyLeptonSign = "-";
+        ThreeBodyLeptonSign = "-";
       }
       else if (ThreeBodyLeptonCharge == 1.) {
-	ThreeBodyLeptonSign = "+";
+        ThreeBodyLeptonSign = "+";
       }
       if (ThreeBodyMesonCharge == -1.) { // Set charges for meson
-	MesonSign = "-";
+        MesonSign = "-";
       }
       else if (ThreeBodyMesonCharge == 1.) {
-	MesonSign = "+";
+        MesonSign = "+";
       }
 
       if (ThreeBody == kFALSE) {
-	if (Dorigin == 0 || Dorigin == 1) { // Set tau chain for 2-body production
-	  HNLName += "taunu; tau->" + TwoBodyLeptonName + TwoBodyLeptonSign + "N";
-	}
-	else {
-	  HNLName += TwoBodyLeptonName + TwoBodyLeptonSign + "N";
-	}
+        if (Dorigin == 0 || Dorigin == 1) { // Set tau chain for 2-body production
+          HNLName += "taunu; tau->" + TwoBodyLeptonName + TwoBodyLeptonSign + "N";
+        }
+        else {
+          HNLName += TwoBodyLeptonName + TwoBodyLeptonSign + "N";
+        }
       }
       else {
-	if (Dorigin == 0 || Dorigin == 1) { // Set tau chain for 3-body production 
-	  HNLName += "taunu; tau->" + ThreeBodyLeptonName + ThreeBodyLeptonSign + ThreeBodyMesonName + MesonSign + "N";
-	}
-	else {
-	  HNLName += ThreeBodyLeptonName + ThreeBodyLeptonSign + ThreeBodyMesonName + MesonSign + "N";
-	}
+        if (Dorigin == 0 || Dorigin == 1) { // Set tau chain for 3-body production
+          HNLName += "taunu; tau->" + ThreeBodyLeptonName + ThreeBodyLeptonSign + ThreeBodyMesonName + MesonSign + "N";
+        }
+        else {
+          HNLName += ThreeBodyLeptonName + ThreeBodyLeptonSign + ThreeBodyMesonName + MesonSign + "N";
+        }
       }
 
       HNL->SetParticleName(HNLName);
@@ -2066,38 +2288,50 @@ void PrimaryGeneratorAction::GenerateHeavyNeutrino(G4Event* anEvent, TRandom3* R
       HNL->SetMomAtCheckPoint(8, TLorentzVector(x0, y0, theta0, phi0)); // D meson production point in the TAXes, angles of the D meson after the rotation in the TAX
 
       if (prodMode == 16) {
-	HNL->SetMomAtCheckPoint(3, TLorentzVector(mesonMomentum, TMath::Sqrt(px0*px0 + py0*py0), HNLMomentum.P(), HNLMomentum.Pt()));
-	if (Mass1 == fMmu)
-	  HNL->SetMomAtCheckPoint(4, TLorentzVector(P1.P(), P1.Pt(), 0., 0.));
-	else if (Mass2 == fMmu)
-	  HNL->SetMomAtCheckPoint(4, TLorentzVector(P2.P(), P2.Pt(), 0., 0.));
+        HNL->SetMomAtCheckPoint(3, TLorentzVector(mesonMomentum, TMath::Sqrt(px0*px0 + py0*py0), HNLMomentum.P(), HNLMomentum.Pt()));
+        if (Mass1 == fMmu)
+          HNL->SetMomAtCheckPoint(4, TLorentzVector(P1.P(), P1.Pt(), 0., 0.));
+        else if (Mass2 == fMmu)
+          HNL->SetMomAtCheckPoint(4, TLorentzVector(P2.P(), P2.Pt(), 0., 0.));
       }
       else if (prodMode == 26) {
-	HNL->SetMomAtCheckPoint(5, TLorentzVector(mesonMomentum, TMath::Sqrt(px0*px0 + py0*py0), HNLMomentum.P(), HNLMomentum.Pt()));
-	if (Mass1 == fMmu)
+        HNL->SetMomAtCheckPoint(5, TLorentzVector(mesonMomentum, TMath::Sqrt(px0*px0 + py0*py0), HNLMomentum.P(), HNLMomentum.Pt()));
+        if (Mass1 == fMmu)
           HNL->SetMomAtCheckPoint(6, TLorentzVector(P1.P(), P1.Pt(), 0., 0.));
-	else if(Mass2 == fMmu)
+        else if(Mass2 == fMmu)
           HNL->SetMomAtCheckPoint(6, TLorentzVector(P2.P(), P2.Pt(), 0., 0.));
       }
 
-      BiasFactor++;
+      // Needed for weight at analysis stage
+
+      if (Dorigin == 0)
+        BrForWeight = BRDtot;
+      else if (Dorigin == 1)
+        BrForWeight = BRDStot;
+      else
+        BrForWeight = BR3D0tot;
+
+      HNL->SetPosAtCheckPoint(3, TVector3(BrForWeight, 0., 0.));
+
       if (inAcc1 && inAcc2) {
-	BiasFactor--;
-	HNLGood = "good";
-	HNL->SetEndProcessName(HNLGood);
+        HNLGood = "good";
+        HNL->SetEndProcessName(HNLGood);
       }
     }
   } while (!inAcc1 || !inAcc2);
 
-  Event *Evt = MCTruthManager::GetInstance()->GetEvent();  
+  Event *Evt = MCTruthManager::GetInstance()->GetEvent();
   Evt->SetEventWeight(BiasFactor);
 
   // Passing HNL daughters to G4
+
   fExoticDaughterGun1->SetParticlePosition(G4ThreeVector(HNLEndPos.X(), HNLEndPos.Y(), HNLEndPos.Z()));
   fExoticDaughterGun1->SetParticleTime(prodTime);
   fExoticDaughterGun1->SetParticleMomentumDirection(G4ThreeVector(P1.Px(), P1.Py(), P1.Pz()));
-  fExoticDaughterGun1->SetParticleEnergy(P1.E() - Mass1);      
+  fExoticDaughterGun1->SetParticleEnergy(P1.E() - Mass1);
   fExoticDaughterGun1->SetParticleCharge(Charge1);
+  fExoticDaughterGun1->GeneratePrimaryVertex(anEvent);
+  fExoticDaughterGun2->SetParticlePosition(G4ThreeVector(HNLEndPos.X(), HNLEndPos.Y(), HNLEndPos.Z()));
   fExoticDaughterGun2->SetParticleTime(prodTime);
   fExoticDaughterGun2->SetParticleMomentumDirection(G4ThreeVector(P2.Px(), P2.Py(), P2.Pz()));
   fExoticDaughterGun2->SetParticleEnergy(P2.E() - Mass2);
@@ -2133,7 +2367,6 @@ void PrimaryGeneratorAction::ForcedDecay(G4PrimaryParticle *G4BeamParticle, G4Th
 
   // generate a set of pion event lifetimes with at least 2 potential decays
   G4bool   LifetimesReady = false;
-  G4int    NPotentialDecays = 0;
   G4double P[3]; // probabilities of a potential pion decay
   G4double Times[3]; // pion event lifetimes
   G4double MaxProperTimeInTauUnits[3];
@@ -2144,7 +2377,7 @@ void PrimaryGeneratorAction::ForcedDecay(G4PrimaryParticle *G4BeamParticle, G4Th
   G4int MinNumberOfDecays = 2;
   if (DatacardManager::GetInstance()->GetPionDecayForce()==2) MinNumberOfDecays = 3;
 
-  // K3pi Forcing n>=2 pi decays in flight 
+  // K3pi Forcing n>=2 pi decays in flight
   if (DatacardManager::GetInstance()->GetDecayType()==10 && // K3pi decay
       DatacardManager::GetInstance()->GetDecayRadcor()<2 && // non-radiative
       DatacardManager::GetInstance()->GetPionDecayForce()) { // 1 (at least two pion decays) or 2 (three pion decays)
@@ -2152,7 +2385,7 @@ void PrimaryGeneratorAction::ForcedDecay(G4PrimaryParticle *G4BeamParticle, G4Th
       // generate 3 lifetimes
       for (G4int j=0; j<3; j++) Times[j] = -PionTau*log(RandomDecay->Uniform(0., 1.));
       // compare generated times and pion tmax*1.1 [1.1 is a safety factor]
-      NPotentialDecays = 0;
+      G4int NPotentialDecays = 0;
       for (G4int j=0; j<Ndaughters; j++) {
         CMCParticle *part = fDecay->GetParticles()->at(j);
         G4double ThisEnergy = part->fEnergy*GeV;
@@ -2168,13 +2401,13 @@ void PrimaryGeneratorAction::ForcedDecay(G4PrimaryParticle *G4BeamParticle, G4Th
     for (G4int j=0; j<3; j++) {
       P[j] = 1. - exp(-MaxProperTimeInTauUnits[j]);
     }
-    
+
     // calculate the weight (probability to have >=2 pion decays)
     if (DatacardManager::GetInstance()->GetPionDecayForce()==1)
       Weight *= P[0]*P[1]*(1.-P[2]) + P[0]*(1.-P[1])*P[2] + (1.-P[0])*P[1]*P[2] + P[0]*P[1]*P[2];
 
     // calculate the weight for 3 pion decays
-    if (DatacardManager::GetInstance()->GetPionDecayForce()==2) 
+    if (DatacardManager::GetInstance()->GetPionDecayForce()==2)
       Weight *= P[0]*P[1]*P[2];
   }
 
@@ -2200,15 +2433,15 @@ void PrimaryGeneratorAction::ForcedDecay(G4PrimaryParticle *G4BeamParticle, G4Th
     // for pion decays.
 
     if (abs(daughter->GetPDGEncoding())==13 &&
-        DatacardManager::GetInstance()->GetMuonDecayForce()) {
+            DatacardManager::GetInstance()->GetMuonDecayForce()) {
       Double_t max = 0.0;
       if (DatacardManager::GetInstance()->GetDecayZmin()>100000)
         max = 0.0073; // K+ --> mu+ nu (gamma), standard decay region
       else
         max = 0.0089; // K+ --> mu+ nu (gamma), upstream decay region
       if (DatacardManager::GetInstance()->GetDecayType()==230 ||
-  	DatacardManager::GetInstance()->GetDecayType()==231) { // pi+ --> mu+ nu (gamma)
-        if (DatacardManager::GetInstance()->GetDecayZmin()>100000) 
+              DatacardManager::GetInstance()->GetDecayType()==231) { // pi+ --> mu+ nu (gamma)
+        if (DatacardManager::GetInstance()->GetDecayZmin()>100000)
           max = 0.0006; // pi+ --> mu+ nu (gamma), standard decay region
         else
           max = 0.0007; // pi+ --> mu+ nu (gamma), upstream decay region
@@ -2227,7 +2460,7 @@ void PrimaryGeneratorAction::ForcedDecay(G4PrimaryParticle *G4BeamParticle, G4Th
     // Zmax = 245900 mm (beginning of the Fe wall),
     // Zmin is the Z-coordinate of the K3pi decay,
     // v is the pion velocity, Epi is the initial pion energy.
-    // Pion proper times (t1, t2, t3) are generated until 
+    // Pion proper times (t1, t2, t3) are generated until
     // the condition of at least two potential decays is satisfied: N(t<tmax)>=2 .
     // The event is assigned a weight w = P1*P2*(1-P3) + P1*(1-P2)*P3 + (1-P1)*P2*P3 + P1*P2*P3.
     // Here P1 = 1-exp(-tmax1/tau)], similar for P2 and P3.
@@ -2250,5 +2483,5 @@ void PrimaryGeneratorAction::ForcedDecay(G4PrimaryParticle *G4BeamParticle, G4Th
       DatacardManager::GetInstance()->GetDecayRadcor()<2 && // non-radiative
       DatacardManager::GetInstance()->GetPionDecayForce()){ // 1 (at least two pion decays) or 2 (three pion decays)
     MCTruthManager::GetInstance()->GetEvent()->SetEventWeight(Weight);
-  }  
+  }
 }

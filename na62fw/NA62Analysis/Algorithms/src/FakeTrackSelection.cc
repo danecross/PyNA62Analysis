@@ -11,43 +11,23 @@ using namespace std;
 using namespace NA62Analysis;
 using namespace NA62Constants;
 
-FakeTrackSelection::FakeTrackSelection(Core::BaseAnalysis *ba) : Analyzer(ba, "FakeTrackSelection")
+FakeTrackSelection::FakeTrackSelection(BaseAnalysis *ba, Analyzer* ana, const std::string &name) : Algorithm(ba, ana, name) 
 {
-  RequestTree(new TRecoSpectrometerEvent);
-
-  AddParam("CutMinNSTRAWChambers", "int", &fCutMinNSTRAWChambers, 4);
-  AddParam("CutChi2", "double", &fCutChi2, 30.);
+  fCutMinNSTRAWChambers = 4;
+  fCutChi2 = 30.;
 
   EnablePrefix(false);
 }
 
-void FakeTrackSelection::InitOutput(){
-  RegisterOutput("FakeTracks", &fFakeTracks);
+void FakeTrackSelection::Init(){
+  BookHisto(new TH1I("hNChambers", "hNChambers", 4, 1, 5));
+  BookHisto(new TH1D("hChi2", "hChi2", 50, 0., 50.));
+  BookHisto(new TH1I("hCommonHit", "hCommonHit", 2, 0, 2));
+  BookHisto(new TH1I("hNFakeTracks", "hNFakeTracks", 10, 0, 10));
+  BookHisto(new TH1I("hNNonFakeTracks", "hNNonFakeTracks", 10, 0, 10));
 }
 
-void FakeTrackSelection::InitHist(){
-  fReadingData = GetIsTree();
-
-  if(fReadingData){
-    BookHisto(new TH1I("hNChambers", "hNChambers", 4, 1, 5));
-    BookHisto(new TH1D("hChi2", "hChi2", 50, 0., 50.));
-    BookHisto(new TH1I("hCommonHit", "hCommonHit", 2, 0, 2));
-    BookHisto(new TH1I("hNFakeTracks", "hNFakeTracks", 10, 0, 10));
-    BookHisto(new TH1I("hNNonFakeTracks", "hNNonFakeTracks", 10, 0, 10));
-  };
-}
-
-void FakeTrackSelection::DefineMCSimple(){}
-
-void FakeTrackSelection::StartOfRunUser(){}
-
-void FakeTrackSelection::StartOfBurstUser(){}
-
-void FakeTrackSelection::ProcessSpecialTriggerUser(int, unsigned int){}
-
-void FakeTrackSelection::Process(int){
-  if(!fReadingData) return;
-
+void FakeTrackSelection::Process(TRecoSpectrometerEvent *STRAWEvent){
   if(TestLevel(Verbosity::kUser)){
     cout<<endl;
     cout<<"-------------------"<<endl;
@@ -56,13 +36,9 @@ void FakeTrackSelection::Process(int){
     cout<<endl;
   };
 
-  STRAWEvent = GetEvent<TRecoSpectrometerEvent>();
   PrepareOutputs(STRAWEvent->GetNCandidates());
-  ValidateOutputs();
 
-  if(TestLevel(Verbosity::kUser)){
-    cout<<"N STRAW candidates "<<STRAWEvent->GetNCandidates()<<endl;
-  };
+  cout<<user()<<"N STRAW candidates "<<STRAWEvent->GetNCandidates()<<endl;
   for(int j=0; j<STRAWEvent->GetNCandidates(); j++){
     if(TestLevel(Verbosity::kUser)){
       cout<<endl;
@@ -82,7 +58,7 @@ void FakeTrackSelection::Process(int){
 	cout<<user()<<"Is fake track"<<endl;
     	continue;
       };
-      bool commonHit = has_common_hit(j);
+      bool commonHit = has_common_hit(STRAWEvent, j);
       FillHisto("hCommonHit", (int)commonHit);
       cout<<user()<<"Has common hit? "<<commonHit<<endl;
       if(commonHit){
@@ -93,27 +69,13 @@ void FakeTrackSelection::Process(int){
       cout<<user()<<"Not fake track"<<endl;
     };
   };
-
+  
   cout<<user()<<endl;
   cout<<user()<<"N fake tracks = "<<std::count(fFakeTracks.begin(), fFakeTracks.end(), true)<<endl;
   FillHisto("hNFakeTracks", std::count(fFakeTracks.begin(), fFakeTracks.end(), true));
   FillHisto("hNNonFakeTracks", std::count(fFakeTracks.begin(), fFakeTracks.end(), false));
 }
-
-void FakeTrackSelection::PostProcess(){}
-
-void FakeTrackSelection::EndOfBurstUser(){}
-
-void FakeTrackSelection::EndOfRunUser(){}
-
-void FakeTrackSelection::EndOfJobUser(){
-  if(fReadingData){
-    SaveAllPlots();
-  };
-}
-
-void FakeTrackSelection::DrawPlot(){}
-
+ 
 FakeTrackSelection::~FakeTrackSelection(){}
 
 void FakeTrackSelection::PrepareOutputs(int n){
@@ -121,15 +83,9 @@ void FakeTrackSelection::PrepareOutputs(int n){
   for(int i=0; i<n; i++){
     fFakeTracks.push_back(false);
   };
-
-  SetOutputState("FakeTracks", kOInvalid);
 }
 
-void FakeTrackSelection::ValidateOutputs(){
-  SetOutputState("FakeTracks", kOValid);
-}
-
-bool FakeTrackSelection::has_common_hit(int i){
+ bool FakeTrackSelection::has_common_hit(TRecoSpectrometerEvent *STRAWEvent, int i){
   TRecoSpectrometerCandidate* STRAWCand = static_cast<TRecoSpectrometerCandidate*>(STRAWEvent->GetCandidate(i));
   int* hitIDs = STRAWCand->GetHitsIndexes();
   std::sort(hitIDs, hitIDs+STRAWCand->GetNHits());

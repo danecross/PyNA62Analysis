@@ -379,14 +379,13 @@ def updateSettings(UserPath, FwPath, old_rev, new_rev):
                 lines.insert(i + 8, ";  - -1: monitoring at the same rate as the processing status printing (only for event based monitoring)\n")
                 lines.insert(i + 9, "; SkippedName: Name of the file containing skipped input files. (default: NA62Analysis.skipped)\n")
                 lines.insert(i + 10, "; SVCClass: castor/eos service class. (default: na62)\n")
-                lines.insert(i + 11, "; MetadataPath: Path to the metadata directory. (default: /afs/cern.ch/na62/offline/metadata/)\n")
-                lines.insert(i + 12, "; DefaultAutoupdateRate: Refresh rate of histograms marked as autoupdate in units of processed events. (default: 1000)\n")
-                lines.insert(i + 13, "; DateTimeFormat: Format of the date and time display in the output. (default: %d/%m/%y %H:%M:%S)\n")
-                lines.insert(i + 14, "; OutputPrefixFormat: Format of the verbosity output message. %d: date (according to datatimeformat), %l verbosity level, %n module name (default: [%n]), previous default: [%d] %l - [%n]")
-                lines.insert(i + 15, "; BasketSize: Size of the output tree basket (see ROOT documentation). (default: 0)\n")
-                lines.insert(i + 16, "; AutoFlush: AutoFlush value of the output tree (see ROOT documentation). (default: -10000)\n")
-                lines.insert(i + 18, "; NonExistingWarning: Turn on/off warning when trying to access non existing objects in the framework (histograms, counters, branches). (default:true)\n")
-                lines.insert(i + 19, "; Verbosity: Global default verbosity level of the framework (overriden by -v command line option). (default: kNormal)\n")
+                lines.insert(i + 11, "; DefaultAutoupdateRate: Refresh rate of histograms marked as autoupdate in units of processed events. (default: 1000)\n")
+                lines.insert(i + 12, "; DateTimeFormat: Format of the date and time display in the output. (default: %d/%m/%y %H:%M:%S)\n")
+                lines.insert(i + 13, "; OutputPrefixFormat: Format of the verbosity output message. %d: date (according to datatimeformat), %l verbosity level, %n module name (default: [%n]), previous default: [%d] %l - [%n]")
+                lines.insert(i + 14, "; BasketSize: Size of the output tree basket (see ROOT documentation). (default: 0)\n")
+                lines.insert(i + 15, "; AutoFlush: AutoFlush value of the output tree (see ROOT documentation). (default: -10000)\n")
+                lines.insert(i + 16, "; NonExistingWarning: Turn on/off warning when trying to access non existing objects in the framework (histograms, counters, branches). (default:true)\n")
+                lines.insert(i + 17, "; Verbosity: Global default verbosity level of the framework (overriden by -v command line option). (default: kNormal)\n")
                 break
 
     with open("%s/.settingsna62" % UserPath, "wb") as configFile:
@@ -1470,7 +1469,7 @@ def parseArgs():
     common_flags.add_argument('--core-only', dest = "core_only", default = False, action = "store_true", help = "In NA62Analysis, compile only the core necessary to run user analyzes. Do not build FW analyzers. Valid with all commands")
     clean_group = common_flags.add_argument_group(title = "Build options",
                                                   description = ("The following options require a cleanAll to take effect\n"
-                                                               "if the framework was already compiled without the option"))
+                                                                 "if the framework was already compiled without the option"))
     clean_group.add_argument('-d', '--no-debug', action = "store_true", default = False,
                              dest = "nodebug", help = "Compile the framework and user directories without debugging informations (release mode)")
     clean_group.add_argument('--no-c++11', action = "store_false", default = True,

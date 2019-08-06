@@ -54,8 +54,8 @@
 
 using namespace std;
 
-CHANTIRing::CHANTIRing(G4Material * Material, 
-                     G4LogicalVolume * MotherVolume, 
+CHANTIRing::CHANTIRing(G4Material * Material,
+                     G4LogicalVolume * MotherVolume,
                      G4double ZPosition,
 		     G4RotationMatrix* RingRotation,
 		     G4double XInnerHalfLength,
@@ -69,13 +69,13 @@ CHANTIRing::CHANTIRing(G4Material * Material,
   fYInnerHalfLength(YInnerHalfLength)
 {
   ReadGeometryParameters();
-  
+
   // Mandatory here to Find or Build the needed materials
   CHANTIMaterialParameters::GetInstance();
-  
+
   CreateGeometry();
   SetProperties();
-  
+
 }
 
 void CHANTIRing::ReadGeometryParameters() {
@@ -103,12 +103,12 @@ void CHANTIRing::CreateGeometry() {
   fLogicalVolume= new G4LogicalVolume(fSolidVolume,                     // solid
 				      fMaterial,                       // material
 				      "Ring",                         // name
-				      0,                             // field manager 
+				      0,                             // field manager
 				      0,                            // sensitive detector
 				      0);                          // user limitsPosition
 
 
-  fPhysicalVolume = new G4PVPlacement(fRingRotation,                     // rotation 
+  fPhysicalVolume = new G4PVPlacement(fRingRotation,                     // rotation
 				      G4ThreeVector(0.,0.,fZRingPos),   // its position
 				      fLogicalVolume,                  // its logical volume
 				      "Ring",                         // its name
@@ -117,22 +117,21 @@ void CHANTIRing::CreateGeometry() {
 				      fNCopies,                    // copy number
 				      false);
 
-  G4double heightOut = 0.*mm;
-  G4double heightIn  = 0.*mm;
-  
-  G4double baseIn  = 0.*mm;
-  G4double baseOut = 0.*mm;
-    
+  G4double heightOut;
+  G4double heightIn;
+
+  G4double baseIn = fYInnerHalfLength;
+  G4double baseOut = fHalfSquareLength;
+
   G4double X   =  0.*mm;
   G4double Y   =  0.*mm;
   G4ThreeVector Position(X, Y);
 
   G4double HalfStripLength;
 
-  G4int NofStripsFLPerRing=0; // FL = frontal layer
-  G4int NofStripsBLPerRing=0; // BL = backward layer
-  
-  baseOut = fHalfSquareLength;
+  //G4int NofStripsFLPerRing=0; // FL = frontal layer
+  //G4int NofStripsBLPerRing=0; // BL = backward layer
+
   HalfStripLength = (baseOut - fYInnerHalfLength)/2.;
   Y = fYInnerHalfLength + HalfStripLength;
 
@@ -155,57 +154,55 @@ void CHANTIRing::CreateGeometry() {
   if(id<0)  id = StationID + 1000 + abs(id);
   else id = StationID + abs(id);
   //G4cout<<"X1 = "<<X<<", Y = "<<Y<<", id = "<<id<<G4endl;
-  fStripsID.push_back(id); 
-  new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"), 
-		 fLogicalVolume, 
+  fStripsID.push_back(id);
+  new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"),
+		 fLogicalVolume,
 		 Position,
 		 0,
-		 HalfStripLength, 
+		 HalfStripLength,
 		 id);
-  
+
   // the first two Strip are placed on the top and on the BOTTOM of center of the hole!
   Position.setY(-Y); // X=0
   id = (X + fHalfSquareLength - HalfTriangleBase)/HalfTriangleBase*10 ;
   if(id<0)  id = StationID + 1000 + abs(id);
   else id = StationID + abs(id);
   //G4cout<<"X2 = "<<X<<", Y = "<<-Y<<", id = "<<id<<G4endl;
-  fStripsID.push_back(id); 
-  new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"), 
-		 fLogicalVolume, 
+  fStripsID.push_back(id);
+  new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"),
+		 fLogicalVolume,
 		 Position,
 		 0,
-		 HalfStripLength, 
+		 HalfStripLength,
 		 id); // -Y is labelled with a +-100 since it is +-X
-  NofStripsFLPerRing++;
+  //NofStripsFLPerRing++;
 
-   
-  do{    
+
+  do{
     //then next layer
     X = HalfTriangleBase*(IdPosition)*2;
     Position.setX(X);
 
     heightOut = HalfTriangleBase*( 2*IdPosition+1 );
     heightIn  = HalfTriangleBase*( 2*IdPosition-1 );
-    baseOut = fHalfSquareLength;
-    baseIn = fYInnerHalfLength;
 
     if( heightIn<fXInnerHalfLength ){
-      NofStripsFLPerRing += 2;     
+      //NofStripsFLPerRing += 2;
       HalfStripLength = (baseOut - baseIn)/2.;
-      
+
       Y =  HalfStripLength + baseIn;
-      
+
       Position.setY(Y);
       id = -(X + fHalfSquareLength - HalfTriangleBase)/HalfTriangleBase*10 ; // P.M.
       if(id<0)  id = StationID + 1000 + abs(id);
       else id = StationID + abs(id);
       //G4cout<<"X3 = "<<X<<", Y = "<<Y<<", id = "<<id<<G4endl;
-      fStripsID.push_back(id); 
-      new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"), 
-		     fLogicalVolume, 
+      fStripsID.push_back(id);
+      new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"),
+		     fLogicalVolume,
 		     Position,
 		     0,
-		     HalfStripLength, 
+		     HalfStripLength,
 		     id);
 
       Position.setY(-Y);
@@ -213,123 +210,119 @@ void CHANTIRing::CreateGeometry() {
       if(id<0)  id = StationID  + 1000 + abs(id);
       else id = StationID + abs(id);
       //G4cout<<"X4 = "<<X<<", Y = "<<-Y<<", id = "<<id<<G4endl;
-      fStripsID.push_back(id); 
-      new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"), 
-		     fLogicalVolume, 
+      fStripsID.push_back(id);
+      new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"),
+		     fLogicalVolume,
 		     Position,
 		     0,
-		     HalfStripLength, 
+		     HalfStripLength,
 		     id);
-      
+
       Position.setX(-X);
       Position.setY(Y);
       id = -(-X + fHalfSquareLength - HalfTriangleBase)/HalfTriangleBase*10 ; // P.M.
       if(id<0)  id = StationID  + 1000 + abs(id);
       else id = StationID + abs(id);
       //G4cout<<"X5 = "<<-X<<", Y = "<<Y<<", id = "<<id<<G4endl;
-      fStripsID.push_back(id); 
-      new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"), 
-		     fLogicalVolume, 
+      fStripsID.push_back(id);
+      new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"),
+		     fLogicalVolume,
 		     Position,
 		     0,
-		     HalfStripLength, 
+		     HalfStripLength,
 		     id);
-      
+
       Position.setX(-X);
       Position.setY(-Y);
       id = (-X + fHalfSquareLength - HalfTriangleBase)/HalfTriangleBase*10 ; // P.M.
       if(id<0)  id = StationID  + 1000 + abs(id);
       else id = StationID + abs(id);
       //G4cout<<"X6 = "<<-X<<", Y = "<<-Y<<", id = "<<id<<G4endl;
-      fStripsID.push_back(id); 
-      new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"), 
-		     fLogicalVolume, 
+      fStripsID.push_back(id);
+      new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"),
+		     fLogicalVolume,
 		     Position,
 		     0,
-		     HalfStripLength, 
+		     HalfStripLength,
 		     id);
 
 
     }
 
     else if( baseOut>0 ){
-      
+
       HalfStripLength = baseOut;
-      
+
       Y = 0.*mm;
       Position.setY(Y);
       id = (X + fHalfSquareLength - HalfTriangleBase)/HalfTriangleBase*10 ; // P.M.
       if(id<0)  id = StationID  + 1000+abs(id);
       else id = StationID + abs(id);
       //G4cout<<"X7 = "<<X<<", Y = "<<Y<<", id = "<<id<<G4endl;
-      fStripsID.push_back(id); 
-      new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"), 
-		     fLogicalVolume, 
+      fStripsID.push_back(id);
+      new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"),
+		     fLogicalVolume,
 		     Position,
 		     0,
-		     HalfStripLength, 
+		     HalfStripLength,
 		     id);
-      
-  
+
+
       Position.setX(-X);
       id = (-X + fHalfSquareLength - HalfTriangleBase)/HalfTriangleBase*10 ; // P.M.
       if(id<0)  id = StationID  + 1000+abs(id);
       else id = StationID + abs(id);
       //G4cout<<"X8 = "<<-X<<", Y = "<<Y<<", id = "<<id<<G4endl;
-      fStripsID.push_back(id); 
-      new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"), 
-		     fLogicalVolume, 
+      fStripsID.push_back(id);
+      new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"),
+		     fLogicalVolume,
 		     Position,
 		     0,
-		     HalfStripLength, 
+		     HalfStripLength,
 		     id);
 
-      
+
     }
-    
+
     SubLayerID++;
     IdPosition++;
-    
+
   }while( (heightOut+2*HalfTriangleBase)<fHalfSquareLength );
-  
+
 
   // placing the seconf layer; rotation strip 180° "dwstream"
   G4RotationMatrix* StripRotation = new G4RotationMatrix();
   StripRotation->rotateX(180.*deg);
-  
+
   SubLayerID=1; // !!! No StripID=0
   IdPosition=0;
 
   do{
-    
+
     X = HalfTriangleBase*( 1+IdPosition*2 );
     Position.setX(X);
 
     heightIn  = HalfTriangleBase*2*IdPosition;
     heightOut = HalfTriangleBase*2*(IdPosition+1);
-    
-
-    baseOut = fHalfSquareLength;
-    baseIn  = fYInnerHalfLength;
 
     if( heightIn<fXInnerHalfLength ){
-      NofStripsBLPerRing+=2;
+      //NofStripsBLPerRing+=2;
 
       HalfStripLength = (baseOut - baseIn)/2.;
-      
+
       Y =  HalfStripLength + baseIn;
-      
+
       Position.setY(Y);
       id = -(X + fHalfSquareLength - HalfTriangleBase)/HalfTriangleBase*10 ; // P.M.
       if(id<0)  id = StationID  + 1000 + abs(id);
       else id = StationID + abs(id);
       //G4cout<<"X9 = "<<X<<", Y = "<<Y<<", id = "<<id<<G4endl;
-      fStripsID.push_back(id); 
-      new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"), 
-		     fLogicalVolume, 
+      fStripsID.push_back(id);
+      new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"),
+		     fLogicalVolume,
 		     Position,
 		     StripRotation,
-		     HalfStripLength, 
+		     HalfStripLength,
 		     id);
 
       Position.setY(-Y);
@@ -337,40 +330,40 @@ void CHANTIRing::CreateGeometry() {
       if(id<0)  id = StationID  + 1000+abs(id);
       else id = StationID + abs(id);
       //G4cout<<"X10 = "<<X<<", Y = "<<-Y<<", id = "<<id<<G4endl;
-      fStripsID.push_back(id); 
-      new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"), 
-		     fLogicalVolume, 
+      fStripsID.push_back(id);
+      new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"),
+		     fLogicalVolume,
 		     Position,
 		     StripRotation,
-		     HalfStripLength, 
+		     HalfStripLength,
 		     id);
-      
+
       Position.setX(-X);
       Position.setY(Y);
       id = -(-X + fHalfSquareLength - HalfTriangleBase)/HalfTriangleBase*10 ; // P.M.
       if(id<0)  id = StationID  + 1000 + abs(id);
       else id = StationID + abs(id);
       //G4cout<<"X11 = "<<-X<<", Y = "<<Y<<", id = "<<id<<G4endl;
-      fStripsID.push_back(id); 
-      new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"), 
-		     fLogicalVolume, 
+      fStripsID.push_back(id);
+      new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"),
+		     fLogicalVolume,
 		     Position,
 		     StripRotation,
-		     HalfStripLength, 
+		     HalfStripLength,
 		     id);
-      
+
       Position.setX(-X);
       Position.setY(-Y);
       id = (-X + fHalfSquareLength - HalfTriangleBase)/HalfTriangleBase*10 ; // P.M.
       if(id<0)  id = StationID  + 1000+abs(id);
       else id = StationID + abs(id);
       //G4cout<<"X12 = "<<-X<<", Y = "<<-Y<<", id = "<<id<<G4endl;
-      fStripsID.push_back(id); 
-      new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"), 
-		     fLogicalVolume, 
+      fStripsID.push_back(id);
+      new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"),
+		     fLogicalVolume,
 		     Position,
 		     StripRotation,
-		     HalfStripLength, 
+		     HalfStripLength,
 		     id);
 
 
@@ -384,33 +377,33 @@ void CHANTIRing::CreateGeometry() {
       int idTemp = id;
       if(id<0)  id = StationID  + 1000 + abs(id);
       else id = StationID + abs(id);
-      if (idTemp/10==11 || idTemp/10==-11){ 
-         //G4cout<<"X14 = "<<X<<", Y = "<<fHalfSquareLength/2<<", id = "<<id<<G4endl; 
+      if (idTemp/10==11 || idTemp/10==-11){
+         //G4cout<<"X14 = "<<X<<", Y = "<<fHalfSquareLength/2<<", id = "<<id<<G4endl;
          Position.setY(-fHalfSquareLength/2);
-         fStripsID.push_back(id); 
-         new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"), 
-		     fLogicalVolume, 
+         fStripsID.push_back(id);
+         new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"),
+		     fLogicalVolume,
 		     Position,
 		     StripRotation,
-		     HalfStripLength/2, 
-		     id);         
+		     HalfStripLength/2,
+		     id);
          Position.setY(fHalfSquareLength/2);
          //G4cout<<"X14 = "<<X<<", Y = "<<-fHalfSquareLength/2<<", id = "<<id+1000<<G4endl;
-         fStripsID.push_back(id+1000); 
-         new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"), 
-		     fLogicalVolume, 
+         fStripsID.push_back(id+1000);
+         new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"),
+		     fLogicalVolume,
 		     Position,
 		     StripRotation,
-		     HalfStripLength/2, 
+		     HalfStripLength/2,
 		     id+1000);
 
       } else {
-fStripsID.push_back(id); 
-         new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"), 
-		     fLogicalVolume, 
+fStripsID.push_back(id);
+         new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"),
+		     fLogicalVolume,
 		     Position,
 		     StripRotation,
-		     HalfStripLength, 
+		     HalfStripLength,
 		     id);
       }
 
@@ -420,40 +413,40 @@ fStripsID.push_back(id);
       if(id<0)  id = StationID  + 1000 + abs(id);
       else id = StationID + abs(id);
 
-      if (idTemp/10 == 5){ 
+      if (idTemp/10 == 5){
          //G4cout<<"X15 = "<<-X<<", Y = "<<fHalfSquareLength/2<<", id = "<<id<<G4endl;
          Position.setY(-fHalfSquareLength/2);
-         fStripsID.push_back(id); 
-         new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"), 
-		     fLogicalVolume, 
+         fStripsID.push_back(id);
+         new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"),
+		     fLogicalVolume,
 		     Position,
 		     StripRotation,
-		     HalfStripLength/2, 
-		     id);         
+		     HalfStripLength/2,
+		     id);
          //G4cout<<"X15 = "<<-X<<", Y = "<<-fHalfSquareLength/2<<", id = "<<id+1000<<G4endl;
          Position.setY(fHalfSquareLength/2);
-         fStripsID.push_back(id+1000); 
-         new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"), 
-		     fLogicalVolume, 
+         fStripsID.push_back(id+1000);
+         new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"),
+		     fLogicalVolume,
 		     Position,
 		     StripRotation,
-		     HalfStripLength/2, 
-		     id+1000); 
-    
+		     HalfStripLength/2,
+		     id+1000);
+
       } else {
-  fStripsID.push_back(id); 
-         new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"), 
-		     fLogicalVolume, 
+  fStripsID.push_back(id);
+         new CHANTIStrip(G4Material::GetMaterial("G4_POLYSTYRENE"),
+		     fLogicalVolume,
 		     Position,
 		     StripRotation,
-		     HalfStripLength, 
+		     HalfStripLength,
 		     id);
       }
     }
-    
+
     SubLayerID++;
     IdPosition++;
-    
+
   }while( (heightOut+2*HalfTriangleBase)<fHalfSquareLength);
 }
 

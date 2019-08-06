@@ -162,9 +162,9 @@ if(CMAKE_COMPILER_IS_GNUCXX)
     endif()
     
     # Choose c++11 flag
-    if(C++11_COMPAT AND TEST_UN_MAP)
-        message(STATUS "Using Flag: C++11_COMPAT ${C++STD_FLAG}")
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${C++STD_FLAG} -DNA62_C11=1")
+    if(TEST_UN_MAP)
+        message(STATUS "Using Flag: NA62_C11=1")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DNA62_C11=1")
     endif()
 
     if(OLD_SPECIALTRIGGER)

@@ -67,8 +67,7 @@ MNP33MagneticFieldMap::MNP33MagneticFieldMap() :
     }
   }
 
-  fFieldMapName = NA62ConditionsService::GetInstance()->GetFullPath("MNP33-field-map.dat");
-  ifstream mnp33file (fFieldMapName);
+  ifstream mnp33file(NA62ConditionsService::GetInstance()->GetFullPath("MNP33-field-map.dat"));
   Int_t k=0;
   Double_t xx, yy, zz, bx, by, bz;
   while (mnp33file >> xx >> yy >> zz >> bx >> by >> bz) {
@@ -93,12 +92,12 @@ MNP33MagneticFieldMap::MNP33MagneticFieldMap() :
     while (!fMeasurementExists[ix1+1][iy]) ix1++;
     while (!fMeasurementExists[ix2-1][iy]) ix2--;
     for (Int_t iz=0; iz<fNPointsZ; iz++) {
-      for (int ix=0; ix<=ix1; ix++) {
+      for (Int_t ix=0; ix<=ix1; ix++) {
 	fBx[ix][iy][iz] = fBx[ix1+1][iy][iz];
 	fBy[ix][iy][iz] = fBy[ix1+1][iy][iz];
 	fBz[ix][iy][iz] = fBz[ix1+1][iy][iz];
       }
-      for (int ix=ix2; ix<fNPointsX; ix++) {
+      for (Int_t ix=ix2; ix<fNPointsX; ix++) {
 	fBx[ix][iy][iz] = fBx[ix2-1][iy][iz];
 	fBy[ix][iy][iz] = fBy[ix2-1][iy][iz];
 	fBz[ix][iy][iz] = fBz[ix2-1][iy][iz];
@@ -113,14 +112,14 @@ MNP33MagneticFieldMap::MNP33MagneticFieldMap() :
   // Z bin boundaries are in the middle between measurement points (irregular grid).
   // NB: this does not mean that the points are in the bin centres.
 
-  for (int i=0; i<fNPointsZ; i++) {
+  for (Int_t i=0; i<fNPointsZ; i++) {
     if (i>0)           fZEdgeLow[i]  = 0.5*(fZBinCentre[i]+fZBinCentre[i-1]);
     if (i<fNPointsZ-1) fZEdgeHigh[i] = 0.5*(fZBinCentre[i]+fZBinCentre[i+1]);
   }
   fZEdgeLow[0]            = 1.5*fZBinCentre[0] - 0.5*fZBinCentre[1];
   fZEdgeHigh[fNPointsZ-1] = 1.5*fZBinCentre[fNPointsZ-1] - 0.5*fZBinCentre[fNPointsZ-2];
 
-  for (int i=0; i<=fNPointsZ; i++) {
+  for (Int_t i=0; i<=fNPointsZ; i++) {
     fZEdge[i] = (i==fNPointsZ) ? fZEdgeHigh[fNPointsZ-1] : fZEdgeLow[i];
     fRealZBinCentre[i] = 0.5*(fZEdgeLow[i] + fZEdgeHigh[i]);
   }
@@ -128,16 +127,16 @@ MNP33MagneticFieldMap::MNP33MagneticFieldMap() :
   ////////////////////////////////////////////////////////////////////////
   // Bin centres and bin boundaries in X and Y coordinates (regular grids)
 
-  for (int i=0; i<fNPointsX; i++) {
+  for (Int_t i=0; i<fNPointsX; i++) {
     fXBinCentre[i] = -1000 + fXstep*i;
   }
-  for (int i=0; i<fNPointsY; i++) {
+  for (Int_t i=0; i<fNPointsY; i++) {
     fYBinCentre[i] = -1000 + fYstep*i;
   }
-  for (int i=0; i<=fNPointsX; i++) {
+  for (Int_t i=0; i<=fNPointsX; i++) {
     fXEdge[i] = -1040 + fXstep*i;
   }
-  for (int i=0; i<=fNPointsY; i++) {
+  for (Int_t i=0; i<=fNPointsY; i++) {
     fYEdge[i] = -1040 + fYstep*i;
   }
 
@@ -148,9 +147,9 @@ MNP33MagneticFieldMap::MNP33MagneticFieldMap() :
   fHBy = new TH3D("hBy", "hBy", fNPointsX, fXEdge, fNPointsY, fYEdge, fNPointsZ, fZEdge);
   fHBz = new TH3D("hBz", "hBz", fNPointsX, fXEdge, fNPointsY, fYEdge, fNPointsZ, fZEdge);
 
-  for (int ix=1; ix<=fNPointsX; ix++) {
-    for (int iy=1; iy<=fNPointsY; iy++) {
-      for (int iz=1; iz<=fNPointsZ; iz++) {
+  for (Int_t ix=1; ix<=fNPointsX; ix++) {
+    for (Int_t iy=1; iy<=fNPointsY; iy++) {
+      for (Int_t iz=1; iz<=fNPointsZ; iz++) {
 	fHBx->SetBinContent(fHBx->GetBin(ix,iy,iz), fBx[ix-1][iy-1][iz-1]);
 	fHBy->SetBinContent(fHBy->GetBin(ix,iy,iz), fBy[ix-1][iy-1][iz-1]);
 	fHBz->SetBinContent(fHBz->GetBin(ix,iy,iz), fBz[ix-1][iy-1][iz-1]);
@@ -409,18 +408,19 @@ MNP33MagneticFieldMap::MNP33MagneticFieldMap() :
   CoeffFile4_z.close();
 
   // print the field map
-  //ofstream FileOut("map.dat");
-  //FileOut << "# x y z Bx By Bz " << endl;
-  //for (Int_t x=-1035; x<1040; x+=80) {
-  //for (Int_t y=-1035; y<1040; y+=80) {
-  //  for (Int_t z=-3805; z<3900; z+=50) {
-  //    FileOut << x << " " << y << " " << z << " " <<
-  //      GetField(x, y, z+fZref).X() << " " << GetField(x, y, z+fZref).Z() << " " << GetField(x, y, z+fZref).Z() << endl;
-  //  }
-  //}
-  //}
-  //FileOut.close();
-
+  /*
+  ofstream FileOut("map.dat");
+  FileOut << "# x y z Bx By Bz " << endl;
+  for (Int_t x=-1035; x<1040; x+=80) {
+    for (Int_t y=-1035; y<1040; y+=80) {
+      for (Int_t z=-3805; z<3900; z+=50) {
+	FileOut << x << " " << y << " " << z << " " <<
+	  GetField(x, y, z+fZref).X() << " " << GetField(x, y, z+fZref).Z() << " " << GetField(x, y, z+fZref).Z() << endl;
+      }
+    }
+  }
+  FileOut.close();
+  */
 }
 
 //////////////////////////////////////////////////////////////
@@ -545,8 +545,8 @@ void MNP33MagneticFieldMap::PrintFieldValue(TVector3 Point) {
 }
 
 void MNP33MagneticFieldMap::PrintFieldIntegrals() {
-  for (int i=0; i<fNPointsX; i++) {
-    for (int j=0; j<fNPointsY; j++) {
+  for (Int_t i=0; i<fNPointsX; i++) {
+    for (Int_t j=0; j<fNPointsY; j++) {
       cout << fXBinCentre[i]<<" "<<fYBinCentre[j]<<" "<<
 	GetIntegral(1,i+1,j+1)<<" "<<GetIntegral(2,i+1,j+1)<<" "<<GetIntegral(3,i+1,j+1)<<endl;
     }

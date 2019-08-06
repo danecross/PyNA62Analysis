@@ -77,7 +77,7 @@ using namespace NA62Constants;
 
 DownstreamPileupGenerator::DownstreamPileupGenerator(Core::BaseAnalysis *ba) :
   Analyzer(ba, "DownstreamPileupGenerator"),
-  fNLibraries(12), fNDetectors(7)
+  fNLibraries(13), fNDetectors(7)
 {
   fSpectrometerEvent = 0;
   fNewCHODEvent      = 0;
@@ -156,8 +156,8 @@ DownstreamPileupGenerator::DownstreamPileupGenerator(Core::BaseAnalysis *ba) :
   fLibNames[9] = "HaloPlus";
   fLibNames[10] = "HaloMinus";
   fLibNames[11] = "Pim2";
-  // fLibNames[12] = "Proton"; // perhaps?
-
+  fLibNames[12] = "CTRL"; // real data from control trigger
+  
   fHitLibrary.clear();
 }
 
@@ -318,11 +318,15 @@ UInt_t DownstreamPileupGenerator::KaonDecay(std::vector<Double_t>& kaonDecays){
 
 UInt_t DownstreamPileupGenerator::DecodePID(Int_t particleID){
 
-  UInt_t lib=99;
   // Decide which library to read, depending on particle ID
+  UInt_t lib=99;
 
+  // control-triggered data events
+  if(particleID==1000){
+    lib = 12;
+  }
   // natural kaons
-  if(particleID==0||particleID==100){ 
+  else if(particleID==0||particleID==100){ 
     Double_t rn = fRandom->Rndm();
     if(rn>fKaonEDRDecayFraction) return 99; // kaon does not decay
     if(rn>fKaonDecayFraction){
@@ -852,7 +856,7 @@ void DownstreamPileupGenerator::ReadHitLibrary(){
   std::vector<std::vector<std::vector<dpg::pileuphit>>> lib_j; // unknown number of events.
 
   // for each detector in the event:
-  std::vector<std::vector<dpg::pileuphit>> detectors(fNDetectors); // always 3
+  std::vector<std::vector<dpg::pileuphit>> detectors(fNDetectors);
 
   // arrays to read libraries
   dpg::DetLib<2000, 4> lib_spectrometer;

@@ -47,6 +47,14 @@ GigaTrackerDigitizer::GigaTrackerDigitizer(NA62VReconstruction *Reco) : NA62VDig
 GigaTrackerDigitizer::~GigaTrackerDigitizer() {
 }
 
+void GigaTrackerDigitizer::StartOfBurst() {
+  NA62VDigitizer::StartOfBurst();
+}
+
+void GigaTrackerDigitizer::EndOfBurst() {
+  NA62VDigitizer::EndOfBurst();
+}
+
 TDetectorVEvent *GigaTrackerDigitizer::ProcessEvent(TDetectorVEvent *tEvent){
   if (tEvent->GetHits()->GetClass()->InheritsFrom("TVDigi") ||
       tEvent->IsA()->InheritsFrom("TSpecialTriggerEvent"))
@@ -54,7 +62,7 @@ TDetectorVEvent *GigaTrackerDigitizer::ProcessEvent(TDetectorVEvent *tEvent){
 
   TGigaTrackerEvent *GigaTrackerEvent = static_cast<TGigaTrackerEvent *>(tEvent);
 
-  *((TVEvent *)fDigiEvent) = *((TVEvent *)GigaTrackerEvent);
+  fDigiEvent->TVEvent::operator=(*static_cast<TVEvent*>(GigaTrackerEvent));
   fDigiEvent->Clear();
 
   THitMap HitMap;

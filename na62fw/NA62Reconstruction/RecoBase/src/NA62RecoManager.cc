@@ -34,7 +34,7 @@ NA62RecoManager::~NA62RecoManager(){
 void NA62RecoManager::InitNA62ConditionsService(TString InputFileName){
 
   // Initialise NA62ConditionsService variables
-  Int_t ConditionsServiceRunID   = 6610; //default
+  Int_t ConditionsServiceRunID   = 8134; //default
   Int_t ConditionsServiceBurstID =    0; //default
 
   TObjArray *subStrL;
@@ -81,40 +81,4 @@ void NA62RecoManager::StoreDIMBlock(const TString name, UInt_t * pDataBuffer, UI
     else std::cerr << "[NA62Reconstruction] WARNING: Invalid SpecialTriggerEvent for '" << name << "': skipping DIM block" << std::endl;
   }
   else std::cerr << "[NA62Reconstruction] WARNING: no DIM decoding for detector '" << name << "': skipping DIM block" << std::endl;
-}
-
-Long_t NA62RecoManager::GetRunTimeFromDB(UInt_t RunNumber) {
-  Long_t RunTime = -1;
-  TString RunTimeStampInputFileName("RunTimes.dat");
-  // exit if the file with run times is not found
-  if (NA62ConditionsService::GetInstance()->Open(RunTimeStampInputFileName)!=kSuccess) {
-    std::cout << "[NA62Reconstruction] Error: Run times file " << RunTimeStampInputFileName << " not found anywhere or empty" << std::endl;
-    _exit(kConditionFileNotFound);
-  }
-  // file successfully opened
-  Bool_t  RunFoundInRunTimeStampDB = false;
-  UInt_t  RunNumberInFile;
-  TString Line;
-  while (Line.ReadLine(NA62ConditionsService::GetInstance()->Get(RunTimeStampInputFileName)) &&	!RunFoundInRunTimeStampDB) {
-    if (Line.BeginsWith("#")) continue;
-    TObjArray *l = Line.Tokenize(" ");
-    // read the run number
-    RunNumberInFile = static_cast<TObjString*>(l->At(0))->GetString().Atoi();
-    // extract the run time stamp for this run
-    if (RunNumberInFile==RunNumber) {
-      RunFoundInRunTimeStampDB = true;
-      RunTime = static_cast<TObjString*>(l->At(1))->GetString().Atoll();
-    }
-    delete l;
-  }
-  NA62ConditionsService::GetInstance()->Close(RunTimeStampInputFileName);
-
-  // exit from the reco if the run time is not found
-  if (!RunFoundInRunTimeStampDB) {
-    std::cout <<  "[NA62Reconstruction] Error: Run " << RunNumber << " not found in the file with run times "
-      << RunTimeStampInputFileName << std::endl;
-    _exit(kGenericError);
-  }
-
-  return RunTime;
 }

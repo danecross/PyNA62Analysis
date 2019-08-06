@@ -17,21 +17,21 @@
 #include "SRBRawDecoder.hh"
 #include "NA62RecoManager.hh"
 
-/// \class SpectrometerDigitizer 
+/// \class SpectrometerDigitizer
 /// \Brief
-/// Steering class for Straw Chamber digitization. 
+/// Steering class for Straw Chamber digitization.
 /// \EndBrief
-/// 
+///
 /// \Detailed
 /// This class performs the digitization of the straw chamber spectrometer. Steps:
 /// - Initizalization: SpectrometerDigitizer::SpectrometerDigitizer.
-/// - Digitization: SpectrometerDigitizer::ProcessEvent. 
-/// 
+/// - Digitization: SpectrometerDigitizer::ProcessEvent.
+///
 /// PARAMETRIZEDDIGI allows the switching between the full and parametric digitization.
 /// \EndDetailed
 
 #define DBGTHIS "SpecDigi"
-#include "Debug.h" 
+#include "Debug.h"
 
 SpectrometerDigitizer::SpectrometerDigitizer(NA62VReconstruction* Reco) : NA62VDigitizer(Reco, "Spectrometer"){
   /// \MemberDescr
@@ -82,7 +82,7 @@ SpectrometerDigitizer::SpectrometerDigitizer(NA62VReconstruction* Reco) : NA62VD
     Float_t Time = iTime * fTimeStep;
     fSingleCluster[iTime] = -1.02317*TMath::Gaus(Time,23.89,6.61773) + 0.196639*TMath::Landau(Time,113.015,49.919) - 2.13952*TMath::Landau(Time,37.4526,4.60676); //Hybrid Left=Fe55 Right=CARIOCA with 0.7*t
     //fSingleCluster[iTime] = -0.144291*TMath::Gaus(Time,21.6545,5.60022) + 0.121935*TMath::Landau(Time,88.9075,25.4615) - 0.160931*TMath::Gaus(Time,30.5575,8.52979); //Fe55
-    //fSingleCluster[iTime] = (Time > 12 && Time < 40. ? -1. : 0.); 
+    //fSingleCluster[iTime] = (Time > 12 && Time < 40. ? -1. : 0.);
     Max = (TMath::Abs(fSingleCluster[iTime]) > Max ? TMath::Abs(fSingleCluster[iTime]) : Max);
   }
   for(Int_t iTime = 0; iTime < fMaxTime/fTimeStep; iTime++)
@@ -93,6 +93,14 @@ SpectrometerDigitizer::SpectrometerDigitizer(NA62VReconstruction* Reco) : NA62VD
   fNoise = 0;
 
 #endif
+}
+
+void SpectrometerDigitizer::StartOfBurst() {
+  NA62VDigitizer::StartOfBurst();
+}
+
+void SpectrometerDigitizer::EndOfBurst() {
+  NA62VDigitizer::EndOfBurst();
 }
 
 SpectrometerDigitizer::~SpectrometerDigitizer()
@@ -137,9 +145,9 @@ TDetectorVEvent * SpectrometerDigitizer::ProcessEvent(TDetectorVEvent * tEvent)
 
   debug_cout(1, "SpectrometerDigitizer::ProcessEvent(tEvent = " << tEvent << "): NHits = " << tEvent->GetNHits());
 
-  if(tEvent->GetHits()->GetClass()->InheritsFrom("TVDigi")) return tEvent; 
+  if(tEvent->GetHits()->GetClass()->InheritsFrom("TVDigi")) return tEvent;
   TSpectrometerEvent * SpectrometerEvent = static_cast<TSpectrometerEvent*>(tEvent);
-  *((TVEvent*)fDigiEvent) = *((TVEvent*)SpectrometerEvent); 
+  *((TVEvent*)fDigiEvent) = *((TVEvent*)SpectrometerEvent);
   debug_cout(1, "SpectrometerDigitizer::ProcessEvent: Event ID= " << SpectrometerEvent->GetID() << " -> " << fDigiEvent->GetID());
   debug_cout(1, "SpectrometerDigitizer::ProcessEvent: Event Time= " << SpectrometerEvent->GetTime() << " -> " << fDigiEvent->GetTime());
   fDigiEvent->Clear();
@@ -150,7 +158,7 @@ TDetectorVEvent * SpectrometerDigitizer::ProcessEvent(TDetectorVEvent * tEvent)
   for(Int_t iHit = 0; iHit < SpectrometerEvent->GetNHits(); iHit++){
     TSpectrometerHit *Hit = static_cast<TSpectrometerHit*>(SpectrometerEvent->Hit(iHit));
 
-    if(Hit->GetChannelID() == -1){ //WORKAROUND for compatibility with previous MC files 
+    if(Hit->GetChannelID() == -1){ //WORKAROUND for compatibility with previous MC files
       Hit->SetPlaneID(Hit->GetStrawID()/1000);
       Hit->SetStrawID(Hit->GetStrawID()%1000);
       Hit->EncodeChannelID();
@@ -169,7 +177,7 @@ TDetectorVEvent * SpectrometerDigitizer::ProcessEvent(TDetectorVEvent * tEvent)
   Int_t nAddedClusters = 0;
   for(Int_t iDigi = 0; iDigi <= fDigiEvent->GetNHits(); iDigi++){
     TSpectrometerDigi *Digi = 0;
-    Float_t NSecondaries = 0; 
+    Float_t NSecondaries = 0;
     if(iDigi < fDigiEvent->GetNHits()){
       Digi = static_cast<TSpectrometerDigi*>(fDigiEvent->GetHits()->At(iDigi));
       if(Digi->GetDetectedEdge() != 0) continue;
@@ -219,10 +227,10 @@ TDetectorVEvent * SpectrometerDigitizer::ProcessEvent(TDetectorVEvent * tEvent)
 #else // Parametric digitization
 
   // init
-  if(tEvent->GetHits()->GetClass()->InheritsFrom("TVDigi")) return tEvent; 
+  if(tEvent->GetHits()->GetClass()->InheritsFrom("TVDigi")) return tEvent;
   TSpectrometerEvent * SpectrometerEvent = static_cast<TSpectrometerEvent*>(tEvent);
   fDigiEvent->Clear();
-  *(static_cast<TVEvent*>(fDigiEvent)) = *(static_cast<TVEvent*>(SpectrometerEvent));
+  fDigiEvent->TVEvent::operator=(*static_cast<TVEvent*>(SpectrometerEvent));
 
   // Loop on MC hits
   Int_t nDigi = 0;
@@ -234,7 +242,7 @@ TDetectorVEvent * SpectrometerDigitizer::ProcessEvent(TDetectorVEvent * tEvent)
 
     //WORKAROUND for compatibility with previous MC files and Reco
     if(hit->GetChannelID() == -1)
-    {  
+    {
       hit->SetPlaneID(hit->GetStrawID()/1000);
       hit->SetStrawID(hit->GetStrawID()%1000);
       hit->EncodeChannelID();
@@ -244,7 +252,7 @@ TDetectorVEvent * SpectrometerDigitizer::ProcessEvent(TDetectorVEvent * tEvent)
     // Leading and Trailing Time simulation (in microsecond)
     Double_t leadingtime = Response->TimeSimulated(hit->GetWireDistance());
     Double_t trailingtime;
-    while (1) 
+    while (1)
     {
       trailingtime = 0.15+fRandom->Gaus(0.,0.03);
       if (trailingtime>leadingtime+0.005) break;
@@ -295,17 +303,17 @@ void SpectrometerDigitizer::AddIonizationClusters(TSpectrometerHit* Hit){
     debug2_cout(1,"Energy = " << Hit->GetEnergy() << " LocalTime = " << LocalTime << " Bulk" << std::endl);
     if(fNoBulkHits)
       return;
-    Float_t DriftDistance = DistanceFromWire; 
+    Float_t DriftDistance = DistanceFromWire;
     DriftDistance += fRandom->Gaus(0,Diffusion(DriftDistance));
     TSpectrometerDigi *Digi = static_cast<TSpectrometerDigi*>(fDigiEvent->AddDigi(Hit)); // add one hit
     *((SpectrometerChannelID*)Digi) = *((SpectrometerChannelID*)Hit);
-    Digi->SetLeadingEdge(LocalTime + (SpectrometerGeometry::GetInstance()->GetViewSize()*0.5 - LocalPosition.X())/c_light + 
+    Digi->SetLeadingEdge(LocalTime + (SpectrometerGeometry::GetInstance()->GetViewSize()*0.5 - LocalPosition.X())/c_light +
         + DriftTime(DriftDistance));
     Digi->SetTrailingEdge(Digi->GetLeadingEdge() + (Int_t)(Hit->GetEnergy()/fIonizationEnergy) + 0.1); //Encoding number of ion pairs
     debug_cout(1, "         SpectrometerDigitizer::AddIonizationClusters: Added Leading = " << Digi->GetLeadingEdge() << " on Channel " <<  Digi->GetChannelID() << "  with " << Digi->GetTrailingEdge() - Digi->GetLeadingEdge() << " ion pairs");
   }else{
-    debug_cout(1,"WireDistance = " << Hit->GetWireDistance() << " Cord = " << Hit->GetDirection().Mag() 
-        << " Bo = " << TMath::Sqrt(Hit->GetWireDistance()*Hit->GetWireDistance() 
+    debug_cout(1,"WireDistance = " << Hit->GetWireDistance() << " Cord = " << Hit->GetDirection().Mag()
+        << " Bo = " << TMath::Sqrt(Hit->GetWireDistance()*Hit->GetWireDistance()
           + (Hit->GetDirection().Z()*Hit->GetDirection().Z() + Hit->GetDirection().Y()*Hit->GetDirection().Y())*0.25) << " Energy = " << Hit->GetEnergy() << " LocalTime = " << LocalTime);
     Float_t Step = 0;
     Int_t nClusters = 0;
@@ -321,7 +329,7 @@ void SpectrometerDigitizer::AddIonizationClusters(TSpectrometerHit* Hit){
         DriftDistance += fRandom->Gaus(0,Diffusion(DriftDistance));
         TSpectrometerDigi *Digi = static_cast<TSpectrometerDigi*>(fDigiEvent->AddDigi(Hit)); // add one hit
         *((SpectrometerChannelID*)Digi) = *((SpectrometerChannelID*)Hit);
-        Digi->SetLeadingEdge(LocalTime + (SpectrometerGeometry::GetInstance()->GetViewSize()*0.5 - LocalPosition.X())/c_light 
+        Digi->SetLeadingEdge(LocalTime + (SpectrometerGeometry::GetInstance()->GetViewSize()*0.5 - LocalPosition.X())/c_light
             + DriftTime(DriftDistance));
         static_cast<SpectrometerReconstruction*>(fReco)->GetHStep()->Fill(ClusterDistance);
         Digi->SetTrailingEdge(Digi->GetLeadingEdge() + fRandom->Poisson(fNTotalPermm/fNClustersPermm) + 0.1); //Encoding number of ion pairs
@@ -463,7 +471,7 @@ Int_t SpectrometerDigitizer::Discriminate(Int_t iDigi, Float_t CurrentStart, Flo
 
   fSignal = fSignalPre;
   static_cast<SpectrometerReconstruction*>(fReco)->GetHMaxClusterDelay()->Fill(MaxClusterDelay, LastTrailing - FirstLeading);
-  return nAddedDigis; 
+  return nAddedDigis;
 }
 
 void SpectrometerDigitizer::AddNoise(Float_t Noise, Float_t CurrentStart, Int_t CurrentChannelID){
@@ -490,7 +498,7 @@ void SpectrometerDigitizer::AddNoise(Float_t Noise, Float_t CurrentStart, Int_t 
     Int_t FirstModulus = (Int_t)((SignalT0 - SigT0)/(SigBinWidth*gSig->GetN()));
     Int_t LastModulus = (Int_t)((SignalT0 + SignalBinWidth*NBins - SigT0)/(SigBinWidth*gSig->GetN()) - 1.);
     for(Int_t i = 0; i < NBins; i++){
-      Time [i] = SignalT0 + SignalBinWidth*i; 
+      Time [i] = SignalT0 + SignalBinWidth*i;
       //Signal[i] = (Time [i] < SigT0 || Time [i] > SigT0 + SigBinWidth*gSig->GetN() ? 0 : gSig->Eval(Time[i]));
       Modulus = (Int_t)((Time[i] - SigT0 < 0. ? -1. : 0.) + (Time[i] - SigT0)/(SigBinWidth*gSig->GetN()));
       if(Modulus%4 == 0 && Modulus >= FirstModulus && Modulus <= LastModulus)
@@ -537,10 +545,10 @@ void SpectrometerDigitizer::AddNoise(Float_t Noise, Float_t CurrentStart, Int_t 
       SignalPower[i] = TMath::Sqrt(SignalRe[i]*SignalRe[i] + SignalIm[i]*SignalIm[i]);
       NoisePower[i] = TMath::Sqrt(NoiseRe[i]*NoiseRe[i] + NoiseIm[i]*NoiseIm[i]);
       //        ProdRe[i] = (NoiseRe[i]*SignalRe[i]-NoiseIm[i]*SignalIm[i])/NBins;
-      //        ProdIm[i] = (NoiseRe[i]*SignalIm[i]+NoiseIm[i]*SignalRe[i])/NBins; 
+      //        ProdIm[i] = (NoiseRe[i]*SignalIm[i]+NoiseIm[i]*SignalRe[i])/NBins;
       ProdRe[i] = TMath::Sign(1.,SignalRe[i])*TMath::Sqrt(NoiseRe[i]*NoiseRe[i] + SignalRe[i]*SignalRe[i]);
       ProdIm[i] = TMath::Sign(1.,SignalIm[i])*TMath::Sqrt(NoiseIm[i]*NoiseIm[i] + SignalIm[i]*SignalIm[i]);
-      //ProdIm[i] = SignalIm[i]; 
+      //ProdIm[i] = SignalIm[i];
       ProdPower[i] = TMath::Sqrt(ProdRe[i]*ProdRe[i] + ProdIm[i]*ProdIm[i]);
     }
     TVirtualFFT* AntiFFT = TVirtualFFT::FFT(1, &Nbins, "C2R ES");

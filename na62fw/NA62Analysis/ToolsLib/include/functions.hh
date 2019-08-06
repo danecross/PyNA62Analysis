@@ -32,12 +32,6 @@
 
 #include "NA62Constants.hh"
 
-/**
- * DISCLAIMER: This file needs reviewing. Most of the functions in this file are here by legacy
- * from early development stages of the framework. None of them should be considered validated
- * at this point.
- */
-
 TVector3 propagate(TVector3 pos, TVector3 p, double z);
 
 TString printVector2(TVector2 v);
@@ -56,13 +50,13 @@ TVector3 GetPositionAtZ(TVector3, TVector3, double);
 
 TVector3 MomAfterKick(TVector3, double);
 
-TVector3 GetVertexCDA(TVector3, TVector3, TVector3, TVector3);
+TVector3 GetVertexCDA(TVector3, TVector3, TVector3, TVector3, double&);
 
-void GetSimpleVertex(int, TVector3, TVector3, TVector3, TVector3, TVector3*, TVector3*, TVector3*, TVector3*, TVector3*);
+void GetSimpleVertex(int, TVector3, TVector3, TVector3, TVector3, TVector3*, TVector3*, TVector3*, TVector3*, TVector3*, double&);
 
-TVector3 GetIterativeVertex(double, TVector3, TVector3, double, TVector3, TVector3, TVector3*, TVector3*, TVector3*, TVector3*, double dist = 5000.);
+TVector3 GetIterativeVertex(double, TVector3, TVector3, double, TVector3, TVector3, TVector3*, TVector3*, TVector3*, TVector3*, double&, double dist = 5000.);
 
-TVector3 GetRadoVertex(double, TVector3, TVector3, double, TVector3, TVector3, TVector3*, TVector3*, TVector3*, TVector3*);
+TVector3 GetRadoVertex(double, TVector3, TVector3, double, TVector3, TVector3, TVector3*, TVector3*, TVector3*, TVector3*, double&);
 
 TVector3 GetLSFVertex(double, TRecoSpectrometerCandidate*, double, TRecoGigaTrackerCandidate*, TVector3*, TVector3*, TVector3*, TVector3*, double&);
 

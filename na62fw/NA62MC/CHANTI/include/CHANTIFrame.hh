@@ -58,7 +58,6 @@ private:
   G4double fRingThickness;
   G4double fXInnerHalfLength;
   G4double fYInnerHalfLength;
-  G4LogicalVolume *fLogicalVolume;
   int fIndex;
   G4double fSquareLength;
   G4double fXFrameLength;

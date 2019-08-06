@@ -4,7 +4,7 @@
 // 2014-03-14 Evgueni Goudzovski (eg@hep.ph.bham.ac.uk)
 // - Updated to be consistent with the NewCHOD simulation
 //
-// Created by Giuseppe Ruggiero 04-09-2012 
+// Created by Giuseppe Ruggiero 04-09-2012
 //
 // --------------------------------------------------------------------
 
@@ -74,11 +74,11 @@ private:
   G4double fRespRegionXLength;
   G4double fRespRegionYLength;
 
+  G4double fScintillatorThickness;
   G4double fDetectorXPosition; ///< MUV0 centre x position in lab frame
   G4double fDetectorYPosition; ///< MUV0 centre y position in lab frame
   G4double fDetectorZPosition; ///< MUV0 centre z position in lab frame
   G4int    fNCounters;
-  G4double fScintillatorThickness;
   G4double fFrameInnerSize; ///< Inner size of the square frame
   G4double fFrameThickness; ///< Side of the frame square cross-section
   G4double fCoverThickness; ///< Aluminium cover sheet thickness along the beam

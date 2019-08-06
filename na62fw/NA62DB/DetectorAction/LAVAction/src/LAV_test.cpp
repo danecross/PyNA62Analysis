@@ -1,6 +1,3 @@
-//
-//
-
 #include <string>
 #include "LAVDetectorStorage.h"
 
@@ -55,17 +52,15 @@ int main( int argc, char *argv[])
 }
 
 
-int GetAllValues(LAVDetectorStorage * mDS)
-{
-  coral::TimeStamp d1, d2, d3, d4, d5, d6, d7; 
-	
-  d1 = coral::TimeStamp(2014,7,20,0,0,0,0);
-  d2 = coral::TimeStamp(2014,8,10,0,0,0,0);
-  d3 = coral::TimeStamp(2014,8,20,0,0,0,0);
-  d4 = coral::TimeStamp(2014,9,10,0,0,0,0);	
-  d5 = coral::TimeStamp(2014,9,20,0,0,0,0);
-  d6 = coral::TimeStamp(2031,10,10,0,0,0,0);
-  d7 = coral::TimeStamp(2031,10,20,0,0,0,0);  
+int GetAllValues(LAVDetectorStorage * mDS) {
+  //coral::TimeStamp d1, d2, d3, d4, d5, d6, d7; 	
+  //d1 = coral::TimeStamp(2014,7,20,0,0,0,0);
+  //d2 = coral::TimeStamp(2014,8,10,0,0,0,0);
+  //d3 = coral::TimeStamp(2014,8,20,0,0,0,0);
+  //d4 = coral::TimeStamp(2014,9,10,0,0,0,0);	
+  //d5 = coral::TimeStamp(2014,9,20,0,0,0,0);
+  //d6 = coral::TimeStamp(2031,10,10,0,0,0,0);
+  //d7 = coral::TimeStamp(2031,10,20,0,0,0,0);  
 
   std::string StringOutput;
   double dOutput;

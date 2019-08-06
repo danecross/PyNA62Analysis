@@ -84,7 +84,6 @@ void GigaTrackerAlignment::InitHist() {
     else                   fGTKReco->SetRedoXYCorr(1); // re-do (x,y) corrections
     fGTKReco->SetFineCorr(false);
     fGTKReco->SetRedoTimeCorr(false);
-    fGTKReco->SetFineTimeCorr(false);
     fGTKReco->SetTimeWindowWrtReference(5.0); // [ns]
 
     BookHisto("hK3piMomentum", new TH1F

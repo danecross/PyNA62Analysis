@@ -28,7 +28,7 @@
 //
 // Created by Massimo Lenti (Massimo.Lenti@cern.ch) 2008-03-11
 //            Francesca Bucci (Francesca.Bucci@cern.ch)
-//            Antonino Sergi (Antonino.Sergi@cern.ch) 
+//            Antonino Sergi (Antonino.Sergi@cern.ch)
 // Modified (MUV -> MUV1) Rainer Wanke              2010-11-26
 // Modified Mario Vormstein (mario.vormstein@uni-mainz.de)
 //
@@ -102,8 +102,6 @@ G4bool MUV1PMTSD::ProcessHits(G4Step*aStep, G4TouchableHistory*) {
 
 	G4int TrackID = aStep->GetTrack()->GetTrackID();
 
-	G4int PMTNo = 0;
-
 	// Full Simulation
 	// The Hits in the virtual PMT are mapped to the correct channels
 	if (aStep->GetTrack()->GetDefinition()->GetParticleName() == "opticalphoton") {
@@ -111,6 +109,7 @@ G4bool MUV1PMTSD::ProcessHits(G4Step*aStep, G4TouchableHistory*) {
 
 		G4int ScintNo = CopyNo % 100;
 		G4int VPMTNo = CopyNo / 10000;
+		G4int PMTNo;
 		if(ScintNo < 50){
 			if (VPMTNo == 1 || VPMTNo == 2) {
 				PMTNo = 200 + ScintNo;

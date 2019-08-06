@@ -18,6 +18,7 @@
 #include "LKrDigiManager.hh"
 #include "NA62ConditionsService.hh"
 #include "NA62Utilities.hh"
+#include "LKrL0Emulator.hh"
 
 #include "CLHEP/Units/SystemOfUnits.h"
 using namespace CLHEP;
@@ -85,6 +86,8 @@ LKrReconstruction::LKrReconstruction(TFile* HistoFile, TString ConfigFileName) :
   fThrEnergy[12] = 20000.+Tolerance;
   fThrEnergy[13] = 10000.+Tolerance;
   fThrEnergy[14] = 30000.+Tolerance;
+
+  fLKrL0Emulator = new LKrL0Emulator();
 }
 
 LKrReconstruction::~LKrReconstruction() {
@@ -336,7 +339,7 @@ void LKrReconstruction::StartOfBurst(){
   NA62VReconstruction::StartOfBurst(); // common part for all the subdetectors
 
   // Read Constants
-  fPar->DefineDataType(true);  // this function is called for data only
+  fPar->DefineDataType(static_cast<NA62Reconstruction*>(fMainReco)->GetIsRawData());
   fPar->SetTriggerDriftT0(static_cast<NA62Reconstruction*>(fMainReco)->GetTriggerDriftT0());
   fPar->Fill(this);
 
@@ -466,6 +469,7 @@ void LKrReconstruction::EndEvent(Int_t iflag){
   saveoutput(iflag);
   if (fPar->GetOutputHits()) FillOutputHits();
   FillOutput();
+  fLKrL0Emulator->Process(fFADCEvent, NA62RecoManager::GetInstance()->GetEventHeader()->GetL0TPData());
   ApplyEnergyCorrections();
 }
 
@@ -907,6 +911,7 @@ void LKrReconstruction::InitHistograms(){
      16384, -0.5, 16383.5, nTimeBins, -DeltaTime, DeltaTime);
   fHRecoHitTimeWrtReferenceVsCellNoT0->GetXaxis()->SetTitle("RO channel number");
   fHRecoHitTimeWrtReferenceVsCellNoT0->GetYaxis()->SetTitle("Uncorrected hit time wrt "+fT0ReferenceDetector+" (ns)");
+  LKrDir->mkdir("LKrL0Emulator");
 }
 
 void LKrReconstruction::SaveHistograms(){
@@ -954,7 +959,10 @@ void LKrReconstruction::SaveHistograms(){
     fHEnergyPrimBitsClustersDen[iBit]->Write();
     fHEnergyPrimBitsClustersEff[iBit]->Write();
   }
-  //std::cout << "Maximum is at " << fHMaxSample->GetMaximumBin() << std::endl;;
+
+  // write LKrL0Emulator plots to output file
+  fHistoFile->cd("LKrMonitor/LKrL0Emulator");
+  fLKrL0Emulator->WriteHistograms();
   fHistoFile->cd("/");
 }
 

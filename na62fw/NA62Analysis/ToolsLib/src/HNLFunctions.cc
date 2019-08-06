@@ -39,10 +39,10 @@ Double_t fMK0Star   = 895.55;
 
 // Lifetimes
 
-Double_t fDlife   = 1.04E-3;
-Double_t fDSlife  = 5.E-4;
-Double_t fD0life  = 4.1E-4;
-Double_t ftaulife = 2.91E-4;
+Double_t fDlife = 1.579*1.E9; // MeV^-1                         
+Double_t fD0life = 6.227*1.E8;
+Double_t fDSlife = 7.595*1.E8;
+Double_t ftaulife = 4.42*1.E8;
 
 // Constants
 
@@ -57,7 +57,7 @@ Double_t fK        = 159.8;
 Double_t fEta      = 1.2*fPi;
 Double_t fEtaprime = -0.45*fPi;
 Double_t fsigmacc  = 2.3*75.; //mubarn at sqrt(s) = 82 GeV (400 GeV proton on Be(9) (mBe = 9*1 GeV), taken from Gaia's note
-Double_t fDtoTauBR    = 1.2E-3;
+Double_t fDtoTauBR    = 9.91E-4;
 Double_t fDStoTauBR   = 0.0555;
 Double_t fSin2thetaW = 0.2223;
 
@@ -112,8 +112,8 @@ Double_t fLInitialFV             = 102425.;
 
 // Other parameters
 
-Double_t fDBeProdProb = 0.002129;
-Double_t fDCuProdProb = 0.002596;
+Double_t fDBeProdProb = 3.48E-3;
+Double_t fDCuProdProb = 6.66E-3;
 Double_t fDDecayProb  = 1.;
 Double_t fUSquared;
 Double_t fUeSquared;

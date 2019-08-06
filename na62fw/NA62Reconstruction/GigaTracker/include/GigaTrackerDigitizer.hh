@@ -20,23 +20,23 @@ class TGigaTrackerHit;
 
 // Define an order for TGigaTrackerHit
 struct THitComp {
-    bool operator()(const TGigaTrackerHit * h1, const TGigaTrackerHit * h2) const; 
+  bool operator()(const TGigaTrackerHit * h1, const TGigaTrackerHit * h2) const; 
 };
 
 typedef std::set< TGigaTrackerHit *, THitComp > THitSet;
 typedef std::map<long, std::set< TGigaTrackerHit *, THitComp > > THitMap;
 
-
 class GigaTrackerDigitizer : public NA62VDigitizer {
 
+  public:
+    explicit GigaTrackerDigitizer(NA62VReconstruction*);
+    virtual ~GigaTrackerDigitizer();
+    virtual TDetectorVEvent * ProcessEvent(TDetectorVEvent *);
+    virtual void StartOfBurst();
+    virtual void EndOfBurst();
 
-public:
-  explicit GigaTrackerDigitizer(NA62VReconstruction*);
-  virtual ~GigaTrackerDigitizer();
-  virtual TDetectorVEvent * ProcessEvent(TDetectorVEvent *);
-  
-private:
-  GigaTrackerParameterTools * fParTools;
+  private:
+    GigaTrackerParameterTools * fParTools;
 
 };
 

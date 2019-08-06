@@ -37,18 +37,43 @@
 NewCHODGeometryParameters* NewCHODGeometryParameters::fInstance = 0;
 
 NewCHODGeometryParameters::NewCHODGeometryParameters() :
-  NA62VGeometryParameters(G4String("NewCHOD"))  {
-
+  NA62VGeometryParameters(G4String("NewCHOD")),
   //////////////////////////////////////////////////////////////////////////
   // NewCHOD responsibility region: between RICH RR and LAV RR4 (i.e. LAV12)
+  fRespRegionZStart  (237.588*m),// 237.700*m
+  fRespRegionZEnd    (238.198*m),
+  fRespRegionZCentre (0.5*(fRespRegionZStart+fRespRegionZEnd)),
+  fRespRegionXLength (4.00*m), // 2.14*m
+  fRespRegionYLength (4.00*m), // 2.14*m
+  fRespRegionZLength (fRespRegionZEnd-fRespRegionZStart),
 
-  fRespRegionZStart  = 237.588*m;// 237.700*m;
-  fRespRegionZEnd    = 238.198*m;
-  fRespRegionXLength = 4.00*m; // 2.14*m;
-  fRespRegionYLength = 4.00*m; // 2.14*m;
-  fRespRegionZCentre = 0.5*(fRespRegionZStart+fRespRegionZEnd);
-  fRespRegionZLength = fRespRegionZEnd-fRespRegionZStart;
+  /////////////////////////////////////////////////////////////////////////////
+  // Rows of counters attached to both sides of an octagonal fiber glass plane.
+  // Z position according to the BEATCH file dated 08/03/2016.
+  fFiberglassThickness    (3.0*mm),
+  fScintThickness         (30.0*mm),
+  fAlWindowThickness      (0.6*mm),  // Al windows on both sides of scintillators
+  fHoneycombThickness     (30.0*mm),  // The whole honeycomb layer, it is mostly empty
+  fHoneycombSkinThickness (0.15*mm), // Area density = 300 g/m^2: two skins
+  fHoneycombAlThickness   (0.62*mm), // Equivalent thickness of 30mm of Al at 56 kg/m^3
 
+  fInnerRadius           (140*mm),
+  fOuterRadius           (1070*mm),
+  fHoneycombInnerRadius  (1120*mm),
+  fHoneycombOuterRadius  (1440*mm), // apothem of a regular octagon
+  fFiberglassOuterRadius (1500*mm), // apothem of a regular octagon
+
+  // Positions of the elements relative to the centre of the RR
+  fZPosition          (238131.5*mm - fRespRegionZCentre), // detector centre = G10 plate centre
+  fScintZPosition1    (fZPosition -0.5*(fFiberglassThickness+fScintThickness)),
+  fScintZPosition2    (fZPosition +0.5*(fFiberglassThickness+fScintThickness)),
+  fAlWindowZPosition1 (fZPosition -0.5*fFiberglassThickness-fScintThickness-0.5*fAlWindowThickness),
+  fAlWindowZPosition2 (fZPosition +0.5*fFiberglassThickness+fScintThickness+0.5*fAlWindowThickness),
+  fHoneycombZPosition (fZPosition +0.5*(fFiberglassThickness+fHoneycombThickness)),
+
+  fNCounters (100),
+  fScintSize (G4ThreeVector(134*mm, 108*mm, fScintThickness)) // elementary brick size
+{
   fResponsibilityRegion.push_back
     (new ResponsibilityRegion(fRespRegionZStart, fRespRegionZEnd));
 
@@ -67,39 +92,11 @@ NewCHODGeometryParameters::NewCHODGeometryParameters() :
   fBeamPipeInputDisplacementWRTBeam[0]  = 0.0;
   fBeamPipeOutputDisplacementWRTBeam[0] = 0.0;
 
-  /////////////////////////////////////////////////////////////////////////////
-  // Rows of counters attached to both sides of an octagonal fiber glass plane.
-  // Z position according to the BEATCH file dated 08/03/2016.
-
-  fFiberglassThickness    =  3.0*mm;
-  fScintThickness         = 30.0*mm;
-  fAlWindowThickness      =  0.6*mm;  // Al windows on both sides of scintillators
-  fHoneycombThickness     = 30.0*mm;  // The whole honeycomb layer, it is mostly empty
-  fHoneycombSkinThickness =  0.15*mm; // Area density = 300 g/m^2: two skins
-  fHoneycombAlThickness   =  0.62*mm; // Equivalent thickness of 30mm of Al at 56 kg/m^3
-
-  fInnerRadius           =  140*mm;
-  fOuterRadius           = 1070*mm;
-  fHoneycombInnerRadius  = 1120*mm;
-  fHoneycombOuterRadius  = 1440*mm; // apothem of a regular octagon
-  fFiberglassOuterRadius = 1500*mm; // apothem of a regular octagon
-
-  // Positions of the elements relative to the centre of the RR
-  fZPosition          = 238131.5*mm - fRespRegionZCentre; // detector centre = G10 plate centre
-  fScintZPosition1    = fZPosition -0.5*(fFiberglassThickness+fScintThickness);
-  fScintZPosition2    = fZPosition +0.5*(fFiberglassThickness+fScintThickness);
-  fAlWindowZPosition1 = fZPosition -0.5*fFiberglassThickness-fScintThickness-0.5*fAlWindowThickness;
-  fAlWindowZPosition2 = fZPosition +0.5*fFiberglassThickness+fScintThickness+0.5*fAlWindowThickness;
-  fHoneycombZPosition = fZPosition +0.5*(fFiberglassThickness+fHoneycombThickness);
-
-  fScintSize = G4ThreeVector(134*mm, 108*mm, fScintThickness); // elementary brick size
-
   ///////////////////////////////////////////////////////////////
   // Positions of the scintillators in a single NewCHOD quadrant.
   // A generic design made of small 134x108 mm^2 counters.
   // Missing counters have fake positions (0,0,0).
 
-  fNCounters = 100;
   for (int i=0; i<fNCounters; i++) {
     fScintPosition[i] = G4ThreeVector (0.0, 0.0, 0.0);
   }

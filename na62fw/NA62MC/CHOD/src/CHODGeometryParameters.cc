@@ -37,8 +37,8 @@
 //     to the 2011-11-02 beatch file.
 //
 // Created by Massimo Lenti (Massimo.Lenti@cern.ch) 2009-02-02
-//            Francesca Bucci (Francesca.Bucci@cern.ch) 
-//            Antonino Sergi (Antonino.Sergi@cern.ch) 
+//            Francesca Bucci (Francesca.Bucci@cern.ch)
+//            Antonino Sergi (Antonino.Sergi@cern.ch)
 //
 // --------------------------------------------------------------------
 #include "TVector.h"
@@ -49,17 +49,30 @@
 CHODGeometryParameters* CHODGeometryParameters::fInstance = 0;
 
 CHODGeometryParameters::CHODGeometryParameters() :
-  NA62VGeometryParameters(G4String("CHOD")) {
-
+  NA62VGeometryParameters(G4String("CHOD")),
   ///////////////////////////////////////////////////////////////////////
   // CHOD responsibility region: between LAV RR4 (i.e. LAV12) and IRC RR.
-
-  fRespRegionZStart  = 238.898*m;
-  fRespRegionZEnd    = 239.540*m;
-  fRespRegionXLength = 4.00*m;
-  fRespRegionYLength = 4.00*m;
-  fRespRegionZCentre = 0.5*(fRespRegionZStart+fRespRegionZEnd);
-  fRespRegionZLength = fRespRegionZEnd-fRespRegionZStart;
+  fRespRegionZStart (238.898*m),
+  fRespRegionZEnd   (239.540*m),
+  fRespRegionZCentre(0.5*(fRespRegionZStart+fRespRegionZEnd)),
+  fRespRegionXLength(4.00*m),
+  fRespRegionYLength(4.00*m),
+  fRespRegionZLength(fRespRegionZEnd-fRespRegionZStart),
+  ////////////////
+  // CHOD geometry
+  // Z positions and rotations of CHOD planes
+  fInnerRadius         ( 12.8*cm),
+  fOuterRadius         (121.0*cm),
+  fScintThickness      (  2.0*cm),
+  fNPlanes             (2),
+  fNQuadrants          (4),
+  fTransverseSize      (122.0*cm), // half-size
+  fDetectorZPositionVer(239.009*m + 0.5*fScintThickness),
+  fDetectorZPositionHor(239.389*m + 0.5*fScintThickness),
+  fDetectorZRotationVer( 0.*deg),
+  fDetectorZRotationHor(90.*deg),
+  fNCounters           (16)
+{
   fResponsibilityRegion.push_back
     (new ResponsibilityRegion(fRespRegionZStart, fRespRegionZEnd));
 
@@ -78,24 +91,7 @@ CHODGeometryParameters::CHODGeometryParameters() :
   fBeamPipeInputDisplacementWRTBeam[0]  = 0;
   fBeamPipeOutputDisplacementWRTBeam[0] = 0;
 
-  ////////////////
-  // CHOD geometry
-
-  // Z positions and rotations of CHOD planes
-  fNPlanes    = 2;
-  fNQuadrants = 4;
-  fTransverseSize = 122.0*cm; // half-size
-  fDetectorZPositionVer = 239.009*m + 0.5*fScintThickness;
-  fDetectorZPositionHor = 239.389*m + 0.5*fScintThickness;
-  fDetectorZRotationVer =  0.*deg;
-  fDetectorZRotationHor = 90.*deg;
-
-  fInnerRadius    =  12.8*cm;
-  fOuterRadius    = 121.0*cm;
-  fScintThickness =   2.0*cm;
-
   // Half-dimensions of the CHOD counters (first quadrant of the vertical plane)
-  fNCounters     = 16;
   fScintSize[0]  = G4ThreeVector( 3.25*cm, 60.50*cm, 0.5*fScintThickness);
   fScintSize[1]  = G4ThreeVector( 3.25*cm, 60.50*cm, 0.5*fScintThickness);
   fScintSize[2]  = G4ThreeVector( 3.25*cm, 60.50*cm, 0.5*fScintThickness);

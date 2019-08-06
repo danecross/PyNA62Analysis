@@ -126,22 +126,6 @@ void DatacardManager::SetFastSimulationMode(G4int value) {
   UImanager->ApplyCommand("/Detector/DisableSubDetector MUV3");
 }
 
-/////////////////////////////////
-// Turtle beam datacard file name
-
-TString DatacardManager::GetTurtleDatacardFileName() {
-  if      (fRunNumber>=1560 && fRunNumber<=4173)
-    return NA62ConditionsService::GetInstance()->GetFullPath("turtle2015.dat");
-  else if (fRunNumber>=4174 && fRunNumber<=6941)
-    return NA62ConditionsService::GetInstance()->GetFullPath("turtle2016.dat");
-  else if (fRunNumber>=6942 && fRunNumber<=8306)
-    return NA62ConditionsService::GetInstance()->GetFullPath("turtle2017.dat");
-  else if (fRunNumber>=8307 && fRunNumber<=9463)
-    return NA62ConditionsService::GetInstance()->GetFullPath("turtle2018.dat");
-  else
-    return NA62ConditionsService::GetInstance()->GetFullPath("turtle_default.dat"); // includes RunNumber=0
-}
-
 void DatacardManager::SetRunNumber(G4int val) {
   fRunNumber = val;
 }

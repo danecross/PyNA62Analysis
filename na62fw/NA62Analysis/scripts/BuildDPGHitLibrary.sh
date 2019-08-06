@@ -25,10 +25,14 @@ k2piedrList=lists/mc/k2pi.ext.list
 k3piedrList=lists/mc/k3pi.ext.list
 
 # four types of beam halo (a single file, not a list)
-haloFile=lists/mc/HaloReco.root
+haloPlusFile=lists/mc/HaloPlusReco.root
+haloMinusFile=lists/mc/HaloMinusReco.root
 
 # beam pions (a single file, not a list)
 pionFile=lists/mc/PionReco.root
+
+# control filtered data
+ctrlList=lists/data/control_filtered_data.list
 
 echo "Building Km2 library (0)"
 ./bin-$SYSTEMINSTALL/BuildDPGHitLibrary -l $km2List -f 50 -o output.root -p"BuildDPGHitLibrary:Name=Km2"
@@ -85,14 +89,26 @@ echo " "
 echo " "
 echo " "
 echo "Building Halo library (9)"
-./bin-$SYSTEMINSTALL/BuildDPGHitLibrary -i $haloFile -o output.root -p"BuildDPGHitLibrary:Name=Halo"
+./bin-$SYSTEMINSTALL/BuildDPGHitLibrary -i $haloPlusFile -o output.root -p"BuildDPGHitLibrary:Name=HaloPlus"
 
 echo " "
 echo " "
 echo " "
-echo "Building Pim2 library (10)"
+echo "Building Halo library (10)"
+./bin-$SYSTEMINSTALL/BuildDPGHitLibrary -i $haloMinusFile -o output.root -p"BuildDPGHitLibrary:Name=HaloMinus"
+
+echo " "
+echo " "
+echo " "
+echo "Building Pim2 library (11)"
 ./bin-$SYSTEMINSTALL/BuildDPGHitLibrary -i $pionFile -o output.root -p"BuildDPGHitLibrary:Name=Pim2"
 
+echo " "
+echo " "
+echo " "
+echo "Building CTRLlibrary (12)"
+./bin-$SYSTEMINSTALL/BuildDPGHitLibrary -l $ctrlList -f 10 -o output.root -p"BuildDPGHitLibrary:Name=CTRL"
+
 echo "Now hadd the outputs together with this command:"
-echo "hadd -f DownstreamPileupGeneratorLibrary.root DownstreamPileupGeneratorLibraryKm2.root DownstreamPileupGeneratorLibraryK2pi.root DownstreamPileupGeneratorLibraryK3pi.root DownstreamPileupGeneratorLibraryKe3.root DownstreamPileupGeneratorLibraryKm3.root DownstreamPileupGeneratorLibraryK3pi0.root DownstreamPileupGeneratorLibraryKm2EDR.root DownstreamPileupGeneratorLibraryK2piEDR.root DownstreamPileupGeneratorLibraryK3piEDR.root DownstreamPileupGeneratorLibraryHalo.root DownstreamPileupGeneratorLibraryPim2.root"
+echo "hadd -f DownstreamPileupGeneratorLibrary.root DownstreamPileupGeneratorLibraryKm2.root DownstreamPileupGeneratorLibraryK2pi.root DownstreamPileupGeneratorLibraryK3pi.root DownstreamPileupGeneratorLibraryKe3.root DownstreamPileupGeneratorLibraryKm3.root DownstreamPileupGeneratorLibraryK3pi0.root DownstreamPileupGeneratorLibraryKm2EDR.root DownstreamPileupGeneratorLibraryK2piEDR.root DownstreamPileupGeneratorLibraryK3piEDR.root DownstreamPileupGeneratorLibraryHaloPlus.root DownstreamPileupGeneratorLibraryHaloMinus.root DownstreamPileupGeneratorLibraryPim2.root DownstreamPileupGeneratorLibraryCTRL.root" 
 

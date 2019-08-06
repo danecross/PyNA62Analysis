@@ -59,33 +59,32 @@ GigaTrackerParameterTools::GigaTrackerParameterTools(int CurrentRun, bool isMC){
   fGigaTrackerStationLength[1].SetXYZ(435.6, 146.0, 30.0);  //0.160); // z in MC: 0.03, z in reco: 0.2, z taken from Niels file
   fGigaTrackerStationLength[2].SetXYZ(435.6, 146.0, 30.0);  //28);    // stationZLength from GigaTrackerReconstruction.cc: 200e-6*1.e3, z from Niels file
   fGigaTrackerStationLength[3].SetXYZ(435.6, 146.0, 30.0);
-  
+
   fGigaTrackerMCBMagnetRawPosition[0].SetXYZ(0.0,   0.0, 82980.0); //4A//86.580 in old reco
   fGigaTrackerMCBMagnetRawPosition[1].SetXYZ(0.0, -50.0, 86580.0); //4B
   fGigaTrackerMCBMagnetRawPosition[2].SetXYZ(0.0, -50.0, 95860.0); //5 //96.180 in old reco
   fGigaTrackerMCBMagnetRawPosition[3].SetXYZ(0.0,   0.0, 99460.0); //6 //99.780 in old reco 
-  
+
   fGigaTrackerChipLength[0].SetXYZ(12.0, 19.5, 100.0e-3);
   fGigaTrackerChipLength[1].SetXYZ(12.0, 19.5, 100.0e-3);
   fGigaTrackerChipLength[2].SetXYZ(12.0, 19.5, 100.0e-3);
   fGigaTrackerChipLength[3].SetXYZ(12.0, 19.5, 100.0e-3);
-  
-  
+
   fGigaTrackerSensorLength[0].SetXYZ(63.1, 29.3, 200.0e-3); // most likely without guard ring;
   fGigaTrackerSensorLength[1].SetXYZ(63.1, 29.3, 200.0e-3);
   fGigaTrackerSensorLength[2].SetXYZ(63.1, 29.3, 200.0e-3);
   fGigaTrackerSensorLength[3].SetXYZ(63.1, 29.3, 200.0e-3);
-  
+
   fGigaTrackerActiveSensorLength[0].SetXYZ(60.8, 27.0, 200.0e-3); // most likely without guard ring;
   fGigaTrackerActiveSensorLength[1].SetXYZ(60.8, 27.0, 200.0e-3);
   fGigaTrackerActiveSensorLength[2].SetXYZ(60.8, 27.0, 200.0e-3);
   fGigaTrackerActiveSensorLength[3].SetXYZ(60.8, 27.0, 200.0e-3);
-  
+
   fGigaTrackerSensorAddAssemblyLength[0].SetXYZ(0.0, 9.9, 0.0);
   fGigaTrackerSensorAddAssemblyLength[1].SetXYZ(0.0, 9.9, 0.0);
   fGigaTrackerSensorAddAssemblyLength[2].SetXYZ(0.0, 9.9, 0.0);
   fGigaTrackerSensorAddAssemblyLength[3].SetXYZ(0.0, 9.9, 0.0);
-  
+
   fCoolingPlateLength[0].SetXYZ(80.0, 70.0, 0.74); //z raw length, where top has to be subtracted
   fCoolingPlateLength[1].SetXYZ(80.0, 70.0, 0.74);
   fCoolingPlateLength[2].SetXYZ(80.0, 70.0, 0.74);
@@ -109,7 +108,6 @@ GigaTrackerParameterTools::GigaTrackerParameterTools(int CurrentRun, bool isMC){
   fSensorLFile    = "GigaTracker-SensorLength.dat";  
   fCoolPlatesFile = "GigaTracker-CoolingPlates.dat";
   fCollimatorFile = "GigaTracker-Collimator.dat";
-  
   fTZeroFile      = "GigaTracker-T0.dat";       // not yet used here
   fTWalkFile      = "GigaTracker-TimeWalk.dat"; // not yet used here
   fRotationFile   = "GigaTracker-Rotation.dat"; // not yet used here
@@ -118,10 +116,7 @@ GigaTrackerParameterTools::GigaTrackerParameterTools(int CurrentRun, bool isMC){
 
   //local variables
   TString Line;
-  
-  TString fileName = "";
-  //GTK station included
-  fileName = fStationFile; 
+  TString fileName = fStationFile;
   if(NA62ConditionsService::GetInstance()->Open(fileName)!=kSuccess){
     std::cout << "[GigaTrackerParameterTools] Run: "<<CurrentRun<<" Error: failed not open input file " <<fileName<< std::endl;
     exit(kGenericError);
@@ -449,9 +444,8 @@ GigaTrackerParameterTools::GigaTrackerParameterTools(int CurrentRun, bool isMC){
 
   // Chips
   SetGigaTrackerChipPosition();
-  
-
 }
+
 //__________________________________________________________________________________________________
 //Stations corrected for z position and misalignment in MC
 void GigaTrackerParameterTools::SetGigaTrackerStationPositionMC(){

@@ -478,7 +478,7 @@ Int_t TriggerConditions::GetL1AutopassDownscaling(Int_t /*Run*/) {
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Return the name of the L1 algorithm applied for a given L0 trigger bit in a given run.
-// These names are read from metadata.
+// These names are read from the CDB
 
 TString TriggerConditions::GetL1TriggerConditionName(Int_t Run, Int_t L0TriggerID) {
   if (L0TriggerID<0) return "none"; // unknown L0 trigger condition

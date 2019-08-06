@@ -3,7 +3,7 @@
 //
 // Created by Evgueni Goudzovski (eg@hep.ph.bham.ac.uk) 2015-10-27
 //
-// ---------------------------------------------------------------  
+// ---------------------------------------------------------------
 
 /// \class NewCHODDigitizer
 /// \Brief
@@ -71,6 +71,14 @@ void NewCHODDigitizer::ParseConfFile (TString ConfFileName) {
   }
 }
 
+void NewCHODDigitizer::StartOfBurst() {
+  NA62VDigitizer::StartOfBurst();
+}
+
+void NewCHODDigitizer::EndOfBurst() {
+  NA62VDigitizer::EndOfBurst();
+}
+
 ////////////////
 // Process event
 
@@ -84,7 +92,7 @@ TDetectorVEvent* NewCHODDigitizer::ProcessEvent (TDetectorVEvent* tEvent) {
   Int_t NHits = NewCHODEvent->GetNHits();
 
   fDigiEvent->Clear();
-  (*(TVEvent*)fDigiEvent)=(*(TVEvent*)NewCHODEvent);
+  fDigiEvent->TVEvent::operator=(*static_cast<TVEvent*>(NewCHODEvent));
 
   if (!NHits) return fDigiEvent;
 
@@ -106,7 +114,7 @@ TDetectorVEvent* NewCHODDigitizer::ProcessEvent (TDetectorVEvent* tEvent) {
       Double_t FineTime = NA62RecoManager::GetInstance()->GetEventHeader()->GetFineTime()*ClockPeriod/256.;
       Double_t CorrectedTime = Hit->GetTime() + FineTime
 	- static_cast<NewCHODReconstruction*>(fReco)->GetStationMCToF(Hit->GetStationID())
-        + fReco->GetT0Correction(Hit->GetChannelID(),Hit->GetStationID()) + fChannels[iROch]->GetT0() + dT;    
+        + fReco->GetT0Correction(Hit->GetChannelID(),Hit->GetStationID()) + fChannels[iROch]->GetT0() + dT;
 
       Double_t TrailingTime          = fRandom->Gaus(CorrectedTime+35*ns, 1.5*ns);
       Double_t DigitizedTime         = (Int_t)(CorrectedTime/ns/TdcCalib)*TdcCalib;

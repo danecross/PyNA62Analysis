@@ -39,8 +39,8 @@ void G4BLMagnetFields::GetFieldValue(const G4double Point[4], G4double *B) const
 
   if(fFlipBxBy){
     //e.g. MCB iron is rotated 90 deg.
-    g4local[0] = Point[1]-fPosition.getX();
-    g4local[1] = Point[0]-fPosition.getY();
+    g4local[0] = Point[1]-fPosition.getY();
+    g4local[1] = Point[0]-fPosition.getX();
     g4local[2] = Point[2]-fPosition.getZ();
    }
   else{ 
@@ -66,8 +66,8 @@ void G4BLMagnetFields::GetFieldValue(const G4double Point[4], G4double *B) const
   //  G4cout<<"G4BLMagnetFields::GetFieldValue Field Pos at "<<Point[0]<<" "<<Point[1]<<" "<<Point[2]<<G4endl;
   //  G4cout<<"G4BLMagnetFields::GetFieldValue Field local Pos at "<<g4local[0]<<" "<<g4local[1]<<" "<<g4local[2]<<G4endl;
 
-  double local[3];
-  for(int i = 0;i<3;i++) local[i] = double(g4local[i]/(1.0*mm));
+  double local[4];
+  for(int i = 0;i<4;i++) local[i] = double(g4local[i]/(1.0*mm));
   TVector3 Field = fMap->GetFieldValue(local);
   if(fFlipBxBy){
     //e.g. MCB iron is rotated 90 deg.

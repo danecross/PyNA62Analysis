@@ -6,6 +6,10 @@
 // ---------------------------------------------------------------
 
 #include "NA62Utilities.hh"
+#include "NA62Global.hh"
+#include "NA62ConditionsService.hh"
+#include "TObjArray.h"
+#include "TObjString.h"
 #include <iostream>
 
 NA62Utilities* NA62Utilities::fInstance = nullptr;
@@ -31,15 +35,47 @@ NA62Utilities::NA62Utilities() {
     fMapStringUnit.emplace(Energy[iPower],pow(10.,iPower-6));         // wrt MeV
     fMapStringUnit.emplace(EnergyExtended[iPower],pow(10.,iPower-6)); // wrt MeV
   }
-} 
-
-NA62Utilities::~NA62Utilities(){}
+  fRunTimesRead = false;
+  for (Int_t i=0; i<20000; i++) fRunTime[i] = -1;
+}
 
 Double_t NA62Utilities::GetUnitFromString(TString String){
-  if(fMapStringUnit.find(String)!=fMapStringUnit.end()){
+  if (fMapStringUnit.find(String)!=fMapStringUnit.end()) {
     return fMapStringUnit.find(String)->second;
   }
-  else std::cerr << "[NA62Utilities] WARNING: Unknown unit '" << String << "'!" << std::endl;
+  std::cout << "[NA62Utilities] WARNING: Unknown unit '" << String << "'!" << std::endl;
+  return 0.0;
+}
 
-  return 0.;             
+Long_t NA62Utilities::GetRunTime(Int_t RunNumber) {
+
+  if (!fRunTimesRead) {
+    fRunTimesRead = true;
+    TString FileName("RunTimes.dat");
+    if (NA62ConditionsService::GetInstance()->Open(FileName)!=kSuccess) {
+      std::cout << "[NA62Utilities] Error: Run times DB not found or empty" << std::endl;
+      _exit(kConditionFileNotFound);
+    }
+    TString Line;
+    while (Line.ReadLine(NA62ConditionsService::GetInstance()->Get(FileName))) {
+      if (Line.BeginsWith("#")) continue;
+      TObjArray *l   = Line.Tokenize(" ");
+      Int_t  RNumber = static_cast<TObjString*>(l->At(0))->GetString().Atoi();
+      Long_t RTime   = static_cast<TObjString*>(l->At(1))->GetString().Atoll();
+      if (RNumber>=0 && RNumber<20000) fRunTime[RNumber] = RTime;
+      delete l;
+    }
+    NA62ConditionsService::GetInstance()->Close(FileName);
+  }
+
+  if (RunNumber<0 || RunNumber>=20000) {
+    std::cout << "[NA62Utilities] Invalid run number " << RunNumber << std::endl;
+    _exit(kGenericError);
+  }
+  if (fRunTime[RunNumber]<0) {
+    std::cout << "[NA62Utilities] Error: Run " << RunNumber << " not found in run times DB" << std::endl;
+    _exit(kGenericError);
+  }
+
+  return fRunTime[RunNumber];
 }

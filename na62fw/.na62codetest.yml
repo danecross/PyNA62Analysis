@@ -38,7 +38,7 @@ cpp:
                NA62Analysis/Analyzers/PhysicsTools/include, NA62Analysis/Analyzers/PreAnalyzers/include, 
                NA62Analysis/Analyzers/TestTools/include
                ]
-    ignore: [unusedFunction, toomanyconfigs, missingOverride, noCopyConstructor, noOperatorEq]
+    ignore: [unusedFunction, unusedPrivateFunction, missingOverride, noCopyConstructor, noOperatorEq, ConfigurationNotChecked]
   rats:
     enable: true
   flawfinder:

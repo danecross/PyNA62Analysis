@@ -44,6 +44,12 @@ void MCTimeAlignment::StartOfRunUser() {
   else if (fMCRevision=="v0.11.3" || fMCRevision=="v1.0.0" || fMCRevision=="v1.0.1") {
     fCedarOffset = +0.06; // [ns]
   }
+  else if (fMCRevision=="v1.0.4") {
+    fCedarOffset = +0.06; // [ns]
+  }
+  else if (fMCRevision=="v1.1.3") {
+    fCedarOffset = +0.08; // [ns]
+  }
 }
 
 void MCTimeAlignment::Process(Int_t) {

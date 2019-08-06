@@ -192,13 +192,15 @@ void SpectrometerRICHAssociation::StartOfBurstUser() {
 
   Int_t  RunNumber = GetRunID();
   time_t BurstTime = GetEventHeader()->GetBurstTime();
+  fElectronRingRadius = RICHParameters::GetInstance()->GetElectronRingRadius(RunNumber, BurstTime);
+  fElectronRingNhits  = RICHParameters::GetInstance()->GetElectronRingNHits (RunNumber, BurstTime);
 
-  // Defaults currently used for MC
-  fElectronRingRadius = 189.6; // obtained with RICHElectronRadius tool, in agreement with Jurgen's private tool
-  fElectronRingNhits = 13.5; // extrapolated by Slava comparing outputs of RICHElectronRadius and Jurgen's private tool, 25/6/2018
-  if (!GetWithMC()) { // data: read parameters from the DB
-    fElectronRingRadius = RICHParameters::GetInstance()->GetElectronRingRadius(RunNumber, BurstTime);
-    fElectronRingNhits = RICHParameters::GetInstance()->GetElectronRingNHits(RunNumber, BurstTime);
+  // Apply empirical scale factors for MC (Evgueni, 1/8/19).
+  // This is to be tuned more carefully with the RICHElectronRadius analyzer.
+  // Number of photons: 13.5 for run 6610, extrapolated by Slava comparing RICHElectronRadius vs Jurgen's private tool.
+  if (GetWithMC()) {
+    fElectronRingRadius *= 0.999757; // this leads to 189.6 mm for run 6610
+    fElectronRingNhits  *= 1.047;    // this leads to 13.5 for run 6610
   }
 
   fRefIndex = 1.0/(cos(atan(fElectronRingRadius/fFocalLength)));

@@ -149,6 +149,7 @@ public:
 	bool AnalyzerRanOnEvent(TString thisAnName, TString anName);
 
 	void SetIsPython(bool);
+	Long64_t GetFirstGoodEvent(){return fFirstGoodEvent;}
 
 private:
 	BaseAnalysis(const BaseAnalysis&); ///< Prevents copy construction

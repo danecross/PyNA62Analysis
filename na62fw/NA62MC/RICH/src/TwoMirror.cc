@@ -19,7 +19,7 @@ TwoMirror::TwoMirror() {
   G4double BeamPipeFinOuterRadius = GeoPars->GetBeamPipeFinOuterRadius(0)/m;
   //G4double SubMirrorExternalRadius = GeoPars->GetSubMirrorExternalRadius()/m;
   G4TwoVector * SpotCenter = GeoPars->GetPMTsDiskCenter();
-        
+
 
  //   m_MirrorCenterZ=-17.1;
 	m_MirrorCenterZ=-MirrorFocalLength;
@@ -33,13 +33,13 @@ TwoMirror::TwoMirror() {
 
 	//	m_MirrorOne.setMirrorRadius(2*17.01);
 	m_MirrorOne.setMirrorRadius(2*MirrorFocalLength);
-	
+
 
 	m_MirrorOne.setPMTPos(0.);
 
 	m_MirrorOneDiameter = 3.;  // ask!!!!!!!!!!  approximation
 
-	//	m_MirrorOneRadius = 2*17.1;  
+	//	m_MirrorOneRadius = 2*17.1;
 	m_MirrorOneRadius = 2*MirrorFocalLength;
 
 	m_MirrorOne.setMirrorDiameter(m_MirrorOneDiameter);
@@ -91,7 +91,7 @@ TVector3 TwoMirror::getPhotonPosAtPMT(double xe, double ye, double ze, double th
 //	phi=phi*M_PI/180;
 
 
-	
+
 
 	//xe=-xe; //Necessary because we have in NA62 a right handed coordinate system so we have to change the sign
 
@@ -122,7 +122,6 @@ TVector3 TwoMirror::getPhotonPosAtPMT(double xe, double ye, double ze, double th
 	TVector3 PhotonMirrorPos1 =m_MirrorOne.getPhotonPosOnMirror();
 	TVector3 PhotonMirrorPos2 =m_MirrorTwo.getPhotonPosOnMirror();
 */
-	TVector3 PMTPos=TVector3(0,0,0);
 	int MirrorSide=0;//-1 left +1 right mirror 0 no mirror
 
 	//check which mirror to use
@@ -180,7 +179,7 @@ TVector3 TwoMirror::getPhotonPosAtPMT(double xe, double ye, double ze, double th
 
 	if(MirrorSide==1){//photon is in the area of mirror 1
 		m_WhichMirror=1;
-		PMTPos=m_MirrorOne.getPhotonPosAtPMT(xe, ye, ze, theta, phi,PhotonEnergy);
+		TVector3 PMTPos=m_MirrorOne.getPhotonPosAtPMT(xe, ye, ze, theta, phi,PhotonEnergy);
 		m_PhotonMirrorPos=m_MirrorOne.getPhotonPosOnMirror();
 		m_TravelTime=m_MirrorOne.getTravelTime();
 		return PMTPos;
@@ -199,7 +198,7 @@ TVector3 TwoMirror::getPhotonPosAtPMT(double xe, double ye, double ze, double th
 	}
 	else if(MirrorSide==-1){//photon is in the area of mirror 2
 		m_WhichMirror=-1;
-		PMTPos=m_MirrorTwo.getPhotonPosAtPMT(xe, ye, ze, theta, phi,PhotonEnergy);
+		TVector3 PMTPos=m_MirrorTwo.getPhotonPosAtPMT(xe, ye, ze, theta, phi,PhotonEnergy);
 		m_PhotonMirrorPos=m_MirrorTwo.getPhotonPosOnMirror();
 		m_TravelTime=m_MirrorTwo.getTravelTime();
 		return PMTPos;

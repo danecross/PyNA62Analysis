@@ -42,6 +42,9 @@ public:
   Double_t GetElectronRingRadius(Int_t, time_t);
   Double_t GetElectronRingNHits(Int_t, time_t);
 
+  Double_t GetReferenceElectronRingRadius() { return 189.6457604861; } ///< CDB value for run 6610 [unit: mm]
+  Double_t GetReferenceElectronRingNHits()  { return  12.8928556597; } ///< CDB value for run 6610
+
 private:
 
   RICHParameters();

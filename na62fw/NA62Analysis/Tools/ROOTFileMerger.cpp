@@ -1,7 +1,7 @@
 #ifndef __CINT__
 #include "TROOT.h"
 #include "TFileMerger.h"
-#include "TFile.h" 
+#include "TFile.h"
 #endif
 
 using namespace std;
@@ -17,61 +17,57 @@ using namespace std;
 /*
   Author: Simone Schuchmann
   Email: simone.schuchmannn@cern.ch
-  
-  Compile with 
+
+  Compile with
   g++ -I `root-config --incdir` -o ROOTFileMerger ROOTFileMerger.cpp `root-config --libs` --std=c++1y
-  
+
   Execute with
-  ./ROOTFileMerger input.list output.root  
+  ./ROOTFileMerger input.list output.root
 */
 ///////////////////////
 
 int Merger(const Char_t *fileList, const Char_t *outfile);
 int Merger(const Char_t *fileList, const Char_t *outfile){
- 
+
   int return_code = 0;
-  
-  //TFileMerger 
+
+  //TFileMerger
   TFileMerger *m = new TFileMerger(kFALSE);
   m->OutputFile(outfile,"RECREATE");
   m->SetPrintLevel(1);
-  
-  //file list                                                                                                                      
+
+  //file list
   std::ifstream infiles(fileList);
   std::string line;
-  char listF[500];
 
-  int countF =0;  
+  int countF =0;
   //open file list and loop over it, add files to merger
   while (std::getline(infiles, line, '\n')) {
-    if (1 != sscanf(line.c_str(),"%s", listF)) {
+    if (line.empty())
       continue;
-    }
-    else { 
-      TString fname = line.data();   
-      std::cout<<fname<<std::endl;
-      
-      TFile *f = TFile::Open(fname,"READ");
-      if(f){   
-	bool checkadd = m->AddFile(f);
-	
-	if (!checkadd){
-	  return_code = 17;
-	  std::cout<<"ERROR: analyzer output file "<<fname<<" is corrupted."<<std::endl;
-	  return return_code;
-	}
-	else std::cout<<"--> adding file to merger"<<std::endl;
+    TString fname = line.data();
+    std::cout<<fname<<std::endl;
+
+    TFile *f = TFile::Open(fname,"READ");
+    if(f){
+      bool checkadd = m->AddFile(f);
+
+      if (!checkadd){
+        return_code = 17;
+        std::cout<<"ERROR: analyzer output file "<<fname<<" is corrupted."<<std::endl;
+        return return_code;
       }
-      else {
-       return_code = 17;
-       std::cout<<"ERROR: analyzer output file "<<fname<<" does not exist."<<std::endl;
-       return return_code;
-      }
-      
-      f=NULL;
-      delete f;
-      countF++;
+      else std::cout<<"--> adding file to merger"<<std::endl;
     }
+    else {
+     return_code = 17;
+     std::cout<<"ERROR: analyzer output file "<<fname<<" does not exist."<<std::endl;
+     return return_code;
+    }
+
+    f=NULL;
+    delete f;
+    countF++;
   }
   infiles.close();
 
@@ -79,7 +75,7 @@ int Merger(const Char_t *fileList, const Char_t *outfile){
   bool checkMerge = false;
   if(countF >1){
     checkMerge = m->Merge();
-  }    
+  }
   else{
     std::cout<<"Only one input file. Exiting. Change file name by hand if needed."<<std::endl;
     return_code = -18;
@@ -90,15 +86,15 @@ int Merger(const Char_t *fileList, const Char_t *outfile){
 	  fixStreams(m->GetOutputFileName());
   delete m;
   m = NULL;
-  
+
   if(checkMerge) {
     std::cout<<"merged single analyzer output files into: "<<outfile<<std::endl;
-  }  
+  }
   else{
     return_code = 18;
     cout<<"ERROR while merging anayzer output files."<<std::endl;
   }
-  
+
   return return_code;
 }
 

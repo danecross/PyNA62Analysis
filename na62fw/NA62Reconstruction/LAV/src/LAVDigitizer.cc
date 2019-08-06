@@ -28,14 +28,14 @@
 #include "LAVCalibration.hh"
 #include "NA62RecoManager.hh"
 
-#define ELECTRON_CHARGE 1.6025e-19 
+#define ELECTRON_CHARGE 1.6025e-19
 #define MAXOPTICALPHOTONTIME 1e6
 
 LAVDigitizer::LAVDigitizer(NA62VReconstruction* Reco) :
   NA62VDigitizer(Reco, "LAV"),
   fHistoFile(nullptr)
 {
-      
+
   fDigiEvent = new TDCEvent( TLAVDigi::Class() );
   fDigiBlockHandler = new LAVDigiBlockHandler();
 
@@ -47,6 +47,14 @@ LAVDigitizer::LAVDigitizer(NA62VReconstruction* Reco) :
 LAVDigitizer::~LAVDigitizer(){
   CloseHisto();
   delete fDigiBlockHandler;
+}
+
+void LAVDigitizer::StartOfBurst() {
+  NA62VDigitizer::StartOfBurst();
+}
+
+void LAVDigitizer::EndOfBurst() {
+  NA62VDigitizer::EndOfBurst();
 }
 
 void LAVDigitizer::InitHisto(){
@@ -61,7 +69,7 @@ void LAVDigitizer::InitHisto(){
 }
 
 void LAVDigitizer::CloseHisto(){
-  if (fMakeDigiHistos) {  
+  if (fMakeDigiHistos) {
     fHOptPhotons          ->Write();
     fHPhotoElectrons      ->Write();
     fHRiseTime            ->Write();
@@ -102,19 +110,19 @@ void LAVDigitizer::FillHisto() {
 	for (Int_t i=0; i<DigiBlock->GetNOpticalPhotons(); i++) hOpticalPhotons->Fill(DigiBlock->GetOpticalPhotonTimeElement(i));
 	if (hOpticalPhotons->GetRMS() > 1.) {
 	  hOpticalPhotons->Write();
-	  
+
 	  TH1D* hSignal = new TH1D(Form("SignalBlock%d",DigiBlock->GetBlockID()),"Signal",DigiBlock->GetNBins(),DigiBlock->GetTimeBegin(),DigiBlock->GetTimeEnd());
 	  for (Int_t i=0; i<DigiBlock->GetNBins(); i++) hSignal->SetBinContent(i,DigiBlock->GetGeneratedSignalElement(i));
 	  hSignal->Write();
 	  delete hSignal;
-	  
+
 	  TH1D* hEdges = new TH1D(Form("EdgeBlock%d",DigiBlock->GetBlockID()),"Edges",DigiBlock->GetNBins(),DigiBlock->GetTimeBegin(),DigiBlock->GetTimeEnd());
 	  for (Int_t i=0; i<DigiBlock->GetNEdgesLow(); i++) hEdges->Fill(DigiBlock->GetEdgeLowElement(i));
 	  for (Int_t i=0; i<DigiBlock->GetNEdgesHigh(); i++) hEdges->Fill(DigiBlock->GetEdgeHighElement(i));
 	  hEdges->Write();
 	  delete hEdges;
 	}
-	delete hOpticalPhotons;	
+	delete hOpticalPhotons;
       }
 
       fHOptPhotons          ->Fill(DigiBlock->GetNOpticalPhotons());
@@ -125,12 +133,12 @@ void LAVDigitizer::FillHisto() {
 	fHMCTimeResolution    ->Fill(DigiBlock->GetTSignalMax() - DigiBlock->GetHitTime(),DigiBlock->GetNPhotoElectrons());
 	fHMCEnergyCorrelation ->Fill(DigiBlock->GetMCHit()->GetEnergy(),DigiBlock->GetCharge());
 
-	Double_t gain = DigiBlock->GetCharge()/(DigiBlock->GetNPhotoElectrons()*1.E6*ELECTRON_CHARGE*1.e12);	
+	Double_t gain = DigiBlock->GetCharge()/(DigiBlock->GetNPhotoElectrons()*1.E6*ELECTRON_CHARGE*1.e12);
 	fHMCGain              ->Fill(gain);
 
       }
 
-    }    
+    }
   }
   //  fHistoFile->Write();
   fHOptPhotons          ->Write();
@@ -144,17 +152,17 @@ void LAVDigitizer::FillHisto() {
 
 TDetectorVEvent * LAVDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
   if(tEvent->GetHits()->GetClass()->InheritsFrom("TVDigi") || tEvent->IsA() == TSpecialTriggerEvent::Class())
-    return tEvent; 
+    return tEvent;
   fDigiEvent->Clear();
   fDigiBlockHandler->Clear();
-  
+
   TLAVEvent * LAVEvent = static_cast<TLAVEvent*>(tEvent);
-  (*(TVEvent*)fDigiEvent)=(*(TVEvent*)LAVEvent);
-    
+  fDigiEvent->TVEvent::operator=(*static_cast<TVEvent*>(LAVEvent));
+
   Int_t NProcessHits = 0;
   Int_t NHits = (Int_t)LAVEvent->GetNHits();
   for(Int_t iHit=0; iHit<NHits; iHit++){
-    
+
     TLAVHit *Hit = static_cast<TLAVHit*>(LAVEvent->GetHit(iHit));
     Hit->DecodeChannelID(); // This ensures that the channelID will be compliant with the persistent methods of encoding/decoding
 
@@ -164,7 +172,7 @@ TDetectorVEvent * LAVDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
     // Create a DigiBlock object from the MCHit
 
     if (CreateDigiBlock(Hit)) NProcessHits++;
-    
+
   }
 
   if (NProcessHits) {
@@ -175,7 +183,7 @@ TDetectorVEvent * LAVDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
   }
 
   FillHisto();
-  
+
   return fDigiEvent;
 
 }
@@ -191,12 +199,12 @@ Int_t LAVDigitizer::CreateDigiBlock(TLAVHit* Hit){
   Int_t nGoodHits =0;
   for(Int_t i=0;i<(Int_t) Hit->GetPhotonsNumber();i++){
     if (Hit->GetPhotonsTime()[i]<MAXOPTICALPHOTONTIME) nGoodHits++;
-  } 
+  }
 
-	
+
   // Store optical photons in DigiBlock using DigiBlockHandler
 
-  LAVDigiBlock* DigiBlock = fDigiBlockHandler->GetDigiBlock(Bid, nGoodHits);   
+  LAVDigiBlock* DigiBlock = fDigiBlockHandler->GetDigiBlock(Bid, nGoodHits);
 
   if (DigiBlock) {
     DigiBlock->SetHitTime(Hit->GetTime());
@@ -209,7 +217,7 @@ Int_t LAVDigitizer::CreateDigiBlock(TLAVHit* Hit){
     Double_t tMax = 0; // max time will be assigned using the first photon and updated afterwards
 
     Int_t idigi =0;
-    
+
     for (Int_t i=0; i<Hit->GetPhotonsNumber(); i++) {
       Double_t phTime = photonTime[i]+Hit->GetTime();
       if (photonTime[i]<MAXOPTICALPHOTONTIME){
@@ -221,8 +229,8 @@ Int_t LAVDigitizer::CreateDigiBlock(TLAVHit* Hit){
 	tMax = phTime;
       }
       else {
-	if (phTime < tMin) tMin = phTime; 
-	if (phTime > tMax) tMax = phTime; 
+	if (phTime < tMin) tMin = phTime;
+	if (phTime > tMax) tMax = phTime;
       }
     }
 
@@ -230,7 +238,7 @@ Int_t LAVDigitizer::CreateDigiBlock(TLAVHit* Hit){
 
     return 1;
   }
-  else { 
+  else {
     return 0;
   }
 }
@@ -238,7 +246,7 @@ Int_t LAVDigitizer::CreateDigiBlock(TLAVHit* Hit){
 void LAVDigitizer::DigitizeHits(){
 
   // loop on firing blocks
-  
+
   fDigiBlockHandler->ApplyPMT(fRandom);
 
   fDigiBlockHandler->CompactifyLastDynode();
@@ -263,7 +271,7 @@ void LAVDigitizer::DigitizeHits(){
       }
       else {
 	// preparing structure for signal sum for a new block
-	//	blockID = DigiBlock->GetBlockID(); 
+	//	blockID = DigiBlock->GetBlockID();
 	newBlock = 0;
       }
     }
@@ -292,7 +300,7 @@ void LAVDigitizer::DigitizeHits(){
 	for (Int_t iEd = 0; iEd < nEdge[ithr]; iEd++) {
 	  Int_t edgeType = DigiBlock->GetEdgeTypeElement(iEd,ithr);
 	  edge  = DigiBlock->GetEdgeElement(iEd,ithr);
-	
+
 	  if (openDigi) {
 	    if (edgeType == 1) {
 	      CreateDigi(1,edgeOld,dummy,DigiBlock,ithr); // second edge is leading again: save the old edge in a leading-only Digi and store the new leading edge
@@ -307,7 +315,7 @@ void LAVDigitizer::DigitizeHits(){
 	    if (edgeType == 1) { // first edge is leading: store waiting for next edge
 	      openDigi = 1;
 	      edgeOld = edge;
-	    }	    
+	    }
 	    else {
 	      CreateDigi(2,dummy,edge,DigiBlock,ithr); // first edge is trailing: save it
 	    }
@@ -327,10 +335,10 @@ void LAVDigitizer::CreateDigi(Int_t digiFlag, Double_t leadingEdge, Double_t tra
   Double_t FineTime = NA62RecoManager::GetInstance()->GetEventHeader()->GetFineTime()*ClockPeriod/256.;
 
   TLAVDigi* Digi = static_cast<TLAVDigi*>(fDigiEvent->AddDigi());
-  
+
   Digi->SetMCTrackID( DigiBlock->GetMCHit()->GetMCTrackID() );
   Digi->SetMCHit( DigiBlock->GetMCHit() );
-  
+
   Digi->SetChannelID( DigiBlock->GetBlockID() + 1000000*thresholdFlag);
   Digi->DecodeChannelID(); // populate the geographic information
   Int_t station = (DigiBlock->GetMCHit())->GetStationID()-1;

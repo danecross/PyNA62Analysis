@@ -94,6 +94,7 @@ protected:
   TFile* fRootFile;
   TTree* fSpecTree;
   TString fOutputName;
+  Double_t fRefTime; // time offset needed for data events.
 
   DetLib<2000> fLib_spectrometer;
   DetLib<500>  fLib_muv3;

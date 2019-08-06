@@ -154,6 +154,7 @@ void L0PrimitiveHandler::NewInputFile(TString fname){
   // Overwrite the default file that contains primitive definitions
   fAllDetectorBits.clear();
   fBitNameToDetectorID.clear();
+  std::cout << "[L0PrimitiveHandler] Parsing new config file: " << fname << std::endl;
   ParseInputFile(fname);
 }
 
@@ -178,6 +179,16 @@ void L0PrimitiveHandler::ParseInputFile(TString fname) {
       fBitNameToDetectorID[it->GetBit(j)] = it->GetL0Detector();
     }
   }
+}
+
+void L0PrimitiveHandler::SetL0TPCut(Int_t L0Detector, Int_t cut){
+  if(!CheckL0Detector(L0Detector)) return;
+  fL0TPInfo[L0Detector].second = cut;
+}
+
+void L0PrimitiveHandler::ResetL0TPConfig(){
+  // set L0TP configuration to values found in the config file for this run.
+  BuildL0TPInfo();
 }
 
 void L0PrimitiveHandler::GetL0Masks(L0TPSpecialTrigger* L0TPST,
@@ -282,18 +293,22 @@ void L0PrimitiveHandler::SetData(L0TPData* input){
   fL0TPData = input;
 
   // check for fake trigger flags and data type to identify MC events
-  // then fill the central trigger slot with primitives that have the reference
+  if(fL0TPData->GetTriggerFlags()!=0xFFFF) return;
+  
+  // check if the fake primitives already exist
+  bool hasprim = fL0TPData->GetPrimitive(kL0TriggerSlot, kL0TALK).GetPrimitiveID();
+  if(hasprim) return;
+    
+  // if not, then fill the central trigger slot with primitives that have the reference
   // fine time used in the event simulation.
-  if(fL0TPData->GetTriggerFlags()==0xFFFF){ // && unsigned(fL0TPData->GetDataType())==0xFF
-    unsigned ref = unsigned(fL0TPData->GetReferenceFineTime());
-
-    std::vector<L0Primitive> fakeprims( 3*L0NMAXDETECTORS );
-    for(int i=0; i<L0NMAXDETECTORS; ++i){
-      fakeprims[i].SetFineTime(ref);
-      fakeprims[i].SetPrimitiveID(0xFFFF);
-    }
-    fL0TPData->SetPrimitives(fakeprims);
+  unsigned ref = unsigned(fL0TPData->GetReferenceFineTime());
+  
+  std::vector<L0Primitive> fakeprims( 3*L0NMAXDETECTORS );
+  for(int i=0; i<L0NMAXDETECTORS; ++i){
+    fakeprims[i].SetFineTime(ref);
+    fakeprims[i].SetPrimitiveID(0xFFFF);
   }
+  fL0TPData->SetPrimitives(fakeprims);
 }
 
 // called in the constructor

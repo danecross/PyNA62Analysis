@@ -124,8 +124,8 @@ static const int GLAWSIZE = sizeof(glaw)/sizeof(glaw[0]);
 
 double gauss_legendre(int n, double (*f)(double), double a, double b)
 {
-    double* x = NULL;
-    double* w = NULL;
+    double* x = nullptr;
+    double* w = nullptr;
 
     /* Load appropriate predefined table */
     for (int i=0; i<GLAWSIZE; i++) {
@@ -135,6 +135,8 @@ double gauss_legendre(int n, double (*f)(double), double a, double b)
             break;
         }
     }
+    if (w == nullptr || x == nullptr)
+        return 0;
 
     /* n is even */
     double A = (b-a)/2;

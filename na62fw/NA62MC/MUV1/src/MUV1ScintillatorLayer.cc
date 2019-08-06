@@ -78,13 +78,13 @@ MUV1ScintillatorLayer::MUV1ScintillatorLayer(G4Material * Material,
                                              G4int iCopy, G4int Offset, G4String FastSimualtion) : NA62VComponent(Material,MotherVolume)
 {
     ReadGeometryParameters();
-    
+
     fiCopy = iCopy;
     fOffset = Offset;
-    
+
     fScintLayerPosition = ScintLayerPosition;
     fFastSimulation = FastSimualtion;
-    
+
     // Mandatory here to Find or Build the needed materials
     MUV1MaterialParameters::GetInstance();
     CreateGeometry();
@@ -97,7 +97,7 @@ void MUV1ScintillatorLayer::ReadGeometryParameters()
 {
     // Read all the geometrical parameters and copy them to private members
     MUV1GeometryParameters* GeoPars = MUV1GeometryParameters::GetInstance();
-    
+
     fScintMotherWidth     = GeoPars->GetScintMotherWidth();
     fScintMotherLength    = GeoPars->GetScintMotherLength();
     fScintMotherThickness = GeoPars->GetScintMotherThickness();
@@ -117,11 +117,11 @@ void MUV1ScintillatorLayer::ReadGeometryParameters()
     fScintLengthMiddleOuter = GeoPars->GetScintLengthMiddleOuter();
     fScintWidthStandard     = GeoPars->GetScintWidthStandard();
     fScintWidthMiddle       = GeoPars->GetScintWidthMiddle();
-    
+
     fHoleInnerRadius = GeoPars->GetHoleInnerRadius(); // MUV1 hole inner radius
     fGrooveDepth = GeoPars->GetGrooveDepth();
     fGroovePositionInStandardScintillator = GeoPars->GetGroovePositionInStandardScintillator();
-    
+
     fFiberOuterRadius = GeoPars -> GetFiberRadius();
     fFiberHightOut = GeoPars -> GetFiberLengthOut();
     fSkinWidth = GeoPars->GetSkinWidth();
@@ -133,12 +133,11 @@ void MUV1ScintillatorLayer::ReadGeometryParameters()
     fConnectionHoleRadius = GeoPars->GetConnectionHoleRadius();
     fBoltPositionX = GeoPars->GetBoltPositionX();
     fBoltPositionY = GeoPars->GetBoltPositionY();
-    
+
 }
 
 void MUV1ScintillatorLayer::CreateGeometry()
 {
-    G4double CopyNo = 0;   // Copy Number for scintillators
     // Build one or more boxes that will contain all the
     // detector sections, up to fill the responsibility region
 
@@ -186,7 +185,7 @@ void MUV1ScintillatorLayer::CreateGeometry()
                             0.5*fScintLayerThickness );
 
 
-    
+
 
     // ***  VOLUMES TO BE ADDED ***
 
@@ -241,7 +240,7 @@ void MUV1ScintillatorLayer::CreateGeometry()
                                        GapBetweenTwoIronPlates/2.,
                                        0.*deg,
                                        360.*deg);
-    
+
     G4Tubs * ConnectionHole = new G4Tubs("MUV1ScintillatorLayerBoltHoleSV",
   				     	 	 	 	   0.,
   				     	 	 	 	   fConnectionHoleRadius,
@@ -282,7 +281,7 @@ void MUV1ScintillatorLayer::CreateGeometry()
                                                            BeamPipeHole,
                                                            0,
                                                            G4ThreeVector(0.,0.,posZ));
-    
+
     // Scint layer logical volume
     fLogicalVolume= new G4LogicalVolume(ScintLayerWithHole,           // solid
                                         fMaterial,                   // material
@@ -290,7 +289,7 @@ void MUV1ScintillatorLayer::CreateGeometry()
                                         0,                           // field manager
                                         0,                           // sensitive detector
                                         0);                          // user limits
-    
+
     // Scint layer physical volume
     fPhysicalVolume = new G4PVPlacement(0,                           // no rotation
                                         fScintLayerPosition,          // position
@@ -299,8 +298,8 @@ void MUV1ScintillatorLayer::CreateGeometry()
                                         fMotherVolume,               // its mother  volume
                                         false,                       // no boolean operations
                                         fiCopy);                     // copy number
-    
-    
+
+
     // Material change for fast/full simulation
     G4Material* ScintMat = G4Material::GetMaterial("NonScint");
     //    G4Material* WLSMat = G4Material::GetMaterial("DummyWLSMatCore"); //TODO: see the comment bellow from 02.11.2017
@@ -308,23 +307,23 @@ void MUV1ScintillatorLayer::CreateGeometry()
         ScintMat = G4Material::GetMaterial("Scint");
         //        WLSMat = G4Material::GetMaterial("WLSMatCore"); //TODO: see the comment bellow from 02.11.2017
     }
-    
-    
+
+
 
     // Loop over all scintillators in this layer
-    
+
     for (int scintillatorNumber = 1; scintillatorNumber <= Nscintillators; scintillatorNumber++){
 
         Channel++;
-        
+
         G4double ScintDistanceFromCenter = fabs(scintillatorNumber - CentralScint);
-        
+
         G4double ScintPosX = (scintillatorNumber < CentralScint ? -1. : 1.) * ( (2 * fScintWidthMiddle + 1.5 * fAirGapWidth) +
         																		(EndShortPosShift + ScintDistanceFromCenter - 4 - 3)* fScintWidthStandard +
         																		(EndShortPosShift + ScintDistanceFromCenter + 0.5 - 4 - 3)* fAirGapWidth      );
-        
+
         G4double ScintPosY = 0 ; // Used for all scintillators with double-sided readout
-        
+
         // Scintillators of type 1
         G4ThreeVector ScintillatorSize = G4ThreeVector(0.5*fScintWidthStandard,
                                                        0.5*fScintLengthStandard,
@@ -332,14 +331,14 @@ void MUV1ScintillatorLayer::CreateGeometry()
         G4bool boolOpp = false;
         G4int Logical = 0;
 
-        
+
         // Scintillators of type 2d, 2c,2b,2a on left side and right side
         if(ScintDistanceFromCenter > EndShortIndx)	{
 
         	ScintillatorSize = G4ThreeVector(0.5*fScintWidthStandard,
                                              0.5*fScintLengthOuter[(Nscintillators/2-1) - (G4int)ScintDistanceFromCenter],
                                              0.5*fScintillatorThickness);
-        
+
         	if(ScintDistanceFromCenter > EndSpecShortIndx)	{//two shortest strips on the side, 2d and 2c, require special mother volumes
         		Logical = -2;
         	}
@@ -353,16 +352,16 @@ void MUV1ScintillatorLayer::CreateGeometry()
             ScintPosX = (scintillatorNumber < CentralScint ? -1. : 1.) * (  (2. * fScintWidthMiddle + 1.5* fAirGapWidth) +
             																(fScintWidthStandard/2. + fAirGapWidth)      +
             																(fScintWidthStandard + fAirGapWidth) * scintMultiplier	);
-            
+
             ScintPosY =  (scintillatorNumber%2 == Parity ?  -1. : 1.) * (0.25*fScintLengthStandard + (fAirGapWidth + fSkinWidth)/2. + fAirGapWidth/2.);
 
             ScintillatorSize = G4ThreeVector(0.5*fScintWidthStandard,
                                              0.25*fScintLengthStandard + (fAirGapWidth + fSkinWidth)/2.,
                                              0.5*fScintillatorThickness);
-            
+
             if (scintillatorNumber%2 == Parity) Channel--;
             boolOpp = true;
-            
+
         }
 
         //central narrow scintillators with the trapezoidal ending on the inner side
@@ -375,14 +374,14 @@ void MUV1ScintillatorLayer::CreateGeometry()
             ScintillatorSize = G4ThreeVector(0.5*fScintWidthMiddle,
                                              0.5*fScintLengthMiddleOuter,
                                              0.5*fScintillatorThickness);
-            
+
             boolOpp = true;        // cut for beam hole
             Logical = (scintillatorNumber < CentralScint ? 2*(scintillatorNumber - (G4int)(CentralScint-3)) + 1 : 2*(scintillatorNumber - (G4int)(CentralScint+2)));         // cut corner
-            
+
             if (scintillatorNumber%2 == Parity) Channel--;
 
         }
-        
+
         //central narrow scintillators
         if(ScintDistanceFromCenter < 2){ //
 
@@ -393,15 +392,15 @@ void MUV1ScintillatorLayer::CreateGeometry()
                                              0.5*fScintillatorThickness);
             boolOpp = true;
             Logical = -1;
-            
+
             if (scintillatorNumber%2 == Parity) Channel--;
 
         }
 
-        
-        CopyNo = Channel +100*fiCopy+fOffset ;
-        
-        
+
+        G4double CopyNo = Channel +100*fiCopy+fOffset ; // Copy Number for scintillators
+
+
         G4ThreeVector ScintillatorPosition = G4ThreeVector(ScintPosX, ScintPosY, 0);
 
         G4ThreeVector BareScintillatorSize = G4ThreeVector(
@@ -418,7 +417,7 @@ void MUV1ScintillatorLayer::CreateGeometry()
                              boolOpp,
                              CopyNo,
                              Logical);
-        
+
 //02.11.2017
 //        TODO: the stuff commented out bellow needs major improvements in order to fix the related geometrical problems with overlaps and extrusion.
 //        Since it only matters for the full simulation, we can disable it for the moment because we have only fast simulation model of MUV1 working at the moment.
@@ -497,7 +496,7 @@ void MUV1ScintillatorLayer::CreateGeometry()
             }
 
         }
-        
+
     <<==============================================================================================================================================================
  */
 

@@ -5,7 +5,6 @@ SkippedName = NA62Analysis
 svcClass = na62
 MemoryReportEventInterval = -1
 MemoryReportTimeInterval = -1
-MetaDataPath = /afs/cern.ch/na62/offline/metadata/
 DefaultAutoUpdateRate = 1000
 DateTimeFormat = %d/%m/%y %H:%M:%S
 OutputPrefixFormat = [%n]

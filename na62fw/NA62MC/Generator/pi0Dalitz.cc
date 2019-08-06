@@ -82,8 +82,7 @@ void generate_pi0dal_(double ppi0 [], int * pzmode)
     } else if (*pzmode == 13 || *pzmode == 14 || *pzmode == 16) { // 3-4 body decays
 
         TLorentzVector  gamom1,  gamom2, epmom, emmom;
-        bool radcor = true;
-        bool radphoton;
+        bool radphoton = false;
 
         if (*pzmode == 14) {    // 14 = special mode: only decays with rad photon
             radphoton = true;
@@ -95,10 +94,12 @@ void generate_pi0dal_(double ppi0 [], int * pzmode)
             return;
         }
 
-        if (radphoton)
+        if (radphoton) {
             generate_dalitz_4body(gamom1, gamom2, epmom, emmom, zgammaCut, xmincutoff);
-        else
+        } else {
+            bool radcor = true;
             generate_dalitz_3body(gamom1, epmom, emmom, radcor, zgammaCut, xmincutoff);
+        }
 
         dboost(pi0mom, MP0, gamom1);
         dboost(pi0mom, MP0, epmom);
@@ -183,20 +184,21 @@ void generate_dalitz_4body(TLorentzVector &gamom1,
     TRandom3* RandomDecay = (RandomGenerator::GetInstance())->GetRandomDecay();
     // following variables are defined static, as they need to be initialized only once
     static TLorentzVector ppion(0.0, 0.0, 0.0, MP0); // pi0 at rest
-    static double masses[4] = {0.0, 0.0, MEL, MEL}; // g, g, e+, e-
     static TGenPhaseSpace pi0D4bodyEvent;
     static int gen_phase_space_calls = 0;
 
     if (!gen_phase_space_calls) {
+      static double masses[4] = {0.0, 0.0, MEL, MEL}; // g, g, e+, e-
       pi0D4bodyEvent.SetDecay(ppion, 4, masses);
       gen_phase_space_calls++;
     }
 
-    double weight;              // pi0D4bodyEvent weight
-    double x,z,a,b,c,d,e,f;     // kinematic variables
+    double weight = 0;          // pi0D4bodyEvent weight
     double M42 = 0;             // matrix element
-    TLorentzVector *pg1, *pg2, *pep, *pem;
+    TLorentzVector *pg1 = nullptr, *pg2 = nullptr, *pep = nullptr, *pem = nullptr;
     do {
+        // kinematic variables
+        double x = 0, z = 0, a = 0, b = 0, c = 0, d = 0, e = 0, f = 0;
         // generate momenta
         weight = pi0D4bodyEvent.Generate();
         pg1 = pi0D4bodyEvent.GetDecay(0);
@@ -278,8 +280,8 @@ double radcorr_MS(double x, double y, double zcut)
         if (i < 2){ IJTr = 0; break; }
     }
 
-    double dBrems = (a * x * (IJTr + IJTrDiv(x, y, z_upper))) / (16 * TMath::Pi() * pow(1 - x, 2) * (1 + pow(y, 2) + v2 / x));
-    return (dBrems + a / TMath::Pi() * dVirt(x, y));
+    double dBrems = (AlphaQED * x * (IJTr + IJTrDiv(x, y, z_upper))) / (16 * TMath::Pi() * pow(1 - x, 2) * (1 + pow(y, 2) + v2 / x));
+    return (dBrems + AlphaQED / TMath::Pi() * dVirt(x, y));
 }
 
 // in the 1gIR correction computation masses in MeV are assumed
@@ -287,7 +289,7 @@ double radcorr_1gIR(double x, double y, double /*zcut*/)
 {
     double mpi0 = MP0 * 1e3;    // the formula assumes mass in MeV
     return (
-        -2 * a / TMath::Pi() * mpi0 / (1 + pow(y, 2) + v2 / x)
+        -2 * AlphaQED / TMath::Pi() * mpi0 / (1 + pow(y, 2) + v2 / x)
                   * (4 * v * T(x, y)
                      + mpi0 * (x * pow(1 - y, 2) - v2) * A(x, y)
                      + mpi0 * (x * pow(1 + y, 2) - v2) * A(x, -y))

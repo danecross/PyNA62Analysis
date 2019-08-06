@@ -19,33 +19,33 @@
 
 MUV0GeometryParameters* MUV0GeometryParameters::fInstance = 0;
 
-MUV0GeometryParameters::MUV0GeometryParameters() : NA62VGeometryParameters(G4String("MUV0")) {
-
+MUV0GeometryParameters::MUV0GeometryParameters() :
+  NA62VGeometryParameters(G4String("MUV0")),
   // NB: the MUV0 responsibility region is longitudinally inside the RICH one.
   // The RICH responsibility region is (219.546 m; 237.700 m).
+  fRespRegionZStart      (237.350*m),
+  fRespRegionZEnd        (237.380*m),
+  fRespRegionZCentre     (0.5*(fRespRegionZStart+fRespRegionZEnd)),
+  fRespRegionZLength     (fRespRegionZEnd-fRespRegionZStart),
+  fRespRegionXCentre     (2245*mm), // The RR should not touch RICHMirrorWindowOuterFlange (R<1510mm)
+  fRespRegionXLength     (1450*mm),
+  fRespRegionYLength     (1450*mm),
 
-  fRespRegionZStart      = 237.350*m;
-  fRespRegionZEnd        = 237.380*m;
-  fRespRegionZCentre     = 0.5*(fRespRegionZStart+fRespRegionZEnd);
-  fRespRegionZLength     = fRespRegionZEnd-fRespRegionZStart;
-  fRespRegionXCentre     = 2245*mm; // The RR should not touch RICHMirrorWindowOuterFlange (R<1510mm)
-  fRespRegionXLength     = 1450*mm;
-  fRespRegionYLength     = 1450*mm;
+  fScintillatorThickness (20*mm),
+  fDetectorXPosition     (2245*mm),
+  fDetectorYPosition     (0*mm),
+  fDetectorZPosition     (237358*mm + 0.5*fScintillatorThickness),
 
-  fScintillatorThickness =     20*mm;
-  fDetectorXPosition     =   2245*mm;
-  fDetectorYPosition     =      0*mm;
-  fDetectorZPosition     = 237358*mm + 0.5*fScintillatorThickness;
+  fNCounters             (9),
 
-  fFrameInnerSize        =   1400*mm;
-  fFrameThickness        =     20*mm;
-  fCoverThickness        =      2*mm;
-
+  fFrameInnerSize        (1400*mm),
+  fFrameThickness        (20*mm),
+  fCoverThickness        (2*mm)
+{
   fResponsibilityRegion.push_back
     (new ResponsibilityRegion(fRespRegionZStart,fRespRegionZEnd));
 
   // Dimensions and positions (wrt detector detector centre) of the counters
-  fNCounters = 9;
   G4double X0[9]    = {-40*cm, -40*cm, -40*cm,  10*cm,  10*cm,  10*cm,  50*cm,  50*cm,  50*cm};
   G4double Y0[9]    = {-50*cm, -10*cm, +40*cm, -50*cm, -10*cm, +40*cm, -50*cm, -10*cm, +40*cm};
   G4double Xsize[9] = { 60*cm,  60*cm,  60*cm,  40*cm,  40*cm,  40*cm,  40*cm,  40*cm,  40*cm};

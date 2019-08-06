@@ -24,14 +24,11 @@
 /// \EndDetailed
 
 #include "RICHParameters.hh"
-#include "ConfigSettings.hh"
-#include "NA62Exceptions.hh"
 #include "NA62ConditionsService.hh"
 
 using namespace std;
-using namespace NA62Analysis;
 
-static RICHParameters* fInstance = 0;
+static RICHParameters* fInstance = nullptr;
 
 RICHParameters* RICHParameters::GetInstance() {
   if (!fInstance) fInstance = new RICHParameters();
@@ -79,7 +76,6 @@ RICHParameters::RICHParameters() :
 // Read nominal mirror positions
 
 void RICHParameters::ParseMirrorPositionsInputFile() {
-
   TString Line;
   Int_t NEntriesRead = 0;
   NA62ConditionsService::GetInstance()->Open(fMirrorPositionsInputFileName);

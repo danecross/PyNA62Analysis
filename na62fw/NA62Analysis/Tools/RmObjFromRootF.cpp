@@ -6,7 +6,7 @@
 #include "TObject.h"
 #include "TClass.h"
 #include "TTree.h"
-#include "TFile.h" 
+#include "TFile.h"
 #include "TKey.h"
 #endif
 
@@ -20,8 +20,8 @@
 /*
   Author: Simone Schuchmann
   Email:  simone.schuchmannn@cern.ch
-  
-  Compile with 
+
+  Compile with
   g++ -I `root-config --incdir` -o RmObjFromRootF RmObjFromRootF.cpp `root-config --libs` --std=c++1y
 
   Execute with
@@ -31,9 +31,9 @@
   ./RmObjFromRootF input.root output.root skip.list 1
 
   Task:
-  Removes objects defined in skip.list from content list and saves the remaining objects including 
-  directories to the output file. If the object (e.g. Histo) to be removed is contained in a 
-  TDirectoryFile (e.g. RICHMonitor), the name of the directory has to be specified as well 
+  Removes objects defined in skip.list from content list and saves the remaining objects including
+  directories to the output file. If the object (e.g. Histo) to be removed is contained in a
+  TDirectoryFile (e.g. RICHMonitor), the name of the directory has to be specified as well
   eg. RICHMonitor/Histo .
 
 */
@@ -49,12 +49,12 @@ static  Int_t countDir = 0;
 Bool_t printDetails = false;
 //___________________________________________________________________
 int SkipFromList(const Char_t *fInName, const Char_t *fOutName,const Char_t *fskip){
- 
+
   //input root file
   TFile *fin  = TFile::Open(fInName);
 
   //output file
-  TFile *fout = TFile::Open(fOutName,"recreate");   
+  TFile *fout = TFile::Open(fOutName,"recreate");
 
   //get key (object) list
   TList *keylistFile = (TList*)fin->GetListOfKeys();
@@ -69,26 +69,22 @@ int SkipFromList(const Char_t *fInName, const Char_t *fOutName,const Char_t *fsk
   std::cout<<"SkipFromList: --------------- Loop over list of objects/directories to be removed: -----------------"<<std::endl;
   std::cout<<"\n";
   if (infileS.is_open()) {
-    char skipObj[100];
     while (std::getline(infileS, lineS, '\n')) {
-      if (1 != sscanf(lineS.c_str(),"%s", skipObj)) {
-	continue;
+      if (lineS.empty())
+        continue;
+      TString rlineS = lineS;
+      std::cout<<"SkipFromList: To be removed: "<<lineS<<std::endl;
+      if(rlineS.Contains("/")){//check for objects in directories (2nd level)
+        std::cout<<"SkipFromList: -> contains '/'! ... removal in directory loop!"<<std::endl;
+        std::cout<<"\n";
+        namesObjDir[countDir] = lineS;
+        countDir++;
       }
-      else {
-	TString rlineS = lineS;
-	std::cout<<"SkipFromList: To be removed: "<<lineS<<std::endl;
-	if(rlineS.Contains("/")){//check for objects in directories (2nd level)
-	  std::cout<<"SkipFromList: -> contains '/'! ... removal in directory loop!"<<std::endl;
-	  std::cout<<"\n";
-	  namesObjDir[countDir] = lineS;
-	  countDir++;
-	}
-	else{//remove objects from list in first level
-	  bool rmOK = RmFromList(keylistFile,rlineS);
-	  if(!rmOK) std::cout<<"SkipFromList: ERROR: Could not remove "<<lineS<<"."<<std::endl;
-	  else  std::cout<<"SkipFromList: --> Removed "<<lineS<<"."<<std::endl;
-	  std::cout<<"\n";
-	}       
+      else{//remove objects from list in first level
+        bool rmOK = RmFromList(keylistFile,rlineS);
+        if(!rmOK) std::cout<<"SkipFromList: ERROR: Could not remove "<<lineS<<"."<<std::endl;
+        else  std::cout<<"SkipFromList: --> Removed "<<lineS<<"."<<std::endl;
+        std::cout<<"\n";
       }
     }
     infileS.close();
@@ -102,7 +98,7 @@ int SkipFromList(const Char_t *fInName, const Char_t *fOutName,const Char_t *fsk
     //-------- save the rest to the new file -------//
 
 
-  
+
 
     //loop over key list from input file and subsequent lists of (sub)directories
     //save the remaining objects to fout
@@ -113,10 +109,10 @@ int SkipFromList(const Char_t *fInName, const Char_t *fOutName,const Char_t *fsk
 
     //closing
     fout->Close();
-  
-    delete fin;  
+
+    delete fin;
     delete fout;
-  
+
 
     std::cout<<"\n";
     std::cout<<"SkipFromList: ----------------------- Output file "<<fOutName<<" closed! ---------------------------"<<std::endl;
@@ -136,11 +132,11 @@ bool RmFromList(TList *keylist, TString nameObj){
     std::cout<<"SkipFromList: ERROR: Object "<<nameObj.Data()<<" not found."<<std::endl;
     return false;
   }
-  
+
   TObject* objR = keylist->Remove(objF);
   if(!objR)  return false;
-  
-  objF = NULL;  
+
+  objF = NULL;
   objR = NULL;
 
   delete objF;
@@ -155,10 +151,10 @@ bool LoopList(TDirectory *dirUp, TDirectory *dirIn, TList *keylist,Int_t level){
   //loop over key list and check for subdirectories
   //save objects if they not directory directly
   //otherwise to into subidrectory and repeat this procedure
-  
+
   TKey *key = NULL;
-  const Int_t keepLevel = level;    
- 
+  const Int_t keepLevel = level;
+
   TString nameDir = dirIn->GetName();
 
   //remove level>1 objects from subdirectory content list
@@ -171,9 +167,9 @@ bool LoopList(TDirectory *dirUp, TDirectory *dirIn, TList *keylist,Int_t level){
 	TString cutnameOD = nameOD;
 	cutnameOD.Remove(lastDash+1);
 	nameOD.ReplaceAll(cutnameOD,"");
-	
+
 	bool rmOK =RmFromList(keylist,nameOD);
-	if(!rmOK) std::cout<<"SkipFromList: ERROR: Could not remove "<<namesObjDir[t]<<"."<<std::endl;    
+	if(!rmOK) std::cout<<"SkipFromList: ERROR: Could not remove "<<namesObjDir[t]<<"."<<std::endl;
 	else std::cout<<"SkipFromList: --> Removed "<<namesObjDir[t]<<" from list."<<std::endl;
       }
     }
@@ -182,25 +178,25 @@ bool LoopList(TDirectory *dirUp, TDirectory *dirIn, TList *keylist,Int_t level){
   //enter subdirectories or save objects
   Bool_t countObj = false;
   TDirectoryFile *objDir = NULL;
-  
+
   for(Int_t i =0;i<keylist->GetEntries();i++){
     key = (TKey*)keylist->At(i);
     TString nameObj = key->GetName();
     TString clname = key->GetClassName();
-    
-    if(clname.Contains("Directory") ){ 
+
+    if(clname.Contains("Directory") ){
       //get subdirectories
-  
+
       objDir = (TDirectoryFile*)dirIn->Get(nameObj);
-      
+
       //get content of subdirectories
       EnterDirectory(objDir,level,nameObj);
       dirUp->cd();
-  
+
     }
     else{ //save objects
-      if(!countObj && level <2) std::cout<<"SkipFromList: Saving objects first level: ------"<<std::endl;    
-      
+      if(!countObj && level <2) std::cout<<"SkipFromList: Saving objects first level: ------"<<std::endl;
+
       SaveObject(dirUp,dirIn,key);
       dirIn->cd();
 
@@ -212,17 +208,17 @@ bool LoopList(TDirectory *dirUp, TDirectory *dirIn, TList *keylist,Int_t level){
 
   objDir = NULL;
   delete objDir;
-  
+
   key = NULL;
   delete key;
 
   return true;
 }
-    
+
 //___________________________________________________________________
 bool SaveObject(TDirectory *dirUp,TDirectory *dirIn,TKey *key){
   //save histos, trees etc. to output file/directory dirUp
-  
+
 
   TString classname = key->GetClassName();
   TString nameObj = key->GetName();
@@ -232,27 +228,27 @@ bool SaveObject(TDirectory *dirUp,TDirectory *dirIn,TKey *key){
     dirUp->cd();
     Int_t writeOK = tree->Write(nameObj,TObject::kSingleKey);
     if( writeOK <1) std::cout<<"SkipFromList: ERROR: "<<classname<<" "<<nameObj<<" not found, could not be saved."<<std::endl;
-    if(printDetails) std::cout<<"SkipFromList: --> Saved object "<<classname<<" "<<nameObj<<std::endl;    
+    if(printDetails) std::cout<<"SkipFromList: --> Saved object "<<classname<<" "<<nameObj<<std::endl;
     tree = NULL;
     delete tree;
-    
+
     treeIn = NULL;
     delete treeIn;
   }
   else{
     TObject* objw = (TObject*)key->ReadObj();
-    
+
     if(objw && !objw->IsZombie()){
       dirUp->cd();
       Int_t writeOK = objw->Write(nameObj,TObject::kSingleKey);
       if( writeOK <1) std::cout<<"SkipFromList: ERROR: "<<classname<<" "<<nameObj<<" not found, could not be saved."<<std::endl;
-      if(printDetails) std::cout<<"SkipFromList: --> Saved object "<<classname<<" "<<nameObj<<std::endl;    
+      if(printDetails) std::cout<<"SkipFromList: --> Saved object "<<classname<<" "<<nameObj<<std::endl;
     }
     else std::cout<<"SkipFromList: ERROR: "<<classname<<" "<<nameObj<<" not found, could not be saved."<<std::endl;
     objw = NULL;
     delete objw;
   }
-  
+
   return true;
 }
 
@@ -263,17 +259,17 @@ bool EnterDirectory(TDirectoryFile *objDir,Int_t level,TString upname){
 
   if(level<2) {
     std::cout<<"\n";
-    std::cout<<"SkipFromList: Reading directory ************************************* "<<upname<<" ************************************"<<std::endl;     
-  } 
-  else  std::cout<<"SkipFromList: Reading subdirectory (level = "<<level<<") ************** "<<upname<<" *************"<<std::endl;     
+    std::cout<<"SkipFromList: Reading directory ************************************* "<<upname<<" ************************************"<<std::endl;
+  }
+  else  std::cout<<"SkipFromList: Reading subdirectory (level = "<<level<<") ************** "<<upname<<" *************"<<std::endl;
 
   TString nameDir = objDir->GetName();
 
-  TList *keylist = (TList*)objDir->GetListOfKeys();  
+  TList *keylist = (TList*)objDir->GetListOfKeys();
 
   //create subdirectory in outputfile
   TDirectoryFile *dirClone = new TDirectoryFile(nameDir,objDir->GetTitle());
-  
+
   if(dirClone){
     dirClone->cd();
     //save remaining content of subdirectory in new subdirectory in output file
@@ -281,10 +277,10 @@ bool EnterDirectory(TDirectoryFile *objDir,Int_t level,TString upname){
     if(level <2)    std::cout<<"SkipFromList: --> Saved directory "<<nameDir<<std::endl;
     else     std::cout<<"SkipFromList: --> Saved subdirectory (level = "<<level<<") "<<nameDir<<std::endl;
   }
-  else std::cout<<"SkipFromList: ERROR: TDirectoryFile "<<nameDir<<" dir not created, could not be saved."<<std::endl;    
+  else std::cout<<"SkipFromList: ERROR: TDirectoryFile "<<nameDir<<" dir not created, could not be saved."<<std::endl;
   keylist = NULL;
   delete keylist;
-  
+
   return true;
 }
 //___________________________________________________________________
@@ -310,12 +306,12 @@ int main(int argc, char** argv) {
     return 5;
   }
 
-  
-  std::cout<<"SkipFromList: input: "<<argv[1]<<" output: "<<argv[2]<<" list of object names to be removed: "<<argv[3]<<std::endl; 
+
+  std::cout<<"SkipFromList: input: "<<argv[1]<<" output: "<<argv[2]<<" list of object names to be removed: "<<argv[3]<<std::endl;
   if(argc > 4) printDetails = argv[4];
-  
+
   int return_code = SkipFromList(argv[1],argv[2],argv[3]);
-  
+
   return return_code;
 }
 #endif

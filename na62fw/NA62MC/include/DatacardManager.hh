@@ -9,7 +9,6 @@
 #include "TClonesArray.h"
 #include "G4ThreeVector.hh"
 #include "globals.hh"
-#include <list>
 
 class DatacardMessenger;
 
@@ -30,7 +29,6 @@ public:
   void     SetMessenger();
   G4String GetOutputFileName()                    { return fOutputFileName;       }
   void     SetOutputFileName(G4String val)        { fOutputFileName = val;        }
-  TString  GetTurtleDatacardFileName();
   G4bool   GetDecayForce()                        { return fDecayForce;           }
   void     SetDecayForce(G4bool val)              { fDecayForce = val;            }
   G4bool   GetMuonDecayForce()                    { return fMuonDecayForce;       }
@@ -122,7 +120,6 @@ public:
 
 private:
   G4String      fOutputFileName;
-  G4String      fTurtleDatacardFileName;
   G4bool        fDecayForce;
   G4bool        fMuonDecayForce;
   G4int         fPionDecayForce;

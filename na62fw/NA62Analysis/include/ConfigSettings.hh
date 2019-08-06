@@ -30,7 +30,6 @@ namespace Configuration {
 /// EventsDownscaling = integer
 /// MemoryReportEventInterval = integer
 /// MemoryReportTimeInterval = integer
-/// MetadataPath = /path/to/metadata/directory
 /// DefaultAutoUpdateRate = 1000
 /// DateTimeFormat = %d/%m/%y %H:%M:%S
 /// OutputPrefixFormat = [%n] # Old default: [%d] %l - [%n]
@@ -103,7 +102,6 @@ public:
 
 		// Path/Names configuration
 		static std::string fSvcClass;       ///< Name of the svcClass
-		static std::string fMetadataPath;   ///< Path to the metadata dir
 	};
 
 	/// \struct CLI

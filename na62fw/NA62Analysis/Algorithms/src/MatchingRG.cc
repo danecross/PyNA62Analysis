@@ -19,7 +19,6 @@
 #include <TChain.h>
 #include "MatchingRG.hh"
 #include "SpectrometerTrackVertex.hh"
-#include "BlueTubeTracker.hh"
 #include "BeamParameters.hh"
 #include "functions.hh"
 #include "Event.hh"
@@ -31,7 +30,6 @@ using namespace NA62Analysis;
 using namespace NA62Constants;
 
 MatchingRG::MatchingRG(BaseAnalysis *ba, Analyzer* ana, const std::string &name) : Algorithm(ba, ana, name) {
-  ftracker = BlueTubeTracker::GetInstance();
 
   //IsBeamParticle (RG chi2 condition)
   fChi2 = 50.;
@@ -86,9 +84,10 @@ MatchingRG::MatchingRG(BaseAnalysis *ba, Analyzer* ana, const std::string &name)
   fDT_p->SetParameter(0, 0.0081);
 
   DiscriminantNormalization();
+  PrepareDefaultOutputs();
 }
 
-void MatchingRG::Init(TString s){
+void MatchingRG::InitForProcess(TString s){
   BookHisto(new TH1F(s+"hNGTKCandidates", "hNGTKCandidates", 50, 0, 50));
   BookHisto(new TH1F(s+"hGTKChi2", "hGTKChi2", 100, 0., 50.));
   BookHisto(new TH1F(s+"hTimeDiffGTKRef", "hTimeDiffGTKRef", 100, -5., 5.));
@@ -113,7 +112,6 @@ void MatchingRG::Init(TString s){
   BookHisto(new TH2D(s+"hD2_vs_D1", "hD2_vs_D1", 200, 0., 1., 200, 0., 1.));
   BookHisto(new TH2D(s+"hD1_vs_Dp", "hD1_vs_Dp", 200, 0., 1., 200, 0., 1.));
   BookHisto(new TH2D(s+"hD2_vs_Dp", "hD2_vs_Dp", 200, 0., 1., 200, 0., 1.));
-
   BookHisto(new TH1D(s+"hDiffD1AllMinusBest", "hDiffD1AllMinusBest", 200, 0., 1.));
   BookHisto(new TH1D(s+"hDiffD1BestTwo", "hDiffD1BestTwo", 200, 0., 1.));
   BookHisto(new TH2D(s+"hNBeamParticlesInTime_vs_DiffD1BestTwo", "hNBeamParticlesInTime_vs_DiffD1BestTwo", 200, 0., 1., 20, 0, 20));
@@ -124,7 +122,9 @@ void MatchingRG::Init(TString s){
   BookHisto(new TH1D(s+"hR_cda_j", "hR_cda_j", 100, 0., 1.));
   BookHisto(new TH1D(s+"hRR_dt_ij", "hRR_dt_ij", 500, 0., 5.));
   BookHisto(new TH1D(s+"hRR_cda_ij", "hRR_cda_ij", 500, 0., 5.));
+}
 
+void MatchingRG::InitForFinalSelection(TString s){
   BookHisto(new TH1D(s+"hD1_best", "hD1_best", 400, 0., 1.));
   BookHisto(new TH1D(s+"hD2_best", "hD2_best", 400, 0., 1.));
   BookHisto(new TH2D(s+"hD2_best_vs_D1_best", "hD2_best_vs_D1_best", 200, 0., 1., 200, 0., 1.));
@@ -144,11 +144,10 @@ void MatchingRG::Process(TRecoGigaTrackerEvent *GTKEvent, TRecoSpectrometerCandi
     cout<<endl;
   };
 
- //prepare output
+  //prepare output
   PrepareDefaultOutputs();
 
   // loop over all GTK candidates for a STRAW candidate
-  int beamParticlesInTime = 0;
   if(fill) FillHisto(s+"hNGTKCandidates", GTKEvent->GetNCandidates());
   cout<<user()<<"N GTK candidates: "<<GTKEvent->GetNCandidates()<<endl;
   for(int i=0; i<GTKEvent->GetNCandidates(); i++){
@@ -170,8 +169,8 @@ void MatchingRG::Process(TRecoGigaTrackerEvent *GTKEvent, TRecoSpectrometerCandi
     cout<<user()<<"It is "<<(isBeamParticle?"":"not")<<" beam particle."<<endl;
 
     if(isInTime && isBeamParticle){
-      beamParticlesInTime++;
-      cout<<user()<<"It is in-time beam particle. "<<"Currently "<<beamParticlesInTime<<" candidates are in-time beam particles."<<endl;
+      fBeamParticlesInTime++;
+      cout<<user()<<"It is in-time beam particle. "<<"Currently "<<fBeamParticlesInTime<<" candidates are in-time beam particles."<<endl;
 
       cout<<user()<<"Find best GTK. "<<"track time (ktag) "<<trackTime1<<" track time (rich) "<<trackTime2<<endl;
       FindBestGTK(GTKCand, StrawCand, trackTime1, trackTime2, i, fill, s); //fill output vectors according to largest discriminant (D1)
@@ -182,9 +181,10 @@ void MatchingRG::Process(TRecoGigaTrackerEvent *GTKEvent, TRecoSpectrometerCandi
     cout<<"All matched GTK candidates:"<<endl;
     for(unsigned int k=0; k<fGTKID.size(); k++){
       cout<<"----------------------------------------"<<endl;
-      cout<<"ID: "<<fGTKID.at(k)<<endl;;
-      cout<<"Time: "<<fGTKTime.at(k)<<endl;;
+      cout<<"ID: "<<fGTKID.at(k)<<endl;
+      cout<<"Time: "<<fGTKTime.at(k)<<endl;
       cout<<"Vertex: "<<fVertex.at(k).X()<<" "<<fVertex.at(k).Y()<<" "<<fVertex.at(k).Z()<<endl;
+      cout<<"DistAtVertex: "<<fDistAtVertex.at(k)<<endl;
       cout<<"TrackMomentum: "<<fTrackMomentum.at(k).X()<<" "<<fTrackMomentum.at(k).Y()<<" "<<fTrackMomentum.at(k).Z()<<endl;
       cout<<"GTKMomentum: "<<fGTKMomentum.at(k).X()<<" "<<fGTKMomentum.at(k).Y()<<" "<<fGTKMomentum.at(k).Z()<<endl;
       cout<<"TrackPosition: "<<fTrackPosition.at(k).X()<<" "<<fTrackPosition.at(k).Y()<<" "<<fTrackPosition.at(k).Z()<<endl;
@@ -195,10 +195,10 @@ void MatchingRG::Process(TRecoGigaTrackerEvent *GTKEvent, TRecoSpectrometerCandi
       cout<<"MatchingParts1: "<<fMatchingParts1.at(k).first<<" "<<fMatchingParts1.at(k).second<<endl;
       cout<<"MatchingParts2: "<<fMatchingParts2.at(k).first<<" "<<fMatchingParts2.at(k).second<<endl;
       cout<<"MatchingPartsP: "<<fMatchingPartsP.at(k).first<<" "<<fMatchingPartsP.at(k).second<<endl;
+      cout<<"BeamParticlesInTime: "<<fBeamParticlesInTime<<endl;
     };
     cout<<endl;
   };
-
   cout<<user()<<"More similar candidates?"<<endl;
   int NCloseDiscr = count_if(fMatchingQuality1.begin(), fMatchingQuality1.end(), [&](double i){return ((i>0.) && (fMatchingQuality1.at(0)-i)<fDeltaD1);});
   if(fill){
@@ -207,16 +207,17 @@ void MatchingRG::Process(TRecoGigaTrackerEvent *GTKEvent, TRecoSpectrometerCandi
     };
     if(fMatchingQuality1.size()>2){
       FillHisto(s+"hDiffD1BestTwo", fabs(fMatchingQuality1.at(1)-fMatchingQuality1.at(0)));
-      FillHisto(s+"hNBeamParticlesInTime_vs_DiffD1BestTwo", fabs(fMatchingQuality1.at(1)-fMatchingQuality1.at(0)), beamParticlesInTime);
+      FillHisto(s+"hNBeamParticlesInTime_vs_DiffD1BestTwo", fabs(fMatchingQuality1.at(1)-fMatchingQuality1.at(0)), fBeamParticlesInTime);
     };
   };
   cout<<user()<<"Number of candidates with deltaD<"<<fDeltaD1<<": "<<NCloseDiscr<<endl;
-  cout<<user()<<"Number of in-time beam particles "<<beamParticlesInTime<<" > 2"<<endl;
-  if((beamParticlesInTime>2) && (NCloseDiscr>1)){
+  cout<<user()<<"Number of in-time beam particles "<<fBeamParticlesInTime<<" > 2"<<endl;
+  if((fBeamParticlesInTime>2) && (NCloseDiscr>1)){
     cout<<user()<<"More similar candidates."<<endl;
+    cout<<user()<<"Pileup treatment: "<<endl;
     std::vector<int> PU;
     std::vector<double> QualityPU;
-    FindBestPU(fGTKID, fMatchingQualityP, NCloseDiscr, PU, QualityPU);
+    FindBestPU(fGTKID,fMatchingQualityP, NCloseDiscr, PU, QualityPU);
     cout<<user()<<"Best PU "<<PU.at(0)<<"=  Best GTK "<<fGTKID.at(0)<<endl;
     cout<<user()<<"Are similar? "<<endl;
     if((PU.at(0)!=fGTKID.at(0)) || AreSimilar(0, std::distance(fGTKID.begin(), std::find(fGTKID.begin(), fGTKID.end(), PU.at(1))), fill, s)){
@@ -227,14 +228,17 @@ void MatchingRG::Process(TRecoGigaTrackerEvent *GTKEvent, TRecoSpectrometerCandi
   }else{
     cout<<user()<<"Only one best candidate."<<endl;
   };
+  EraseDefaultOutputs();
+}
 
+void MatchingRG::FinalSelection(double trackTime1, double trackTime2, bool fill, TString s){
   //if the conditions are not met, leave only the default values
   double D1 = fMatchingQuality1.at(0);
   double D2 = fMatchingQuality2.at(0);
-  cout<<user()<<"Number of in-time candidate: "<<beamParticlesInTime<<" <= "<<fMaxNInTimeWithKTAG<<endl;;
+  cout<<user()<<"Number of in-time candidate: "<<fBeamParticlesInTime<<" <= "<<fMaxNInTimeWithKTAG<<endl;;
   cout<<user()<<"At least one large discriminant? D1: "<<D1<<" > "<<fMinD<<" D2: "<<D2<<" > "<<fMinD<<endl;
   cout<<user()<<"Discriminants large enough? D1: "<<D1<<" > "<<fMinD1<<" D2: "<<D2<<" > "<<fMinD2<<endl;
-  if(beamParticlesInTime>fMaxNInTimeWithKTAG || !((D1>fMinD || D2>fMinD) && (D1>fMinD1) && (D2>fMinD2))){
+  if(fBeamParticlesInTime>fMaxNInTimeWithKTAG || !((D1>fMinD || D2>fMinD) && (D1>fMinD1) && (D2>fMinD2))){
     cout<<user()<<"Too many beam particles GTK candidates in time with KTAG or Too small discriminant(s)"<<endl;
     cout<<user()<<"No match found"<<endl;
     RestoreDefaultOutputs();
@@ -251,9 +255,8 @@ void MatchingRG::Process(TRecoGigaTrackerEvent *GTKEvent, TRecoSpectrometerCandi
       FillHisto(s+"hDeltaY_best_vs_DeltaX_best", (fGTKPosition.at(0) - fTrackPosition.at(0)).X(), (fGTKPosition.at(0) - fTrackPosition.at(0)).Y());
       FillHisto(s+"hTrackGTKDistAtVertexVsTimeDiffMatchedGTKRICH_aftFinalCuts", fGTKTime.at(0) - trackTime2, (fGTKPosition.at(0) - fTrackPosition.at(0)).Mag());
       FillHisto(s+"hTrackGTKDistAtVertexVsTimeDiffMatchedGTKKTAG_aftFinalCuts", fGTKTime.at(0) - trackTime1, (fGTKPosition.at(0) - fTrackPosition.at(0)).Mag());
-      FillHisto(s+"hNBeamParticlesInTime", beamParticlesInTime);
+      FillHisto(s+"hNBeamParticlesInTime", fBeamParticlesInTime);
     };
-    EraseDefaultOutputs();
   }else{
     if(fill) FillHisto(s+"hGTKMatched", 0);
   };
@@ -261,9 +264,10 @@ void MatchingRG::Process(TRecoGigaTrackerEvent *GTKEvent, TRecoSpectrometerCandi
   if(TestLevel(Verbosity::kUser)){
     for(unsigned int k=0; k<fGTKID.size(); k++){
       cout<<"----------------------------------------"<<endl;
-      cout<<"ID: "<<fGTKID.at(k)<<endl;;
-      cout<<"Time: "<<fGTKTime.at(k)<<endl;;
+      cout<<"ID: "<<fGTKID.at(k)<<endl;
+      cout<<"Time: "<<fGTKTime.at(k)<<endl;
       cout<<"Vertex: "<<fVertex.at(k).X()<<" "<<fVertex.at(k).Y()<<" "<<fVertex.at(k).Z()<<endl;
+      cout<<"DistAtVertex: "<<fDistAtVertex.at(k)<<endl;
       cout<<"TrackMomentum: "<<fTrackMomentum.at(k).X()<<" "<<fTrackMomentum.at(k).Y()<<" "<<fTrackMomentum.at(k).Z()<<endl;
       cout<<"GTKMomentum: "<<fGTKMomentum.at(k).X()<<" "<<fGTKMomentum.at(k).Y()<<" "<<fGTKMomentum.at(k).Z()<<endl;
       cout<<"TrackPosition: "<<fTrackPosition.at(k).X()<<" "<<fTrackPosition.at(k).Y()<<" "<<fTrackPosition.at(k).Z()<<endl;
@@ -274,6 +278,7 @@ void MatchingRG::Process(TRecoGigaTrackerEvent *GTKEvent, TRecoSpectrometerCandi
       cout<<"MatchingParts1: "<<fMatchingParts1.at(k).first<<" "<<fMatchingParts1.at(k).second<<endl;
       cout<<"MatchingParts2: "<<fMatchingParts2.at(k).first<<" "<<fMatchingParts2.at(k).second<<endl;
       cout<<"MatchingPartsP: "<<fMatchingPartsP.at(k).first<<" "<<fMatchingPartsP.at(k).second<<endl;
+      cout<<"BeamParticlesInTime: "<<fBeamParticlesInTime<<endl;
       cout<<"----------------------------------------"<<endl;
     };
   };
@@ -285,25 +290,6 @@ MatchingRG::~MatchingRG(){
   delete fDT2;
   delete fCDA_p;
   delete fDT_p;
-}
-
-TVector3 MatchingRG::GetVertex(TVector3 trackMom, TVector3 trackPos, TVector3 kaonMom, TVector3 kaonPos){
-  fTwoLinesCDA.SetLine1PointDir(trackPos, trackMom);
-  fTwoLinesCDA.SetLine2PointDir(kaonPos, kaonMom);
-  fTwoLinesCDA.ComputeVertexCDA();
-  return fTwoLinesCDA.GetVertex();
-}
-
-void MatchingRG::ApplyBlueTube(int charge, TVector3 oldPos, TVector3 oldMom, double finalZ, TVector3 *newPos, TVector3 *newMom){
-  ftracker->SetCharge(charge);
-  ftracker->SetInitialPosition(oldPos);
-  ftracker->SetInitialMomentum(oldMom);
-  ftracker->SetZFinal(finalZ);
-  ftracker->TrackParticle();
-  TVector3 mom = ftracker->GetFinalMomentum();
-  TVector3 pos = ftracker->GetFinalPosition();
-  newPos->SetXYZ(pos.X(), pos.Y(), pos.Z());
-  newMom->SetXYZ(mom.X(), mom.Y(), mom.Z());
 }
 
 bool MatchingRG::IsBeamParticle(TRecoGigaTrackerCandidate *GTKCand, bool fill, TString s){
@@ -333,8 +319,6 @@ bool MatchingRG::IsBeamParticle(TRecoGigaTrackerCandidate *GTKCand, bool fill, T
 }
 
 void MatchingRG::FindBestGTK(TRecoGigaTrackerCandidate* GTKCand, TRecoSpectrometerCandidate* STRAWCand, double time1, double time2, int i, bool fill, TString s){
-  double GTK3Z = GeometricAcceptance::GetInstance()->GetZGTK3();
-  double STRAW0Z_front = 183311.;
 
   //GTK candidate - original position and momentum
   TVector3 GTK;
@@ -355,33 +339,13 @@ void MatchingRG::FindBestGTK(TRecoGigaTrackerCandidate* GTKCand, TRecoSpectromet
     cout<<"GTK position before magnet: "<<newPosGTK.X()<<" "<<newPosGTK.Y()<<" "<<newPosGTK.Z()<<endl;
   };
 
-  //apply BT field iteratively until they are 5m apart
-  int count = 0;
   TVector3 simpleVert;
+  double cda = 10000.;
   cout<<user()<<"Find vertex position"<<endl;
-  while(fabs(newPosGTK.Z() - newPosTrack.Z())>5000.){
-    simpleVert = GetVertex(Track, newPosTrack, GTK, newPosGTK);
-    if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)){
-      cout<<user()<<"found vertex position Z = "<<simpleVert.Z()<<endl;
-      cout<<user()<<"vertex Z is out of bounds"<<endl;
-      return;
-    };
-    ApplyBlueTube(1, newPosGTK, GTK, (simpleVert.Z() - newPosGTK.Z())/2. + newPosGTK.Z(), &newPosGTK, &GTK);
-    ApplyBlueTube(STRAWCand->GetCharge(), newPosTrack, Track, newPosTrack.Z() - (-simpleVert.Z() + newPosTrack.Z())/2., &newPosTrack, &Track);
-    count++;
-    if(count>50) break;
-  };
-  simpleVert = GetVertex(Track, newPosTrack, GTK, newPosGTK);
-  cout<<user()<<"vertex "<<simpleVert.X()<<" "<<simpleVert.Y()<<" "<<simpleVert.Z()<<endl;
-  cout<<user()<<"Is good vertex Z? "<<GTK3Z<<" <= "<<simpleVert.Z()<<" <= "<<STRAW0Z_front<<endl;
+  simpleVert = GetRadoVertex(STRAWCand->GetCharge(), Track, newPosTrack, 1, GTK, newPosGTK, &GTK, &newPosGTK, &Track, &newPosTrack, cda);
   if(fill) FillHisto(s+"hVertexZ", simpleVert.Z());
-  if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)) return;
-  cout<<user()<<"Apply Blue Tube"<<endl;
-  ApplyBlueTube(1, GTKCand->GetPosition(2), GTKCand->GetMomentum(), simpleVert.Z(), &newPosGTK, &GTK);
-  ApplyBlueTube(STRAWCand->GetCharge(), STRAWCand->GetPositionBeforeMagnet(), STRAWCand->GetThreeMomentumBeforeMagnet(), simpleVert.Z(), &newPosTrack, &Track);
   double deltaT1 = time1 - GTKCand->GetTime();
   double deltaT2 = time2 - GTKCand->GetTime();
-  double cda = sqrt(pow(newPosTrack.X() - newPosGTK.X(), 2) + pow(newPosTrack.Y() - newPosGTK.Y(), 2));
   if(fill){
     FillHisto(s+"hDeltaT1", deltaT1);
     FillHisto(s+"hDeltaT2", deltaT2);
@@ -425,7 +389,7 @@ void MatchingRG::FindBestGTK(TRecoGigaTrackerCandidate* GTKCand, TRecoSpectromet
     FillHisto(s+"hD2_vs_D1", D1, D2);
     FillHisto(s+"hD1_vs_Dp", Dp, D1);
     FillHisto(s+"hD2_vs_Dp", Dp, D2);
- };
+  };
   if(TestLevel(Verbosity::kUser)){
     cout<<"track momentum at vertex: "<<Track.X()<<" "<<Track.Y()<<" "<<Track.Z()<<endl;
     cout<<"GTK momentum at vertex: "<<GTK.X()<<" "<<GTK.Y()<<" "<<GTK.Z()<<endl;
@@ -453,6 +417,7 @@ void MatchingRG::FindBestGTK(TRecoGigaTrackerCandidate* GTKCand, TRecoSpectromet
       fGTKID.insert(fGTKID.begin() + j, i);
       fGTKTime.insert(fGTKTime.begin() + j, GTKCand->GetTime());
       fVertex.insert(fVertex.begin() + j, simpleVert);
+      fDistAtVertex.insert(fDistAtVertex.begin()+j, cda);
       fTrackMomentum.insert(fTrackMomentum.begin() + j, Track);
       fGTKMomentum.insert(fGTKMomentum.begin() + j, GTK);
       fMatchingParts1.insert(fMatchingParts1.begin() + j, std::pair<double, double>((1.-pCDA), (1.-pDT1)));
@@ -469,72 +434,6 @@ void MatchingRG::FindBestGTK(TRecoGigaTrackerCandidate* GTKCand, TRecoSpectromet
   };
 }
 
-std::vector<int> MatchingRG::GetMatchedGTKIDs(){
-  return fGTKID;
-}
-
-std::vector<double> MatchingRG::GetGTKTimes(){
-  return fGTKTime;
-}
-
-std::vector<TVector3> MatchingRG::GetVertices(){
-  return fVertex;
-}
-
-std::vector<TVector3> MatchingRG::GetTrackMomentaAtVertices(){
-  return fTrackMomentum;
-}
-
-std::vector<TVector3> MatchingRG::GetGTKMomentaAtVertices(){
-  return fGTKMomentum;
-}
-
-std::vector<double> MatchingRG::GetMatchingQuality1(){
-  return fMatchingQuality1;
-}
-
-std::vector<double> MatchingRG::GetMatchingQuality2(){
-  return fMatchingQuality2;
-}
-
-std::vector<double> MatchingRG::GetMatchingQualityP(){
-  return fMatchingQualityP;
-}
-
-std::vector<std::pair<double, double>> MatchingRG::GetMatchingParts1(){
-  return fMatchingParts1;
-}
-
-std::vector<std::pair<double, double>> MatchingRG::GetMatchingParts2(){
-  return fMatchingParts2;
-}
-
-std::vector<std::pair<double, double>> MatchingRG::GetMatchingPartsP(){
-  return fMatchingPartsP;
-}
-
-std::vector<TVector3> MatchingRG::GetTrackPositionsAtVertices(){
-  return fTrackPosition;
-}
-
-std::vector<TVector3> MatchingRG::GetGTKPositionsAtVertices(){
-  return fGTKPosition;
-}
-
-TVector3 MatchingRG::MomAfterKick(TVector3 oldMom, double kick){
-  TVector3 mom = oldMom;
-  TVector2 pTvec(mom.X(), mom.Z());
-  double pT = pTvec.Mod();
-  double pxNew = mom.X() - kick;
-  double beta = acos(mom.X()/pT);
-  double theta = acos(pxNew/pT);
-  double alpha = theta - beta;
-  mom.RotateY(-alpha);
-  TVector3 newMom = mom;
-
-  return newMom;
-}
-
 void MatchingRG::SetMinD1(double D){
   fMinD1 = D;
 }
@@ -548,9 +447,11 @@ void MatchingRG::SetMinD(double D){
 }
 
 void MatchingRG::EraseDefaultOutputs(){
+  if(fGTKID.size()>1){
     fGTKID.erase(fGTKID.end()-1);
     fGTKTime.erase(fGTKTime.end()-1);
     fVertex.erase(fVertex.end()-1);
+    fDistAtVertex.erase(fDistAtVertex.end()-1);
     fTrackMomentum.erase(fTrackMomentum.end()-1);
     fGTKMomentum.erase(fGTKMomentum.end()-1);
     fMatchingQuality1.erase(fMatchingQuality1.end()-1);
@@ -561,28 +462,18 @@ void MatchingRG::EraseDefaultOutputs(){
     fMatchingPartsP.erase(fMatchingPartsP.end()-1);
     fTrackPosition.erase(fTrackPosition.end()-1);
     fGTKPosition.erase(fGTKPosition.end()-1);
+  };
 }
 
 void MatchingRG::RestoreDefaultOutputs(){
-    fGTKID.erase(fGTKID.begin(), fGTKID.end()-1);
-    fGTKTime.erase(fGTKTime.begin(), fGTKTime.end()-1);
-    fVertex.erase(fVertex.begin(), fVertex.end()-1);
-    fTrackMomentum.erase(fTrackMomentum.begin(), fTrackMomentum.end() - 1);
-    fGTKMomentum.erase(fGTKMomentum.begin(), fGTKMomentum.end() - 1);
-    fMatchingQuality1.erase(fMatchingQuality1.begin(), fMatchingQuality1.end() - 1);
-    fMatchingQuality2.erase(fMatchingQuality2.begin(), fMatchingQuality2.end() - 1);
-    fMatchingQualityP.erase(fMatchingQualityP.begin(), fMatchingQualityP.end() - 1);
-    fMatchingParts1.erase(fMatchingParts1.begin(), fMatchingParts1.end() - 1);
-    fMatchingParts2.erase(fMatchingParts2.begin(), fMatchingParts2.end() - 1);
-    fMatchingPartsP.erase(fMatchingPartsP.begin(), fMatchingPartsP.end() - 1);
-    fTrackPosition.erase(fTrackPosition.begin(), fTrackPosition.end() - 1);
-    fGTKPosition.erase(fGTKPosition.begin(), fGTKPosition.end() - 1);
+  PrepareDefaultOutputs();
 }
 
 void MatchingRG::PrepareDefaultOutputs(){
   fGTKID.clear();
   fGTKTime.clear();
   fVertex.clear();
+  fDistAtVertex.clear();
   fTrackMomentum.clear();
   fGTKMomentum.clear();
   fMatchingQuality1.clear();
@@ -596,6 +487,7 @@ void MatchingRG::PrepareDefaultOutputs(){
   int gtkid = -1;
   double gtktime = -999999.;
   TVector3 vertex(0., 0., 0.);
+  double distatvertex = 10000.;
   TVector3 trackmomentum(0., 0., 0.);
   TVector3 gtkmomentum(0., 0., 0.);
   TVector3 trackposition(0., 0., 0.);
@@ -605,6 +497,7 @@ void MatchingRG::PrepareDefaultOutputs(){
   fGTKID.push_back(gtkid);
   fGTKTime.push_back(gtktime);
   fVertex.push_back(vertex);
+  fDistAtVertex.push_back(distatvertex);
   fTrackMomentum.push_back(trackmomentum);
   fGTKMomentum.push_back(gtkmomentum);
   fTrackPosition.push_back(trackposition);
@@ -615,6 +508,7 @@ void MatchingRG::PrepareDefaultOutputs(){
   fMatchingParts1.push_back(p);
   fMatchingParts2.push_back(p);
   fMatchingPartsP.push_back(p);
+  fBeamParticlesInTime = -1;
 }
 
 void MatchingRG::FindBestPU(std::vector<int> GTKID, std::vector<double> MatchingQuality_p, int NCloseDiscr, std::vector<int> &PU, std::vector<double> &QualityPU){

@@ -58,7 +58,6 @@ void ConfigSettings::ParseFile(TString const& fileName) {
 		ns.SetValue("svcclass",                  global::fSvcClass);
 		ns.SetValue("memoryreporteventinterval", global::fMemoryReportEventInterval);
 		ns.SetValue("memoryreporttimeinterval",  global::fMemoryReportTimeInterval);
-		ns.SetValue("metadatapath",              global::fMetadataPath);
 		ns.SetValue("defaultautoupdaterate",     global::fDefaultAutoUpdateRate);
 		ns.SetValue("datetimeformat",            global::fDateTimeFormat);
 		ns.SetValue("outputprefixformat",        global::fOutputPrefixFormat);
@@ -92,7 +91,6 @@ void ConfigSettings::ParseEnv(TString const& prefix) {
 		ns.SetValue("svcclass",                  global::fSvcClass);
 		ns.SetValue("memoryreporteventinterval", global::fMemoryReportEventInterval);
 		ns.SetValue("memoryreporttimeinterval",  global::fMemoryReportTimeInterval);
-		ns.SetValue("metadatapath",              global::fMetadataPath);
 		ns.SetValue("defaultautoupdaterate",     global::fDefaultAutoUpdateRate);
 		ns.SetValue("datetimeformat",            global::fDateTimeFormat);
 		ns.SetValue("outputprefixformat",        global::fOutputPrefixFormat);
@@ -351,7 +349,6 @@ int         ConfigSettings::global::fAutoFlushValue = -10000;
 
 // Path/Names configuration
 std::string ConfigSettings::global::fSvcClass         = "na62";
-std::string ConfigSettings::global::fMetadataPath     = "/afs/cern.ch/na62/offline/metadata/";
 
 // The following members can be set only through command line
 // Processing control

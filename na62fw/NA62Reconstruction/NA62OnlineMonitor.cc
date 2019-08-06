@@ -88,7 +88,7 @@ SACOnlineMonitor * SACOM = 0;
 SAVOnlineMonitor * SAVOM = 0;
 SpectrometerOnlineMonitor * SpectrometerOM = 0;
 
-Timer OMTimer(true);
+NA62Timer OMTimer(true);
 
 void usage(char* name){
   std::cout << "Usage: "<< name << " [-h] [-B #MaxFiles] [-i InputFile.dat/.root] [-l InputListFile.txt] [-n #MaxEvents] [-o OutputFile.root] [-s seed] [-c ConfigFileName.conf] [-j #JumpFirstNEvents] [-N #MaxEventsPerBurst] [-C ConditionsDirectoryPath] [-e #ExitLevel] [-m]"

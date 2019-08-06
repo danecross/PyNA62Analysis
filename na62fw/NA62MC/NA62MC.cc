@@ -27,7 +27,7 @@
 // History:
 // Updated by Simone Schuchmann 2019-04-01
 // When compiling with Geant4 visualization enabled, the Qt viewer is
-// executed. Use StandardVisRun.mac as input macro which calls vis.mac 
+// executed. Use StandardVisRun.mac as input macro which calls vis.mac
 // in NA62MC/macros to start visualiztion. Depending on sub-det, start-
 // up time can be quite long. To be improved! See also /vis commands
 // http://geant4-userdoc.web.cern.ch/geant4-userdoc/UsersGuides/
@@ -59,11 +59,12 @@
 #include "DatacardManager.hh"
 #include "NA62Global.hh"
 #include "NA62ConditionsService.hh"
+#include "NA62Timer.hh"
 #include <signal.h>
 
 void sighandler(int sig){
   G4cerr << G4endl << "********************************************************************************" << G4endl;
-  G4cerr << "Killed with Signal " << sig << G4endl << "Closing ROOT files ..." << G4endl; 
+  G4cerr << "Killed with Signal " << sig << G4endl << "Closing ROOT files ..." << G4endl;
   G4RunManager::GetRunManager()->AbortRun();
   RootIOManager::GetInstance()->EndRun(0);
   RootIOManager::GetInstance()->Close();
@@ -75,6 +76,15 @@ void sighandler(int sig){
 }
 
 int main(int argc, char** argv) {
+
+  NA62Timer timer(true);
+  unsigned int mcDetConstrTimer = timer.AddTimer("Detector Constr.",1);
+  unsigned int mcPrimActTimer = timer.AddTimer("Total PrimGenAction",1);
+  unsigned int mcEvtActTimer = timer.AddTimer("Total EventAction",1);
+  unsigned int mcTimer = timer.AddTimer("Total",0);
+
+  timer.StartTimer(mcTimer);
+
   G4cout << "[" << TimeString() <<"] NA62MC started" << G4endl;
   if (argc<2) {
     G4cout <<"Usage: NA62MC <macro name> [runNumber] [randomSeed]" << G4endl;
@@ -105,7 +115,7 @@ int main(int argc, char** argv) {
   signal(SIGINT,sighandler);
   signal(SIGTERM,sighandler);
   signal(127,sighandler);
-  
+
   // choose the Random engine
   CLHEP::HepRandom::setTheEngine(new CLHEP::RanecuEngine());
 
@@ -115,13 +125,15 @@ int main(int argc, char** argv) {
   // Construct the default run manager
   G4RunManager* runManager = new G4RunManager;
 
-  // Set inputs from datacard (macro file) 
+  // Set inputs from datacard (macro file)
   DatacardManager::GetInstance()->SetMessenger();
   DatacardManager::GetInstance()->SetRunNumber(RunNumber);
 
   // set mandatory initialization classes
+  timer.StartTimer(mcDetConstrTimer);
   DetectorConstruction* detector = new DetectorConstruction;
   runManager->SetUserInitialization(detector);
+  timer.StopTimer(mcDetConstrTimer);
 
   // Standard physics list
   runManager->SetUserInitialization(new PhysicsList);
@@ -129,8 +141,11 @@ int main(int argc, char** argv) {
   // set mandatory user action class
   runManager->SetUserAction(new RunAction);
   EventAction* EvAct = new EventAction(SeedNum);
+  EvAct->InitTimer(&timer,mcEvtActTimer);
 
-  runManager->SetUserAction(new PrimaryGeneratorAction(detector, *EvAct));
+  PrimaryGeneratorAction* PrimAct = new PrimaryGeneratorAction(detector, *EvAct);
+  PrimAct->InitTimer(&timer,mcPrimActTimer);
+  runManager->SetUserAction(PrimAct);
   runManager->SetUserAction(EvAct);
 
   // set MCTruth user action classes (one and only one active)
@@ -157,9 +172,10 @@ int main(int argc, char** argv) {
 #endif
 
   // Define UI session for batch and interactive mode.
-  G4UImanager* UI = G4UImanager::GetUIpointer();  
+  G4UImanager* UI = G4UImanager::GetUIpointer();
   G4String command = "/control/execute ";
   G4String fileName = macroname;
+
   UI->ApplyCommand(command+fileName);
 
 #ifdef G4VIS_USE
@@ -173,5 +189,9 @@ int main(int argc, char** argv) {
   RootIOManager::GetInstance()->Close();
   delete runManager;
   G4cout << "[" << TimeString() <<"] NA62MC finished" << G4endl;
+  timer.StopTimer(mcTimer);
+
+  timer.PrintTimers(cout);
+
   return 0;
 }

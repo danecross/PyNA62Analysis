@@ -1,6 +1,7 @@
 // ---------------------------------------------------------------
 // History:
 //
+// Handling of CTRL trigger events added by Chris Parkinson, 2019-07-16
 // Handling of +ve and -ve halo particles added by Chris Parkinson, 2019-07-16
 // Created by Chris Parkinson (chris.parkinson@cern.ch) 2019-02-19
 // ---------------------------------------------------------------

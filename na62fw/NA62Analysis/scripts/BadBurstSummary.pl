@@ -68,7 +68,7 @@ if (!defined $last_run) {
 
 # List of input files to consider
 $badburstdir = "/cvmfs/na62.cern.ch/offline/CDB/$revision";
-if($revision=~/^r./* or $revision=~/^t.*/){
+if ($revision=~/^r.*/ or $revision=~/^t.*/) {
   $badburstdir = "/afs/cern.ch/work/n/na62prod/public/CDB/*-$revision";
 }
 @files = qx{ls $badburstdir | awk '(\$1>=$first_run && \$1<=$last_run){print "$badburstdir/"\$0"/BadBursts.run"\$1"_0000-run"\$1"_9999.dat"}'};

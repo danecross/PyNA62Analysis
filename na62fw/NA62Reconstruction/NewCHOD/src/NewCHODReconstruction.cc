@@ -269,7 +269,7 @@ TRecoVEvent* NewCHODReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event*
       Double_t Time1NoT0 = GetRecoTimeNoT0(Digi1, 1); // low-number channel
       Double_t Time2NoT0 = GetRecoTimeNoT0(Digi2, 1); // high-number channel
       Double_t TimeNoT0  = 0.5*(Time1NoT0+Time2NoT0);
-      
+
       TRecoNewCHODHit *RecoHit = static_cast<TRecoNewCHODHit*>(fRecoEvent->AddHit(Digi1));
       RecoHit->SetChannelID(Digi1->GetTileID()); // this is tile ID
       RecoHit->DecodeChannelID();

@@ -125,7 +125,6 @@ void KinematicTails::InitHist(){
     ReconfigureAnalyzer("CheckTrigger", "WhichTrigger", fWhichTrigger);
     ReconfigureAnalyzer("CheckTrigger", "Verbose", GetVerbosityLevel());
     ReconfigureAnalyzer("Preselection", "Verbose", GetVerbosityLevel());
-    ReconfigureAnalyzer("FakeTrackSelection", "Verbose", GetVerbosityLevel());
     ReconfigureAnalyzer("BestTrackSelection", "Verbose", GetVerbosityLevel());
     ReconfigureAnalyzer("SingleTrackEventSelection", "Verbose", GetVerbosityLevel());
     ReconfigureAnalyzer("Kmu2", "Verbose", GetVerbosityLevel());

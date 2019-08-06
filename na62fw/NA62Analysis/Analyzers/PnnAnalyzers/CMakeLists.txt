@@ -9,7 +9,6 @@ set(CLASSES
 	    BestTrackSelection
 	    CheckTrigger
 	    EventCleaning
-	    FakeTrackSelection
 	    K2pi
 	    KaonDecaySelection
 	    KinematicTails

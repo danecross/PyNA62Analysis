@@ -30,8 +30,6 @@ public:
 
 private:
 
-  TString  fFieldMapName; ///< Name of the text file containing the field map
-
   Int_t    fNPointsX, fNPointsY, fNPointsZ;
   Double_t fZmin, fZmax, fXmin, fXmax, fYmin, fYmax;
   Double_t fZref;

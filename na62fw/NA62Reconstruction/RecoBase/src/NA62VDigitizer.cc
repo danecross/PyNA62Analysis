@@ -19,3 +19,9 @@ NA62VDigitizer::~NA62VDigitizer(){
     fRandom = nullptr;
   }
 }
+
+void NA62VDigitizer::StartOfBurst() {
+}
+
+void NA62VDigitizer::EndOfBurst() {
+}

@@ -8,26 +8,26 @@
 
 
 
-class MUV2Digitizer : public NA62VDigitizer
-{
+class MUV2Digitizer : public NA62VDigitizer {
 
-public:
+  public:
 
-	explicit MUV2Digitizer(NA62VReconstruction*);
-	virtual ~MUV2Digitizer();
-	virtual TDetectorVEvent * ProcessEvent(TDetectorVEvent *);
+    explicit MUV2Digitizer(NA62VReconstruction*);
+    virtual ~MUV2Digitizer();
+    virtual TDetectorVEvent * ProcessEvent(TDetectorVEvent *);
+    virtual void StartOfBurst();
+    virtual void EndOfBurst();
 
-	Double_t BirksCorrection(Double_t Energy, Double_t StepLength,
-							 Double_t BirksConstant);
+    Double_t BirksCorrection(Double_t Energy, Double_t StepLength,
+        Double_t BirksConstant);
 
-public:
-	Double_t AnalogSignal(Double_t T, Double_t Center, Double_t Sigma);
+    Double_t AnalogSignal(Double_t T, Double_t Center, Double_t Sigma);
 
-private:
-	Double_t fInvSamplingFraction;
-	Int_t fBirksEnable;
-	TObjArray fHitsOnChannel[4][22];
-	TMUV2Hit *fHit;
+  private:
+    Double_t fInvSamplingFraction;
+    Int_t fBirksEnable;
+    TObjArray fHitsOnChannel[4][22];
+    TMUV2Hit *fHit;
 
 };
 

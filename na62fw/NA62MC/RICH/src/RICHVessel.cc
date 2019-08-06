@@ -130,33 +130,18 @@ void RICHVessel::ReadGeometryParameters()
 
     if(iSection==0){
       VesselUpFl[iSection] = new G4UnionSolid("VesselUpFl",
-                                             new G4DisplacedSolid("DisplacedVessel",
-                                                                  fSolidVolume,
-                                                                  0,
-//                                                                  G4ThreeVector(0,0,fZPosition)
-                                                                  G4ThreeVector(0,0,0)
-                                                                 ),
-                                             new G4DisplacedSolid("DisplacedUpstreamFlange",
-                                                                  fSolidUpstreamFlange[iSection],
-                                                                  0,
-//                                                                  G4ThreeVector(0,0,fUpstreamFlangeZPosition[iSection])
-                                                                  G4ThreeVector(0,0,fUpstreamFlangeZPosition[iSection]-fZPosition)
-                                                                 )
-                                            );
+					      fSolidVolume,
+					      fSolidUpstreamFlange[iSection],
+					      0,
+					      G4ThreeVector(0,0,fUpstreamFlangeZPosition[iSection]-fZPosition)
+					      );
     }else{
       VesselUpFl[iSection] = new G4UnionSolid("VesselUpFl",
-                                             new G4DisplacedSolid("DisplacedVesselUpFlange",
-                                                                  VesselUpFl[iSection-1],
-                                                                  0,
-                                                                  G4ThreeVector(0,0,0)
-                                                                 ),
-                                             new G4DisplacedSolid("DisplacedUpstreamFlange",
-                                                                  fSolidUpstreamFlange[iSection],
-                                                                  0,
-//                                                                  G4ThreeVector(0,0,fUpstreamFlangeZPosition[iSection])
-                                                                  G4ThreeVector(0,0,fUpstreamFlangeZPosition[iSection]-fZPosition)
-                                                                 )
-                                             );
+					      VesselUpFl[iSection-1],
+					      fSolidUpstreamFlange[iSection],
+					      0,
+					      G4ThreeVector(0,0,fUpstreamFlangeZPosition[iSection]-fZPosition)
+					      );
    }	 
 
   //G4cout<<" *********** sezione: "<<iSection<<" ***********"<<G4endl;
@@ -184,18 +169,11 @@ void RICHVessel::ReadGeometryParameters()
 
 
          VesselUpPrFl[iSection] = new G4UnionSolid("VesselUpPrFl",
-                                                    new G4DisplacedSolid("DisplacedVesselUpPrFl",
-                                                                        VesselUpPrFl[iSection-1],
-                                                                        0,
-                                                                        G4ThreeVector(0,0,0)
-                                                                        ),
-                                                    new G4DisplacedSolid("DisplacedPressureFlange",
-                                                                        fSolidPressureFlange[iSection],
-                                                                        0,
-//                                                                        G4ThreeVector(0,0,fPressureFlangeZPosition[iSection])
-                                                                        G4ThreeVector(0,0,fPressureFlangeZPosition[iSection]-fZPosition)
-                                                                        )
-                                                    );                                                                          
+						   VesselUpPrFl[iSection-1],
+						   fSolidPressureFlange[iSection],
+						   0,
+						   G4ThreeVector(0,0,fPressureFlangeZPosition[iSection]-fZPosition)
+						   );                                                                          
      }
   }
 
@@ -211,42 +189,34 @@ void RICHVessel::ReadGeometryParameters()
 
     if(iSection==0){
       VesselUpPrDownFl[iSection] = new G4UnionSolid("VesselUpPrDownFl",
-                                             new G4DisplacedSolid("DisplacedVesselUpPrFl",
-                                                                  VesselUpPrFl[3],
-                                                                  0,
-                                                                  G4ThreeVector(0,0,0)
-                                                                 ),
-                                             new G4DisplacedSolid("DisplacedDownstreamFlange",
-                                                                  fSolidDownstreamFlange[iSection],
-                                                                  0,
-//                                                                 G4ThreeVector(0,0,fDownstreamFlangeZPosition[iSection]) 
-                                                                 G4ThreeVector(0,0,fDownstreamFlangeZPosition[iSection]-fZPosition)
-                                                                 )
-                                            );
-
+						    VesselUpPrFl[3],
+						    fSolidDownstreamFlange[iSection],
+						    0,
+						    G4ThreeVector(0,0,fDownstreamFlangeZPosition[iSection]-fZPosition)
+						    );
+      
     }else{
       VesselUpPrDownFl[iSection] = new G4UnionSolid("VesselUpPrDownFl",
-                                             new G4DisplacedSolid("DisplacedVesselUpPrDownFl",
-                                                                  VesselUpPrDownFl[iSection-1],
-                                                                  0,
-                                                                  G4ThreeVector(0,0,0)
-                                                                 ),
-                                             new G4DisplacedSolid("DisplacedDownstreamFlange",
-                                                                  fSolidDownstreamFlange[iSection],
-                                                                  0,
-//                                                                  G4ThreeVector(0,0,fDownstreamFlangeZPosition[iSection])
-                                                                  G4ThreeVector(0,0,fDownstreamFlangeZPosition[iSection]-fZPosition)
-                                                                 )
-                                             );                                                                           
+						    VesselUpPrDownFl[iSection-1],
+						    fSolidDownstreamFlange[iSection],
+						    0,
+						    G4ThreeVector(0,0,fDownstreamFlangeZPosition[iSection]-fZPosition)
+						    );                                                                           
    }
-
+    
 
   //G4cout<<" *********** sezione: "<<iSection<<" ***********"<<G4endl;
   //G4cout<<"DownFlInnerRadius: "<<fDownstreamFlangeInnerRadii[iSection]<<"  DownFlOuterRadius: "<<fDownstreamFlangeInnerRadii[iSection] + fDownstreamFlangeThickness[iSection]<<"  DownFlZLength: "<<fDownstreamFlangeZLengths[iSection]<<" DownFlZPosition: "<<fDownstreamFlangeZPosition[iSection]<<G4endl;
 }
 
+  G4VSolid * Vessel = NULL;
+#ifdef G4VIS_USE
+  Vessel = fSolidVolume;
+#else
+  Vessel = VesselUpPrDownFl[3];
+#endif
 
-   fLogicalVolume = new G4LogicalVolume(VesselUpPrDownFl[3],        // solid
+  fLogicalVolume = new G4LogicalVolume(Vessel,        // solid
                                         fMaterial,             // material
                                         "RICHVessel",           // name
                                         0,                    // field manager

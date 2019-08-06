@@ -17,7 +17,7 @@
 //   - Adjusted block position to "as build" parameters
 //   - Define parameters for A6-A8 Aluminum slab
 // 2012-01-30 - Giuseppe Ruggiero
-//   - LAV reponsibitlity region and Z positions changed 
+//   - LAV reponsibitlity region and Z positions changed
 //     according to the 2011-11-02 beatch file
 // 2011-01-24 - Domenico Di Filippo (difilippo@na.infn.it)
 //   - Different sensitive detector names
@@ -34,7 +34,7 @@
 //   - Updated LAV stations positions
 //   - Blocks geometry is now correct
 //   - Added (part of) block support structure
-// 2009-03-02 Emanuele Leonardi (emanuele.leonardi@roma1.infn.it) 
+// 2009-03-02 Emanuele Leonardi (emanuele.leonardi@roma1.infn.it)
 //   - First implementation of LAV geometry
 // Created by Antonino Sergi (Antonino.Sergi@cern.ch) 2008-03-30
 //
@@ -48,23 +48,21 @@
 
 LAVGeometryParameters* LAVGeometryParameters::fInstance = 0;
 
-LAVGeometryParameters::LAVGeometryParameters() : NA62VGeometryParameters(G4String("LAV"))  {
-
+LAVGeometryParameters::LAVGeometryParameters() :
+  NA62VGeometryParameters(G4String("LAV")),
+  // Unused World Parameters for stand-alone configurations
+  fWorldZLength(22.*m),
+  fWorldXLength(10.*m),
+  fWorldYLength(10.*m),
   // Set name of LAV sensitive detector and hit collection
-  fLAVFastSensitiveDetectorName = "/LAVFast";
-  fLAVLeadglassSensitiveDetectorName = "/LAVLeadglass";
-  fLAVGuideSensitiveDetectorName = "/LAVGuide";
-  fLAVCathodeSensitiveDetectorName = "/LAVCathode";
-  fLAVCollectionName = "LAVCollection";
-
+  fLAVFastSensitiveDetectorName     ("/LAVFast"),
+  fLAVLeadglassSensitiveDetectorName("/LAVLeadglass"),
+  fLAVGuideSensitiveDetectorName    ("/LAVGuide"),
+  fLAVCathodeSensitiveDetectorName  ("/LAVCathode"),
+  fLAVCollectionName                ("LAVCollection")
+{
   // Define all the geometrical parameters and build the
   // responsibility region accordingly
-
-  // Unused World Parameters for stand-alone configurations
-  fWorldZLength = 22.*m;
-  fWorldXLength = 10.*m;
-  fWorldYLength = 10.*m;
-
   // All LAV geometrical data are from "as-built" LAV drawings
 
   // LAV Responsibility Regions position of front face
@@ -221,7 +219,7 @@ LAVGeometryParameters::LAVGeometryParameters() : NA62VGeometryParameters(G4Strin
     fBeamPipeZLength[iLAV] = fLAV_RR_ZofBackFace[4] - fLAV_RR_ZofFrontFace[4];
     fBeamPipeZPosition[iLAV] = 0.;
     fBeamPipeInnerRadius[iLAV] = 84.0*mm;
-    fBeamPipeOuterRadius[iLAV] = 85.0*mm;  
+    fBeamPipeOuterRadius[iLAV] = 85.0*mm;
     fBeamPipeFinZLength[iLAV] = 5.0*mm;
     fBeamPipeFinOuterRadius[iLAV] = iLAV < 11 ? 0 : 89.0*mm;
     fBeamPipeFinSpacing[iLAV] = 40.0*mm;

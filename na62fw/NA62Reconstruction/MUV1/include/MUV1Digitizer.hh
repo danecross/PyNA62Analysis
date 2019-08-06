@@ -6,14 +6,15 @@
 #include "TDirectory.h"
 #include "TH1.h"
 
-class MUV1Digitizer : public NA62VDigitizer
-{
+class MUV1Digitizer : public NA62VDigitizer {
 
   public:
 
     explicit MUV1Digitizer(NA62VReconstruction*);
     virtual ~MUV1Digitizer();
     virtual TDetectorVEvent * ProcessEvent(TDetectorVEvent *);
+    virtual void StartOfBurst();
+    virtual void EndOfBurst();
     void UsePhotoelectronParametrization(Int_t Channel, Double_t HitMinTime);
     Double_t BirksCorrection(Double_t Energy, Double_t StepLength,
         Double_t BirksConstant);
@@ -22,7 +23,7 @@ class MUV1Digitizer : public NA62VDigitizer
     Double_t AnalogSignal(Double_t T, Double_t Center, Double_t Sigma);
 
   private:
-	Double_t fInvSamplingFraction;
+    Double_t fInvSamplingFraction;
     Int_t fBirksEnable;
     TObjArray fHitsOnChannel[100];
     //TDirectory *fHistoDir;

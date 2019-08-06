@@ -18,29 +18,25 @@ public:
   explicit RICHDigitizer(NA62VReconstruction*);
   virtual ~RICHDigitizer();
   virtual TDetectorVEvent* ProcessEvent(TDetectorVEvent *);
+  virtual void StartOfBurst();
+  virtual void EndOfBurst();
 
-  Int_t          GetNSCChannels()                    { return fNSCChannels;  }
-  void           SetNSCChannels(Int_t value)         { fNSCChannels = value; }
-
-  Double_t GetQECorrection();
+  Int_t GetNSCChannels()            { return fNSCChannels;  }
+  void  SetNSCChannels(Int_t value) { fNSCChannels = value; }
 
 protected:
-  // Quantum efficiencies
-  Double_t QE                 (Double_t wavelength);
+  Double_t QE(Double_t wavelength); ///< PMT quantum efficiency (QE)
 
 private:
-  Int_t fNROChannels;
-  Int_t fNSCChannels;
-
+  Int_t    fNROChannels;
+  Int_t    fNSCChannels;
   Double_t fChargeThreshold;
   Double_t fTimeWidthSigma;
   Double_t fWidthConstant;
+  Double_t fQEcorrection; ///< Run-dependent correction factor to PMT QE
   TF1 *fTimeResponse;
   TF1 *fLandau;
   TF1 *fPolya;
-
-  Double_t fQECorrection;
-  Bool_t   fFlagQECorrectionSet;
 };
 
 #endif

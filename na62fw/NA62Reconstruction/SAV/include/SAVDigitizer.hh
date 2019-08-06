@@ -7,19 +7,17 @@
 //#include "TSAVHit.hh"
 
 
-class SAVDigitizer : public NA62VDigitizer
-{
+class SAVDigitizer : public NA62VDigitizer {
 
-public:
+  public:
 
-	SAVDigitizer(NA62VReconstruction*);
-	virtual ~SAVDigitizer();
-	virtual TDetectorVEvent * ProcessEvent(TDetectorVEvent *);
+    SAVDigitizer(NA62VReconstruction*);
+    virtual ~SAVDigitizer();
+    virtual TDetectorVEvent * ProcessEvent(TDetectorVEvent *);
+    virtual void StartOfBurst();
+    virtual void EndOfBurst();
 
-	
-
-private:
-	
+  private:
 
 };
 

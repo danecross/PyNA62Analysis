@@ -39,17 +39,17 @@
 
 SACReconstruction::SACReconstruction(TFile* HistoFile, TString ConfigFileName) :
   NA62VReconstruction(HistoFile, "SAC", ConfigFileName) {
-  // Initialize variables and histos
-  //SACGeometry::GetInstance()->GetWhatYouNeed();
-  fRecoEvent = new TRecoSACEvent();
-  fSlimRecoEvent = new TSlimRecoSACEvent();
-  ParseConfFile(ConfigFileName);
-  fDtLeadingMax = 5.;
-  ResetHistograms();
-  for(int ich = 0;ich<4;ich++) {
-    fNHitsBurst [ich] = 0;
+    // Initialize variables and histos
+    //SACGeometry::GetInstance()->GetWhatYouNeed();
+    fRecoEvent = new TRecoSACEvent();
+    fSlimRecoEvent = new TSlimRecoSACEvent();
+    ParseConfFile(ConfigFileName);
+    fDtLeadingMax = 5.;
+    ResetHistograms();
+    for(int ich = 0;ich<4;ich++) {
+      fNHitsBurst [ich] = 0;
+    }
   }
-}
 
 void SACReconstruction::Init(NA62VReconstruction* MainReco) {
 
@@ -107,13 +107,14 @@ void SACReconstruction::StartOfBurst(){
 
 void SACReconstruction::EndOfBurst(){
   NA62VReconstruction::EndOfBurst(); // common part for all the subdetectors
-  for(Int_t iBin=0;iBin<fHRateBurst->GetNbinsX();++iBin){
-    fHRateRun->SetBinContent(
-        fRecoEvent->GetBurstID(),iBin,fHRateBurst->GetBinContent(iBin));
+  if(fHRateBurst && fHRateRun){
+    for(Int_t iBin=0;iBin<fHRateBurst->GetNbinsX();++iBin){
+      fHRateRun->SetBinContent(fRecoEvent->GetBurstID(),iBin,fHRateBurst->GetBinContent(iBin));
+    }
   }
 }
 TRecoVEvent * SACReconstruction::ProcessSOBEvent(TDetectorVEvent* /*tEvent*/, Event* /*tGenEvent*/){
-  
+
   return 0;
 }
 
@@ -133,6 +134,7 @@ TRecoVEvent * SACReconstruction::ProcessEOBEvent(TDetectorVEvent* tEvent, Event*
           if(ChannelID<0) continue; // Masked channel
           UInt_t ich = ChannelID%1000;
           Bool_t IsHighThreshold = ChannelID/1000;
+          if(ich>=4) continue; // Not SAC channel
           //SACcout << "EOB counts: " << ChannelID << " " << NCounts << std::endl;
 #ifdef DEBUG
           SACcout << "\tChannel: " << ich << " NHits: " << fNHitsBurst[ich] << std::endl;
@@ -162,7 +164,7 @@ TRecoVEvent * SACReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* tG
     return 0;
   }
 
-  //common part for all the subdetectors 
+  //common part for all the subdetectors
   NA62VReconstruction::ProcessEvent(tEvent, tGenEvent);
 
   TSACEvent* tSACEvent = static_cast<TSACEvent*>(tEvent);
@@ -191,12 +193,12 @@ TRecoVEvent * SACReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* tG
     if( digi->HasLeadingEdge() && 0<=digi->GetPMTID() && digi->GetPMTID()<4) {
       Double_t edgeTime = digi->GetLeadingEdge();
       while (digiMap[digi->GetPMTID()].find(edgeTime) != digiMap[digi->GetPMTID()].end()) {
-        if (digiMap[digi->GetPMTID()][edgeTime].second->GetThresholdType()==0 && digi->GetThresholdType()==1) edgeTime += 0.01; 
-        else if (digiMap[digi->GetPMTID()][edgeTime].second->GetThresholdType()==1 && digi->GetThresholdType()==0) edgeTime -= 0.01;   
+        if (digiMap[digi->GetPMTID()][edgeTime].second->GetThresholdType()==0 && digi->GetThresholdType()==1) edgeTime += 0.01;
+        else if (digiMap[digi->GetPMTID()][edgeTime].second->GetThresholdType()==1 && digi->GetThresholdType()==0) edgeTime -= 0.01;
         else {
-          SACcout << "SNH >> Found duplicated time: " << edgeTime << 
-          " First threshold = " << digiMap[digi->GetPMTID()][edgeTime].second->GetThresholdType() << 
-            " Second = " << digi->GetThresholdType() << std::endl;            
+          SACcout << "SNH >> Found duplicated time: " << edgeTime <<
+            " First threshold = " << digiMap[digi->GetPMTID()][edgeTime].second->GetThresholdType() <<
+            " Second = " << digi->GetThresholdType() << std::endl;
           digiMap[digi->GetPMTID()].erase(digiMap[digi->GetPMTID()].find(edgeTime)); //remove duplicated time from map
         }
       }
@@ -269,12 +271,12 @@ TRecoVEvent * SACReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* tG
       Double_t LowThr  = -999.;
       Double_t HighThr = -999.;
       if(0<=hit->GetLowThresholdROChannelID() &&
-         hit->GetLowThresholdROChannelID()<fNChannels) {
+          hit->GetLowThresholdROChannelID()<fNChannels) {
         T0 = fChannels[hit->GetLowThresholdROChannelID()]->GetT0();
         LowThr = static_cast<SACChannel*>(fChannels[hit->GetLowThresholdROChannelID()])->GetThreshold();
       }
       if(0<=hit->GetHighThresholdROChannelID() &&
-         hit->GetHighThresholdROChannelID()<fNChannels) {
+          hit->GetHighThresholdROChannelID()<fNChannels) {
         T0 = fChannels[hit->GetHighThresholdROChannelID()]->GetT0();
         HighThr = static_cast<SACChannel*>(fChannels[hit->GetHighThresholdROChannelID()])->GetThreshold();
       }
@@ -301,7 +303,7 @@ void SACReconstruction::RecoHitAnalyse(){
     //bit 2 --> TrailingHigh;
     //bit 3 --> TrailingLow.
 
-    if(chanId>=0 && chanId<=3 && recoHit.HasLeadingEdgeHigh() && recoHit.HasTrailingEdgeHigh() ) fNHitsBurst[chanId] ++; 
+    if(chanId>=0 && chanId<=3 && recoHit.HasLeadingEdgeHigh() && recoHit.HasTrailingEdgeHigh() ) fNHitsBurst[chanId] ++;
 
     if(recoHit.HasAll4EdgesDetected()){
       //fHHitToTAll    ->Fill(chanId,recoHit.GetTimeOverThreshold());
@@ -490,7 +492,7 @@ void SACReconstruction::InitHistograms(){
     fHEdgeMaskVsFirstTime[iChan]->GetYaxis()->SetBinLabel(15,"__,LH,TH,TL");
     fHEdgeMaskVsFirstTime[iChan]->GetYaxis()->SetBinLabel(16,"LL,LH,TH,TL");
 
-    fGRateChLow [iChan] = new TGraph(); 
+    fGRateChLow [iChan] = new TGraph();
     fGRateChLow [iChan]->SetName(Form("HitRateLT_ch_%d",iChan));
     fGRateChLow [iChan]->SetMarkerColor(iChan+1);
     fGRateChLow [iChan]->SetMarkerStyle(23);
@@ -504,7 +506,7 @@ void SACReconstruction::InitHistograms(){
     fGRateChHigh [iChan]->SetMinimum(0.1);
     // fGRateChHigh [iChan]->SetPoint(0,-1,0);
 
-    fGRateChLowNorm [iChan] = new TGraph(); 
+    fGRateChLowNorm [iChan] = new TGraph();
     fGRateChLowNorm [iChan]->SetName(Form("RateLTNorm_ch_%d",iChan));
     fGRateChLowNorm [iChan]->SetTitle(Form("RateLTNorm_SCALERS"));
     fGRateChLowNorm [iChan]->SetMarkerColor(iChan+1);
@@ -536,7 +538,7 @@ void SACReconstruction::SaveHistograms(){
 
   fHistoFile->cd("SACMonitor");
 
-  // SAC histograms 
+  // SAC histograms
   fHRateRun  ->Write();
   fHRateBurst->Write();
   if(fHDigiToTVsROChannel) fHDigiToTVsROChannel->Write();

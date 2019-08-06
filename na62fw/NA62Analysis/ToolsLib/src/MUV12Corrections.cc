@@ -39,9 +39,7 @@ using namespace NA62Analysis;
 /// \EndDetailed
 
 
-
 MUV12Corrections *Instance = nullptr;
-
 
 MUV12Corrections::MUV12Corrections(){
   if (!Instance) Instance=this;
@@ -63,7 +61,6 @@ MUV12Corrections::MUV12Corrections(){
     else { fM1ScintillatorPositions[i] = -27; fM1ScintillatorWidth[i] = 54; }
 
     if (i>22) fM1ScintillatorPositions[i] *= -1.;
-
   }
 
 
@@ -155,7 +152,6 @@ void MUV12Corrections::NewRunID(int ID, TString rev, bool IsMC){
   //cout <<"[MUV12Corrections] New run id "<<ID<<" with revision "<<fRevID<<"("<<fRevNum<<") reading corrections"<<endl;
 
   fRunID = ID;
-
   TString RepositoryPath=gSystem->Getenv("NA62RECOSOURCE");
   RepositoryPath.Append("/");
   TString MUV1ConfFile=RepositoryPath,MUV2ConfFile=RepositoryPath;
@@ -163,10 +159,8 @@ void MUV12Corrections::NewRunID(int ID, TString rev, bool IsMC){
 
   MUV1ConfFile.Append("config/");
   MUV2ConfFile.Append("config/");
-
   MUV1ConfFile.Append("MUV1.conf");
   MUV2ConfFile.Append("MUV2.conf");
-
 
   ifstream MUV1File(MUV1ConfFile.Data());
   TString line;

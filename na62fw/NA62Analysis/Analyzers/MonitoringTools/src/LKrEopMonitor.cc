@@ -848,7 +848,7 @@ void LKrEopMonitor::CreateBadBurstList() {
   for(Int_t iPoint=0;iPoint<fHEoPEfficiencyVsBurstID->GetN();iPoint++){
     double BurstID=0., EoPEfficiency=0., MeanEoP=0., EoPFitPar0=0., EoPFitPar1=0., Argonion=0.;
     double NTriggers=0., NSelectedTriggers=0., NEoPExpected=0., NHotCellsFromHitMap=0.;
-    double NHotCellsFromQualityWarnings=0., NHotCellsFromPedestals=0., NDeadCellsFromHitMap=0., MaxNCellsInDeadCluster=0., NBitFlipCells=0., NEventsWithManyHits=0.;
+    double NHotCellsFromQualityWarnings=0., NHotCellsFromPedestals=0., NDeadCellsFromHitMap=0., MaxNCellsInDeadCluster=0., NEventsWithManyHits=0.;// , NBitFlipCells=0.;
     double EoPEfficiencyStrict=0., NEoPExpectedStrict=0.;
     double eMeanEoP=0., eEoPFitPar0=0., eEoPFitPar1=0., eEoPEfficiency=0., eEoPEfficiencyStrict=0.;
     if(fHEoPEfficiencyVsBurstID)       fHEoPEfficiencyVsBurstID->GetPoint(iPoint,BurstID,EoPEfficiency);
@@ -867,7 +867,7 @@ void LKrEopMonitor::CreateBadBurstList() {
     if(fHNHotCellsFromPedestalsVsBurstID)       fHNHotCellsFromPedestalsVsBurstID->GetPoint(iPoint,BurstID,NHotCellsFromPedestals);
     if(fHNDeadCellsFromHitMapVsBurstID)         fHNDeadCellsFromHitMapVsBurstID->GetPoint(iPoint,BurstID,NDeadCellsFromHitMap);
     if(fHMaxNCellsInDeadClusterVsBurstID)       fHMaxNCellsInDeadClusterVsBurstID->GetPoint(iPoint,BurstID,MaxNCellsInDeadCluster);
-    if(fHNBitFlipCellsVsBurstID)       fHNBitFlipCellsVsBurstID->GetPoint(iPoint,BurstID,NBitFlipCells);
+    //if(fHNBitFlipCellsVsBurstID)       fHNBitFlipCellsVsBurstID->GetPoint(iPoint,BurstID,NBitFlipCells);
     if(fHNEventsWithManyHitsVsBurstID) fHNEventsWithManyHitsVsBurstID->GetPoint(iPoint,BurstID,NEventsWithManyHits);
     if(fHMeanEoPVsBurstID)             eMeanEoP             = fHMeanEoPVsBurstID->GetErrorY(iPoint);
     if(fHEoPFitPar0VsBurstID)          eEoPFitPar0          = fHEoPFitPar0VsBurstID->GetErrorY(iPoint);

@@ -122,20 +122,19 @@ private:
   G4double fScintillatorZStart;
   G4double fPMTZStart;
   G4double fBackPlateZStart;
+  G4double fModuleZLength;
 
   G4double fFrontPlateThickness;
   G4double fScintillatorZLength;
-  G4double fModuleZLength;
   G4double fBackPlateThickness;
   G4double fPMTWindowThickness;
   G4double fPMTWindowRadius;
-
-  G4double fActiveInnerRadius;
   G4double fPassiveInnerRadius;
+  G4double fActiveInnerRadius;
 
-  G4double fFeWallThickness;
   G4double fFeWallXSize;
   G4double fFeWallYSize;
+  G4double fFeWallThickness;
   G4double fFeWallInnerRadius;
 
   G4double fGapWidth;

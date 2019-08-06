@@ -14,6 +14,7 @@ class LKrDigiManager;
 class LKrGeometry;
 class LKrCommon;
 class FADCEvent;
+class LKrL0Emulator;
 
 class LKrReconstruction : public NA62VReconstruction {
 
@@ -151,6 +152,8 @@ class LKrReconstruction : public NA62VReconstruction {
         void ApplyEnergyCorrections();
         Double_t CorrectedEnergyData(Int_t NCells, Double_t E0);
         Double_t CorrectedEnergyMC(Int_t NCells, Double_t E0);
+
+  LKrL0Emulator* fLKrL0Emulator;
 };
 
 #endif

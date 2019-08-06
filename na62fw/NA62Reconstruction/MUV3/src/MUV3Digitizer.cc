@@ -264,6 +264,14 @@ void MUV3Digitizer::PrintParameters() {
   std::cout << "CFD Debug flag           " << fCFDDebugFlag      << std::endl;
 }
 
+void MUV3Digitizer::StartOfBurst() {
+  NA62VDigitizer::StartOfBurst();
+}
+
+void MUV3Digitizer::EndOfBurst() {
+  NA62VDigitizer::EndOfBurst();
+}
+
 ////////////////
 // Process event
 
@@ -277,7 +285,7 @@ TDetectorVEvent* MUV3Digitizer::ProcessEvent (TDetectorVEvent* tEvent) {
   Int_t NHits = MUV3Event->GetNHits();
 
   fDigiEvent->Clear();
-  (*(TVEvent*)fDigiEvent)=(*(TVEvent*)MUV3Event);
+  fDigiEvent->TVEvent::operator=(*static_cast<TVEvent*>(MUV3Event));
 
   if (fDebugFlag) std::cout << "Nhits " << NHits << std::endl;
   if (!NHits) return fDigiEvent;

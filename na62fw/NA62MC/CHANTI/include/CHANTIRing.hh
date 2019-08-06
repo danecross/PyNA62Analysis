@@ -59,10 +59,6 @@ private:
   G4double fXInnerHalfLength;
   G4double fYInnerHalfLength;
 
-  G4Box*           fSolidVolume;
-  G4LogicalVolume* fLogicalVolume;
-  G4PVPlacement*   fPhysicalVolume;
-
   vector<G4int> fStripsID;
 };
 

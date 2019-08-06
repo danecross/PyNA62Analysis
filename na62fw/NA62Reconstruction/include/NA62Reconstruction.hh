@@ -16,7 +16,7 @@
 #include "L0TPRawEncoder.hh"
 #include "L1TPData.hh"
 
-#include "Timer.hh"
+#include "NA62Timer.hh"
 #include "Event.hh"
 #include "Stream.hh"
 #include "InfoWriter.h"
@@ -450,7 +450,7 @@ class NA62Reconstruction : public NA62VReconstruction {
     std::vector<unsigned int> fGlobalTimers; ///< global timers index
     unsigned int fOpenInputTimer;            ///< Raw file opening
     unsigned int fInputReadTimer;            ///< Read chunk
-    Timer fTimer;                            ///< Timer for whole processing
+    NA62Timer fTimer;                        ///< Timer for whole processing
 
     /// Events with OutputStatus <0 are never processed [fatally corrupted events or downscaled]
     /// if the OutputStatus value is >0, it corresponds to the SkipEventsLevel required to skip that category

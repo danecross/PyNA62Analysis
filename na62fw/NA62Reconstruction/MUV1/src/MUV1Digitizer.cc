@@ -47,6 +47,14 @@ MUV1Digitizer::MUV1Digitizer(NA62VReconstruction* Reco) :
 
 MUV1Digitizer::~MUV1Digitizer() {}
 
+void MUV1Digitizer::StartOfBurst() {
+  NA62VDigitizer::StartOfBurst();
+}
+
+void MUV1Digitizer::EndOfBurst() {
+  NA62VDigitizer::EndOfBurst();
+}
+
 TDetectorVEvent * MUV1Digitizer::ProcessEvent(TDetectorVEvent * tEvent) {
 
   if (tEvent->GetHits()->GetClass()->InheritsFrom("TVDigi") || tEvent->IsA() == TSpecialTriggerEvent::Class())
@@ -56,7 +64,7 @@ TDetectorVEvent * MUV1Digitizer::ProcessEvent(TDetectorVEvent * tEvent) {
 
   TMUV1Event * MUV1Event = static_cast<TMUV1Event*>( tEvent);
 
-  (*(TVEvent*) fDigiEvent) = (*(TVEvent*) MUV1Event);
+  fDigiEvent->TVEvent::operator=(*static_cast<TVEvent*>(MUV1Event));
 
   Int_t NHits = MUV1Event->GetNHits();
   TClonesArray *Hits = MUV1Event->GetHits();

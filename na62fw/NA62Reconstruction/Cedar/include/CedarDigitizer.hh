@@ -17,6 +17,8 @@ public:
   explicit CedarDigitizer(NA62VReconstruction*);
   virtual ~CedarDigitizer();
   virtual TDetectorVEvent* ProcessEvent(TDetectorVEvent *);
+  virtual void StartOfBurst();
+  virtual void EndOfBurst();
 
 protected:
   // Quantum efficiencies of various PMTs

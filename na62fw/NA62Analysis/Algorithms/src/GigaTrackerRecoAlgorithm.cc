@@ -52,7 +52,6 @@ GigaTrackerRecoAlgorithm::GigaTrackerRecoAlgorithm
   Algorithm(ba, ana, name), fRunID(-1), fHistogramsBooked(false) {
 
   AddParam("RedoTimeCorr",           &fRedoTimeCorr,          false);
-  AddParam("FineTimeCorr",           &fFineTimeCorr,          false); // track time smearing: to be phased out?
   AddParam("RedoXYCorr",             &fRedoXYCorr,                1); // 1=redo alignment corrections
   AddParam("FineCorr",               &fFineCorr,               true); // Apply fine corrections (MomScale, rotation)?
   AddParam("TimeWindowWrtReference", &fTimeWindowWrtReference, 10.0); // [ns]
@@ -515,9 +514,7 @@ void GigaTrackerRecoAlgorithm::BuildCandidate(TRecoGigaTrackerCandidate* cand) {
   Double_t Delta23   =  fParameters->GetGigaTrackerStationPositionRaw(2).Z() - 
                         fParameters->GetGigaTrackerStationPositionRaw(1).Z();
 
-
   Double_t chi2;
-
   Double_t X[3], Y[3], T[3];
   for (UInt_t iS=0; iS<3; iS++) {
     X[iS] = cand->GetPosition(iS).X();
@@ -584,12 +581,8 @@ void GigaTrackerRecoAlgorithm::BuildCandidate(TRecoGigaTrackerCandidate* cand) {
     TMath::Power((T[1]-Time)/errT[1], 2.) +
     TMath::Power((T[2]-Time)/errT[2], 2.);
 
-
-
-
   // --- Candidate Momentum
   // XZ view: straight line fit for horizontal view with specific offset for GTK1 and GTK2 (trim effect corrected)
-
 
   // official algorithm
   Double_t a,b,rho,chi2X;
@@ -606,7 +599,7 @@ void GigaTrackerRecoAlgorithm::BuildCandidate(TRecoGigaTrackerCandidate* cand) {
       Int_t iCol = fGTKHit->GetColumn();
       if ( iCol>0 && iCol<199 && (iCol%40==0 || iCol%40==39) ) {
         sigmaX[iS]=0.1155;
-      } 
+      }
     }
     else sigmaX[iS] = 0.0866;
   } // end of loop on iS
@@ -616,11 +609,11 @@ void GigaTrackerRecoAlgorithm::BuildCandidate(TRecoGigaTrackerCandidate* cand) {
   Double_t theta[2];
 
   for (UInt_t iS=0; iS<3; iS++){
-    GTKthickness[iS] =  fParameters->GetGigaTrackerSensorLength(iS).Z() + 
-      fParameters->GetGigaTrackerChipLength(iS).Z() + 
-      fParameters->GetCoolingPlateLength(iS).Z() - 
-      fParameters->GetCoolingPlateBottomDepth(iS) - 
-      fParameters->GetCoolingPlateTopDepth(iS) ;         
+    GTKthickness[iS] =  fParameters->GetGigaTrackerSensorLength(iS).Z() +
+      fParameters->GetGigaTrackerChipLength(iS).Z() +
+      fParameters->GetCoolingPlateLength(iS).Z() -
+      fParameters->GetCoolingPlateBottomDepth(iS) -
+      fParameters->GetCoolingPlateTopDepth(iS);
   }
 
   TVector3 Momentum;
@@ -805,7 +798,7 @@ void GigaTrackerRecoAlgorithm::BuildCandidate(TRecoGigaTrackerCandidate* cand) {
       ShiftTrim[iS] = -((1e-3*fClight * BLtrim) / p) * DeltaTrim[iS];
       if (iS<2) Xshift[iS] += ShiftTrim[iS]; 
     }
-    
+
     for (Int_t i=0; i<2; i++){ 
       theta[i]        = 13.6e6/p * TMath::Sqrt(GTKthickness[i]/X0Silicon) *
 	(1 + 0.038 * TMath::Log(GTKthickness[i]/X0Silicon));
@@ -822,39 +815,29 @@ void GigaTrackerRecoAlgorithm::BuildCandidate(TRecoGigaTrackerCandidate* cand) {
     LinearLeastSquareFit(z,Xshift,3,sigmaX,a,b,rho,chi2X);
     //Double_t dxdz = (X[2] - X[0]) / fDelta13 - (((1e-3*fClight * fBLtrim) / p) * (1. - (fDeltaTrim[2] / fDelta13)));
     Double_t dxdz = b;
-    
-    if ( fFillHistograms ) {
-      for (UInt_t iS=0; iS<3; iS++){
+
+    if (fFillHistograms) {
+      for (UInt_t iS=0; iS<3; iS++) {
 	FillHisto(Form("hResX_Sta%d",iS),     Xshift[iS]-(a+b*z[iS]));
 	FillHisto(Form("hNormResX_Sta%d",iS),(Xshift[iS]-(a+b*z[iS]))/sigmaX[iS]);
       }
     }
-    
+
     // --- Candidate YZ view
     Double_t dydz = (Y[2] - Y[0]) / Delta13;
-    
+
     // --- Candidate kinematics
     Double_t pz = p / TMath::Sqrt(1. + dxdz * dxdz + dydz * dydz);
     Momentum.SetXYZ(1e-6*pz * dxdz, 1e-6*pz * dydz, 1e-6*pz);
-    
+
     // Constraints on vertical view (Y)
     Double_t sigmaY12 = 1.42;
     Double_t sigmaY23 = 1.20;
     Double_t chi2Y = TMath::Power((Y[1] - Y[0])/sigmaY12, 2.) + TMath::Power((Y[2] - Y[1])/sigmaY23, 2.);
-    
+
     // Global Chi2
     chi2 = chi2X + chi2Y + chi2Time;
     cand->SetChi2X(chi2X);
-  }
-  // Global Chi2
-
-  ////////////////////////////////////////////////////////////////////
-  // Timing corrections, disabled by default (E Goudzovski, June 2018)
-
-  if (fFineTimeCorr) {
-    // Apply time smearing to match MC to data v0.11.2:
-    // the resolutions are 125ps (MC) + 85ps (smearing) = 150ps (data)
-    if (GetWithMC()) Time += gRandom->Gaus(0.0, 0.085);
   }
 
   // Candidate
@@ -864,7 +847,6 @@ void GigaTrackerRecoAlgorithm::BuildCandidate(TRecoGigaTrackerCandidate* cand) {
   cand->SetChi2Time(chi2Time);
   cand->SetChi2(chi2);
   cand->SetTimeError(sigmaT);
- 
 }
 
 void GigaTrackerRecoAlgorithm::LinearLeastSquareFit(Double_t *x, Double_t *y, Int_t Nsample, Double_t *sigma, Double_t &a, Double_t &b, Double_t &rho, Double_t &chi2){

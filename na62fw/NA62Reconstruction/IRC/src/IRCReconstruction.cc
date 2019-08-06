@@ -31,20 +31,20 @@
 
 IRCReconstruction::IRCReconstruction(TFile* HistoFile, TString ConfigFileName) :
   NA62VReconstruction(HistoFile, "IRC", ConfigFileName) {
-  // Initialize variables and histos
-  fRecoEvent = new TRecoIRCEvent();
-  fSlimRecoEvent = new TSlimRecoIRCEvent();
-  ParseConfFile(ConfigFileName);
-  fDtLeadingMax = 5.;
-  ResetHistograms();
-  for(int ich = 0;ich<4;ich++) {
-    fNHitsBurst[ich] = 0;
+    // Initialize variables and histos
+    fRecoEvent = new TRecoIRCEvent();
+    fSlimRecoEvent = new TSlimRecoIRCEvent();
+    ParseConfFile(ConfigFileName);
+    fDtLeadingMax = 5.;
+    ResetHistograms();
+    for(int ich = 0;ich<4;ich++) {
+      fNHitsBurst[ich] = 0;
+    }
   }
-}
 
 void IRCReconstruction::Init(NA62VReconstruction* MainReco) {
 
-  //common part for all the subdetectors 
+  //common part for all the subdetectors
   NA62VReconstruction::Init(MainReco);
 
   for (Int_t ich=0; ich<fNChannels; ich++) {
@@ -97,9 +97,10 @@ void IRCReconstruction::StartOfBurst(){
 
 void IRCReconstruction::EndOfBurst(){
   NA62VReconstruction::EndOfBurst(); // common part for all the subdetectors
-  for(Int_t iBin=0;iBin<fHRateBurst->GetNbinsX();++iBin){
-    fHRateRun->SetBinContent(
-        fRecoEvent->GetBurstID(),iBin,fHRateBurst->GetBinContent(iBin));
+  if(fHRateBurst && fHRateRun){
+    for(Int_t iBin=0;iBin<fHRateBurst->GetNbinsX();++iBin){
+      fHRateRun->SetBinContent(fRecoEvent->GetBurstID(),iBin,fHRateBurst->GetBinContent(iBin));
+    }
   }
 }
 
@@ -123,6 +124,7 @@ TRecoVEvent * IRCReconstruction::ProcessEOBEvent(TDetectorVEvent* tEvent, Event*
           if(ChannelID<0) continue; // Masked channel
           UInt_t ich = ChannelID%1000;
           Bool_t IsHighThreshold = ChannelID/1000;
+          if(ich>=4) continue; // Not IRC channel
           //IRCcout << "EOB counts: " << ChannelID << " " << NCounts << std::endl;
 #ifdef DEBUG
           IRCcout << "\tChannel: " << ich << " NHits: " << fNHitsBurst[ich] << std::endl;
@@ -152,7 +154,7 @@ TRecoVEvent * IRCReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* tG
     return 0;
   }
 
-  //common part for all the subdetectors 
+  //common part for all the subdetectors
   NA62VReconstruction::ProcessEvent(tEvent, tGenEvent);
 
   TIRCEvent* tIRCEvent = static_cast<TIRCEvent*>(tEvent);
@@ -184,11 +186,11 @@ TRecoVEvent * IRCReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* tG
       Double_t edgeTime = digi->GetLeadingEdge();
       while (digiMap[digi->GetPMTID()].find(edgeTime) != digiMap[digi->GetPMTID()].end()) {
         if (digiMap[digi->GetPMTID()][edgeTime].second->GetThresholdType()==0 && digi->GetThresholdType()==1) edgeTime += 0.01;
-        else if (digiMap[digi->GetPMTID()][edgeTime].second->GetThresholdType()==1 && digi->GetThresholdType()==0) edgeTime -= 0.01;  
+        else if (digiMap[digi->GetPMTID()][edgeTime].second->GetThresholdType()==1 && digi->GetThresholdType()==0) edgeTime -= 0.01;
         else {
-          IRCcout << "SNH >> Found duplicated time: " << edgeTime << 
-          " First threshold = " << digiMap[digi->GetPMTID()][edgeTime].second->GetThresholdType() << 
-          " Second = " << digi->GetThresholdType() << std::endl;      
+          IRCcout << "SNH >> Found duplicated time: " << edgeTime <<
+            " First threshold = " << digiMap[digi->GetPMTID()][edgeTime].second->GetThresholdType() <<
+            " Second = " << digi->GetThresholdType() << std::endl;
           digiMap[digi->GetPMTID()].erase(digiMap[digi->GetPMTID()].find(edgeTime)); //remove duplicated time from map
         }
       }
@@ -261,12 +263,12 @@ TRecoVEvent * IRCReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* tG
       Double_t LowThr  = -999.;
       Double_t HighThr = -999.;
       if(0<=hit->GetLowThresholdROChannelID() &&
-         hit->GetLowThresholdROChannelID()<fNChannels) {
+          hit->GetLowThresholdROChannelID()<fNChannels) {
         T0 = fChannels[hit->GetLowThresholdROChannelID()]->GetT0();
         LowThr = static_cast<IRCChannel*>(fChannels[hit->GetLowThresholdROChannelID()])->GetThreshold();
       }
       if(0<=hit->GetHighThresholdROChannelID() &&
-         hit->GetHighThresholdROChannelID()<fNChannels) {
+          hit->GetHighThresholdROChannelID()<fNChannels) {
         T0 = fChannels[hit->GetHighThresholdROChannelID()]->GetT0();
         HighThr = static_cast<IRCChannel*>(fChannels[hit->GetHighThresholdROChannelID()])->GetThreshold();
       }
@@ -276,31 +278,31 @@ TRecoVEvent * IRCReconstruction::ProcessEvent(TDetectorVEvent* tEvent, Event* tG
 
   // Look for NHOD digis
   /*
-  Int_t nNHODDigisLow=0; 
-  Int_t nNHODDigisHigh=0; 
-  for (Int_t iDigi=0; iDigi < nDigis; iDigi++) {
-    TIRCDigi* Digi = static_cast<TIRCDigi*>( Digis[iDigi]);
-    if(Digi->GetStationID()==1) { //NHOD
-      if (Digi->GetThresholdType()==0) { //low threshold
-        nNHODDigisLow++; 
-        fHNHODChannelOccupancyLow->Fill(Digi->GetChannelID());
-        fHNHODTimeVsSlot->Fill(Digi->GetSlot(), Digi->GetLeadingEdge());
-        fHNHODTimeVsIDLow->Fill(Digi->GetChannelID()%100, Digi->GetLeadingEdge());
-        fHNHODHitLeadingTimeLow->Fill(Digi->GetLeadingEdge());
-        if (Digi->GetDetectedEdge()==3) fHNHODHitWidthLow->Fill(Digi->GetTrailingEdge()-Digi->GetLeadingEdge());
-      }
-      else { //high threshold
-        nNHODDigisHigh++;
-        fHNHODChannelOccupancyHigh->Fill(Digi->GetChannelID());
-        fHNHODTimeVsIDHigh->Fill(Digi->GetChannelID()%100, Digi->GetLeadingEdge());
-        fHNHODHitLeadingTimeHigh->Fill(Digi->GetLeadingEdge());
-        if (Digi->GetDetectedEdge()==3) fHNHODHitWidthHigh->Fill(Digi->GetTrailingEdge()-Digi->GetLeadingEdge());
-      }
-    }
-  }
-  fHNHODNHitsPerEventLow->Fill(nNHODDigisLow);
-  fHNHODNHitsPerEventHigh->Fill(nNHODDigisHigh);
-  */
+     Int_t nNHODDigisLow=0;
+     Int_t nNHODDigisHigh=0;
+     for (Int_t iDigi=0; iDigi < nDigis; iDigi++) {
+     TIRCDigi* Digi = static_cast<TIRCDigi*>( Digis[iDigi]);
+     if(Digi->GetStationID()==1) { //NHOD
+     if (Digi->GetThresholdType()==0) { //low threshold
+     nNHODDigisLow++;
+     fHNHODChannelOccupancyLow->Fill(Digi->GetChannelID());
+     fHNHODTimeVsSlot->Fill(Digi->GetSlot(), Digi->GetLeadingEdge());
+     fHNHODTimeVsIDLow->Fill(Digi->GetChannelID()%100, Digi->GetLeadingEdge());
+     fHNHODHitLeadingTimeLow->Fill(Digi->GetLeadingEdge());
+     if (Digi->GetDetectedEdge()==3) fHNHODHitWidthLow->Fill(Digi->GetTrailingEdge()-Digi->GetLeadingEdge());
+     }
+     else { //high threshold
+     nNHODDigisHigh++;
+     fHNHODChannelOccupancyHigh->Fill(Digi->GetChannelID());
+     fHNHODTimeVsIDHigh->Fill(Digi->GetChannelID()%100, Digi->GetLeadingEdge());
+     fHNHODHitLeadingTimeHigh->Fill(Digi->GetLeadingEdge());
+     if (Digi->GetDetectedEdge()==3) fHNHODHitWidthHigh->Fill(Digi->GetTrailingEdge()-Digi->GetLeadingEdge());
+     }
+     }
+     }
+     fHNHODNHitsPerEventLow->Fill(nNHODDigisLow);
+     fHNHODNHitsPerEventHigh->Fill(nNHODDigisHigh);
+     */
 
   RecoHitAnalyse();
   return fRecoEvent;
@@ -322,7 +324,7 @@ void IRCReconstruction::RecoHitAnalyse(){
     //bit 1 --> LeadingHigh;
     //bit 2 --> TrailingHigh;
     //bit 3 --> TrailingLow.
-    if(chanId>=0 && chanId<=3 && recoHit.HasLeadingEdgeHigh() && recoHit.HasTrailingEdgeHigh() ) fNHitsBurst[chanId] ++; 
+    if(chanId>=0 && chanId<=3 && recoHit.HasLeadingEdgeHigh() && recoHit.HasTrailingEdgeHigh() ) fNHitsBurst[chanId] ++;
 
     if(recoHit.HasAll4EdgesDetected()){
       //fHHitToTAll    ->Fill(chanId,recoHit.GetTimeOverThreshold());
@@ -348,7 +350,7 @@ void IRCReconstruction::RecoHitAnalyse(){
 }
 
 void IRCReconstruction::FillTimes(Double_t ReferenceTime) {
-  //common part for all the subdetectors 
+  //common part for all the subdetectors
   NA62VReconstruction::FillTimes(ReferenceTime);
   for(Int_t iHit=0;iHit<fRecoEvent->GetNHits();++iHit){
     const TRecoIRCHit& recoHit = *static_cast<TRecoIRCHit*>(static_cast<TDetectorVEvent*>( fRecoEvent)->GetHit(iHit));
@@ -512,7 +514,7 @@ void IRCReconstruction::InitHistograms() {
     fHEdgeMaskVsFirstTime[iChan]->GetYaxis()->SetBinLabel(16,"LL,LH,TH,TL");
     //IRC EOB information
 
-    fGRateChLow [iChan] = new TGraph(); 
+    fGRateChLow [iChan] = new TGraph();
     fGRateChLow [iChan]->SetName(Form("RateLT_ch_%d",iChan));
     fGRateChLow [iChan]->SetTitle(Form("RateLT_SCALERS"));
     fGRateChLow [iChan]->SetMarkerColor(iChan+1);
@@ -528,7 +530,7 @@ void IRCReconstruction::InitHistograms() {
     fGRateChHigh [iChan]->SetMinimum(0.1);
     // fGRateChHigh [iChan]->SetPoint(0,-1,0);
 
-    fGRateChLowNorm [iChan] = new TGraph(); 
+    fGRateChLowNorm [iChan] = new TGraph();
     fGRateChLowNorm [iChan]->SetName(Form("RateLTNorm_ch_%d",iChan));
     fGRateChLowNorm [iChan]->SetTitle(Form("RateLTNorm_SCALERS"));
     fGRateChLowNorm [iChan]->SetMarkerColor(iChan+1);
@@ -554,43 +556,43 @@ void IRCReconstruction::InitHistograms() {
 
   // NHOD histograms: not used any longer
   /*
-  GetOrMakeDir(fHistoFile,"NHODMonitor");
-  fHistoFile->cd("NHODMonitor");
-  fHNHODNHitsPerEventLow      = new TH1D("HitPerEventLow","HitPerEventLow ", 50, -0.5, 49.5);
-  fHNHODNHitsPerEventHigh     = new TH1D("HitPerEventHigh","HitPerEventHigh", 50, -0.5, 49.5);
-  fHNHODChannelOccupancyLow   = new TH1D("ChannelOccupancyLow","ChannelOccupancyLow",32,1999.5,2031.5);
-  fHNHODChannelOccupancyHigh  = new TH1D("ChannelOccupancyHigh","ChannelOccupancyHigh",32,2999.5,3031.5);
-  fHNHODHitLeadingTimeLow     = new TH1D("LeadingTimeLow","LeadingTimeLow", 3000, -1000., 2000.);
-  fHNHODHitLeadingTimeHigh    = new TH1D("LeadingTimeHigh","LeadingTimeHigh", 3000, -1000., 2000.);
-  fHNHODHitWidthLow           = new TH1D("WidthLow","WidthLow",500, 0.,50.);
-  fHNHODHitWidthHigh          = new TH1D("WidthHigh","WidthHigh",500, 0.,50.);
-  fHNHODTimeVsIDLow           = new TH2F("TimeVsIDLow","TimeVsIDLow",32, -0.5, 31.5, 300, -1000., 2000.);
-  fHNHODTimeVsIDHigh          = new TH2F("TimeVsIDHigh","TimeVsIDHigh",32, -0.5, 31.5, 300, -1000., 2000.);
-  fHNHODTimeVsSlot            = new TH2F("TimeVsSlot","TimeVsSlot", 120, -39.5, 80.5, 300, -1000., 2000.);
-  fHNHODNHitsPerEventLow->SetTitle("NHitsPerEventLow");
-  fHNHODNHitsPerEventLow->GetXaxis()->SetTitle("NHits");
-  fHNHODNHitsPerEventHigh->SetTitle("NHitsPerEventHigh");
-  fHNHODNHitsPerEventHigh->GetXaxis()->SetTitle("NHits");
-  fHNHODChannelOccupancyLow->SetTitle("ChannelOccupancyLow");
-  fHNHODChannelOccupancyLow->GetXaxis()->SetTitle("Channel");
-  fHNHODChannelOccupancyHigh->SetTitle("ChannelOccupancyHigh");
-  fHNHODChannelOccupancyHigh->GetXaxis()->SetTitle("Channel");
-  fHNHODHitLeadingTimeLow->SetTitle("LeadingTimeLow");
-  fHNHODHitLeadingTimeLow->GetXaxis()->SetTitle("Time (ns)");
-  fHNHODHitLeadingTimeHigh->SetTitle("LeadingTimeHigh");
-  fHNHODHitLeadingTimeHigh->GetXaxis()->SetTitle("Time (ns)");
-  fHNHODHitWidthLow->SetTitle("TimeWidthLow");
-  fHNHODHitWidthLow->GetXaxis()->SetTitle("Time (ns)");
-  fHNHODHitWidthHigh->SetTitle("TimeWidthHigh");
-  fHNHODHitWidthHigh->GetXaxis()->SetTitle("Time (ns)");
-  */
+     GetOrMakeDir(fHistoFile,"NHODMonitor");
+     fHistoFile->cd("NHODMonitor");
+     fHNHODNHitsPerEventLow      = new TH1D("HitPerEventLow","HitPerEventLow ", 50, -0.5, 49.5);
+     fHNHODNHitsPerEventHigh     = new TH1D("HitPerEventHigh","HitPerEventHigh", 50, -0.5, 49.5);
+     fHNHODChannelOccupancyLow   = new TH1D("ChannelOccupancyLow","ChannelOccupancyLow",32,1999.5,2031.5);
+     fHNHODChannelOccupancyHigh  = new TH1D("ChannelOccupancyHigh","ChannelOccupancyHigh",32,2999.5,3031.5);
+     fHNHODHitLeadingTimeLow     = new TH1D("LeadingTimeLow","LeadingTimeLow", 3000, -1000., 2000.);
+     fHNHODHitLeadingTimeHigh    = new TH1D("LeadingTimeHigh","LeadingTimeHigh", 3000, -1000., 2000.);
+     fHNHODHitWidthLow           = new TH1D("WidthLow","WidthLow",500, 0.,50.);
+     fHNHODHitWidthHigh          = new TH1D("WidthHigh","WidthHigh",500, 0.,50.);
+     fHNHODTimeVsIDLow           = new TH2F("TimeVsIDLow","TimeVsIDLow",32, -0.5, 31.5, 300, -1000., 2000.);
+     fHNHODTimeVsIDHigh          = new TH2F("TimeVsIDHigh","TimeVsIDHigh",32, -0.5, 31.5, 300, -1000., 2000.);
+     fHNHODTimeVsSlot            = new TH2F("TimeVsSlot","TimeVsSlot", 120, -39.5, 80.5, 300, -1000., 2000.);
+     fHNHODNHitsPerEventLow->SetTitle("NHitsPerEventLow");
+     fHNHODNHitsPerEventLow->GetXaxis()->SetTitle("NHits");
+     fHNHODNHitsPerEventHigh->SetTitle("NHitsPerEventHigh");
+     fHNHODNHitsPerEventHigh->GetXaxis()->SetTitle("NHits");
+     fHNHODChannelOccupancyLow->SetTitle("ChannelOccupancyLow");
+     fHNHODChannelOccupancyLow->GetXaxis()->SetTitle("Channel");
+     fHNHODChannelOccupancyHigh->SetTitle("ChannelOccupancyHigh");
+     fHNHODChannelOccupancyHigh->GetXaxis()->SetTitle("Channel");
+     fHNHODHitLeadingTimeLow->SetTitle("LeadingTimeLow");
+     fHNHODHitLeadingTimeLow->GetXaxis()->SetTitle("Time (ns)");
+     fHNHODHitLeadingTimeHigh->SetTitle("LeadingTimeHigh");
+     fHNHODHitLeadingTimeHigh->GetXaxis()->SetTitle("Time (ns)");
+     fHNHODHitWidthLow->SetTitle("TimeWidthLow");
+     fHNHODHitWidthLow->GetXaxis()->SetTitle("Time (ns)");
+     fHNHODHitWidthHigh->SetTitle("TimeWidthHigh");
+     fHNHODHitWidthHigh->GetXaxis()->SetTitle("Time (ns)");
+     */
 }
 
 void IRCReconstruction::SaveHistograms(){
 
   fHistoFile->cd("IRCMonitor");
 
-  // IRC histograms 
+  // IRC histograms
   fHRateRun  ->Write();
   fHRateBurst->Write();
   if(fHDigiToTVsROChannel) fHDigiToTVsROChannel->Write();
@@ -624,19 +626,19 @@ void IRCReconstruction::SaveHistograms(){
 
   // NHOD histograms
   /*
-  fHistoFile->cd("NHODMonitor");
-  fHNHODNHitsPerEventLow->Write();
-  fHNHODNHitsPerEventHigh->Write();
-  fHNHODChannelOccupancyLow->Write();
-  fHNHODChannelOccupancyHigh->Write();
-  fHNHODHitLeadingTimeLow->Write();
-  fHNHODHitLeadingTimeHigh->Write();
-  fHNHODHitWidthLow->Write();
-  fHNHODHitWidthHigh->Write();
-  fHNHODTimeVsIDLow->Write();
-  fHNHODTimeVsIDHigh->Write();
-  fHNHODTimeVsSlot->Write();
-  */
+     fHistoFile->cd("NHODMonitor");
+     fHNHODNHitsPerEventLow->Write();
+     fHNHODNHitsPerEventHigh->Write();
+     fHNHODChannelOccupancyLow->Write();
+     fHNHODChannelOccupancyHigh->Write();
+     fHNHODHitLeadingTimeLow->Write();
+     fHNHODHitLeadingTimeHigh->Write();
+     fHNHODHitWidthLow->Write();
+     fHNHODHitWidthHigh->Write();
+     fHNHODTimeVsIDLow->Write();
+     fHNHODTimeVsIDHigh->Write();
+     fHNHODTimeVsSlot->Write();
+     */
 
   fHistoFile->cd("/");
 }
@@ -667,18 +669,18 @@ void IRCReconstruction::ResetHistograms(){
   }
 
   /*
-  fHNHODNHitsPerEventLow         =NULL;
-  fHNHODNHitsPerEventHigh        =NULL;
-  fHNHODChannelOccupancyLow      =NULL;
-  fHNHODChannelOccupancyHigh     =NULL;
-  fHNHODHitLeadingTimeLow        =NULL;
-  fHNHODHitLeadingTimeHigh       =NULL;
-  fHNHODHitWidthLow              =NULL;
-  fHNHODHitWidthHigh             =NULL;
-  fHNHODTimeVsIDLow              =NULL;
-  fHNHODTimeVsIDHigh             =NULL;
-  fHNHODTimeVsSlot               =NULL;
-  */
+     fHNHODNHitsPerEventLow         =NULL;
+     fHNHODNHitsPerEventHigh        =NULL;
+     fHNHODChannelOccupancyLow      =NULL;
+     fHNHODChannelOccupancyHigh     =NULL;
+     fHNHODHitLeadingTimeLow        =NULL;
+     fHNHODHitLeadingTimeHigh       =NULL;
+     fHNHODHitWidthLow              =NULL;
+     fHNHODHitWidthHigh             =NULL;
+     fHNHODTimeVsIDLow              =NULL;
+     fHNHODTimeVsIDHigh             =NULL;
+     fHNHODTimeVsSlot               =NULL;
+     */
 }
 
 void IRCReconstruction::DeleteHistograms(){
@@ -709,17 +711,17 @@ void IRCReconstruction::DeleteHistograms(){
   }
 
   /*
-  if(fHNHODNHitsPerEventLow       )delete fHNHODNHitsPerEventLow       ;
-  if(fHNHODNHitsPerEventHigh      )delete fHNHODNHitsPerEventHigh      ;
-  if(fHNHODChannelOccupancyLow    )delete fHNHODChannelOccupancyLow    ;
-  if(fHNHODChannelOccupancyHigh   )delete fHNHODChannelOccupancyHigh   ;
-  if(fHNHODHitLeadingTimeLow      )delete fHNHODHitLeadingTimeLow      ;
-  if(fHNHODHitLeadingTimeHigh     )delete fHNHODHitLeadingTimeHigh     ;
-  if(fHNHODHitWidthLow            )delete fHNHODHitWidthLow            ;
-  if(fHNHODHitWidthHigh           )delete fHNHODHitWidthHigh           ;
-  if(fHNHODTimeVsIDLow            )delete fHNHODTimeVsIDLow            ;
-  if(fHNHODTimeVsIDHigh           )delete fHNHODTimeVsIDHigh           ;
-  if(fHNHODTimeVsSlot             )delete fHNHODTimeVsSlot             ;
-  */
+     if(fHNHODNHitsPerEventLow       )delete fHNHODNHitsPerEventLow       ;
+     if(fHNHODNHitsPerEventHigh      )delete fHNHODNHitsPerEventHigh      ;
+     if(fHNHODChannelOccupancyLow    )delete fHNHODChannelOccupancyLow    ;
+     if(fHNHODChannelOccupancyHigh   )delete fHNHODChannelOccupancyHigh   ;
+     if(fHNHODHitLeadingTimeLow      )delete fHNHODHitLeadingTimeLow      ;
+     if(fHNHODHitLeadingTimeHigh     )delete fHNHODHitLeadingTimeHigh     ;
+     if(fHNHODHitWidthLow            )delete fHNHODHitWidthLow            ;
+     if(fHNHODHitWidthHigh           )delete fHNHODHitWidthHigh           ;
+     if(fHNHODTimeVsIDLow            )delete fHNHODTimeVsIDLow            ;
+     if(fHNHODTimeVsIDHigh           )delete fHNHODTimeVsIDHigh           ;
+     if(fHNHODTimeVsSlot             )delete fHNHODTimeVsSlot             ;
+     */
   ResetHistograms();
 }

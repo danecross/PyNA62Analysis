@@ -367,12 +367,28 @@ TVector3 DownstreamTrack::GetNewCHODCandidatePosition(UInt_t index) {
   return fNewCHODCandidates[index]->GetPosition();
 }
 
-Int_t DownstreamTrack::GetNewCHODCandidateTileID(UInt_t index) {
+Int_t DownstreamTrack::GetNewCHODCandidateChannelID(UInt_t index) {
   if (index >= fNewCHODCandidates.size()) {
     cout << "[DownstreamTrack::GetNewCHODCandidateTileID] index exceeds vector size" << endl;
     return -1;
   }
   return fNewCHODCandidates[index]->GetChannelID();
+}
+
+Int_t DownstreamTrack::GetNewCHODCandidateTileID(UInt_t index) {
+  if (index >= fNewCHODCandidates.size()) {
+    cout << "[DownstreamTrack::GetNewCHODCandidateTileID] index exceeds vector size" << endl;
+    return -1;
+  }
+  return fNewCHODCandidates[index]->GetTileID();
+}
+
+Int_t DownstreamTrack::GetNewCHODCandidateType(UInt_t index) {
+  if (index >= fNewCHODCandidates.size()) {
+    cout << "[DownstreamTrack::GetNewCHODCandidateTileID] index exceeds vector size" << endl;
+    return -1;
+  }
+  return fNewCHODCandidates[index]->GetType();
 }
 
 Double_t DownstreamTrack::GetNewCHODCandidateX(UInt_t index) {

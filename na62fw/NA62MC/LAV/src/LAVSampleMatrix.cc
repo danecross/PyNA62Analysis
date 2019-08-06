@@ -32,22 +32,22 @@ MatrixDimension& MatrixDimension::operator=(const MatrixDimension &that){
   this->Division = new double[that.DivisionsNumber];
   for (unsigned int i=0; i<that.DivisionsNumber; i++)
     this->Division[i] = that.Division[i];
-  return *this; 
+  return *this;
 }
 
 const char* MatrixDimension::GetGeometry() const {
   string ToRet = "[";
-  for (unsigned int j=0; j<DivisionsNumber; j++){ 
+  for (unsigned int j=0; j<DivisionsNumber; j++){
     stringstream ss;
     ss << Division[j];
-    ToRet += ss.str(); 
-    ToRet += ','; 
+    ToRet += ss.str();
+    ToRet += ',';
   }
   ToRet.erase(ToRet.end()-1);
   ToRet += ")";
   return ToRet.c_str();
 }
- 
+
 void MatrixDimension::AddDivision(AxisType newdiv){
 
   // If it the first division
@@ -66,7 +66,7 @@ void MatrixDimension::AddDivision(AxisType newdiv){
   }
 
   // Prepare new array
-  AxisType *OldArray = Division; 
+  AxisType *OldArray = Division;
   DivisionsNumber++;
   Division = new AxisType[DivisionsNumber];
 
@@ -74,7 +74,7 @@ void MatrixDimension::AddDivision(AxisType newdiv){
   for (unsigned int j=0; j<DivisionsNumber; j++)
     if (j<split) Division[j] = OldArray[j];
     else if (j == split) Division[j] = newdiv;
-    else Division[j] = OldArray[j-1];  
+    else Division[j] = OldArray[j-1];
   delete [] OldArray;
 }
 
@@ -107,11 +107,11 @@ const char* LAVSampleMatrix::GetGeometry() const {
     unsigned int *dim = new unsigned int [DimensionsNumber];
     for (unsigned int i=0; i<DimensionsNumber; i++)
       dim[i] = Dimension[i].GetBinsNumber();
-    for (unsigned int j=0; j<DimensionsNumber; j++){ 
+    for (unsigned int j=0; j<DimensionsNumber; j++){
       stringstream ss;
       ss << dim[j];
-      ToRet += ss.str(); 
-      ToRet += 'x'; 
+      ToRet += ss.str();
+      ToRet += 'x';
     }
     delete [] dim;
     ToRet.erase(ToRet.end()-1);
@@ -209,7 +209,7 @@ int LAVSampleMatrix::GetIndex(){
       return index;
 }
 
-bool LAVSampleMatrix::SetIndex(int index) {  
+bool LAVSampleMatrix::SetIndex(int index) {
   int div = 1;
   if (index < 0 || index >= (int)Size) return false;
   for (unsigned int d=0; d<DimensionsNumber; d++){
@@ -252,7 +252,7 @@ void LAVSampleMatrix::Save(const char* filename){
 }
 
 DataType LAVSampleMatrix::GetMean(){
-  if(Size <= 0) return 0;
+  //if(Size <= 0) return 0; // unsigned so impossible
   DataType Sum = 0;
   AxisType Area = 0;
   for (unsigned int i=0; i<Size; i++){
@@ -264,9 +264,9 @@ DataType LAVSampleMatrix::GetMean(){
 }
 
 void LAVSampleMatrix::SetMean(DataType newmean){
-  if(Size <= 0) return;
+  //if(Size <= 0) return;  // unsigned so impossible
   const AxisType Factor = newmean / GetMean();
   if (Factor == 1) return;
   for (unsigned int i=0; i<Size; i++)
-    Value[i] = Factor * Value[i];  
+    Value[i] = Factor * Value[i];
 }

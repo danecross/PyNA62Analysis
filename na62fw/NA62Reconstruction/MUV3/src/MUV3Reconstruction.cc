@@ -656,9 +656,9 @@ void MUV3Reconstruction::StartOfBurst() {
 
 void MUV3Reconstruction::EndOfBurst() {
   NA62VReconstruction::EndOfBurst(); // common part for all the subdetectors
-  fHNRecoHitsPerBurst->SetBinContent(fRecoEvent->GetBurstID()+1, fNRecoHitsPerBurst);
-  fHNLooseCandidatesPerBurst->SetBinContent(fRecoEvent->GetBurstID()+1, fNLooseCandidatesPerBurst);
-  fHNTightCandidatesPerBurst->SetBinContent(fRecoEvent->GetBurstID()+1, fNTightCandidatesPerBurst);
+  if(fHNRecoHitsPerBurst) fHNRecoHitsPerBurst->SetBinContent(fRecoEvent->GetBurstID()+1, fNRecoHitsPerBurst);
+  if(fHNLooseCandidatesPerBurst) fHNLooseCandidatesPerBurst->SetBinContent(fRecoEvent->GetBurstID()+1, fNLooseCandidatesPerBurst);
+  if(fHNTightCandidatesPerBurst) fHNTightCandidatesPerBurst->SetBinContent(fRecoEvent->GetBurstID()+1, fNTightCandidatesPerBurst);
 }
 
 Bool_t MUV3Reconstruction::ChannelMasked (Int_t ch) {

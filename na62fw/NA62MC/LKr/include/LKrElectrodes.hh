@@ -42,7 +42,6 @@
 #include "LKrGeometryParameters.hh"
 #include "globals.hh"
 #include "G4ThreeVector.hh"
-//#include "LKrEMShowers.hh"
 #include "G4Region.hh"
 #include "G4RegionStore.hh"
 
@@ -50,11 +49,11 @@ class G4LogicalVolume;
 class G4VPhysicalVolume;
 class G4Material;
 class G4VisAttributes;
-
 class LKrElectrodeParameterisation;
 class LKrVSpacerParameterisation;
 class LKrIrregularElectrodeParameterisation;
 class LKrIrregularVSpacerParameterisation;
+
 class LKrElectrodes : public NA62VComponent {
 
   public:
@@ -74,7 +73,6 @@ class LKrElectrodes : public NA62VComponent {
     G4VPhysicalVolume* physiLINES;
 
     LKrElectrodeParameterisation * ElectrodeParameterisation;
-
     LKrVSpacerParameterisation * VSpacerParameterisation;
     G4VPhysicalVolume * physiParameterisedVSpacer;
 
@@ -125,12 +123,9 @@ class LKrElectrodes : public NA62VComponent {
     G4double fLengthOfColdWindowPlate;
     G4double fHalfIrregularCellSizeAtBackWallY;
     G4double fHalfIrregularCellSizeAtFrontWallY;
-
     G4double fHalfYWidthIrregularB;
     G4double fHalfYWidthIrregularF;
     G4double fPassiveLKrInsideOctagon;
-
-    //LKrEMShowers *fShowers;
     G4Region* caloRegion;
 };
 

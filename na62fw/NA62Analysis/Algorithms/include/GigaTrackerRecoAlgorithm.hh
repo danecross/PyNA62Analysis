@@ -24,7 +24,6 @@ public:
   void SetTimeWindow(Double_t val)             { fTimeWindow = val;             }
   void SetTimeWindowWrtReference(Double_t val) { fTimeWindowWrtReference = val; }
   void SetRedoTimeCorr(Bool_t val)             { fRedoTimeCorr = val;           }
-  void SetFineTimeCorr(Bool_t val)             { fFineTimeCorr = val;           }
   void SetRedoXYCorr(Int_t val)                { fRedoXYCorr = val;             }
   void SetFineCorr(Bool_t val)                 { fFineCorr = val;               }
   void SetNHitsMax(Int_t val)                  { fNHitsMax = val;               }
@@ -151,7 +150,6 @@ protected:
   Double_t fA, fB, fC, fD;  ///< Fine alignment parameters [x10^6]
   Double_t fMomentumScale;  ///< Momentum scale correction
   Bool_t   fRedoTimeCorr;   ///< Redo time corrections? Default=false.
-  Bool_t   fFineTimeCorr;   ///< Apply fine time corrections? Default=false.
   Int_t    fRedoXYCorr;     ///< 0: use alignment from NA62Reco; 1: redo alignment; 2: use raw hit positions
   Bool_t   fFineCorr;       ///< Are fine corrections (momentum scale, rotation) applied?
   Bool_t   fFillHistograms; ///< Fill the monitoring histograms? Default=false.

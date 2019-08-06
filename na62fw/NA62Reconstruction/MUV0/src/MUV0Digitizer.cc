@@ -74,6 +74,14 @@ void MUV0Digitizer::ParseConfFile (TString ConfFileName) {
   }
 }
 
+void MUV0Digitizer::StartOfBurst() {
+  NA62VDigitizer::StartOfBurst();
+}
+
+void MUV0Digitizer::EndOfBurst() {
+  NA62VDigitizer::EndOfBurst();
+}
+
 TDetectorVEvent* MUV0Digitizer::ProcessEvent(TDetectorVEvent * tEvent){
 
   if (tEvent->GetHits()->GetClass()->InheritsFrom("TVDigi") ||
@@ -84,7 +92,7 @@ TDetectorVEvent* MUV0Digitizer::ProcessEvent(TDetectorVEvent * tEvent){
   Int_t NHits = MUV0Event->GetNHits();
 
   fDigiEvent->Clear();
-  (*(TVEvent*)fDigiEvent)=(*(TVEvent*)MUV0Event);
+  fDigiEvent->TVEvent::operator=(*static_cast<TVEvent*>(MUV0Event));
 
   if (!NHits) return fDigiEvent;
 
@@ -109,7 +117,7 @@ TDetectorVEvent* MUV0Digitizer::ProcessEvent(TDetectorVEvent * tEvent){
       Double_t dT = fRandom->Gaus(0, fChannelTimeResolution);
       Double_t FineTime = NA62RecoManager::GetInstance()->GetEventHeader()->GetFineTime()*ClockPeriod/256.;
       Double_t CorrectedTime = Hit->GetTime() + FineTime - static_cast<MUV0Reconstruction*>(fReco)->GetStationMCToF(Hit->GetStationID())
-        + fReco->GetT0Correction(Hit->GetChannelID(),Hit->GetStationID()) + fChannels[iROch]->GetT0() + dT;    
+        + fReco->GetT0Correction(Hit->GetChannelID(),Hit->GetStationID()) + fChannels[iROch]->GetT0() + dT;
       Double_t TrailingTime          = fRandom->Gaus(CorrectedTime+35*ns, 1*ns);
       Double_t DigitizedTime         = (Int_t)(CorrectedTime/ns/TdcCalib)*TdcCalib;
       Double_t DigitizedTrailingTime = (Int_t)(TrailingTime/ns/TdcCalib)*TdcCalib;

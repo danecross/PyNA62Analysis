@@ -8,7 +8,7 @@
 #include "TSpecialTriggerEvent.hh"
 #include "NA62RecoManager.hh"
 #include "TMath.h"
-#define ELECTRON_CHARGE 1.6025e-19 
+#define ELECTRON_CHARGE 1.6025e-19
 
 SACDigitizer::SACDigitizer(NA62VReconstruction* Reco) :
   NA62VDigitizer(Reco, "SAC"),
@@ -44,7 +44,7 @@ SACDigitizer::SACDigitizer(NA62VReconstruction* Reco) :
   fEmissionPars[3] = -0.35;
   fEmissionPars[4] = 1.627;
 
-  fDigiEvent = new TDCEvent(TSACDigi::Class()); 
+  fDigiEvent = new TDCEvent(TSACDigi::Class());
 
   InitHisto();
 }
@@ -61,7 +61,7 @@ void SACDigitizer::InitHisto(){
 }
 
 void SACDigitizer::CloseHisto(){
-  if (fMakeDigiHistos) {  
+  if (fMakeDigiHistos) {
     fHRiseTime            ->Write();
     fHMCEnergyCorrelation ->Write();
     fHMCEnergyVsTotLow    ->Write();
@@ -91,7 +91,7 @@ void SACDigitizer::FillHisto() {
     Int_t nTots = 0;
     for (Int_t j=1; j<(Int_t) fEdgesLow[ich].size(); j++){
       if (fEdgeTypesLow[ich].at(j) == -1 && fEdgeTypesLow[ich].at(j-1) == 1){
-	nTots++;	
+	nTots++;
 	fHMCEnergyVsTotLow->Fill(fEdgesLow[ich].at(j)-fEdgesLow[ich].at(j-1),fTotEnergy[ich]);
       }
     }
@@ -100,7 +100,7 @@ void SACDigitizer::FillHisto() {
     nTots = 0;
     for (Int_t j=1; j<(Int_t) fEdgesHigh[ich].size(); j++){
       if (fEdgeTypesHigh[ich].at(j) == -1 && fEdgeTypesHigh[ich].at(j-1) == 1){
-	nTots++;	
+	nTots++;
 	fHMCEnergyVsTotHigh->Fill(fEdgesHigh[ich].at(j)-fEdgesHigh[ich].at(j-1),fTotEnergy[ich]);
       }
     }
@@ -119,6 +119,14 @@ SACDigitizer::~SACDigitizer(){
   CloseHisto();
 }
 
+void SACDigitizer::StartOfBurst() {
+  NA62VDigitizer::StartOfBurst();
+}
+
+void SACDigitizer::EndOfBurst() {
+  NA62VDigitizer::EndOfBurst();
+}
+
 TDetectorVEvent * SACDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
 
   if (tEvent->GetHits()->GetClass()->InheritsFrom("TVDigi") ||
@@ -129,7 +137,7 @@ TDetectorVEvent * SACDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
   Int_t NHits = SACEvent->GetNHits();
 
   fDigiEvent->Clear();
-  (*(TVEvent*)fDigiEvent)=(*(TVEvent*)SACEvent);
+  fDigiEvent->TVEvent::operator=(*static_cast<TVEvent*>(SACEvent));
 
   if (!NHits) return fDigiEvent;
 
@@ -138,7 +146,7 @@ TDetectorVEvent * SACDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
   // Find minimum and maximum hit times
 
   fTOffset=0;
-  Double_t tMax=0;  
+  Double_t tMax=0;
   for (Int_t i=0; i<NHits; i++) {
     TSACHit* hit = static_cast<TSACHit*>( hitArray[i]);
     if (i==0) {
@@ -154,7 +162,7 @@ TDetectorVEvent * SACDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
     //std::cout << "[SACDigitizer] Warning, tMax too high: " << tMax << std::endl;
     tMax = fTOffset+10000;
   }
-  fTOffset = fTOffset - fTau; // shift minimum time to avoid signal starting above threshold 
+  fTOffset = fTOffset - fTau; // shift minimum time to avoid signal starting above threshold
   tMax = tMax + fTRange; // add time to include the emission of photoelectrons
 
   // Prepare arrays to store the photoelectron distribution
@@ -184,7 +192,7 @@ TDetectorVEvent * SACDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
 
       for (Int_t jBin = 0; jBin < fNBinRange; jBin++) {
 	Double_t timeX = (jBin+0.5)*fBinWidth - fEmissionPars[1];
-	Double_t npeAv = energy / fLightSuppressionFactor * fNGammaPerMeV * fEpsilonReach * fEpsilonPhotocatode * fEmissionPars[0] * exp(-0.5*timeX/fEmissionPars[2] + fEmissionPars[3]*exp(-timeX/fEmissionPars[4]));  
+	Double_t npeAv = energy / fLightSuppressionFactor * fNGammaPerMeV * fEpsilonReach * fEpsilonPhotocatode * fEmissionPars[0] * exp(-0.5*timeX/fEmissionPars[2] + fEmissionPars[3]*exp(-timeX/fEmissionPars[4]));
 //	if (npeAv < 10 && npeAv > 0.01) primPE[ich][iBin+jBin] += fRandom->Poisson(npeAv);
 //	else if (npeAv >= 10) primPE[ich][iBin+jBin] += npeAv + TMath::Sqrt(npeAv)*fRandom->Gaus(0,1);
 	primPE[ich][iBin+jBin] += npeAv;
@@ -192,7 +200,7 @@ TDetectorVEvent * SACDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
     }
   }
 
-  Double_t ToV = ( fImpedence * ELECTRON_CHARGE ) / ( fBinWidth * 1.e-9 ) ; // fBinWidth is ns  
+  Double_t ToV = ( fImpedence * ELECTRON_CHARGE ) / ( fBinWidth * 1.e-9 ) ; // fBinWidth is ns
   Int_t IsAleading = 1;
   Int_t IsAtrailing = -1;
   Double_t dumpFactor = TMath::Exp(-fBinWidth/fTau);
@@ -238,7 +246,7 @@ TDetectorVEvent * SACDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
     if (signalGenerated[ich][0] > thresholdHi) {
       std::cout << "[SACDigitizer] Warning: Signal starts above threshold Hi: V= " << signalGenerated[ich][0] << " thr = " << thresholdHi << std::endl;
       aboveThHi = 1;
-      thresholdHi = fThHigh - fHyst; 
+      thresholdHi = fThHigh - fHyst;
       timeHi = 0; // initialize
     }
 
@@ -346,9 +354,9 @@ TDetectorVEvent * SACDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
 
     openDigi = 0;
     DigiOld = NULL;
-    
+
     for (UInt_t j=0; j<fEdgesHigh[ich].size(); j++) {
-      
+
       if (fEdgeTypesHigh[ich].at(j) == IsAleading) {
 	TSACDigi *Digi = static_cast<TSACDigi*>(fDigiEvent->AddDigi());
 	Digi->SetMCTrackID( hit->GetMCTrackID() );

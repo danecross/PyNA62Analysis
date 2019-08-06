@@ -36,7 +36,6 @@
 #include "G4LogicalVolume.hh"
 #include "G4SubtractionSolid.hh"
 #include "G4PVPlacement.hh"
-#include "globals.hh"
 
 #include "G4VisAttributes.hh"
 #include "G4Colour.hh"

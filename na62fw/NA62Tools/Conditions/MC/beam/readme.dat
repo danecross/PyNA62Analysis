@@ -9,14 +9,12 @@ Contents of this directory (NA62MC/config/beam):
 ------------------------------------------------
 * beatch.dat:
   the BEATCH file with the geometry description, not used and kept for reference only.
-* turtle2015.dat:
-  TURTLE datacard used to simulate the 2015 conditions (fine-tuned beam momentum spectrum).
-* turtle2016.dat, turtle2017.dat, turtle2018.dat:
-  TURTLE datacards used to simulate the 2016-18 conditions (currenly copies of the 2015 datacard).
+* turtle.dat:
+  TURTLE datacard used for the simulation (fine-tuned beam momentum spectrum).
 * turtle_original.dat:
   the default TURTLE datacard (no beam tuning).
 * gtk1.dat, bluetube.dat:
-  older and less detailed but still usable datacards; beam passed to G4 NOT in front of the Cedar.
+  older and less detailed but still usable TURTLE datacards; beam passed to G4 NOT in front of the Cedar.
 * Files with names starting with ORIGINAL:
   the TURTLE, HALO and TRANSPORT datacards copied from the repository above.
   They cannot be used with NA62MC and they are stored here for reference only.

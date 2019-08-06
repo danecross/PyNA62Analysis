@@ -267,7 +267,7 @@ void LKrElectrodes::CreateGeometry(){
       G4Trap *NonParameterisedElectrode;
       G4LogicalVolume* NonParameterisedElectrodeLogic;
       G4VPhysicalVolume* NonParameterisedElectrodePlacement;
-      G4Trap * solidParameterisedVSpacer;
+      G4Trap *solidParameterisedVSpacer;
       G4LogicalVolume* logicParameterisedVSpacer;
 
       //
@@ -278,7 +278,6 @@ void LKrElectrodes::CreateGeometry(){
       //********************************************************************************************
       //      IF NOT DEFINED NHOD, 34 virtual trapezoids in total form the walls and the zigzags
       //
-
 
       for (int ll = 0; ll < ParameterisedNumberElectrodes; ll++){
 
@@ -540,17 +539,16 @@ void LKrElectrodes::CreateGeometry(){
       physiParameterisedIrregularVSpacer = new G4PVParameterised(
           logname1.str(),                          // their name
           logicParameterisedIrregularVSpacer,      // their logical volume
-          logicNonParameterisedIrregularElectrode, // Mother logical volume 
-          kUndefined,                              // Are placed along this axis 
+          logicNonParameterisedIrregularElectrode, // Mother logical volume
+          kUndefined,                              // Are placed along this axis
           34,                                      // Number of chambers
           IrregularVSpacerParameterisation);       // The parametrisation
 
-      TrapVisAtt= new G4VisAttributes(G4Colour(0.,0.6,0.3));
-      //  TrapVisAtt->SetForceSolid(true);
+      TrapVisAtt = new G4VisAttributes(G4Colour(0.,0.6,0.3));
+      // TrapVisAtt->SetForceSolid(true);
       logicParameterisedIrregularVSpacer->SetVisAttributes(TrapVisAtt);
     }
   }
-  //fShowers = new LKrEMShowers("fastShowerSimu", caloRegion);
 }
 
 void LKrElectrodes::SetProperties(){

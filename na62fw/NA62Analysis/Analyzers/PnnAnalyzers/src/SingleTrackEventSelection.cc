@@ -333,6 +333,7 @@ void SingleTrackEventSelection::Process(int){
 
     cout<<user()<<"prepare correct matching"<<endl;
     fMatchingRG->Process(GTKEvent, STRAWCand1, bestTrackKTAGTime.at(fTrackID), bestTrackKTAGTime.at(fTrackID), bestTrackRICHTime.at(fTrackID), 0, "");
+    fMatchingRG->FinalSelection(bestTrackKTAGTime.at(fTrackID), bestTrackRICHTime.at(fTrackID), 0, "");
     cout<<user()<<"prepared"<<endl;
   };
   if(fSelected) {

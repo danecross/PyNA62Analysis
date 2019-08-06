@@ -1,12 +1,12 @@
-#include "Timer.hh"
+#include "NA62Timer.hh"
 #include <TRandom3.h>
 #include <cstdio>
 
-Timer::Timer(bool normalised = true) {
+NA62Timer::NA62Timer(bool normalised = true) {
   if(normalised){
     TRandom3 localRandom; // do not mess with main random generator
     localRandom.SetSeed(12345);
-    TimerImp timer;
+    NA62TimerImp timer;
     timer.Start();
     int shots = 6500000;// 0.25s on 2.66GHz Core2 Intel CPU (Q8400) gcc 4.6.3 -02
     double sum = 0.; // to prevent optimising loop away
@@ -19,15 +19,15 @@ Timer::Timer(bool normalised = true) {
   }
 }
 
-unsigned int Timer::AddTimer(const TString &name,unsigned int indent){
-  fTimers.push_back(TimerImp());
+unsigned int NA62Timer::AddTimer(const TString &name,unsigned int indent){
+  fTimers.push_back(NA62TimerImp());
   TString iName = "";
   while( indent-- ) iName += " ";
   fNames.push_back(iName+name);
   return fNames.size() - 1; // pos of just added timer
 }
 
-void Timer::RemoveTimers(const TString name){
+void NA62Timer::RemoveTimers(const TString name){
   for(unsigned int iTimer=0;iTimer<fTimers.size();iTimer++){
     if(fNames.at(iTimer).Contains(name)) {
       fTimers.erase(fTimers.begin()+iTimer);
@@ -37,12 +37,12 @@ void Timer::RemoveTimers(const TString name){
   }
 }
 
-void Timer::PrintTimers(std::ostream &os){
+void NA62Timer::PrintTimers(std::ostream &os){
   const static int bufSize = 256; // max size of output buffer
   char outputBuff[bufSize];
   if(fSpeedRatio != 1.){
-    os << "**************************************************************************\n";    
-    snprintf(outputBuff,bufSize, // safer sprintf 
+    os << "**************************************************************************\n";
+    snprintf(outputBuff,bufSize, // safer sprintf
             "*       CPU speed factor %7.2f to 2.66GHz Core2 Intel CPU (Q8400)      *\n",
 	    fSpeedRatio);
     os << outputBuff;
@@ -53,21 +53,21 @@ void Timer::PrintTimers(std::ostream &os){
     os << "**************************************************************************\n";
   }
   // print the timer block
-  snprintf(outputBuff,bufSize, // safer sprintf 
+  snprintf(outputBuff,bufSize, // safer sprintf
 	   "* %-20s * %7s * %7s * %7s * %7s * %7s *\n",
-	   "Alg. name","Called","Av.(ms)","Min(ms)","Max(ms)","Tot (s)");    
+	   "Alg. name","Called","Av.(ms)","Min(ms)","Max(ms)","Tot (s)");
   os << outputBuff;
   for(unsigned int timer = 0 ; timer < fTimers.size() ; ++timer){
     PrintTimer(timer,os);
   }
-  os << "**************************************************************************\n";    
+  os << "**************************************************************************\n";
 }
 
-void Timer::PrintTimer(unsigned int timer, std::ostream &os ){
+void NA62Timer::PrintTimer(unsigned int timer, std::ostream &os ){
   const static int bufSize = 256; // max size of output buffer
   char outputBuff[bufSize];
-  if(fNames[timer].Contains("Total")) os << "*------------------------------------------------------------------------*\n";    
-  snprintf(outputBuff,bufSize, // safer sprintf 
+  if(fNames[timer].Contains("Total")) os << "*------------------------------------------------------------------------*\n";
+  snprintf(outputBuff,bufSize, // safer sprintf
 	   "* %-20s * %7i * %7.1f * %7.1f * %7.1f * %7.1f *\n"
 	   , fNames[timer].Data()
 	   , fTimers[timer].NumEvt()

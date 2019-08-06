@@ -107,7 +107,7 @@ MuonRadiativeDecayChannelWithSpinWithEgammaCut::MuonRadiativeDecayChannelWithSpi
 
 MuonRadiativeDecayChannelWithSpinWithEgammaCut & MuonRadiativeDecayChannelWithSpinWithEgammaCut::operator=(const MuonRadiativeDecayChannelWithSpinWithEgammaCut & right)
 {
-  if (this != &right) { 
+  if (this != &right) {
     kinematics_name = right.kinematics_name;
     verboseLevel = right.verboseLevel;
     rbranch = right.rbranch;
@@ -134,16 +134,16 @@ MuonRadiativeDecayChannelWithSpinWithEgammaCut & MuonRadiativeDecayChannelWithSp
 }
 
 
-G4DecayProducts *MuonRadiativeDecayChannelWithSpinWithEgammaCut::DecayIt(G4double) 
+G4DecayProducts *MuonRadiativeDecayChannelWithSpinWithEgammaCut::DecayIt(G4double)
 {
 
 #ifdef G4VERBOSE
-  if (GetVerboseLevel()>1) 
+  if (GetVerboseLevel()>1)
                  G4cout << "MuonRadiativeDecayChannelWithSpinWithEgammaCut::DecayIt ";
 #endif
 
 #ifdef G4SLC6
-  if (G4MT_parent == 0) FillParent();  
+  if (G4MT_parent == 0) FillParent();
   if (G4MT_daughters == 0) FillDaughters();
 #else
   CheckAndFillParent();
@@ -156,18 +156,18 @@ G4DecayProducts *MuonRadiativeDecayChannelWithSpinWithEgammaCut::DecayIt(G4doubl
   G4double EMMU = parentmass;
 
   //daughters'mass
-  G4double daughtermass[4]; 
-  G4double sumofdaughtermass = 0.0;
+  G4double daughtermass[4];
+  //G4double sumofdaughtermass = 0.0;
   for (G4int index=0; index<4; index++){
     daughtermass[index] = G4MT_daughters[index]->GetPDGMass();
-    sumofdaughtermass += daughtermass[index];
+    //sumofdaughtermass += daughtermass[index];
   }
 
   G4double EMASS = daughtermass[0];
 
   //create parent G4DynamicParticle at rest
   G4ThreeVector dummy;
-  G4DynamicParticle * parentparticle = 
+  G4DynamicParticle * parentparticle =
                                new G4DynamicParticle( G4MT_parent, dummy, 0.0);
   //create G4Decayproducts
   G4DecayProducts *products = new G4DecayProducts(*parentparticle);
@@ -221,10 +221,10 @@ G4DecayProducts *MuonRadiativeDecayChannelWithSpinWithEgammaCut::DecayIt(G4doubl
 //      cthetaE = cosine of polar angle of positron momentum
 //      sthetaE = sine of polar angle of positron momentum
 //
-////      G4cout << " x, xx, yy, zz " << x  << " " << xx << " " 
+////      G4cout << " x, xx, yy, zz " << x  << " " << xx << " "
 ////                                  << yy << " " << zz << G4endl;
 ////      G4cout << " phiE, cthetaE, sthetaE " << phiE    << " "
-////                                           << cthetaE << " " 
+////                                           << cthetaE << " "
 ////                                           << sthetaE << " " << G4endl;
 //
 //-----------------------------------------------------------------------
@@ -308,9 +308,9 @@ G4DecayProducts *MuonRadiativeDecayChannelWithSpinWithEgammaCut::DecayIt(G4doubl
      som0 = fron(Pmu,x,y,cthetaE,cthetaG,cthetaGE);
 //
 ////     if(som0<0.0){
-////       G4cout << " som0 < 0 in Fronsdal " << som0 
+////       G4cout << " som0 < 0 in Fronsdal " << som0
 ////              << " at event " << i << G4endl;
-////       G4cout << Pmu << " " << x << " " << y << " " 
+////       G4cout << Pmu << " " << x << " " << y << " "
 ////              << cthetaE << " " << cthetaG << " "
 ////              << cthetaGE << " " << som0 << G4endl;
 ////     }
@@ -357,7 +357,7 @@ G4DecayProducts *MuonRadiativeDecayChannelWithSpinWithEgammaCut::DecayIt(G4doubl
 
   direction0.rotateUz(parent_polarization);
 
-  G4DynamicParticle * daughterparticle0 
+  G4DynamicParticle * daughterparticle0
     = new G4DynamicParticle( G4MT_daughters[0], daughtermomentum[0]*direction0);
 
   products->PushProducts(daughterparticle0);
@@ -426,8 +426,8 @@ G4DecayProducts *MuonRadiativeDecayChannelWithSpinWithEgammaCut::DecayIt(G4doubl
   products->PushProducts(daughterparticle2);
   products->PushProducts(daughterparticle3);
 
-  daughtermomentum[2] = daughterparticle2->GetTotalMomentum();
-  daughtermomentum[3] = daughterparticle3->GetTotalMomentum();
+  //daughtermomentum[2] = daughterparticle2->GetTotalMomentum();
+  //daughtermomentum[3] = daughterparticle3->GetTotalMomentum();
 
 // output message
 #ifdef G4VERBOSE
@@ -560,7 +560,7 @@ G4double MuonRadiativeDecayChannelWithSpinWithEgammaCut::fron(G4double Pmu,
       G4double som0 = (som00+som01)/y;
       som0  = fine_structure_const/8./(twopi*twopi*twopi)*som0;
 
-//      G4cout << x     << " " << y    << " " << som00 << " " 
+//      G4cout << x     << " " << y    << " " << som00 << " "
 //             << som01 << " " << som0 << G4endl;
 
       return som0;

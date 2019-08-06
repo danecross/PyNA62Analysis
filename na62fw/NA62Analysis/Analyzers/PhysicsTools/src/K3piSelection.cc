@@ -79,8 +79,8 @@ K3piSelection::K3piSelection(Core::BaseAnalysis *ba) :
   AddParam("ZAcceptedMin", &fZAcceptedMin, 104000); // [mm]
   AddParam("ZAcceptedMax", &fZAcceptedMax, 180000); // [mm]
 
-  fMinRunID = 6278; // for histograms
-  fMaxRunID = 8282;
+  fMinRunID = 5435; // for histograms
+  fMaxRunID = 9462;
 
   //////////////////////////////////////////////////////////
   // Initialize parameters for kaon flux and POT computation
@@ -97,7 +97,7 @@ K3piSelection::K3piSelection(Core::BaseAnalysis *ba) :
   fArgonionFVConvK  = exp((fZFiducialMin-fZArgonion)/fKaonMeanPath); // ~0.75
   fArgonionFVConvPi = exp((fZFiducialMin-fZArgonion)/fPionMeanPath); // ~0.96
   fDecayProb        = 1.0 - exp((fZFiducialMin-fZFiducialMax)/fKaonMeanPath); // ~0.125
-  fAcceptance       = 0.1536;  // Acceptance in Z range (105-180)m, evaluated with MC v0.11.2
+  fAcceptance       = 0.1540; // Acceptance, Ztrue range (105-180)m, MC v1.1.3
   fBRK3pi           = 0.05583; // PDG 2017
   fDownscaling1     = -1; // control trigger downscaling; initialized in StartOfRunUser()
   fDownscaling2     = -1; // multi-track trigger downscaling; initialized in StartOfRunUser()
@@ -219,6 +219,14 @@ void K3piSelection::InitHist() {
     BookHisto("mctrue/pdxdzVsYstart", new TProfile("dxdzVsYP_true", "True dx/dz vs y; y [mm]; dx/dz", 20, -25, 25));
     BookHisto("mctrue/pdydzVsYstart", new TProfile("dydzVsYP_true", "True dy/dz vs y; y [mm]; dy/dz", 20, -25, 25));
 
+    // M3pi vs the phi angle: true MC events, this is a pure blue field effect
+    BookHisto("mctrue/hM3piVsPhi", new TH2F
+	      ("M3piVsPhi_true", "True M(3#pi) vs #varphi: pure blue field effect; #varphi/#pi; M(3#pi) [MeV]", 40, -1, 1, 30, 492, 495));
+    BookHisto("mctrue/pM3piVsPhi", new TProfile
+	      ("pM3piVsPhi_true", "True M(3#pi) vs #varphi: pure blue field effect; #varphi/#pi; M(3#pi) [MeV]", 40, -1, 1));
+
+    BookHisto("mctrue/CedarTimeMC",   new TH1F("CedarTimeMC", "Cedar Time #minus Fine Time;Time [ns]", 200, -2, 2));
+
     // Histograms of reconstructed quantities: general monitoring
     BookHisto("general/hNTracks",        new TH1F("NTracks",    "Number of tracks",           11, -0.5, 10.5));
     BookHisto("general/hNVertices",      new TH1F("NVertices",  "Number of 3-track vertices", 11, -0.5, 10.5));
@@ -302,12 +310,6 @@ void K3piSelection::InitHist() {
     BookHisto("selected/NSharedRICHHits", new TH1D
 	      ("NSharedRICHHits", "NSharedRICHHits", 20, -0.5, 19.5));
 
-    // M3pi vs the phi angle: true MC events, this is a pure blue field effect
-    BookHisto("mctrue/hM3piVsPhi", new TH2F
-	      ("M3piVsPhi_true", "True M(3#pi) vs #varphi: pure blue field effect; #varphi/#pi; M(3#pi) [MeV]", 40, -1, 1, 30, 492, 495));
-    BookHisto("mctrue/pM3piVsPhi", new TProfile
-	      ("pM3piVsPhi_true", "True M(3#pi) vs #varphi: pure blue field effect; #varphi/#pi; M(3#pi) [MeV]", 40, -1, 1));
-
     BookHisto("general/hBurstID", new TH1F ("BurstID", "Burst ID;Burst ID", fMaxNBursts, -0.5, fMaxNBursts-0.5));
     BookHisto("general/hKaonRateArgonion", new TH1F
 	      ("KaonRateArgonion", "Kaon rate (from Argonion) vs burst ID;Burst ID;Kaon rate [MHz]",
@@ -351,7 +353,7 @@ void K3piSelection::InitHist() {
     BookHisto("selected/hNRICHHits", new TH1F
 	      ("NRICHHits", "Number of RICH hits;Number of hits", 100, -0.5, 99.5));
     BookHisto("selected/CedarTime", new TH1F
-	      ("CedarTime", "Cedar Time - Mean vertex CHOD track time;Time [ns]", 200, -50, 50));
+	      ("CedarTime", "Cedar Time #minus Mean vertex CHOD track time;Time [ns]", 200, -50, 50));
     BookHisto("selected/NCedarOctants", new TH1F
 	      ("NCedarOctants", "Number of Cedar Octants in a candidate;N(octants)", 9, -0.5, 8.5));
 
@@ -638,6 +640,11 @@ void K3piSelection::Process(Int_t) {
 	  FillHisto("mctrue/pM3piVsPhi", phi, P3pi.M());
 	}
       }
+    }
+    TRecoCedarEvent* CEDARevent = GetEvent<TRecoCedarEvent>();
+    for (Int_t i=0; i<CEDARevent->GetNCandidates(); i++) {
+      TRecoCedarCandidate* Ccand = static_cast<TRecoCedarCandidate*>(CEDARevent->GetCandidate(i));
+      FillHisto("mctrue/CedarTimeMC", Ccand->GetTime() - TdcCalib*GetEventHeader()->GetFineTime());
     }
   }
 
@@ -1389,74 +1396,81 @@ void K3piSelection::EndOfJobUser() {
   Double_t POT_fromKTAG = NK_fromKTAG * fPOT_to_Kaon;
   Double_t POT_fromArgo = NK_fromArgo * fPOT_to_Kaon;
 
-  cout << user_normal() << "N(trig)= " << fHEventsPerBurst->Integral() << endl;
-  cout << user_normal() << "N(CTL_decays_in_FV) NK= " << CTL_Ndec <<
-    " N0= " << CTL_NK << " POT= " << CTL_POT << endl;
-  cout << user_normal() << "N(CTL_decays_in_FV_QualityMaskOK) NK= " << CTL_QM0_Ndec <<
-    " N0= " << CTL_QM0_NK << " POT= " << CTL_QM0_POT << endl;
-  cout << user_normal() << "N(MUL_decays_in_FV) NK= " << MUL_Ndec <<
-    " N0= " << MUL_NK << " POT= " << MUL_POT << endl;
-  cout << user_normal() << "N(KTAG_decays_in_FV) NK= " << NK_fromKTAG*fDecayProb <<
-    " N0= " << NK_fromKTAG << " POT= " << POT_fromKTAG << endl;
-  cout << user_normal() << "N(Argonion_decays_in_FV) NK= " << NK_fromArgo*fDecayProb <<
-    " N0= " << NK_fromArgo << " POT= " << POT_fromArgo << endl;
+  if (!GetWithMC()) {
+    cout << user_normal() << "N(trig)= " << fHEventsPerBurst->Integral() << endl;
+    cout << user_normal() << "N(CTL_decays_in_FV) NK= " << CTL_Ndec <<
+      " N0= " << CTL_NK << " POT= " << CTL_POT << endl;
+    cout << user_normal() << "N(CTL_decays_in_FV_QualityMaskOK) NK= " << CTL_QM0_Ndec <<
+      " N0= " << CTL_QM0_NK << " POT= " << CTL_QM0_POT << endl;
+    cout << user_normal() << "N(MUL_decays_in_FV) NK= " << MUL_Ndec <<
+      " N0= " << MUL_NK << " POT= " << MUL_POT << endl;
+    cout << user_normal() << "N(KTAG_decays_in_FV) NK= " << NK_fromKTAG*fDecayProb <<
+      " N0= " << NK_fromKTAG << " POT= " << POT_fromKTAG << endl;
+    cout << user_normal() << "N(Argonion_decays_in_FV) NK= " << NK_fromArgo*fDecayProb <<
+      " N0= " << NK_fromArgo << " POT= " << POT_fromArgo << endl;
 
-  // Write all the info in a .dat file
-  ofstream K3piInfoFile;
-  TString K3piInfoFileName = "K3piInfo.AllBursts.dat";
-  if(!Configuration::ConfigSettings::CLI::fNoSkipBadBurst) K3piInfoFileName = "K3piInfo.NoBadBursts.dat";  // skipping bad bursts
-  K3piInfoFile.open(K3piInfoFileName);
-  K3piInfoFile << "# Format:" << endl;
-  K3piInfoFile << "# Line 1: CTL_QM0  RunID StartOfRunTime NK3pi(CTL_QM0) NK(CTL_decays_in_FV_QM0) N0(CTL_decays_in_FV_QM0) POT(CTL_decays_in_FV_QM0)" << endl;
-  K3piInfoFile << "# Line 2: CTL_all  RunID StartOfRunTime NK3pi(CTL_all) NK(CTL_decays_in_FV_all) N0(CTL_decays_in_FV_all) POT(CTL_decays_in_FV_all)" << endl;
-  K3piInfoFile << "# Line 3: MUL_all  RunID StartOfRunTime NK3pi(MUL_all) NK(MUL_decays_in_FV_all) N0(MUL_decays_in_FV_all) POT(MUL_decays_in_FV_all)" << endl;
-  K3piInfoFile << Form("CTL_QM0  %06d %d %.5e %.5e %.5e %.5e",GetRunID(),fStartOfRunTime,fHK3piEventsPerBurstControlTriggerQM0->Integral(),CTL_QM0_Ndec,CTL_QM0_NK,CTL_QM0_POT) << endl;
-  K3piInfoFile << Form("CTL_all  %06d %d %.5e %.5e %.5e %.5e",GetRunID(),fStartOfRunTime,fHK3piEventsPerBurstControlTrigger->Integral(),CTL_Ndec,CTL_NK,CTL_POT) << endl;
-  K3piInfoFile << Form("MUL_all  %06d %d %.5e %.5e %.5e %.5e",GetRunID(),fStartOfRunTime,fHK3piEventsPerBurstMultiTrackTrigger->Integral(),MUL_Ndec,MUL_NK,MUL_POT) << endl;
-  K3piInfoFile.close();
+    ////////////////////////////////////
+    // Write all the info in a .dat file
 
-  ofstream NKInfoFile;
-  TString NKInfoFileName = "NKInfo.AllBursts.dat";
-  if (!Configuration::ConfigSettings::CLI::fNoSkipBadBurst) NKInfoFileName = "NKInfo.NoBadBursts.dat";  // skipping bad bursts
-  NKInfoFile.open(NKInfoFileName);
-  NKInfoFile << "# Format:" << endl;
-  NKInfoFile << "# Line 1: KTAG_all RunID StartOfRunTime N(trig) NK(KTAG_decays_in_FV_all) N0(KTAG_decays_in_FV_all) POT(KTAG_decays_in_FV_all)" << endl;
-  NKInfoFile << "# Line 2: Argn_all RunID StartOfRunTime N(trig) NK(Argonion_decays_in_FV_all) N0(Argonion_decays_in_FV_all) POT(Argonion_decays_in_FV_all)" << endl;
-  NKInfoFile << Form("KTAG_all %06d %d %.5e %.5e %.5e %.5e",GetRunID(),fStartOfRunTime,fHEventsPerBurst->Integral(),NK_fromKTAG*fDecayProb,NK_fromKTAG,POT_fromKTAG) << endl;
-  NKInfoFile << Form("Argn_all %06d %d %.5e %.5e %.5e %.5e",GetRunID(),fStartOfRunTime,fHEventsPerBurst->Integral(),NK_fromArgo*fDecayProb,NK_fromArgo,POT_fromArgo) << endl;
-  NKInfoFile.close();
+    ofstream K3piInfoFile;
+    TString K3piInfoFileName = "K3piInfo.AllBursts.dat";
+    if(!Configuration::ConfigSettings::CLI::fNoSkipBadBurst) K3piInfoFileName = "K3piInfo.NoBadBursts.dat";  // skipping bad bursts
+    K3piInfoFile.open(K3piInfoFileName);
+    K3piInfoFile << "# Format:" << endl;
+    K3piInfoFile << "# Line 1: CTL_QM0  RunID StartOfRunTime NK3pi(CTL_QM0) NK(CTL_decays_in_FV_QM0) N0(CTL_decays_in_FV_QM0) POT(CTL_decays_in_FV_QM0)" << endl;
+    K3piInfoFile << "# Line 2: CTL_all  RunID StartOfRunTime NK3pi(CTL_all) NK(CTL_decays_in_FV_all) N0(CTL_decays_in_FV_all) POT(CTL_decays_in_FV_all)" << endl;
+    K3piInfoFile << "# Line 3: MUL_all  RunID StartOfRunTime NK3pi(MUL_all) NK(MUL_decays_in_FV_all) N0(MUL_decays_in_FV_all) POT(MUL_decays_in_FV_all)" << endl;
+    K3piInfoFile << Form("CTL_QM0  %06d %d %.5e %.5e %.5e %.5e",GetRunID(),fStartOfRunTime,fHK3piEventsPerBurstControlTriggerQM0->Integral(),CTL_QM0_Ndec,CTL_QM0_NK,CTL_QM0_POT) << endl;
+    K3piInfoFile << Form("CTL_all  %06d %d %.5e %.5e %.5e %.5e",GetRunID(),fStartOfRunTime,fHK3piEventsPerBurstControlTrigger->Integral(),CTL_Ndec,CTL_NK,CTL_POT) << endl;
+    K3piInfoFile << Form("MUL_all  %06d %d %.5e %.5e %.5e %.5e",GetRunID(),fStartOfRunTime,fHK3piEventsPerBurstMultiTrackTrigger->Integral(),MUL_Ndec,MUL_NK,MUL_POT) << endl;
+    K3piInfoFile.close();
 
-  ///////////////////////////////////////////////////////////////////
-  // Print number and kaon decays and POT for all enabled L0 triggers
+    ofstream NKInfoFile;
+    TString NKInfoFileName = "NKInfo.AllBursts.dat";
+    if (!Configuration::ConfigSettings::CLI::fNoSkipBadBurst) NKInfoFileName = "NKInfo.NoBadBursts.dat";  // skipping bad bursts
+    NKInfoFile.open(NKInfoFileName);
+    NKInfoFile << "# Format:" << endl;
+    NKInfoFile << "# Line 1: KTAG_all RunID StartOfRunTime N(trig) NK(KTAG_decays_in_FV_all) N0(KTAG_decays_in_FV_all) POT(KTAG_decays_in_FV_all)" << endl;
+    NKInfoFile << "# Line 2: Argn_all RunID StartOfRunTime N(trig) NK(Argonion_decays_in_FV_all) N0(Argonion_decays_in_FV_all) POT(Argonion_decays_in_FV_all)" << endl;
+    NKInfoFile << Form("KTAG_all %06d %d %.5e %.5e %.5e %.5e",GetRunID(),fStartOfRunTime,fHEventsPerBurst->Integral(),NK_fromKTAG*fDecayProb,NK_fromKTAG,POT_fromKTAG) << endl;
+    NKInfoFile << Form("Argn_all %06d %d %.5e %.5e %.5e %.5e",GetRunID(),fStartOfRunTime,fHEventsPerBurst->Integral(),NK_fromArgo*fDecayProb,NK_fromArgo,POT_fromArgo) << endl;
+    NKInfoFile.close();
 
-  cout << user_normal() << "-------------------------------------------------" << endl;
-  cout << user_normal() << "Enabled L0 triggers; numbers of K decays & POT for each trigger:" << endl;
-  // Control trigger (if enabled)
-  if (fTriggerConditions->ControlTriggerEnabled(RunID)) {
-    Int_t DS = fTriggerConditions->GetControlTriggerDownscaling(RunID);
-    Double_t Ndec_DS = (DS>0) ? CTL_Ndec/DS : 0.0;
-    Double_t POT_DS  = (DS>0) ? CTL_POT/DS  : 0.0;
-    cout << user_normal() << "Decays_POT_per_trigger " << RunID << " Control DS=" <<
-      DS << " " << Ndec_DS << " " << POT_DS << endl;
-  }
-  // All enabled regular L0 triggers
-  for (Int_t TrigID=0; TrigID<fTriggerConditions->GetNumberOfL0Conditions(); TrigID++) {
-    if (fTriggerConditions->L0TriggerEnabled(RunID, TrigID)) {
-      Int_t DS = fTriggerConditions->GetL0TriggerDownscaling(RunID, TrigID);
-      Double_t Ndec_DS = (DS>0) ? CTL_Ndec/DS : 0.0; // D=-1 means variable downscaling; this trigger is ignored
+    ///////////////////////////////////////////////////////////////////
+    // Print number and kaon decays and POT for all enabled L0 triggers
+
+    cout << user_normal() << "-------------------------------------------------" << endl;
+    cout << user_normal() << "Enabled L0 triggers; numbers of K decays & POT for each trigger:" << endl;
+    // Control trigger (if enabled)
+    if (fTriggerConditions->ControlTriggerEnabled(RunID)) {
+      Int_t DS = fTriggerConditions->GetControlTriggerDownscaling(RunID);
+      Double_t Ndec_DS = (DS>0) ? CTL_Ndec/DS : 0.0;
       Double_t POT_DS  = (DS>0) ? CTL_POT/DS  : 0.0;
-      cout << user_normal() << "Decays_POT_per_trigger " << RunID << " " <<
-	fTriggerConditions->GetL0ConditionName(TrigID) << " DS=" << DS << " " <<
-	Ndec_DS << " " << POT_DS << endl;
+      cout << user_normal() << "Decays_POT_per_trigger " << RunID << " Control DS=" <<
+	DS << " " << Ndec_DS << " " << POT_DS << endl;
+    }
+    // All enabled regular L0 triggers
+    for (Int_t TrigID=0; TrigID<fTriggerConditions->GetNumberOfL0Conditions(); TrigID++) {
+      if (fTriggerConditions->L0TriggerEnabled(RunID, TrigID)) {
+	Int_t DS = fTriggerConditions->GetL0TriggerDownscaling(RunID, TrigID);
+	Double_t Ndec_DS = (DS>0) ? CTL_Ndec/DS : 0.0; // D=-1 means variable downscaling; this trigger is ignored
+	Double_t POT_DS  = (DS>0) ? CTL_POT/DS  : 0.0;
+	cout << user_normal() << "Decays_POT_per_trigger " << RunID << " " <<
+	  fTriggerConditions->GetL0ConditionName(TrigID) << " DS=" << DS << " " <<
+	  Ndec_DS << " " << POT_DS << endl;
+      }
     }
   }
+
   cout << user_normal() << "-------------------------------------------------" << endl;
 
-  cout << user_normal() << "TotalBursts= " << NumberOfBursts <<
-    " NonEmpty= " << NumberOfNonEmptyBursts <<
-    " WithPhysicsTriggers= " << NumberOfBurstsWithPhysicsTriggers <<
-    " WithControlTriggers= " << NumberOfBurstsWithControlTriggers <<
-    " WithControlTriggersAndK3pi= " << NumberOfBurstsWithControlK3piEvents << endl;
+  if (!GetWithMC()) {
+    cout << user_normal() << "TotalBursts= " << NumberOfBursts <<
+      " NonEmpty= " << NumberOfNonEmptyBursts <<
+      " WithPhysicsTriggers= " << NumberOfBurstsWithPhysicsTriggers <<
+      " WithControlTriggers= " << NumberOfBurstsWithControlTriggers <<
+      " WithControlTriggersAndK3pi= " << NumberOfBurstsWithControlK3piEvents << endl;
+  }
 
   // Trigger efficiency computation and printout
   Double_t EffRICH = 0., dEffRICH = 0.;
@@ -1493,26 +1507,30 @@ void K3piSelection::EndOfJobUser() {
 				   dEffSTRAW*dEffSTRAW/EffSTRAW/EffSTRAW);
 
   // Emulated QX efficiency
-  Double_t EmulatedL0QXEff = 0.0;
-  if (fEmulatedL0QX && fEmulatedL0All)
+  Double_t EmulatedL0QXEff = 0.0, dEmulatedL0QXEff = 0.0;
+  if (fEmulatedL0QX && fEmulatedL0All) {
     EmulatedL0QXEff = fEmulatedL0QX->Integral()/fEmulatedL0All->Integral();
-  cout << user_normal() << "Emulated QX efficiency: " << EmulatedL0QXEff << endl;
+    dEmulatedL0QXEff = sqrt(EmulatedL0QXEff*(1.0-EmulatedL0QXEff)/fEmulatedL0All->Integral());
+  }
+  cout << user_normal() << Form ("Emulated QX efficiency: %6.4f +- %6.4f\n",
+				 EmulatedL0QXEff, dEmulatedL0QXEff);
+  if (!GetWithMC()) {
+    cout << user_normal() << Form("TrigEff(L0)  RICH %6.4f +- %6.4f QX    %6.4f +- %6.4f\n",
+				  EffRICH, dEffRICH, EffQX, dEffQX);
+    cout << user_normal() << Form("TrigEff(L1)  KTAG %6.4f +- %6.4f LAV   %6.4f +- %6.4f STRAW %6.4f +- %6.4f\n",
+				  EffKTAG, dEffKTAG, EffLAV, dEffLAV, EffSTRAW, dEffSTRAW);
+    cout << user_normal() << Form("TrigEff(tot) %6.4f +- %6.4f\n", EffTot, dEffTot);
+  }
 
-  cout << user_normal() << Form("TrigEff(L0)  RICH %6.4f +- %6.4f QX    %6.4f +- %6.4f\n",
-	       EffRICH, dEffRICH, EffQX, dEffQX);
-  cout << user_normal() << Form("TrigEff(L1)  KTAG %6.4f +- %6.4f LAV   %6.4f +- %6.4f STRAW %6.4f +- %6.4f\n",
-	       EffKTAG, dEffKTAG, EffLAV, dEffLAV, EffSTRAW, dEffSTRAW);
-  cout << user_normal() << Form("TrigEff(tot) %6.4f +- %6.4f\n", EffTot, dEffTot);
-
-  if (fHZtrue) { // MC input
+  if (GetWithMC() && fHZtrue) {
     Double_t n = fHMomentum->Integral();
-    Double_t N = fHZtrue->Integral(106,180); // 105 m < Ztrue < 180 m
+    Double_t N = fHZtrue->Integral(106, 180); // 105 m < Ztrue < 180 m
     Double_t Acc  = n/N;
     Double_t dAcc = sqrt(Acc*(1.0-Acc)/N);
     cout << user_normal() << Form("MC events read: %d\n", (Int_t)fHZtrue->Integral());
     cout << user_normal() << Form("MC acceptance = %d/%d = %7.5f +- %7.5f\n",
 				  (Int_t)n, (Int_t)N, Acc, dAcc);
-}
+  }
 
   // Save histograms into the output file
   fHMass->Write(); fHMomentum->Write(); fFMomentum->Write();

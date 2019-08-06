@@ -58,7 +58,7 @@ public:
 
 private:
 
-  Int_t fType;     ///< Tight, loose, or loose masked; see NewCHOD.conf for documentation  
+  Int_t fType;     ///< Tight, loose, or loose masked; see NewCHOD.conf for documentation
   Int_t fChannel1; ///< "geometric" ID of the first channel
   Int_t fChannel2; ///< "geometric" ID of the second channel
   Int_t fROChannel1;

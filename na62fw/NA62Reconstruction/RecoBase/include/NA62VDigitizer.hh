@@ -13,6 +13,8 @@ class NA62VDigitizer : public NA62VNamedModule {
 
     NA62VDigitizer(NA62VReconstruction*, TString);
     virtual ~NA62VDigitizer();
+    virtual void StartOfBurst() = 0;
+    virtual void EndOfBurst() = 0;
     virtual TDetectorVEvent * ProcessEvent(TDetectorVEvent*) = 0;
 
   public:

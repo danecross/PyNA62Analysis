@@ -58,6 +58,9 @@ public:
   void DeclareL0Emulators(BaseAnalysis* ba, Int_t A=-1, Int_t B=-1, Int_t C=-1, Int_t D=-1, Int_t E=-1, Int_t F=-1, Int_t G=-1);
   void ConfigureL0Emulators();
   void GetEmulatorConfig();
+
+  void SetL0TPCut(Int_t L0Detector, Int_t cut);
+  void ResetL0TPConfig();
     
 private:
 

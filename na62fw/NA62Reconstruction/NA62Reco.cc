@@ -176,15 +176,21 @@ int main(Int_t argc, char **argv)
   NA62ConditionsService::GetInstance()->SetExternalCDBDirectoryPath(ConditionsDirPath);
   NA62ConditionsService::GetInstance()->SetAdditionalDirectoryPath(Form("%s/lib-%s",std::getenv("NA62RECOSOURCE"),std::getenv("SYSTEMINSTALL"))); // for the HLT libs
 
+#ifdef ONLINEHLT
   // Init HLT libs
   std::shared_ptr<HLTLibController> library_handler = std::make_shared<HLTLibController>(NA62ConditionsService::GetInstance()->GetFullPath("liboffline-na62-trigger-algorithms.so").Data());
   library_handler->loadObjects();
+#endif
 
   TFile * OutputFile = TFile::Open(OutputFileName.Data(),"RECREATE");
   NA62Reco = new NA62Reconstruction(&InputFileNameList, ConfFileName, OutputFile, NEvt, NEvtPerFile, JumpNEvt, Seed);
+#ifdef ONLINEHLT
   NA62Reco->SetHLTLib(library_handler);
+#endif
   while (NA62Reco->NextEvent()) {
   }
+#ifdef ONLINEHLT
   library_handler->closeLibrary();
+#endif
   NA62Reco->EndProcessing();
 }

@@ -7,7 +7,7 @@
 #include "TSpecialTriggerEvent.hh"
 #include "TMath.h"
 #include "NA62RecoManager.hh"
-#define ELECTRON_CHARGE 1.6025e-19 
+#define ELECTRON_CHARGE 1.6025e-19
 
 IRCDigitizer::IRCDigitizer(NA62VReconstruction* Reco) :
   NA62VDigitizer(Reco, "IRC"),
@@ -58,7 +58,7 @@ void IRCDigitizer::InitHisto(){
 }
 
 void IRCDigitizer::CloseHisto(){
-  if (fMakeDigiHistos) {  
+  if (fMakeDigiHistos) {
     fHRiseTime            ->Write();
     fHMCEnergyCorrelation ->Write();
     fHMCEnergyVsTotLow    ->Write();
@@ -87,7 +87,7 @@ void IRCDigitizer::FillHisto() {
     Int_t nTots = 0;
     for (Int_t j=1; j<(Int_t) fEdgesLow[ich].size(); j++){
       if (fEdgeTypesLow[ich].at(j) == -1 && fEdgeTypesLow[ich].at(j-1) == 1){
-        nTots++;	
+        nTots++;
         fHMCEnergyVsTotLow->Fill(fEdgesLow[ich].at(j)-fEdgesLow[ich].at(j-1),fTotEnergy[ich]);
       }
     }
@@ -96,7 +96,7 @@ void IRCDigitizer::FillHisto() {
     nTots = 0;
     for (Int_t j=1; j<(Int_t) fEdgesHigh[ich].size(); j++){
       if (fEdgeTypesHigh[ich].at(j) == -1 && fEdgeTypesHigh[ich].at(j-1) == 1){
-        nTots++;	
+        nTots++;
         fHMCEnergyVsTotHigh->Fill(fEdgesHigh[ich].at(j)-fEdgesHigh[ich].at(j-1),fTotEnergy[ich]);
       }
     }
@@ -115,6 +115,14 @@ IRCDigitizer::~IRCDigitizer(){
   CloseHisto();
 }
 
+void IRCDigitizer::StartOfBurst() {
+  NA62VDigitizer::StartOfBurst();
+}
+
+void IRCDigitizer::EndOfBurst() {
+  NA62VDigitizer::EndOfBurst();
+}
+
 TDetectorVEvent * IRCDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
 
   if (tEvent->GetHits()->GetClass()->InheritsFrom("TVDigi") ||
@@ -125,7 +133,7 @@ TDetectorVEvent * IRCDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
   Int_t NHits = IRCEvent->GetNHits();
 
   fDigiEvent->Clear();
-  (*(TVEvent*)fDigiEvent)=(*(TVEvent*)IRCEvent);
+  fDigiEvent->TVEvent::operator=(*static_cast<TVEvent*>(IRCEvent));
 
   if (!NHits) return fDigiEvent;
 
@@ -134,7 +142,7 @@ TDetectorVEvent * IRCDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
   // Find minimum and maximum hit times
 
   fTOffset=0;
-  Double_t tMax=0;  
+  Double_t tMax=0;
   for (Int_t i=0; i<NHits; i++) {
     TIRCHit* hit = static_cast<TIRCHit*>( hitArray[i]);
     if (i==0) {
@@ -150,7 +158,7 @@ TDetectorVEvent * IRCDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
     //std::cout << "[IRCDigitizer] Warning, tMax too high: " << tMax << std::endl;
     tMax = fTOffset+10000;
   }
-  fTOffset = fTOffset - fTau; // shift minimum time to avoid signal starting above threshold 
+  fTOffset = fTOffset - fTau; // shift minimum time to avoid signal starting above threshold
   tMax = tMax + fTRange;      // add time to include the emission of photoelectrons
 
   // Prepare arrays to store the photoelectron distribution
@@ -176,18 +184,18 @@ TDetectorVEvent * IRCDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
     }
     for (Int_t jBin = 0; jBin < fNBinRange; jBin++) {
       Double_t timeX = (jBin+0.5)*fBinWidth - fEmissionPars[1];
-      Double_t npeAv = hit->GetEnergy() / fLightSuppressionFactor * (fNGammaPerMeV + TMath::Sqrt(fNGammaPerMeV)*fRandom->Gaus(0,1)) * fEpsilonReach * fEpsilonPhotocatode * fEmissionPars[0] * exp(-0.5*timeX/fEmissionPars[2] + fEmissionPars[3]*exp(-timeX/fEmissionPars[4]));  
+      Double_t npeAv = hit->GetEnergy() / fLightSuppressionFactor * (fNGammaPerMeV + TMath::Sqrt(fNGammaPerMeV)*fRandom->Gaus(0,1)) * fEpsilonReach * fEpsilonPhotocatode * fEmissionPars[0] * exp(-0.5*timeX/fEmissionPars[2] + fEmissionPars[3]*exp(-timeX/fEmissionPars[4]));
       //      if (npeAv < 10 && npeAv > 0.01) primPE[ich][iBin+jBin] += fRandom->Poisson(npeAv);
       //      else if (npeAv >= 10) primPE[ich][iBin+jBin] += npeAv + TMath::Sqrt(npeAv)*fRandom->Gaus(0,1);
-      primPE[ich][iBin+jBin] += npeAv;	     
+      primPE[ich][iBin+jBin] += npeAv;
     }
   }
 
-  Double_t ToV = ( fImpedence * ELECTRON_CHARGE ) / ( fBinWidth * 1.e-9 ) ; // fBinWidth is ns  
+  Double_t ToV = ( fImpedence * ELECTRON_CHARGE ) / ( fBinWidth * 1.e-9 ) ; // fBinWidth is ns
   Int_t IsAleading = 1;
   Int_t IsAtrailing = -1;
   Double_t dumpFactor = TMath::Exp(-fBinWidth/fTau);
-  Int_t signalTimeBins = nTimeBins + fNtau*fTau/fBinWidth; 
+  Int_t signalTimeBins = nTimeBins + fNtau*fTau/fBinWidth;
 
   Double_t** signalGenerated = new Double_t*[4];
   for (Int_t ich=0; ich<4; ich++) {
@@ -227,12 +235,12 @@ TDetectorVEvent * IRCDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
     if (signalGenerated[ich][0] > thresholdHi) {
       std::cout << "[IRCDigitizer] Warning: Signal starts above threshold Hi: V= " << signalGenerated[ich][0] << " thr = " << thresholdHi << std::endl;
       aboveThHi = 1;
-      thresholdHi = fThHigh - fHyst; 
+      thresholdHi = fThHigh - fHyst;
       timeHi = 0; // initialize
     }
 
     for (Int_t iBin=1; iBin<signalTimeBins; iBin++) {
-      if (iBin < nTimeBins) signalGenerated[ich][iBin] = ( primPE[ich][iBin] * fPMTGain * ToV / fNorm + signalGenerated[ich][iBin-1] * dumpFactor );       
+      if (iBin < nTimeBins) signalGenerated[ich][iBin] = ( primPE[ich][iBin] * fPMTGain * ToV / fNorm + signalGenerated[ich][iBin-1] * dumpFactor );
       else signalGenerated[ich][iBin] = signalGenerated[ich][iBin-1] * dumpFactor;
 
       if (signalGenerated[ich][iBin] > fSignalMax[ich]) {

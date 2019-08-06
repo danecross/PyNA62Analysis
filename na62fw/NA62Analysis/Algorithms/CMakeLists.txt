@@ -8,6 +8,7 @@ set(CLASSES StrawsTracksFilterAlgo
             SpectrometerRecoAlgorithm
             StrawSegmentAlgorithm
 	    MatchingRG
+            FakeTrackSelection
    )
 
 #Additional headers

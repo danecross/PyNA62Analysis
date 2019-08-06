@@ -42,6 +42,14 @@ SAVDigitizer::SAVDigitizer(NA62VReconstruction* Reco) :
 SAVDigitizer::~SAVDigitizer() {
 }
 
+void SAVDigitizer::StartOfBurst() {
+  NA62VDigitizer::StartOfBurst();
+}
+
+void SAVDigitizer::EndOfBurst() {
+  NA62VDigitizer::EndOfBurst();
+}
+
 TDetectorVEvent * SAVDigitizer::ProcessEvent(TDetectorVEvent * tEvent) {
 
     if (tEvent->GetHits()->GetClass()->InheritsFrom("TVDigi")

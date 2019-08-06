@@ -165,21 +165,26 @@ TVector3 MomAfterKick(TVector3 oldMom, double kick){
   return newMom;
 }
 
-TVector3 GetVertexCDA(TVector3 trackMom, TVector3 trackPos, TVector3 kaonMom, TVector3 kaonPos){
+TVector3 GetVertexCDA(TVector3 trackMom, TVector3 trackPos, TVector3 kaonMom, TVector3 kaonPos, double &CDA){
   TwoLinesCDA twoLinesCDA;
   twoLinesCDA.SetLine1PointDir(trackPos, trackMom);
   twoLinesCDA.SetLine2PointDir(kaonPos, kaonMom);
   twoLinesCDA.ComputeVertexCDA();
+  CDA = twoLinesCDA.GetCDA();
   TVector3 vertex = twoLinesCDA.GetVertex();
   return vertex;
 }
 
-TVector3 GetSimpleVertex(double trackCharge, TVector3 trackMom, TVector3 trackPos, double kaonCharge, TVector3 kaonMom, TVector3 kaonPos, TVector3 *newKaonMom, TVector3 *newKaonPos, TVector3 *newTrackMom, TVector3 *newTrackPos){
+TVector3 GetSimpleVertex(double trackCharge, TVector3 trackMom, TVector3 trackPos, double kaonCharge, TVector3 kaonMom, TVector3 kaonPos, TVector3 *newKaonMom, TVector3 *newKaonPos, TVector3 *newTrackMom, TVector3 *newTrackPos, double &CDA){
   double GTK3Z = GeometricAcceptance::GetInstance()->GetZGTK3();
   double STRAW0Z_front = 183311.;
   TVector3 nul(0., 0., 0.);
-  TVector3 simpleVert = GetVertexCDA(trackMom, trackPos, kaonMom, kaonPos);
-  if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)) return nul;
+  CDA = 0.;
+  TVector3 simpleVert = GetVertexCDA(trackMom, trackPos, kaonMom, kaonPos, CDA);
+  if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)){
+    CDA = 10000.;    
+    return nul;
+  };
   newKaonMom->SetXYZ(kaonMom.X(), kaonMom.Y(), kaonMom.Z());
   newKaonPos->SetXYZ(kaonPos.X(), kaonPos.Y(), kaonPos.Z());
   newTrackMom->SetXYZ(trackMom.X(), trackMom.Y(), trackMom.Z());
@@ -190,21 +195,25 @@ TVector3 GetSimpleVertex(double trackCharge, TVector3 trackMom, TVector3 trackPo
   return simpleVert;
 }
 
-TVector3 GetIterativeVertex(double trackCharge, TVector3 trackMom, TVector3 trackPos, double kaonCharge, TVector3 kaonMom, TVector3 kaonPos, TVector3 *newKaonMom, TVector3 *newKaonPos, TVector3 *newTrackMom, TVector3 *newTrackPos, double dist){
+TVector3 GetIterativeVertex(double trackCharge, TVector3 trackMom, TVector3 trackPos, double kaonCharge, TVector3 kaonMom, TVector3 kaonPos, TVector3 *newKaonMom, TVector3 *newKaonPos, TVector3 *newTrackMom, TVector3 *newTrackPos, double &CDA, double dist){
 
   int count = 0;
   double GTK3Z = GeometricAcceptance::GetInstance()->GetZGTK3();
   double STRAW0Z_front = 183311.;
 
   TVector3 simpleVert;
+  CDA = 10000.;
   TVector3 nul(0., 0., 0.);
   newKaonMom->SetXYZ(kaonMom.X(), kaonMom.Y(), kaonMom.Z());
   newKaonPos->SetXYZ(kaonPos.X(), kaonPos.Y(), kaonPos.Z());
   newTrackMom->SetXYZ(trackMom.X(), trackMom.Y(), trackMom.Z());
   newTrackPos->SetXYZ(trackPos.X(), trackPos.Y(), trackPos.Z());
   while(fabs((*newKaonPos).Z() - (*newTrackPos).Z())>dist){
-    simpleVert = GetVertexCDA(*newTrackMom, *newTrackPos, *newKaonMom, *newKaonPos);
-    if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)) return nul;
+    simpleVert = GetVertexCDA(*newTrackMom, *newTrackPos, *newKaonMom, *newKaonPos, CDA);
+    if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)){
+      CDA = 10000.;      
+      return nul;
+    };
     double step = ((simpleVert.Z() - (*newKaonPos).Z())/2.);
     ApplyBlueTube(kaonCharge, *newKaonPos, *newKaonMom, step + (*newKaonPos).Z(), newKaonPos, newKaonMom);
     step = ((-simpleVert.Z() + (*newTrackPos).Z())/2.);
@@ -212,37 +221,49 @@ TVector3 GetIterativeVertex(double trackCharge, TVector3 trackMom, TVector3 trac
     count++;
     if(count>100) break;
   };
-  simpleVert = GetVertexCDA(*newTrackMom, *newTrackPos, *newKaonMom, *newKaonPos);
-  if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)) return nul;
+  simpleVert = GetVertexCDA(*newTrackMom, *newTrackPos, *newKaonMom, *newKaonPos, CDA);
+  if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)){
+    CDA = 10000.;    
+    return nul;
+  };
   ApplyBlueTube(kaonCharge, kaonPos, kaonMom, simpleVert.Z(), newKaonPos, newKaonMom);
   ApplyBlueTube(trackCharge, trackPos, trackMom, simpleVert.Z(), newTrackPos, newTrackMom);
+  CDA = (*newKaonPos - *newTrackPos).Mag();
+
   return simpleVert;
 }
 
-TVector3 GetRadoVertex(double trackCharge, TVector3 trackMom, TVector3 trackPos, double kaonCharge, TVector3 kaonMom, TVector3 kaonPos, TVector3 *newKaonMom, TVector3 *newKaonPos, TVector3 *newTrackMom, TVector3 *newTrackPos){
+TVector3 GetRadoVertex(double trackCharge, TVector3 trackMom, TVector3 trackPos, double kaonCharge, TVector3 kaonMom, TVector3 kaonPos, TVector3 *newKaonMom, TVector3 *newKaonPos, TVector3 *newTrackMom, TVector3 *newTrackPos, double &CDA){
   double GTK3Z = GeometricAcceptance::GetInstance()->GetZGTK3();
   double STRAW0Z_front = 183311.;
   TVector3 simpleVert;
   TVector3 somePos;
+  CDA = 10000.;
   TVector3 nul(0., 0., 0.);
   newKaonMom->SetXYZ(kaonMom.X(), kaonMom.Y(), kaonMom.Z());
   newKaonPos->SetXYZ(kaonPos.X(), kaonPos.Y(), kaonPos.Z());
   newTrackMom->SetXYZ(trackMom.X(), trackMom.Y(), trackMom.Z());
   newTrackPos->SetXYZ(trackPos.X(), trackPos.Y(), trackPos.Z());
 
-  simpleVert = GetVertexCDA(trackMom, trackPos, kaonMom, kaonPos);
-  if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)) return nul;
+  simpleVert = GetVertexCDA(trackMom, trackPos, kaonMom, kaonPos, CDA);
+  if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)){
+    CDA = 10000.;
+    return nul;
+  };
   ApplyBlueTube(kaonCharge, kaonPos, kaonMom, simpleVert.Z(), &somePos, newKaonMom);
   ApplyBlueTube(trackCharge, trackPos, trackMom, simpleVert.Z(), &somePos, newTrackMom);
-  simpleVert = GetVertexCDA(*newTrackMom, trackPos, *newKaonMom, kaonPos);
-  if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)) return nul;
+  simpleVert = GetVertexCDA(*newTrackMom, trackPos, *newKaonMom, kaonPos, CDA);
+  if((simpleVert.Z()<GTK3Z) || (simpleVert.Z()>STRAW0Z_front)){
+    CDA = 10000.;
+    return nul;
+  };
   ApplyBlueTube(kaonCharge, kaonPos, kaonMom, simpleVert.Z(), newKaonPos, newKaonMom);
   ApplyBlueTube(trackCharge, trackPos, trackMom, simpleVert.Z(), newTrackPos, newTrackMom);
 
   return simpleVert;
 }
 
-TVector3 GetLSFVertex(double trackCharge, TRecoSpectrometerCandidate *STRAWCand, double kaonCharge, TRecoGigaTrackerCandidate *GTKCand, TVector3 *newKaonMom, TVector3 *newKaonPos, TVector3 *newTrackMom, TVector3 *newTrackPos, double &chi2){
+TVector3 GetLSFVertex(double trackCharge, TRecoSpectrometerCandidate *STRAWCand, double kaonCharge, TRecoGigaTrackerCandidate *GTKCand, TVector3 *newKaonMom, TVector3 *newKaonPos, TVector3 *newTrackMom, TVector3 *newTrackPos, double &chi2, double &CDA){
   double GTK3Z = GeometricAcceptance::GetInstance()->GetZGTK3();
   double STRAW0Z_front = 183311.;
   VertexLSF vertexLSF;
@@ -269,7 +290,7 @@ TVector3 GetLSFVertex(double trackCharge, TRecoSpectrometerCandidate *STRAWCand,
   chi2 = vertexLSF.GetChi2();
   ApplyBlueTube(kaonCharge, kaonPos, kaonMom, simpleVert.Z(), newKaonPos, newKaonMom);
   ApplyBlueTube(trackCharge, trackPos, trackMom, simpleVert.Z(), newTrackPos, newTrackMom);
-
+  CDA = (*newKaonPos - *newTrackPos).Mag(); 
   return simpleVert;
 }
 

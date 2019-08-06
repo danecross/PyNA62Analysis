@@ -61,8 +61,8 @@ GeometricAcceptance::GeometricAcceptance():
   fZRICHBackPlane         (237326.0),
   fXRICHFrontPlaneCentre  (    34.0),
   fXRICHBackPlaneCentre   (     2.0),
-  fZCHODVPlane            (239009.0),
-  fZCHODHPlane            (239389.0),
+  fZCHODVPlane            (239009.0), // front of first scintillator plane
+  fZCHODHPlane            (239389.0), // front of second scintillator plane
   fZNewCHODFront          (238100.0), // front of first scintillator layer
   fZNewCHOD               (238131.5), // centre of NewCHOD
   fZNewCHODBack           (238163.0), // back of second scintillator layer
@@ -97,7 +97,8 @@ GeometricAcceptance::GeometricAcceptance():
   fRmax_LKr               (  1130.0), // apothem of a regular octagon
   fRmax_SAC               (   100.0)  // half-side of a square (the SAC is 205*205mm^2)
 {
-  fRmin_Straw = fStrawViewHoleSize;   // default minimal radius = beam hole half-size
+  fRmin_Straw = fStrawViewHoleSize; // default minimal radius = beam hole half-size
+
   // LAV stations: front and back Z planes, inner and outer radii
   Double_t f[12] =
     {121363, 128973, 136583, 144193, 151803, 165313,

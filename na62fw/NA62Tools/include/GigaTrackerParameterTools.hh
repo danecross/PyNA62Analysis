@@ -93,7 +93,7 @@ private:
   double fGigaTrackerMCBMagnetBeamYPos         = 764.0; 
   // replace fGigaTrackerArchomatMagnetFieldStrength
   double fGigaTrackerMCBMagnetFieldStrength[4] = {-1.6678, 1.6678, 1.6678, -1.6678}; // tesla
-  double fMCBGTK4PostionZ                      = 82660.0;  
+  double fMCBGTK4PostionZ                      = 82660.0;
 
   //MDX = magnet 5 = TRIM5
   TVector3 fGigaTrackerMDXMagnetLength         = TVector3(600.0, 600.0,  400.0);
@@ -101,7 +101,7 @@ private:
   TVector3 fGigaTrackerMDXMagnetRawPosition    = TVector3(  0.0,   0.0, 102000);
   TVector3 fGigaTrackerMDXMagnetGapLength      = TVector3(100.0,100.0,0.0);
   double  fGigaTrackerMDXMagnetFieldStrength   = -0.7505 ;//tesla
-  
+
   //Scraper
   TVector3 fGigaTrackerScraperMagnetRawPosition      = TVector3(0.0, -50.0, 92310); // was 89.810 in MC
   //replaces fGigaTrackerScraperMagnetZLength    
@@ -111,20 +111,17 @@ private:
   double fGigaTrackerScraperMagnetOverallHalfHeight  = 380.0; //--> into length!!!!!!!!!
   double fGigaTrackerScraperMagnetFieldStrength      =   1.8; // tesla
 
-   
   //------------- Sensors ----------------//
   int fGigaTrackerSensorNColumns = 200;
   int fGigaTrackerSensorNRows    = 90;
   int fGigaTrackerChipNColumns   = 40;
   int fGigaTrackerChipNRows      = 45;
 
-
   //------------- Bonding ----------------//  
   //Bump bonding stays over time ?????
   TVector3 fGigaTrackerBumpBondingOffset = TVector3(50.0e-3,50.0e-3,0.0);
   double fGigaTrackerBumpBondPixelOffset = 100.0e-3;
-  double fGigaTrackerBumpBondBigOffset   = -50.0e-3;
-    
+  double fGigaTrackerBumpBondBigOffset   = -50.0e-3;    
 
   //------------- Chips ----------------//
   // replaces fGigaTrackerChipXLength, fGigaTrackerChipYLength,fGigaTrackerChipZLength[3]

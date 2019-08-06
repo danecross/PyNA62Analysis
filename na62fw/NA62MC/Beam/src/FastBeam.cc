@@ -1,8 +1,8 @@
-#include "beam.hh"
+#include "FastBeam.hh"
 #include <iostream>
-#include <stdlib.h>
-#include <string.h>
+#include "NA62ConditionsService.hh"
 #include "NA62Global.hh"
+#include "TString.h"
 #include "CLHEP/Units/PhysicalConstants.h"
 
 using namespace std;
@@ -25,44 +25,43 @@ extern "C"
 
 /// \class FastBeam
 /// \Brief
-/// Steering class for fast beam simulation.
+/// Steering class for Turtle beam simulation
 /// \EndBrief
 /// \Detailed
 /// Based on Turtle MC: beam particles are generated according to the Turtle input files
-/// found in Beam/datacard/k12hika+_xx.
+/// found in the NA62Tools/Conditions/MC/beam directory.
 /// \EndDetailed
 
-FastBeam::FastBeam(const char *datacardname) : npart(0) {
+FastBeam::FastBeam() : npart(0) {
 /// \MemberDescr
 /// \param datacardname  Name of the datacard.
 /// Initialization for beam simulation. This method is called by
-/// PrimaryGeneratorAction::::GeneratePrimaries. 
+/// PrimaryGeneratorAction::GeneratePrimaries.
 /// The main steps of the initialization are:
-/// - datacardname passed to turtle.f;
-/// - beam type selected according to the datacard name;
-/// - initialization of turtle;
+/// - datacardname passed to turtle.f;<br>
+/// - beam type selected according to the datacard name;<br>
+/// - initialization of turtle;<br>
 /// - initialization of the common blocks to communicate with turtle.
 /// \EndMemberDescr
 
-  // Datacard name 
-  fTURTLEchar = static_cast<TURTLEchar_t *>(turtle_common_address("turtle_char"));
-  cout << "[Beam] Using Turtle datacard " << datacardname << endl;
-  int size = strlen(datacardname);
-  npart = 0;
-  if (size>=100) {
-    cout << "[Beam] Error: beam datacard file name is too long (>=100 symbols)" << endl;
+  // Datacard name
+  TString FileName = NA62ConditionsService::GetInstance()->GetFullPath("turtle.dat");
+  if (FileName.Length()>=100) {
+    cout << "[FastBeam] Error: beam datacard name is too long (>=100 symbols)" << endl;
     exit(kGenericError);
   }
-  for (int j=0; j<size; ++j) fTURTLEchar->FILENAME[j] = datacardname[j];
-  for (int j=0; j<10; ++j) {
-      type[j] = 0;
-      pmomx[j] = 0.;
-      pmomy[j] = 0.;
-      pmomz[j] = 0.;
-      posx[j] = 0.;
-      posy[j] = 0.;
-      posz[j] = 0.;
-      ttime[j] = 0.;
+  fTURTLEchar = static_cast<TURTLEchar_t*>(turtle_common_address("turtle_char"));
+  for (int j=0; j<FileName.Length(); j++) fTURTLEchar->FILENAME[j] = FileName[j];
+
+  for (int j=0; j<10; j++) {
+    type[j]  = 0;
+    pmomx[j] = 0.;
+    pmomy[j] = 0.;
+    pmomz[j] = 0.;
+    posx[j]  = 0.;
+    posy[j]  = 0.;
+    posz[j]  = 0.;
+    ttime[j] = 0.;
   }
 
   // Initialization

@@ -257,7 +257,7 @@ TTimeCluster* NA62VReconstruction::TimeClustering(TDetectorVEvent * tEvent, Doub
 TRecoVEvent* NA62VReconstruction::ProcessEvent (TDetectorVEvent* tEvent, Event* /*tGenEvent*/) {
   // to be called from the derived classes
 
-  (*(TVEvent*)fRecoEvent) = (*(TVEvent*)tEvent);
+  fRecoEvent->TVEvent::operator=(*static_cast<TVEvent*>(tEvent));
   fRecoEvent->Clear("C");
   fRecoEvent->SetDigiEvent(static_cast<TDigiVEvent*>(tEvent));
   fRecoEvent->SetErrorMask(fRecoEvent->GetDigiEvent()->GetErrorMask());

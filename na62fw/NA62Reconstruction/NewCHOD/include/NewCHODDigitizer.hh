@@ -22,19 +22,21 @@
 
 class NewCHODDigitizer : public NA62VDigitizer {
 
-public:
+  public:
 
-  explicit NewCHODDigitizer(NA62VReconstruction*);
-  ~NewCHODDigitizer() {}
-  virtual TDetectorVEvent* ProcessEvent(TDetectorVEvent *);
-  void ParseConfFile(TString FileName);
+    explicit NewCHODDigitizer(NA62VReconstruction*);
+    ~NewCHODDigitizer() {}
+    virtual TDetectorVEvent* ProcessEvent(TDetectorVEvent *);
+    virtual void StartOfBurst();
+    virtual void EndOfBurst();
+    void ParseConfFile(TString FileName);
 
-private:
+  private:
 
-  Double_t fEnergyDepositThreshold;
-  Double_t fChannelTimeResolution;
-  Double_t fChannelMergeThreshold;
-  NewCHODGeometry *fGeo;
+    Double_t fEnergyDepositThreshold;
+    Double_t fChannelTimeResolution;
+    Double_t fChannelMergeThreshold;
+    NewCHODGeometry *fGeo;
 };
 
 #endif

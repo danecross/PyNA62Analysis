@@ -141,6 +141,7 @@
 #include "TRecoGigaTrackerHit.hh"
 #include "NA62BufferProto.hh"
 #include "L0TPRawEncoder.hh"
+#include "NA62Utilities.hh"
 #include "NA62Global.hh"
 #include "NA62ConditionsService.hh"
 #include "StringInterpreter.hh"
@@ -391,8 +392,8 @@ void NA62Reconstruction::Init(){
       }
     }
     // Read the run time (for MC only) and put it to EventHeader::fBurstTime
-    fBurstTime = NA62RecoManager::GetInstance()->GetRunTimeFromDB(NA62ConditionsService::GetInstance()->GetCurrentRunID());
-    std::cout << "[NA62Reconstruction] Run time found for the run " << NA62ConditionsService::GetInstance()->GetCurrentRunID() << " : Time = " << fBurstTime << std::endl;
+    fBurstTime = NA62Utilities::GetInstance()->GetRunTime(NA62ConditionsService::GetInstance()->GetCurrentRunID());
+    std::cout << "[NA62Reconstruction] Run time found for the run " << NA62ConditionsService::GetInstance()->GetCurrentRunID() << ": time = " << fBurstTime << std::endl;
   }
   else {
     fNFiles = fInputFileNameList->GetEntries();
@@ -1571,6 +1572,26 @@ void NA62Reconstruction::StartOfBurst(){
     if(FindRaw("Spectrometer")) static_cast<SpectrometerRawDecoder*>(FindRaw("Spectrometer"))->StartOfBurst();
     if(FindRaw("SAV")) static_cast<SAVRawDecoder*>(FindRaw("SAV"))->StartOfBurst();
   }
+  // Digitizer instances
+  if(!fIsRawData){
+    if(FindDigi("Cedar")) static_cast<CedarDigitizer*>(FindDigi("Cedar"))->StartOfBurst();
+    if(FindDigi("CHANTI")) static_cast<CHANTIDigitizer*>(FindDigi("CHANTI"))->StartOfBurst();
+    if(FindDigi("CHOD")) static_cast<CHODDigitizer*>(FindDigi("CHOD"))->StartOfBurst();
+    if(FindDigi("GigaTracker")) static_cast<GigaTrackerDigitizer*>(FindDigi("GigaTracker"))->StartOfBurst();
+    if(FindDigi("HAC")) static_cast<HACDigitizer*>(FindDigi("HAC"))->StartOfBurst();
+    if(FindDigi("IRC")) static_cast<IRCDigitizer*>(FindDigi("IRC"))->StartOfBurst();
+    if(FindDigi("LAV")) static_cast<LAVDigitizer*>(FindDigi("LAV"))->StartOfBurst();
+    if(FindDigi("LKr")) static_cast<LKrDigitizer*>(FindDigi("LKr"))->StartOfBurst();
+    if(FindDigi("MUV0")) static_cast<MUV0Digitizer*>(FindDigi("MUV0"))->StartOfBurst();
+    if(FindDigi("MUV1")) static_cast<MUV1Digitizer*>(FindDigi("MUV1"))->StartOfBurst();
+    if(FindDigi("MUV2")) static_cast<MUV2Digitizer*>(FindDigi("MUV2"))->StartOfBurst();
+    if(FindDigi("MUV3")) static_cast<MUV3Digitizer*>(FindDigi("MUV3"))->StartOfBurst();
+    if(FindDigi("NewCHOD")) static_cast<NewCHODDigitizer*>(FindDigi("NewCHOD"))->StartOfBurst();
+    if(FindDigi("RICH")) static_cast<RICHDigitizer*>(FindDigi("RICH"))->StartOfBurst();
+    if(FindDigi("SAC")) static_cast<SACDigitizer*>(FindDigi("SAC"))->StartOfBurst();
+    if(FindDigi("Spectrometer")) static_cast<SpectrometerDigitizer*>(FindDigi("Spectrometer"))->StartOfBurst();
+    if(FindDigi("SAV")) static_cast<SAVDigitizer*>(FindDigi("SAV"))->StartOfBurst();
+  }
 }
 
 void NA62Reconstruction::EndOfBurst(){
@@ -1610,6 +1631,26 @@ void NA62Reconstruction::EndOfBurst(){
     if(FindRaw("SAC")) static_cast<SACRawDecoder*>(FindRaw("SAC"))->EndOfBurst();
     if(FindRaw("Spectrometer")) static_cast<SpectrometerRawDecoder*>(FindRaw("Spectrometer"))->EndOfBurst();
     if(FindRaw("SAV")) static_cast<SAVRawDecoder*>(FindRaw("SAV"))->EndOfBurst();
+  }
+  // Digitizer instances
+  if(!fIsRawData){
+    if(FindDigi("Cedar")) static_cast<CedarDigitizer*>(FindDigi("Cedar"))->EndOfBurst();
+    if(FindDigi("CHANTI")) static_cast<CHANTIDigitizer*>(FindDigi("CHANTI"))->EndOfBurst();
+    if(FindDigi("CHOD")) static_cast<CHODDigitizer*>(FindDigi("CHOD"))->EndOfBurst();
+    if(FindDigi("GigaTracker")) static_cast<GigaTrackerDigitizer*>(FindDigi("GigaTracker"))->EndOfBurst();
+    if(FindDigi("HAC")) static_cast<HACDigitizer*>(FindDigi("HAC"))->EndOfBurst();
+    if(FindDigi("IRC")) static_cast<IRCDigitizer*>(FindDigi("IRC"))->EndOfBurst();
+    if(FindDigi("LAV")) static_cast<LAVDigitizer*>(FindDigi("LAV"))->EndOfBurst();
+    if(FindDigi("LKr")) static_cast<LKrDigitizer*>(FindDigi("LKr"))->EndOfBurst();
+    if(FindDigi("MUV0")) static_cast<MUV0Digitizer*>(FindDigi("MUV0"))->EndOfBurst();
+    if(FindDigi("MUV1")) static_cast<MUV1Digitizer*>(FindDigi("MUV1"))->EndOfBurst();
+    if(FindDigi("MUV2")) static_cast<MUV2Digitizer*>(FindDigi("MUV2"))->EndOfBurst();
+    if(FindDigi("MUV3")) static_cast<MUV3Digitizer*>(FindDigi("MUV3"))->EndOfBurst();
+    if(FindDigi("NewCHOD")) static_cast<NewCHODDigitizer*>(FindDigi("NewCHOD"))->EndOfBurst();
+    if(FindDigi("RICH")) static_cast<RICHDigitizer*>(FindDigi("RICH"))->EndOfBurst();
+    if(FindDigi("SAC")) static_cast<SACDigitizer*>(FindDigi("SAC"))->EndOfBurst();
+    if(FindDigi("Spectrometer")) static_cast<SpectrometerDigitizer*>(FindDigi("Spectrometer"))->EndOfBurst();
+    if(FindDigi("SAV")) static_cast<SAVDigitizer*>(FindDigi("SAV"))->EndOfBurst();
   }
   if(fChokeON){ //no choke OFF signal found!
     fChokeONEndTime=NA62RecoManager::GetInstance()->GetEventHeader()->GetTimeStamp()*ClockPeriod;
@@ -2303,6 +2344,7 @@ Bool_t NA62Reconstruction::NextEvent(){
   EventHeader* EventHeader = NA62RecoManager::GetInstance()->GetEventHeader();
 
   if(!fContinuousReading && (fNProcessedEventsInTotal >= (UInt_t)fNEvt || fNReconstructions == 0)){
+    if(!fIsRawData) EndOfBurst();
     fTimer.StopTimer(fGlobalTimers[0],false);
     return kFALSE;
   }
@@ -2370,6 +2412,14 @@ Bool_t NA62Reconstruction::NextEvent(){
     EventHeader->GetL2EBData()->SetTimeStamp(0xFFFFFFFFFFFFFFFF);
     EventHeader->GetL2EBData()->SetL2ReferenceFineTime(EventHeader->GetFineTime());
 
+    // Setting fake primitives in MC
+    std::vector<L0Primitive> fake(3*L0NMAXDETECTORS);
+    for(unsigned i=0; i<L0NMAXDETECTORS; ++i){
+      fake[i].SetPrimitiveID(0xFFFF);
+      fake[i].SetFineTime(EventHeader->GetFineTime());      
+    }
+    EventHeader->GetL0TPData()->SetPrimitives(fake);
+    
     Int_t fileNumber = FindMCChain("MC")->GetTreeNumber();
     fCurrentFileName = FindMCChain("MC")->GetFile()->GetName();
     if(fileNumber != fiFile) {
@@ -2380,13 +2430,15 @@ Bool_t NA62Reconstruction::NextEvent(){
         fDigitizers[iDigitizer]->SetSeed(fGlobalSeed+fStream->GetMCInfo().GetRandomSeed()[0]);
       }
     }
+    fNReadEventsInFile++;
+    fNReadEventsInTotal++;
   }
   else{
     Exception("No MCChain built");
   }
 
   if((fIsRawData && fNReadEventsInTotal == 1) || (!fIsRawData && !fNProcessedEventsInTotal)) CompleteInit();
-  if(fIsRawData && fNReadEventsInFile  == 1) StartOfBurst();
+  if(fNReadEventsInFile == 1) StartOfBurst();
 
   if(fOutputStatus!=kStatusGood && fOutputStatus<=fSkipEventsLevel) { // Do not process the event
     if(fOutputStatus!=kStatusAlreadyProcessed) { //increment skip event counters

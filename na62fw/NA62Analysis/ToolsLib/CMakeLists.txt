@@ -54,7 +54,6 @@ set(CLASSES BeamParameters
 	    ProtoParticle
 	    SAVMatching
 	    RICHAcceptance	
-	    RICHParameters
 	    RICHSingleRingTrkSeededFit
 	    RICHSingleRingTrkCentredFit
             SpectrometerCHANTIAssociationOutput

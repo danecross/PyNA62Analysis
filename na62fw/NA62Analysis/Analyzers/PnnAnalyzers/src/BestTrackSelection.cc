@@ -73,13 +73,17 @@ BestTrackSelection::BestTrackSelection(Core::BaseAnalysis *ba) : Analyzer(ba, "B
   AddParam("CutTimeDiffCedarDownstreamMC", "double", &fCutTimeDiffCedarDownstreamMC, 2.);
 
   fMatchingRG = new MatchingRG(ba, this, "MatchingRG");
-  fMatchingRG->Init("");
+  fMatchingRG->InitForProcess("");
+  fMatchingRG->InitForFinalSelection("");
 
   fGTKReco = new GigaTrackerRecoAlgorithm(ba, this, "GTKRecoAlgo");
   fGTKReco->SetRedoXYCorr(1);
 
   ftracker = BlueTubeTracker::GetInstance();
   EnablePrefix(false);
+
+  fFakeTrackSelection = new FakeTrackSelection(ba, this, "FakeTrackSelection");
+  fFakeTrackSelection->Init();
 }
 
 void BestTrackSelection::InitOutput(){
@@ -119,6 +123,7 @@ void BestTrackSelection::InitOutput(){
 void BestTrackSelection::InitHist(){
   fReadingData = GetIsTree();
   fMatchingRG->SetVerbosity(GetCoreVerbosityLevel(), GetAnalyzerVerbosityLevel());
+  fFakeTrackSelection->SetVerbosity(GetCoreVerbosityLevel(), GetAnalyzerVerbosityLevel());
 
   if(fReadingData){
     BookHisto(new TH1I("hCut", "hCut", 20, 1, 21));
@@ -271,16 +276,6 @@ void BestTrackSelection::Process(int iEvent){
   FillHisto("hCut", cutID);
   cutID++;
 
-  auto fakeTracks =
-    *(std::vector<bool>*)GetOutput("FakeTrackSelection.FakeTracks", state);
-  if(state!=kOValid){
-    cout<<user()<<"Requested output is not valid"<<endl;
-    return;
-  };
-  cout<<user()<<"N fake tracks read = "<<std::count(fakeTracks.begin(), fakeTracks.end(), true)<<endl;
-  FillHisto("hCut", cutID);
-  cutID++;
-
   tTrigger =
     *(double*)GetOutput("CheckTrigger.TriggerTime", state);
   if(state!=kOValid){
@@ -344,6 +339,10 @@ void BestTrackSelection::Process(int iEvent){
     if(CedarCand->GetNSectors()>4) n5sec++;
   };
   FillHisto("hNKTAGCandidatesAtLeast5Sectors", n5sec);
+
+  fFakeTrackSelection->Process(fSTRAWEvent);
+  auto fakeTracks = fFakeTrackSelection->GetAreFake();
+  cout<<user()<<"N fake tracks read = "<<std::count(fakeTracks.begin(), fakeTracks.end(), true)<<endl;
 
   double tDownstream = 0.;
   cout<<user()<<"N STRAW candidates "<<fSTRAWEvent->GetNCandidates()<<endl;
@@ -680,6 +679,7 @@ void BestTrackSelection::Process(int iEvent){
       cout<<user()<<"Start matching procedure"<<endl;
       cout<<user()<<"Using RG matching procedure"<<endl;
       fMatchingRG->Process(GTKEvent, STRAWCand, tKTAG, tKTAG, tRICH, 1, "");
+      fMatchingRG->FinalSelection(tKTAG, tRICH, 1, "");
       cout<<user()<<"Matching procedure RG finished"<<endl;
       matchedGTKIDs = fMatchingRG->GetMatchedGTKIDs();
       matchedGTKTimes = fMatchingRG->GetGTKTimes();
@@ -724,7 +724,8 @@ void BestTrackSelection::Process(int iEvent){
     TVector3 nomKaonPos(0., 0., GeometricAcceptance::GetInstance()->GetZGTK3());
     TVector3 trackMom = STRAWCand->GetThreeMomentumBeforeMagnet();
     TVector3 trackPos = STRAWCand->GetPositionBeforeMagnet();
-    nomVertex = GetIterativeVertex(STRAWCand->GetCharge(), trackMom, trackPos, 1, nomKaonMom, nomKaonPos, &nomKaonMomAtNomVertex, &nomKaonPosAtNomVertex, &trackMomAtNomVertex, &trackPosAtNomVertex);
+    double cda = 0.;
+    nomVertex = GetIterativeVertex(STRAWCand->GetCharge(), trackMom, trackPos, 1, nomKaonMom, nomKaonPos, &nomKaonMomAtNomVertex, &nomKaonPosAtNomVertex, &trackMomAtNomVertex, &trackPosAtNomVertex, cda);
     if(nomVertex.Mag()>0.) goodvertex = true;
     if(TestLevel(Verbosity::kUser)){
       cout<<"Found vertex with nominal kaon? "<<goodvertex<<endl;
@@ -797,6 +798,7 @@ void BestTrackSelection::EndOfJobUser(){
   if(fReadingData){
     SaveAllPlots();
     fMatchingRG->SaveAllPlots();
+    fFakeTrackSelection->SaveAllPlots();
   };
 }
 
@@ -966,10 +968,10 @@ std::pair<bool, bool> BestTrackSelection::is_multi_track(int STRAWCandID, std::v
     cout<<user()<<"test candidates "<<STRAWCandID<<" and "<<j<<endl;
     cout<<user()<<"candidate "<<STRAWCandID<<" starting at position "<<STRAWCand1->GetPositionBeforeMagnet().X()<<" "<<STRAWCand1->GetPositionBeforeMagnet().Y()<<" "<<STRAWCand1->GetPositionBeforeMagnet().Z()<<endl;
     cout<<user()<<"candidate "<<j<<" starting at position "<<STRAWCand2->GetPositionBeforeMagnet().X()<<" "<<STRAWCand2->GetPositionBeforeMagnet().Y()<<" "<<STRAWCand2->GetPositionBeforeMagnet().Z()<<endl;
-    double CDA = GetCDA(STRAWCand1, STRAWCand2);
+    double CDA;
+    TVector3 vertex = GetVertexCDA(STRAWCand1->GetThreeMomentumBeforeMagnet(), STRAWCand1->GetPositionBeforeMagnet(), STRAWCand2->GetThreeMomentumBeforeMagnet(), STRAWCand2->GetPositionBeforeMagnet(), CDA);
     cout<<user()<<"CDA = "<<CDA<<" < "<<fCutBroadMultitrackCDA<<" to be broad multitrack"<<endl;
     if(CDA<fCutBroadMultitrackCDA) isMultiBroad = true;
-    TVector3 vertex = GetVertexCDA(STRAWCand1->GetThreeMomentumBeforeMagnet(), STRAWCand1->GetPositionBeforeMagnet(), STRAWCand2->GetThreeMomentumBeforeMagnet(), STRAWCand2->GetPositionBeforeMagnet());
     cout<<user()<<"vertex found at "<<vertex.X()<<" "<<vertex.Y()<<" "<<vertex.Z()<<endl;
     double vertexZ = vertex.Z();
     cout<<user()<<"CDA = "<<CDA<<" < "<<fCutFullMultitrackCDA<<" to be full multitrack"<<endl;

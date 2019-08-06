@@ -39,9 +39,9 @@
 #include "TTree.h"
 #include "TFile.h"
 #include "NA62Random.hh"
+#include "NA62Timer.hh"
 
 class G4Event;
-class G4Timer;
 
 class EventAction : public G4UserEventAction {
 
@@ -60,10 +60,10 @@ public:
   G4long    GetEventID()          { return fEventID;          }
 
   void SetSkip(Bool_t val) { fSkip = val; }
+  void InitTimer(NA62Timer* timer, unsigned int tID) { fTimer = timer; fTimerID = tID; }
 
 private:
 
-  G4Timer* timer;
   G4long fEventID;         ///< Event counter
   long fCurrentEventCount; ///< Special event counter for RandomEngineState
   NA62Random* fRandEvent;
@@ -74,6 +74,8 @@ private:
   TTree *fRandomEngineStateTree;
   G4int fCommandLineSeed;
   Bool_t fSkip; ///< Should this event be skipped, i.e. not saved?
+  NA62Timer* fTimer;
+  unsigned int fTimerID;
 };
 
 #endif

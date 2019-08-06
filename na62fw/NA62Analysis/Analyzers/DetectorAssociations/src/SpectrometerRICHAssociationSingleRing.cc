@@ -49,7 +49,7 @@ SpectrometerRICHAssociationSingleRing::SpectrometerRICHAssociationSingleRing(Cor
   Analyzer(ba, "SpectrometerRICHAssociationSingleRing"), fRefIndex(0.), fPoisson(nullptr),
   fSingleRingTime(0.), fSingleRingDist(0.), fSingleRingDTime(0.), fSingleRingRadius(0.),
   fSingleRingCenterX(9999999.), fSingleRingCenterY(9999999.), 
-  fSingleRingChi2(0.), fSingleRingNHits(0), fElectronRingRadius(0.), fElectronRingNhits(0.){
+  fSingleRingChi2(0.), fSingleRingNHits(0), fElectronRingRadius(0.){
 
   fContainer.clear();
   
@@ -137,22 +137,20 @@ void SpectrometerRICHAssociationSingleRing::StartOfBurstUser() {
   // Update the parameters of the electron ring for each burst  
   Int_t  RunNumber = GetRunID();
   time_t BurstTime = GetEventHeader()->GetBurstTime();
-  // Defaults currently used for MC
-  fElectronRingRadius = 190.0;
-  fElectronRingNhits = 14.0;
-  if (!GetWithMC()) { // data: read parameters from the DB
-    fElectronRingRadius = RICHParameters::GetInstance()->GetElectronRingRadius(RunNumber, BurstTime);
-    fElectronRingNhits =  RICHParameters::GetInstance()->GetElectronRingNHits (RunNumber, BurstTime);
+  // read parameters from the DB
+  fElectronRingRadius = RICHParameters::GetInstance()->GetElectronRingRadius(RunNumber, BurstTime);
+
+  // Apply empirical scale factors for MC (Evgueni, 1/8/19).
+  // This is to be tuned more carefully with the RICHElectronRadius analyzer.
+  if (GetWithMC()) {
+    fElectronRingRadius *= 0.999757; // this leads to 189.6 mm for run 6610
   }
-  //------ 2017 -----
-  // fElectronRingRadius = 190.565;
-  // fElectronRingNhits = 14.0;
-  //-----------------
+
   fRefIndex = 1.0/(cos(atan(fElectronRingRadius/fFocalLength)));
   // Printout with -v2 or higher verbosity
   cout << user() <<
-    Form("Run=%d, BurTime=%ld, Radius=%6.2fmm, RefIndex=%5.2fppm, Nhits=%5.2f",
-	 RunNumber, BurstTime, fElectronRingRadius, (fRefIndex-1.0)*1.0e6, fElectronRingNhits) << endl;
+    Form("Run=%d, BurTime=%ld, Radius=%6.2fmm, RefIndex=%5.2fppm",
+	 RunNumber, BurstTime, fElectronRingRadius, (fRefIndex-1.0)*1.0e6) << endl;
 }
 
 void SpectrometerRICHAssociationSingleRing::EndOfJobUser() {

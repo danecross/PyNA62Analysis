@@ -135,6 +135,14 @@ void HACDigitizer::ReadSignalParametersFile(TString signalFileName) {
 HACDigitizer::~HACDigitizer() {
 }
 
+void HACDigitizer::StartOfBurst() {
+  NA62VDigitizer::StartOfBurst();
+}
+
+void HACDigitizer::EndOfBurst() {
+  NA62VDigitizer::EndOfBurst();
+}
+
 TDetectorVEvent * HACDigitizer::ProcessEvent(TDetectorVEvent * tEvent) {
 
   if (tEvent->GetHits()->GetClass()->InheritsFrom("TVDigi") ||
@@ -146,7 +154,7 @@ TDetectorVEvent * HACDigitizer::ProcessEvent(TDetectorVEvent * tEvent) {
 
   //printf("NHits = %d \n", NHits);
   fDigiEvent->Clear();
-  (*(TVEvent*) fDigiEvent) = (*(TVEvent*) HACEvent);
+  fDigiEvent->TVEvent::operator=(*static_cast<TVEvent*>(HACEvent));
 
   if (!NHits) return fDigiEvent;
 
@@ -259,7 +267,7 @@ Int_t HACDigitizer::GetNThresholds(const Int_t &ich, const Double_t& charge, Dou
 //The procedure is the following:
 // Compute the number of photons resulted from the energy deposit. After propagating
 //those photons through the fiber, only a fraction from the initial number remain.
-//this latter number is used to compute the number of pixels fired taking into account 
+//this latter number is used to compute the number of pixels fired taking into account
 //the photon detection efficiency of the SiPM and the total number of pixels in one SiPM.
 //Each fired pixel contributes with the same amount to the total charge of the signal.
 
@@ -274,7 +282,7 @@ Double_t HACDigitizer::EnergyToCharge(const Double_t& hitEnergy) {
   return nPixelsFired * fChargePerPixel;
 }
 
-//The relation between charge and ToT is given in HACDigitizer.hh and in 
+//The relation between charge and ToT is given in HACDigitizer.hh and in
 //HAC-SignalParameters.dat. This method computes the inverse of above function
 //and returns the value of ToT in each threshold passed at a given total charge.
 

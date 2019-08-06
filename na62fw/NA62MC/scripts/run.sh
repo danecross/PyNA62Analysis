@@ -5,6 +5,8 @@
 #
 
 uname -a
+gcc -march=native -Q --help=target | sed '/^$/d'
+
 source scripts/env.sh
 
 macfile="macros/StandardRun.mac"

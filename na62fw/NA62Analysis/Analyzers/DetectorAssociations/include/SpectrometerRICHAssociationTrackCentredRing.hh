@@ -55,7 +55,6 @@ protected:
   Int_t    fMirrorSide[25];   ///< 0=Jura mirror, 1=Saleve mirror, -999: mirror does not exist
   Int_t    fMirrorNumber[20]; ///< Mapping of standard mirror numbers to contiguous numbers
   Double_t fElectronRingRadius;
-  Double_t fElectronRingNhits;
     
 };
 

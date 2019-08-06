@@ -233,7 +233,6 @@ void MUV1Detector::CreateGeometry() {
 	// position of the plate in the frame of the mother volume (MUV1)
 	G4ThreeVector IronPlatePosition = G4ThreeVector(0. * cm, 0. * cm, IronPlatePosZ);
 
-
 	// * IRON * FIRST PLATE *
 	fIronPlate = new MUV1IronPlate(G4Material::GetMaterial("G4_Fe"), fLogicalVolume, IronPlateSize, IronPlatePosition, 0);
 

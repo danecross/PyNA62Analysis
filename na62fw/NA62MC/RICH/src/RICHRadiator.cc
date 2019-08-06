@@ -88,7 +88,7 @@ void RICHRadiator::CreateGeometry()
 
   for(G4int iSection = 0; iSection < fNSections; iSection++){
 
-    fSolidDownstreamFlange[iSection] = new G4Tubs("RICHVesselSectionDownstreamFlange",
+    fSolidDownstreamFlange[iSection] = new G4Tubs(Form("RICHVesselSectionDownstreamFlange_%i",iSection),
                                                  fDownstreamFlangeInnerRadii[iSection],       
                                                  fDownstreamFlangeInnerRadii[iSection] + fDownstreamFlangeThickness[iSection],
                                                  0.5*fDownstreamFlangeZLengths[iSection]+0.5*mm,
@@ -96,43 +96,35 @@ void RICHRadiator::CreateGeometry()
                                                  deltaPhiAngle); 
 
     if(iSection==0){
-
-         RadiatorDownFlSubtracted[iSection] = new G4SubtractionSolid("RadDownFlSub",
-                                                                    new G4DisplacedSolid("DisplacedRadiator",
-                                                                                         fSolidVolume,
-                                                                                         0,
-//                                                                                         G4ThreeVector(0,0,fZPosition)), 
-                                                                                         G4ThreeVector(0,0,0)),
-                                                                    new G4DisplacedSolid("DisplacedDownstreamFlange",
-                                                                                         fSolidDownstreamFlange[iSection],
-                                                                                         0,
-//                                                                                         G4ThreeVector(0,0,fDownstreamFlangeZPosition[iSection])
-                                                                                         G4ThreeVector(0,0,fDownstreamFlangeZPosition[iSection]-fZPosition)
-                                                                                        )
-                                                                    );
-
+      RadiatorDownFlSubtracted[iSection] = new G4SubtractionSolid(Form("RadDownFlSub_%i",iSection),
+								  fSolidVolume,
+								  fSolidDownstreamFlange[iSection],
+								  0,
+								  G4ThreeVector(0,0,fDownstreamFlangeZPosition[iSection]-fZPosition)
+								  );
+      
     }else{
- 
-         RadiatorDownFlSubtracted[iSection] = new G4SubtractionSolid("RadDownFlSub",
-                                                                    new G4DisplacedSolid("DisplacedRadiator",
-                                                                                         RadiatorDownFlSubtracted[iSection-1],
-                                                                                         0,
-                                                                                         G4ThreeVector(0,0,0)),
-                                                                    new G4DisplacedSolid("DisplacedDownstreamFlange",
-                                                                                         fSolidDownstreamFlange[iSection],
-                                                                                         0,
-//                                                                                         G4ThreeVector(0,0,fDownstreamFlangeZPosition[iSection]) 
-                                                                                         G4ThreeVector(0,0,fDownstreamFlangeZPosition[iSection]-fZPosition)
-                                                                                        )
-                                                                    );
-
-
+      RadiatorDownFlSubtracted[iSection] = new G4SubtractionSolid(Form("RadDownFlSub_%i",iSection),
+								  RadiatorDownFlSubtracted[iSection-1],
+								  fSolidDownstreamFlange[iSection],
+								  0,
+								  G4ThreeVector(0,0,fDownstreamFlangeZPosition[iSection]-fZPosition)
+								  );
+      
+      
     }
-
+    
   }
 
-
- fLogicalVolume = new G4LogicalVolume(RadiatorDownFlSubtracted[3],        // solid
+  G4VSolid * Radiator = NULL;
+  
+#ifdef G4VIS_USE
+  Radiator = fSolidVolume;
+#else
+  Radiator = RadiatorDownFlSubtracted[3];
+#endif
+  
+  fLogicalVolume = new G4LogicalVolume(Radiator,        // solid
                                       fMaterial,           // material
                                       "RICHRadiator",      // name
                                       0,                   // field manager

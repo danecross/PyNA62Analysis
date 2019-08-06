@@ -64,14 +64,22 @@ CHODDigitizer::CHODDigitizer(NA62VReconstruction* Reco) :
 
 CHODDigitizer::~CHODDigitizer() {}
 
+void CHODDigitizer::StartOfBurst() {
+  NA62VDigitizer::StartOfBurst();
+}
+
+void CHODDigitizer::EndOfBurst() {
+  NA62VDigitizer::EndOfBurst();
+}
+
 TDetectorVEvent * CHODDigitizer::ProcessEvent(TDetectorVEvent * tEvent)
 {
-  if(tEvent->GetHits()->GetClass()->InheritsFrom("TVDigi") || tEvent->IsA() == TSpecialTriggerEvent::Class()) return tEvent; 
+  if(tEvent->GetHits()->GetClass()->InheritsFrom("TVDigi") || tEvent->IsA() == TSpecialTriggerEvent::Class()) return tEvent;
 
   // Initialization
   TCHODEvent * CHODEvent = static_cast<TCHODEvent*>(tEvent);
   fDigiEvent->Clear();
-  (*(TVEvent*)fDigiEvent)=(*(TVEvent*)CHODEvent);
+  fDigiEvent->TVEvent::operator=(*static_cast<TVEvent*>(CHODEvent));
 
   Double_t depEnergy[fNumberOfChannel];
   Int_t hitID[fNumberOfChannel];
@@ -99,7 +107,7 @@ TDetectorVEvent * CHODDigitizer::ProcessEvent(TDetectorVEvent * tEvent)
     hitID[thisChannelMCID] = jCHODHit;
     if(Hit->GetTime()<hitTime[thisChannelMCID]) hitTime[thisChannelMCID] = Hit->GetTime();
 
-  } 
+  }
 
   // normalizing hit center coordinate
   for(Int_t MCID=0; MCID<fNumberOfChannel; MCID++){
@@ -114,7 +122,7 @@ TDetectorVEvent * CHODDigitizer::ProcessEvent(TDetectorVEvent * tEvent)
     Hit->SetPosition(hitCenter[MCID]);
   }
 
-  // Digitization for hits with a cut on energy, digis are created for low energy FEE 
+  // Digitization for hits with a cut on energy, digis are created for low energy FEE
   // MCID - CHOD channel number (ID according to the MC channel map)
   for (Int_t MCID=0; MCID<fNumberOfChannel; MCID++){
     // Reco ID
@@ -125,7 +133,7 @@ TDetectorVEvent * CHODDigitizer::ProcessEvent(TDetectorVEvent * tEvent)
     // CHOD quadrant
     Double_t ThisQuadrant = static_cast<CHODReconstruction*>(fReco)->GetQuadrant(RecoID);
 
-    if (depEnergy[MCID] < fHitEnergyThreshold) continue; 
+    if (depEnergy[MCID] < fHitEnergyThreshold) continue;
 
     TCHODHit *Hit = static_cast<TCHODHit*>(CHODEvent->GetHits()->At(hitID[MCID]));
 
@@ -134,7 +142,7 @@ TDetectorVEvent * CHODDigitizer::ProcessEvent(TDetectorVEvent * tEvent)
       static_cast<TDCBRawDecoder*>(static_cast<CHODReconstruction*>(fReco)->GetRawDecoder()->GetDecoder())->GetChannelRO(RecoID);
     if (iROch<0) continue; // channel not instrumented
 
-    // Create a new Digi 
+    // Create a new Digi
     TCHODDigi *Digi = static_cast<TCHODDigi*>(fDigiEvent->AddDigi(Hit));
     Digi->SetChannelID(RecoID);
 
@@ -166,12 +174,12 @@ TDetectorVEvent * CHODDigitizer::ProcessEvent(TDetectorVEvent * tEvent)
     Double_t FineTime = NA62RecoManager::GetInstance()->GetEventHeader()->GetFineTime()*ClockPeriod/256.;
 
     // subtracting beam TOF from the target to the first CHOD plane, adding SPTime, T0 and StationsT0
-    Double_t CorrectedTime = hitTime[MCID] + FineTime 
+    Double_t CorrectedTime = hitTime[MCID] + FineTime
       - static_cast<CHODReconstruction*>(fReco)->GetStationMCToF(Hit->GetStationID())
       + SPTime*ns + fChannels[RecoID]->GetT0() + fReco->GetT0Correction(Digi);
     if (ThisPlane == 1) CorrectedTime -= static_cast<CHODReconstruction*>(fReco)->GetTOFBetweenCHODPlanes(); // correct beam ToF for the H-plane
 
-    // calculating TOT as a function of the coordinate 
+    // calculating TOT as a function of the coordinate
     Double_t TwoParticleTOTThreshold = 15.;
     Double_t TOTTwoParticlesAverageValue = 22.58;
 
@@ -199,7 +207,7 @@ TDetectorVEvent * CHODDigitizer::ProcessEvent(TDetectorVEvent * tEvent)
     if (RecoID == 79) TOT_offset = 7.; // special offset for slab #79
     TOT += TOT_offset;
 
-    // Hit time with TDC correction (TdcCalib = ClockPeriod/256)                                                                                                     
+    // Hit time with TDC correction (TdcCalib = ClockPeriod/256)
     Double_t DigitizedLeading = (Int_t)(CorrectedTime/ns/TdcCalib)*TdcCalib;
 
     // trailing (digitized)

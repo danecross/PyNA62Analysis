@@ -30,7 +30,7 @@ int    turtleint[1];
 double turtledouble[6];
 double bloc1[3003];
 double bloc2[22];
-int bloc3[2];
+int    bloc3[2];
 double bloc4[9];
 double bloc5[5];
 double bloc6[3];
@@ -47,13 +47,13 @@ double bloc16[1503];
 double bloc17[9];
 double bloc18[121];
 double bloc41[88];
-int bloc42[56];
+int    bloc42[56];
 double bloc43[84];
-char turtlechar[100];
+char   turtlechar[100];
 
 void *turtle_common_address(const char* name) {
-   if (!strcmp(name,"turtle_int")) return turtleint;
-   else if (!strcmp(name,"turtle_double")) return turtledouble;
-   else if (!strcmp(name,"turtle_char")) return turtlechar;
-   return 0;
+  if (!strcmp(name,"turtle_int")) return turtleint;
+  else if (!strcmp(name,"turtle_double")) return turtledouble;
+  else if (!strcmp(name,"turtle_char")) return turtlechar;
+  return 0;
 }

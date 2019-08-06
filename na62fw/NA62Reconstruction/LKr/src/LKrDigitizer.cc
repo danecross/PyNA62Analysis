@@ -73,6 +73,14 @@ LKrDigitizer::LKrDigitizer(NA62VReconstruction* Reco) : NA62VDigitizer(Reco, "LK
 
 LKrDigitizer::~LKrDigitizer(){}
 
+void LKrDigitizer::StartOfBurst() {
+  NA62VDigitizer::StartOfBurst();
+}
+
+void LKrDigitizer::EndOfBurst() {
+  NA62VDigitizer::EndOfBurst();
+}
+
 TDetectorVEvent * LKrDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
   if(tEvent->GetHits()->GetClass()->InheritsFrom("TVDigi") || tEvent->IsA() == TSpecialTriggerEvent::Class()) return tEvent;
   if(tEvent->IsA() != TLKrEvent::Class()) NA62VReconstruction::Exception(Form("%s is not a %s", tEvent->IsA()->GetName(), TLKrEvent::Class()->GetName()));
@@ -99,7 +107,7 @@ TDetectorVEvent * LKrDigitizer::ProcessEvent(TDetectorVEvent * tEvent){
   TLKrEvent * LKrEvent = static_cast<TLKrEvent*>(tEvent);
   UInt_t NLKrHits = LKrEvent->GetNHits();
   fDigiEvent->Clear("C");
-  (*(TVEvent*)fDigiEvent)=(*(TVEvent*)LKrEvent);
+  fDigiEvent->TVEvent::operator=(*static_cast<TVEvent*>(LKrEvent));
   static_cast<FADCEvent*>(fDigiEvent)->SetFADCID(10);
   static_cast<FADCEvent*>(fDigiEvent)->SetNSamples(NSamples);
   // Loop over LKr Hits to sort them in a vector for each channel

@@ -158,6 +158,9 @@ PhysicsList::PhysicsList() :
 
   // EM physics
   fEmPhysicsList = new G4EmStandardPhysics();
+
+  // HNL mode
+  fMDS = 1968.47;
 }
 
 PhysicsList::~PhysicsList() {
@@ -294,6 +297,13 @@ void PhysicsList::SetExoticParticleDecayMode(G4int ExoticParticleDecayMode, G4in
       G4cout << daughters[i];
     }
     G4cout << ")" << G4endl;
+    exit(kWrongConfiguration);
+  }
+
+  if (ExoticParticle::Definition(iParticle)->GetPDGMass() >= fMDS) {
+    G4cout << "[PhysicsList] Error: exotic particle mass ("<<
+      ExoticParticle::Definition(iParticle)->GetPDGMass() <<
+      " MeV) too large to be produced from any D meson species" << G4endl;
     exit(kWrongConfiguration);
   }
 

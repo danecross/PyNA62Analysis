@@ -40,6 +40,14 @@ CedarDigitizer::~CedarDigitizer() {
   if (fTimeResponse) delete fTimeResponse;
 }
 
+void CedarDigitizer::StartOfBurst() {
+  NA62VDigitizer::StartOfBurst();
+}
+
+void CedarDigitizer::EndOfBurst() {
+  NA62VDigitizer::EndOfBurst();
+}
+
 TDetectorVEvent* CedarDigitizer::ProcessEvent (TDetectorVEvent *tEvent) {
 
   if (tEvent->GetHits()->GetClass()->InheritsFrom("TVDigi") ||
@@ -50,7 +58,7 @@ TDetectorVEvent* CedarDigitizer::ProcessEvent (TDetectorVEvent *tEvent) {
   Int_t NHits = CedarEvent->GetNHits();
 
   fDigiEvent->Clear();
-  (*(TVEvent*)fDigiEvent)=(*(TVEvent*)CedarEvent);
+  fDigiEvent->TVEvent::operator=(*static_cast<TVEvent*>(CedarEvent));
   if (!NHits) return fDigiEvent;
 
   // Loop over MC hits
@@ -167,7 +175,7 @@ Double_t CedarDigitizer::QE_R9880U_110 (Double_t wavelength) {
 // Parameterized by Evgueni, March 2013
 
 Double_t CedarDigitizer::QE_R9880U_210 (Double_t wavelength) {
-  double par[9] = 
+  double par[9] =
   {277.3385690654, -5.360192324445, 0.04415739632667,
     -0.0002031054657811, 5.721437395991e-07, -1.012602804374e-09,
     1.100802213492e-12, -6.72600529683e-16, 1.769806940956e-19};

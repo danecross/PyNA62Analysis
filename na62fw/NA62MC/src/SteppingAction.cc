@@ -48,7 +48,7 @@ SteppingAction::SteppingAction(EventAction* EvAct) :
 
   fCheckPointNames [0] = "World            > CedarRespReg";          // Cedar entry    [z= 69200mm]
   fCheckPointNames [1] = "CedarRespReg     > CedarQuadMagnetField0"; // Cedar exit     [z= 76305mm]
-  fCheckPointNames [2] = "CedarRespReg     > GigaTracker";       // Gigatraker entry   [z= 79440mm]
+  fCheckPointNames [2] = "CedarRespReg     > GigaTracker";       // Gigatracker entry  [z= 79440mm]
   fCheckPointNames [3] = "GigaTracker      < CHANTI";            // Gigatracker exit   [z=102420mm]
   fCheckPointNames [4] = "LAV_Station_08   > LAV_RR0";           // Spectrometer entry [z=181115mm]
   fCheckPointNames [5] = "Spectrometer_RR1 < MNP33Magnet";       // MNP33 magnet entry [z=194262.9mm]

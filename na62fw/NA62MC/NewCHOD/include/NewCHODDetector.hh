@@ -35,7 +35,6 @@
 #include "NA62VComponent.hh"
 #include "NA62VNamed.hh"
 #include "NewCHODGeometryParameters.hh"
-#include "globals.hh"
 #include "G4ThreeVector.hh"
 
 class G4LogicalVolume;

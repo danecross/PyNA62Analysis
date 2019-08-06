@@ -13,21 +13,20 @@
 
 class NA62Utilities {
 
-  public:
+public:
 
-    static NA62Utilities* GetInstance();
+  static NA62Utilities* GetInstance();
+  Double_t GetUnitFromString(TString);
+  Long_t   GetRunTime(Int_t);
 
-    Double_t GetUnitFromString(TString);
+private:
 
-  private:
-
-    NA62Utilities();
-    ~NA62Utilities();
-
-    static NA62Utilities* fInstance;
-
-    std::map<TString,Double_t> fMapStringUnit;
-
+  NA62Utilities();
+  ~NA62Utilities() {}
+  static NA62Utilities* fInstance;
+  std::map<TString,Double_t> fMapStringUnit;
+  Bool_t fRunTimesRead;   ///< Have run times been read from the DB?
+  Long_t fRunTime[20000]; ///< Unix times of start of each run
 };
 
 #endif

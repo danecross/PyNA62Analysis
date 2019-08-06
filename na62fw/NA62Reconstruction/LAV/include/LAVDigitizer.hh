@@ -14,35 +14,36 @@
 #include "TH1D.h"
 #include "TH2F.h"
 
-class LAVDigitizer : public NA62VDigitizer
-{
+class LAVDigitizer : public NA62VDigitizer {
 
-public:
+  public:
 
-  explicit LAVDigitizer(NA62VReconstruction*);
-  virtual ~LAVDigitizer();
-  virtual TDetectorVEvent * ProcessEvent(TDetectorVEvent *);
+    explicit LAVDigitizer(NA62VReconstruction*);
+    virtual ~LAVDigitizer();
+    virtual TDetectorVEvent * ProcessEvent(TDetectorVEvent *);
+    virtual void StartOfBurst();
+    virtual void EndOfBurst();
 
-private:
+  private:
 
-  LAVDigiBlockHandler* fDigiBlockHandler;
+    LAVDigiBlockHandler* fDigiBlockHandler;
 
-  void CreateDigi(Int_t, Double_t, Double_t, LAVDigiBlock*, Int_t );
-  Int_t CreateDigiBlock(TLAVHit*);
-  void DigitizeHits();
+    void CreateDigi(Int_t, Double_t, Double_t, LAVDigiBlock*, Int_t );
+    Int_t CreateDigiBlock(TLAVHit*);
+    void DigitizeHits();
 
-  TFile * fHistoFile;
-  Int_t fMakeDigiHistos;
-  void InitHisto();
-  void FillHisto();
-  void CloseHisto();
+    TFile * fHistoFile;
+    Int_t fMakeDigiHistos;
+    void InitHisto();
+    void FillHisto();
+    void CloseHisto();
 
-  TH1D* fHOptPhotons          ;
-  TH1D* fHPhotoElectrons      ;
-  TH1D* fHRiseTime            ;
-  TH2F* fHMCTimeResolution    ;
-  TH2F* fHMCEnergyCorrelation ;
-  TH1D* fHMCGain              ;
+    TH1D* fHOptPhotons          ;
+    TH1D* fHPhotoElectrons      ;
+    TH1D* fHRiseTime            ;
+    TH2F* fHMCTimeResolution    ;
+    TH2F* fHMCEnergyCorrelation ;
+    TH1D* fHMCGain              ;
 
 };
 

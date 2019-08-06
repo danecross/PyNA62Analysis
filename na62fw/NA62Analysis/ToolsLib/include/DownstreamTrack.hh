@@ -270,12 +270,14 @@ public:
   void	   SetNewCHODBestRecordID(Double_t val) { fNewCHODBestRecordID = val;         }
 
   TVector3 GetNewCHODCandidatePosition(UInt_t);
-  Int_t    GetNewCHODCandidateTileID(UInt_t);
+  Int_t    GetNewCHODCandidateChannelID(UInt_t); ///< Channel ID and tile ID are equal
+  Int_t    GetNewCHODCandidateTileID(UInt_t);    ///< Channel ID and tile ID are equal
+  Int_t    GetNewCHODCandidateType(UInt_t);      ///< Tight, loose, or loose masked
   Double_t GetNewCHODCandidateX(UInt_t);
   Double_t GetNewCHODCandidateY(UInt_t);
   Double_t GetNewCHODCandidateTime(UInt_t); ///< Time of i-th associated NewCHOD RecoHit
-  Double_t GetNewCHODTime(); ///< Time of the best matching candidate; -999 if no match
-  Bool_t   NewCHODTimeExists(); ///< Is NewCHOD time defined?
+  Double_t GetNewCHODTime();                ///< Time of the best matching candidate; -999 if no match
+  Bool_t   NewCHODTimeExists();             ///< Is NewCHOD time defined?
 
   ////////////////
   // LKr variables

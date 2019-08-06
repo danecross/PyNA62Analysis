@@ -1,8 +1,11 @@
 
 cd ~/SummerProject/
+git pull
 
 #remake Tools and Reconstruction and Analysis
 cd na62fw/
+git pull
+
 source NA62Reconstruction/scripts/env.sh
 cd NA62Tools
 source scripts/env.sh

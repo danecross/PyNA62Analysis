@@ -458,7 +458,7 @@ void CoarseT0Evaluation::EvaluateT0Offsets(TString Option) {
           delete fGauss;
         }
         delete fAccidentals;
-        if(Option=="ROMezzanines"){ 
+        if(Option=="ROMezzanines"){
           Int_t iROBoard = iOffset/fNROMezzaninesPerFullBoard;
           Int_t iMezzanine = iOffset%fNROMezzaninesPerFullBoard;
           if(!(fROMezzanineMasksPerBoard[iROBoard]&(1<<iMezzanine))) continue;
@@ -549,13 +549,15 @@ void CoarseT0Evaluation::PrintStationsT0(vector<Double_t> NewT0Offsets){
   // Format of the SubDetector-T0Offsets file :  T0Offsets
 
   time_t now = time(0);
+  static char buffer [50];
+  strftime (buffer,50,"%c",localtime(&now));
 
   //--- CoarseT0 single file (StationT0s + MezzanineT0s)
   TString CoarseT0FileName = "./"+fDetectorName+"-CoarseT0.dat";
   ofstream CoarseT0File (CoarseT0FileName);
   CoarseT0File << "### "+fDetectorName+" Coarse T0 file" << endl;
   CoarseT0File << "#"<<endl;
-  CoarseT0File << "# "+fDetectorName+" Stations T0 corrections generated on "<<asctime(localtime(&now));
+  CoarseT0File << "# "+fDetectorName+" Stations T0 corrections generated on "<<buffer<<endl;
 
   //write the current run values
   CoarseT0File << "StationsT0=";
@@ -569,12 +571,14 @@ void CoarseT0Evaluation::PrintROMezzaninesT0(vector<Double_t> NewT0Offsets){
   // Format of the SubDetector-T0Offsets file :  T0Offsets
 
   time_t now = time(0);
+  static char buffer [50];
+  strftime (buffer,50,"%c",localtime(&now));
 
   //--- CoarseT0 single file (StationT0s + MezzanineT0s)
   TString CoarseT0FileName = "./"+fDetectorName+"-CoarseT0.dat";
   ofstream CoarseT0File (CoarseT0FileName, ios::out | ios::app );
   CoarseT0File << "#"<<endl;
-  CoarseT0File << "# "+fDetectorName+" ROMezzanines T0 corrections generated on "<<asctime(localtime(&now));
+  CoarseT0File << "# "+fDetectorName+" ROMezzanines T0 corrections generated on "<<buffer<<endl;
   CoarseT0File << "# Format: Starting from readout ID 0, grouped by 16" << endl;
 
   UInt_t NGroups = NewT0Offsets.size()/16;
@@ -596,11 +600,14 @@ void CoarseT0Evaluation::PrintXMLT0(vector<Double_t> NewT0Offsets){
   // Format of the SubDetector-T0Offsets file :  T0Offsets
 
   time_t now = time(0);
+  static char buffer [50];
+  strftime (buffer,50,"%c",localtime(&now));
+
   TString T0OffsetsFileNewName = "./"+fDetectorName+"-XMLT0.dat";
   ofstream T0OffsetsFileNew (T0OffsetsFileNewName);
   T0OffsetsFileNew << "### "+fDetectorName+" XML T0 file" << endl;
   T0OffsetsFileNew << "# "+fDetectorName+" XML T0 corrections" << endl;
-  T0OffsetsFileNew << "#\n# Generated on "<<asctime(localtime(&now));
+  T0OffsetsFileNew << "#\n# Generated on "<<buffer<<endl;
   T0OffsetsFileNew << "#"<<endl;
 
   Bool_t LAVFEE=false;
@@ -625,7 +632,7 @@ void CoarseT0Evaluation::PrintXMLT0(vector<Double_t> NewT0Offsets){
     ofstream HighLowDeltaT0File (HighLowDeltaT0FileName);
     HighLowDeltaT0File << "### "+fDetectorName+" HighLowDeltaT0 file" << endl;
     HighLowDeltaT0File << "# "+fDetectorName+" High-Low threshold T0s monitor" << endl;
-    HighLowDeltaT0File << "#\n# Generated on "<<asctime(localtime(&now));
+    HighLowDeltaT0File << "#\n# Generated on "<<buffer<<endl;
     HighLowDeltaT0File << "#"<<endl;
     for (UInt_t iLowThr=0; iLowThr<NewT0Offsets.size()/2; iLowThr++) {
       HighLowDeltaT0File << Form("%5d %5d %4.3f", 2*iLowThr+1,2*iLowThr,NewT0Offsets[2*iLowThr+1]-NewT0Offsets[2*iLowThr]) << endl;

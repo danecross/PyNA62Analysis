@@ -865,7 +865,7 @@ Bool_t SpectrometerParameters::IsBadChannel(Int_t pid, Int_t sid)
 void SpectrometerParameters::SetBMNP33(){
   // Read the measurements
   NA62ConditionsService::GetInstance()->Open(fBMNP33FileName);
-  cout << "Loading MNP33 B measurements.............." << endl;
+  //cout << "Loading MNP33 B measurements.............." << endl;
   Int_t k=0;
   while(!NA62ConditionsService::GetInstance()->Get(fBMNP33FileName).eof()) {
     Double_t xmnp33;
@@ -888,7 +888,7 @@ void SpectrometerParameters::SetBMNP33(){
     k++; 
   }
   NA62ConditionsService::GetInstance()->Close(fBMNP33FileName);
-  cout << "### MNP33 B field loaded in memory ###" << endl;
+  //cout << "### MNP33 B field loaded in memory ###" << endl;
 }
 
 void SpectrometerParameters::SetBFringeField(){

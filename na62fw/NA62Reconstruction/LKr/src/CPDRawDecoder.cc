@@ -151,7 +151,7 @@ TDetectorVEvent * CPDRawDecoder::DecodeNextEvent(UInt_t * pDataBuffer, EventHead
         printf_raw(en) (" Rio %d Trailer  %x channels %d\n",rio,nRioTrailer,nChannels);
     }
     pDataBuffer++;  // contains feed marker
-    datum = *pDataBuffer; pDataBuffer++;
+    datum = *pDataBuffer;
     nReadEvent += 2;
     nBlockLength = BlockLength(datum);
     if (nBlockLength!=nReadEvent) std::cout << "Length mismatch: block "<<nBlockLength <<" read " << nReadEvent << std::endl;

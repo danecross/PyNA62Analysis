@@ -20,7 +20,7 @@
 /// See documentation of L0MUV3Emulator for more details.
 ///
 /// Pileup (accidental) hits are generated using input histograms that can be made using
-/// the 'BuildNewCHODPileupHisto' analyzer, with a default file provided in metadata.
+/// the 'BuildNewCHODPileupHisto' analyzer, with a default file provided in the CDB.
 ///  The generation is made in multiple 4ns windows to attempt to reproduce the
 /// time-structure of hits in the NewCHOD, which is typically non-uniform due to anomalous
 /// events with very large hit multiplicities.

@@ -384,8 +384,8 @@ TRecoVEvent * GigaTrackerReconstruction::ProcessEvent(TDetectorVEvent* tEvent, E
     }
     TRecoGigaTrackerHit* RecoHit = static_cast<TRecoGigaTrackerHit*>(fRecoEvent->AddHit(Digi));
     RecoHit->DecodeChannelID();
-    (*(GigaTrackerChannelID*) RecoHit) = (*(GigaTrackerChannelID*) Digi);
-    (*(TVHit*) RecoHit) = (*(TVHit*) Digi);
+    RecoHit->GigaTrackerChannelID::operator=(*static_cast<GigaTrackerChannelID*>(Digi));
+    RecoHit->TVHit::operator=(*static_cast<TVHit*>(Digi));
     //-------------------------------------------------------------
 
     // Is hit pile up?---------------------------------------------

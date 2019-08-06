@@ -116,6 +116,7 @@ private:
   PhysicsListMessenger* fMessenger;
 
   G4double fBrPie2; ///< Branching ratio of the pi+- --> e+- nu decay
+  G4double fMDS; /// < Needed for hnl mode from D mesons
 };
 
 #endif

@@ -46,6 +46,7 @@
 #include "TH2D.h"
 #include "TF2.h"
 #include "ExoticParticleGun.hh"
+#include "NA62Timer.hh"
 
 struct ExternalParticlesArray {
   vector<int> pdg_code;
@@ -94,6 +95,9 @@ public:
   
   void     SetG4BeamLineInputFileName(G4String  value);       
   void     SetG4BeamStartZPosition(G4String value)           { fG4BeamStartZPosition = value;        }
+
+  void     InitTimer(NA62Timer* timer, unsigned int tID) { fTimer = timer; fTimerID = tID; }
+
 private:
 
   G4ParticleTable* fParticleTable;
@@ -136,6 +140,7 @@ private:
   G4ParticleGun* fExoticDaughterGun2;
   ExoticParticleGun* fExoticPartGun;
   G4int fExoticCounter;
+  TRandom3 *fGausRand;
 
   TFile *inputEventFile;
   G4int fCurrentInputEvent;
@@ -182,6 +187,10 @@ private:
   G4double fDSlife;
   G4double fD0life;
   G4double ftaulife;
+  G4double fDlife1;
+  G4double fDSlife1;
+  G4double fD0life1;
+  G4double ftaulife1;
 
   // Constants
   G4double fhc;
@@ -244,6 +253,9 @@ private:
   G4double fmesonTau[fNSpecies];
   G4bool fReadCharmSpectrum;
 
+  NA62Timer* fTimer;
+  unsigned int fTimerID;
+
   void InitializeExoticDaughter(TRandom3* RandomDecay);
   //void ReadAxionSpectrum();
   void GenerateKLMomentum();
@@ -253,7 +265,7 @@ private:
   G4double PhaseSpaceFactor(G4double, G4double, G4double);
   G4double TwoBodyBR(G4double, G4double, G4double, G4int);
   G4double ThreeBodyBR(G4double, G4double, G4double, G4double, G4bool, G4bool, G4double, G4double, G4int);
-  std::string ThreeBodyFunction(G4double, G4double);
+  TF1* ThreeBodyFunction(G4double, G4double, G4bool);
   static void minFunctionStatic(int&, double*, double&, double*, int);
   G4double lambda(G4double, G4double, G4double);
   void GenerateHeavyNeutrino(G4Event* anEvent, TRandom3* RandomDecay);

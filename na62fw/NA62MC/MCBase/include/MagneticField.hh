@@ -41,8 +41,8 @@ private:
   G4double fBlueTubeFieldScale, fMNP33FieldScale;
 
   BlueTubeMagneticFieldMap *fBlueTubeMap;
-  FringeMagneticFieldMap   *fFringeMap;
   MNP33MagneticFieldMap    *fMNP33Map;
+  FringeMagneticFieldMap   *fFringeMap;
 };
 
 #endif

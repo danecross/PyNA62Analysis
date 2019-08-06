@@ -59,6 +59,7 @@ std::vector<std::map<std::string, Double_t>> ComputeWeight(Event* evt, Double_t 
   Double_t DProdProb;
   Double_t ZDecay;
   Double_t Z;
+  Double_t BR;
   Bool_t IsGood = false;
   Int_t Bias;
   TString Name;
@@ -83,6 +84,7 @@ std::vector<std::map<std::string, Double_t>> ComputeWeight(Event* evt, Double_t 
       NDecayProb = ComputeNDecayProb(p, HNLTau, fLFV);
       ZDecay = ReweightZDecay(p, HNLTau);
       Z = p->GetEndPos().Z();
+      BR = p->GetPosAtCheckPoint(3).X();
 
       if (p->GetParticleName().Contains("e") && !p->GetParticleName().Contains("nu_tau"))
         LeptonUSquared = fUeSquared;
@@ -99,6 +101,8 @@ std::vector<std::map<std::string, Double_t>> ComputeWeight(Event* evt, Double_t 
       }
       else
         ProdFactor = 1.;
+
+      ProdFactor *= BR;
 
       if (p->GetProdPos().Z() >= -400. && p->GetProdPos().Z() <= 400.)
         DProdProb = fDBeProdProb;

@@ -1,5 +1,5 @@
-#ifndef Timer_H
-#define Timer_H
+#ifndef NA62Timer_H
+#define NA62Timer_H
 
 #include <time.h>
 
@@ -7,15 +7,15 @@
 #include <vector>
 #include "TString.h"
 
-class Timer{
+class NA62Timer{
 public:
   /// constructor: use normalisation or not
-  explicit Timer(bool normalised);
-  
-  /// destructor: remove created TimerImp
-  ~Timer(){};
-  
-  /// add a new timer with name and indent (held by master Timer)
+  explicit NA62Timer(bool normalised);
+
+  /// destructor: remove created NA62TimerImp
+  ~NA62Timer(){};
+
+  /// add a new timer with name and indent (held by master NA62Timer)
   unsigned int AddTimer(const TString &name,unsigned int indent);
 
   /// remove timers with a given name
@@ -25,13 +25,13 @@ public:
   inline void StartTimer(unsigned int timer){
     fTimers[timer].Start();
   }
-  
+
   /// stop a numbered timer
   inline double StopTimer(unsigned int timer, bool valid=true){
     fTimers[timer].Stop(valid);
     return fTimers[timer].GetElapsed();
   }
-  
+
   /// read last interval
   double TimerGetElapsed(unsigned int timer){
     return fTimers[timer].GetElapsed();
@@ -50,19 +50,19 @@ public:
   /// print single timer
   void PrintTimer(unsigned int timer,std::ostream &os);
 
-private: 
+private:
   // "captive" timer implementation class
-  class TimerImp{
+  class NA62TimerImp{
   public:
-    TimerImp():
+    NA62TimerImp():
       fDeltaT(-1.),fMinTime(-1.),fMaxTime(-1.),fTotalTime(0.),fEventsNum(0) {
     }
-    ~TimerImp(){}
-    
+    ~NA62TimerImp(){}
+
     inline void Start(){
 #if defined(CLOCK_MONOTONIC_RAW)
       clock_gettime(CLOCK_MONOTONIC_RAW, &fStart); // best timer using rt library (linux kernel 2.8.6 onward only)
-#elif defined(CLOCK_MONOTONIC)        
+#elif defined(CLOCK_MONOTONIC)
       clock_gettime(CLOCK_MONOTONIC, &fStart);      // timer with lower precision
 #elif defined(CLOCK_REALTIME)
       clock_gettime(CLOCK_REALTIME, &fStart); // system time, reset by ntp etc.
@@ -71,19 +71,19 @@ private:
 #endif
       fDeltaT = -1.; // invalid during runing
     }
-    
+
     void Stop(bool valid){
       struct timespec stop;
 #if defined(CLOCK_MONOTONIC_RAW)
       clock_gettime(CLOCK_MONOTONIC_RAW, &stop);  // best timer using rt library (linux kernel 2.8.6 onward only)
-#elif defined(CLOCK_MONOTONIC)              
+#elif defined(CLOCK_MONOTONIC)
       clock_gettime(CLOCK_MONOTONIC, &stop);      // timer with lower precision
 #elif defined(CLOCK_REALTIME)
       clock_gettime(CLOCK_REALTIME, &stop);       // system time, reset by ntp etc.
 #else
       stop.tv_sec = stop.tv_nsec = 0; // no useful rt timers (Windows or OSX probably)
 #endif
-      
+
       fDeltaT = ((stop.tv_sec - fStart.tv_sec) * 1e3) +
         ((stop.tv_nsec - fStart.tv_nsec) * 1e-6); // scale to milliseconds from seconds and nanoseconds
       if(!valid) return; // do not include for averaging
@@ -107,9 +107,9 @@ private:
     double  fMaxTime; ///< max time (ms)
     double  fTotalTime; ///< total time (ms)
     int   fEventsNum; ///< number of events
-  }; //end of TimerImp
+  }; //end of NA62TimerImp
 
-  std::vector<TimerImp> fTimers; ///< list of timers
+  std::vector<NA62TimerImp> fTimers; ///< list of timers
   std::vector<TString> fNames; ///< alg names to match timers
   double fSpeedRatio; ///< speed ratio to "standard" compiler
 };

@@ -33,8 +33,8 @@
 // - NewCHOD simulation added
 //
 // Created by Massimo Lenti (Massimo.Lenti@cern.ch) 2009-02-02
-//            Francesca Bucci (Francesca.Bucci@cern.ch) 
-//            Antonino Sergi (Antonino.Sergi@cern.ch) 
+//            Francesca Bucci (Francesca.Bucci@cern.ch)
+//            Antonino Sergi (Antonino.Sergi@cern.ch)
 //
 // --------------------------------------------------------------------
 #ifndef CHODGeometryParameters_H
@@ -105,6 +105,10 @@ private:
   G4double fRespRegionYLength;
   G4double fRespRegionZLength;
 
+  G4double fInnerRadius;
+  G4double fOuterRadius;
+  G4double fScintThickness;
+
   G4int    fNPlanes;
   G4int    fNQuadrants;
   G4double fTransverseSize;
@@ -112,10 +116,6 @@ private:
   G4double fDetectorZPositionHor;
   G4double fDetectorZRotationVer;
   G4double fDetectorZRotationHor;
-
-  G4double fInnerRadius;
-  G4double fOuterRadius;
-  G4double fScintThickness;
 
   G4int fNCounters;
   G4ThreeVector fScintSize[100];

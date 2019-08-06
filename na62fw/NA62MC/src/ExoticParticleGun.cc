@@ -122,7 +122,7 @@ void ExoticParticleGun::GeneratePrimaries(G4Event* anEvent, KinePart* exoticKP){
       if (fPropExotic){ // if CHOD MC is working
 
         fSaveKine = false; 
-        accept = true; //won't check daughters don't worry about it 
+        //accept = true; //won't check daughters don't worry about it 
         fVertex = new G4PrimaryVertex((*iter)->GetExoticPos(),
                                       (*iter)->GetMesonFlyTime());
 
@@ -136,7 +136,7 @@ void ExoticParticleGun::GeneratePrimaries(G4Event* anEvent, KinePart* exoticKP){
         break;
       }
       // Doesn't propagate Exotic, just saves to KinePart
-  
+
       fSaveKine = true;
       fExoticProdPos.SetXYZT((*iter)->GetExoticPos().x(), (*iter)->GetExoticPos().y(), (*iter)->GetExoticPos().z(), (*iter)->GetMesonFlyTime());
   
@@ -147,7 +147,7 @@ void ExoticParticleGun::GeneratePrimaries(G4Event* anEvent, KinePart* exoticKP){
         G4cout << "[ExoticParticleGun] Error: Only two body exotic decays are available!" << G4endl;
         std::abort();
       }
-        
+
       fPart1 = daughtersList.at(0);
       fPart2 = daughtersList.at(1);
 
@@ -160,7 +160,7 @@ void ExoticParticleGun::GeneratePrimaries(G4Event* anEvent, KinePart* exoticKP){
           " m(daughter2) = " << fPart2->GetPDGMass() << "MeV" << G4endl;
         std::abort();
       }
-      
+
       (*iter)->ExoticDaughters(fPart1->GetPDGMass(), fPart2->GetPDGMass(), fDecayZmin, fDecayZmax);
       if (fabs(fPart1->GetPDGCharge())>0&&fabs(fPart2->GetPDGCharge())>0){ //only check charged
         accept = DaughtersInAcceptance((*iter)->GetExoticDecayPos(), 
@@ -171,7 +171,7 @@ void ExoticParticleGun::GeneratePrimaries(G4Event* anEvent, KinePart* exoticKP){
           continue; //in while loop
         }
       }
-    
+
       else //doesn't check acceptances of photons & neutrinos
         accept=true;
     

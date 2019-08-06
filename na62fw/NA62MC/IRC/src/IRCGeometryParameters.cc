@@ -27,7 +27,7 @@
 // History:
 //
 // Created by Francesca Bucci (Francesca.Bucci@cern.ch) 2008-04-29
-//            Antonino Sergi (Antonino.Sergi@cern.ch) 
+//            Antonino Sergi (Antonino.Sergi@cern.ch)
 //
 // 2010-11-10 Spasimir Balev
 //            -- Change geometry according to TDR
@@ -40,82 +40,86 @@
 
 IRCGeometryParameters* IRCGeometryParameters::fInstance = 0;
 
-IRCGeometryParameters::IRCGeometryParameters() : NA62VGeometryParameters(G4String("IRC")) 
-{
+IRCGeometryParameters::IRCGeometryParameters() :
+  NA62VGeometryParameters(G4String("IRC")),
   // Define all the geometrical parameters and build the
   // responsibility region accordingly
 
   // Unused World Parameters for stand-alone configurations
-  fWorldZLength = 22.*m;
-  fWorldXLength = 10.*m;
-  fWorldYLength = 10.*m;
+  fWorldZLength(22.*m),
+  fWorldXLength(10.*m),
+  fWorldYLength(10.*m),
 
   // Responsibility region
-  fIRCRespRegionZStart = 239.540*m;
-  fIRCRespRegionZEnd   = 240.388*m;
-  fIRCRespRegionZCenter = (fIRCRespRegionZStart + fIRCRespRegionZEnd)/2.;
-  fIRCRespRegionZLength = (fIRCRespRegionZEnd   - fIRCRespRegionZStart);
-  fIRCRespRegionXLength = 5.*m;
-  fIRCRespRegionYLength = 5.*m;
+  fIRCRespRegionZStart (239.540*m),
+  fIRCRespRegionZEnd   (240.388*m),
+  fIRCRespRegionZCenter((fIRCRespRegionZStart + fIRCRespRegionZEnd)/2.),
+  fIRCRespRegionXLength(5.*m),
+  fIRCRespRegionYLength(5.*m),
+  fIRCRespRegionZLength((fIRCRespRegionZEnd   - fIRCRespRegionZStart)),
 
   //  fIRCDetectorZFrontPosition=239.700*m;
-  fIRCDetectorZFrontPosition=239.611475*m;
+  fIRCDetectorZFrontPosition(239.611475*m),
 
-  fAbsorberLayerZLength = 1.5*mm;
-  fScintillatorLayerZLength = 1.5*mm;
-  fAluminumLayerZLength = 5*mm;
-  fAluminumCloseZLength = 7*mm;
-  fScintillatorPaintZLength = 0.1*mm;
-  fLayerSpacing = fAbsorberLayerZLength+fScintillatorLayerZLength + 2*fScintillatorPaintZLength;
+  fAbsorberLayerZLength    (1.5*mm),
+  fScintillatorLayerZLength(1.5*mm),
+  fScintillatorPaintZLength(0.1*mm),
+  fAluminumLayerZLength    (5*mm),
+  fAluminumCloseZLength    (7*mm),
+  fLayerSpacing            (fAbsorberLayerZLength+fScintillatorLayerZLength + 2*fScintillatorPaintZLength),
 
-  fIRCStation1NLayers = 25;
-  fIRCStation1InnerRadius = 60*mm;
-  fIRCStation1OuterRadius = 145*mm;
-  fIRCStation2NLayers = 45;
-  fIRCStation2InnerRadius = 61*mm;
-  fIRCStation2OuterRadius = 145*mm;
-  
-  fIRCInnerHoleDisplacementX = 12.*mm;
-  
-  fIRCDistanceBetweenStations = 40*mm;
-  fIRCModuleRotation = 0*mrad;
-  fDistanceToPMTDisk = 100*mm;
-  fPMTDiskRadius = 275.*mm / 2;
-  fPMTDiskThickness = 5.*mm;
+  fPMTDiskRadius    (275.*mm / 2),
+  fDistanceToPMTDisk(100*mm),
+  fPMTDiskThickness (5.*mm),
 
-  fDSFlangeRadius = 225.*mm / 2;
-  fDSFlangeThickness = 12.*mm;
-  fPMTDiskDSFlangeDistance = 171.5;
+  fIRCStation1NLayers    (25),
+  fIRCStation1InnerRadius(60*mm),
+  fIRCStation1OuterRadius(145*mm),
+  fIRCStation2NLayers    (45),
+  fIRCStation2InnerRadius(61*mm),
+  fIRCStation2OuterRadius(145*mm),
 
-  fIRCDetectorTotalLength = (fIRCStation1NLayers + fIRCStation2NLayers)*fLayerSpacing + 3.*fAluminumLayerZLength + fAluminumCloseZLength + fIRCDistanceBetweenStations;
+  fIRCInnerHoleDisplacementX(12.*mm),
 
+  fIRCDistanceBetweenStations(40*mm),
+  fIRCModuleRotation         (0*mrad),
+  fIRCDetectorTotalLength((fIRCStation1NLayers + fIRCStation2NLayers)*fLayerSpacing + 3.*fAluminumLayerZLength + fAluminumCloseZLength + fIRCDistanceBetweenStations),
 
-  fNSegments = 4;
-  fSegmentPhiAngle = 2. * pi / (G4double) fNSegments;
-  
+  fNSegments      (4),
+  fSegmentPhiAngle(2. * pi / (G4double) fNSegments),
+
   // Beam pipe parameters
-  fInnerBeamPipeThickness = 1*mm;
-  fFrontBeamPipeInnerRadius = 84*mm;
-  fFrontBeamPipeOuterRadius = 85*mm;
+  fInnerBeamPipeThickness  (1*mm),
+  fFrontBeamPipeInnerRadius(84*mm),
+  fFrontBeamPipeOuterRadius(85*mm),
 
+  fFlangeLength(10*mm),
   // DZ of second flange after seconf IRC module
-  fFlangeDZ = 10.*cm;
+  fFlangeDZ(10.*cm),
+
+  fDSFlangeRadius         (225.*mm / 2),
+  fDSFlangeThickness      (12.*mm),
+  fPMTDiskDSFlangeDistance(171.5),
 
   // Beam Pipe Pieces and Flanges
-  fIRCBeamPipeOffset = 96.*mm;
-  fIRCBeamPipe1Length = 190.*mm;
-  fIRCBeamPipe2Length = 220.*mm;
-  fIRCBeamPipe3Length = 260.*mm;
+  fIRCBeamPipeOffset (96.*mm),
+  fIRCBeamPipe1Length(190.*mm),
+  fIRCBeamPipe2Length(220.*mm),
+  fIRCBeamPipe3Length(260.*mm),
 
-  fIRCBeamPipe1Thickness = 0.8 *mm;
-  fIRCBeamPipe2Thickness = 0.8 *mm;
-  fIRCBeamPipe3Thickness = 2.0 *mm;
+  fIRCBeamPipe1Thickness(0.8 *mm),
+  fIRCBeamPipe2Thickness(0.8 *mm),
+  fIRCBeamPipe3Thickness(2.0 *mm),
 
-  fIRCBeamPipe1Diameter = 120.0*mm;
-  fIRCBeamPipe2Diameter = 121.7*mm;
-  fIRCBeamPipe3Diameter = 129.0*mm;
+  fIRCBeamPipe1Diameter(120.0*mm),
+  fIRCBeamPipe2Diameter(121.7*mm),
+  fIRCBeamPipe3Diameter(129.0*mm),
 
-
+  // Signal Collection
+  fSDnSegmentsX(2),
+  fSDnSegmentsY(2),
+  fSDnSegmentsZ(1)
+{
   //The beam tube is three sections:
   // 1st: outer diameter 120.0 mm, thickness = 0.8 mm, length = 190 mm
   // 2nd: outer diameter 121.7 mm, thickness = 0.8 mm, length = 220 mm
@@ -136,7 +140,6 @@ IRCGeometryParameters::IRCGeometryParameters() : NA62VGeometryParameters(G4Strin
   // Flange in front of IRC
   // position of first flange
   fFlangeZStart = fBeamPipePieceZStart[0];
-  fFlangeLength = 10*mm;
   fFlangeZEnd   = fFlangeZStart + fFlangeLength;
 
   fBeamPipePieceZStart[1] = fBeamPipePieceZEnd[0];
@@ -156,7 +159,7 @@ IRCGeometryParameters::IRCGeometryParameters() : NA62VGeometryParameters(G4Strin
   fBeamPipePeaceMaterialName[2] = "IRC_StainlessSteel";
 
   //Downstream Flange, IRC side
-  fBeamPipePieceZEnd[3] = fBeamPipePieceZEnd[2]; 
+  fBeamPipePieceZEnd[3] = fBeamPipePieceZEnd[2];
   fBeamPipePieceZStart[3] = fBeamPipePieceZEnd[3] -fDSFlangeThickness  ;
   fBeamPipePieceOuterRadius[3] = fDSFlangeRadius;
   fBeamPipePieceInnerRadius[3] = fBeamPipePieceOuterRadius[2];
@@ -194,19 +197,13 @@ IRCGeometryParameters::IRCGeometryParameters() : NA62VGeometryParameters(G4Strin
   fBeamPipePeaceMaterialName[6] = "IRC_StainlessSteel";
 
   //Downstream Flange, LKr side
-  fBeamPipePieceZEnd[7] = fBeamPipePieceZEnd[2] + fDSFlangeThickness; 
+  fBeamPipePieceZEnd[7] = fBeamPipePieceZEnd[2] + fDSFlangeThickness;
   fBeamPipePieceZStart[7] = fBeamPipePieceZEnd[2] ;
   fBeamPipePieceOuterRadius[7] = fDSFlangeRadius;
   fBeamPipePieceInnerRadius[7] = fFrontBeamPipeOuterRadius ;
   fBeamPipePieceDisplacementX[7] = 0.;
   fBeamPipePieceInnerDisplacementX[7] = 0.;
   fBeamPipePeaceMaterialName[7] = "IRC_StainlessSteel";
-
-
-  // Signal Collection
-  fSDnSegmentsX = 2;
-  fSDnSegmentsY = 2;
-  fSDnSegmentsZ = 1;
 
   fResponsibilityRegion.push_back(new ResponsibilityRegion(fIRCRespRegionZStart,
 							   fIRCRespRegionZEnd));

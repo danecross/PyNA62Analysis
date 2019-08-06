@@ -21,7 +21,7 @@ bool HLTLibController::loadLibrary() {
 void HLTLibController::closeLibrary() {
     if (m_is_loaded) {
         dlclose(m_library);
-        std::cout << "library closed" << std::endl;
+        //std::cout << "library closed" << std::endl;
         m_is_loaded = false;
     }
     if (m_are_symbol_loaded) {

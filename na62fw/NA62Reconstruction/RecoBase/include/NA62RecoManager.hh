@@ -13,23 +13,19 @@
 
 class NA62RecoManager {
 
-  public:
+public:
 
-    static NA62RecoManager* GetInstance();
-    EventHeader* GetEventHeader(){ return fEventHeader; }
+  static NA62RecoManager* GetInstance();
+  EventHeader* GetEventHeader(){ return fEventHeader; }
+  void InitNA62ConditionsService(TString);
+  void StoreDIMBlock(const TString, UInt_t*, UInt_t, TSpecialTriggerEvent*);
 
-    void InitNA62ConditionsService(TString);
-    void  StoreDIMBlock(const TString,UInt_t *,UInt_t,TSpecialTriggerEvent*);
-    Long_t GetRunTimeFromDB(UInt_t);
+private:
 
-  private:
-
-    NA62RecoManager();
-    ~NA62RecoManager();
-
-    static NA62RecoManager* fInstance;
-
-    EventHeader* fEventHeader;
+  NA62RecoManager();
+  ~NA62RecoManager();
+  static NA62RecoManager* fInstance;
+  EventHeader* fEventHeader;
 };
 
 #endif

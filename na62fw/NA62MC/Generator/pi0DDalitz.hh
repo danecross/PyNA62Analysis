@@ -51,6 +51,9 @@ double KallenLambda(double a, double b, double c);
 class FDoubleDalitz
 {
 public:
+    FDoubleDalitz() : lmbd12(0), lmbd34(0), lmbd(0), z(0), Xi(0), s13(0), s14(0), s23(0), s24(0), s134(0), s234(0), s123(0), s124(0) {}
+    ~FDoubleDalitz() {}
+
 	void GenerateEventKinematics(double M, double ma, double mb,
 						double &s12, double &s34, double &y12, double &y34, double &phi,
 						double &s14, double &s23);
@@ -69,7 +72,7 @@ private:
 
 	void SetBasicVariables(double M, double ma, double mb, double s12, double s34, double y12, double y34, double phi);
 	void SetSVariables(double M, double ma, double mb, double s12, double s34, double y12, double y34);
-	
+
 	// phase-space
 	double DPhase(int S, double M, double s12, double s34);
 

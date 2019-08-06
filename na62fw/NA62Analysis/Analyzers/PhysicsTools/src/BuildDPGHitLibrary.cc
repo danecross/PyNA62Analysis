@@ -35,8 +35,11 @@ using namespace NA62Constants;
 BuildDPGHitLibrary::BuildDPGHitLibrary(Core::BaseAnalysis *ba) :
   Analyzer(ba, "BuildDPGHitLibrary"),
   fRootFile(nullptr),
-  fSpecTree(nullptr)
+  fSpecTree(nullptr),
+  fOutputName(""),
+  fRefTime(0.0)
 {
+  RequestL0Data();
   RequestTree("Spectrometer", new TRecoSpectrometerEvent, "Reco");
   RequestTree("MUV3", new TRecoMUV3Event, "Reco");
   RequestTree("NewCHOD", new TRecoNewCHODEvent, "Reco");
@@ -110,39 +113,46 @@ void BuildDPGHitLibrary::Process(int ){
 
   // Check that this is MC.
   if(!GetIsTree()) return;
-  if(!GetWithMC()) return;
 
-  // Check MC event exists and has KineParts
-  Event* MC = GetMCEvent();
-  if(MC==nullptr)           return;
-  if(MC->GetNKineParts()<1) return;
-
-  if(fOutputName.Contains("Halo") || fOutputName.Contains("Pim2")){
-    // do nothing.
-  }
-  else{
-
-    // Check that the first KinePart is the kaon.
-    KinePart* k  = MC->GetKinePart(0); // kaon
-    if(!k)         return ;
-    if(k->GetPDGcode() != 321) std::cout << user() << "Not a kaon!" << std::endl;
-
-    // Check that the kaon decays in the fiducial volume
-    Double_t end = k->GetEndPos().Vect().Z();
-
-    // total decay fraction is 0.25033836466
-    if(fOutputName.Contains("EDR")){
-      // extended decay region (decay fraction 0.13984817541)
-      if(end<180000)    return;
-      if(!(end<265000)) return;
+  fRefTime=0.0;
+  if(GetWithMC()){
+    // Check MC event exists and has KineParts
+    Event* MC = GetMCEvent();
+    if(MC==nullptr)           return;
+    if(MC->GetNKineParts()<1) return;
+      
+    if(fOutputName.Contains("Halo") || fOutputName.Contains("Pim2")){
+      // do nothing.
     }
     else{
-      // standard decay region (decay fraction 0.12845428689)
-      if(end<102425)    return;
-      if(!(end<180000)) return;
+	
+      // Check that the first KinePart is the kaon.
+      KinePart* k  = MC->GetKinePart(0); // kaon
+      if(!k)         return ;
+      if(k->GetPDGcode() != 321) std::cout << user() << "Not a kaon!" << std::endl;
+	
+      // Check that the kaon decays in the fiducial volume
+      Double_t end = k->GetEndPos().Vect().Z();
+	
+      // total decay fraction is 0.25033836466
+      if(fOutputName.Contains("EDR")){
+	// extended decay region (decay fraction 0.13984817541)
+	if(end<180000)    return;
+	if(!(end<265000)) return;
+      }
+      else{
+	// standard decay region (decay fraction 0.12845428689)
+	if(end<102425)    return;
+	if(!(end<180000)) return;
+      }
     }
   }
-
+  else{
+    Bool_t CTRL = (GetL0Data()->GetDataType()&0x10);
+    if(!CTRL) return; // if data, only use control events.
+    fRefTime = GetL0Data()->GetReferenceFineTime();
+  }
+      
   AddDetectorHits<TRecoSpectrometerEvent>(fLib_spectrometer);
   AddDetectorCandidates<TRecoMUV3Event>(fLib_muv3);
   AddDetectorHits<TRecoNewCHODEvent>(fLib_newchod);
@@ -161,7 +171,7 @@ void BuildDPGHitLibrary::AddDetectorHit(TRecoSpectrometerEvent *event){
         TRecoSpectrometerHit* hit = static_cast<TRecoSpectrometerHit*>(event->GetHit(i));
         if(hit->GetChannelID()<0) std::cout << " WARNING !" << std::endl;
         fLib_spectrometer.fChannelID[i] = hit->GetChannelID();
-        fLib_spectrometer.fTime[i] = hit->GetTime();
+        fLib_spectrometer.fTime[i] = hit->GetTime()-fRefTime;
         fLib_spectrometer.fOther1.f[i] = hit->GetTimeWidth();
     }
 }
@@ -171,7 +181,7 @@ void BuildDPGHitLibrary::AddDetectorHit(TRecoMUV3Event *event){
     for(Int_t i=0; i<candidates; ++i){
       TRecoMUV3Candidate* cand = static_cast<TRecoMUV3Candidate*>(event->GetCandidate(i));
       fLib_muv3.fChannelID[i] = cand->GetTileID();
-      fLib_muv3.fTime[i] = cand->GetTime();
+      fLib_muv3.fTime[i] = cand->GetTime()-fRefTime;
     }
 }
 
@@ -180,7 +190,7 @@ void BuildDPGHitLibrary::AddDetectorHit(TRecoNewCHODEvent* event) {
     for(Int_t i=0; i<hits; ++i){
         TRecoNewCHODHit* chit = static_cast<TRecoNewCHODHit*>(event->GetHit(i));
         fLib_newchod.fChannelID[i] = chit->GetTileID();
-        fLib_newchod.fTime[i] = chit->GetTime();
+        fLib_newchod.fTime[i] = chit->GetTime()-fRefTime;
     }
 }
 
@@ -189,7 +199,7 @@ void BuildDPGHitLibrary::AddDetectorHit(TRecoLAVEvent* event) {
     for (Int_t i = 0; i < hits; ++i) {
         TRecoLAVHit* lav_hit = static_cast<TRecoLAVHit*>(event->GetHit(i));
         fLib_lav.fChannelID[i] = lav_hit->GetChannelID();
-        fLib_lav.fTime[i] = lav_hit->GetTime();
+        fLib_lav.fTime[i] = lav_hit->GetTime()-fRefTime;
         fLib_lav.fOther1.i[i] = lav_hit->GetEdgeMask();
     }
 }
@@ -199,7 +209,7 @@ void BuildDPGHitLibrary::AddDetectorHit(TRecoIRCEvent* event) {
     for (Int_t i = 0; i < hits; ++i) {
         TRecoIRCHit* irc_hit = static_cast<TRecoIRCHit*>(event->GetHit(i));
         fLib_irc.fChannelID[i] = irc_hit->GetChannelID();
-        fLib_irc.fTime[i] = irc_hit->GetTime();
+        fLib_irc.fTime[i] = irc_hit->GetTime()-fRefTime;
         fLib_irc.fOther1.i[i] = irc_hit->GetEdgeMask();
     }
 }
@@ -209,7 +219,7 @@ void BuildDPGHitLibrary::AddDetectorHit(TRecoSACEvent* event) {
     for (Int_t i = 0; i < hits; ++i) {
         TRecoSACHit* sav_hit = static_cast<TRecoSACHit*>(event->GetHit(i));
         fLib_sac.fChannelID[i] = sav_hit->GetChannelID();
-        fLib_sac.fTime[i] = sav_hit->GetTime();
+        fLib_sac.fTime[i] = sav_hit->GetTime()-fRefTime;
         fLib_sac.fOther1.i[i] = sav_hit->GetEdgeMask();
     }
 }
@@ -221,7 +231,7 @@ void BuildDPGHitLibrary::AddDetectorHit(TRecoLKrEvent* event) {
         fLib_lkr.fOther1.f[icand] = lcand->GetClusterEnergy();
         fLib_lkr.fOther2.f[icand] = lcand->GetClusterX();
         fLib_lkr.fOther3.f[icand] = lcand->GetClusterY();
-        fLib_lkr.fTime[icand] = lcand->GetTime();
+        fLib_lkr.fTime[icand] = lcand->GetTime()-fRefTime;
     }
 }
 

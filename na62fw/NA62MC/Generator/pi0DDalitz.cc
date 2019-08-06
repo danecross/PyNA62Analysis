@@ -1324,6 +1324,7 @@ double FDoubleDalitz::PentDir(char c, double M, double ma, double mb, double s12
 	double C4B = ((-pow(ma, 2) - pow(mb, 2) + s23)*(4 * (pow(M, 2) + s12 - s34)*(16 * pow(ma, 2)*pow(mb, 2) + s12*s34) - 8 * pow(ma, 2)*(pow(M, 2) - s12 + s34)*y34*lmbd - 8 * pow(ma, 2)*pow(y34, 2)*pow(lmbd, 2) + pow(y12, 2)*y34*pow(lmbd, 3) +
 		y12*lmbd*(-pow(M, 2) - s12 + s34 + y34*lmbd)*(pow(M, 2)*y12*y34*z - pow(M, 2)*Xi) + (-pow(M, 2) - s12 + s34)*pow(pow(M, 2)*y12*y34*z - pow(M, 2)*Xi, 2))) / (s12*s34);
 
+	//cppcheck-suppress variableScope
 	double C1D[] = { C1A + C1B, C2A + C2B, C3A + C3B, C4A + C4B };
 
 	/// Pent1DR2Coeff(): The coefficients (k.pi) (k.pj) for the \[Epsilon]^\[Mu]\[Nu]\[Rho]\[Sigma] (\*SubsuperscriptBox[\(p\), \(ij\), \(\[Mu]\)]\) (\*SubsuperscriptBox[\(p\), \(kl\), \(\[Rho]\)]\) term; name them CijA
@@ -1379,6 +1380,7 @@ double FDoubleDalitz::PentDir(char c, double M, double ma, double mb, double s12
 	double C44B = (8 * (8 * pow(ma, 6) + 4 * pow(ma, 4)*(4 * pow(mb, 2) - s13 - s14 - 2 * s23) + pow(ma, 2)*(8 * pow(mb, 4) - pow(s12, 2) + pow(s13, 2) + 3 * s14*s23 + pow(s23, 2) - 4 * pow(mb, 2)*(s13 + s14 + 2 * s23) + s13*(s12 + s14 + 2 * s23 - s24) - s12*s24 +
 		s23*s24 + s12*s34) + s12*(s23*(s12 - s13 + s24 - s34) + pow(mb, 2)*(s12 + 3 * s13 - 2 * s23 - s24 + s34)))) / (s12*s34);
 
+	//cppcheck-suppress variableScope
 	double C2D[] = { CKKA + CKKB, C11A + C11B, C12A + C12B, C13A + C13B, C14A + C14B, C22A + C22B, C23A + C23B, C24A + C24B, C33A + C33B, C34A + C34B, C44A + C44B };
 
 	/// Pent1DR3Coeff(): The coefficients (k.pi) (k.pj) for the \[Epsilon]^\[Mu]\[Nu]\[Rho]\[Sigma] (\*SubsuperscriptBox[\(p\), \(ij\), \(\[Mu]\)]\) (\*SubsuperscriptBox[\(p\), \(kl\), \(\[Rho]\)]\) term; name them CijA
@@ -1392,10 +1394,12 @@ double FDoubleDalitz::PentDir(char c, double M, double ma, double mb, double s12
 		(4 * pow(ma, 2)*pow(y34, 2) + s12*(-2 - y12*y34 + pow(y12, 2)*pow(y34, 2)))*pow(lmbd, 2) + (pow(M, 2)*((2 - y12*y34)*pow(lmbd, 2) + y12*(pow(M, 2)*(-4 * s12*y34 + lmbd) + (s12 - s34)*(4 * s12*y34 + lmbd)))*Xi) / 2. +
 		(pow(M, 4)*(pow(M, 2) + s12 - s34)*pow(Xi, 2)) / 2.) / (s12*s34);
 	// 2 times defined!!
+	/*
 	double CKK4 = (2 * (pow(M, 2) + s12 - s34)*(-16 * pow(ma, 2)*pow(mb, 2) + s12*s34*(-1 + pow(y12, 2)*pow(y34, 2))) + (pow(M, 2) - s12 + s34)*(-(s12*y12) + 4 * pow(ma, 2)*y34 + s12*(2 + pow(y12, 2))*y34)*lmbd +
 		(4 * pow(ma, 2)*pow(y34, 2) + s12*(2 - y12*y34 + pow(y12, 2)*pow(y34, 2)))*pow(lmbd, 2) + (pow(M, 2)*
 		(-(pow(M, 4)*(2 + y12*y34)) + (s12 - s34)*(-2 * s12 + 2 * s34 + 3 * s12*y12*y34 + s34*y12*y34 - y12*lmbd) + pow(M, 2)*(4 * s12 + 4 * s34 - 2 * s12*y12*y34 + 2 * s34*y12*y34 - y12*lmbd))*Xi) / 2. + (pow(M, 4)*(pow(M, 2) + s12 - s34)*pow(Xi, 2)) / 2.) / (s12*s34);
-	CKK4 = (2 * (pow(M, 2) + s12 - s34)*(-16 * pow(ma, 2)*pow(mb, 2) + s12*s34*(-1 + pow(y12, 2)*pow(y34, 2))) + (pow(M, 2) - s12 + s34)*(-(s12*y12) + 4 * pow(ma, 2)*y34 + s12*(2 + pow(y12, 2))*y34)*lmbd +
+	*/
+	double CKK4 = (2 * (pow(M, 2) + s12 - s34)*(-16 * pow(ma, 2)*pow(mb, 2) + s12*s34*(-1 + pow(y12, 2)*pow(y34, 2))) + (pow(M, 2) - s12 + s34)*(-(s12*y12) + 4 * pow(ma, 2)*y34 + s12*(2 + pow(y12, 2))*y34)*lmbd +
 		(4 * pow(ma, 2)*pow(y34, 2) + s12*(2 - y12*y34 + pow(y12, 2)*pow(y34, 2)))*pow(lmbd, 2) + (pow(M, 2)*(-4 * s12*(pow(M, 2) - s12 + s34)*y12*y34 - (pow(M, 2) + s12 - s34)*y12*lmbd + (-2 - y12*y34)*pow(lmbd, 2))*Xi) / 2. +
 		2 * (pow(M, 2) + s12 - s34)*(4 * pow(ma, 2) + s12*(-1 + pow(y12, 2)))*(4 * pow(mb, 2) + s34*(-1 + pow(y34, 2)))*pow(cos(phi), 2)) / (s12*s34);
 	double C111 = (4 * ((s12 + s34)*(-1 + y12*y34) + (-y12 + y34)*lmbd + pow(M, 2)*(1 - y12*y34 + Xi))) / s12;
@@ -1420,6 +1424,7 @@ double FDoubleDalitz::PentDir(char c, double M, double ma, double mb, double s12
 	double C344 = (-4 * ((s12 + s34)*(-1 + y12*y34) + (y12 + 3 * y34)*lmbd + pow(M, 2)*(1 - y12*y34 + Xi))) / s34;
 	double C444 = (4 * (s12 + s34 - (s12 + s34)*y12*y34 + (y12 - y34)*lmbd + pow(M, 2)*(-1 + y12*y34 - Xi))) / s34;
 
+	//cppcheck-suppress variableScope
 	double C3D[] = { CKK1, CKK2, CKK3, CKK4, C111, C112, C113, C114, C122, C123, C124, C133, C134, C144, C222, C223, C224, C233, C234, C244, C333, C334, C344, C444 };
 
 	//###########################

@@ -14,10 +14,10 @@
 /// It will then take few minutes for the e-group permissions to be propagated to gitlab. Once this is done, you will have access to the framework repository.
 ///   
 /// \section Installation Installation
-/// <ul>	
+/// <ul>
 /// 	<li>Extract the sources from the git repository<br>
 /// 		\code git clone ssh://git@gitlab.cern.ch:7999/NA62FW/na62fw.git\endcode
-///			For more information on how to use git, please refer to the \ref githowto "GitHowTo" page. 
+///			For more information on how to use git, please refer to the \ref githowto "GitHowTo" page.
 /// 	<li>Setup the environment<br>
 /// 		\code source NA62Reconstruction/scripts/env.sh\endcode
 ///     <li>Compile NA62Tools<br>

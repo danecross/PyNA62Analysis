@@ -1,8 +1,8 @@
 // 2011-03-18 Monica Pepe
 //   - Added use of RICHDetectorMessenger class
 //   - Added code for RICH Fast Simulation
-//
 // --------------------------------------------------------------
+
 #include "G4Box.hh"
 #include "G4Cons.hh"
 #include "G4Tubs.hh"
@@ -10,13 +10,11 @@
 #include "G4PVPlacement.hh"
 #include "G4UnionSolid.hh"
 #include "globals.hh"
-
 #include "G4VisAttributes.hh"
 #include "G4Colour.hh"
 #include "G4Material.hh"
 #include "G4LogicalBorderSurface.hh"
 #include "BeamPipe.hh"
-
 #include "RICHGeometryParameters.hh"
 #include "RICHMaterialParameters.hh"
 #include "RICHDetector.hh"
@@ -31,7 +29,9 @@
 #include "G4MaterialPropertiesTable.hh"
 #include "DatacardManager.hh"
 #include "NA62Global.hh"
+#include "NA62Utilities.hh"
 #include "NA62ConditionsService.hh"
+#include "RICHParameters.hh"
 
 #ifndef RICHScTh
 #define RICHScTh 5.0
@@ -42,22 +42,11 @@
 
 RICHDetector::RICHDetector(G4Material * Material, G4LogicalVolume * MotherVolume) : 
   NA62VComponent(Material,MotherVolume), NA62VNamed("RICH"),
-  fXLength(.0),
-  fYLength(.0),
-  fZLength(.0),
-  fInputDisplacementWRTXaxis(.0),
-  fOutputDisplacementWRTXaxis(.0),
-  fZPosition(.0),
-  fAngleWRTXaxis(.0),
-  fNPMs(0),
-  fNMirrors(0),
-  fVessel(nullptr),
-  fRadiator(nullptr),
-  fMirror(nullptr),
-  fMirrorSupports(nullptr),
-  fMirrorWindow(nullptr),
-  fPMTsWindow(nullptr),
-  fBeamWindow(nullptr) {
+  fXLength(.0), fYLength(.0), fZLength(.0),
+  fInputDisplacementWRTXaxis(.0), fOutputDisplacementWRTXaxis(.0),
+  fZPosition(.0), fAngleWRTXaxis(.0), fNPMs(0), fNMirrors(0),
+  fVessel(nullptr), fRadiator(nullptr), fMirror(nullptr), fMirrorSupports(nullptr),
+  fMirrorWindow(nullptr), fPMTsWindow(nullptr), fBeamWindow(nullptr) {
 
   // Connect to RICHDetectorMessenger to enable datacard configuration
   fRICHMessenger = new RICHDetectorMessenger(this);
@@ -77,9 +66,9 @@ void RICHDetector::ReadGeometryParameters() {
   fYLength = GeoPars->GetRICHDetectorYLength();
   fZLength = GeoPars->GetRICHDetectorZLength();
 
-//  fXLength = 4.0*m;
-//  fYLength = 4.0*m;
-//  fZLength = GeoPars->GetRespRegionZEnd()-GeoPars->GetRespRegionZStart();
+  // fXLength = 4.0*m;
+  // fYLength = 4.0*m;
+  // fZLength = GeoPars->GetRespRegionZEnd()-GeoPars->GetRespRegionZStart();
 
   fInputDisplacementWRTXaxis = GeoPars->GetInputDisplacementWRTXaxis();
   // G4cout<<"************** InputDisplacement: "<<fInputDisplacementWRTXaxis <<" ***********"<<G4endl;   
@@ -184,7 +173,6 @@ void RICHDetector::CreateGeometry() {
    //G4cout<<" *********** RespRegionDownstreamRadius: "<<GeoPars->GetRespRegionDownstreamRadius()<<" ***********"<<G4endl;
    //G4cout<<" *********** RespRegionDownstreamLength: "<<GeoPars->GetRespRegionDownstreamLength()<<" ***********"<<G4endl;
 
-
   fSolidVolume = new G4UnionSolid("RICHRespReg",
       new G4DisplacedSolid("RICHRRUpstream",
         RICHRRUpstream,
@@ -196,7 +184,7 @@ void RICHDetector::CreateGeometry() {
         0,
         G4ThreeVector(0,0,GeoPars->GetRespRegionZEnd()-GeoPars->GetRespRegionDownstreamLength()*0.5-fZPosition-overlap)
         ),
-      0, // null rotation      
+      0, // null rotation
       G4ThreeVector(0,0,0)
       );
 
@@ -315,150 +303,43 @@ void RICHDetector::CreateGeometry() {
   new G4LogicalBorderSurface("Neon/RICHMirrorSupport Surface",
       fRadiator->GetPhysicalVolume(),fMirrorSupports->GetPhysicalSupport_Saleve(),
       fMirrorSupports->GetOpticalSurface());
-  
+
   SetProperties();
 }
 
 void RICHDetector::SetProperties() {
-  fVisAtt= new G4VisAttributes(G4Colour(1.0,1.0,1.0));
-  fVisAtt -> SetVisibility(false);
-  fLogicalVolume ->SetVisAttributes(fVisAtt);
+  fVisAtt = new G4VisAttributes(G4Colour(1.0,1.0,1.0));
+  fVisAtt->SetVisibility(false);
+  fLogicalVolume->SetVisAttributes(fVisAtt);
 }
 
 void RICHDetector::ResetNeonRefractiveIndex() {
-  // run-dependent neon refractive index (implemented by Viacheslav Duk, Viacheslav.Duk@cern.ch)   
-  // (n-1) is scaled by using the run-dependent values of the electron ring radius R
-
   G4int    RunNumber = DatacardManager::GetInstance()->GetRunNumber();
-  G4int    ReferenceRunNumber = 6610;
-  TString  Line;
+  G4long   RunTime   = NA62Utilities::GetInstance()->GetRunTime(RunNumber);
+  G4double Radius    = RICHParameters::GetInstance()->GetElectronRingRadius(RunNumber, RunTime); // [mm]
+  G4double RefRadius = RICHParameters::GetInstance()->GetReferenceElectronRingRadius(); // [mm]
+  G4cout << "[RICHDetector] Electron ring radius = " << Radius << " mm " << G4endl;
 
-  // reading ring radius DB parameters (offset and slope) from the CDB file 
-  G4int    FirstRun, LastRun;
-  G4double RadiusOffset = 0.;
-  G4double RadiusSlope = 0.;
-  G4double ReferenceRadiusOffset = 0.;
-  G4double ReferenceRadiusSlope = 0.;
-
-  NA62ConditionsService::GetInstance()->Open("RICH-ElectronRing.dat");
-
-  G4bool RunNotFoundInElectronRingDB = true;
-  G4bool ReferenceRunNotFoundInElectronRingDB = true;
-  while (Line.ReadLine(NA62ConditionsService::GetInstance()->Get("RICH-ElectronRing.dat")) && 
-	 (RunNotFoundInElectronRingDB || ReferenceRunNotFoundInElectronRingDB)) {
-    if (Line.BeginsWith("#")) continue;
-    // read the line with the run range
-    TObjArray *l = Line.Tokenize(" ");
-    FirstRun = ((TObjString*)(l->At(0)))->GetString().Atoi();
-    LastRun  = ((TObjString*)(l->At(1)))->GetString().Atoi();
-    // read the line with ring radius parameters
-    Line.ReadLine(NA62ConditionsService::GetInstance()->Get("RICH-ElectronRing.dat"));
-    l = Line.Tokenize(" ");
-    Double_t ThisRadiusOffset = ((TObjString*)(l->At(0)))->GetString().Atof();
-    Double_t ThisRadiusSlope  = ((TObjString*)(l->At(1)))->GetString().Atof();
-    Line.ReadLine(NA62ConditionsService::GetInstance()->Get("RICH-ElectronRing.dat"));
-    delete l;
-    // extract parameters for this run
-    if (RunNumber>=FirstRun && RunNumber<=LastRun) {
-      RunNotFoundInElectronRingDB = false;
-      RadiusOffset = ThisRadiusOffset;
-      RadiusSlope  = ThisRadiusSlope;
-    }
-    // extract parameters for the reference run
-    if (ReferenceRunNumber>=FirstRun && ReferenceRunNumber<=LastRun) {
-      ReferenceRunNotFoundInElectronRingDB = false;
-      ReferenceRadiusOffset = ThisRadiusOffset;
-      ReferenceRadiusSlope  = ThisRadiusSlope;
-    }
-  }
-
-  NA62ConditionsService::GetInstance()->Close("RICH-ElectronRing.dat");
-
-  if (RunNotFoundInElectronRingDB) {
-    G4cout << "[RICHDetector] Run " << RunNumber << " not found in the ring radius DB" << G4endl;
-    exit(kWrongConfiguration);
-  }
-
-  // do not reset the neon refractive index if the values are not read
-  if (RunNotFoundInElectronRingDB || ReferenceRunNotFoundInElectronRingDB) {
-    G4cout << "[RICHDetector] Configuration error" << G4endl;
-    exit(kWrongConfiguration);
-  }
-
-  // reading the run time stamp (first burst of a run) from the CDB file
-  G4bool RunNotFoundInRunTimeStampDB = true;
-  G4bool ReferenceRunNotFoundInRunTimeStampDB = true;
-  G4long RunTimeStamp;
-  G4long ReferenceRunTimeStamp;
-  G4int  RunNumberInFile;
-
-  NA62ConditionsService::GetInstance()->Open("RunTimes.dat");
-
-  while (Line.ReadLine(NA62ConditionsService::GetInstance()->Get("RunTimes.dat")) && 
-	 (RunNotFoundInRunTimeStampDB || ReferenceRunNotFoundInRunTimeStampDB) ) {
-    if (Line.BeginsWith("#")) continue;
-    TObjArray *l = Line.Tokenize(" ");
-    // read the run number
-    RunNumberInFile = ((TObjString*)(l->At(0)))->GetString().Atoi();
-    // extract the run time stamp for this run
-    if (RunNumberInFile==RunNumber) {
-      RunNotFoundInRunTimeStampDB = false;
-      RunTimeStamp = ((TObjString*)(l->At(1)))->GetString().Atoll();
-    }
-    // extract the run time stamp for the reference run
-    if (RunNumberInFile==ReferenceRunNumber) {
-      ReferenceRunNotFoundInRunTimeStampDB = false;
-      ReferenceRunTimeStamp = ((TObjString*)(l->At(1)))->GetString().Atoll();
-    }
-  }
-  NA62ConditionsService::GetInstance()->Close("RunTimes.dat");
-
-  if (RunNotFoundInRunTimeStampDB) {
-    G4cout << "[RICHDetector] Error: run " << RunNumber << " not found in the run timestamp DB " << G4endl;
-    exit(kWrongConfiguration);
-  }
-  if (RunNotFoundInRunTimeStampDB || ReferenceRunNotFoundInRunTimeStampDB) {
-    G4cout << "[RICHDetector] Configuration error" << G4endl;
-    exit(kWrongConfiguration);
-  }
-
-  // calculate the run time from the RunTimeStamp (unix time)
-  tm      *RunTime          = localtime(&RunTimeStamp);
-  Double_t RunDay           = RunTime->tm_yday + (RunTime->tm_hour*60.+RunTime->tm_min)/1440.;
-  tm      *ReferenceRunTime = localtime(&ReferenceRunTimeStamp);
-  Double_t ReferenceRunDay  = ReferenceRunTime->tm_yday + (ReferenceRunTime->tm_hour*60.+ReferenceRunTime->tm_min)/1440.;
-
-  // calculate the ring radius for this run and for the reference run
-  G4double Radius           = RadiusOffset          + RadiusSlope*RunDay;
-  G4double ReferenceRadius  = ReferenceRadiusOffset + ReferenceRadiusSlope*ReferenceRunDay;
-
-  // calculate the run-dependent neon refractive index
-
-  // a piece of code copied from RICH/src/RICHMatrerial.cc : start of piece of code
-  G4Material *Neon            = G4Material::GetMaterial("RICH_Ne");
-  G4double    h_Planck        = 4.135669239559144E-12; // planck constant
-  G4double    s               = 1E9;                   // second (time unit)
-  G4double    NeonPressure    = 0.984*bar*1.012;
+  // Calculate the run-dependent neon refractive index
+  G4double    NeonPressure    = 0.984*bar*1.012 * pow(Radius/RefRadius, 2);
   G4double    NeonTemperature = STP_Temperature + 24*kelvin;
-  G4double   *PhotonEnergy;
-  G4double   *NeonRefIndex;
+  G4double   *PhotonEnergy, *NeonRefIndex;
   G4int       MaterialPropertiesNEntries = 17;
   PhotonEnergy = new G4double[MaterialPropertiesNEntries];
   NeonRefIndex = new G4double[MaterialPropertiesNEntries];
 
-  // scale pressure proportionally to R^2
-  NeonPressure = NeonPressure * pow(Radius/ReferenceRadius, 2);
-  
-  for (G4int i = 0; i < MaterialPropertiesNEntries; i++){
+  G4double h_Planck = 4.135669239559144E-12; // Planck constant
+  G4double s        = 1e9;                   // second (time unit)
+  for (G4int i=0; i<MaterialPropertiesNEntries; i++) {
     PhotonEnergy[i] = 2.00*eV + (7.75 - 2.00)*eV / (MaterialPropertiesNEntries - 1) * i;
     NeonRefIndex[i] = 1. + 2.61303e27/(39160e27-
-				    (PhotonEnergy[i]/h_Planck)*
-				    (PhotonEnergy[i]/h_Planck)*(s*s))*
+				       (PhotonEnergy[i]/h_Planck)*
+				       (PhotonEnergy[i]/h_Planck)*(s*s))*
       (NeonPressure/(NeonTemperature))/(STP_Pressure/(STP_Temperature));
-  } // end of copied piece of code
+  }
 
-  // extract a table with neon properties  
+  // Update the neon refractive index in the table
+  G4Material *Neon = G4Material::GetMaterial("RICH_Ne");
   G4MaterialPropertiesTable *Table = Neon->GetMaterialPropertiesTable();
-  // update the neon refractive index in the table
-  Table->AddProperty("RINDEX", PhotonEnergy, NeonRefIndex, MaterialPropertiesNEntries);  
+  Table->AddProperty("RINDEX", PhotonEnergy, NeonRefIndex, MaterialPropertiesNEntries);
 }

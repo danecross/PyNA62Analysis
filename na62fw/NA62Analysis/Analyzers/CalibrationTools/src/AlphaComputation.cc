@@ -115,7 +115,7 @@ void AlphaComputation::StartOfRunUser(){
       if (Run!=GetRunID()) continue; // wrong run number
       fBeta  = b; // dimensionless
       ParametersFound = true;
-      cout << user_normal() << " Run = " << Run << " Beta = " << b << "\n";
+      cout << user_normal() << "Run = " << Run << " Beta = " << b << "\n";
     }
     NA62ConditionsService::GetInstance()->Close(BetaFileName);
   }
