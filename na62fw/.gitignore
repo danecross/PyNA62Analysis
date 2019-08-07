@@ -1,0 +1,10 @@
+
+*.pyc
+*/lib-*
+*/build-*
+*/bin-*
+
+*cc7*
+
+*/PythonAnalysis*
+
