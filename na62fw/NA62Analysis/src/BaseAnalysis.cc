@@ -445,104 +445,107 @@ bool BaseAnalysis::Process(Long64_t beginEvent, Long64_t maxEvent, int maxBurst)
 	std::map<TString, bool> exportFilters;
 	for(auto itOutput : fOStream)
 		exportFilters.insert(std::pair<const TString, bool>(itOutput.first, false));
-	for (Long64_t i = beginEvent; (i < processEvents || processEvents < 0) && !fSignalStop; ++i) {
-		//Print current event
-		if (i % i_offset == 0) {
-			printCurrentEvent(i, processEvents, defaultPrecision, displayType,
-					processLoopTime);
-		}
-		if (fEventsDownscaling > 0 && (i % fEventsDownscaling != 0))
-			continue;
 
-		// Load event infos
-		if (!fSpecialOnly && !fIHandler->LoadEvent(i)){
-			std::cout << normal() << "Unable to read event " << i << std::endl;
-			continue;
-		}
-		CheckNewFileOpened();
-		CheckBurstAndRunChange(maxBurst);
+	if (!fIsPythonFile){
+		for (Long64_t i = beginEvent; (i < processEvents || processEvents < 0) && !fSignalStop; ++i) {
+			//Print current event
+			if (i % i_offset == 0) {
+				printCurrentEvent(i, processEvents, defaultPrecision, displayType,
+						processLoopTime);
+			}
+			if (fEventsDownscaling > 0 && (i % fEventsDownscaling != 0))
+				continue;
 
-		if(maxBurst>0 && fBurstProcessed>maxBurst){
-			std::cout << extended() << maxBurst << " bursts have been processed. Stopping processing" << std::endl;
-			processEvents = i;
-			break;
-		}
+			// Load event infos
+			if (!fSpecialOnly && !fIHandler->LoadEvent(i)){
+				std::cout << normal() << "Unable to read event " << i << std::endl;
+				continue;
+			}
+			CheckNewFileOpened();
+			CheckBurstAndRunChange(maxBurst);
 
-		if(fSpecialOnly && IsTreeType()){
-			i = fLastSpecialTriggerEvent-1;
-			//We finally know the total number of events in the sample
-			if (fIHandler->IsFastStart() && fNEvents < processEvents)
-				processEvents = fNEvents;
-			continue;
-		}
+			if(maxBurst>0 && fBurstProcessed>maxBurst){
+				std::cout << extended() << maxBurst << " bursts have been processed. Stopping processing" << std::endl;
+				processEvents = i;
+				break;
+			}
+
+			if(fSpecialOnly && IsTreeType()){
+				i = fLastSpecialTriggerEvent-1;
+				//We finally know the total number of events in the sample
+				if (fIHandler->IsFastStart() && fNEvents < processEvents)
+					processEvents = fNEvents;
+				continue;
+			}
 
 
-		if(IsTreeType() &&
-				!(fEventChecker->IsGoodEvent(GetIOTree()->GetEventHeaderEvent()) ^ NA62Analysis::Configuration::ConfigSettings::CLI::fInvertBadEvent) ){
-			std::cout << extended() << "Event " << i << " is flagged as " <<
+			if(IsTreeType() &&
+					!(fEventChecker->IsGoodEvent(GetIOTree()->GetEventHeaderEvent()) ^ NA62Analysis::Configuration::ConfigSettings::CLI::fInvertBadEvent) ){
+				std::cout << extended() << "Event " << i << " is flagged as " <<
 					(Configuration::ConfigSettings::CLI::fInvertBadEvent ? "good" : "bad") << "... skipping." << std::endl;
+				//We finally know the total number of events in the sample
+				if (fIHandler->IsFastStart() && fNEvents < processEvents)
+					processEvents = fNEvents;
+				continue;
+			}
+
+			//Reset export booleans
+			for(auto &itOutput : exportFilters)
+				itOutput.second = false;
+
+			PreProcess();
+			//Process event in Analyzer
+			exportEvent = 0;
+			for (unsigned int j = fFirstAnalyzer; j < fAnalyzerList.size(); j++) {
+				//Get MCSimple
+				GetOHandler(fDefaultOStream)->SetOutputFileAsCurrent(fAnalyzerList[j]->GetAnalyzerName());
+				if (IsTreeType() && fIHandler->GetWithMC())
+					fAnalyzerList[j]->FillMCSimple(
+							static_cast<InputTree*>(fIHandler)->GetMCTruthEvent());
+
+				processTime.Start();
+				fAnalyzerList[j]->Process(i);
+				processTime.Stop();
+
+				if (fGraphicalMutex.Lock() == 0) {
+					fAnalyzerList[j]->UpdatePlots(i);
+					fGraphicalMutex.UnLock();
+				}
+				if (fFiltering){
+					exportEvent = exportEvent
+						| (fAnalyzerList[j]->GetExportEvent() << (j-fFirstAnalyzer));
+					if(fAnalyzerList[j]->GetExportEvent())
+						for(auto itStreams : fOStream)
+							if(itStreams.second.IsAnalyzerInList(fAnalyzerList[j]->GetAnalyzerName()))
+								exportFilters[itStreams.first] = true;
+				}
+				GetOHandler(fDefaultOStream)->SetOutputFileAsCurrent();
+			}
+
+			for (unsigned int j = fFirstAnalyzer; j < fAnalyzerList.size(); j++) {
+				GetOHandler(fDefaultOStream)->SetOutputFileAsCurrent(fAnalyzerList[j]->GetAnalyzerName());
+				fAnalyzerList[j]->PostProcess();
+				GetOHandler(fDefaultOStream)->SetOutputFileAsCurrent();
+			}
+
+
+			if (IsTreeType() && exportEvent > 0 && fFiltering){
+				GetIOTree()->UpdateFilterWord(exportEvent);
+				for(auto itOStream : fOStream){
+					if(itOStream.second.IsEmpty() || exportFilters[itOStream.first])
+						itOStream.second.fOutputHandler->WriteEvent(GetIOTree()->GetFilterWordRef(), GetIOTree()->GetEnabledTrees(), GetIOTree()->GetReferenceTree());
+				}
+				GetOHandler(fDefaultOStream)->SetOutputFileAsCurrent();
+			}
+
 			//We finally know the total number of events in the sample
 			if (fIHandler->IsFastStart() && fNEvents < processEvents)
 				processEvents = fNEvents;
-			continue;
+
+			if ((i % checkInterval)	== 0 && checkInterval!=INT32_MAX)
+				FillMemoryUsage(fVirtualMemoryVsEvent, fResidentMemoryVsEvent, i);
+
 		}
-
-		//Reset export booleans
-		for(auto &itOutput : exportFilters)
-			itOutput.second = false;
-
-		PreProcess();
-		//Process event in Analyzer
-		exportEvent = 0;
-		for (unsigned int j = fFirstAnalyzer; j < fAnalyzerList.size(); j++) {
-			//Get MCSimple
-			GetOHandler(fDefaultOStream)->SetOutputFileAsCurrent(fAnalyzerList[j]->GetAnalyzerName());
-			if (IsTreeType() && fIHandler->GetWithMC())
-				fAnalyzerList[j]->FillMCSimple(
-						static_cast<InputTree*>(fIHandler)->GetMCTruthEvent());
-
-			processTime.Start();
-			fAnalyzerList[j]->Process(i);
-			processTime.Stop();
-
-			if (fGraphicalMutex.Lock() == 0) {
-				fAnalyzerList[j]->UpdatePlots(i);
-				fGraphicalMutex.UnLock();
-			}
-			if (fFiltering){
-				exportEvent = exportEvent
-						| (fAnalyzerList[j]->GetExportEvent() << (j-fFirstAnalyzer));
-				if(fAnalyzerList[j]->GetExportEvent())
-					for(auto itStreams : fOStream)
-						if(itStreams.second.IsAnalyzerInList(fAnalyzerList[j]->GetAnalyzerName()))
-							exportFilters[itStreams.first] = true;
-			}
-			GetOHandler(fDefaultOStream)->SetOutputFileAsCurrent();
-		}
-
-		for (unsigned int j = fFirstAnalyzer; j < fAnalyzerList.size(); j++) {
-			GetOHandler(fDefaultOStream)->SetOutputFileAsCurrent(fAnalyzerList[j]->GetAnalyzerName());
-			fAnalyzerList[j]->PostProcess();
-			GetOHandler(fDefaultOStream)->SetOutputFileAsCurrent();
-		}
-
-
-		if (IsTreeType() && exportEvent > 0 && fFiltering){
-			GetIOTree()->UpdateFilterWord(exportEvent);
-			for(auto itOStream : fOStream){
-				if(itOStream.second.IsEmpty() || exportFilters[itOStream.first])
-					itOStream.second.fOutputHandler->WriteEvent(GetIOTree()->GetFilterWordRef(), GetIOTree()->GetEnabledTrees(), GetIOTree()->GetReferenceTree());
-			}
-			GetOHandler(fDefaultOStream)->SetOutputFileAsCurrent();
-		}
-
-		//We finally know the total number of events in the sample
-		if (fIHandler->IsFastStart() && fNEvents < processEvents)
-			processEvents = fNEvents;
-
-		if ((i % checkInterval)	== 0 && checkInterval!=INT32_MAX)
-			FillMemoryUsage(fVirtualMemoryVsEvent, fResidentMemoryVsEvent, i);
-
 	}
 
 	//Ask the analyzer to export and draw the plots
