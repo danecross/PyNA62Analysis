@@ -13,7 +13,7 @@
 class TSlimRecoVEvent;
 class TRecoVEvent;
 
-std::pair<TString,TSlimRecoVEvent*> getSlimClassEquivalent(TString className);
+std::pair<TString,TObject*> getSlimClassEquivalent(TString className);
 
 std::pair<TSlimRecoVEvent*, TRecoVEvent*> getSlimAndRecoFromName(TString detName, void** objectAddress);
 std::pair<TRecoVEvent*, TSlimRecoVEvent*> getRecoAndSlimFromName(TString detName, void** objectAddress);

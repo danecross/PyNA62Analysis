@@ -85,13 +85,6 @@ class LKrSD : public G4VSensitiveDetector
         G4double             GetTopRightCornerY()                                { return fTopRightCornerY;                  };
         void                 SetTopRightCornerY(G4double value)                  { fTopRightCornerY = value;                 };
 
-        G4double             GetLKrCell0X()                                      { return fLKrCell0X;                        };
-        void                 SetLKrCell0X(G4double value)                        { fLKrCell0X = value;                       };
-
-        G4double             GetLKrCell0Y()                                      { return fLKrCell0Y;                        };
-        void                 SetLKrCell0Y(G4double value)                        { fLKrCell0Y = value;                       };
-
-
     private:
         LKrHitsCollection *Collection;
         LKrHit * HitMap[16384]; //Number of cells in the calorimeter
@@ -156,9 +149,6 @@ class LKrSD : public G4VSensitiveDetector
         G4double fTopRightCornerY;
 
         G4double fLKrCellLength;
-
-        G4double fLKrCell0X;
-        G4double fLKrCell0Y;
 
         G4Trap * fParametrizedTrapezoid;
 

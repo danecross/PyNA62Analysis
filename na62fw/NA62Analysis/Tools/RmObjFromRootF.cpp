@@ -74,13 +74,13 @@ int SkipFromList(const Char_t *fInName, const Char_t *fOutName,const Char_t *fsk
         continue;
       TString rlineS = lineS;
       std::cout<<"SkipFromList: To be removed: "<<lineS<<std::endl;
-      if(rlineS.Contains("/")){//check for objects in directories (2nd level)
+      if(rlineS.Contains("/")){ //check for objects in directories (2nd level)
         std::cout<<"SkipFromList: -> contains '/'! ... removal in directory loop!"<<std::endl;
         std::cout<<"\n";
         namesObjDir[countDir] = lineS;
         countDir++;
       }
-      else{//remove objects from list in first level
+      else{ //remove objects from list in first level
         bool rmOK = RmFromList(keylistFile,rlineS);
         if(!rmOK) std::cout<<"SkipFromList: ERROR: Could not remove "<<lineS<<"."<<std::endl;
         else  std::cout<<"SkipFromList: --> Removed "<<lineS<<"."<<std::endl;
@@ -224,7 +224,7 @@ bool SaveObject(TDirectory *dirUp,TDirectory *dirIn,TKey *key){
   TString nameObj = key->GetName();
   if(classname.Contains("TTree")){
     TTree *treeIn = (TTree*)dirIn->Get(nameObj);
-    TTree *tree = treeIn->CloneTree();
+    TTree *tree = treeIn->CloneTree(); // this leads to crashes (e.g. for SlimReco)!
     dirUp->cd();
     Int_t writeOK = tree->Write(nameObj,TObject::kSingleKey);
     if( writeOK <1) std::cout<<"SkipFromList: ERROR: "<<classname<<" "<<nameObj<<" not found, could not be saved."<<std::endl;

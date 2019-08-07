@@ -91,8 +91,6 @@ LKrSD::LKrSD(G4String name,G4String colName) :
 
     fLKrCellLength = GeoPars->GetLKrCellLength();
 
-    fLKrCell0X= GeoPars->GetLKrCell0X();
-    fLKrCell0Y= GeoPars->GetLKrCell0Y();
     fIncr= GeoPars->GetIncr();
     SpaceToNextPlate= GeoPars->GetSpaceToNextPlate();
 

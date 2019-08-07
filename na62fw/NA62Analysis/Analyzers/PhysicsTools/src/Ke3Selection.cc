@@ -231,10 +231,10 @@ void Ke3Selection::Process(Int_t) {
 
   if (TriggerOK) FillHisto("hPhysicsEventsPerBurst", BurstID);
 
-  TRecoLKrEvent*    LKrEvent    = GetEvent<TRecoLKrEvent>();;
-  TRecoLAVEvent*    LAVEvent    = GetEvent<TRecoLAVEvent>();;
-  TRecoIRCEvent*    IRCEvent    = GetEvent<TRecoIRCEvent>();;
-  TRecoSACEvent*    SACEvent    = GetEvent<TRecoSACEvent>();;
+  TRecoLKrEvent*    LKrEvent    = GetEvent<TRecoLKrEvent>();
+  TRecoLAVEvent*    LAVEvent    = GetEvent<TRecoLAVEvent>();
+  TRecoIRCEvent*    IRCEvent    = GetEvent<TRecoIRCEvent>();
+  TRecoSACEvent*    SACEvent    = GetEvent<TRecoSACEvent>();
 
   /////////////////////////////////////////////////
   // Require at least 3 clusters: e+ and two photons

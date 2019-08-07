@@ -211,6 +211,7 @@ Long64_t InputTree::BranchTrees(Long64_t eventNb) {
 	/// \EndMemberDescr
 
 	objectTreeIterator itTreeObj;
+	ChainObject *disable_reco = nullptr;
 
 	if (!fReferenceTree && fTree.size() > 0)
 		fReferenceTree = fTree.begin()->second->GetChain();
@@ -222,7 +223,12 @@ Long64_t InputTree::BranchTrees(Long64_t eventNb) {
 				std::cout << extended() << "Tree " << itTree.first
 						<< " not found in input file. Disabling..."
 						<< std::endl;
-				itTree.second->Disable();
+				if(itTree.first.EqualTo("Reco"))
+					// Must be disabled later, else we will not trigger the
+					// automatic slim transition
+				    disable_reco = itTree.second;
+				else
+				    itTree.second->Disable();
 				continue;
 			}
 			std::cout << normal() << "[Error] Requested tree not found in input file: "
@@ -249,18 +255,31 @@ Long64_t InputTree::BranchTrees(Long64_t eventNb) {
 		}
 	}
 
-	//Loop over all generic branches and branch them
-	for (itTreeObj = fObject.begin(); itTreeObj != fObject.end(); ++itTreeObj) {
-		treeIterator itTree = fTree.find(itTreeObj->first);
-		if (!itTree->second->IsEnabled())
-			continue;
-		for(auto itObj : itTreeObj->second)
-			itObj.second->fEnabled = FindAndBranchTree(itTree->second->GetChain(), itObj.second->fBranchName,
-				itObj.second->fClassName, &(itObj.second->fObject));
-	}
+    //Loop over all generic branches and branch them
+    for (itTreeObj = fObject.begin(); itTreeObj != fObject.end(); ++itTreeObj) {
+        treeIterator itTree = fTree.find(itTreeObj->first);
+        if (!itTree->second->IsEnabled() || itTree->first.EqualTo("SlimReco")) // Do SlimReco later
+            continue;
+        for(auto itObj : itTreeObj->second)
+            itObj.second->fEnabled = FindAndBranchTree(itTree->second->GetChain(), itObj.second->fBranchName,
+                itObj.second->fClassName, &(itObj.second->fObject));
+    }
+
+    //Loop over all generic branches and branch them
+    for (itTreeObj = fObject.begin(); itTreeObj != fObject.end(); ++itTreeObj) {
+        treeIterator itTree = fTree.find(itTreeObj->first);
+        if (!itTree->second->IsEnabled() || !itTree->first.EqualTo("SlimReco")) // Do SlimReco now
+            continue;
+        for(auto itObj : itTreeObj->second)
+            itObj.second->fEnabled = FindAndBranchTree(itTree->second->GetChain(), itObj.second->fBranchName,
+                itObj.second->fClassName, &(itObj.second->fObject));
+    }
 
 	if (eventNb == -1)
 		eventNb = GetNEvents();
+
+	if(disable_reco)
+	    disable_reco->Disable();
 
 	for (auto itTree : fTree) {
 		itTree.second->GetChain()->SetCacheSize(400000000);
@@ -304,7 +323,7 @@ TDetectorVEvent *InputTree::GetEvent(TString detName, TString outputName) {
 
 		auto itEvts = itDetEvt->second.find(mainTree);
 		if (itEvts != itDetEvt->second.end()) {
-			std::cout << trace() << "Using branch " << mainTree << std::endl;
+			std::cout << trace() << "Using branch " << detName << " in tree " << mainTree << std::endl;
 			return itEvts->second->fEvent;
 		}
 		std::cout << normal() << "[Error] Unable to find event in branch "
@@ -337,14 +356,16 @@ void *InputTree::GetObject(TString name, TString branchName, bool silent) {
 		// If the branch is not specified return the first entry if available
 		if(branchName.CompareTo("") == 0 && itTreeObj->second.size()>0){
 			std::cout << trace() << "Using branch "
-					<< itTreeObj->second.begin()->second->fBranchName << std::endl;
+					<< itTreeObj->second.begin()->second->fBranchName
+					<< " in tree " << itTreeObj->first << std::endl;
 			return itTreeObj->second.begin()->second->fObject;
 		}
 		auto itObj = itTreeObj->second.find(branchName);
 		if(itObj != itTreeObj->second.end()){
 			// If the requested branch is found, return it
 			std::cout << trace() << "Using branch "
-						<< itObj->second->fBranchName << std::endl;
+						<< itObj->second->fBranchName
+						<< " in tree " << itTreeObj->first << std::endl;
 				return itObj->second->fObject;
 		}
 	}
@@ -403,7 +424,7 @@ bool InputTree::LoadEvent(Long64_t &iEvent) {
 				TBranch *evtBranch = itTree.second->GetChain()->GetBranch(itEvt.first);
 				if (evtBranch) {
 					std::cout << trace() << "Getting entry " << iEvent
-							<< " for " << itEvt.first << std::endl;
+							<< " for " << itEvt.first << " in tree " << itTree.first << std::endl;
 					fIOTimeCount.Start();
 					evtBranch->GetEntry(localEntry);
 					fIOTimeCount.Stop();
@@ -419,7 +440,7 @@ bool InputTree::LoadEvent(Long64_t &iEvent) {
 				TBranch *evtBranch = itTree.second->GetChain()->GetBranch(itObj.second->fBranchName);
 				if (evtBranch) {
 					std::cout << trace() << "Getting entry " << iEvent
-							<< " for " << itObj.second->fBranchName << std::endl;
+							<< " for " << itObj.second->fBranchName << " in tree " << itTree.first << std::endl;
 					fIOTimeCount.Start();
 					evtBranch->GetEntry(localEntry);
 					fIOTimeCount.Stop();
@@ -599,7 +620,7 @@ bool InputTree::LoadSpecialEvent(Long64_t &iEvent) {
 					TBranch *evtBranch = it->second->GetChain()->GetBranch(itEvt.first);
 					if (evtBranch) {
 						std::cout << trace() << "Getting entry " << iEvent
-								<< " for " << itEvt.first << std::endl;
+								<< " for " << itEvt.first << " in tree " << it->first << std::endl;
 						fIOTimeCount.Start();
 						evtBranch->GetEntry(localEntry);
 						fIOTimeCount.Stop();
@@ -610,7 +631,7 @@ bool InputTree::LoadSpecialEvent(Long64_t &iEvent) {
 					TBranch *evtBranch = it->second->GetChain()->GetBranch(itObj.second->fBranchName);
 					if (evtBranch) {
 						std::cout << trace() << "Getting special entry " << iEvent
-								<< " for " << itObj.second->fBranchName << std::endl;
+								<< " for " << itObj.second->fBranchName << " in tree " << it->first << std::endl;
 						fIOTimeCount.Start();
 						evtBranch->GetEntry(localEntry);
 						fIOTimeCount.Stop();
@@ -715,35 +736,39 @@ TChain* InputTree::GetTree(TString name) {
 	return nullptr;
 }
 
-bool InputTree::TryBranchSlim(TChain *recoTree, TString branchName, TString branchClass) {
-    TFile *fd = recoTree->GetCurrentFile();
+bool InputTree::TryBranchSlim(TString branchName, TString branchClass) {
+    TFile *fd = fReferenceTree->GetCurrentFile();
     if(!fd->FindKey("SlimReco")) // No slim reco available.
         return false;
 
     auto slimRecoTree = fTree.find("SlimReco");
 
-    std::pair<TString,TSlimRecoVEvent*> slimClass = getSlimClassEquivalent(branchClass);
+    std::pair<TString,TObject*> slimClass = getSlimClassEquivalent(branchClass);
 
-    if(slimClass.second==nullptr){
+    if(slimClass.second==nullptr && slimClass.first==""){
         std::cout << normal() << "The Slim persistency equivalent of " << branchClass << " could not be found." << std::endl;
         std::cout << normal() << "Stop trying to branch the Slim branch " << branchName << std::endl;
         return false;
     }
 
-    RequestTree("SlimReco", branchName, slimClass.first, slimClass.second);
-    fPersAutoTransform.push_back(
-            std::make_pair(reinterpret_cast<TSlimRecoVEvent*>(GetObject("SlimReco", branchName)),
-                           reinterpret_cast<TRecoVEvent*>(GetEvent(branchName, "Reco")))
-    );
-    if(slimRecoTree==fTree.end()){
-        TObjArray* files = recoTree->GetListOfFiles();
-        TChain *slimTree = fTree["SlimReco"]->GetChain();
-        for(int iFile=0; iFile<files->GetEntries(); ++iFile){
-            fIOTimeCount.Start();
-            slimTree->AddFile(static_cast<TChainElement*>(files->At(iFile))->GetTitle());
-            fIOTimeCount.Stop();
+    if(slimClass.second!=nullptr){
+        RequestTree("SlimReco", branchName, slimClass.first, slimClass.second);
+        fPersAutoTransform.push_back(
+                std::make_pair(reinterpret_cast<TSlimRecoVEvent*>(GetObject("SlimReco", branchName)),
+                               reinterpret_cast<TRecoVEvent*>(GetEvent(branchName, "Reco")))
+        );
+        if(slimRecoTree==fTree.end()){
+            TObjArray* files = fReferenceTree->GetListOfFiles();
+            TChain *slimTree = fTree["SlimReco"]->GetChain();
+            for(int iFile=0; iFile<files->GetEntries(); ++iFile){
+                fIOTimeCount.Start();
+                slimTree->AddFile(static_cast<TChainElement*>(files->At(iFile))->GetTitle());
+                fIOTimeCount.Stop();
+            }
         }
     }
+    else
+        RequestTree("SlimReco", branchName, slimClass.first, GetObject("Reco", branchName));
     return true;
 }
 
@@ -775,14 +800,17 @@ bool InputTree::FindAndBranchTree(TChain* tree, TString branchName,
 			std::cout << normal() << "[ERROR] Unable to find TTree " << tree->GetName()
 					<< std::endl;
 			throw LogicException();
-		} else {
+		} else if(!TString(tree->GetName()).EqualTo("Reco")){
 			std::cout << normal() << "[Warning] Unable to find TTree "
 					<< tree->GetName()
-					<< ". Retrieved corresponding event will always be empty";
+					<< ". Retrieved corresponding event will always be empty" << std::endl;
 			return false;
 		}
 	}
-	jMax = branchesList->GetEntries();
+	if(branchesList)
+	    jMax = branchesList->GetEntries();
+	else
+	    jMax = 0;
 	for (Int_t j = 0; j < jMax; j++) {
 		if (TString(branchName).CompareTo(branchesList->At(j)->GetName()) == 0) {
 			if (TString("TBranchElement").CompareTo(branchesList->At(j)->ClassName()) == 0) {	// This is a complex class branch
@@ -845,7 +873,7 @@ bool InputTree::FindAndBranchTree(TChain* tree, TString branchName,
 				<< "processing, run with --ignore" << manip::reset << std::endl;
 		throw LogicException();
 	} else {
-	    if(TString(tree->GetName()).EqualTo("Reco") && !TryBranchSlim(tree, branchName, branchClass)){
+	    if(TString(tree->GetName()).EqualTo("Reco") && !TryBranchSlim(branchName, branchClass)){
 	        std::cout << normal() << manip::brown << manip::bold << "[WARNING] Unable to find branch "
 	                << branchName << " in TTree " << tree->GetName()
 	                << ". Retrieved corresponding event will always be empty"

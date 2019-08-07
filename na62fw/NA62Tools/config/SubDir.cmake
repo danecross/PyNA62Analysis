@@ -2,20 +2,20 @@
 #For SubDirectory
 include_directories(include)
 
-#For MCBase, NA62MC and NA62Persistency
-#include_directories(${CMAKE_SOURCE_DIR}/MCBase/include)
-#include_directories(${CMAKE_SOURCE_DIR}/include)
-#include_directories(${CMAKE_SOURCE_DIR}/Persistency/include)
-
 #Get all the sources
 file(GLOB sources src/*.cc)
 file(GLOB headers include/*.hh)
+
+if(${ROOT_VERSION} STREQUAL "6.18.00" OR ${ROOT_VERSION} VERSION_GREATER "6.18.00")
+        # properly handle headers for ROOT versions >= 6.18
+        KEEPFILENAMES_LIST(headers)
+endif()
 
 #Find out in which directory we are
 get_filename_component(SubDet ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 
 #Generate ROOT dictionary
-ROOT_GENERATE_DICTIONARY(${SubDet}PersistencyDICT ${headers} LINKDEF ${SubDet}PersistencyLinkDef.hh MODULE ${SubDet}Persistency OPTIONS -inlineInputHeader)# -noIncludePaths)
+ROOT_GENERATE_DICTIONARY(${SubDet}PersistencyDICT ${headers} OPTIONS -inlineInputHeader -Iinclude LINKDEF ${SubDet}PersistencyLinkDef.hh MODULE ${SubDet}Persistency)# -noIncludePaths)
 
 #Create libraries
 #First fake object libraries, so sources are not compiled twice (once per target)

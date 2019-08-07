@@ -11,7 +11,11 @@ SET (USERPOLIBS "")
 FOREACH (lib ${EXHH})
 	GET_FILENAME_COMPONENT(libName ${lib} NAME_WE)
 	IF (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/include/LinkDef_${libName}.h)
-		ROOT_GENERATE_DICTIONARY(${libName}DICT include/${libName}.hh LINKDEF include/LinkDef_${libName}.h MODULE ${libName})
+		if(${ROOT_VERSION} STREQUAL "6.18.00" OR ${ROOT_VERSION} VERSION_GREATER "6.18.00")
+			ROOT_GENERATE_DICTIONARY(${libName}DICT ${libName}.hh OPTIONS -inlineInputHeader -Iinclude LINKDEF include/LinkDef_${libName}.h MODULE ${libName})
+		else()
+			ROOT_GENERATE_DICTIONARY(${libName}DICT include/${libName}.hh OPTIONS -inlineInputHeader LINKDEF include/LinkDef_${libName}.h MODULE ${libName})
+		endif()
 		
 		#Create fake library object to avoid compiling sources twice
         add_library(${libName}ObjLib OBJECT include/${libName}.hh src/${libName}.cc ${libName}DICT.cxx)

@@ -7,7 +7,7 @@
 #
 # 	1. import statements 
 # 	2. configuration
-# 	3. configure analyzers
+# 	3. initialize analyzers
 # 	4. write and run analyzers
 # 	5. do post-analysis processing
 # 	6. plot products
@@ -20,14 +20,11 @@ from PyNA62Analysis.WrapperObject import WrapperObject as WO
 
 import os
 
-# configuration
-# this forgoes the need for a config file
 def configure(currentPath):
 
-	ban = BaseAnalysis() #initialize base analysis object
-	setattr(ban, "currentPath", currentPath) #mandatory path setting
+	ban = BaseAnalysis() 
+	setattr(ban, "currentPath", currentPath) 
 
-	# write the path to files which contain paths to your input files. 
 	input_files = [currentPath + "/examples/example.txt"] 
 	setattr(ban, "input_files", input_files)
 
@@ -45,24 +42,6 @@ def configure(currentPath):
 	setattr(ban, "coreVerbosity", coreVerbosity)
 	setattr(ban, "anVerbosity", anVerbosity)
 
-	# set boolean flags 
-	# booleans you can set: 
-	# 	ban.graphicMode        ban.useDownscaling     
-	# 	ban.fastStart          ban.histoMode          ban.skipIsFatal
-	# 	ban.continuousReading  ban.filter             ban.specialOnly
-	# default value is False 
-	# set these values with setattr, like above. For example:
-	
-#	setattr(ban, "histoMode", True)
-
-	# burst and event checking: set all to true, just use True, to set specific 
-	# trackers, use a list:
-
-	#setattr(ban, "noCheckBadBurst", ["GigaTracker", "SAV"])
-	#setattr(ban, "noCheckDetectors", True)
-		
-	# other stuff
-
 	#create and add analyzers to base analysis object. 
 	an1 = Analyzer("Pi0Reconstruction")
 	an2 = Analyzer("VertexCDA")	
@@ -70,24 +49,52 @@ def configure(currentPath):
 	ban.addAnalyzer(an1);
 	ban.addAnalyzer(an2);
 
-#	ban.requestTree("LKr", "TRecoLKrEvent")
-#	ban.requestTree("GigaTracker", "TRecoGigaTrackerEvent")
-#	ban.requestTree("Spectrometer", "TRecoSpectrometerEvent")
-
-
 	# mandatory call that configures our BaseAnalysis object
 	ban.configure()
 
 	return ban
 
 
-# initialize analyzers
-# this replaces the constructor, InitOutput, InitHist, DefineMCSimple, StartOfRunUser, 
-# and StartOfBurstUser
+# initialize analyzers (one function for each analyzer)
 #
-# here we initialize analyzers, request data, request histograms, add particles to 
-# MC simulator, add parameters, etc.
+# here we request trees, book histograms, register outputs, etc.
 # 
+def initializeVertexCDAAnalyzer(ban):
+	
+	print("VERTEX CDA INITIALIZATION:")
+	
+	analyzers = ban.analyzers
+	VCDA = analyzers[1]
+	
+	VCDA.requestTree("GigaTracker", "TRecoGigaTrackerEvent")
+	VCDA.requestTree("Spectrometer", "TRecoSpectrometerEvent")
+
+	VCDA.bookHisto("TH1I", "VertexX", "Reconstructed vertex X position; vtx_{x}^{reco}", 250, -250, 250)
+	VCDA.bookHisto("TH1I", "VertexY", "Reconstructed vertex Y position; vtx_{y}^{reco}", 150, -150, 150)
+	VCDA.bookHisto("TH1I", "VertexZ", "Reconstructed vertex Z position; vtx_{z}^{reco}", 100, 0, 300000)
+
+	VCDA.bookHisto("TH1I", "DiffVertexX", "X difference between reco and real vertex; vtx_{x}^{reco}-vtx_{x}", 200, -50, 50)
+	VCDA.bookHisto("TH1I", "DiffVertexY", "Y difference between reco and real vertex; vtx_{y}^{reco}-vtx_{y}", 200, -50, 50)
+	VCDA.bookHisto("TH1I", "DiffVertexZ", "Z difference between reco and real vertex; vtx_{z}^{reco}-vtx_{z}", 200, -10000, 10000)
+
+	VCDA.bookHisto("TH2I", "VertexRecoRealX", "Reconstructed vs. Real (X)", 250, -250, 250, 250, -250, 250)
+	VCDA.bookHisto("TH2I", "VertexRecoRealY", "Reconstructed vs. Real (Y)", 150, -150, 150, 150, -150, 150)
+	VCDA.bookHisto("TH2I", "VertexRecoRealZ", "Reconstructed vs. Real (Z)", 200, 0, 300000, 200, 0, 300000)
+
+	VCDA.bookHisto("TH1I", "GTKMultiplicity", "Multiplicity in GTK", 11, -0.5, 10.5)
+	VCDA.bookHisto("TH1I", "StrawMultiplicity", "Multiplicity in Straw", 11, -0.5, 10.5)
+	
+	VCDA.bookHistoArray("TH2I", "BeamXY", "BeamXY", 100, -100, 100, 100, -100, 100, 20)
+	
+	#counters and other things
+	VCDA.bookCounter("Total_Events")
+	VCDA.bookCounter("Good_GTK_Mult")
+	VCDA.bookCounter("Good_Straw_Mult")
+
+	VCDA.registerOutput("Vertex", "TVector3")
+
+	return ban
+
 def initializePi0Analyzer(ban):
 
 	print("PI0 RECONSTRUCTION INITIALIZATION: ")
@@ -126,43 +133,6 @@ def initializePi0Analyzer(ban):
 
 	return ban
 
-def initializeVertexCDAAnalyzer(ban):
-	
-	print("VERTEX CDA INITIALIZATION:")
-	
-	analyzers = ban.analyzers
-	VCDA = analyzers[1]
-	
-	VCDA.requestTree("GigaTracker", "TRecoGigaTrackerEvent")
-	VCDA.requestTree("Spectrometer", "TRecoSpectrometerEvent")
-
-	VCDA.bookHisto("TH1I", "VertexX", "Reconstructed vertex X position; vtx_{x}^{reco}", 250, -250, 250)
-	VCDA.bookHisto("TH1I", "VertexY", "Reconstructed vertex Y position; vtx_{y}^{reco}", 150, -150, 150)
-	VCDA.bookHisto("TH1I", "VertexZ", "Reconstructed vertex Z position; vtx_{z}^{reco}", 100, 0, 300000)
-
-	VCDA.bookHisto("TH1I", "DiffVertexX", "X difference between reco and real vertex; vtx_{x}^{reco}-vtx_{x}", 200, -50, 50)
-	VCDA.bookHisto("TH1I", "DiffVertexY", "Y difference between reco and real vertex; vtx_{y}^{reco}-vtx_{y}", 200, -50, 50)
-	VCDA.bookHisto("TH1I", "DiffVertexZ", "Z difference between reco and real vertex; vtx_{z}^{reco}-vtx_{z}", 200, -10000, 10000)
-
-	VCDA.bookHisto("TH2I", "VertexRecoRealX", "Reconstructed vs. Real (X)", 250, -250, 250, 250, -250, 250)
-	VCDA.bookHisto("TH2I", "VertexRecoRealY", "Reconstructed vs. Real (Y)", 150, -150, 150, 150, -150, 150)
-	VCDA.bookHisto("TH2I", "VertexRecoRealZ", "Reconstructed vs. Real (Z)", 200, 0, 300000, 200, 0, 300000)
-
-	VCDA.bookHisto("TH1I", "GTKMultiplicity", "Multiplicity in GTK", 11, -0.5, 10.5)
-	VCDA.bookHisto("TH1I", "StrawMultiplicity", "Multiplicity in Straw", 11, -0.5, 10.5)
-	
-	VCDA.bookHistoArray("TH2I", "BeamXY", "BeamXY", 100, -100, 100, 100, -100, 100, 20)
-	
-	#counters and other things
-	VCDA.bookCounter("Total_Events")
-	VCDA.bookCounter("Good_GTK_Mult")
-	VCDA.bookCounter("Good_Straw_Mult")
-
-	VCDA.registerOutput("Vertex", "TVector3")
-
-	return ban
-
-
 def VCDAMonteCarlo(ban):
 
 	print("VCDA MONTE CARLO INITIALIZATION: " )
@@ -170,8 +140,8 @@ def VCDAMonteCarlo(ban):
 	analyzers = ban.analyzers
 	VCDA = analyzers[1]
 
-	kaonID = VCDA.MC_addParticle(0, 321)
-	VCDA.MC_addParticle(kaonID, 211)
+	kaonID = VCDA.MC_addParticle(0, 321)   	# beam kaon
+	VCDA.MC_addParticle(kaonID, 211)	# positive pion from beam kaon
 	
 	return ban
 
@@ -191,13 +161,10 @@ def Pi0MonteCarlo(ban):
 
 	return ban
 
-# write analyzers
-# this replaces the Process method
-# 
-# here we do the bulk processing of the data and get it ready to be put into histograms
 def runVertexCDA(event_num, ban):
-	
+
 #	print("RUNNING VERTEX CDA RECONSTRUCTION ANALYZER:")
+#	print("event: " , event_num);
 	analyzers = ban.analyzers
 	VCDA = analyzers[1]
 	
@@ -208,17 +175,19 @@ def runVertexCDA(event_num, ban):
 		withMC = False
 
 	GTKEvent = VCDA.getEvent("TRecoGigaTrackerEvent")
+
+	print("accessing spectrometer event")
 	SpectrometerEvent = VCDA.getEvent("TRecoSpectrometerEvent")
 
 	VCDA.incrementCounter("Total_Events")
 	n = GTKEvent.getNCandidates()
 	n1 = SpectrometerEvent.getNCandidates()
 	if n1 != 0 or n != 0:
-		print("spectrometer num cand: ", n1)
+		print("Spectrometer num cand: ", n1)
 		print("GTK num cand: ", n)
 	VCDA.fillHisto("GTKMultiplicity", n)
 	if n1 == 1:
-		print("this isn't true")
+		print("N CANDIDATES GREATER THAN 0")
 	else:
 		badEvent = True
 	
@@ -254,18 +223,10 @@ def runPi0Reconstruction(event_num, ban):
 	
 	return ban
 
-# perform post-analysis processing
-# this replaces the PostProcess, EndOfBurstUser, and EndOfRunUser methods
-#
-# here we do any last-minute processing before we plot the data
 def postProcess(ban):
 	print("post process")
 	return ban
 
-# plot products
-# this replaces EndOfJobUser and DrawPlot()
-# 
-# here we use ROOT to plot our prepared data. 
 def plots(ban):
 	print("plots")
 	return ban
@@ -291,12 +252,21 @@ else:
 	end = baseAn.NEvents
 print("last event to process: " , end)
 
-end = 100000
+baseAn.printInfo()
+
+candidate = [8852, 6082, 4697, 3312, 5390, 5736, 5909]
 
 for event in range(start, end):
-#	continue
-	baseAn = runVertexCDA(event, baseAn)
-#	baseAn = runPi0Reconstruction(event, baseAn)
+#	print("event: " , event)
+	if baseAn.loadEvent(event):
+		baseAn = runVertexCDA(event, baseAn)
+#		baseAn = runPi0Reconstruction(event, baseAn)
+	else:
+		print("could not load event")
+
+#	print('\n-------------------------\n\n')
+
+#print(baseAn.loadEvent(10000000000000000000000**10000000))
 
 plots(baseAn)
 

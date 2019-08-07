@@ -58,8 +58,6 @@ static PyObject * PAN_bookCounter(PyAnalyzer *, PyObject *);
 static PyObject * PAN_incrementCounter(PyAnalyzer *, PyObject *);
 static PyObject * PAN_fillHisto(PyAnalyzer *, PyObject *);
 
-static string extended(){return "[PyAnalysis     ] ";}
-
 static PyMemberDef PyAnalysisMembers[] = {
 
         {(char *)"name", T_OBJECT_EX, offsetof(PyAnalyzer, name), 0},

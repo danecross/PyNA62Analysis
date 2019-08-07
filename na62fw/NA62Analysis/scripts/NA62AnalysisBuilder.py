@@ -860,10 +860,6 @@ def cleanUser(args):
     if(os.path.exists("build-%s" % buildType)):
         shutil.rmtree("build-%s" % buildType, True)
 
-    print "rm outfile.root"
-    if(os.path.exists("outfile.root")):
-        os.remove("outfile.root")
-
     print "rm main.cc"
     if(os.path.exists("main.cc")):
         os.remove("main.cc")

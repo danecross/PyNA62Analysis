@@ -6,13 +6,18 @@ include_directories(include)
 file(GLOB sources src/*.cc)
 file(GLOB headers include/*.hh)
 
+if(${ROOT_VERSION} STREQUAL "6.18.00" OR ${ROOT_VERSION} VERSION_GREATER "6.18.00")
+        # properly handle headers for ROOT versions >= 6.18
+        KEEPFILENAMES_LIST(headers)
+endif()
+
 #Find out in which directory we are
 get_filename_component(SubDet ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 
 include_directories(../../FullReco/${SubDet}/include)
 
 #Generate ROOT dictionary
-ROOT_GENERATE_DICTIONARY(${SubDet}SlimPersistencyDICT ${headers} LINKDEF ${SubDet}SlimPersistencyLinkDef.hh MODULE ${SubDet}SlimPersistency OPTIONS -inlineInputHeader)# -noIncludePaths)
+ROOT_GENERATE_DICTIONARY(${SubDet}SlimPersistencyDICT ${headers} OPTIONS -inlineInputHeader -Iinclude LINKDEF ${SubDet}SlimPersistencyLinkDef.hh MODULE ${SubDet}SlimPersistency)# -noIncludePaths)
 
 #Create libraries
 #First fake object libraries, so sources are not compiled twice (once per target)

@@ -642,6 +642,7 @@ public:
 	void AddPrimitiveReader(TString detName, bool sorted = false);
 
 	TChain* GetTree(TString name);
+        TChain* GetReferenceTree();
 	TDetectorVEvent *GetEvent(TString detName, TString outputName = "");
 	TSlimRecoVEvent *GetSlimEvent(TString detName);
 	template<class T>

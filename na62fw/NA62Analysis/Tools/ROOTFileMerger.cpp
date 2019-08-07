@@ -11,6 +11,7 @@ using namespace std;
 #include <istream>
 #include <ostream>
 
+#include "ROOTFix.hh"
 #include "FixStreams.hh"
 
 ////////////////////////
@@ -28,6 +29,8 @@ using namespace std;
 
 int Merger(const Char_t *fileList, const Char_t *outfile);
 int Merger(const Char_t *fileList, const Char_t *outfile){
+
+#include "ROOTFix.cc"
 
   int return_code = 0;
 
@@ -60,9 +63,9 @@ int Merger(const Char_t *fileList, const Char_t *outfile){
       else std::cout<<"--> adding file to merger"<<std::endl;
     }
     else {
-     return_code = 17;
-     std::cout<<"ERROR: analyzer output file "<<fname<<" does not exist."<<std::endl;
-     return return_code;
+      return_code = 17;
+      std::cout<<"ERROR: analyzer output file "<<fname<<" does not exist."<<std::endl;
+      return return_code;
     }
 
     f=NULL;
@@ -83,7 +86,7 @@ int Merger(const Char_t *fileList, const Char_t *outfile){
   }
 
   if(checkMerge)
-	  fixStreams(m->GetOutputFileName());
+    fixStreams(m->GetOutputFileName());
   delete m;
   m = NULL;
 

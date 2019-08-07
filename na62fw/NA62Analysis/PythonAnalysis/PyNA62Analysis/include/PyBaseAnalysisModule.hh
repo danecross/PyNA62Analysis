@@ -68,6 +68,8 @@ typedef struct{
 } PyBaseAnalysis;
 
 // PYTHON METHOD USABLE BY PYTHON USER
+static PyObject * PBAN_printInfo(PyBaseAnalysis *, PyObject *);
+static PyObject * PBAN_loadEvent(PyBaseAnalysis *, PyObject *);
 static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *, PyObject *);
 static PyObject * PBAN_configure(PyBaseAnalysis *, PyObject *);
 
@@ -83,8 +85,6 @@ static int setGlobalVerbosity(NA62Analysis::Core::BaseAnalysis *, PyObject *, Py
 static string generateConfigFile(PyBaseAnalysis *);
 static NA62Analysis::Verbosity::CoreVerbosityLevel getGlobalVerb(PyObject *);
 static NA62Analysis::Verbosity::AnalyzerVerbosityLevel getAnalyzerVerb(PyObject *);
-
-static string BANextended(){return "[PyBaseAnalysis ] ";}
 
 static PyMemberDef PyBanMembers[] = {
 
@@ -126,6 +126,10 @@ static PyMethodDef PBAN_methods[] = {
                 "Configure the Base Analysis type based on the inputs from the user"},
 	{"addAnalyzer", (PyCFunction)PBAN_addAnalyzer, METH_VARARGS, 
 		"Add an analyzer intance to the analyzers list"}, 
+	{"loadEvent", (PyCFunction)PBAN_loadEvent, METH_VARARGS,
+		"load the ith event for analysis"}, 
+	{"printInfo", (PyCFunction)PBAN_printInfo, METH_NOARGS, 
+		"print information about what has been instantiated in BaseAnalysis instance"}, 
         {NULL}
 };
 

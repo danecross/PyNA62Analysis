@@ -6,8 +6,6 @@
 // --------------------------------------------------------------
 #include "TEventInfo.hh"
 
-#include "Riostream.h"
-
 ClassImp(TEventInfo)
 
 TEventInfo::TEventInfo(){

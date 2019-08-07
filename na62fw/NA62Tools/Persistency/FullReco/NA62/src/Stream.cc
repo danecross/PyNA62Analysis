@@ -13,7 +13,6 @@
 #include "Stream.hh"
 
 #include <stdlib.h>
-#include "Riostream.h"
 
 ClassImp(Stream)
 

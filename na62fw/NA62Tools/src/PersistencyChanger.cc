@@ -43,9 +43,15 @@
 #include "TRecoSAVEvent.hh"
 #include "TRecoSpectrometerEvent.hh"
 
-std::pair<TString,TSlimRecoVEvent*> getSlimClassEquivalent(TString branchName){
+#include "BeamData.hh"
+#include "L0TPData.hh"
+#include "L1TPData.hh"
+#include "L2EBData.hh"
+#include "HLTEvent.hh"
+
+std::pair<TString,TObject*> getSlimClassEquivalent(TString branchName){
     TString className = "";
-    TSlimRecoVEvent *evt = nullptr;
+    TObject *evt = nullptr;
 
     if(branchName.EqualTo("TRecoCedarEvent")){
         className = "TSlimRecoCedarEvent";
@@ -115,6 +121,16 @@ std::pair<TString,TSlimRecoVEvent*> getSlimClassEquivalent(TString branchName){
         className = "TSlimRecoSpectrometerEvent";
         evt = new TSlimRecoSpectrometerEvent();
     }
+    else if(branchName.EqualTo("BeamData"))
+        className = "BeamData";
+    else if(branchName.EqualTo("L0TPData"))
+        className = "L0TPData";
+    else if(branchName.EqualTo("L1TPData"))
+        className = "L1TPData";
+    else if(branchName.EqualTo("L2EBData"))
+        className = "L2EBData";
+    else if(branchName.EqualTo("HLTEvent"))
+        className = "HLTEvent";
 
     return std::make_pair(className, evt);
 }

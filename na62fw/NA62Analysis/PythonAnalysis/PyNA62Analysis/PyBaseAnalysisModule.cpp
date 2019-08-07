@@ -13,7 +13,9 @@
 
 #include <Python.h>
 #define PY_SSIZE_T_CLEAN
+
 #include "UserMethods.hh"
+
 #include <iostream>
 #include <fstream>
 #include <structmember.h>
@@ -22,13 +24,41 @@
 #include "include/PyBaseAnalysisModule.hh"
 #include "PyAnalyzer.cpp"
 
+#include "Verbose.hh"
+
 using namespace std;
+using namespace NA62Analysis;
+
 
 // METHOD DEFINITIONS
 
+static PyObject * PBAN_printInfo(PyBaseAnalysis *self, PyObject *args){
+	
+	self->ban->PrintInitSummary();
+
+	return Py_None;
+}
+
+static PyObject * PBAN_loadEvent(PyBaseAnalysis *self, PyObject *args){
+
+	Long64_t i; bool status;
+	if (!PyArg_ParseTuple(args, "L", &i)){
+		PyErr_SetString(PyExc_ValueError, "loadEvent takes 1 integer argument.");
+                return NULL;
+        }
+
+	status = self->ban->GetIOHandler()->LoadEvent(i);
+
+        EventHeader* rawHeader = ((InputTree *)self->ban->GetIOHandler())->GetEventHeaderEvent("Reco");
+        UInt_t currentBurstID = rawHeader->GetBurstID();
+	cout << "burstID: " << currentBurstID << endl;
+
+	return PyBool_FromLong(status);
+}
+
 static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *self, PyObject *args){
 
-	PyObject *newAnalyzer; PyAnalyzer *newAn; NA62Analysis::Analyzer* an;
+	PyObject *newAnalyzer; PyAnalyzer *newAn;
 	string name; 
 
 	if (!PyArg_ParseTuple(args, "O", &newAnalyzer)){
@@ -43,7 +73,6 @@ static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *self, PyObject *args){
 	}
 
 	newAn = ((PyAnalyzer *)newAnalyzer);
-	an = (NA62Analysis::Analyzer*)newAn;
 
 	if (!(newAn->name)){
 		std::stringstream n;
@@ -52,8 +81,6 @@ static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *self, PyObject *args){
 	}
 
 	name = PyUnicode_AsUTF8(newAn->name);
-
-	cout << BANextended() << "adding analyzer: " << (string)(PyUnicode_AsUTF8(newAn->name)) << endl;
 
 	newAn->um = new UserMethods(self->ban, name);
 	self->ban->AddAnalyzer((NA62Analysis::Analyzer*)(((PyAnalyzer *)newAnalyzer)->um));
@@ -73,8 +100,6 @@ static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *self, PyObject *args){
  *
  * */
 static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
-
-	cout << BANextended() << "configure called...reading in configuration information." << endl;
 
 	int verbSet = setGlobalVerbosity(self->ban, self->coreVerbosity, self->anVerbosity);
 	if (verbSet == VALUE_ERR_AN_VERB){
@@ -143,12 +168,9 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 	self->parameters = generateParameters(self);
 
 	if (PyList_Size(self->inputFiles) > (Py_ssize_t)(0)){
-		cout << BANextended() << "Number of input files: " << PyList_Size(self->inputFiles) << endl;
 		string inputFileString = getFileString(self->inputFiles);
 		self->ban->AddInputFiles(inputFileString, (int)PyList_Size(self->inputFiles));
 	} 
-
-	cout << BANextended() << "variable setting done" << endl;
 	
 	if(self->primitiveFile != NULL && PyUnicode_Check(self->primitiveFile)){
 		PyErr_SetString(PyExc_ValueError, "primitive file must be a string path to the file.");
@@ -160,15 +182,12 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 
 	string configFile = generateConfigFile(self);
 
-	cout << BANextended() << "Checking Init parameters" << endl;
 	if (!PyUnicode_Check(self->outputFile) || PyUnicode_GET_LENGTH(self->outputFile) != 0){
 		PyErr_SetString(PyExc_ValueError, "must set an output file.");
 		return NULL;
 	} else if (!PyUnicode_Check(self->parameters)){
 		self->parameters = PyUnicode_FromString("");
 	}
-
-	cout << BANextended() << "calling Init()" << endl << endl;
 
 	self->ban->Init(*PyUnicode_AsUTF8(self->outputFile),
                   	*PyUnicode_AsUTF8(self->parameters),
@@ -179,8 +198,6 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 
 	self->startEvent = PyLong_FromLong(self->ban->GetFirstGoodEvent());
 	self->NEvents = PyLong_FromLong(self->ban->GetNEvents());
-	
-	cout << BANextended() << "BaseAnalysis is configured. " << endl;
 
 	return PyBool_FromLong(retCode);
 
@@ -221,7 +238,7 @@ static int setGlobalVerbosity(NA62Analysis::Core::BaseAnalysis *ban, PyObject *g
 static NA62Analysis::Verbosity::CoreVerbosityLevel getGlobalVerb(PyObject *coreStr){
 	string input = PyUnicode_AsUTF8(coreStr);
 
-        cout << BANextended() << "Core verbosity output: " << input << endl;
+//        cout << BANextended() << "Core verbosity output: " << input << endl;
 
 	if ( input == "always"){return NA62Analysis::Verbosity::CoreVerbosityLevel::kAlways;}
 	else if ( input == "normal" ) {return NA62Analysis::Verbosity::CoreVerbosityLevel::kNormal;}
@@ -230,7 +247,7 @@ static NA62Analysis::Verbosity::CoreVerbosityLevel getGlobalVerb(PyObject *coreS
         else if (input == "trace"){return NA62Analysis::Verbosity::CoreVerbosityLevel::kTrace ;}
         else if (input == "cDisable"){return NA62Analysis::Verbosity::CoreVerbosityLevel::kCDisable ;}
 	else{
-		cout << BANextended() << "WARNING: your coreVerbosity level is not a valid choice.\n	options are: always, normal, extended, debug, trace, cDisable."<< endl;
+//		cout << BANextended() << "WARNING: your coreVerbosity level is not a valid choice.\n	options are: always, normal, extended, debug, trace, cDisable."<< endl;
 		return NA62Analysis::Verbosity::CoreVerbosityLevel::kNormal;
 	}
 }
@@ -239,14 +256,14 @@ static NA62Analysis::Verbosity::AnalyzerVerbosityLevel getAnalyzerVerb(PyObject 
 
 	string input = PyUnicode_AsUTF8(anStr);
 	
-	cout << BANextended() << "Analyzer verbosity output: " << input << endl;;
+//	cout << BANextended() << "Analyzer verbosity output: " << input << endl;;
 
 	if (input == "always"){return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUserAlways;}
 	else if (input == "normal") {return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUserNormal ;}
         else if (input == "user") {return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUser ;}
         else if (input == "uDisable") {return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUDisable ;}
 	else{
-		cout << BANextended() << "WARNING: your anVerbosity level is not a valid choice.\n   	options are: always, normal, user, uDisable." << endl;
+//		cout << BANextended() << "WARNING: your anVerbosity level is not a valid choice.\n   	options are: always, normal, user, uDisable." << endl;
                 return NA62Analysis::Verbosity::AnalyzerVerbosityLevel::kUserNormal;
 	}
 	

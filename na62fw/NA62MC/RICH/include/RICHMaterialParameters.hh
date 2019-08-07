@@ -150,8 +150,6 @@ private:
 
   G4double fMeanNeonRefIndex;       // for fast sim
 
-
-
   G4int fMaterialPropertiesNEntries;
   G4double fMinWavelength;
 

@@ -12,8 +12,8 @@
 
 #include "MCInfo.hh"
 
+#include <iostream>
 #include <stdlib.h>
-#include "Riostream.h"
 #include "TemplateFunctions.hh"
 
 ClassImp(MCInfo)

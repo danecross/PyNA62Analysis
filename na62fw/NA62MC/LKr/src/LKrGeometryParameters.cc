@@ -387,7 +387,7 @@ LKrGeometryParameters::LKrGeometryParameters() : NA62VGeometryParameters(G4Strin
   //part 2
 
   fHightBackFlange2AtColdWindowBeam = 27 *mm;
-  fLengthBackFlange2AtColdWindowBeam = 37 * mm  ;
+  fLengthBackFlange2AtColdWindowBeam = 37 * mm;
   fMinRadiusBackFlange2AtColdWindowBeam =  120 * mm;
 
   //part 3
@@ -561,7 +561,7 @@ LKrGeometryParameters::LKrGeometryParameters() : NA62VGeometryParameters(G4Strin
   fDistanceFrontPlateBackPlate = 128 *cm;
 
   fFrontWallPositionZ = - fDistanceFrontPlateBackPlate / 2.;
-  fBackWallPositionZ = fFrontWallPositionZ + fDistanceFrontPlateBackPlate ;
+  fBackWallPositionZ = fFrontWallPositionZ + fDistanceFrontPlateBackPlate;
 
   // Define longitudinal size of the generic trapezoid
 
@@ -578,10 +578,10 @@ LKrGeometryParameters::LKrGeometryParameters() : NA62VGeometryParameters(G4Strin
   // Longitudinal Position of the very front of the Front wall segment
   // wrt the center of the generic trapezoid
 
-  fPositionOfWallZ0 = -fHalfZWidth + fHalfSizeFrontWallSegmentZ ;
+  fPositionOfWallZ0 = -fHalfZWidth + fHalfSizeFrontWallSegmentZ;
 
   // Define a reference electrode in the center; define X and Y coordinates at the Back wall
-  fXbackReferenceCell = 1.*cm * fThermalContractionConstantG10 ; //middle of central trapezoid
+  fXbackReferenceCell = 1.*cm * fThermalContractionConstantG10; //middle of central trapezoid
   fYbackReferenceCell = 1.*cm * fThermalContractionConstantG10;
   //gap between the two halves of the LKr
   fHalfSizeCentralGap = 0.15*mm;   //maybe in reality it is only 0.1 mm
@@ -632,7 +632,7 @@ LKrGeometryParameters::LKrGeometryParameters() : NA62VGeometryParameters(G4Strin
   // Calculate the distance between the centers of two mother cells containing one electrode
   // each - in X,Y plane, at Front and Back Wall.
 
-  fDistanceToNextElectrodeFrontX  = fHalfCellSizeAtFrontWall ;
+  fDistanceToNextElectrodeFrontX  = fHalfCellSizeAtFrontWall;
   fDistanceToNextElectrodeBackX = fHalfCellSizeAtFrontWall * pow(fIncr, 6);
   fDistanceToNextElectrodeFrontY  = 2 * fDistanceToNextElectrodeFrontX;
   fDistanceToNextElectrodeBackY = 2 * fDistanceToNextElectrodeBackX;
@@ -700,10 +700,6 @@ LKrGeometryParameters::LKrGeometryParameters() : NA62VGeometryParameters(G4Strin
   // TOP RIGHT CORNER OF THE TECHNICAL DRAWING -->corresponds to negative values in X   !!!
   fTopRightCornerX = -64*fLKrCellLength + fXfrontReferenceCell - fLKrCellLength;
   fTopRightCornerY = 64*fLKrCellLength;
-
-  fLKrCell0X =  fTopRightCornerX + fLKrCellLength/2;
-  fLKrCell0Y =  fTopRightCornerY - fLKrCellLength/2;
-
 }
 
 LKrGeometryParameters::~LKrGeometryParameters(){}

@@ -13,8 +13,9 @@
 
 #include "RecoInfo.hh"
 
+#include <iostream>
+#include <iomanip>
 #include <stdlib.h>
-#include "Riostream.h"
 #include "TemplateFunctions.hh"
 
 ClassImp(RecoInfo)

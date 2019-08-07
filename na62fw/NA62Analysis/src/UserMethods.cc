@@ -459,7 +459,7 @@ void UserMethods::RequestTree(TDetectorVEvent* evt, TString outputStage) {
 	TString className = evt->ClassName();
 	TString branchName;
 
-	std::cout << debug() << "Trying to deduce branch name from class name"
+	std::cout << debug() << "Trying to deduce branch name from class name "
 			<< className << std::endl;
 
 	if (className.Contains("Cedar"))
@@ -678,8 +678,7 @@ L0TPData* UserMethods::GetL0Data() {
 
 	if (!fParent) return nullptr;
 	if (fParent->IsTreeType())
-		return static_cast<L0TPData*>(fParent->GetIOTree()->GetObject("Reco",
-				"L0TP"));
+		return static_cast<L0TPData*>(fParent->GetIOTree()->GetObject("Reco", "L0TP"));
 	else
 		std::cout << extended() << "[WARNING] Not reading TTrees" << std::endl;
 	return nullptr;
@@ -693,8 +692,7 @@ HLTEvent* UserMethods::GetHLTData() {
 		return nullptr;
 	}
 	if (fParent->IsTreeType()) {
-		return static_cast<HLTEvent*>(fParent->GetIOTree()->GetObject("Reco",
-				"HLT"));
+		return static_cast<HLTEvent*>(fParent->GetIOTree()->GetObject("Reco", "HLT"));
 	} else {
 		std::cout << extended() << "[WARNING] Not reading TTrees" << std::endl;
 	}
@@ -708,8 +706,7 @@ L1TPData* UserMethods::GetL1Data() {
 
 	if (!fParent) return nullptr;
 	if (fParent->IsTreeType())
-		return static_cast<L1TPData*>(fParent->GetIOTree()->GetObject("Reco",
-				"L1TP"));
+		return static_cast<L1TPData*>(fParent->GetIOTree()->GetObject("Reco", "L1TP"));
 	else
 		std::cout << extended() << "[WARNING] Not reading TTrees" << std::endl;
 	return nullptr;
@@ -722,8 +719,7 @@ L2EBData* UserMethods::GetL2Data() {
 
 	if (!fParent) return nullptr;
 	if (fParent->IsTreeType())
-		return static_cast<L2EBData*>(fParent->GetIOTree()->GetObject("Reco",
-				"L2EB"));
+		return static_cast<L2EBData*>(fParent->GetIOTree()->GetObject("Reco", "L2EB"));
 	else
 		std::cout << extended() << "[WARNING] Not reading TTrees" << std::endl;
 	return nullptr;
@@ -736,8 +732,7 @@ BeamData* UserMethods::GetBeamData() {
 
 	if (!fParent) return nullptr;
 	if (fParent->IsTreeType())
-		return static_cast<BeamData*>(fParent->GetIOTree()->GetObject("Reco",
-				"Beam"));
+		return static_cast<BeamData*>(fParent->GetIOTree()->GetObject("Reco", "Beam"));
 	else
 		std::cout << extended() << "[WARNING] Not reading TTrees" << std::endl;
 	return nullptr;
@@ -750,8 +745,7 @@ L0TPSpecialTrigger* UserMethods::GetL0SpecialTrigger() {
 
 	if (!fParent) return nullptr;
 	if (fParent->IsTreeType())
-		return static_cast<L0TPSpecialTrigger*>(fParent->GetIOTree()->GetObject("SpecialTrigger",
-				"L0TP"));
+		return static_cast<L0TPSpecialTrigger*>(fParent->GetIOTree()->GetObject("SpecialTrigger", "L0TP"));
 	else
 		std::cout << extended() << "[WARNING] Not reading TTrees" << std::endl;
 	return nullptr;
@@ -764,8 +758,7 @@ L1TPSpecialTrigger* UserMethods::GetL1SpecialTrigger() {
 
 	if (!fParent) return nullptr;
 	if (fParent->IsTreeType())
-		return static_cast<L1TPSpecialTrigger*>(fParent->GetIOTree()->GetObject("SpecialTrigger",
-				"L1TP"));
+		return static_cast<L1TPSpecialTrigger*>(fParent->GetIOTree()->GetObject("SpecialTrigger", "L1TP"));
 	else
 		std::cout << extended() << "[WARNING] Not reading TTrees" << std::endl;
 	return nullptr;
@@ -778,8 +771,7 @@ L2EBSpecialTrigger* UserMethods::GetL2SpecialTrigger() {
 
 	if (!fParent) return nullptr;
 	if (fParent->IsTreeType())
-		return static_cast<L2EBSpecialTrigger*>(fParent->GetIOTree()->GetObject("SpecialTrigger",
-				"L2EB"));
+		return static_cast<L2EBSpecialTrigger*>(fParent->GetIOTree()->GetObject("SpecialTrigger", "L2EB"));
 	else
 		std::cout << extended() << "[WARNING] Not reading TTrees" << std::endl;
 	return nullptr;
@@ -792,8 +784,7 @@ BeamSpecialTrigger* UserMethods::GetBeamSpecialTrigger() {
 
 	if (!fParent) return nullptr;
 	if (fParent->IsTreeType())
-          return static_cast<BeamSpecialTrigger*>(fParent->GetIOTree()->GetObject("SpecialTrigger",
-				"Beam"));
+          return static_cast<BeamSpecialTrigger*>(fParent->GetIOTree()->GetObject("SpecialTrigger", "Beam"));
 	else
 		std::cout << extended() << "[WARNING] Not reading TTrees" << std::endl;
 	return nullptr;
@@ -1566,6 +1557,19 @@ TChain* UserMethods::GetTree(TString name) {
 	return fParent->GetTree(name);
 }
 
+TChain* UserMethods::GetReferenceTree() {
+	/// \MemberDescr
+	/// \return  Pointer to the reference TChain
+	/// \EndMemberDescr
+        if(!fParent->GetIOTree()) {
+          std::cout << normal()
+          << "No IOTree available to retrieve reference tree."
+          << std::endl;
+          return nullptr;
+        }
+        return fParent->GetIOTree()->GetReferenceTree();
+}
+
 void* UserMethods::GetObjectVoid(TString name, TString branchName) {
 	/// \MemberDescr
 	/// \param name: Name of the object
@@ -1664,7 +1668,7 @@ bool UserMethods::GetWithMC() const {
 	/// \MemberDescr
 	/// \return true if the input file contains MC events
 	/// \EndMemberDescr
-        
+
 	if (!fParent) return false;
 	return fParent->GetIOHandler()->GetWithMC();
 }

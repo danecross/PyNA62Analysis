@@ -385,7 +385,7 @@ void LKrEopMonitor::EndOfBurstUser() {
       fMaxNCellsInDeadCluster     = *(Int_t*) GetOutput("LKrBadCells.MaxNCellsInDeadClusterInnerCircle");
     }
     if(fHNQualityWarningsVsROChannel){
-      Double_t NEntries = GetTree("Reco")->GetTree()->GetEntries();
+      Double_t NEntries = GetReferenceTree()->GetTree()->GetEntries();
       for(Int_t iBin=1;iBin<=fHNQualityWarningsVsROChannel->GetNbinsX();iBin++){
         if(fHNQualityWarningsVsROChannel->GetBinContent(iBin)>1.e-3*NEntries) fNBitFlipCells++;
       }

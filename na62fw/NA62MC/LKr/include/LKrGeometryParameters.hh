@@ -655,12 +655,6 @@ class LKrGeometryParameters : public NA62VGeometryParameters
   G4double             GetTopRightCornerY()                                               { return fTopRightCornerY; };
   void                 SetTopRightCornerY(G4double value)                                 { fTopRightCornerY = value; };
   
-  G4double             GetLKrCell0X()                                                     { return fLKrCell0X; };
-  void                 SetLKrCell0X(G4double value)                                       { fLKrCell0X = value; };
-  
-  G4double             GetLKrCell0Y()                                                     { return fLKrCell0Y; };
-  void                 SetLKrCell0Y(G4double value)                                       { fLKrCell0Y = value; };
-  
   G4ThreeVector * GetPositionSteelBars()                                                  { return fPositionSteelBars; };
   
   G4double             GetRadiusSteelBars()                                               { return fRadiusSteelBars; };
@@ -962,9 +956,6 @@ class LKrGeometryParameters : public NA62VGeometryParameters
 
         G4double  fTopRightCornerX;
         G4double  fTopRightCornerY;
-
-        G4double  fLKrCell0X;
-        G4double  fLKrCell0Y;
 
         G4String fGeVtoCurrent1;
         G4String fGeVtoCurrent2;

@@ -85,8 +85,6 @@ static PyObject * PAN_getOutput(PyAnalyzer *self, PyObject *args){
 	stringstream n;
 	n << (string)PyUnicode_AsUTF8(self->name) << "." << (string)name;
 
-//	cout << extended() << "getting output: " << n.str() << "...";
-	
 	TVector3 *vertex = (TVector3*)(self->um->GetOutput(n.str().c_str(), state));
 	
 	if (!state){PyTuple_SetItem(valueTuple, 1, PyUnicode_FromString("uninit"));}
@@ -96,7 +94,7 @@ static PyObject * PAN_getOutput(PyAnalyzer *self, PyObject *args){
 	else {PyTuple_SetItem(valueTuple, 1, PyUnicode_FromString("no state type"));}
 
 	if (!vertex){
-//		cout << "not found." << endl;
+//		cout << Verbose::debug() << "vertex not found." << endl;
 		PyTuple_SetItem(valueTuple, 0, PyBool_FromLong(0));
 	}
 	else {
@@ -106,7 +104,7 @@ static PyObject * PAN_getOutput(PyAnalyzer *self, PyObject *args){
 		v->vector3 = vertex;
 		v->name = PyUnicode_FromString("TVector3");
 		PyTuple_SetItem(valueTuple, 0, (PyObject *)v);
-//		cout << "success" << endl;
+//		cout << debug() << "output retreival: " << n.str() << " success" << endl;
 	}
 
 	return valueTuple;
@@ -199,7 +197,7 @@ static PyObject * PAN_requestTree(PyAnalyzer *self, PyObject *args){
 			<< "\t\tTMUV1Event, TMUV2Event, TMUV3Event, TRICHEvent, \n"
 			<< "\t\tTSpectrometerEvent, TSACEvent, THACEvent, TCHODEvent, \n"
 			<< "\t\tTRecoIRCEvent, TRecoSAVEvent";
-		PyErr_SetString(PyExc_ValueError, s.str().c_str());
+		PyErr_SetString(PyExc_ValueError, ss.str().c_str());
 		return NULL;
 	}
 
@@ -235,7 +233,10 @@ static PyObject * PAN_getEvent(PyAnalyzer *self, PyObject *args){
         }
 
 	if ((string)type == ("TRecoGigaTrackerEvent")){event = (TRecoGigaTrackerEvent *)self->um->GetEvent<TRecoGigaTrackerEvent>();}
-	else if ((string)type == ("TRecoSpectrometerEvent")){event = (TRecoSpectrometerEvent *)self->um->GetEvent<TRecoSpectrometerEvent>();}
+	else if ((string)type == ("TRecoSpectrometerEvent")){
+		event = (TRecoSpectrometerEvent *)self->um->GetEvent<TRecoSpectrometerEvent>();
+		//cout << "\t\t    burstID: " << event->GetBurstID() << endl;
+	}
 	else if ((string)type == ("TRecoLKrEvent")){event = (TRecoLKrEvent *)self->um->GetEvent<TRecoLKrEvent>();}
 	else if ((string)type == ("TRecoCedarEvent")){event = (TRecoCedarEvent *)self->um->GetEvent<TRecoCedarEvent>();}
         else if ((string)type == ("TRecoCHANTIEvent")){event = (TRecoCHANTIEvent *)self->um->GetEvent<TRecoCHANTIEvent>();}
@@ -262,7 +263,7 @@ static PyObject * PAN_getEvent(PyAnalyzer *self, PyObject *args){
 		PyErr_SetString(PyExc_AttributeError, ss.str().c_str());
 		return NULL;
 	}
-	
+
 	if (PyType_Ready(&WrapperObject) < 0){cout << "WrapperObject is not ready" << endl; return NULL;}
 
 	theObj = (WrapperObj *)PyObject_CallObject((PyObject *)&WrapperObject, NULL);

@@ -56,10 +56,18 @@ run_and_check "$RECODIR/bin-${SYSTEMINSTALL}/NA62Reco -i $DATADIR/$RAWDATAFILE -
 echo ">>> Running Prod!"
 run_and_check "$RECODIR/bin-${SYSTEMINSTALL}/NA62Reco -i $DATADIR/$RAWDATAFILE -o raw.prod.root -c config/NA62Reconstruction.Prod.conf -j $NEVTSTOBESKIPPED -C /afs/cern.ch/work/n/na62prod/public/CDB/CITests"
 
+echo ">>> Extract histos!"
+run_and_check "$ANADIR/bin-${SYSTEMINSTALL}/RmObjFromRootF raw.prod.root raw.hist.root $ANADIR/Tools/RmObjFromRootF.default.list"
+
 cp -r "$ANADIR/config" "$TESTDIR"
 
 echo ">>> Running Filtering!"
-run_and_check "$ANADIR/bin-${SYSTEMINSTALL}/Filter -i raw.prod.root -o reco.filter.root --filter --config $ANADIR/config/Filter.conf -C /afs/cern.ch/work/n/na62prod/public/CDB/CITests -e0 --no-use-badburst"
+run_and_check "$ANADIR/bin-${SYSTEMINSTALL}/Filter -i raw.prod.root -o reco.filter.root --filter --config config/Filter.conf -C /afs/cern.ch/work/n/na62prod/public/CDB/CITests -e0 --no-use-badburst"
+
+echo ">>> Running ROOTFileMerger!"
+echo "raw.prod.root" > rootfilemerger.list
+echo "raw.hist.root" >> rootfilemerger.list
+run_and_check "$ANADIR/bin-${SYSTEMINSTALL}/ROOTFileMerger rootfilemerger.list rootfilemerger.root"
 
 echo ">>> Running PostProcessing!"
 run_and_check "$ANADIR/bin-${SYSTEMINSTALL}/PostProcessing -i raw.prod.root -o reco.postproc.root -C /afs/cern.ch/work/n/na62prod/public/CDB/CITests -e0 --no-use-badburst"

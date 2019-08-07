@@ -194,7 +194,7 @@ private:
 	typedef objectTreeMap::type::iterator objectTreeIterator;
 
 	bool FindAndBranchTree(TChain* tree, TString branchName, TString branchClass, void* const evt);
-	bool TryBranchSlim(TChain* tree, TString branchName, TString branchClass);
+	bool TryBranchSlim(TString branchName, TString branchClass);
 	void BranchFilterBranch(TChain* inTree);
 	static bool IsKnownBranch(TString branchName);
 	static bool IsKnownTree(TString treeName);

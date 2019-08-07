@@ -213,7 +213,7 @@ RICHMaterialParameters::RICHMaterialParameters()
     }
   }
 
-  fMeanNeonRefIndex = MeanNeonRefIndex/NeonPhotonNumber; // needed by fast sim
+  if(NeonPhotonNumber) fMeanNeonRefIndex = MeanNeonRefIndex/NeonPhotonNumber; // needed by fast sim
 
   /*
   G4cout.precision(14);

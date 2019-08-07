@@ -417,10 +417,10 @@ void OutputHandler::WriteSpecialEvent(Long64_t *filterWord, NA62Analysis::NA62Ma
 
 	std::cout << extended() << "Writing special event in output" << std::endl;
 	if (fExportTrees.size() == 0){
-        if(Configuration::ConfigSettings::CLI::fFilterToSlim && treeList.count("Reco")){
+          if(Configuration::ConfigSettings::CLI::fFilterToSlim && treeList.count("Reco")){
             PrepareOutputTreesSlim(filterWord, treeList["Reco"], referenceTree);
-        }
-        PrepareOutputTreesReco(filterWord, treeList, referenceTree);
+          }
+          PrepareOutputTreesReco(filterWord, treeList, referenceTree);
 	}
 
 	//Nothing to do here. No slim special trigger event exists

@@ -1,10 +1,16 @@
 
+source /cvmfs/sft.cern.ch/lcg/views/LCG_93python3/x86_64-slc6-gcc7-opt/setup.sh
+
 cd ~/SummerProject/
+git stash
 git pull
+git stash pop
 
 #remake Tools and Reconstruction and Analysis
 cd na62fw/
-git pull
+#git stash
+#git pull
+#git stash pop
 
 source NA62Reconstruction/scripts/env.sh
 cd NA62Tools

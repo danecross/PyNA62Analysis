@@ -6,11 +6,11 @@ set(DICTCLASSES CalorimeterCluster)
 #List all classes with both header and sources
 set(CLASSES BeamParameters
             CoarseT0Evaluation
-	    CoulombCorrection
+            CoulombCorrection
             ChParticleCandidate
             DiLeptonLNVReweight
             DownstreamTrack
-	    EmulatedL0Primitive
+            EmulatedL0Primitive
             EnergyCluster
             EventCandidate
             EventVetoes
@@ -18,10 +18,10 @@ set(CLASSES BeamParameters
             Fitter
             functions
             GeometricAcceptance
-	    HNLFunctions
-	    HNLWeight
-	    KalmanFilter
-	    KinFitConstraint
+            HNLFunctions
+            HNLWeight
+            KalmanFilter
+            KinFitConstraint
             KinFitEnergyConstraint
             KinFitMomentumConstraint
             KinFitPi0MassConstraint
@@ -31,10 +31,10 @@ set(CLASSES BeamParameters
             KinFitNeutralParticle
             KinFitUnmeasParticle
             K3piWithMissingPionInfo
-	    L0DetectorBits
-	    L0PrimitiveHandler
+            L0DetectorBits
+            L0PrimitiveHandler
             LAVMatching
-	    LAVSpecialColumn	
+            LAVSpecialColumn	
             LAVStaticGeometry
             LAVBadChannelList
             LAVEffRecoBlock
@@ -45,7 +45,7 @@ set(CLASSES BeamParameters
             LKrSpectrometerAssociationOutput
             LKrSpectrometerAssociationRecord
             MUV12Corrections
-	    MultipleLinesCDA
+            MultipleLinesCDA
             NeParticleCandidate
             PedestalEvaluation
 	    Particle
@@ -60,8 +60,8 @@ set(CLASSES BeamParameters
             SpectrometerCHANTIAssociationRecord
             SpectrometerCHODAssociationOutput
             SpectrometerCHODAssociationRecord
-	    SpectrometerGigaTrackerMatchingOutput
-	    SpectrometerGigaTrackerMatchingTool
+            SpectrometerGigaTrackerMatchingOutput
+            SpectrometerGigaTrackerMatchingTool
             SpectrometerGigaTrackerMVAMatchingTool
             SpectrometerLKrAssociationOutput
             SpectrometerLKrAssociationRecord
@@ -82,7 +82,7 @@ set(CLASSES BeamParameters
             TwoLinesCDA
             UpstreamTrack
             VertexLSF
-	    VL0Emulator)
+            VL0Emulator)
 #Additional headers
 set(LIBHEADERS ${CLASSES}
             NA62Constants
@@ -96,10 +96,17 @@ SANDWICH_LIST(LIBSRC "src/" ".cc")
 #Prepare a single ROOT dictionary with all objects requiring it 
 set(OBJHEADERS ${DICTCLASSES})
 set(OBJSRC ${DICTCLASSES})
-SANDWICH_LIST(OBJHEADERS "include/" ".hh")
+
+APPEND_LIST(OBJHEADERS ".hh")
+if(${ROOT_VERSION} STREQUAL "6.18.00" OR ${ROOT_VERSION} VERSION_GREATER "6.18.00")
+        ROOT_GENERATE_DICTIONARY(ToolsLibObjectsDICT ${OBJHEADERS} OPTIONS -inlineInputHeader -Iinclude LINKDEF include/LinkDef.h MODULE ToolsLibObjects)
+        PREPEND_LIST(OBJHEADERS "include/")
+else()
+        PREPEND_LIST(OBJHEADERS "include/")
+        ROOT_GENERATE_DICTIONARY(ToolsLibObjectsDICT ${OBJHEADERS} OPTIONS -inlineInputHeader LINKDEF include/LinkDef.h MODULE ToolsLibObjects)
+endif()
+
 SANDWICH_LIST(OBJSRC "src/" ".cc")
-file(GLOB OBJHEADERS ${OBJHEADERS})
-ROOT_GENERATE_DICTIONARY(ToolsLibObjectsDICT ${OBJHEADERS} LINKDEF include/LinkDef.h MODULE ToolsLibObjects)
 
 #Create the library for the ROOT objects
 add_library(ToolsLibObjects-static STATIC ${OBJHEADERS} ${OBJSRC} ToolsLibObjectsDICT.cxx)
