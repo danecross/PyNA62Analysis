@@ -8,9 +8,10 @@ start = dir_path.find("NA62Analysis", 0, len(dir_path)-1)
 user_path = dir_path[:start]
 obj_path = dir_path + "/obj/"
 
-root_path = "/cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/"
-root_incl = root_path + "include/"
-root_lib = root_path + "lib/"
+#root_path = "/cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/"
+root_path = os.environ['ROOTSYS']
+root_incl = root_path + "/include/"
+root_lib = root_path + "/lib/"
 
 dirs_incl = [ 
 		"/cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include", 
@@ -87,23 +88,18 @@ dirs_incl = [
 		user_path + "NA62Analysis/", 
 		"/usr/include/root"]
 
-link_args=[
-#		root_lib + 'libSpectrum.so', 
-#		root_lib + 'PyROOT.so',
-#		"/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-slc6-gcc7-opt/lib/libboost_program_options.so", 
-#		"/cvmfs/sft.cern.ch/lcg/releases/LCG_95/sqlite/3210000/x86_64-slc6-gcc7-opt/lib/libsqlite3.so", 
-		'-Wl,--no-undefined', '-lm'
-		]
-
+link_args=['/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-slc6-gcc7-opt/lib/libboost_program_options.so', 
+		'-Wl,--no-undefined', '-lm']
 
 lib_dirs = [ user_path + 'NA62Analysis/lib-cc7/', 
 		user_path + 'NA62Tools/lib-cc7/Persistency/', 
 		user_path + 'NA62Tools/lib-cc7/SlimPersistency/', 
-                user_path + 'NA62Tools/lib-cc7/', 
-                user_path + 'NA62Reconstruction/lib-cc7/', 
+		user_path + 'NA62Tools/lib-cc7/', 
+		user_path + 'NA62Reconstruction/lib-cc7/', 
 		root_lib, 
 		'/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-slc6-gcc7-opt/lib/',
-		'/cvmfs/sft.cern.ch/lcg/releases/LCG_95/sqlite/3210000/x86_64-slc6-gcc7-opt/lib/']
+		'/cvmfs/sft.cern.ch/lcg/releases/LCG_95/sqlite/3210000/x86_64-slc6-gcc7-opt/lib/', 
+]
 for d in lib_dirs:
 	os.environ["LIBRARY_PATH"] += ":"
 	os.environ["LIBRARY_PATH"] += d
@@ -111,7 +107,7 @@ for d in lib_dirs:
 	os.environ["PYTHONPATH"] += ":"
 	os.environ["PYTHONPATH"] += d
 
-libs = ['stdc++', 
+libs = ['stdc++',  
 	# NA62Analysis
 	'AnalysisFW', 'Algorithms', 'Comparator', 'ToolsLibObjects', 'ToolsLib', 'TRecoLKrCandidateMC',  
 	# NA62Reco
@@ -131,9 +127,9 @@ libs = ['stdc++',
         'NewCHODSlimPersistency', 'RICHSlimPersistency', 'SACSlimPersistency', 'SAVSlimPersistency', 'SpectrometerSlimPersistency',
         'CedarSlimPersistency', 'NA62SlimPersistency',
 	# ROOT libraries
-	'Physics', 'Core', 'MathCore', 'Hist', 'EG', 'Gui', 'MLP', 'TMVA', 'Eve', 'Spectrum', 'SpectrumPainter',
+	'Core', 'MathCore', 'Hist', 'EG', 'Gui', 'MLP', 'TMVA', 'Eve', 'Spectrum', 'SpectrumPainter', 'Physics', 'Geom',      
 	# OTHER 
-	'boost_program_options`', 'boost_thread', 'sqlite3'
+	'boost_program_options', 'boost_thread', 'sqlite3'
 	]
 
 extra_objs = [user_path + '/NA62Analysis/build-cc7/CMakeFiles/AnalysisFW-static.dir/src/BaseAnalysis.cc.o']
@@ -151,12 +147,6 @@ PyAnalyzer = Extension('PyNA62Analysis.PyAnalyzer', ['PyNA62Analysis/PyAnalyzer.
                                 extra_link_args=link_args, 
                                 extra_compile_args=ext_compile_args,
                                 libraries=libs,)
-
-#PyNA62Event = Extension('PyNA62Analysis.PyNA62Event', ['PyNA62Analysis/PyNA62Event.cpp'], language='C++', 
-#				include_dirs=dirs_incl,
-#                                extra_link_args=link_args,
-#                                extra_compile_args=ext_compile_args,
-#                                libraries=libs,)
 
 WrapperObject = Extension('PyNA62Analysis.WrapperObject', ['PyNA62Analysis/WrapperObjectModule.cpp'], language='C++', 
 				include_dirs=dirs_incl,
