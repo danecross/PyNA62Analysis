@@ -1,2 +1,0 @@
-analyzers = Pi0Reconstruction VertexCDA
-exec = dummyExec

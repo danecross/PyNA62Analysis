@@ -1,4 +1,0 @@
-analyzers = LKrPhotonMC VertexCDA
-exec = exampleExportTrees
-libs = TRecoLKrCandidateMC-static
-includedirs = $$FWPATH$$/Examples/TRecoLKrCandidateMC

@@ -1,6 +1,0 @@
-var Detector_prefix varchar2(3);
-exec :Detector_prefix := 'LAV';
-var SQLCommandOut varchar2(4000);
-start sql/procedures_new.sql;
- call NA62_CONDDB_ADMIN.CREATEPROVA(:Detector_prefix,:SQLCommandOut);
-print :SQLCommandOut;

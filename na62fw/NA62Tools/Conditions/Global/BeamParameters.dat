@@ -1,7 +1,0 @@
-# The beam parameters database for MC.
-# Format: run number, beam central momentum [MeV/c],
-# mean dx/dz, dy/dz, x [mm], y [mm] at GTK3 plane (z=102.4m).
-#
-# this file is dummy, please do not remove it!
-#
-000000 0 0 0 0 0

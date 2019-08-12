@@ -1,0 +1,14 @@
+
+contents of changes/ + description of the changes
+
+
+BaseAnalysis.hh
+	7-27-2019: added fIsPythonFile variable to instance variables.
+	7-27-2019: added setter for fIsPythonFile
+BaseAnalysis.cc
+	7-27-2019: added SetIsPython to implementation file
+	7-27-2019: Init() only calls abstract Analyzer methods if 
+		   the analyzer is a C++ analyzer.
+
+
+

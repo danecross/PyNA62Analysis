@@ -1,4 +1,0 @@
-/na62fw/NA62Reconstruction/Tools/PrimRawDecoder/src/PrimRawDecoder.cc: In function 'Int_t DecodePrimitives(TString, TString, TString, std::vector<bool>&, std::vector<TString>&, std::vector<TString>&, Bool_t, Int_t, Int_t, Int_t)':
-/na62fw/NA62Reconstruction/Tools/PrimRawDecoder/src/PrimRawDecoder.cc:566:13: warning: attributes at the beginning of statement are ignored [-Wattributes]
-             [[fallthrough]];
-             ^

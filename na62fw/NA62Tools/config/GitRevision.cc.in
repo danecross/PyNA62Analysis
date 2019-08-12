@@ -1,4 +1,0 @@
-#include "GitRevision.hh"
-#include "TString.h"
-TString GetCurrentGitRevision(){ return Form("@GIT_VERSION@"); }
-TString GetCurrentGitHash(){ return Form("@GIT_HASH@"); }

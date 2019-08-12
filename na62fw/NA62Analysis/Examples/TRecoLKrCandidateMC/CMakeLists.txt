@@ -1,6 +1,0 @@
-ROOT_GENERATE_DICTIONARY(TRecoLKrCandidateMCDICT TRecoLKrCandidateMC.hh OPTIONS -inlineInputHeader LINKDEF LinkDef.h MODULE TRecoLKrCandidateMC)
-
-add_library(TRecoLKrCandidateMC-static STATIC TRecoLKrCandidateMC.hh TRecoLKrCandidateMC.cc TRecoLKrCandidateMCDICT.cxx)
-add_library(TRecoLKrCandidateMC SHARED TRecoLKrCandidateMC.hh TRecoLKrCandidateMC.cc TRecoLKrCandidateMCDICT.cxx)
-add_dependencies(TRecoLKrCandidateMC-static TRecoLKrCandidateMCDICT)
-add_dependencies(TRecoLKrCandidateMC TRecoLKrCandidateMCDICT)

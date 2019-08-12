@@ -1,7 +1,0 @@
-fVirtualMemoryVsEvent
-fVirtualMemoryVsTime
-VirtualMemory
-SystemFileSize
-ResidentMemory
-RecoTiming2D
-FileSize

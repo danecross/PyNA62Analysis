@@ -1,8 +1,0 @@
-analyzers = GigaTrackerPixelT0ChipTW
-preanalyzers = 
-exec = GigaTrackerPixelT0ChipTW
-
-libs = 
-libsdirs = 
-
-includedirs = 

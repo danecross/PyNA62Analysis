@@ -1,6 +1,0 @@
-#Collimator parameters (mm, mm, mm)
-Design 2018
-Outer 234.6 20.0 1200.0
-Inner  36.5 40.0 1200.0
-Position 0.0 0.0 101410.0
-GDML GigaTracker-CollimatorGDML.gdml

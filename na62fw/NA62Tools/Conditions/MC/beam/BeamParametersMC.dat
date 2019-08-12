@@ -1,8 +1,0 @@
-# The beam parameters database for MC.
-# Format: run number, beam central momentum [MeV/c],
-# mean dx/dz, dy/dz, x [mm], y [mm] at GTK3 plane (z=102.4m).
-#
-# Run 2016 and 2017 conditions
-#
-006610 74965  1.232e-3  0.039e-3  0.28 -0.89
-008134 74771  1.213e-3  0.021e-3 -0.56 -1.06

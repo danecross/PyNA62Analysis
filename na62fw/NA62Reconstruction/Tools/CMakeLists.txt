@@ -1,3 +1,0 @@
-add_subdirectory(PrimCorrelation)
-add_subdirectory(PrimMonitor)
-add_subdirectory(PrimRawDecoder)
