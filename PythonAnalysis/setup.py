@@ -14,13 +14,11 @@ root_incl = root_path + "/include/"
 root_lib = root_path + "/lib/"
 
 dirs_incl = [ 
-		"/cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc7-opt/include", 
-		"/cvmfs/sft.cern.ch/lcg/releases/clhep/2.4.1.0-2c56f/x86_64-centos7-gcc7-opt/lib/CLHEP-2.4.1.0/../../include -isystem ", 
 		"/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4 -isystem",  
 		"/cvmfs/sft.cern.ch/lcg/releases/XercesC/3.1.3-ced0e/x86_64-centos7-gcc7-opt/include -isystem", 
 		"/cvmfs/sft.cern.ch/lcg/releases/veccore/0.4.2-ff84f/x86_64-centos7-gcc7-opt/lib/cmake/VecCore/../../../include -isystem", 
 		"/cvmfs/sft.cern.ch/lcg/releases/Vc/1.3.2-7fbe0/x86_64-centos7-gcc7-opt/include -isystem",  
-		"/cvmfs/sft.cern.ch/lcg/releases/ROOT/6.16.00-42022/x86_64-centos7-gcc7-opt/include -isystem", 
+#		"/cvmfs/sft.cern.ch/lcg/releases/ROOT/6.16.00-42022/x86_64-centos7-gcc7-opt/include -isystem", 
 		"/cvmfs/sft.cern.ch/lcg/releases/VecGeom/v1.1.0-22e48/x86_64-centos7-gcc7-opt/lib/cmake/VecGeom/../../../include" 
 		"/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-centos7-gcc7-opt/include/boost",  
 		"/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-centos7-gcc7-opt/include" 
@@ -86,17 +84,21 @@ dirs_incl = [
 		user_path + "NA62Analysis/Algorithms/include", 
 		user_path + "NA62Analysis/Examples/include",
 		user_path + "NA62Analysis/", 
+#		"/cvmfs/sft.cern.ch/lcg/releases/lcg_95/root/6.16.00/x86_64-centos7-gcc7-opt/include", 
 		"/usr/include/root"]
 
 link_args=['/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-slc6-gcc7-opt/lib/libboost_program_options.so', 
-		'-Wl,--no-undefined', '-lm', '-Wall', '-Wextra']
+		'/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-slc6-gcc7-opt/lib/libboost_program_options.so.1.69.0',
+#		'-pthread -lm -ldl -rdynamic',
+		'-Wl,--no-undefined', '-lm', '-lrt', '-Wall', '-Wextra']
 
-lib_dirs = [ user_path + 'NA62Analysis/lib-cc7/', 
-		user_path + 'NA62Tools/lib-cc7/Persistency/', 
-		user_path + 'NA62Tools/lib-cc7/SlimPersistency/', 
-		user_path + 'NA62Tools/lib-cc7/', 
-		user_path + 'NA62Reconstruction/lib-cc7/', 
-		root_lib, 
+lib_dirs = [ user_path + 'NA62Analysis/lib-slc6/', 
+		user_path + 'NA62Tools/lib-slc6/Persistency/', 
+		user_path + 'NA62Tools/lib-slc6/SlimPersistency/', 
+		user_path + 'NA62Tools/lib-slc6/', 
+		user_path + 'NA62Reconstruction/lib-slc6/', 
+#		root_lib, 
+		'/usr/lib64/root', 
 		'/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-slc6-gcc7-opt/lib/',
 		'/cvmfs/sft.cern.ch/lcg/releases/LCG_95/sqlite/3210000/x86_64-slc6-gcc7-opt/lib/', 
 ]
@@ -127,14 +129,16 @@ libs = ['stdc++',
         'NewCHODSlimPersistency', 'RICHSlimPersistency', 'SACSlimPersistency', 'SAVSlimPersistency', 'SpectrometerSlimPersistency',
         'CedarSlimPersistency', 'NA62SlimPersistency',
 	# ROOT libraries
-	'Core', 'MathCore', 'Hist', 'EG', 'Gui', 'MLP', 'TMVA', 'Eve', 'Spectrum', 'SpectrumPainter', 'Physics', 'Geom',      
+	'Core',  'Imt', 'RIO', 'Net', 'Hist', 'Graf', 'Graf3d', 'Gpad', #'ROOTDataFrame', 
+	'ROOTVecOps', 'Tree', 'TreePlayer', 'Rint', 
+	'Postscript', 'Matrix', 'Physics', 'MathCore', 'Thread', 'MultiProc', 
 	# OTHER 
 	'boost_program_options', 'boost_thread', 'sqlite3'
 	]
 
 extra_objs = [user_path + '/NA62Analysis/build-cc7/CMakeFiles/AnalysisFW-static.dir/src/BaseAnalysis.cc.o']
 
-ext_compile_args = [ '-std=c++17']
+ext_compile_args = [ '-std=c++14', '-D_GLIBCXX_USE_CXX11_ABI=0']  
 
 PyBaseAnalysis_Struct = Extension('PyNA62Analysis.PyBaseAnalysis', ['PyNA62Analysis/PyBaseAnalysisModule.cpp'], language='C++', 
 				include_dirs=dirs_incl,

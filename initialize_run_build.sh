@@ -10,7 +10,7 @@ cp changes/BaseAnalysis.hh ../na62fw/NA62Analysis/include/
 cd ../na62fw/
 
 source NA62Reconstruction/scripts/env.sh
-source /cvmfs/sft.cern.ch/lcg/views/LCG_93python3/x86_64-slc6-gcc7-opt/setup.sh
+#source /cvmfs/sft.cern.ch/lcg/views/LCG_93python3/x86_64-slc6-gcc7-opt/setup.sh
 
 cd NA62Tools
 make clean
