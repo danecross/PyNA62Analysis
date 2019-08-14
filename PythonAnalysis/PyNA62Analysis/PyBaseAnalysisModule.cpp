@@ -11,7 +11,7 @@
 
 
 
-#include <Python.h>
+#include <python3.6m/Python.h>
 #define PY_SSIZE_T_CLEAN
 
 #include "UserMethods.hh"
@@ -59,7 +59,7 @@ static PyObject * PBAN_loadEvent(PyBaseAnalysis *self, PyObject *args){
 static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *self, PyObject *args){
 
 	PyObject *newAnalyzer; PyAnalyzer *newAn;
-	string name; 
+	string *name; 
 
 	if (!PyArg_ParseTuple(args, "O", &newAnalyzer)){
 		return NULL;
@@ -86,9 +86,9 @@ static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *self, PyObject *args){
 		newAn->name = PyUnicode_FromString(n.str().c_str());
 	}
 
-	name = PyUnicode_AsUTF8(newAn->name);
+	name = (string *)PyUnicode_AsUTF8(newAn->name);
 
-	newAn->um = new UserMethods(self->ban, name);
+	newAn->um = new UserMethods(self->ban);//(const string)(name));
 	self->ban->AddAnalyzer((NA62Analysis::Analyzer*)(((PyAnalyzer *)newAnalyzer)->um));
 
 	++(self->numAnalyzers);
@@ -156,7 +156,7 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 
 	if(PyObject_IsTrue(self->specialOnly)){ban->SetSpecialOnly(true);}
 
-	ban->SetIsPython(true); 
+//	ban->SetIsPython(true); 
 
 	if (PyBool_Check(self->noCheckDetectors) && PyObject_IsTrue(self->noCheckDetectors)){
 		self->noCheckEvents = true;
@@ -211,7 +211,7 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 
 	cout << "init called" << endl;
 
-	self->startEvent = PyLong_FromLong(ban->GetFirstGoodEvent());
+//	self->startEvent = PyLong_FromLong(ban->GetFirstGoodEvent());
 	self->NEvents = PyLong_FromLong(ban->GetNEvents());
 
 	auto tmp = self->ban;
@@ -402,8 +402,13 @@ static PyObject * PyBaseAnalysis_new(PyTypeObject *type, PyObject *args, PyObjec
         PyBaseAnalysis *self;
         self = (PyBaseAnalysis *) type->tp_alloc(type, 0);
         if (self != NULL){
-//		cout << "setting ban at allocation" << endl;
-//		self->ban = new NA62Analysis::Core::BaseAnalysis();
+		
+		cout << "setting ban at allocation" << endl;
+		self->ban = new NA62Analysis::Core::BaseAnalysis();
+		cout << "new is ok" << endl;
+//		PyMem_Realloc(self->ban, sizeof(ban));
+//        	self->ban = ban;
+		cout << "this is fine" << endl;
 
                 self->inputFiles = PyList_New(0);
                 if (self->inputFiles == NULL){

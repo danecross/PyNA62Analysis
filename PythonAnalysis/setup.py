@@ -89,7 +89,8 @@ dirs_incl = [
 
 link_args=['/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-slc6-gcc7-opt/lib/libboost_program_options.so', 
 		'/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-slc6-gcc7-opt/lib/libboost_program_options.so.1.69.0',
-#		'-pthread -lm -ldl -rdynamic',
+		'/cvmfs/sft.cern.ch/lcg/releases/LCG_96_NA62_b/ROOT/6.16.00/x86_64-centos7-gcc8-opt/lib/libCore.so', 
+		'/cvmfs/sft.cern.ch/lcg/releases/LCG_96_NA62_b/ROOT/6.16.00/x86_64-centos7-gcc8-opt/lib/libGraf.so', 
 		'-Wl,--no-undefined', '-lm', '-lrt', '-Wall', '-Wextra']
 
 lib_dirs = [ user_path + 'NA62Analysis/lib-slc6/', 
@@ -130,8 +131,8 @@ libs = ['stdc++',
         'CedarSlimPersistency', 'NA62SlimPersistency',
 	# ROOT libraries
 	'Core',  'Imt', 'RIO', 'Net', 'Hist', 'Graf', 'Graf3d', 'Gpad', #'ROOTDataFrame', 
-	'ROOTVecOps', 'Tree', 'TreePlayer', 'Rint', 
-	'Postscript', 'Matrix', 'Physics', 'MathCore', 'Thread', 'MultiProc', 
+	'ROOTVecOps', 'Tree', 'TreePlayer', 'Rint', 'EG', 'Gui', 'MLP', 'TMVA', 'Eve', 'Spectrum', 
+	'Geom', 'Postscript', 'Matrix', 'Physics', 'MathCore', 'Thread', 'MultiProc',  
 	# OTHER 
 	'boost_program_options', 'boost_thread', 'sqlite3'
 	]

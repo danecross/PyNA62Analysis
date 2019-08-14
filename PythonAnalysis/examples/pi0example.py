@@ -1,5 +1,5 @@
 #
-# template analyzer written in Python
+# Pi0Reconstruction analyzer written in Python
 # Authors: Amanda Hoebel and Dane Cross
 #
 
@@ -14,13 +14,17 @@
 
 #import statements
 from PyNA62Analysis.PyBaseAnalysis import PyBaseAnalysis as BaseAnalysis
-from PyNA62Analysis.PyAnalyzer import PyAnalysis as Analyzer
-from PyNA62Analysis.WrapperObject import WrapperObject as WO
+#from PyNA62Analysis.PyAnalyzer import PyAnalysis as Analyzer
+#from PyNA62Analysis.WrapperObject import WrapperObject as WO
 #import ROOT
 
-import os
+print("start start")
 
+import os
+'''
 def configure(ban):
+
+	print("START CONFIGURE")
 
 	currentPath = os.getcwd()
 	input_files = [currentPath + "/examples/example.txt"] 
@@ -220,12 +224,14 @@ def plots(ban):
 	return ban
 
 
+print("start")
+
 baseAn = BaseAnalysis()
 print("configure called")
 configure(baseAn)
 
 print("end")
-
+'''
 '''
 baseAn = initializePi0Analyzer(baseAn)
 baseAn = initializeVertexCDAAnalyzer(baseAn)	

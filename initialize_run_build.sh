@@ -3,8 +3,8 @@ echo "Pulling from PyNA62Analysis"
 cd ~/PyNA62Analysis
 git pull
 
-cp changes/BaseAnalysis.cc changes/UserMethods.cc ../na62fw/NA62Analysis/src/
-cp changes/BaseAnalysis.hh ../na62fw/NA62Analysis/include/
+#cp changes/BaseAnalysis.cc changes/UserMethods.cc ../na62fw/NA62Analysis/src/
+#cp changes/BaseAnalysis.hh ../na62fw/NA62Analysis/include/
 
 #remake Tools and Reconstruction and Analysis
 cd ../na62fw/
