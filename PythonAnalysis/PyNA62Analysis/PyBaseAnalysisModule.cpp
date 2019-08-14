@@ -183,7 +183,7 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 
 	if (PyList_Size(self->inputFiles) > (Py_ssize_t)(0)){
 		string inputFileString = getFileString(self->inputFiles);
-		ban->AddInputFiles(inputFileString, (int)PyList_Size(self->inputFiles));
+		ban->AddInputFiles((TString)(inputFileString.c_str()), (int)PyList_Size(self->inputFiles));
 	} 
 	
 	if(self->primitiveFile != NULL && PyUnicode_Check(self->primitiveFile)){
@@ -202,10 +202,10 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 	} else if (!PyUnicode_Check(self->parameters)){
 		self->parameters = PyUnicode_FromString("");
 	}
-	ban->Init(*PyUnicode_AsUTF8(self->outputFile),
-                  	*PyUnicode_AsUTF8(self->parameters),
-                  	configFile,
-                  	"dummyRefName", //TODO: figure out reference file
+	ban->Init((TString)PyUnicode_AsUTF8(self->outputFile),
+                  	(TString)PyUnicode_AsUTF8(self->parameters),
+                  	(TString)(configFile.c_str()),
+                  	(TString)"dummyRefName", //TODO: figure out reference file
                   	false); //TODO: figure out ignoreNonExistingTrees
 	int retCode = EXIT_SUCCESS;
 

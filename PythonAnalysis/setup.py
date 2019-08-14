@@ -13,12 +13,11 @@ root_path = os.environ['ROOTSYS']
 root_incl = root_path + "/include/"
 root_lib = root_path + "/lib/"
 
-dirs_incl = [ 
+dirs_incl = [root_incl, 
 		"/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Geant4/10.05/x86_64-centos7-gcc7-opt/include/Geant4 -isystem",  
 		"/cvmfs/sft.cern.ch/lcg/releases/XercesC/3.1.3-ced0e/x86_64-centos7-gcc7-opt/include -isystem", 
 		"/cvmfs/sft.cern.ch/lcg/releases/veccore/0.4.2-ff84f/x86_64-centos7-gcc7-opt/lib/cmake/VecCore/../../../include -isystem", 
 		"/cvmfs/sft.cern.ch/lcg/releases/Vc/1.3.2-7fbe0/x86_64-centos7-gcc7-opt/include -isystem",  
-#		"/cvmfs/sft.cern.ch/lcg/releases/ROOT/6.16.00-42022/x86_64-centos7-gcc7-opt/include -isystem", 
 		"/cvmfs/sft.cern.ch/lcg/releases/VecGeom/v1.1.0-22e48/x86_64-centos7-gcc7-opt/lib/cmake/VecGeom/../../../include" 
 		"/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-centos7-gcc7-opt/include/boost",  
 		"/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-centos7-gcc7-opt/include" 
@@ -84,13 +83,13 @@ dirs_incl = [
 		user_path + "NA62Analysis/Algorithms/include", 
 		user_path + "NA62Analysis/Examples/include",
 		user_path + "NA62Analysis/", 
-#		"/cvmfs/sft.cern.ch/lcg/releases/lcg_95/root/6.16.00/x86_64-centos7-gcc7-opt/include", 
-		"/usr/include/root"]
+#		"/usr/include/root"
+		]
 
 link_args=['/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-slc6-gcc7-opt/lib/libboost_program_options.so', 
 		'/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-slc6-gcc7-opt/lib/libboost_program_options.so.1.69.0',
-		'/cvmfs/sft.cern.ch/lcg/releases/LCG_96_NA62_b/ROOT/6.16.00/x86_64-centos7-gcc8-opt/lib/libCore.so', 
-		'/cvmfs/sft.cern.ch/lcg/releases/LCG_96_NA62_b/ROOT/6.16.00/x86_64-centos7-gcc8-opt/lib/libGraf.so', 
+#		'/cvmfs/sft.cern.ch/lcg/releases/LCG_96_NA62_b/ROOT/6.16.00/x86_64-centos7-gcc8-opt/lib/libCore.so', 
+#		'/cvmfs/sft.cern.ch/lcg/releases/LCG_96_NA62_b/ROOT/6.16.00/x86_64-centos7-gcc8-opt/lib/libGraf.so', 
 		'-Wl,--no-undefined', '-lm', '-lrt', '-Wall', '-Wextra']
 
 lib_dirs = [ user_path + 'NA62Analysis/lib-slc6/', 
@@ -98,8 +97,8 @@ lib_dirs = [ user_path + 'NA62Analysis/lib-slc6/',
 		user_path + 'NA62Tools/lib-slc6/SlimPersistency/', 
 		user_path + 'NA62Tools/lib-slc6/', 
 		user_path + 'NA62Reconstruction/lib-slc6/', 
-#		root_lib, 
-		'/usr/lib64/root', 
+		root_lib, 
+#		'/usr/lib64/root', 
 		'/cvmfs/sft.cern.ch/lcg/releases/LCG_95/Boost/1.69.0/x86_64-slc6-gcc7-opt/lib/',
 		'/cvmfs/sft.cern.ch/lcg/releases/LCG_95/sqlite/3210000/x86_64-slc6-gcc7-opt/lib/', 
 ]
@@ -139,7 +138,7 @@ libs = ['stdc++',
 
 extra_objs = [user_path + '/NA62Analysis/build-cc7/CMakeFiles/AnalysisFW-static.dir/src/BaseAnalysis.cc.o']
 
-ext_compile_args = [ '-std=c++14', '-D_GLIBCXX_USE_CXX11_ABI=0']  
+ext_compile_args = [ '-std=c++17', '-D_GLIBCXX_USE_CXX11_ABI=0']  
 
 PyBaseAnalysis_Struct = Extension('PyNA62Analysis.PyBaseAnalysis', ['PyNA62Analysis/PyBaseAnalysisModule.cpp'], language='C++', 
 				include_dirs=dirs_incl,

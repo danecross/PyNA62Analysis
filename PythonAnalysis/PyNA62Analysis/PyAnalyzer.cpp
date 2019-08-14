@@ -158,7 +158,7 @@ static PyObject * PAN_fillHisto(PyAnalyzer *self, PyObject *args){
                 return NULL;
         }
 
-	self->um->FillHisto((string)name, (double)one);
+	self->um->FillHisto((TString)name, (double)one);
 	
 	return PyBool_FromLong(1);
 }
@@ -171,23 +171,23 @@ static PyObject * PAN_requestTree(PyAnalyzer *self, PyObject *args){
                 return NULL;
         }
 
-	if ((string)type == ("TRecoLKrEvent")){self->um->RequestTree((string)name, new TRecoLKrEvent);}
-	else if ((string)type == ("TRecoGigaTrackerEvent")){self->um->RequestTree((string)name, new TRecoGigaTrackerEvent);}
-	else if ((string)type == ("TRecoSpectrometerEvent")){self->um->RequestTree((string)name, new TRecoSpectrometerEvent);}
-	else if ((string)type == ("TRecoCedarEvent")){self->um->RequestTree((string)name, new TRecoCedarEvent);}
-	else if ((string)type == ("TRecoCHANTIEvent")){self->um->RequestTree((string)name, new TRecoCHANTIEvent);}
-        else if ((string)type == ("TLAVEvent")){self->um->RequestTree((string)name, new TLAVEvent);}
-        else if ((string)type == ("TMUV0Event")){self->um->RequestTree((string)name, new TMUV0Event);}
-        else if ((string)type == ("TMUV1Event")){self->um->RequestTree((string)name, new TMUV1Event);}
-        else if ((string)type == ("TMUV2Event")){self->um->RequestTree((string)name, new TMUV2Event);}
-        else if ((string)type == ("TMUV3Event")){self->um->RequestTree((string)name, new TMUV3Event);}
-        else if ((string)type == ("TRICHEvent")){self->um->RequestTree((string)name, new TRICHEvent);}
-        else if ((string)type == ("TSpectrometerEvent")){self->um->RequestTree((string)name, new TSpectrometerEvent);}
-        else if ((string)type == ("TSACEvent")){self->um->RequestTree((string)name, new TSACEvent);}
-        else if ((string)type == ("THACEvent")){self->um->RequestTree((string)name, new THACEvent);}
-        else if ((string)type == ("TCHODEvent")){self->um->RequestTree((string)name, new TCHODEvent);}
-        else if ((string)type == ("TRecoIRCEvent")){self->um->RequestTree((string)name, new TRecoIRCEvent);}
-        else if ((string)type == ("TRecoSAVEvent")){self->um->RequestTree((string)name, new TRecoSAVEvent);}
+	if ((string)type == ("TRecoLKrEvent")){self->um->RequestTree((TString)name, new TRecoLKrEvent);}
+	else if ((string)type == ("TRecoGigaTrackerEvent")){self->um->RequestTree((TString)name, new TRecoGigaTrackerEvent);}
+	else if ((string)type == ("TRecoSpectrometerEvent")){self->um->RequestTree((TString)name, new TRecoSpectrometerEvent);}
+	else if ((string)type == ("TRecoCedarEvent")){self->um->RequestTree((TString)name, new TRecoCedarEvent);}
+	else if ((string)type == ("TRecoCHANTIEvent")){self->um->RequestTree((TString)name, new TRecoCHANTIEvent);}
+        else if ((string)type == ("TLAVEvent")){self->um->RequestTree((TString)name, new TLAVEvent);}
+        else if ((string)type == ("TMUV0Event")){self->um->RequestTree((TString)name, new TMUV0Event);}
+        else if ((string)type == ("TMUV1Event")){self->um->RequestTree((TString)name, new TMUV1Event);}
+        else if ((string)type == ("TMUV2Event")){self->um->RequestTree((TString)name, new TMUV2Event);}
+        else if ((string)type == ("TMUV3Event")){self->um->RequestTree((TString)name, new TMUV3Event);}
+        else if ((string)type == ("TRICHEvent")){self->um->RequestTree((TString)name, new TRICHEvent);}
+        else if ((string)type == ("TSpectrometerEvent")){self->um->RequestTree((TString)name, new TSpectrometerEvent);}
+        else if ((string)type == ("TSACEvent")){self->um->RequestTree((TString)name, new TSACEvent);}
+        else if ((string)type == ("THACEvent")){self->um->RequestTree((TString)name, new THACEvent);}
+        else if ((string)type == ("TCHODEvent")){self->um->RequestTree((TString)name, new TCHODEvent);}
+        else if ((string)type == ("TRecoIRCEvent")){self->um->RequestTree((TString)name, new TRecoIRCEvent);}
+        else if ((string)type == ("TRecoSAVEvent")){self->um->RequestTree((TString)name, new TRecoSAVEvent);}
 	else {
 		stringstream ss;
 		ss << (string)type << "is not a supported type. \n" ;
@@ -214,8 +214,8 @@ static PyObject * PAN_registerOutput(PyAnalyzer *self, PyObject *args){
                 PyErr_SetString(PyExc_ValueError, "registerOutput requires 2 string arguments: name and type.");
                 return NULL;
         }
-	if ((string)type == ("KinePart")){KinePart obj;	self->um->RegisterOutput((string)name, &obj);}
-	else if ((string)type == ("TVector3")){TVector3 obj; self->um->RegisterOutput((string)name, &obj);}
+	if ((string)type == ("KinePart")){KinePart obj;	self->um->RegisterOutput((TString)name, &obj);}
+	else if ((string)type == ("TVector3")){TVector3 obj; self->um->RegisterOutput((TString)name, &obj);}
 	else{
 		PyErr_SetString(PyExc_ValueError, "invalid type request. supported types are: KinePart, TVector");
 		return NULL;
@@ -282,7 +282,7 @@ static PyObject * PAN_bookCounter(PyAnalyzer *self, PyObject *args){
                 return NULL;
         }
 	
-	self->um->BookCounter((string)name);
+	self->um->BookCounter((TString)name);
 
 	return PyLong_FromLong(1);
 }
@@ -295,7 +295,7 @@ static PyObject * PAN_incrementCounter(PyAnalyzer *self, PyObject *args){
                 return NULL;
         }
 
-	self->um->IncrementCounter((string)name);
+	self->um->IncrementCounter((TString)name);
 //	cout << extended() << "Counter " << (string)name << " incremented to " <<  self->um->GetCounterValue((string)name) << endl;
 
 	return PyBool_FromLong(1);

@@ -14,14 +14,12 @@
 
 #import statements
 from PyNA62Analysis.PyBaseAnalysis import PyBaseAnalysis as BaseAnalysis
-#from PyNA62Analysis.PyAnalyzer import PyAnalysis as Analyzer
-#from PyNA62Analysis.WrapperObject import WrapperObject as WO
+from PyNA62Analysis.PyAnalyzer import PyAnalysis as Analyzer
+from PyNA62Analysis.WrapperObject import WrapperObject as WO
 #import ROOT
 
-print("start start")
-
 import os
-'''
+
 def configure(ban):
 
 	print("START CONFIGURE")
@@ -231,7 +229,7 @@ print("configure called")
 configure(baseAn)
 
 print("end")
-'''
+
 '''
 baseAn = initializePi0Analyzer(baseAn)
 baseAn = initializeVertexCDAAnalyzer(baseAn)	
