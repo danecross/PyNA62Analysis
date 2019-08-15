@@ -59,15 +59,10 @@ static PyObject * PBAN_loadEvent(PyBaseAnalysis *self, PyObject *args){
 static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *self, PyObject *args){
 
 	PyObject *newAnalyzer; PyAnalyzer *newAn;
-	string *name; 
+//	const std::string &name; 
 
 	if (!PyArg_ParseTuple(args, "O", &newAnalyzer)){
 		return NULL;
-	}
-
-	if (!self->ban){
-		cout << "ban is null at add analyzer" << endl;
-		self->ban = new NA62Analysis::Core::BaseAnalysis();
 	}
 
 	PyTypeObject* type = newAnalyzer->ob_type;
@@ -86,9 +81,9 @@ static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *self, PyObject *args){
 		newAn->name = PyUnicode_FromString(n.str().c_str());
 	}
 
-	name = (string *)PyUnicode_AsUTF8(newAn->name);
+//	name = (std::string) *(PyUnicode_AsUTF8(newAn->name));
 
-	newAn->um = new UserMethods(self->ban);//(const string)(name));
+	newAn->um = new UserMethods(self->ban);
 	self->ban->AddAnalyzer((NA62Analysis::Analyzer*)(((PyAnalyzer *)newAnalyzer)->um));
 
 	++(self->numAnalyzers);
@@ -106,14 +101,10 @@ static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *self, PyObject *args){
  *
  * */
 static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
-	
-//	if (!self->ban){self->ban = new NA62Analysis::Core::BaseAnalysis();}
-//	auto ban = self->ban;
-	auto ban = new NA62Analysis::Core::BaseAnalysis();
 
-	cout << "here--ban is initialized" << endl;
-	int verbSet = setGlobalVerbosity(ban, self->coreVerbosity, self->anVerbosity);
-	cout << "here-- globalverb set" << endl;
+	self->ban->SetIsPython(true); 
+
+	int verbSet = setGlobalVerbosity(self->ban, self->coreVerbosity, self->anVerbosity);
 	if (verbSet == VALUE_ERR_AN_VERB){
 		PyErr_SetString(PyExc_ValueError, "invalid core verbosity"); 
 		return NULL;
@@ -128,35 +119,37 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 	}
 
 	if (PyUnicode_Check(self->logFile) && PyUnicode_GET_LENGTH(self->logFile) > 0){
-		ban->SetLogToFile(PyUnicode_AsUTF8(self->logFile));
+		self->ban->SetLogToFile(PyUnicode_AsUTF8(self->logFile));
 	}
 
-	ban->SetGraphicMode(PyObject_IsTrue(self->graphicMode));	
+	self->ban->SetGraphicMode(PyObject_IsTrue(self->graphicMode));	
 
-	ban->SetDownscaling(PyObject_IsTrue(self->useDownscaling));
+	self->ban->SetDownscaling(PyObject_IsTrue(self->useDownscaling));
 
 	if(PyObject_IsTrue(self->histoMode)) 
-		ban->SetReadType(NA62Analysis::Core::IOHandlerType::kHISTO);
-        else ban->SetReadType(NA62Analysis::Core::IOHandlerType::kTREE);
+		self->ban->SetReadType(NA62Analysis::Core::IOHandlerType::kHISTO);
+        else {
+		cout << "kHisto: " << (int)(NA62Analysis::Core::IOHandlerType::kTREE) << endl;
+		self->ban->SetReadType(NA62Analysis::Core::IOHandlerType::kTREE);
+	}
 
 	if(PyUnicode_Check(self->primitiveFile) && PyUnicode_GET_SIZE(self->primitiveFile) > 0)
-		ban->InitPrimitives();
+		self->ban->InitPrimitives();
 
-	if(PyObject_IsTrue(self->fastStart)){ban->SetFastStart(true);}
+	if(PyObject_IsTrue(self->fastStart)){self->ban->SetFastStart(true);}
 
-	if(PyObject_IsTrue(self->skipIsFatal)){ban->SetSkipIsFatal(true);}
+	if(PyObject_IsTrue(self->skipIsFatal)){self->ban->SetSkipIsFatal(true);}
 
-	if(PyObject_IsTrue(self->continuousReading)){ban->SetContinuousReading(true);}
+	if(PyObject_IsTrue(self->continuousReading)){self->ban->SetContinuousReading(true);}
 
 	if(PyObject_IsTrue(self->filter)){
-		ban->SetFiltering(true);
+		self->ban->SetFiltering(true);
 		self->noSkipBadBurst = true; 
 		self->noCheckEvents = true;  
 	}
 
-	if(PyObject_IsTrue(self->specialOnly)){ban->SetSpecialOnly(true);}
+	if(PyObject_IsTrue(self->specialOnly)){self->ban->SetSpecialOnly(true);}
 
-//	ban->SetIsPython(true); 
 
 	if (PyBool_Check(self->noCheckDetectors) && PyObject_IsTrue(self->noCheckDetectors)){
 		self->noCheckEvents = true;
@@ -177,14 +170,15 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
                 }
 	}
 
-	cout << "here -- halfway" << endl;
-
 	self->parameters = generateParameters(self);
 
+	cout << "here-- adding input files" << endl;
 	if (PyList_Size(self->inputFiles) > (Py_ssize_t)(0)){
 		string inputFileString = getFileString(self->inputFiles);
-		ban->AddInputFiles((TString)(inputFileString.c_str()), (int)PyList_Size(self->inputFiles));
+		self->ban->AddInputFiles((TString)(inputFileString.c_str()), (int)PyList_Size(self->inputFiles));
 	} 
+
+	cout << "INPUT FILES READY " << endl;
 	
 	if(self->primitiveFile != NULL && PyUnicode_Check(self->primitiveFile)){
 		PyErr_SetString(PyExc_ValueError, "primitive file must be a string path to the file.");
@@ -192,7 +186,7 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 	} else if (self->primitiveFile !=NULL && 
 			PyUnicode_Check(self->primitiveFile) &&
 			PyUnicode_GET_SIZE(self->primitiveFile) > 0)
-		ban->SetPrimitiveFile(PyUnicode_AsUTF8(self->primitiveFile));
+		self->ban->SetPrimitiveFile(PyUnicode_AsUTF8(self->primitiveFile));
 
 	string configFile = generateConfigFile(self);
 
@@ -202,7 +196,9 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 	} else if (!PyUnicode_Check(self->parameters)){
 		self->parameters = PyUnicode_FromString("");
 	}
-	ban->Init((TString)PyUnicode_AsUTF8(self->outputFile),
+
+	cout << "calling init...." << endl;
+	self->ban->Init((TString)PyUnicode_AsUTF8(self->outputFile),
                   	(TString)PyUnicode_AsUTF8(self->parameters),
                   	(TString)(configFile.c_str()),
                   	(TString)"dummyRefName", //TODO: figure out reference file
@@ -212,16 +208,9 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 	cout << "init called" << endl;
 
 //	self->startEvent = PyLong_FromLong(ban->GetFirstGoodEvent());
-	self->NEvents = PyLong_FromLong(ban->GetNEvents());
+	self->NEvents = PyLong_FromLong(self->ban->GetNEvents());
 
-	auto tmp = self->ban;
-	PyMem_Realloc(self->ban, sizeof(ban));
-	self->ban = ban;
-	delete tmp;
-
-	cout << "return retCode" << endl;
-
-	return PyBool_FromLong(retCode);
+	return PyBool_FromLong(0);
 
 }
 
@@ -250,9 +239,7 @@ static int setGlobalVerbosity(NA62Analysis::Core::BaseAnalysis *ban, PyObject *g
 	an = getAnalyzerVerb(analyzer);
 
 	if ( core > -1 && an > -1){
-		cout << "herererererererere" << endl;
 		ban->SetGlobalVerbosity(core, an);
-		cout << "set succes" << endl;
 		return EXIT_SUCCESS;
 	}
 	else{
@@ -356,8 +343,6 @@ static string  generateConfigFile(PyBaseAnalysis *self){
 
 static void PyBaseAnalysis_dealloc(PyBaseAnalysis *self){
 
-//	delete self->ban;
-
         Py_XDECREF(self->inputFiles);
 	Py_XDECREF(self->currentPath);
 
@@ -391,25 +376,26 @@ static void PyBaseAnalysis_dealloc(PyBaseAnalysis *self){
 
         Py_XDECREF(self->noCheckDetectors);
 	Py_XDECREF(self->noCheckBadBurst);
+
+//	PyMem_Free(self->ban);
 	
         Py_TYPE(self)->tp_free((PyObject *) self);
 
 }
 
 
-static PyObject * PyBaseAnalysis_new(PyTypeObject *type, PyObject *args, PyObject *kwds){
+static PyObject * PyBaseAnalysis_init(PyTypeObject *type, PyObject *args, PyObject *kwds){
+	
+	cout << "init begin" << endl;
+
+	cout << "type: " << &PyBaseAnalysisS << " name: " << PyBaseAnalysisS.tp_name << endl;
 
         PyBaseAnalysis *self;
-        self = (PyBaseAnalysis *) type->tp_alloc(type, 0);
+        self = (PyBaseAnalysis *)PyBaseAnalysisS.tp_alloc(type, 0);
+
+	cout << "alloc'd" << endl;
         if (self != NULL){
 		
-		cout << "setting ban at allocation" << endl;
-		self->ban = new NA62Analysis::Core::BaseAnalysis();
-		cout << "new is ok" << endl;
-//		PyMem_Realloc(self->ban, sizeof(ban));
-//        	self->ban = ban;
-		cout << "this is fine" << endl;
-
                 self->inputFiles = PyList_New(0);
                 if (self->inputFiles == NULL){
                         Py_DECREF(self);
@@ -559,7 +545,10 @@ static PyObject * PyBaseAnalysis_new(PyTypeObject *type, PyObject *args, PyObjec
 		self->burstsToIgnore = new vector<string>();
 
 		self->numAnalyzers = 0;
+
+		self->ban = new NA62Analysis::Core::BaseAnalysis();
         }
+
 
         return (PyObject *) self;
 

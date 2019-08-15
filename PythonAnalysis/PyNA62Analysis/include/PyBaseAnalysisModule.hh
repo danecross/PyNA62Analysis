@@ -75,7 +75,7 @@ static PyObject * PBAN_configure(PyBaseAnalysis *, PyObject *);
 
 //ALLOCATION AND DEALLOCATION METHODS
 static void PyBaseAnalysis_dealloc(PyBaseAnalysis *);
-static PyObject * PyBaseAnalysis_new(PyTypeObject *, PyObject *, PyObject *);
+static PyObject * PyBaseAnalysis_init(PyTypeObject *, PyObject *, PyObject *);
 
 //METHODS USED BY ABOVE METHODS
 static PyObject * generateParameters(PyBaseAnalysis *);
@@ -169,9 +169,9 @@ static PyTypeObject PyBaseAnalysisS= {
         .tp_descr_get = 0,
         .tp_descr_set = 0,
         .tp_dictoffset = 0,
-        .tp_init = 0,
+        .tp_init = (initproc) PyBaseAnalysis_init,
         .tp_alloc = 0,
-        .tp_new = PyBaseAnalysis_new,
+        .tp_new = PyType_GenericNew,
         .tp_free = 0,
         .tp_is_gc = 0,
         .tp_bases = 0,

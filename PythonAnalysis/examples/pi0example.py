@@ -22,8 +22,6 @@ import os
 
 def configure(ban):
 
-	print("START CONFIGURE")
-
 	currentPath = os.getcwd()
 	input_files = [currentPath + "/examples/example.txt"] 
 	setattr(ban, "input_files", input_files)
@@ -37,8 +35,6 @@ def configure(ban):
 	ban.addAnalyzer(Pi0)
 	ban.addAnalyzer(VCDA)
 
-	print("analyzers added")
-	
 	# mandatory call that configures our BaseAnalysis object
 	ban.configure()
 
@@ -223,12 +219,10 @@ def plots(ban):
 
 
 print("start")
-
 baseAn = BaseAnalysis()
-print("configure called")
+print("ban initialized")
 configure(baseAn)
-
-print("end")
+print("ban configured")
 
 '''
 baseAn = initializePi0Analyzer(baseAn)
@@ -265,12 +259,6 @@ for event in range(start, end):
 plots(baseAn)
 
 '''
-
-
-
-print("end")
-
-
 
 
 
