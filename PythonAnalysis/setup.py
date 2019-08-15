@@ -140,7 +140,7 @@ extra_objs = [user_path + '/NA62Analysis/build-cc7/CMakeFiles/AnalysisFW-static.
 
 ext_compile_args = [ '-std=c++17', '-D_GLIBCXX_USE_CXX11_ABI=0']  
 
-PyBaseAnalysis_Struct = Extension('PyNA62Analysis.PyBaseAnalysis', ['PyNA62Analysis/PyBaseAnalysisModule.cpp'], language='C++', 
+PyBaseAnalysis = Extension('PyNA62Analysis.PyBaseAnalysis', ['PyNA62Analysis/PyBaseAnalysisModule.cpp'], language='C++', 
 				include_dirs=dirs_incl,
                                 extra_link_args=link_args,
                                 extra_compile_args=ext_compile_args,
@@ -162,7 +162,7 @@ WrapperObject = Extension('PyNA62Analysis.WrapperObject', ['PyNA62Analysis/Wrapp
 setup(name='PyNA62Analysis',
       version='1.0',
       packages = ['PyNA62Analysis'],
-      ext_modules=[PyBaseAnalysis_Struct, PyAnalyzer, WrapperObject],
+      ext_modules=[PyBaseAnalysis, PyAnalyzer, WrapperObject],
       ) 
 
 

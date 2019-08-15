@@ -70,12 +70,12 @@ typedef struct{
 // PYTHON METHOD USABLE BY PYTHON USER
 static PyObject * PBAN_printInfo(PyBaseAnalysis *, PyObject *);
 static PyObject * PBAN_loadEvent(PyBaseAnalysis *, PyObject *);
-static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *, PyObject *);
+//static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *, PyObject *);
 static PyObject * PBAN_configure(PyBaseAnalysis *, PyObject *);
 
 //ALLOCATION AND DEALLOCATION METHODS
 static void PyBaseAnalysis_dealloc(PyBaseAnalysis *);
-static PyObject * PyBaseAnalysis_init(PyTypeObject *, PyObject *, PyObject *);
+static int PyBaseAnalysis_init(PyBaseAnalysis *, PyObject *, PyObject *);
 
 //METHODS USED BY ABOVE METHODS
 static PyObject * generateParameters(PyBaseAnalysis *);
@@ -122,10 +122,10 @@ static PyMemberDef PyBanMembers[] = {
 
 
 static PyMethodDef PBAN_methods[] = {
-        {"configure", (PyCFunction) PBAN_configure, METH_NOARGS,
+        {"configure", (PyCFunction) PBAN_configure, METH_VARARGS,
                 "Configure the Base Analysis type based on the inputs from the user"},
-	{"addAnalyzer", (PyCFunction)PBAN_addAnalyzer, METH_VARARGS, 
-		"Add an analyzer intance to the analyzers list"}, 
+//	{"addAnalyzer", (PyCFunction)PBAN_addAnalyzer, METH_VARARGS, 
+//		"Add an analyzer intance to the analyzers list"}, 
 	{"loadEvent", (PyCFunction)PBAN_loadEvent, METH_VARARGS,
 		"load the ith event for analysis"}, 
 	{"printInfo", (PyCFunction)PBAN_printInfo, METH_NOARGS, 
@@ -136,7 +136,7 @@ static PyMethodDef PBAN_methods[] = {
 static PyTypeObject PyBaseAnalysisS= {
         PyVarObject_HEAD_INIT(0, 0)
         .tp_name = "BaseAnalysis",
-        .tp_basicsize = sizeof(PyBaseAnalysis),
+        .tp_basicsize = 2*sizeof(PyBaseAnalysis),
         .tp_itemsize = 0,
         .tp_dealloc = (destructor) PyBaseAnalysis_dealloc,
         .tp_print = 0,

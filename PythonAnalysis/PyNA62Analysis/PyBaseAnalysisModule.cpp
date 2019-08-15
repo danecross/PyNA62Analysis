@@ -56,39 +56,22 @@ static PyObject * PBAN_loadEvent(PyBaseAnalysis *self, PyObject *args){
 	return PyBool_FromLong(status);
 }
 
-static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *self, PyObject *args){
+static int addAnalyzer(NA62Analysis::Core::BaseAnalysis *self, PyObject *newAnalyzer){
 
-	PyObject *newAnalyzer; PyAnalyzer *newAn;
-//	const std::string &name; 
-
-	if (!PyArg_ParseTuple(args, "O", &newAnalyzer)){
-		return NULL;
-	}
+	PyAnalyzer *newAn; //const std::string &name; 
 
 	PyTypeObject* type = newAnalyzer->ob_type;
 	string typeName = type->tp_name;
-	
 	if (typeName != "PyAnalyzer"){
 		PyErr_SetString(PyExc_ValueError, "argument to addAnalyzer must be an analyzer.");
-		return NULL;
+		return EXIT_FAILURE;
 	}
 
 	newAn = ((PyAnalyzer *)newAnalyzer);
+	newAn->um = new UserMethods(self);
+	self->AddAnalyzer((NA62Analysis::Analyzer*)(newAn->um));
 
-	if (!(newAn->name)){
-		std::stringstream n;
-		n << "analyzer" << self->numAnalyzers;
-		newAn->name = PyUnicode_FromString(n.str().c_str());
-	}
-
-//	name = (std::string) *(PyUnicode_AsUTF8(newAn->name));
-
-	newAn->um = new UserMethods(self->ban);
-	self->ban->AddAnalyzer((NA62Analysis::Analyzer*)(((PyAnalyzer *)newAnalyzer)->um));
-
-	++(self->numAnalyzers);
-
-	return PyLong_FromLong(PyList_Append(self->analyzers, newAnalyzer));
+	return EXIT_SUCCESS;
 
 }
 
@@ -100,7 +83,24 @@ static PyObject * PBAN_addAnalyzer(PyBaseAnalysis *self, PyObject *args){
  *	- graphic mode
  *
  * */
-static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
+static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *args){
+
+	self->ban = new NA62Analysis::Core::BaseAnalysis();
+/*
+	PyObject *analyzers; PyObject *an;
+	if (!PyArg_ParseTuple(args, "O", &analyzers)){
+                PyErr_SetString(PyExc_ValueError, "argument to configure must be a list of analyzers.");
+                return NULL;
+        }
+
+	self->analyzers = PyList_New(0);
+	for (Py_ssize_t i = 0 ; i < PyList_Size(analyzers) ; ++i){
+		an = PyList_GetItem(analyzers, i);
+		if (!addAnalyzer(self->ban, an)){PyErr_Print(); return NULL;}
+		self->numAnalyzers += 1;
+		PyList_Append(self->analyzers, an);
+	}
+*/
 
 	self->ban->SetIsPython(true); 
 
@@ -128,10 +128,7 @@ static PyObject * PBAN_configure(PyBaseAnalysis *self, PyObject *Py_UNUSED){
 
 	if(PyObject_IsTrue(self->histoMode)) 
 		self->ban->SetReadType(NA62Analysis::Core::IOHandlerType::kHISTO);
-        else {
-		cout << "kHisto: " << (int)(NA62Analysis::Core::IOHandlerType::kTREE) << endl;
-		self->ban->SetReadType(NA62Analysis::Core::IOHandlerType::kTREE);
-	}
+        else{self->ban->SetReadType(NA62Analysis::Core::IOHandlerType::kTREE);}
 
 	if(PyUnicode_Check(self->primitiveFile) && PyUnicode_GET_SIZE(self->primitiveFile) > 0)
 		self->ban->InitPrimitives();
@@ -377,167 +374,14 @@ static void PyBaseAnalysis_dealloc(PyBaseAnalysis *self){
         Py_XDECREF(self->noCheckDetectors);
 	Py_XDECREF(self->noCheckBadBurst);
 
-//	PyMem_Free(self->ban);
-	
         Py_TYPE(self)->tp_free((PyObject *) self);
 
 }
 
 
-static PyObject * PyBaseAnalysis_init(PyTypeObject *type, PyObject *args, PyObject *kwds){
-	
-	cout << "init begin" << endl;
+static int PyBaseAnalysis_init(PyBaseAnalysis *self, PyObject *args, PyObject *kwds){
 
-	cout << "type: " << &PyBaseAnalysisS << " name: " << PyBaseAnalysisS.tp_name << endl;
-
-        PyBaseAnalysis *self;
-        self = (PyBaseAnalysis *)PyBaseAnalysisS.tp_alloc(type, 0);
-
-	cout << "alloc'd" << endl;
-        if (self != NULL){
-		
-                self->inputFiles = PyList_New(0);
-                if (self->inputFiles == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-		self->currentPath = PyUnicode_FromString("");
-		if (self->currentPath == NULL){
-			Py_DECREF(self);
-			return NULL;
-		}
-		
-                self->extraLibs = PyList_New(0);
-                if(self->extraLibs == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-                self->extraLibsDirs = PyList_New(0);
-                if(self->extraLibsDirs == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-                self->extraIncludedDirs = PyList_New(0);
-                if(self->extraIncludedDirs == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-                self->parameters = PyList_New(0);
-                if(self->parameters == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-
-
-                self->coreVerbosity = PyUnicode_FromString("normal");
-                if (self->coreVerbosity == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-                self->anVerbosity = PyUnicode_FromString("normal");
-                if (self->anVerbosity == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-
-
-                self->logFile = PyUnicode_FromString("");
-                if (self->logFile == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-                self->outputFile = PyUnicode_FromString("");
-                if (self->outputFile == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-
-
-                self->graphicMode = PyBool_FromLong(0);
-                if (self->graphicMode == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-                self->useDownscaling = PyBool_FromLong(0);
-                if (self->useDownscaling == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-                self->histoMode = PyBool_FromLong(0);
-                if (self->histoMode == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-                self->primitiveFile = PyBool_FromLong(0);
-                if (self->primitiveFile == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-                self->fastStart = PyBool_FromLong(0);
-                if (self->fastStart == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-                self->skipIsFatal = PyBool_FromLong(0);
-                if (self->skipIsFatal == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-                self->continuousReading = PyBool_FromLong(0);
-                if (self->continuousReading == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-                self->filter = PyBool_FromLong(0);
-                if (self->filter == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-                self->specialOnly = PyBool_FromLong(0);
-                if (self->specialOnly == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-
-                self->startEvent = PyLong_FromLong(0);
-                if (self->startEvent == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-                self->NEvents = PyLong_FromLong(0);
-                if (self->NEvents == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-                self->NBursts = PyLong_FromLong(0);
-                if (self->NBursts == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-
-                self->analyzers = PyList_New(0);
-                if (self->analyzers == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-
-                self->noCheckDetectors = PyBool_FromLong(0);
-                if (self->noCheckDetectors == NULL){
-                        Py_DECREF(self);
-                        return NULL;
-                }
-		self->noCheckBadBurst = PyBool_FromLong(0);
-		if (self->noCheckBadBurst == NULL){
-			Py_DECREF(self);
-			return NULL;
-		}
-
-		self->maxBurst = PyLong_FromLong(0);
-		if (self->maxBurst == NULL){
-			Py_DECREF(self);
-                        return NULL;
-		}
-
+	if (self != nullptr){	
                 self->noSkipBadBurst = false;
                 self->noCheckEvents = false;
 
@@ -546,11 +390,10 @@ static PyObject * PyBaseAnalysis_init(PyTypeObject *type, PyObject *args, PyObje
 
 		self->numAnalyzers = 0;
 
-		self->ban = new NA62Analysis::Core::BaseAnalysis();
+		self->ban = (NA62Analysis::Core::BaseAnalysis*)PyMem_Malloc(sizeof((self->ban)));
         }
 
-
-        return (PyObject *) self;
+        return EXIT_SUCCESS;
 
 }
 
@@ -563,6 +406,7 @@ static PyModuleDef PyBanModule = {
 
 };
 
+extern "C" {
 PyMODINIT_FUNC PyInit_PyBaseAnalysis(void){
 
 	PyObject *m;
@@ -581,7 +425,7 @@ PyMODINIT_FUNC PyInit_PyBaseAnalysis(void){
 	return m;
 }
 
-
+}
 
 
 

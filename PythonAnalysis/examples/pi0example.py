@@ -32,11 +32,11 @@ def configure(ban):
 
 	Pi0 = Analyzer("Pi0Reconstruction")
 	VCDA = Analyzer("VertexCDA")
-	ban.addAnalyzer(Pi0)
-	ban.addAnalyzer(VCDA)
+#	ban.addAnalyzer(Pi0)
+#	ban.addAnalyzer(VCDA)
 
 	# mandatory call that configures our BaseAnalysis object
-	ban.configure()
+	ban.configure([Pi0, VCDA])
 
 	return ban
 
